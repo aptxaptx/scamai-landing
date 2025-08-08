@@ -92,10 +92,7 @@ export default function Home() {
                   <span>Home</span>
                 </button>
               </div>
-              <nav
-                className="flex flex-col gap-2 px-2"
-                aria-label="For Business"
-              >
+              <nav className="flex flex-col gap-2 px-2" aria-label="For Business">
                 {businessLinks.map((item) => (
                   <a
                     key={item}
@@ -150,6 +147,31 @@ export default function Home() {
 
       {/* Main */}
       <main className="pt-16 md:pt-20 lg:pt-24 pr-4 md:pr-0 md:col-start-2 md:row-start-1">
+        <section className="relative overflow-hidden rounded-2xl border border-white/10 min-h-[70vh] md:min-h-[75vh] grid place-items-center">
+          <div className="hero-image-bg" aria-hidden="true" />
+          <div className="hero-image-vignette" aria-hidden="true" />
+          <div className="relative z-10 p-8 md:p-12 lg:p-16 text-center">
+            <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">Prevent Misuse of AI</h1>
+            <p className="mt-4 text-white/85 text-[clamp(15px,2.2vw,20px)] max-w-2xl mx-auto">
+              AI Models for Visual , Audio and Syntax Detection
+            </p>
+            <div className="mt-6 flex items-center justify-center gap-3">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm"
+              >
+                Learn more
+              </a>
+              <a
+                href="/demo"
+                className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm"
+              >
+                Demo
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Secondary horizontal menu (currently none) */}
         {secondaryLinks.length > 0 && (
           <nav
