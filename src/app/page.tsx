@@ -195,8 +195,14 @@ export default function Home() {
           ].map((card) => (
             <article
               key={card.title}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors"
+              className="relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors overflow-hidden"
             >
+              {card.title === "Visual Detection" && (
+                <>
+                  <div className="absolute inset-0 -z-10 bg-[url('/visual.webp')] bg-cover bg-left-top opacity-40" />
+                  <div className="absolute inset-0 -z-10 bg-black/20" />
+                </>
+              )}
               <h3 className="text-lg font-semibold tracking-tight">
                 {card.title}
               </h3>
