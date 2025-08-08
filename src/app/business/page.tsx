@@ -65,10 +65,10 @@ export default function BusinessPage() {
         ].map((card) => (
           <article
             key={card.title}
-            className="relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 overflow-hidden hover:bg-white/10 transition-colors"
+            className="relative rounded-2xl   p-6 md:p-8 overflow-hidden hover:bg-white/10 transition-colors"
           >
             <div
-              className="absolute inset-0 -z-10 opacity-40 bg-cover bg-center bg-no-repeat"
+              className="absolute inset-0 -z-10 opacity-80 bg-cover bg-center bg-no-repeat"
               style={{ backgroundImage: `url(${card.image})` }}
               aria-hidden="true"
             />
