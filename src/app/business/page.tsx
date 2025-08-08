@@ -34,38 +34,44 @@ export default function BusinessPage() {
         {[
           {
             title: "KYC/ID Verification",
-            desc: "Simplify reports, run analyses, and produce forecasts, instantly.",
+            desc: "Detect forged IDs and deepfakes during onboarding.",
             image: "./kyc.webp",
+            tag: "Deepfake",
           },
           {
             title: "Dating Apps",
-            desc: "Summarize data, uncover insights, and create campaigns in minutes.",
+            desc: "Stop catfishing with image, video, and voice checks.",
             image: "/dating.webp",
+            tag: "GenAI",
           },
           {
             title: "Impersonation",
-            desc: "Build and ship faster with AI support for coding, testing, and docs.",
+            desc: "Block face and voice spoofing in real time.",
             image: "/impersonation.webp",
+            tag: "Deepfake & Voiceclone",
           },
           {
             title: "Fake News & Misinformation",
-            desc: "Automate workflows and keep teams aligned with reliable insights.",
+            desc: "Flag AI-generated media and misleading narratives quickly.",
             image: "/fakenews.webp",
+            tag: "GenAI",
           },
           {
             title: "IP/Copyright Protection",
-            desc: "Resolve issues quicker with summaries, suggested replies, and routing.",
+            desc: "Detect unauthorized AI remixes and derivative content.",
             image: "/copyright.webp",
+            tag: "Deepfake & GenAI",
           },
           {
             title: "Legal & Compliance",
-            desc: "Draft, review, and audit with policy-aware assistance and checks.",
+            desc: "Verify provenance and meet emerging AI regulations.",
             image: "/legal.webp",
+            tag: "Deepfake",
           },
         ].map((card) => (
           <article
             key={card.title}
-            className="relative rounded-2xl   p-6 md:p-8 overflow-hidden hover:bg-white/10 transition-colors"
+            className="relative rounded-2xl   p-6 md:p-8 overflow-hidden hover:bg-white/10 transition-colors min-h-[260px] md:min-h-[320px]"
           >
             <div
               className="absolute inset-0 -z-10 opacity-80 bg-cover bg-center bg-no-repeat"
@@ -76,6 +82,7 @@ export default function BusinessPage() {
         
             <h2 className="mt-4 text-lg font-semibold tracking-tight">{card.title}</h2>
             <p className="mt-2 text-sm text-white/80">{card.desc}</p>
+            <span className="absolute right-4 bottom-4 text-xs text-white/70">{card.tag}</span>
           </article>
         ))}
       </section>

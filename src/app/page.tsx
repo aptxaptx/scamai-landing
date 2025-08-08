@@ -44,24 +44,24 @@ export default function Home() {
               desc: "Identify cloned voices and synthetic audio with signal-level analysis.",
             },
             {
-              title: "Syntax Detection",
-              desc: "Analyze linguistic patterns to flag AI-written or prompt-engineered text.",
+              title: "Scammer Database",
+              desc: "Check if an account, phone, emails, crypto wallet,or user is a scammer or not",
             },
           ].map((card) => (
             <article
               key={card.title}
-              className="relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors overflow-hidden"
+              className="relative rounded-2xl  bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors overflow-hidden"
             >
               {card.title === "Visual Detection" && (
                 <>
-                  <div className="absolute inset-0 -z-10 bg-[url('/visual.webp')] bg-cover bg-left-top opacity-40" />
-                  <div className="absolute inset-0 -z-10 bg-black/20" />
+                  <div className="absolute inset-0 -z-10 bg-[url('/visual.webp')] bg-cover bg-left-top opacity-70" />
+               
                 </>
               )}
               {card.title === "Audio Detection" && (
                 <>
-                  <div className="absolute inset-0 -z-10 bg-[url('https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif')] bg-cover bg-center opacity-40" />
-                  <div className="absolute inset-0 -z-10 bg-black/20" />
+                  <div className="absolute inset-0 -z-10 bg-[url('https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif')] bg-cover bg-center opacity-70" />
+                  
                 </>
               )}
               <h3 className="text-lg font-semibold tracking-tight">
