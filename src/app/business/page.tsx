@@ -4,6 +4,7 @@ export const metadata = {
 };
 
 import SiteShell from "@/components/SiteShell";
+import Link from "next/link";
 
 export default function BusinessPage() {
   return (
@@ -83,6 +84,11 @@ export default function BusinessPage() {
             <h2 className="mt-4 text-lg font-semibold tracking-tight">{card.title}</h2>
             <p className="mt-2 text-sm text-white/80">{card.desc}</p>
             <span className="absolute right-4 bottom-4 text-xs text-white/70">{card.tag}</span>
+            {card.title === "KYC/ID Verification" && (
+              <Link href="/business/kyc" aria-label="Open KYC/ID Verification" className="absolute inset-0">
+                {/* overlay link */}
+              </Link>
+            )}
           </article>
         ))}
       </section>
