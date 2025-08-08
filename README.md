@@ -1,0 +1,1 @@
+# scamai-landing
