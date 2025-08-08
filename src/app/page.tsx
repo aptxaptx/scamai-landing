@@ -92,7 +92,10 @@ export default function Home() {
                   <span>Home</span>
                 </button>
               </div>
-              <nav className="flex flex-col gap-2 px-2" aria-label="For Business">
+              <nav
+                className="flex flex-col gap-2 px-2"
+                aria-label="For Business"
+              >
                 {businessLinks.map((item) => (
                   <a
                     key={item}
@@ -151,7 +154,9 @@ export default function Home() {
           <div className="hero-image-bg" aria-hidden="true" />
           <div className="hero-image-vignette" aria-hidden="true" />
           <div className="relative z-10 p-8 md:p-12 lg:p-16 text-center">
-            <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">Prevent Misuse of AI</h1>
+            <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">
+              Prevent Misuse of AI
+            </h1>
             <p className="mt-4 text-white/85 text-[clamp(15px,2.2vw,20px)] max-w-2xl mx-auto">
               AI Models for Visual , Audio and Syntax Detection
             </p>
@@ -170,6 +175,40 @@ export default function Home() {
               </a>
             </div>
           </div>
+        </section>
+
+        {/* 3-card section */}
+        <section className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            {
+              title: "Visual Detection",
+              desc: "Spot AI-generated images, deepfakes, and manipulations with robustness checks.",
+            },
+            {
+              title: "Audio Detection",
+              desc: "Identify cloned voices and synthetic audio with signal-level analysis.",
+            },
+            {
+              title: "Syntax Detection",
+              desc: "Analyze linguistic patterns to flag AI-written or prompt-engineered text.",
+            },
+          ].map((card) => (
+            <article
+              key={card.title}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors"
+            >
+              <h3 className="text-lg font-semibold tracking-tight">
+                {card.title}
+              </h3>
+              <p className="mt-2 text-sm text-white/80">{card.desc}</p>
+              <a
+                href="#"
+                className="mt-4 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4"
+              >
+                Learn more
+              </a>
+            </article>
+          ))}
         </section>
 
         {/* Secondary horizontal menu (currently none) */}
