@@ -233,7 +233,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
       )}
 
       {/* Main */}
-      <main className={`${hideTopbar ? "pt-4 md:pt-6 lg:pt-8" : "pt-16 md:pt-20 lg:pt-24"} pr-4 md:pr-0 md:col-start-2 md:row-start-1 md:ml-[268px]`}>
+      <main className={`${hideTopbar ? "pt-4 md:pt-6 lg:pt-8" : "pt-16 md:pt-20 lg:pt-24"} pr-4 md:pr-0 md:col-start-2 md:row-start-1`}>
         {children}
 
         {secondaryLinks.length > 0 && (

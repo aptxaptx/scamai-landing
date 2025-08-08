@@ -1,7 +1,7 @@
 export const metadata = {
   title: "For Individuals — ScaMai",
   description:
-    "Protect yourself from scam calls and texts. Join the waitlist for our mobile app and browser plugin.",
+    "Mobile app and browser plugin for scam protection. Block calls, detect fake messages, and browse safely.",
 };
 import IndividualsClient from "./IndividualsClient";
 
