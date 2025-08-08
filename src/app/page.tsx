@@ -16,7 +16,7 @@ export default function Home() {
   ];
 
   const businessLinks = [
-    "Business Overview",
+    "Business Use Case",
     "AI-Generated Media",
     "Deepfakes",
     "Voice Clones",
@@ -99,7 +99,7 @@ export default function Home() {
                 {businessLinks.map((item) => (
                   <a
                     key={item}
-                    href="#"
+                    href={item === "Business Use Case" ? "/business" : "#"}
                     className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                   >
                     {item}
@@ -150,7 +150,7 @@ export default function Home() {
 
       {/* Main */}
       <main className="pt-16 md:pt-20 lg:pt-24 pr-4 md:pr-0 md:col-start-2 md:row-start-1">
-        <section className="relative overflow-hidden rounded-2xl border border-white/10 min-h-[70vh] md:min-h-[75vh] grid place-items-center">
+        <section className="relative overflow-hidden rounded-2xl border border-white/10 min-h-[52vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] grid place-items-center">
           <div className="hero-image-bg" aria-hidden="true" />
           <div className="hero-image-vignette" aria-hidden="true" />
           <div className="relative z-10 p-8 md:p-12 lg:p-16 text-center">

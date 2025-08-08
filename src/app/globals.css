@@ -93,3 +93,17 @@ body {
     rgba(0, 0, 0, 0.75) 100%
   );
 }
+
+/* Mobile tweaks: reduce perceived height and improve text contrast */
+@media (max-width: 640px) {
+  .hero-image-bg {
+    background-position: center top;
+  }
+  .hero-image-vignette {
+    background: radial-gradient(
+      140% 140% at 50% 20%,
+      rgba(0, 0, 0, 0) 45%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+}
