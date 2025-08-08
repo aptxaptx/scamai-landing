@@ -12,26 +12,32 @@ export default function Home() {
     "Research",
     "Safety",
     "Report Scam",
-    "Company",
+    "About Us",
   ];
 
-  const secondaryLinks = ["Overview", "Models", "API", "Pricing", "Docs"];
+  const secondaryLinks: string[] = [];
 
   return (
     <div className="grid grid-cols-[220px_1fr] md:grid-cols-[240px_1fr] gap-6 min-h-dvh p-5">
       {/* Sidebar - Main menu */}
-      <aside className="sticky top-4 h-[calc(100dvh-32px)] p-2 z-10">
+      <aside className="sticky top-4 h-[calc(100dvh-32px)] p-2 z-10 flex flex-col">
         <div className="flex items-center gap-2 px-2 pb-4">
           <span className="h-6 w-6 rounded-md bg-[conic-gradient(from_180deg,_#00f5d4,_#5eead4,_#93c5fd,_#f0abfc,_#e879f9,_#00f5d4)]" />
           <span className="font-bold tracking-tight text-white">ScaMai</span>
         </div>
-        <nav className="mt-6 flex flex-col gap-3 px-2" aria-label="Primary">
-          {mainLinks.map((item) => (
-            <a key={item} href="#" className="text-white/90 hover:text-white">
-              {item}
-            </a>
-          ))}
-        </nav>
+        <div className="flex-1 grid content-center">
+          <nav className="flex flex-col gap-2 px-2" aria-label="Primary">
+            {mainLinks.map((item) => (
+              <a
+                key={item}
+                href="#"
+                className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
+        </div>
       </aside>
 
       {/* Topbar */}
@@ -64,57 +70,28 @@ export default function Home() {
           </svg>
         </button>
         <a
-          href="#"
+          href="/demo"
           className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 font-semibold"
         >
-          Log in
+          Demo
         </a>
       </header>
 
       {/* Main */}
       <main className="pt-16 md:pt-20 lg:pt-24 pr-4 md:pr-0 col-start-2 row-start-1">
-        {/* Secondary horizontal menu */}
-        <nav
-          className="my-6 flex items-center gap-6 text-sm text-white/80"
-          aria-label="Secondary"
-        >
-          {secondaryLinks.map((item) => (
-            <a key={item} href="#" className="hover:text-white">
-              {item}
-            </a>
-          ))}
-        </nav>
-
-        <section className="hero-wrapper relative" aria-labelledby="hero-title">
-          <button
-            className="pill"
-            onClick={(e) =>
-              e.currentTarget.parentElement!.classList.add("hidden")
-            }
+        {/* Secondary horizontal menu (currently none) */}
+        {secondaryLinks.length > 0 && (
+          <nav
+            className="my-6 flex items-center gap-6 text-sm text-white/80"
+            aria-label="Secondary"
           >
-            Close
-          </button>
-          <div className="hero-gradient" aria-hidden="true" />
-          <div className="relative z-10 grid place-items-center gap-6 text-center p-[min(7vw,80px)]">
-            <h1
-              id="hero-title"
-              className="text-[clamp(36px,6.5vw,64px)] leading-[1.06] tracking-[-0.02em] m-0"
-            >
-              Introducing GPT-5
-            </h1>
-            <p className="max-w-[850px] text-[clamp(16px,1.6vw,20px)] leading-[1.6] text-white/90 m-0">
-              Our smartest, fastest, most useful model yet, with built-in
-              thinking that puts expert-level intelligence in everyone&apos;s
-              hands.
-            </p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold"
-            >
-              Learn more
-            </a>
-          </div>
-        </section>
+            {secondaryLinks.map((item) => (
+              <a key={item} href="#" className="hover:text-white">
+                {item}
+              </a>
+            ))}
+          </nav>
+        )}
       </main>
     </div>
   );
