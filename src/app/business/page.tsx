@@ -8,36 +8,76 @@ import SiteShell from "@/components/SiteShell";
 export default function BusinessPage() {
   return (
     <SiteShell>
-      <section className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-10 backdrop-blur-sm">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Business Use Case</h1>
-        <p className="mt-3 text-white/80 max-w-2xl">
-          Solutions for enterprises to detect and prevent misuse of AI across media, voice,
-          and language. Learn how to integrate our APIs, evaluate content, and safeguard your
-          platform from emerging threats.
-        </p>
-
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-          {["Visual Detection", "Audio Detection", "Syntax Detection"].map((area) => (
-            <article
-              key={area}
-              className="rounded-xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-colors"
+      {/* Hero */}
+      <section className="relative overflow-hidden rounded-2xl  backdrop-blur-sm grid place-items-center">
+        <div className="relative z-10 text-center p-10 md:p-16 lg:p-20">
+     
+          <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">
+             Use Cases
+          </h1>
+          <p className="mt-4 text-white/85 text-[clamp(15px,2.2vw,20px)] max-w-3xl mx-auto">
+            Our Models help you detect and prevent fraud from misuse of AI.
+          </p>
+          <div className="mt-6 flex items-center justify-center">
+            <a
+              href="/demo"
+              className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm"
             >
-              <h2 className="text-lg font-semibold">{area}</h2>
-              <p className="mt-2 text-sm text-white/80">
-                Use-case playbooks, integration guides, and evaluation criteria for {area.toLowerCase()}.
-              </p>
-            </article>
-          ))}
+              Try now ↗
+            </a>
+          </div>
         </div>
+      </section>
 
-        <div className="mt-8">
-          <a
-            href="/demo"
-            className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm"
+      {/* Category grid */}
+      <section className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+        {[
+          {
+            title: "KYC/ID Verification",
+            desc: "Simplify reports, run analyses, and produce forecasts, instantly.",
+            image: "./kyc.webp",
+          },
+          {
+            title: "Dating Apps",
+            desc: "Summarize data, uncover insights, and create campaigns in minutes.",
+            image: "/dating.webp",
+          },
+          {
+            title: "Impersonation",
+            desc: "Build and ship faster with AI support for coding, testing, and docs.",
+            image: "/impersonation.webp",
+          },
+          {
+            title: "Fake News & Misinformation",
+            desc: "Automate workflows and keep teams aligned with reliable insights.",
+            image: "/fakenews.webp",
+          },
+          {
+            title: "IP/Copyright Protection",
+            desc: "Resolve issues quicker with summaries, suggested replies, and routing.",
+            image: "/copyright.webp",
+          },
+          {
+            title: "Legal & Compliance",
+            desc: "Draft, review, and audit with policy-aware assistance and checks.",
+            image: "/legal.webp",
+          },
+        ].map((card) => (
+          <article
+            key={card.title}
+            className="relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 overflow-hidden hover:bg-white/10 transition-colors"
           >
-            View Demo
-          </a>
-        </div>
+            <div
+              className="absolute inset-0 -z-10 opacity-40 bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${card.image})` }}
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 -z-10 bg-black/10" aria-hidden="true" />
+        
+            <h2 className="mt-4 text-lg font-semibold tracking-tight">{card.title}</h2>
+            <p className="mt-2 text-sm text-white/80">{card.desc}</p>
+          </article>
+        ))}
       </section>
     </SiteShell>
   );
