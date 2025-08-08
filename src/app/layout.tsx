@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Introducing GPT-5 — ScaMai",
+  title: "Scam AI - Scam Prevention Platform",
   description: "A clean, modern landing page inspired by OpenAI's GPT-5 hero.",
 };
 

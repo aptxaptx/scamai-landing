@@ -3,9 +3,11 @@ export const metadata = {
   description: "Explore ScaMai's AI misuse prevention solutions tailored for businesses.",
 };
 
+import SiteShell from "@/components/SiteShell";
+
 export default function BusinessPage() {
   return (
-    <main className="min-h-dvh p-5 md:p-8">
+    <SiteShell>
       <section className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-10 backdrop-blur-sm">
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Business Use Case</h1>
         <p className="mt-3 text-white/80 max-w-2xl">
@@ -37,7 +39,7 @@ export default function BusinessPage() {
           </a>
         </div>
       </section>
-    </main>
+    </SiteShell>
   );
 }
 
