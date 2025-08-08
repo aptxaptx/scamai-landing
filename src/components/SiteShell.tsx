@@ -257,15 +257,37 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                 </button>
               </div>
               <nav className="flex flex-col gap-2 px-2" aria-label="Research">
-                {researchLinks.map((item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
-                  >
-                    {item}
-                  </a>
-                ))}
+                {researchLinks.map((item) => {
+                  const href = item === "AI-Generated Media" 
+                    ? "/research/ai-generated-media"
+                    : item === "Deepfakes"
+                    ? "/research/deepfakes"
+                    : item === "Voice Clones"
+                    ? "/research/voice-clones"
+                    : item === "Scam Text Detection"
+                    ? "/research/scam-text-detection"
+                    : item === "Large Scale Database"
+                    ? "/research/large-scale-database"
+                    : "#";
+                  
+                  return item === "AI-Generated Media" || item === "Deepfakes" || item === "Voice Clones" || item === "Scam Text Detection" || item === "Large Scale Database" ? (
+                    <Link
+                      key={item}
+                      href={href}
+                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                    >
+                      {item}
+                    </Link>
+                  ) : (
+                    <a
+                      key={item}
+                      href={href}
+                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                    >
+                      {item}
+                    </a>
+                  );
+                })}
               </nav>
             </div>
           </div>
