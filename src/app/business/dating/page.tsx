@@ -1,0 +1,56 @@
+import SiteShell from "@/components/SiteShell";
+
+export const metadata = {
+  title: "Dating Apps — ScamAI",
+  description: "Stop catfishing with image, video, and voice checks. Block face and voice spoofing in real time.",
+};
+
+export default function DatingAppsPage() {
+  return (
+    <SiteShell>
+      {/* Hero */}
+      <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
+        <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
+          <p className="text-white text-base mb-3">Solutions for Dating Apps</p>
+          <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight max-w-4xl mx-auto">
+            Stop catfishing with image, video, and voice checks.
+          </h1>
+
+          <p className="mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
+            Block face and voice spoofing in real time.
+          </p>
+
+          {/* Tags */}
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">GenAI</span>
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Impersonation</span>
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Deepfake & Voiceclone</span>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Card */}
+      <section className="mb-12">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
+            <h3 className="text-2xl font-semibold text-white mb-3">Protect your users, in real time.</h3>
+            <p className="text-white/80 text-base mb-6">Add an extra layer of safety to profile and chat verification.</p>
+            <a
+              href="https://cal.com/scamai/25min?overlayCalendar=true"
+              className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              Schedule a Demo
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Page background */}
+      <div
+        className="fixed inset-0 -z-10 opacity-60 bg-cover bg-center"
+        style={{ backgroundImage: "url('/dating.webp')" }}
+        aria-hidden
+      />
+    </SiteShell>
+  );
+}
