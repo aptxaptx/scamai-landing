@@ -1,23 +1,15 @@
 export const metadata = {
-  title: "Deepfakes Research — ScaMai",
-  description: "Advanced detection methods for deepfake videos and synthetic media.",
+  title: "Deepfake Detection — ScaMai",
+  description: "Real-Time Deepfake Detection: Defending the Truth in Visual Content",
 };
 
 import SiteShell from "@/components/SiteShell";
+import DeepfakeDetectionProductPage from "./DeepfakeDetectionProductPage";
 
 export default function DeepfakesPage() {
   return (
     <SiteShell>
-      <section className="relative overflow-hidden rounded-2xl backdrop-blur-sm grid place-items-center">
-        <div className="relative z-10 text-center p-10 md:p-16 lg:p-20">
-          <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">
-            Deepfakes Research
-          </h1>
-          <p className="mt-4 text-white/85 text-[clamp(15px,2.2vw,20px)] max-w-3xl mx-auto">
-            Advanced detection methods for deepfake videos and synthetic media.
-          </p>
-        </div>
-      </section>
+      <DeepfakeDetectionProductPage />
     </SiteShell>
   );
 }
