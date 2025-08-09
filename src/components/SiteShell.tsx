@@ -61,9 +61,9 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 min-h-dvh p-5">
+    <div className="min-h-dvh px-5 md:px-0 py-5 md:pl-[240px]">
       {/* Sidebar */}
-      <aside className="p-2 z-10 flex flex-col md:fixed md:top-4 md:left-4 md:w-[240px] md:h-[calc(100dvh-32px)]">
+      <aside className="p-2 z-10 flex flex-col md:fixed md:top-4 md:left-0 md:w-[240px] md:h-[calc(100dvh-32px)]">
         <Link href="/" className="flex items-center gap-2 px-2 pb-4">
           <span className="h-6 w-6 rounded-md bg-[conic-gradient(from_180deg,_#00f5d4,_#5eead4,_#93c5fd,_#f0abfc,_#e879f9,_#00f5d4)]" />
           <span className="font-bold tracking-tight text-white">ScaMai</span>
@@ -313,7 +313,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
       )}
 
       {/* Main */}
-      <main className={`${hideTopbar ? "pt-4 md:pt-6 lg:pt-8" : "pt-16 md:pt-20 lg:pt-24"} pr-4 md:pr-0 md:col-start-2 md:row-start-1 md:ml-[268px]`}>
+      <main className={`${hideTopbar ? "pt-4 md:pt-6 lg:pt-8" : "pt-16 md:pt-20 lg:pt-24"} pr-4 md:pr-0`}>
         {children}
 
         {secondaryLinks.length > 0 && (

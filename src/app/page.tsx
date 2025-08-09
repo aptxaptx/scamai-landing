@@ -60,7 +60,7 @@ export default function Home() {
               )}
               {card.title === "Audio Detection" && (
                 <>
-                  <div className="absolute inset-0 -z-10 bg-[url('https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif')] bg-cover bg-center opacity-70" />
+                  <div className="absolute inset-0 -z-10 bg-[url('https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif')] bg-cover bg-center opacity-40" />
                   
                 </>
               )}
