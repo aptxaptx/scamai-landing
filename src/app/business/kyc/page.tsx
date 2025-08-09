@@ -47,15 +47,48 @@ export default function KycPage() {
             Over 90% KYC/ID Verification vendors<br />
             Failed to Detect Deepfakes
           </h2>
-          <p className="mt-6 text-white/80 text-lg max-w-3xl mx-auto">
-            Traditional KYC systems struggle with modern deepfake technology. Fraudsters use sophisticated AI-generated videos and images to bypass verification, leaving businesses vulnerable to identity fraud and financial losses.
-          </p>
+          <div className="mt-8 max-w-2xl mx-auto">
+            <p className="text-white/80 text-lg leading-relaxed text-center">
+              Traditional KYC can't keep up with AI-generated fraud. Fake IDs, synthetic faces, and manipulated documents now bypass standard verification with ease.
+            </p>
+            <p className="text-white/80 text-lg leading-relaxed text-center mt-6">
+              While most vendors fail to detect these forgeries, your business faces identity fraud, account takeovers, and compliance risks. You need detection that actually works.
+            </p>
+          </div>
+
+          {/* Dashboard Video */}
+          <div className="mt-12 max-w-4xl mx-auto">
+            <video 
+              className="w-full rounded-lg shadow-lg" 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+            >
+              <source src="/dashboard.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          {/* CTA Card */}
+          <div className="mt-12 max-w-2xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
+              <h3 className="text-2xl font-semibold text-white mb-4">KYC deepfakes, caught live.</h3>
+              <p className="text-white/80 text-base mb-6">Add an extra layer of security to your KYC/ID Verification process.</p>
+              <a
+                href="https://cal.com/scamai/25min?overlayCalendar=true"
+                className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                Schedule a Demo
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Page background with card styling */}
       <div
-        className="absolute inset-0 -z-10 opacity-60 bg-cover bg-center"
+        className="fixed inset-0 -z-10 opacity-60 bg-cover bg-center"
         style={{ backgroundImage: "url('/kyc.webp')" }}
         aria-hidden
       />
