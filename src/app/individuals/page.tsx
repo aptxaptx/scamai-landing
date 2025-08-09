@@ -8,5 +8,3 @@ import IndividualsClient from "./IndividualsClient";
 export default function IndividualsPage() {
   return <IndividualsClient />;
 }
-
-
