@@ -47,23 +47,18 @@ export default function KycPage() {
             Over 90% KYC/ID Verification vendors<br />
             Failed to Detect Deepfakes
           </h2>
+          <p className="mt-6 text-white/80 text-lg max-w-3xl mx-auto">
+            Traditional KYC systems struggle with modern deepfake technology. Fraudsters use sophisticated AI-generated videos and images to bypass verification, leaving businesses vulnerable to identity fraud and financial losses.
+          </p>
         </div>
       </section>
 
-      {/* Existing card(s) remain unchanged below */}
-      <section className="relative rounded-2xl bg-white/5 p-6 md:p-10 backdrop-blur-sm overflow-hidden">
-        <div
-          className="absolute inset-0 -z-10 opacity-60 bg-cover bg-center"
-          style={{ backgroundImage: "url('/kyc.webp')" }}
-          aria-hidden
-        />
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">KYC/ID Verification</h1>
-        <p className="mt-3 text-white/80 max-w-2xl">
-          Spot fake IDs and deepfakes instantly. Keep fraudsters out. Let real customers in. Simple.
-        </p>
-
-     
-      </section>
+      {/* Page background with card styling */}
+      <div
+        className="absolute inset-0 -z-10 opacity-60 bg-cover bg-center"
+        style={{ backgroundImage: "url('/kyc.webp')" }}
+        aria-hidden
+      />
     </SiteShell>
   );
 }
