@@ -10,27 +10,30 @@ export default function KycPage() {
     <SiteShell>
       {/* Hero above existing card(s) */}
       <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
-     
         <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
           <p className="text-white text-base mb-4">Solutions for KYC/ID Verification</p>
           <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight max-w-4xl mx-auto">
             Deepfake Detection<br />
             That Actually Works
           </h1>
-
-
-
-          <p className="mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-3xl mx-auto">
+          <p className="mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
             OnlyFace model catches over 90% of sota deepfakes.<br />
             Keep your business safe. Keep your trust intact.
           </p>
 
+          {/* Tags */}
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">GenAI</span>
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Deepfake</span>
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Liveness & ID</span>
+          </div>
+
           <div className="mt-8 max-w-4xl mx-auto">
-            <video 
-              className="w-full rounded-lg shadow-lg" 
-              autoPlay 
-              muted 
-              loop 
+            <video
+              className="w-full rounded-lg shadow-lg"
+              autoPlay
+              muted
+              loop
               playsInline
             >
               <source src="/deepfake_scamai.webm" type="video/webm" />
@@ -58,11 +61,11 @@ export default function KycPage() {
 
           {/* Dashboard Video */}
           <div className="mt-12 max-w-4xl mx-auto">
-            <video 
-              className="w-full rounded-lg shadow-lg" 
-              autoPlay 
-              muted 
-              loop 
+            <video
+              className="w-full rounded-lg shadow-lg"
+              autoPlay
+              muted
+              loop
               playsInline
             >
               <source src="/dashboard.webm" type="video/webm" />

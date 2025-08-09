@@ -36,38 +36,44 @@ export default function BusinessPage() {
           {
             title: "KYC/ID Verification",
             desc: "Detect forged IDs and deepfakes during onboarding.",
-            image: "./kyc.webp",
+            image: "/kyc.webp",
             tag: "Deepfake",
+            link: "/business/kyc",
           },
           {
             title: "Dating Apps",
             desc: "Stop catfishing with image, video, and voice checks.",
             image: "/dating.webp",
             tag: "GenAI",
+            link: "/business/dating",
           },
           {
             title: "Impersonation",
             desc: "Block face and voice spoofing in real time.",
             image: "/impersonation.webp",
             tag: "Deepfake & Voiceclone",
+            link: "/business/impersonation",
           },
           {
             title: "Fake News & Misinformation",
             desc: "Flag AI-generated media and misleading narratives quickly.",
             image: "/fakenews.webp",
             tag: "GenAI",
+            link: "/business/fake-news",
           },
           {
             title: "IP/Copyright Protection",
             desc: "Detect unauthorized AI remixes and derivative content.",
             image: "/copyright.webp",
             tag: "Deepfake & GenAI",
+            link: "/business/ip-copyright",
           },
           {
             title: "Legal & Compliance",
             desc: "Verify provenance and meet emerging AI regulations.",
             image: "/legal.webp",
             tag: "Deepfake",
+            link: "/business/legal-compliance",
           },
         ].map((card) => (
           <article
@@ -84,8 +90,8 @@ export default function BusinessPage() {
             <h2 className="mt-4 text-lg font-semibold tracking-tight">{card.title}</h2>
             <p className="mt-2 text-sm text-white/80">{card.desc}</p>
             <span className="absolute right-4 bottom-4 text-xs text-white/70">{card.tag}</span>
-            {card.title === "KYC/ID Verification" && (
-              <Link href="/business/kyc" aria-label="Open KYC/ID Verification" className="absolute inset-0">
+            {card.link && (
+              <Link href={card.link} aria-label={`Open ${card.title}`} className="absolute inset-0">
                 {/* overlay link */}
               </Link>
             )}
