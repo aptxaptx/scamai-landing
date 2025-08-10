@@ -83,7 +83,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                       <button
                         key={item}
                         type="button"
-                        onClick={() => setSubmenu("business")}
+                        onClick={() => router.push("/business?s=usecase")}
                         className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                       >
                         <span>{item}</span>
@@ -101,7 +101,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                       <button
                         key={item}
                         type="button"
-                        onClick={() => setSubmenu("individuals")}
+                        onClick={() => router.push("/individuals?s=mobile")}
                         className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                       >
                         <span>{item}</span>
@@ -119,7 +119,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                       <button
                         key={item}
                         type="button"
-                        onClick={() => setSubmenu("research")}
+                        onClick={() => router.push("/research/ai-generated-media")}
                         className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                       >
                         <span>{item}</span>
@@ -173,25 +173,32 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                 </button>
               </div>
               <nav className="flex flex-col gap-2 px-2" aria-label="For Business">
-                {businessLinks.map((item) => (
-                  item === "Business Use Case" ? (
-                    <Link
-                      key={item}
-                      href="/business"
-                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
-                    >
-                      {item}
-                    </Link>
-                  ) : (
+                {businessLinks.map((item) => {
+                  const href =
+                    item === "Business Use Case"
+                      ? "/business?s=usecase"
+                      : item === "API Pricing"
+                      ? "/business?s=pricing"
+                      : item === "Contact Sales"
+                      ? "/business?s=contact"
+                      : "/business";
+                  const onClick: React.MouseEventHandler<HTMLAnchorElement> | undefined = pathname?.startsWith("/business")
+                    ? (e) => {
+                        e.preventDefault();
+                        router.replace(href, { scroll: false });
+                      }
+                    : undefined;
+                  return (
                     <a
                       key={item}
-                      href="#"
+                      href={href}
+                      onClick={onClick}
                       className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                     >
                       {item}
                     </a>
-                  )
-                ))}
+                  );
+                })}
               </nav>
             </div>
 
