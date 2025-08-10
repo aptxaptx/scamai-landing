@@ -2,19 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  Search,
-  Database,
-  Shield,
-  Globe,
-  Clock,
-  Link2,
-  Zap,
-  Target,
-  ShieldCheck,
-  BrainCircuit,
-  CheckCircle,
-} from "lucide-react";
 
 function HeroSection() {
   return (
@@ -23,7 +10,7 @@ function HeroSection() {
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
           The Intelligence Engine Powering Next-Generation Fraud Defense
         </h1>
-        <p className="mt-4 text-lg text-white/80 max-w-3xl mx-auto">
+        <p className="mt-4 text-lg text:white/80 text-white/80 max-w-3xl mx-auto">
           Welcome to ScamNet DB™, the most comprehensive and real-time database of active scams on the planet. This is not just a static blocklist; it&apos;s a living ecosystem of threat intelligence that forms the core foundation of the entire Scam.ai platform. 🧠
         </p>
       </div>
@@ -67,7 +54,7 @@ function InteractiveDatabaseQuery() {
               className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
               disabled={isQuerying !== null}
             >
-              <Search className="h-5 w-5" aria-hidden />
+              <span aria-hidden>🔎</span>
               {isQuerying === "domain" ? "Querying..." : "Query Entity"}
             </button>
             {queried.domain && (
@@ -93,7 +80,7 @@ function InteractiveDatabaseQuery() {
               className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
               disabled={isQuerying !== null}
             >
-              <Search className="h-5 w-5" aria-hidden />
+              <span aria-hidden>🔎</span>
               {isQuerying === "wallet" ? "Querying..." : "Query Entity"}
             </button>
             {queried.wallet && (
@@ -134,28 +121,28 @@ function ThreatLandscapeSection() {
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Shield className="h-5 w-5 text-white" />
+            <span aria-hidden>🛡️</span>
             <div>
               <p className="font-semibold text-white">Rapid Mutation</p>
               <p className="text-sm text-white/80">Scammers constantly change their tactics, content, and infrastructure to evade detection.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Database className="h-5 w-5 text-white" />
+            <span aria-hidden>🗄️</span>
             <div>
               <p className="font-semibold text-white">Siloed Information</p>
               <p className="text-sm text-white/80">Threat data is often scattered across different platforms, making it impossible to see the full picture of a coordinated attack.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Clock className="h-5 w-5 text-white" />
+            <span aria-hidden>⏱️</span>
             <div>
               <p className="font-semibold text-white">Data Latency</p>
               <p className="text-sm text-white/80">Static blocklists are often hours or days old, leaving a critical window of vulnerability open.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Link2 className="h-5 w-5 text-white" />
+            <span aria-hidden>🔗</span>
             <div>
               <p className="font-semibold text-white">Lack of Context</p>
               <p className="text-sm text-white/80">A suspicious domain is one thing; knowing it&apos;s linked to 50 phone numbers and 10 crypto wallets from a known criminal group is another.</p>
@@ -223,28 +210,28 @@ function AdvantagesSection() {
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Globe className="h-5 w-5 text-white" />
+              <span aria-hidden>🌐</span>
               <h4 className="font-semibold text-white">Massive Scale</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Contains tens of millions of continuously updated, verified entries, including fraudulent phone numbers, domains, email addresses, crypto wallets, and more.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Zap className="h-5 w-5 text-white" />
+              <span aria-hidden>⚡</span>
               <h4 className="font-semibold text-white">Real-Time Speed</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Responds to API queries in milliseconds, providing instant risk assessment for your applications. New threats are added to the database the moment they are detected.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Target className="h-5 w-5 text-white" />
+              <span aria-hidden>🎯</span>
               <h4 className="font-semibold text-white">Unmatched Richness</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Provides deep context, not just a &quot;bad/not bad&quot; label. Understand the history, connections, and risk profile of any entity.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <BrainCircuit className="h-5 w-5 text-white" />
+              <span aria-hidden>🧠</span>
               <h4 className="font-semibold text-white">Platform Synergy</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">This is the single source of truth that trains, validates, and powers all other Scam.ai models. It&apos;s why our detection products are always smarter and faster. ⚡️</p>
@@ -268,15 +255,15 @@ function CommandCenterSection() {
         </p>
         <ul className="mt-6 space-y-3">
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Global Perspective:</strong> A one-stop view of AI security risks from all channels—video, voice, and text.</span>
           </li>
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Rapid Response:</strong> Go from threat discovery to action within a single interface, dramatically reducing response time.</span>
           </li>
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Deep Tracing:</strong> Correlate and analyze alerts from different channels to uncover the full path of a coordinated attack.</span>
           </li>
         </ul>

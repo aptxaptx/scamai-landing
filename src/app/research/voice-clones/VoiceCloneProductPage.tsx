@@ -2,19 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  PlayCircle,
-  UserCircle,
-  BadgeDollarSign,
-  Building,
-  Siren,
-  MegaphoneOff,
-  Zap,
-  Target,
-  ShieldCheck,
-  BrainCircuit,
-  CheckCircle,
-} from "lucide-react";
 
 function HeroSection() {
   return (
@@ -58,9 +45,7 @@ function InteractiveAudioPlayer() {
           {/* Example 1: Elon */}
           <div className="rounded-lg border border-white/10 bg-white/5 p-6">
             <div className="flex items-start gap-4">
-              <div className="shrink-0">
-                <UserCircle className="h-10 w-10 text-white" aria-hidden />
-              </div>
+              <div className="shrink-0 text-3xl" aria-hidden>👤</div>
               <div className="flex-1">
                 <p className="text-white">
                   &quot;Scam.ai has built some truly impressive technology. It&apos;s essential for trust and safety on any platform.&quot;
@@ -71,7 +56,7 @@ function InteractiveAudioPlayer() {
                   className="mt-4 inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
                   disabled={isPlaying !== null}
                 >
-                  <PlayCircle className="h-5 w-5" aria-hidden />
+                  <span aria-hidden>▶️</span>
                   {isPlaying === "elon" ? "Playing..." : "Play"}
                 </button>
                 {played.elon && (
@@ -86,9 +71,7 @@ function InteractiveAudioPlayer() {
           {/* Example 2: Morgan */}
           <div className="rounded-lg border border-white/10 bg-white/5 p-6">
             <div className="flex items-start gap-4">
-              <div className="shrink-0">
-                <UserCircle className="h-10 w-10 text-white" aria-hidden />
-              </div>
+              <div className="shrink-0 text-3xl" aria-hidden>👤</div>
               <div className="flex-1">
                 <p className="text-white">
                   &quot;Some things should never be faked. The human voice is one of them.&quot;
@@ -99,7 +82,7 @@ function InteractiveAudioPlayer() {
                   className="mt-4 inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
                   disabled={isPlaying !== null}
                 >
-                  <PlayCircle className="h-5 w-5" aria-hidden />
+                  <span aria-hidden>▶️</span>
                   {isPlaying === "morgan" ? "Playing..." : "Play"}
                 </button>
                 {played.morgan && (
@@ -139,28 +122,28 @@ function ThreatLandscapeSection() {
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <BadgeDollarSign className="h-5 w-5 text-white" />
+            <span aria-hidden>💵</span>
             <div>
               <p className="font-semibold text-white">Financial Fraud (Vishing)</p>
               <p className="text-sm text-white/80">Attackers use voice clones to socially engineer victims and authorize fraudulent transactions.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Building className="h-5 w-5 text-white" />
+            <span aria-hidden>🏢</span>
             <div>
               <p className="font-semibold text-white">Corporate & Internal Fraud</p>
               <p className="text-sm text-white/80">Executive impersonation and vendor spoofing expose organizations to high-risk payouts.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Siren className="h-5 w-5 text-white" />
+            <span aria-hidden>🚨</span>
             <div>
               <p className="font-semibold text-white">Personal Attacks</p>
               <p className="text-sm text-white/80">Highly targeted harassment and extortion campaigns leverage synthetic audio for intimidation.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <MegaphoneOff className="h-5 w-5 text-white" />
+            <span aria-hidden>📣</span>
             <div>
               <p className="font-semibold text-white">Disinformation Campaigns</p>
               <p className="text-sm text-white/80">Coordinated synthetic content erodes public trust and amplifies misinformation at scale.</p>
@@ -229,28 +212,28 @@ function AdvantagesSection() {
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Zap className="h-5 w-5 text-white" />
+              <span aria-hidden>⚡</span>
               <h4 className="font-semibold text-white">Millisecond-Level Response</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Low-latency detection suitable for live communication and contact centers.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Target className="h-5 w-5 text-white" />
+              <span aria-hidden>🎯</span>
               <h4 className="font-semibold text-white">Unparalleled Accuracy</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Trained on diverse datasets for high precision across accents and environments.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <ShieldCheck className="h-5 w-5 text-white" />
+              <span aria-hidden>🛡️</span>
               <h4 className="font-semibold text-white">Exceptional Robustness</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Resilient to compression, noise, and transmission artifacts common in real-world audio.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <BrainCircuit className="h-5 w-5 text-white" />
+              <span aria-hidden>🧠</span>
               <h4 className="font-semibold text-white">Constantly Evolving</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Continuously updated models that adapt to the latest cloning techniques.</p>
@@ -274,15 +257,15 @@ function CommandCenterSection() {
         </p>
         <ul className="mt-6 space-y-3">
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Global Perspective:</strong> A one-stop view of voice-based threats across regions, channels, and teams.</span>
           </li>
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Rapid Response:</strong> Go from threat discovery to automated remediation in seconds.</span>
           </li>
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Deep Tracing:</strong> Correlate and analyze alerts across entities, sessions, and devices.</span>
           </li>
         </ul>
@@ -305,7 +288,7 @@ function UseCasesSection() {
             <h4 className="font-semibold text-white">Corporate Communications Security</h4>
             <p className="mt-2 text-sm text-white/80">Verify executive and vendor communications to stop spoofed authorizations.</p>
           </div>
-          <div className="rounded-lg bg-white/5 p-6 shadow-sm">
+          <div className="rounded-lg bg:white/5 bg-white/5 p-6 shadow-sm">
             <h4 className="font-semibold text-white">Social Media & Content Platforms</h4>
             <p className="mt-2 text-sm text-white/80">Detect and label synthetic audio to preserve community trust and safety.</p>
           </div>

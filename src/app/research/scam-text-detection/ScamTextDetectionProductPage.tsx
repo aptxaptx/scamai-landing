@@ -2,19 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  Search,
-  MessageSquare,
-  DollarSign,
-  UserCheck,
-  AlertTriangle,
-  Link,
-  Zap,
-  Target,
-  ShieldCheck,
-  BrainCircuit,
-  CheckCircle,
-} from "lucide-react";
 
 function HeroSection() {
   return (
@@ -60,7 +47,7 @@ function InteractiveTextAnalysis() {
             <h3 className="text-lg font-semibold text-white mb-4">Scenario 1: The Delivery Smishing</h3>
             <div className="bg-gray-800 rounded-lg p-4 mb-4">
               <div className="flex items-start gap-3">
-                <MessageSquare className="h-5 w-5 text-blue-400 mt-1" />
+                <span className="h-5 w-5 mt-1" aria-hidden>💬</span>
                 <div className="bg-blue-600 rounded-lg px-3 py-2 max-w-xs">
                   <p className="text-white text-sm">
                     &quot;Your Fedex package has a customs fee. Pay now to avoid delays: https://bit.ly/xyz123&quot;
@@ -74,7 +61,7 @@ function InteractiveTextAnalysis() {
               className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
               disabled={isAnalyzing !== null}
             >
-              <Search className="h-5 w-5" aria-hidden />
+              <span aria-hidden>🔎</span>
               {isAnalyzing === "delivery" ? "Analyzing..." : "Analyze Text"}
             </button>
             {analyzed.delivery && (
@@ -91,7 +78,7 @@ function InteractiveTextAnalysis() {
             <h3 className="text-lg font-semibold text-white mb-4">Scenario 2: The Impersonation Scam</h3>
             <div className="bg-gray-800 rounded-lg p-4 mb-4">
               <div className="flex items-start gap-3">
-                <MessageSquare className="h-5 w-5 text-blue-400 mt-1" />
+                <span className="h-5 w-5 mt-1" aria-hidden>💬</span>
                 <div className="bg-blue-600 rounded-lg px-3 py-2 max-w-sm">
                   <p className="text-white text-sm">
                     &quot;Hi, it&apos;s your CEO. I&apos;m in a meeting and need you to urgently purchase 5x $100 gift cards for a client. Send me the codes ASAP. I&apos;ll reimburse you.&quot;
@@ -105,7 +92,7 @@ function InteractiveTextAnalysis() {
               className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
               disabled={isAnalyzing !== null}
             >
-              <Search className="h-5 w-5" aria-hidden />
+              <span aria-hidden>🔎</span>
               {isAnalyzing === "impersonation" ? "Analyzing..." : "Analyze Text"}
             </button>
             {analyzed.impersonation && (
@@ -125,7 +112,7 @@ function InteractiveTextAnalysis() {
 function ThreatLandscapeSection() {
   return (
     <section className="py-20">
-      <div className="max-w-5xl mx-auto px-4">
+      <div className="max-w-5xl mx:auto max-w-5xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-white">
           The Threat: The Evolving Threat in Your Pocket
         </h2>
@@ -144,28 +131,28 @@ function ThreatLandscapeSection() {
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <MessageSquare className="h-5 w-5 text-white" />
+            <span aria-hidden>💬</span>
             <div>
               <p className="font-semibold text-white">Smishing (SMS Phishing)</p>
               <p className="text-sm text-white/80">Fake delivery notifications, bank alerts, or password reset links sent via text message.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <UserCheck className="h-5 w-5 text-white" />
+            <span aria-hidden>✅</span>
             <div>
               <p className="font-semibold text-white">Impersonation Scams</p>
               <p className="text-sm text-white/80">Messages pretending to be from a CEO, colleague, or family member asking for gift cards, wire transfers, or sensitive information.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <AlertTriangle className="h-5 w-5 text-white" />
+            <span aria-hidden>⚠️</span>
             <div>
               <p className="font-semibold text-white">Urgency & Scare Tactics</p>
               <p className="text-sm text-white/80">Fraudulent claims like &quot;Your account has been compromised&quot; or &quot;A warrant has been issued for your arrest&quot; to provoke an immediate, panicked response.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Link className="h-5 w-5 text-white" />
+            <span aria-hidden>🔗</span>
             <div>
               <p className="font-semibold text-white">Malicious Links</p>
               <p className="text-sm text-white/80">Dangerous URLs hidden using popular link-shortening services to evade detection.</p>
@@ -203,7 +190,7 @@ function SolutionSection() {
         </p>
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="rounded-lg bg-white/5 p-6 shadow-sm">
+          <div className="rounded-lg bg:white/5 bg-white/5 p-6 shadow-sm">
             <h4 className="text-lg font-semibold text-white">LLM-Powered Intent Analysis</h4>
             <p className="mt-2 text-sm text-white/80">Powered by a proprietary Large Language Model (LLM) fine-tuned on millions of scams from our ScamNet DB™, our model goes beyond keywords to understand the true intent, urgency, and manipulative tactics in a message.</p>
           </div>
@@ -233,28 +220,28 @@ function AdvantagesSection() {
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Zap className="h-5 w-5 text-white" />
+              <span aria-hidden>⚡</span>
               <h4 className="font-semibold text-white">Millisecond-Level Response</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Optimized for high-throughput messaging platforms, ensuring instant analysis without delaying message delivery.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Target className="h-5 w-5 text-white" />
+              <span aria-hidden>🎯</span>
               <h4 className="font-semibold text-white">Unparalleled Accuracy</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Our fine-tuned LLM, trained on the world&apos;s largest proprietary database of scam texts, dramatically reduces false positives and detects novel threats.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <ShieldCheck className="h-5 w-5 text-white" />
+              <span aria-hidden>🛡️</span>
               <h4 className="font-semibold text-white">Exceptional Robustness</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Effectively understands and analyzes text containing typos, slang, emojis, and multiple languages.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <BrainCircuit className="h-5 w-5 text-white" />
+              <span aria-hidden>🧠</span>
               <h4 className="font-semibold text-white">Constantly Evolving</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Our model is continuously re-trained with the latest scam data from ScamNet DB™, ensuring it stays ahead of evolving scammer tactics.</p>
@@ -278,15 +265,15 @@ function CommandCenterSection() {
         </p>
         <ul className="mt-6 space-y-3">
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Global Perspective:</strong> A one-stop view of AI security risks from all channels—video, voice, and text.</span>
           </li>
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Rapid Response:</strong> Go from threat discovery to action within a single interface, dramatically reducing response time.</span>
           </li>
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Deep Tracing:</strong> Correlate and analyze alerts from different channels to uncover the full path of a coordinated attack.</span>
           </li>
         </ul>

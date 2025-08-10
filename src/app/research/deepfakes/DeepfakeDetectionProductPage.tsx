@@ -2,19 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  Play,
-  Eye,
-  Building,
-  UserCheck,
-  Megaphone,
-  AlertTriangle,
-  Zap,
-  Target,
-  ShieldCheck,
-  BrainCircuit,
-  CheckCircle,
-} from "lucide-react";
 
 function HeroSection() {
   return (
@@ -65,7 +52,7 @@ function InteractiveVideoAnalysis() {
                 className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-lg hover:bg-black/30 disabled:cursor-not-allowed"
                 disabled={isPlaying !== null}
               >
-                <Play className="h-12 w-12 text-white" fill="white" />
+                <span className="text-3xl" aria-hidden>▶️</span>
               </button>
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">CEO Statement Video</h3>
@@ -91,7 +78,7 @@ function InteractiveVideoAnalysis() {
                 className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-lg hover:bg-black/30 disabled:cursor-not-allowed"
                 disabled={isPlaying !== null}
               >
-                <Play className="h-12 w-12 text-white" fill="white" />
+                <span className="text-3xl" aria-hidden>▶️</span>
               </button>
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">KYC Liveness Check</h3>
@@ -134,28 +121,28 @@ function ThreatLandscapeSection() {
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <UserCheck className="h-5 w-5 text-white" />
+            <span aria-hidden>✅</span>
             <div>
               <p className="font-semibold text-white">Identity Verification Fraud (KYC Fraud)</p>
               <p className="text-sm text-white/80">Attackers use dynamic, fake face videos to bypass &quot;liveness detection&quot; checks at financial institutions and exchanges.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Building className="h-5 w-5 text-white" />
+            <span aria-hidden>🏢</span>
             <div>
-              <p className="font-semibold text-white">Executive Impersonation</p>
+              <p className="font-semibold text:white text-white">Executive Impersonation</p>
               <p className="text-sm text-white/80">Forging the likeness of a CEO or CFO in a video conference to issue fraudulent directives.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Megaphone className="h-5 w-5 text-white" />
+            <span aria-hidden>📣</span>
             <div>
               <p className="font-semibold text-white">Disinformation & News Manipulation</p>
               <p className="text-sm text-white/80">Maliciously creating videos of public figures to cause social panic or damage a company&apos;s reputation.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <AlertTriangle className="h-5 w-5 text-white" />
+            <span aria-hidden>⚠️</span>
             <div>
               <p className="font-semibold text-white">Blackmail & Defamation</p>
               <p className="text-sm text-white/80">Synthesizing an individual&apos;s face into inappropriate videos for extortion.</p>
@@ -223,28 +210,28 @@ function AdvantagesSection() {
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Zap className="h-5 w-5 text-white" />
+              <span aria-hidden>⚡</span>
               <h4 className="font-semibold text-white">Millisecond-Level Response</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Optimized for real-time communications like phone calls and voice chat, ensuring instant detection with no perceivable latency.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Target className="h-5 w-5 text-white" />
+              <span aria-hidden>🎯</span>
               <h4 className="font-semibold text-white">Unparalleled Accuracy</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Trained on the world&apos;s largest proprietary database of synthetic and real video data, achieving industry-leading low false-positive and high-recall rates.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <ShieldCheck className="h-5 w-5 text-white" />
+              <span aria-hidden>🛡️</span>
               <h4 className="font-semibold text-white">Exceptional Robustness</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Maintains stable, high-performance detection even in noisy environments, across various network compression formats (like VoIP), and in multiple languages.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <BrainCircuit className="h-5 w-5 text-white" />
+              <span aria-hidden>🧠</span>
               <h4 className="font-semibold text-white">Constantly Evolving</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Our model continuously learns from the latest global scam attempts and emerging cloning techniques, allowing it to self-evolve and always stay one step ahead of attackers.</p>
@@ -268,15 +255,15 @@ function CommandCenterSection() {
         </p>
         <ul className="mt-6 space-y-3">
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Global Perspective:</strong> A one-stop view of AI security risks from all channels—video, voice, and text.</span>
           </li>
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Rapid Response:</strong> Go from threat discovery to action within a single interface, dramatically reducing response time.</span>
           </li>
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Deep Tracing:</strong> Correlate and analyze alerts from different channels to uncover the full path of a coordinated attack.</span>
           </li>
         </ul>
@@ -289,7 +276,7 @@ function UseCasesSection() {
   return (
     <section className="py-20">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-white">Use Cases & Applications</h2>
+        <h2 className="text-3xl font-bold text-center text:white text-white">Use Cases & Applications</h2>
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <h4 className="font-semibold text-white">Financial Services (Remote Onboarding/KYC)</h4>
