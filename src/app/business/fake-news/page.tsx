@@ -19,7 +19,7 @@ export default function FakeNewsPage() {
               <span className="mx-2">/</span>
               <span className="text-white/90">Fake News & Misinformation</span>
             </div>
-            <Link href="/business/ip-copyright" className="text-white/80 hover:text-white/90">Next: IP/Copyright Protection →</Link>
+            <Link href="/business/ip-copyright" className="hidden md:inline text-white/80 hover:text-white/90">Next: IP/Copyright Protection →</Link>
           </div>
         </div>
 
@@ -95,7 +95,7 @@ export default function FakeNewsPage() {
 
       {/* Bottom next link */}
       <div className="mt-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14">
-        <div className="flex justify-end text-sm">
+        <div className="flex justify-end text-sm md:hidden">
           <Link href="/business/ip-copyright" className="text-white/80 hover:text-white/90">Next: IP/Copyright Protection →</Link>
         </div>
       </div>

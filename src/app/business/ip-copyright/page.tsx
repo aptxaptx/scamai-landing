@@ -19,7 +19,7 @@ export default function IpCopyrightPage() {
               <span className="mx-2">/</span>
               <span className="text-white/90">IP/Copyright Protection</span>
             </div>
-            <Link href="/business/legal-compliance" className="text-white/80 hover:text-white/90">Next: Legal & Compliance →</Link>
+            <Link href="/business/legal-compliance" className="hidden md:inline text-white/80 hover:text-white/90">Next: Legal & Compliance →</Link>
           </div>
         </div>
 
@@ -95,7 +95,7 @@ export default function IpCopyrightPage() {
 
       {/* Bottom next link */}
       <div className="mt-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14">
-        <div className="flex justify-end text-sm">
+        <div className="flex justify-end text-sm md:hidden">
           <Link href="/business/legal-compliance" className="text-white/80 hover:text-white/90">Next: Legal & Compliance →</Link>
         </div>
       </div>
