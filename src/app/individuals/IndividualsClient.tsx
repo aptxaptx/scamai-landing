@@ -1,76 +1,92 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import SiteShell from "@/components/SiteShell";
 
 export default function IndividualsClient() {
-  type SectionId = "mobile" | "plugin";
   const searchParams = useSearchParams();
-  const s = searchParams.get("s");
-  const active: SectionId = s === "plugin" ? "plugin" : "mobile";
+  const sectionParam = searchParams.get("s");
+  const didMountRef = useRef(false);
+
+  useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
+    const targetId = sectionParam === "plugin" ? "plugin" : "mobile";
+    const el = document.getElementById(targetId);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [sectionParam]);
 
   return (
-    <SiteShell hideTopbar>
-      <section className="grid gap-4 md:grid-cols-1 items-start">
-        {/* Content: render a single section at a time */}
-        <div className="space-y-4">
-          {active === "mobile" ? (
-            <section className="relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-sm overflow-hidden">
-              <div className="absolute inset-0 -z-10 bg-[url('/visual.webp')] bg-cover bg-left-top opacity-30" />
-              <div className="absolute inset-0 -z-10 bg-black/30" />
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <div className="inline-flex items-center gap-2 text-sm text-white/80">
-                    <span className="inline-flex h-2 w-2 rounded-full bg-white/60" />
-                    Mobile App
-                  </div>
-                  <h2 className="mt-2 text-2xl font-semibold tracking-tight">Block scam calls and texts</h2>
-                  <p className="mt-2 text-white/80 max-w-2xl">
-                    Real‑time detection for incoming calls and SMS. Private, on‑device signals with cloud
-                    intelligence for the latest scam patterns.
-                  </p>
-                  <div className="mt-4 flex items-center gap-3">
-                    <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm">Coming soon</span>
-                    <a
-                      href="/waitlist"
-                      className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-2.5 font-semibold shadow-sm"
-                    >
-                      Join waitlist
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-          ) : (
-            <section className="relative rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-sm overflow-hidden">
-              <div className="absolute inset-0 -z-10 bg-[url('/window.svg')] bg-no-repeat bg-right-top opacity-20" />
-              <div className="absolute inset-0 -z-10 bg-black/20" />
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <div className="inline-flex items-center gap-2 text-sm text-white/80">
-                    <span className="inline-flex h-2 w-2 rounded-full bg-white/60" />
-                    Browser Plugin
-                  </div>
-                  <h2 className="mt-2 text-2xl font-semibold tracking-tight">Flag risky pages and messages</h2>
-                  <p className="mt-2 text-white/80 max-w-2xl">
-                    Highlights suspicious websites, popups, and chat prompts. Warns before you sign in or
-                    enter sensitive information.
-                  </p>
-                  <div className="mt-4 flex items-center gap-3">
-                    <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm">Coming soon</span>
-                    <a
-                      href="/waitlist"
-                      className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-2.5 font-semibold shadow-sm"
-                    >
-                      Join waitlist
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-          )}
-        </div>
+    <SiteShell>
+      {/* Mobile App Section */}
+      <section id="mobile" className="scroll-mt-24">
+        <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
+          <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
+            <p className="text-white text-base mb-4">For Individuals — Mobile App</p>
+            <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight max-w-4xl mx-auto">
+              Mobile Scam Protection
+              <br />
+              That Actually Works
+            </h1>
+            <p className="mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-3xl mx-auto">
+              Block scam calls and detect phishing messages on-device. Seamless protection built for everyday use.
+            </p>
+
+            <div className="mt-8 max-w-4xl mx-auto">
+              <img
+                src="/impersonation.webp"
+                alt="Mobile scam protection preview"
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+
+            <div className="mt-8">
+              <a
+                href="/waitlist"
+                className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                Join Waitlist
+              </a>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      {/* Browser Plugin Section */}
+      <section id="plugin" className="scroll-mt-24">
+        <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
+          <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
+            <p className="text-white text-base mb-4">For Individuals — Browser Plugin</p>
+            <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight max-w-4xl mx-auto">
+              Web Protection
+              <br />
+              That Actually Works
+            </h1>
+            <p className="mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-3xl mx-auto">
+              Flag scam sites, misleading ads, and AI-generated media while you browse. Stay safe across the web.
+            </p>
+
+            <div className="mt-8 max-w-4xl mx-auto">
+              <img
+                src="/fakenews.webp"
+                alt="Browser protection preview"
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+
+            <div className="mt-8">
+              <a
+                href="/waitlist"
+                className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                Join Waitlist
+              </a>
+            </div>
+          </div>
+        </section>
       </section>
     </SiteShell>
   );
