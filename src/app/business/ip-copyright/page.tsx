@@ -12,11 +12,16 @@ export default function IpCopyrightPage() {
       {/* Hero */}
       <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
         {/* Breadcrumb (left-aligned) */}
-        <nav className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 mt-4 text-sm text-white/70 text-left">
-          <Link href="/business" className="hover:text-white/90">Business</Link>
-          <span className="mx-2">/</span>
-          <span className="text-white/90">IP/Copyright Protection</span>
-        </nav>
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 mt-4">
+          <div className="flex items-center justify-between text-sm">
+            <div className="text-white/70">
+              <Link href="/business" className="hover:text-white/90">Business</Link>
+              <span className="mx-2">/</span>
+              <span className="text-white/90">IP/Copyright Protection</span>
+            </div>
+            <Link href="/business/legal-compliance" className="text-white/80 hover:text-white/90">Next: Legal & Compliance →</Link>
+          </div>
+        </div>
 
         <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
           <p className="text-white text-base mb-3">Solutions for IP/Copyright Protection</p>
@@ -45,8 +50,35 @@ export default function IpCopyrightPage() {
         </div>
       </section>
 
+      {/* Video placeholder */}
+      <div className="mt-12 max-w-4xl mx-auto">
+        <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-white/5">
+          <div className="aspect-video grid place-items-center text-white/70 text-sm">
+            Video placeholder — replace with your .webm or .mp4
+          </div>
+        </div>
+      </div>
+
+      {/* Value props */}
+      <section className="mt-12">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
+            <h4 className="text-white font-semibold mb-1">Find AI remixes</h4>
+            <p className="text-white/75 text-sm">Detect style clones, voice covers, and derivative edits.</p>
+          </div>
+          <div className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
+            <h4 className="text-white font-semibold mb-1">Faster takedowns</h4>
+            <p className="text-white/75 text-sm">Evidence and matches ready for enforcement.</p>
+          </div>
+          <div className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
+            <h4 className="text-white font-semibold mb-1">Protect royalties</h4>
+            <p className="text-white/75 text-sm">Keep revenue with clear attribution.</p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Card */}
-      <section className="mb-12">
+      <section className="mb-12 mt-16">
         <div className="max-w-2xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-semibold text-white mb-3">Protect your IP, everywhere.</h3>
@@ -60,6 +92,13 @@ export default function IpCopyrightPage() {
           </div>
         </div>
       </section>
+
+      {/* Bottom next link */}
+      <div className="mt-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14">
+        <div className="flex justify-end text-sm">
+          <Link href="/business/legal-compliance" className="text-white/80 hover:text-white/90">Next: Legal & Compliance →</Link>
+        </div>
+      </div>
 
       {/* Page background */}
       <div
