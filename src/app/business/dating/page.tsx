@@ -19,7 +19,7 @@ export default function DatingAppsPage() {
               <span className="mx-2">/</span>
               <span className="text-white/90">Dating Apps</span>
             </div>
-            <Link href="/business/impersonation" className="hidden md:inline text-white/80 hover:text-white/90">Next: Impersonation →</Link>
+            <Link href="/business/impersonation" className="text-white/80 hover:text-white/90">Next: Impersonation →</Link>
           </div>
         </div>
 
@@ -87,7 +87,7 @@ export default function DatingAppsPage() {
 
       {/* Bottom next link */}
       <div className="mt-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14">
-        <div className="flex justify-end text-sm md:hidden">
+        <div className="flex justify-end text-sm">
           <Link href="/business/impersonation" className="text-white/80 hover:text-white/90">Next: Impersonation →</Link>
         </div>
       </div>

@@ -19,7 +19,7 @@ export default function LegalCompliancePage() {
               <span className="mx-2">/</span>
               <span className="text-white/90">Legal & Compliance</span>
             </div>
-            <Link href="/business/kyc" className="hidden md:inline text-white/80 hover:text-white/90">Next: KYC/ID Verification →</Link>
+            <Link href="/business/kyc" className="text-white/80 hover:text-white/90">Next: KYC/ID Verification →</Link>
           </div>
         </div>
 
@@ -95,7 +95,7 @@ export default function LegalCompliancePage() {
 
       {/* Bottom next link */}
       <div className="mt-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14">
-        <div className="flex justify-end text-sm md:hidden">
+        <div className="flex justify-end text-sm">
           <Link href="/business/kyc" className="text-white/80 hover:text-white/90">Next: KYC/ID Verification →</Link>
         </div>
       </div>
