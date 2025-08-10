@@ -2,25 +2,12 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  Search,
-  Eye,
-  DollarSign,
-  FileImage,
-  Heart,
-  Copyright,
-  Zap,
-  Target,
-  ShieldCheck,
-  BrainCircuit,
-  CheckCircle,
-} from "lucide-react";
 
 function HeroSection() {
   return (
     <section className="py-20">
       <div className="max-w-5xl mx-auto px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text:white text-white">
           Detect AI-Generated Images & Video: Verifying Reality in a Synthetic World
         </h1>
         <p className="mt-4 text-lg text-white/80 max-w-3xl mx-auto">
@@ -70,7 +57,7 @@ function InteractiveImageAnalysis() {
               className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
               disabled={isAnalyzing !== null}
             >
-              <Search className="h-5 w-5" aria-hidden />
+              <span aria-hidden>🔍</span>
               {isAnalyzing === "car" ? "Analyzing..." : "Analyze Image"}
             </button>
             {analyzed.car && (
@@ -97,7 +84,7 @@ function InteractiveImageAnalysis() {
               className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
               disabled={isAnalyzing !== null}
             >
-              <Search className="h-5 w-5" aria-hidden />
+              <span aria-hidden>🔍</span>
               {isAnalyzing === "crowd" ? "Analyzing..." : "Analyze Image"}
             </button>
             {analyzed.crowd && (
@@ -135,29 +122,29 @@ function ThreatLandscapeSection() {
         </p>
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <DollarSign className="h-5 w-5 text-white" />
+          <div className="flex items-start gap-3 rounded-lg bg:white/5 bg-white/5 p-4">
+            <span aria-hidden className="h-5 w-5">💵</span>
             <div>
               <p className="font-semibold text-white">E-commerce & Product Fraud</p>
               <p className="text-sm text-white/80">Scammers use AI to generate alluring images of products that don&apos;t exist, taking payment for items they can never ship.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <FileImage className="h-5 w-5 text-white" />
+            <span aria-hidden className="h-5 w-5">🖼️</span>
             <div>
               <p className="font-semibold text-white">Fabricated Evidence & Forgery</p>
               <p className="text-sm text-white/80">Creating fake but realistic photo or video &quot;evidence&quot; for use in insurance claims, legal disputes, or news reports.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Heart className="h-5 w-5 text-white" />
+            <span aria-hidden className="h-5 w-5">❤️</span>
             <div>
               <p className="font-semibold text-white">Advanced Catfishing & Romance Scams</p>
               <p className="text-sm text-white/80">Using unique, hyper-realistic, and completely fake profile pictures that cannot be found with a reverse image search.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-lg bg-white/5 p-4">
-            <Copyright className="h-5 w-5 text-white" />
+            <span aria-hidden className="h-5 w-5">©️</span>
             <div>
               <p className="font-semibold text-white">Brand & Copyright Dilution</p>
               <p className="text-sm text-white/80">Generating imagery that mimics a company&apos;s unique branding or an artist&apos;s style without authorization, creating confusion and infringement.</p>
@@ -225,28 +212,28 @@ function AdvantagesSection() {
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Zap className="h-5 w-5 text-white" />
+              <span aria-hidden>⚡</span>
               <h4 className="font-semibold text-white">Millisecond-Level Response</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Optimized for real-time communications like phone calls and voice chat, ensuring instant detection with no perceivable latency.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <Target className="h-5 w-5 text-white" />
+              <span aria-hidden>🎯</span>
               <h4 className="font-semibold text-white">Unparalleled Accuracy</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Trained on the world&apos;s largest proprietary database of synthetic and real visual data, achieving industry-leading low false-positive and high-recall rates.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <ShieldCheck className="h-5 w-5 text-white" />
+              <span aria-hidden>🛡️</span>
               <h4 className="font-semibold text-white">Exceptional Robustness</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Maintains stable, high-performance detection even across various compression formats and image qualities.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <div className="flex items-center gap-3">
-              <BrainCircuit className="h-5 w-5 text-white" />
+              <span aria-hidden>🧠</span>
               <h4 className="font-semibold text-white">Constantly Evolving</h4>
             </div>
             <p className="mt-2 text-sm text-white/80">Our model continuously learns from the latest global scam attempts and emerging generation techniques, allowing it to self-evolve and always stay one step ahead of attackers.</p>
@@ -270,15 +257,15 @@ function CommandCenterSection() {
         </p>
         <ul className="mt-6 space-y-3">
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Global Perspective:</strong> A one-stop view of AI security risks from all channels—video, voice, and text.</span>
           </li>
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Rapid Response:</strong> Go from threat discovery to action within a single interface, dramatically reducing response time.</span>
           </li>
           <li className="flex items-start gap-3 text-white/80">
-            <CheckCircle className="h-5 w-5 shrink-0 text-white" />
+            <span aria-hidden>✅</span>
             <span className="text-white/80"><strong>Deep Tracing:</strong> Correlate and analyze alerts from different channels to uncover the full path of a coordinated attack.</span>
           </li>
         </ul>
@@ -303,7 +290,7 @@ function UseCasesSection() {
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <h4 className="font-semibold text-white">Social Media & Dating Apps</h4>
-            <p className="mt-2 text-sm text-white/80">Protect users by identifying and flagging profiles that use entirely synthetic images.</p>
+            <p className="mt-2 text-sm text:white/80 text-white/80">Protect users by identifying and flagging profiles that use entirely synthetic images.</p>
           </div>
           <div className="rounded-lg bg-white/5 p-6 shadow-sm">
             <h4 className="font-semibold text-white">Legal & News Media</h4>

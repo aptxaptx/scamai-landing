@@ -43,7 +43,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
   const businessLinks = [
     "Business Use Case",
-    "API Pricing",
+    "API Platform",
     "Contact Sales",
   ];
 
@@ -177,26 +177,19 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                   const href =
                     item === "Business Use Case"
                       ? "/business?s=usecase"
-                      : item === "API Pricing"
-                      ? "/business?s=pricing"
+                      : item === "API Platform"
+                      ? "/api-platform"
                       : item === "Contact Sales"
                       ? "/business?s=contact"
                       : "/business";
-                  const onClick: React.MouseEventHandler<HTMLAnchorElement> | undefined = pathname?.startsWith("/business")
-                    ? (e) => {
-                        e.preventDefault();
-                        router.replace(href, { scroll: false });
-                      }
-                    : undefined;
                   return (
-                    <a
+                    <Link
                       key={item}
                       href={href}
-                      onClick={onClick}
                       className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                     >
                       {item}
-                    </a>
+                    </Link>
                   );
                 })}
               </nav>

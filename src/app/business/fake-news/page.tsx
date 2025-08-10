@@ -13,13 +13,12 @@ export default function FakeNewsPage() {
       <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
         {/* Breadcrumb (left-aligned) */}
         <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 mt-4">
-          <div className="flex items-center justify-between text-sm">
+          <div className="flex items-center justify-start text-sm">
             <div className="text-white/70">
               <Link href="/business" className="hover:text-white/90">Business</Link>
               <span className="mx-2">/</span>
               <span className="text-white/90">Fake News & Misinformation</span>
             </div>
-            <Link href="/business/ip-copyright" className="text-white/80 hover:text-white/90">Next: IP/Copyright Protection →</Link>
           </div>
         </div>
 
