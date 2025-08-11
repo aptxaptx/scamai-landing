@@ -1,4 +1,5 @@
 import Link from "next/link";
+import UseCasesMore from "./UseCasesMore";
 import SiteShell from "@/components/SiteShell";
 
 export const metadata = { title: "About Us — ScamAI" };
@@ -7,61 +8,98 @@ export default function AboutPage() {
   return (
     <SiteShell>
       {/* Hero */}
-      <section className="py-16 md:py-24 border-b border-white/10">
+      <section className="py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <p className="text-xs tracking-widest uppercase text-white/40">Company</p>
-              <h1 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight text-white">
-                Making the internet safe to trust
-              </h1>
-              <p className="mt-4 max-w-2xl text-base md:text-lg text-white/60 leading-relaxed">
-                ScamAI builds detection systems that identify AI-generated deception across media, text, and voice. Our mission is to restore confidence online by verifying what is real—at scale.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission */}
-      <section className="py-12 md:py-16 border-b border-white/10">
-        <div className="max-w-5xl mx-auto px-5 md:px-8">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-start">
-            <h2 className="md:col-span-4 text-sm font-semibold tracking-wider text-white/60">Mission</h2>
-            <p className="md:col-span-8 text-2xl md:text-[28px] leading-snug text-white/90">
-              Build a trustworthy layer for the internet—so people, businesses, and institutions can know what to believe.
+          <div className="text-center">
+            <p className="text-xs tracking-widest uppercase text-white/70">Company</p>
+            <h1 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight text-white">
+              Making the internet safe to trust
+            </h1>
+            <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg text-white/60 leading-relaxed">
+              Reality Inc. builds ScamAI™ that identifies AI-generated deception across media, text, and voice. Our mission is to restore confidence online by verifying what is real—at scale.
             </p>
           </div>
         </div>
       </section>
 
-      
+      {/* Mission */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-5xl mx-auto px-5 md:px-8">
+          <div className="text-center">
+            <h2 className="text-sm font-semibold tracking-wider text-white/60">Mission</h2>
+            <p className="mt-3 text-2xl md:text-[28px] leading-snug text-white/90 max-w-3xl mx-auto">
+              Build a trustworthy layer for the internet—so people,
+              <br />
+              businesses, and institutions can know what to believe.
+            </p>
+          </div>
+        </div>
+      </section>
+
 
       {/* What we build */}
-      <section className="py-12 md:py-16 border-b border-white/10">
+      <section className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-10">
-            <h2 className="md:col-span-4 text-sm font-semibold tracking-wider text-white/60">What we build</h2>
-            <div className="md:col-span-8 grid gap-6">
-              <Card title="Detection infrastructure" description="APIs and models to detect AI-generated images, video, voice, text, and coordinated manipulation." />
-              <Card title="Decision tooling" description="Signals, risk scores, and guidance that integrate into existing workflows and products." />
-              <Card title="Research to production" description="Peer-informed research that ships as reliable, maintainable systems." />
+          <div className="text-center">
+            <h2 className="text-sm font-semibold tracking-wider text-white/60">What we build</h2>
+          </div>
+          <p className="mt-3 text-2xl md:text-[28px] leading-snug text-white/90 max-w-3xl mx-auto text-center">
+            One‑stop solution for scam/AI misuse prevention
+            <br />
+            for enterprises and individuals.
+          </p>
+          <div className="mt-4 grid gap-6">
+            <div>
+              <div className="grid gap-5">
+                  {/* Foundation layer */}
+                  <div id="foundation" className="rounded-3xl border border-white/15 p-5 md:p-6">
+                    <div className="mb-5 flex items-baseline justify-between gap-4">
+                      <div className="text-white font-semibold">Detection Infrastructure</div>
+                      <div className="text-xs tracking-widest uppercase text-white/50">Foundation Layer</div>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+                      <MiniCard title="Models" description="Multimodal detectors across image, video, voice, and text." />
+                      <MiniCard title="Database" description="Continuously updated ScamDB of signals, hashes, and adversarial patterns." />
+                      <MiniCard title="APIs" description="Simple, stable APIs that deliver risk scores and guidance." />
+                    </div>
+                  </div>
+
+                  {/* Application Layer */}
+                  <div className="rounded-3xl border border-white/15 p-5 md:p-6">
+                    <div className="mb-5 flex items-baseline justify-between gap-4">
+                      <div className="text-white font-semibold">Use cases</div>
+                      <div className="text-xs tracking-widest uppercase text-white/50">Application Layer</div>
+                    </div>
+                    <p className="text-sm text-white/60 mb-4">
+                      Our detection infrastructure generalizes across industries. Our initial focus areas are IDV deepfake and Data; together they represent a small portion of the overall addressable market.
+                    </p>
+                    <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+                      <MiniCard title="IDV deepfake" badge="Current focus" description="Authenticate KYC/IDV by detecting face swaps and synthetic identities." />
+                      <MiniCard title="Data" badge="Current focus" description="Capture and enrich threat signals across platforms and channels." />
+                      <MiniCard title="Enterprise cyber-security" description="Protect employees and systems from impersonation and phishing." />
+                      <MiniCard title="Consumer scam" badge="End of 2025" description="Safeguard users from fraud across messages, calls, and social." />
+                    </div>
+                      <UseCasesMore />
+                  </div>
+
+                  
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-12 md:py-16 border-b border-white/10">
+      <section className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-10">
-            <h2 className="md:col-span-4 text-sm font-semibold tracking-wider text-white/60">Values</h2>
-            <div className="md:col-span-8 grid md:grid-cols-2 gap-6 md:gap-8">
-              <MiniCard title="Earn trust" description="Default to clarity. Ship reliable systems. Protect privacy by design." />
-              <MiniCard title="Focus on impact" description="Measure what matters and simplify until the signal is obvious." />
-              <MiniCard title="Research with rigor" description="Build on evidence. Stress-test assumptions. Publish when useful." />
-              <MiniCard title="Think long-term" description="Design for durability: maintainable models, stable APIs, clear contracts." />
-            </div>
+          <div className="text-center mb-6">
+            <h2 className="text-sm font-semibold tracking-wider text-white/60">Values</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+              <MiniCard title="Integrity & accountability" description="Do the right thing—especially when it’s difficult." />
+              <MiniCard title="People first" description="Protect individuals and communities from harm. Optimize for long‑term trust over short‑term wins." />
+              <MiniCard title="Rigor with humility" description="Seek truth through evidence, openness, and critique. Change our minds when the data says so." />
+              <MiniCard title="Build for decades" description="Think long‑term. Favor simplicity, privacy, and durability in what we choose to create." />
           </div>
         </div>
       </section>
@@ -89,14 +127,21 @@ function Card({ title, description }: { title: string; description: string }) {
   );
 }
 
-function MiniCard({ title, description }: { title: string; description: string }) {
+function MiniCard({ title, description, badge }: { title: string; description: string; badge?: string }) {
   return (
     <div className="rounded-2xl border border-white/10 p-5">
-      <div className="text-base font-semibold text-white">{title}</div>
+      <div className="flex items-center gap-2">
+        <div className="text-base font-semibold text-white">{title}</div>
+        {badge ? (
+          <span className="text-[10px] uppercase tracking-wider text-white/70 border border-white/15 rounded-full px-2 py-0.5">{badge}</span>
+        ) : null}
+      </div>
       <p className="mt-1.5 text-sm text-white/60 leading-relaxed">{description}</p>
     </div>
   );
 }
+
+// LeftItem removed along with the left column items
 
 function CTA({ href, title, subtitle }: { href: string; title: string; subtitle: string }) {
   return (
