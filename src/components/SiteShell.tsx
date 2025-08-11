@@ -57,7 +57,6 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
     "Link/QR Code",
     "Research",
     "Publication",
-    "Datasets",
     "ScamDB",
   ];
 
@@ -75,13 +74,13 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   return (
     <div className="min-h-dvh px-5 md:px-0 pt-2 pb-5 md:pl-[240px]">
       {/* Sidebar */}
-      <aside className="p-2 z-10 flex flex-col md:fixed md:top-2 md:left-0 md:w-[240px] md:h-[calc(100dvh-32px)]">
+      <aside className="p-2 z-10 flex flex-col md:fixed md:top-8 md:left-0 md:w-[240px] md:h-[calc(100dvh-64px)] md:overflow-y-auto">
         <Link href="/" className="flex items-center gap-2 px-2 pb-4">
           {/* SVG logo */}
           <img src="/logo.svg" alt="Reality Inc. logo" className="h-8 w-8" />
           <span className="text-lg md:text-xl tracking-tight text-white">Reality Inc.</span>
         </Link>
-        <div className="md:flex-1 grid content-center overflow-hidden">
+        <div className="md:flex-1 grid content-start overflow-hidden">
           <div className="relative">
             {/* Primary panel */}
             <div
@@ -312,7 +311,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                   <span>Home</span>
                 </button>
               </div>
-              <nav className="flex flex-col gap-1 md:gap-2 px-2" aria-label="Research">
+              <nav className="flex flex-col gap-1 md:gap-2 px-2 overflow-y-auto max-h-[calc(100vh-200px)]" aria-label="Research">
                 {researchLinks.map((item) => {
                   const href = item === "Detection Models"
                     ? "#"
@@ -328,8 +327,6 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     ? "/research/link-qr-code"
                     : item === "Publication"
                     ? "/research/publication"
-                    : item === "Datasets"
-                    ? "/research/datasets"
                     : item === "ScamDB"
                     ? "/research/large-scale-database"
                     : "#";
@@ -341,7 +338,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     >
                       {item}
                     </div>
-                  ) : item === "GenAI Images/Videos" || item === "Deepfakes/Faceswap" || item === "Voice Cloning" || item === "Messages" || item === "Link/QR Code" || item === "Publication" || item === "Datasets" || item === "ScamDB" ? (
+                  ) : item === "GenAI Images/Videos" || item === "Deepfakes/Faceswap" || item === "Voice Cloning" || item === "Messages" || item === "Link/QR Code" || item === "Publication" || item === "ScamDB" ? (
                     <Link
                       key={item}
                       href={href}
@@ -553,11 +550,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                       Link/QR Code
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/research/datasets" className="text-white/70 hover:text-white text-sm transition-colors">
-                      Datasets
-                    </Link>
-                  </li>
+
                   <li>
                     <Link href="/research/publication" className="text-white/70 hover:text-white text-sm transition-colors">
                       Publication
