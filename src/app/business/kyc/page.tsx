@@ -65,7 +65,7 @@ export default function KycPage() {
           </h2>
           <div className="mt-8 max-w-2xl mx-auto">
             <p className="text-white/80 text-lg leading-relaxed text-center">
-              Traditional KYC can't keep up with AI-generated fraud. Fake IDs, synthetic faces, and manipulated documents now bypass standard verification with ease.
+              Traditional KYC can&apos;t keep up with AI-generated fraud. Fake IDs, synthetic faces, and manipulated documents now bypass standard verification with ease.
             </p>
             <p className="text-white/80 text-lg leading-relaxed text-center mt-6">
               While most vendors fail to detect these forgeries, your business faces identity fraud, account takeovers, and compliance risks. You need detection that actually works.

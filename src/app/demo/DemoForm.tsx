@@ -66,8 +66,8 @@ export default function DemoForm() {
       }
       // Redirect to scheduling regardless of email backend success
       window.location.href = "https://cal.com/scamai/25min?overlayCalendar=true";
-    } catch (err: any) {
-      setError(err.message || "Something went wrong.");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
       setSubmitting(false);
     }
   };
@@ -129,7 +129,7 @@ export default function DemoForm() {
       {error && <p className="text-red-300 text-sm">{error}</p>}
 
       <div className="mt-2 text-sm text-white/70">
-        By submitting, you’ll be redirected to book a <strong>15‑minute discovery call</strong>. We’ll then schedule a <strong>30‑minute live demo</strong> tailored to your use case.
+        By submitting, you&apos;ll be redirected to book a <strong>15‑minute discovery call</strong>. We&apos;ll then schedule a <strong>30‑minute live demo</strong> tailored to your use case.
       </div>
 
       <div className="mt-4">

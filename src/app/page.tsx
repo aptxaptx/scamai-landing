@@ -53,21 +53,17 @@ export default function Home() {
                 AI misuse detection
               </h1>
               <p className="mt-3 sm:mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
-                Simple APIs for Deepfakes, GenAI media, Voice clones and Scams.<br />
+                Simple APIs for Deepfakes, GenAI media,<br className="block sm:hidden" />
+                Voice clones and Scams.<br />
                 Fast, reliable, and ready for production.
               </p>
-
-              {/* Tags */}
-              <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Deepfake</span>
-                <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">GenAI</span>
-                <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Audio</span>
-              </div>
 
               <div className="mt-6 sm:mt-8 flex items-center justify-center">
                 <a href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Demo</a>
               </div>
             </div>
+
+
           </motion.section>
         )}</AnimatePresence>
 
