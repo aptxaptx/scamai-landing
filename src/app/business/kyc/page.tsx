@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "KYC/ID Verification — ScamAI",
-  description: "Detect forged IDs and deepfakes during onboarding with ScaMai.",
+  description: "Detect forged IDs and deepfakes during onboarding with ScamAI.",
 };
 
 export default function KycPage() {

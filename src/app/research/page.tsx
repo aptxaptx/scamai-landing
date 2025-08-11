@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Research — ScaMai",
-  description: "Explore ScaMai's research in AI detection and prevention technologies.",
+  title: "Research — ScamAI",
+  description: "Explore ScamAI's research in AI detection and prevention technologies.",
 };
 
 import SiteShell from "@/components/SiteShell";

@@ -65,8 +65,9 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
       {/* Sidebar */}
       <aside className="p-2 z-10 flex flex-col md:fixed md:top-4 md:left-0 md:w-[240px] md:h-[calc(100dvh-32px)]">
         <Link href="/" className="flex items-center gap-2 px-2 pb-4">
-          <span className="h-6 w-6 rounded-md bg-[conic-gradient(from_180deg,_#00f5d4,_#5eead4,_#93c5fd,_#f0abfc,_#e879f9,_#00f5d4)]" />
-          <span className="font-bold tracking-tight text-white">ScaMai</span>
+          {/* SVG logo */}
+          <img src="/logo.svg" alt="Reality Inc. logo" className="h-8 w-8" />
+          <span className="text-lg md:text-xl tracking-tight text-white">Reality Inc.</span>
         </Link>
         <div className="md:flex-1 grid content-center overflow-hidden">
           <div className="relative">
@@ -180,7 +181,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                       : item === "API Platform"
                       ? "/api-platform"
                       : item === "Contact Sales"
-                      ? "/business?s=contact"
+                      ? "/demo"
                       : "/business";
                   return (
                     <Link

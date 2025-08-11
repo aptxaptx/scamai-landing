@@ -1,7 +1,4 @@
-export const metadata = {
-  title: "ScamNet Database — ScaMai",
-  description: "The Intelligence Engine Powering Next-Generation Fraud Defense",
-};
+export const metadata = { title: "ScamNet Database — ScamAI" };
 
 import SiteShell from "@/components/SiteShell";
 import ScamNetDatabaseProductPage from "./ScamNetDatabaseProductPage";

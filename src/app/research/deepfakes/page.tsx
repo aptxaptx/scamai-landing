@@ -1,7 +1,4 @@
-export const metadata = {
-  title: "Deepfake Detection — ScaMai",
-  description: "Real-Time Deepfake Detection: Defending the Truth in Visual Content",
-};
+export const metadata = { title: "Deepfake Detection — ScamAI" };
 
 import SiteShell from "@/components/SiteShell";
 import DeepfakeDetectionProductPage from "./DeepfakeDetectionProductPage";

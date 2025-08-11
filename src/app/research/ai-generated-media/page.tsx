@@ -1,7 +1,4 @@
-export const metadata = {
-  title: "AI-Generated Media Detection — ScaMai",
-  description: "Detect AI-Generated Images & Video: Verifying Reality in a Synthetic World",
-};
+export const metadata = { title: "AI-Generated Media Detection — ScamAI" };
 
 import SiteShell from "@/components/SiteShell";
 import AIGeneratedMediaProductPage from "./AIGeneratedMediaProductPage";

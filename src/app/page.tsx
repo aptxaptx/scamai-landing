@@ -1,82 +1,116 @@
+"use client";
+
 import SiteShell from "@/components/SiteShell";
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import MinimalGame from "./MinimalGame";
 
 export default function Home() {
   const secondaryLinks: string[] = [];
 
+  const [gameMode, setGameMode] = useState(false);
+  const [started, setStarted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [answers, setAnswers] = useState<Record<number, "deepfake" | "real" | undefined>>({});
+
+  const items = useMemo(() => {
+    // 30 items total: 15 deepfake, 15 real; shuffle
+    const base = Array.from({ length: 30 }, (_, i) => ({ id: i, label: (i < 15 ? "deepfake" : "real") as "deepfake" | "real" }));
+    for (let i = base.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [base[i], base[j]] = [base[j], base[i]];
+    }
+    return base;
+  }, [started]);
+
+  const totalAnswered = Object.values(answers).filter(Boolean).length;
+  const correct = useMemo(() => items.reduce((acc, it) => (answers[it.id] === it.label ? acc + 1 : acc), 0), [answers, items]);
+  const percent = Math.round((correct / items.length) * 100);
+
+  const sectionVariants = {
+    initial: { opacity: 1, y: 0, scale: 1 },
+    exit: { opacity: 0, y: -8, scale: 0.98, transition: { duration: 0.35 } },
+  };
+
   return (
     <SiteShell secondaryLinks={secondaryLinks}>
-      <section className="relative overflow-hidden rounded-2xl border border-white/10 min-h-[52vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] grid place-items-center">
-          <div className="hero-image-bg" aria-hidden="true" />
-          <div className="hero-image-vignette" aria-hidden="true" />
-          <div className="relative z-10 p-8 md:p-12 lg:p-16 text-center">
-            <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">
-              Prevent Misuse of AI
-            </h1>
-            <p className="mt-4 text-white/85 text-[clamp(15px,2.2vw,20px)] max-w-2xl mx-auto">
-              AI Models for Visual , Audio and Syntax Detection
-            </p>
-            <div className="mt-6 flex items-center justify-center gap-3">
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm"
-              >
-                Learn more
-              </a>
-              <a
-                href="/demo"
-                className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm"
-              >
-                Demo
-              </a>
+      <div className="relative">
+        {/* Hero */}
+        <AnimatePresence>{!gameMode && (
+          <motion.section
+            key="hero"
+            variants={sectionVariants}
+            initial="initial"
+            exit="exit"
+            className="relative overflow-hidden rounded-2xl border border-white/10 min-h-[52vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] grid place-items-center"
+          >
+            <div className="hero-image-bg" aria-hidden="true" />
+            <div className="hero-image-vignette" aria-hidden="true" />
+            <div className="relative z-10 p-8 md:p-12 lg:p-16 text-center">
+              <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">Prevent Misuse of AI</h1>
+              <p className="mt-4 text-white/85 text-[clamp(15px,2.2vw,20px)] max-w-2xl mx-auto">Visual and audio deepfake detection</p>
+              <div className="mt-6 flex items-center justify-center gap-3">
+                <button onClick={() => setGameMode(true)} className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Game</button>
+                <a href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Demo</a>
+              </div>
             </div>
-          </div>
-        </section>
+          </motion.section>
+        )}</AnimatePresence>
 
-        {/* 3-card section */}
-        <section className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[
-            {
-              title: "Visual Detection",
-              desc: "Spot AI-generated images, deepfakes, and manipulations with robustness checks.",
-            },
-            {
-              title: "Audio Detection",
-              desc: "Identify cloned voices and synthetic audio with signal-level analysis.",
-            },
-            {
-              title: "Scammer Database",
-              desc: "Check if an account, phone, emails, crypto wallet,or user is a scammer or not",
-            },
-          ].map((card) => (
-            <article
-              key={card.title}
-              className="relative rounded-2xl  bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors overflow-hidden"
-            >
-              {card.title === "Visual Detection" && (
-                <>
-                  <div className="absolute inset-0 -z-10 bg-[url('/visual.webp')] bg-cover bg-left-top opacity-70" />
-               
-                </>
-              )}
-              {card.title === "Audio Detection" && (
-                <>
-                  <div className="absolute inset-0 -z-10 bg-[url('https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif')] bg-cover bg-center opacity-40" />
-                  
-                </>
-              )}
-              <h3 className="text-lg font-semibold tracking-tight">
-                {card.title}
-              </h3>
-              <p className="mt-2 text-sm text-white/80">{card.desc}</p>
-              <a
-                href="#"
-                className="mt-4 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4"
-              >
-                Learn more
-              </a>
-            </article>
-          ))}
-        </section>
+        {/* Cards (preserve backgrounds) */}
+        <AnimatePresence>{!gameMode && (
+          <motion.section
+            key="cards"
+            variants={sectionVariants}
+            initial="initial"
+            exit="exit"
+            className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4"
+          >
+            {[
+              {
+                title: "Visual Detection",
+                desc: "Spot AI-generated images, deepfakes, and manipulations with robustness checks.",
+                bg: <div className="absolute inset-0 -z-10 bg-[url('/visual.webp')] bg-cover bg-left-top opacity-70" />,
+              },
+              {
+                title: "Audio Detection",
+                desc: "Identify cloned voices and synthetic audio with signal-level analysis.",
+                bg: <div className="absolute inset-0 -z-10 bg-[url('https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif')] bg-cover bg-center opacity-40" />,
+              },
+              {
+                title: "Scammer Database",
+                desc: "Check if an account, phone, emails, crypto wallet,or user is a scammer or not",
+                bg: null,
+              },
+            ].map((card) => (
+              <article key={card.title} className="relative rounded-2xl bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors overflow-hidden">
+                {card.bg}
+                <h3 className="text-lg font-semibold tracking-tight">{card.title}</h3>
+                <p className="mt-2 text-sm text-white/80">{card.desc}</p>
+                <a href="#" className="mt-4 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4">Learn more</a>
+              </article>
+            ))}
+          </motion.section>
+        )}</AnimatePresence>
+
+        {/* Game mode */}
+        {gameMode && (
+          <section className="mt-6">
+            {!started ? (
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="rounded-2xl border border-white/10 p-6 text-center max-w-2xl mx-auto">
+                <h2 className="text-2xl font-semibold tracking-tight">Deepfake Challenge</h2>
+                <p className="mt-2 text-white/80">Enter your work email to start. You’ll see 30 images (15 deepfake, 15 real). Score 65%+ to win a $100 gift card.</p>
+                <div className="mt-4 flex gap-2 justify-center">
+                  <input className="bg-white/5 border border-white/15 px-3 py-2 w-full max-w-sm" placeholder="your.name@company.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <button className="bg-white text-black px-4 py-2 font-semibold" onClick={() => setStarted(true)} disabled={!email}>Start</button>
+                </div>
+              </motion.div>
+            ) : (
+              <MinimalGame items={items} answers={answers} setAnswers={setAnswers} email={email} />
+            )}
+          </section>
+        )}
+      </div>
     </SiteShell>
   );
 }

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Business Use Case — ScaMai",
-  description: "Explore ScaMai's AI misuse prevention solutions tailored for businesses.",
+  title: "Business Use Case — ScamAI",
+  description: "Explore ScamAI's AI misuse prevention solutions tailored for businesses.",
 };
 
 import SiteShell from "@/components/SiteShell";

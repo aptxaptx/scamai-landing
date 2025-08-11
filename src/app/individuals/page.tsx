@@ -1,8 +1,4 @@
-export const metadata = {
-  title: "For Individuals — ScaMai",
-  description:
-    "Mobile app and browser plugin for scam protection. Block calls, detect fake messages, and browse safely.",
-};
+export const metadata = { title: "For Individuals — ScamAI" };
 import IndividualsClient from "./IndividualsClient";
 import { Suspense } from "react";
 
