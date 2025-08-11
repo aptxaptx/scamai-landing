@@ -61,7 +61,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   ];
 
   return (
-    <div className="min-h-dvh px-5 md:px-0 py-5 md:pl-[240px]">
+    <div className="min-h-dvh px-5 md:px-0 pt-2 pb-5 md:pl-[240px]">
       {/* Sidebar */}
       <aside className="p-2 z-10 flex flex-col md:fixed md:top-4 md:left-0 md:w-[240px] md:h-[calc(100dvh-32px)]">
         <Link href="/" className="flex items-center gap-2 px-2 pb-4">
