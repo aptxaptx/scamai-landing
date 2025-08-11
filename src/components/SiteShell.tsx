@@ -465,29 +465,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
       <main className={`${hideTopbar ? "pt-4 md:pt-6 lg:pt-8" : "pt-12 md:pt-16 lg:pt-20"} pr-4 md:pr-0`}>
         {children}
 
-        {/* Auto secondary menu for Research pages */}
-        {pathname?.startsWith("/research") ? (
-          <nav className="my-6 flex flex-wrap items-center gap-6 text-sm text-white/80" aria-label="Secondary">
-            {researchLinks
-              .filter((i) => i !== "Detection Models" && i !== "Research")
-              .map((item) => {
-                const href =
-                  item === "GenAI Images/Videos" ? "/research/ai-generated-media" :
-                  item === "Deepfakes/Faceswap" ? "/research/deepfakes" :
-                  item === "Voice Cloning" ? "/research/voice-clones" :
-                  item === "Messages" ? "/research/scam-text-detection" :
-                  item === "Link/QR Code" ? "/research/link-qr-code" :
-                  item === "Publication" ? "/research/publication" :
-                  item === "Datasets" ? "/research/datasets" :
-                  item === "ScamDB" ? "/research/large-scale-database" : "#";
-                return (
-                  <a key={item} href={href} className="hover:text-white">
-                    {item}
-                  </a>
-                );
-              })}
-          </nav>
-        ) : secondaryLinks.length > 0 ? (
+        {secondaryLinks.length > 0 ? (
           <nav className="my-6 flex items-center gap-6 text-sm text-white/80" aria-label="Secondary">
             {secondaryLinks.map((item) => (
               <a key={item} href="#" className="hover:text-white">

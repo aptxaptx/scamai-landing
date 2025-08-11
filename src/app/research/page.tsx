@@ -50,7 +50,7 @@ export default function ResearchPage() {
             href: "/research/link-qr-code",
           },
           {
-            title: "Large Scale Database",
+            title: "ScamDB",
             desc: "Scalable database systems for storing and querying detection results.",
             href: "/research/large-scale-database",
           },
@@ -69,12 +69,7 @@ export default function ResearchPage() {
         ))}
       </section>
 
-      {/* Page background with card styling */}
-      <div
-        className="fixed inset-0 -z-10 opacity-60 bg-cover bg-center"
-        style={{ backgroundImage: "url('/visual.webp')" }}
-        aria-hidden
-      />
+      {/* Plain black background (use global body bg) */}
     </SiteShell>
   );
 }

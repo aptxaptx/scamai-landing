@@ -29,8 +29,7 @@ export default function ApiPlatformPage() {
             AI misuse detection
           </h1>
           <p className="mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
-            Simple APIs for deepfakes, GenAI media, and voice clones.<br />
-            Fast, reliable, and ready for production.
+            Simple APIs for deepfakes, GenAI media, and voice clones.
           </p>
 
           {/* Tags */}
