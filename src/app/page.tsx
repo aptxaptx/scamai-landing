@@ -78,26 +78,46 @@ export default function Home() {
           >
             {[
               {
-                title: "Visual Detection",
-                desc: "Spot AI-generated images, deepfakes, and manipulations with robustness checks.",
-                bg: <div className="absolute inset-0 -z-10 bg-[url('/visual.webp')] bg-cover bg-left-top opacity-70" />,
+                title: "GenAI Detection",
+                desc: "Detect AI-generated images and videos; flag manipulations and synthetic content.",
+                bg: <div className="absolute inset-0 -z-10 bg-[url('/GenAI.webp')] bg-cover bg-left-top opacity-70" />,
+                href: "/research/ai-generated-media",
               },
               {
-                title: "Audio Detection",
+                title: "Deepfake Detection",
+                desc: "Catch face swaps, lip‑sync and synthetic personas across images and video.",
+                bg: <div className="absolute inset-0 -z-10 bg-[url('/deepfake.webp')] bg-cover bg-center opacity-60" />,
+                href: "/research/deepfakes",
+              },
+              {
+                title: "Voice-cloning Detection",
                 desc: "Identify cloned voices and synthetic audio with signal-level analysis.",
                 bg: <div className="absolute inset-0 -z-10 bg-[url('https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif')] bg-cover bg-center opacity-40" />,
+                href: "/research/voice-clones",
               },
               {
-                title: "Scammer Database",
-                desc: "Check if an account, phone, emails, crypto wallet,or user is a scammer or not",
-                bg: null,
+                title: "Link/QR Detection",
+                desc: "Detect malicious URLs, QR codes and redirectors used in phishing scams.",
+                bg: <div className="absolute inset-0 -z-10 bg-[url('/link.webp')] bg-cover bg-center opacity-60" />,
+                href: "/research/scam-text-detection",
+              },
+              {
+                title: "ScamDB",
+                desc: "Check accounts, phone numbers, emails or crypto wallets against reported scams.",
+                bg: <div className="absolute inset-0 -z-10 bg-[url('/scamdb.webp')] bg-cover bg-center opacity-60" />,
+                href: "/research/large-scale-database",
               },
             ].map((card) => (
               <article key={card.title} className="relative rounded-2xl bg-white/5 p-8 backdrop-blur-sm hover:bg-white/10 transition-colors overflow-hidden min-h-[280px] flex flex-col justify-between">
                 {card.bg}
                 <h3 className="text-lg font-semibold tracking-tight">{card.title}</h3>
                 <p className="mt-2 text-sm text-white/80">{card.desc}</p>
-                <a href="#" className="mt-4 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4">Learn more</a>
+                <a href={card.href} className="mt-4 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4">Learn more</a>
+                {card.href && (
+                  <a href={card.href} aria-label={`Open ${card.title}`} className="absolute inset-0">
+                    <span className="sr-only">Open {card.title}</span>
+                  </a>
+                )}
               </article>
             ))}
           </motion.section>

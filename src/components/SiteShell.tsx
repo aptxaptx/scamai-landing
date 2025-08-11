@@ -13,14 +13,14 @@ type SiteShellProps = {
 export default function SiteShell({ children, secondaryLinks = [], hideTopbar = false }: SiteShellProps) {
   const pathname = usePathname();
   const router = useRouter();
-  const initialSubmenu: "none" | "business" | "individuals" | "research" | "stories" = pathname?.startsWith("/business")
+  const initialSubmenu: "none" | "business" | "individuals" | "research" | "stories" | "company" = pathname?.startsWith("/business")
     ? "business"
     : pathname?.startsWith("/individuals")
     ? "individuals"
     : pathname?.startsWith("/research")
     ? "research"
     : "none";
-  const [submenu, setSubmenu] = useState<"none" | "business" | "individuals" | "research" | "stories">(initialSubmenu);
+  const [submenu, setSubmenu] = useState<"none" | "business" | "individuals" | "research" | "stories" | "company">(initialSubmenu);
   const isIndividualsPage = !!pathname && pathname.startsWith("/individuals");
 
   useEffect(() => {
@@ -28,6 +28,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
     if (pathname.startsWith("/business")) setSubmenu("business");
     else if (pathname.startsWith("/individuals")) setSubmenu("individuals");
     else if (pathname.startsWith("/research")) setSubmenu("research");
+    else if (pathname.startsWith("/company")) setSubmenu("company");
     else setSubmenu("none");
   }, [pathname]);
 
@@ -41,17 +42,18 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   ];
 
   const businessLinks = [
-    "Business Use Case",
+    "Business Use Cases",
     "API Platform",
+    "API Documentation",
     "Contact Sales",
   ];
 
   const researchLinks = [
     "Detection Models",
-    "AI Images/Videos",
+    "GenAI Images/Videos",
     "Deepfakes/Faceswap",
-    "Voice-cloning",
-    "Phishing",
+    "Voice Cloning",
+    "Link/QR Code",
     "Research",
     "Publication",
     "Datasets",
@@ -61,6 +63,8 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   const storiesLinks = [
     "Scam Trends",
   ];
+
+  const companyLinks = ["About Us", "People"];
 
   const individualsLinks = [
     { label: "Mobile App", href: "/individuals?s=mobile" },
@@ -158,6 +162,24 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                       </button>
                     );
                   }
+                  if (item === "Company") {
+                    return (
+                      <button
+                        key={item}
+                        type="button"
+                        onClick={() => setSubmenu(submenu === "company" ? "none" : "company")}
+                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+                      >
+                        <span>{item}</span>
+                        <span
+                          aria-hidden
+                          className="text-white/60 opacity-0 translate-x-1 transition-all group-hover:opacity-60 group-hover:translate-x-0"
+                        >
+                          →
+                        </span>
+                      </button>
+                    );
+                  }
                   return item === "Home" ? (
                     <Link
                       key={item}
@@ -201,10 +223,12 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
               <nav className="flex flex-col gap-2 px-2" aria-label="For Business">
                 {businessLinks.map((item) => {
                   const href =
-                    item === "Business Use Case"
+                    item === "Business Use Cases"
                       ? "/business?s=usecase"
                       : item === "API Platform"
                       ? "/api-platform"
+                      : item === "API Documentation"
+                      ? "https://docu.scam.ai"
                       : item === "Contact Sales"
                       ? "/demo"
                       : "/business";
@@ -286,13 +310,13 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                 {researchLinks.map((item) => {
                   const href = item === "Detection Models"
                     ? "#"
-                    : item === "AI Images/Videos" 
+                    : item === "GenAI Images/Videos" 
                     ? "/research/ai-generated-media"
                     : item === "Deepfakes/Faceswap"
                     ? "/research/deepfakes"
-                    : item === "Voice-cloning"
+                    : item === "Voice Cloning"
                     ? "/research/voice-clones"
-                    : item === "Phishing"
+                    : item === "Link/QR Code"
                     ? "/research/scam-text-detection"
                     : item === "Publication"
                     ? "#"
@@ -309,7 +333,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     >
                       {item}
                     </div>
-                  ) : item === "AI Images/Videos" || item === "Deepfakes/Faceswap" || item === "Voice-cloning" || item === "Phishing" || item === "Publication" || item === "Datasets" || item === "ScamDB" ? (
+                  ) : item === "GenAI Images/Videos" || item === "Deepfakes/Faceswap" || item === "Voice Cloning" || item === "Link/QR Code" || item === "Publication" || item === "Datasets" || item === "ScamDB" ? (
                     <Link
                       key={item}
                       href={href}
@@ -353,6 +377,41 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                 {storiesLinks.map((item) => {
                   const href = item === "Scam Trends" ? "#" : "#";
                   
+                  return (
+                    <a
+                      key={item}
+                      href={href}
+                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                    >
+                      {item}
+                    </a>
+                  );
+                })}
+              </nav>
+            </div>
+
+            {/* Company submenu panel */}
+            <div
+              className={`absolute inset-0 transition-transform duration-300 ease-out ${
+                submenu === "company" ? "translate-x-0" : "translate-x-full"
+              }`}
+            >
+              <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmenu("none");
+                    router.push("/");
+                  }}
+                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-white/10"
+                >
+                  <span aria-hidden>←</span>
+                  <span>Home</span>
+                </button>
+              </div>
+              <nav className="flex flex-col gap-2 px-2" aria-label="Company">
+                {companyLinks.map((item) => {
+                  const href = item === "About Us" ? "#" : item === "People" ? "#" : "#";
                   return (
                     <a
                       key={item}
