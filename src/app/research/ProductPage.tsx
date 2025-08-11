@@ -1,4 +1,6 @@
 import React from "react";
+import SiteShell from "@/components/SiteShell";
+import Link from "next/link";
 
 // Inline icon component to avoid external dependencies
 // Supported names: ShieldAlert, Briefcase, MessageSquareWarning, Zap, Target, Globe, BrainCircuit
@@ -90,13 +92,43 @@ function InlineIcon({ name, className = "h-5 w-5 text-gray-900" }: { name: IconN
 }
 
 export interface ProductPageProps {
+  metadata: {
+    title: string;
+    description: string;
+  };
+  breadcrumb: {
+    parentPath: string;
+    parentName: string;
+    currentName: string;
+    nextPath?: string;
+    nextName?: string;
+  };
   hero: {
-    productName: string;
+    category: string;
     headline: string;
     subtitle: string;
-    visual?: React.ReactNode;
+    tags: string[];
+    visual?: {
+      type: "video" | "image";
+      src: string;
+      alt?: string;
+    };
   };
-  threatLandscape: {
+  problemSection: {
+    headline: string;
+    description: string;
+    additionalContent?: string;
+    visual?: {
+      type: "video" | "image";
+      src: string;
+      alt?: string;
+    };
+    valueProps: {
+      title: string;
+      description: string;
+    }[];
+  };
+  threatLandscape?: {
     headline: string;
     description: string;
     keyThreats: {
@@ -123,11 +155,11 @@ export interface ProductPageProps {
       description: string;
     }[];
   };
-  useCases: {
+  useCases?: {
     headline: string;
     items: string[];
   };
-  apiSection: {
+  apiSection?: {
     headline: string;
     description: string;
     codeExample: {
@@ -137,84 +169,207 @@ export interface ProductPageProps {
   };
   cta: {
     headline: string;
+    description: string;
     primary: {
       text: string;
       href: string;
     };
-    secondary: {
-      text: string;
-      href: string;
-    };
   };
+  backgroundImage?: string;
 }
 
-// Section 1: Hero
-type HeroSectionProps = { hero: ProductPageProps["hero"] };
-function HeroSection({ hero }: HeroSectionProps) {
+// Hero Section matching KYC page format
+type HeroSectionProps = { 
+  hero: ProductPageProps["hero"]; 
+  breadcrumb: ProductPageProps["breadcrumb"];
+};
+
+function HeroSection({ hero, breadcrumb }: HeroSectionProps) {
   return (
-    <section className="py-24">
-      <div className="max-w-5xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold">
-          <span className="h-2 w-2 rounded-full bg-blue-600" />
-          <span>{hero.productName}</span>
+    <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
+      {/* Breadcrumb (left-aligned) */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 mt-4">
+        <div className="flex items-center justify-between text-sm">
+          <div className="text-white/70">
+            <Link href={breadcrumb.parentPath} className="hover:text-white/90">{breadcrumb.parentName}</Link>
+            <span className="mx-2">/</span>
+            <span className="text-white/90">{breadcrumb.currentName}</span>
+          </div>
+          {breadcrumb.nextPath && breadcrumb.nextName && (
+            <Link href={breadcrumb.nextPath} className="text-white/80 hover:text-white/90">Next: {breadcrumb.nextName} →</Link>
+          )}
         </div>
-        <h1 className="mt-6 text-5xl font-bold tracking-tight text-gray-900">
-          {hero.headline}
+      </div>
+
+      <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
+        <p className="text-white text-base mb-4">{hero.category}</p>
+        <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight max-w-4xl mx-auto">
+          {hero.headline.split('\n').map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < hero.headline.split('\n').length - 1 && <br />}
+            </React.Fragment>
+          ))}
         </h1>
-        <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">{hero.subtitle}</p>
-        {hero.visual && <div className="mt-10">{hero.visual}</div>}
+        <p className="mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
+          {hero.subtitle.split('\n').map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < hero.subtitle.split('\n').length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </p>
+
+        {/* Tags */}
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+          {hero.tags.map((tag, i) => (
+            <span key={i} className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {hero.visual && (
+          <div className="mt-8 max-w-4xl mx-auto">
+            {hero.visual.type === "video" ? (
+              <video
+                className="w-full rounded-lg shadow-lg"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src={hero.visual.src} type="video/webm" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img 
+                src={hero.visual.src} 
+                alt={hero.visual.alt || ""} 
+                className="w-full rounded-lg shadow-lg"
+              />
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
 }
 
-// Section 2: Threat Landscape
-type ThreatLandscapeProps = { threat: ProductPageProps["threatLandscape"] };
-function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
+// Problem Section matching KYC format
+type ProblemSectionProps = { problemSection: ProductPageProps["problemSection"] };
+function ProblemSection({ problemSection }: ProblemSectionProps) {
   return (
-    <section className="py-24">
+    <section className="mb-8">
+      <div className="text-center">
+        <h2 className="text-[clamp(24px,5vw,48px)] font-normal tracking-tight max-w-4xl mx-auto">
+          {problemSection.headline.split('\n').map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < problemSection.headline.split('\n').length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </h2>
+        <div className="mt-8 max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg leading-relaxed text-center">
+            {problemSection.description}
+          </p>
+          {problemSection.additionalContent && (
+            <p className="text-white/80 text-lg leading-relaxed text-center mt-6">
+              {problemSection.additionalContent}
+            </p>
+          )}
+        </div>
+
+        {/* Video or Image */}
+        {problemSection.visual && (
+          <div className="mt-12 max-w-4xl mx-auto">
+            {problemSection.visual.type === "video" ? (
+              <video
+                className="w-full rounded-lg shadow-lg"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src={problemSection.visual.src} type="video/webm" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img 
+                src={problemSection.visual.src} 
+                alt={problemSection.visual.alt || ""} 
+                className="w-full rounded-lg shadow-lg"
+              />
+            )}
+          </div>
+        )}
+
+        {/* Value props */}
+        <section className="mt-12">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+            {problemSection.valueProps.map((prop, i) => (
+              <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
+                <h4 className="text-white font-semibold mb-1">{prop.title}</h4>
+                <p className="text-white/75 text-sm">{prop.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </section>
+  );
+}
+
+// Optional Threat Landscape Section (if data provided)
+type ThreatLandscapeProps = { threat?: ProductPageProps["threatLandscape"] };
+function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
+  if (!threat) return null;
+  
+  return (
+    <section className="mb-8">
       <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-gray-900">{threat.headline}</h3>
-        <p className="mt-4 text-lg text-gray-700 text-center max-w-3xl mx-auto">{threat.description}</p>
+        <h3 className="text-3xl font-bold text-center text-white">{threat.headline}</h3>
+        <p className="mt-4 text-lg text-white/80 text-center max-w-3xl mx-auto">{threat.description}</p>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {threat.keyThreats.map((item, idx) => (
-            <div key={idx} className="rounded-lg bg-gray-50 p-6 shadow-sm">
+            <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
               <div className="flex items-center gap-3">
-                <span className="h-10 w-10 grid place-items-center rounded-full bg-white border border-gray-200">
-                  <InlineIcon name={item.icon} className="h-5 w-5 text-blue-700" />
+                <span className="h-10 w-10 grid place-items-center rounded-full bg-white/10 border border-white/20">
+                  <InlineIcon name={item.icon} className="h-5 w-5 text-white" />
                 </span>
-                <span className="text-gray-900 font-semibold">{item.text}</span>
+                <span className="text-white font-semibold">{item.text}</span>
               </div>
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-sm text-gray-600 text-center">{threat.dataPoint}</p>
+        <p className="mt-8 text-sm text-white/60 text-center">{threat.dataPoint}</p>
       </div>
     </section>
   );
 }
 
-// Section 3: Solution
+// Solution Section
 type SolutionSectionProps = { solution: ProductPageProps["solution"] };
 function SolutionSection({ solution }: SolutionSectionProps) {
   return (
-    <section className="py-24">
+    <section className="mb-8">
       <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-gray-900">{solution.headline}</h3>
-        <p className="mt-4 text-lg text-gray-700 text-center max-w-3xl mx-auto">{solution.description}</p>
+        <h3 className="text-3xl font-bold text-center text-white">{solution.headline}</h3>
+        <p className="mt-4 text-lg text-white/80 text-center max-w-3xl mx-auto">{solution.description}</p>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {solution.coreDimensions.map((dim, idx) => (
-            <div key={idx} className="rounded-lg bg-gray-50 p-6 shadow-sm">
-              <h4 className="text-lg font-semibold text-gray-900">{dim.title}</h4>
-              <p className="mt-2 text-gray-700 text-sm leading-6">{dim.description}</p>
+            <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
+              <h4 className="text-lg font-semibold text-white">{dim.title}</h4>
+              <p className="mt-2 text-white/75 text-sm leading-6">{dim.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 rounded-lg bg-blue-50 p-6 text-blue-900 border border-blue-200">
+        <div className="mt-8 bg-white/10 border border-white/20 rounded-xl p-6 text-white/90">
           <p className="text-sm">{solution.outputDescription}</p>
         </div>
       </div>
@@ -222,23 +377,23 @@ function SolutionSection({ solution }: SolutionSectionProps) {
   );
 }
 
-// Section 4: Advantages
+// Advantages Section
 type AdvantagesSectionProps = { advantages: ProductPageProps["advantages"] };
 function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
   return (
-    <section className="py-24">
+    <section className="mb-8">
       <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-gray-900">{advantages.headline}</h3>
+        <h3 className="text-3xl font-bold text-center text-white">{advantages.headline}</h3>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {advantages.items.map((adv, idx) => (
-            <div key={idx} className="rounded-lg bg-gray-50 p-6 shadow-sm">
+            <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
               <div className="flex items-start gap-4">
-                <div className="h-10 w-10 grid place-items-center rounded-full bg-white border border-gray-200">
-                  <InlineIcon name={adv.icon} className="h-5 w-5 text-blue-700" />
+                <div className="h-10 w-10 grid place-items-center rounded-full bg-white/10 border border-white/20">
+                  <InlineIcon name={adv.icon} className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900">{adv.title}</h4>
-                  <p className="mt-1 text-gray-700 text-sm leading-6">{adv.description}</p>
+                  <h4 className="text-lg font-semibold text-white">{adv.title}</h4>
+                  <p className="mt-1 text-white/75 text-sm leading-6">{adv.description}</p>
                 </div>
               </div>
             </div>
@@ -249,16 +404,18 @@ function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
   );
 }
 
-// Section 5: Use Cases
-type UseCasesSectionProps = { useCases: ProductPageProps["useCases"] };
+// Optional Use Cases Section
+type UseCasesSectionProps = { useCases?: ProductPageProps["useCases"] };
 function UseCasesSection({ useCases }: UseCasesSectionProps) {
+  if (!useCases) return null;
+  
   return (
-    <section className="py-24">
+    <section className="mb-8">
       <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-gray-900">{useCases.headline}</h3>
+        <h3 className="text-3xl font-bold text-center text-white">{useCases.headline}</h3>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
           {useCases.items.map((item, idx) => (
-            <span key={idx} className="rounded-full bg-gray-100 text-gray-800 text-sm font-semibold px-4 py-2">
+            <span key={idx} className="rounded-full bg-white/10 text-white/85 text-sm font-semibold px-4 py-2 border border-white/15">
               {item}
             </span>
           ))}
@@ -268,21 +425,23 @@ function UseCasesSection({ useCases }: UseCasesSectionProps) {
   );
 }
 
-// Section 6: API Section
-type ApiSectionProps = { api: ProductPageProps["apiSection"] };
+// Optional API Section
+type ApiSectionProps = { api?: ProductPageProps["apiSection"] };
 function ApiSection({ api }: ApiSectionProps) {
+  if (!api) return null;
+  
   return (
-    <section className="py-24">
+    <section className="mb-8">
       <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-gray-900">{api.headline}</h3>
-        <p className="mt-4 text-lg text-gray-700 text-center max-w-3xl mx-auto">{api.description}</p>
+        <h3 className="text-3xl font-bold text-center text-white">{api.headline}</h3>
+        <p className="mt-4 text-lg text-white/80 text-center max-w-3xl mx-auto">{api.description}</p>
 
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="rounded-lg bg-slate-900 text-gray-200 p-4">
+          <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
             <div className="text-sm text-gray-400 font-mono">Request</div>
             <pre className="mt-2 overflow-auto text-sm font-mono"><code>{api.codeExample.request}</code></pre>
           </div>
-          <div className="rounded-lg bg-slate-900 text-gray-200 p-4">
+          <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
             <div className="text-sm text-gray-400 font-mono">Response</div>
             <pre className="mt-2 overflow-auto text-sm font-mono"><code>{api.codeExample.response}</code></pre>
           </div>
@@ -292,73 +451,133 @@ function ApiSection({ api }: ApiSectionProps) {
   );
 }
 
-// Section 7: CTA
+// CTA Section matching KYC format
 type CtaSectionProps = { cta: ProductPageProps["cta"] };
 function CtaSection({ cta }: CtaSectionProps) {
   return (
-    <section className="py-24">
-      <div className="max-w-5xl mx-auto px-6 text-center">
-        <h3 className="text-3xl font-bold text-gray-900">{cta.headline}</h3>
-        <div className="mt-8 flex items-center justify-center gap-3">
-          <a href={cta.primary.href} className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 text-white font-bold hover:bg-blue-700">
-            {cta.primary.text}
-          </a>
-          <a href={cta.secondary.href} className="inline-flex items-center justify-center rounded-lg bg-gray-100 px-5 py-3 text-gray-900 font-bold hover:bg-gray-200">
-            {cta.secondary.text}
-          </a>
-        </div>
+    <div className="mt-16 max-w-2xl mx-auto">
+      <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
+        <h3 className="text-2xl font-semibold text-white mb-4">{cta.headline}</h3>
+        <p className="text-white/80 text-base mb-6">{cta.description}</p>
+        <a
+          href={cta.primary.href}
+          className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+        >
+          {cta.primary.text}
+        </a>
       </div>
-    </section>
+    </div>
   );
 }
 
-// Main composed component
+// Main composed component with SiteShell
 export function ProductPage({ data }: { data: ProductPageProps }) {
   return (
-    <main>
-      <HeroSection hero={data.hero} />
+    <SiteShell>
+      {/* Hero above existing card(s) */}
+      <HeroSection hero={data.hero} breadcrumb={data.breadcrumb} />
+
+      {/* Problem section about the problem */}
+      <ProblemSection problemSection={data.problemSection} />
+
+      {/* Optional threat landscape */}
       <ThreatLandscapeSection threat={data.threatLandscape} />
+      
+      {/* Solution section */}
       <SolutionSection solution={data.solution} />
+      
+      {/* Advantages section */}
       <AdvantagesSection advantages={data.advantages} />
+      
+      {/* Optional use cases */}
       <UseCasesSection useCases={data.useCases} />
+      
+      {/* Optional API section */}
       <ApiSection api={data.apiSection} />
+      
+      {/* CTA Card */}
       <CtaSection cta={data.cta} />
-    </main>
+
+      {/* Bottom next link */}
+      {data.breadcrumb.nextPath && data.breadcrumb.nextName && (
+        <div className="mt-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14">
+          <div className="flex justify-end text-sm">
+            <Link href={data.breadcrumb.nextPath} className="text-white/80 hover:text-white/90">
+              Next: {data.breadcrumb.nextName} →
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Page background with card styling */}
+      {data.backgroundImage && (
+        <div
+          className="fixed inset-0 -z-10 opacity-60 bg-cover bg-center"
+          style={{ backgroundImage: `url('${data.backgroundImage}')` }}
+          aria-hidden
+        />
+      )}
+    </SiteShell>
   );
 }
 
 // Preview with sample data
 const deepfakeProductData: ProductPageProps = {
+  metadata: {
+    title: "Deepfake Detection — ScamAI",
+    description: "Detect deepfakes with ScamAI's advanced detection technology.",
+  },
+  breadcrumb: {
+    parentPath: "/research",
+    parentName: "Research",
+    currentName: "Deepfake Detection",
+    nextPath: "/research/voice-clones",
+    nextName: "Voice Clones",
+  },
   hero: {
-    productName: "Deepfake Defender",
-    headline: "Detect Deepfakes: Defending Digital Authenticity",
-    subtitle:
-      "Scam.ai's Deepfake Defender™ offers real-time analysis of video streams, providing critical intelligence to prevent identity fraud before it occurs.",
+    category: "Research Solutions for Deepfake Detection",
+    headline: "Deepfake Detection\nThat Actually Works",
+    subtitle: "Advanced model catches over 90% of sota deepfakes.\nKeep your research safe. Keep authenticity intact.",
+    tags: ["GenAI", "Deepfake", "Detection"],
+    visual: {
+      type: "video",
+      src: "/deepfake_scamai.webm",
+    },
+  },
+  problemSection: {
+    headline: "Over 90% Detection Tools\nFailed to Catch Deepfakes",
+    description: "Traditional detection can't keep up with AI-generated fraud. Sophisticated deepfakes now bypass standard verification with ease.",
+    additionalContent: "While most tools fail to detect these forgeries, researchers face authenticity concerns and trust issues. You need detection that actually works.",
+    visual: {
+      type: "video",
+      src: "/dashboard.webm",
+    },
+    valueProps: [
+      { title: "Stop fake content", description: "Block deepfake videos and manipulated media." },
+      { title: "Ensure authenticity", description: "Verify content integrity for research." },
+      { title: "Research confidence", description: "Clear, reliable detection signals." },
+    ],
   },
   threatLandscape: {
     headline: "The Challenge of Synthetic Media",
-    description:
-      "Sophisticated AI can now generate content nearly indistinguishable from reality, creating unprecedented risks for identity verification, corporate security, and public trust.",
+    description: "Sophisticated AI can now generate content nearly indistinguishable from reality, creating unprecedented risks for research integrity and authenticity verification.",
     keyThreats: [
-      { icon: "ShieldAlert", text: "Identity Fraud & KYC Bypass" },
+      { icon: "ShieldAlert", text: "Identity Fraud & Manipulation" },
       { icon: "Briefcase", text: "Executive Impersonation" },
       { icon: "MessageSquareWarning", text: "Disinformation & Propaganda" },
     ],
-    dataPoint:
-      "By 2026, generative AI will account for over 30% of fraudulent attacks targeting remote identity verification. (Source: Gartner)",
+    dataPoint: "By 2026, generative AI will account for over 30% of fraudulent content targeting research and verification systems. (Source: Gartner)",
   },
   solution: {
     productName: "Deepfake Defender™",
     headline: "Our Solution: Deepfake Defender™",
-    description:
-      "Deepfake Defender™ is a specialized AI model engineered to identify the subtle, microscopic traces left behind by generative tools, operating on a level beyond human perception.",
+    description: "Deepfake Defender™ is a specialized AI model engineered to identify the subtle, microscopic traces left behind by generative tools, operating on a level beyond human perception.",
     coreDimensions: [
       { title: "Artifact Analysis", description: "Detects flaws in texture, lighting, and edges invisible to the human eye." },
       { title: "Temporal Consistency", description: "Verifies that motion, expressions, and biometrics are consistent across video frames." },
       { title: "Model Fingerprinting", description: "Identifies unique digital signatures left by specific generative models." },
     ],
-    outputDescription:
-      "The API returns a clean JSON object with a risk score, confidence level, and actionable evidence.",
+    outputDescription: "The API returns a clean JSON object with a risk score, confidence level, and actionable evidence.",
   },
   advantages: {
     headline: "Why Choose Deepfake Defender™?",
@@ -371,31 +590,26 @@ const deepfakeProductData: ProductPageProps = {
   },
   useCases: {
     headline: "Applications & Use Cases",
-    items: ["Financial KYC", "Insurance Claim Verification", "Media Authenticity", "Online Proctoring"],
+    items: ["Research Verification", "Media Authenticity", "Content Analysis", "Academic Studies"],
   },
   apiSection: {
     headline: "Simple & Powerful API",
-    description:
-      "Integrate advanced detection capabilities with just a few lines of code. Our API is built for developer productivity and enterprise scale.",
+    description: "Integrate advanced detection capabilities with just a few lines of code. Our API is built for developer productivity and research scale.",
     codeExample: {
-      request: '{\n  "asset_uri": "https://example.com/kyc_video.mp4"\n}',
-      response:
-        '{\n  "request_id": "vid-abc-456",\n  "is_synthetic": true,\n  "confidence_score": 0.998,\n  "evidence": [\n    {\n      "region_coords": [450, 150, 250, 250],\n      "reason_code": "unnatural_eye_blinking"\n    }\n  ]\n}',
+      request: '{\n  "asset_uri": "https://example.com/research_video.mp4"\n}',
+      response: '{\n  "request_id": "vid-abc-456",\n  "is_synthetic": true,\n  "confidence_score": 0.998,\n  "evidence": [\n    {\n      "region_coords": [450, 150, 250, 250],\n      "reason_code": "unnatural_eye_blinking"\n    }\n  ]\n}',
     },
   },
   cta: {
-    headline: "Get Started",
-    primary: { text: "Request a Demo", href: "/request-demo" },
-    secondary: { text: "View API Docs", href: "/api-docs" },
+    headline: "Research with confidence.",
+    description: "Add an extra layer of authenticity verification to your research process.",
+    primary: { text: "Schedule a Demo", href: "https://cal.com/scamai/25min?overlayCalendar=true" },
   },
+  backgroundImage: "/deepfake.webp",
 };
 
 export function ProductPagePreview() {
-  return (
-    <div className="py-10">
-      <ProductPage data={deepfakeProductData} />
-    </div>
-  );
+  return <ProductPage data={deepfakeProductData} />;
 }
 
 export default ProductPage;
