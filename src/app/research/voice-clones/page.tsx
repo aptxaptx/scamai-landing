@@ -1,12 +1,16 @@
 import SiteShell from "@/components/SiteShell";
-import VoiceCloneProductPage from "./VoiceCloneProductPage";
 
-export const metadata = { title: "Voice Clone Detection — ScamAI" };
+export const metadata = { title: "Voice Cloning — ScamAI" };
 
 export default function Page() {
   return (
     <SiteShell>
-      <VoiceCloneProductPage />
+      <section className="py-20">
+        <div className="max-w-3xl mx-auto px-5 md:px-8 text-center">
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-white">Voice Cloning</h1>
+          <p className="mt-3 text-white/60">Coming soon.</p>
+        </div>
+      </section>
     </SiteShell>
   );
 }
