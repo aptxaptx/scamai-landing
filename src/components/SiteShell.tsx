@@ -13,14 +13,14 @@ type SiteShellProps = {
 export default function SiteShell({ children, secondaryLinks = [], hideTopbar = false }: SiteShellProps) {
   const pathname = usePathname();
   const router = useRouter();
-  const initialSubmenu: "none" | "business" | "individuals" | "research" = pathname?.startsWith("/business")
+  const initialSubmenu: "none" | "business" | "individuals" | "research" | "stories" = pathname?.startsWith("/business")
     ? "business"
     : pathname?.startsWith("/individuals")
     ? "individuals"
     : pathname?.startsWith("/research")
     ? "research"
     : "none";
-  const [submenu, setSubmenu] = useState<"none" | "business" | "individuals" | "research">(initialSubmenu);
+  const [submenu, setSubmenu] = useState<"none" | "business" | "individuals" | "research" | "stories">(initialSubmenu);
   const isIndividualsPage = !!pathname && pathname.startsWith("/individuals");
 
   useEffect(() => {
@@ -47,11 +47,19 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   ];
 
   const researchLinks = [
-    "AI-Generated Media",
-    "Deepfakes",
-    "Voice Clones",
-    "Scam Text Detection",
-    "Large Scale Database",
+    "Detection Models",
+    "AI Images/Videos",
+    "Deepfakes/Faceswap",
+    "Voice-cloning",
+    "Phishing",
+    "Research",
+    "Publication",
+    "Datasets",
+    "ScamDB",
+  ];
+
+  const storiesLinks = [
+    "Scam Trends",
   ];
 
   const individualsLinks = [
@@ -120,6 +128,24 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                         key={item}
                         type="button"
                         onClick={() => router.push("/research/ai-generated-media")}
+                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+                      >
+                        <span>{item}</span>
+                        <span
+                          aria-hidden
+                          className="text-white/60 opacity-0 translate-x-1 transition-all group-hover:opacity-60 group-hover:translate-x-0"
+                        >
+                          →
+                        </span>
+                      </button>
+                    );
+                  }
+                  if (item === "Stories") {
+                    return (
+                      <button
+                        key={item}
+                        type="button"
+                        onClick={() => setSubmenu(submenu === "stories" ? "none" : "stories")}
                         className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                       >
                         <span>{item}</span>
@@ -258,27 +284,76 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
               </div>
               <nav className="flex flex-col gap-2 px-2" aria-label="Research">
                 {researchLinks.map((item) => {
-                  const href = item === "AI-Generated Media" 
+                  const href = item === "Detection Models"
+                    ? "#"
+                    : item === "AI Images/Videos" 
                     ? "/research/ai-generated-media"
-                    : item === "Deepfakes"
+                    : item === "Deepfakes/Faceswap"
                     ? "/research/deepfakes"
-                    : item === "Voice Clones"
+                    : item === "Voice-cloning"
                     ? "/research/voice-clones"
-                    : item === "Scam Text Detection"
+                    : item === "Phishing"
                     ? "/research/scam-text-detection"
-                    : item === "Large Scale Database"
+                    : item === "Publication"
+                    ? "#"
+                    : item === "Datasets"
+                    ? "#"
+                    : item === "ScamDB"
                     ? "/research/large-scale-database"
                     : "#";
                   
-                  return item === "AI-Generated Media" || item === "Deepfakes" || item === "Voice Clones" || item === "Scam Text Detection" || item === "Large Scale Database" ? (
+                  return item === "Detection Models" || item === "Research" ? (
+                    <div
+                      key={item}
+                      className={`block rounded-xl px-3 py-2 text-sm font-medium text-white/50 tracking-wide ${item === "Research" ? "mt-4" : ""}`}
+                    >
+                      {item}
+                    </div>
+                  ) : item === "AI Images/Videos" || item === "Deepfakes/Faceswap" || item === "Voice-cloning" || item === "Phishing" || item === "Publication" || item === "Datasets" || item === "ScamDB" ? (
                     <Link
+                      key={item}
+                      href={href}
+                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors ml-4"
+                    >
+                      {item}
+                    </Link>
+                  ) : (
+                    <a
                       key={item}
                       href={href}
                       className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                     >
                       {item}
-                    </Link>
-                  ) : (
+                    </a>
+                  );
+                })}
+              </nav>
+            </div>
+
+            {/* Stories submenu panel */}
+            <div
+              className={`absolute inset-0 transition-transform duration-300 ease-out ${
+                submenu === "stories" ? "translate-x-0" : "translate-x-full"
+              }`}
+            >
+              <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmenu("none");
+                    router.push("/");
+                  }}
+                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-white/10"
+                >
+                  <span aria-hidden>←</span>
+                  <span>Home</span>
+                </button>
+              </div>
+              <nav className="flex flex-col gap-2 px-2" aria-label="Stories">
+                {storiesLinks.map((item) => {
+                  const href = item === "Scam Trends" ? "#" : "#";
+                  
+                  return (
                     <a
                       key={item}
                       href={href}
@@ -325,8 +400,106 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
             ))}
           </nav>
         )}
-      </main>
-    </div>
-  );
+              </main>
+
+        {/* Footer */}
+        <footer className="mt-20">
+          <div className="w-full px-5 md:px-8 py-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* For Business */}
+              <div>
+                <h3 className="text-white font-semibold mb-4">For Business</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="/business?s=usecase" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Business Use Case
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/api-platform" className="text-white/70 hover:text-white text-sm transition-colors">
+                      API Platform
+                    </Link>
+                  </li>
+                  <li>
+                    <a href="https://docu.scam.ai" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Documentation
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Contact Sales
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* For Individuals */}
+              <div>
+                <h3 className="text-white font-semibold mb-4">For Individuals</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="/individuals?s=mobile" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Mobile App
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/individuals?s=plugin" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Browser Plugin
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Research */}
+              <div>
+                <h3 className="text-white font-semibold mb-4">Research</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="/research/ai-generated-media" className="text-white/70 hover:text-white text-sm transition-colors">
+                      AI-Generated Media
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/research/deepfakes" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Deepfakes
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/research/voice-clones" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Voice Clones
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/research/scam-text-detection" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Scam Text Detection
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/research/large-scale-database" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Large Scale Database
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom Section */}
+            <div className="mt-12 pt-8">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="flex items-center gap-6 text-sm text-white/60">
+                  <Link href="#" className="hover:text-white transition-colors">Stories</Link>
+                  <Link href="#" className="hover:text-white transition-colors">Company</Link>
+                  <Link href="/demo" className="hover:text-white transition-colors">Get Demo</Link>
+                </div>
+                <div className="flex items-center gap-6 text-sm text-white/40">
+                  <Link href="#" className="hover:text-white transition-colors">Manage Cookies</Link>
+                  <span>© 2025 Reality Inc. All rights reserved.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    );
 }
 
