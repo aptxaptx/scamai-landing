@@ -236,6 +236,8 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     <Link
                       key={item}
                       href={href}
+                      target={item === "API Documentation" ? "_blank" : undefined}
+                      rel={item === "API Documentation" ? "noopener noreferrer" : undefined}
                       className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                     >
                       {item}
