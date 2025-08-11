@@ -65,7 +65,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
     "Scam Trends",
   ];
 
-  const companyLinks = ["About Us", "People"];
+  const companyLinks = ["About Us", "People", "Partnership", "Investors"];
 
   const individualsLinks = [
     { label: "Mobile App", href: "/individuals?s=mobile" },
@@ -421,7 +421,12 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
               </div>
               <nav className="flex flex-col gap-2 px-2" aria-label="Company">
                 {companyLinks.map((item) => {
-                  const href = item === "About Us" ? "#" : item === "People" ? "#" : "#";
+                  const href =
+                    item === "About Us" ? "#" :
+                    item === "People" ? "#" :
+                    item === "Partnership" ? "#" :
+                    item === "Investors" ? "#" :
+                    "#";
                   return (
                     <a
                       key={item}
