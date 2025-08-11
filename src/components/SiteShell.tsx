@@ -75,13 +75,13 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   return (
     <div className="min-h-dvh px-5 md:px-0 pt-2 pb-5 md:pl-[240px]">
       {/* Sidebar */}
-      <aside className="p-2 z-10 flex flex-col md:fixed md:top-2 md:left-0 md:w-[240px] md:h-[calc(100dvh-16px)]">
+      <aside className="p-2 z-10 flex flex-col md:fixed md:top-2 md:left-0 md:w-[240px] md:h-[calc(100dvh-32px)]">
         <Link href="/" className="flex items-center gap-2 px-2 pb-4">
           {/* SVG logo */}
           <img src="/logo.svg" alt="Reality Inc. logo" className="h-8 w-8" />
           <span className="text-lg md:text-xl tracking-tight text-white">Reality Inc.</span>
         </Link>
-        <div className="md:flex-1 grid content-center overflow-y-auto overflow-x-hidden" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
+        <div className="md:flex-1 grid content-center overflow-hidden">
           <div className="relative">
             {/* Primary panel */}
             <div
@@ -204,12 +204,12 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Business submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out overflow-y-auto overflow-x-hidden ${
+              className={`absolute inset-0 transition-transform duration-300 ease-out  ${
                 submenu === "business" ? "translate-x-0" : "translate-x-full"
               }`}
-              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}
+            
             >
-              <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
+              <div className="px-2 pb-2 md:pb-4 flex items-center gap-2 text-white/70">
                 <button
                   type="button"
                   onClick={() => {
@@ -251,10 +251,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Individuals submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out overflow-y-auto overflow-x-hidden ${
+              className={`absolute inset-0 transition-transform duration-300 ease-out  ${
                 submenu === "individuals" ? "translate-x-0" : "translate-x-full"
               }`}
-              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}
+             
             >
               <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
                 <button
@@ -294,10 +294,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Research submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out overflow-y-auto overflow-x-hidden ${
+              className={`absolute inset-0 transition-transform duration-300 ease-out  ${
                 submenu === "research" ? "translate-x-0" : "translate-x-full"
               }`}
-              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}
+             
             >
               <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
                 <button
@@ -312,7 +312,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                   <span>Home</span>
                 </button>
               </div>
-              <nav className="flex flex-col gap-2 px-2" aria-label="Research">
+              <nav className="flex flex-col gap-1 md:gap-2 px-2" aria-label="Research">
                 {researchLinks.map((item) => {
                   const href = item === "Detection Models"
                     ? "#"
@@ -337,7 +337,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                   return item === "Detection Models" || item === "Research" ? (
                     <div
                       key={item}
-                      className={`block rounded-xl px-3 py-2 text-sm font-medium text-white/50 tracking-wide ${item === "Research" ? "mt-4" : ""}`}
+                      className={`block rounded-xl px-3 py-1.5 text-xs md:text-sm font-medium text-white/50 tracking-wide ${item === "Research" ? "mt-3 md:mt-4" : ""}`}
                     >
                       {item}
                     </div>
@@ -345,7 +345,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     <Link
                       key={item}
                       href={href}
-                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors ml-4"
+                      className="block rounded-xl px-3 py-2 md:py-3 text-[15px] md:text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors ml-3 md:ml-4"
                     >
                       {item}
                     </Link>
@@ -364,10 +364,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Stories submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out overflow-y-auto overflow-x-hidden ${
+              className={`absolute inset-0 transition-transform duration-300 ease-out  ${
                 submenu === "stories" ? "translate-x-0" : "translate-x-full"
               }`}
-              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}
+         
             >
               <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
                 <button
@@ -401,10 +401,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Company submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out overflow-y-auto overflow-x-hidden ${
+              className={`absolute inset-0 transition-transform duration-300 ease-out  ${
                 submenu === "company" ? "translate-x-0" : "translate-x-full"
               }`}
-              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}
+           
             >
               <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
                 <button
