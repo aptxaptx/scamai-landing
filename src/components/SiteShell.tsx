@@ -36,9 +36,8 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
     "For Business",
     "For Individuals",
     "Research",
-    "Safety",
-    "Report Scam",
-    "About Us",
+    "Stories",
+    "Company",
   ];
 
   const businessLinks = [

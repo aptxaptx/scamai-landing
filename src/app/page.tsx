@@ -42,7 +42,7 @@ export default function Home() {
             variants={sectionVariants}
             initial="initial"
             exit="exit"
-            className="relative overflow-hidden rounded-2xl border border-white/10 min-h-[52vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] grid place-items-center"
+            className="relative overflow-hidden rounded-2xl border border-white/10 min-h-[40vh] sm:min-h-[45vh] md:min-h-[50vh] lg:min-h-[55vh] grid place-items-center"
           >
             <div className="hero-image-bg" aria-hidden="true" />
             <div className="hero-image-vignette" aria-hidden="true" />
@@ -93,7 +93,7 @@ export default function Home() {
                 bg: null,
               },
             ].map((card) => (
-              <article key={card.title} className="relative rounded-2xl bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors overflow-hidden">
+              <article key={card.title} className="relative rounded-2xl bg-white/5 p-8 backdrop-blur-sm hover:bg-white/10 transition-colors overflow-hidden min-h-[280px] flex flex-col justify-between">
                 {card.bg}
                 <h3 className="text-lg font-semibold tracking-tight">{card.title}</h3>
                 <p className="mt-2 text-sm text-white/80">{card.desc}</p>
