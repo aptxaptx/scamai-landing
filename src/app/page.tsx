@@ -107,12 +107,24 @@ export default function Home() {
                 bg: <div className="absolute inset-0 -z-10 bg-[url('/scamdb.webp')] bg-cover bg-center opacity-60" />,
                 href: "/research/large-scale-database",
               },
+              {
+                title: "Why Us",
+                desc: "Best‑in‑class accuracy and low‑latency inference with simple, production‑ready APIs. Ship trust in days, not months.",
+                bg: (
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white/10 to-white/[0.03]" />
+                ),
+                href: "/demo",
+                light: true,
+              },
             ].map((card) => (
-              <article key={card.title} className="relative rounded-2xl bg-white/5 p-8 backdrop-blur-sm hover:bg-white/10 transition-colors overflow-hidden min-h-[280px] flex flex-col justify-between">
+              <article
+                key={card.title}
+                className={`relative rounded-2xl p-8 backdrop-blur-sm transition-colors overflow-hidden min-h-[280px] flex flex-col justify-between ${card.light ? "bg-white text-black hover:bg-white" : "bg-white/5 hover:bg-white/10"}`}
+              >
                 {card.bg}
                 <h3 className="text-lg font-semibold tracking-tight">{card.title}</h3>
-                <p className="mt-2 text-sm text-white/80">{card.desc}</p>
-                <a href={card.href} className="mt-4 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4">Learn more</a>
+                <p className={`mt-2 text-sm ${card.light ? "text-black/70" : "text-white/80"}`}>{card.desc}</p>
+                <a href={card.href} className={`mt-4 inline-flex text-sm font-semibold underline underline-offset-4 ${card.light ? "text-black/90" : "text-white/90"}`}>Learn more</a>
                 {card.href && (
                   <a href={card.href} aria-label={`Open ${card.title}`} className="absolute inset-0">
                     <span className="sr-only">Open {card.title}</span>

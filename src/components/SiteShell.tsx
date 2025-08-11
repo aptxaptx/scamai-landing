@@ -319,9 +319,9 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     : item === "Link/QR Code"
                     ? "/research/scam-text-detection"
                     : item === "Publication"
-                    ? "#"
+                    ? "/research/publication"
                     : item === "Datasets"
-                    ? "#"
+                    ? "/research/datasets"
                     : item === "ScamDB"
                     ? "/research/large-scale-database"
                     : "#";
@@ -471,7 +471,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                 <ul className="space-y-2">
                   <li>
                     <Link href="/business?s=usecase" className="text-white/70 hover:text-white text-sm transition-colors">
-                      Business Use Case
+                      Business Use Cases
                     </Link>
                   </li>
                   <li>
@@ -515,27 +515,37 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                 <ul className="space-y-2">
                   <li>
                     <Link href="/research/ai-generated-media" className="text-white/70 hover:text-white text-sm transition-colors">
-                      AI-Generated Media
+                      GenAI Images/Videos
                     </Link>
                   </li>
                   <li>
                     <Link href="/research/deepfakes" className="text-white/70 hover:text-white text-sm transition-colors">
-                      Deepfakes
+                      Deepfakes/Faceswap
                     </Link>
                   </li>
                   <li>
                     <Link href="/research/voice-clones" className="text-white/70 hover:text-white text-sm transition-colors">
-                      Voice Clones
+                      Voice Cloning
                     </Link>
                   </li>
                   <li>
                     <Link href="/research/scam-text-detection" className="text-white/70 hover:text-white text-sm transition-colors">
-                      Scam Text Detection
+                      Link/QR Code
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/research/datasets" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Datasets
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/research/publication" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Publication
                     </Link>
                   </li>
                   <li>
                     <Link href="/research/large-scale-database" className="text-white/70 hover:text-white text-sm transition-colors">
-                      Large Scale Database
+                      ScamDB
                     </Link>
                   </li>
                 </ul>
