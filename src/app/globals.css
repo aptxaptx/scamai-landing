@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0b0b0c;
+  --bg: #000000;
   --panel: #0e0e10;
   --muted: #9ba3af;
   --text: #f3f4f6;
@@ -80,7 +80,7 @@ body {
 .hero-image-bg {
   position: absolute;
   inset: 0;
-  background-color: #0a0a0a;
+  background-color: #000000;
   background-image: url("/hero.webp");
   background-repeat: no-repeat;
   background-position: left top; /* crop anchor */
