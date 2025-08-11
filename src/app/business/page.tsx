@@ -30,6 +30,28 @@ export default function BusinessPage() {
         </div>
       </section>
 
+      {/* Featured use cases */}
+      <section className="mt-6">
+        <div className="text-center">
+          <div className="text-xs tracking-widest uppercase text-white/60">Featured use cases</div>
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
+            {[
+              { label: "IDV deepfake", badge: "Current focus" },
+              { label: "Data", badge: "Current focus" },
+              { label: "Enterprise cyber-security" },
+              { label: "Consumer scam", badge: "End of 2025" },
+            ].map(({ label, badge }) => (
+              <span key={label} className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1 text-xs text-white/80">
+                {label}
+                {badge ? (
+                  <span className="rounded-full border border-white/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-white/70">{badge}</span>
+                ) : null}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Category grid */}
       <section className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
         {[
