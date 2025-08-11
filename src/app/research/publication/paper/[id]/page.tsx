@@ -3,7 +3,7 @@
 import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { useState } from "react";
+import { useState, use } from "react";
 
 // Sample paper data - in a real app this would come from a database or API
 const papers = [
@@ -18,6 +18,7 @@ const papers = [
     pdfUrl: "/papers/deepfake-detection-2024.pdf",
     category: "Research",
     tags: ["Safety", "Research", "Publication"],
+    image: "/deepfake.webp",
     content: `With the rapid advancement of deepfake technology, the need for robust detection methods has become increasingly critical. This paper presents a novel multi-modal approach that combines visual and audio analysis to achieve state-of-the-art performance in deepfake detection.
 
 ## Background
@@ -74,6 +75,7 @@ Future work will focus on:
     pdfUrl: "/papers/scamnet-2024.pdf",
     category: "Publication",
     tags: ["Publication", "Research"],
+    image: "/fakenews.webp",
     content: `Digital fraud has become increasingly sophisticated, requiring advanced detection mechanisms to protect users from malicious activities. This paper introduces ScamNet, a novel neural network architecture specifically designed for large-scale fraud detection in digital communications.
 
 ## Introduction
@@ -106,6 +108,7 @@ Evaluation on real-world datasets demonstrates ScamNet's effectiveness:
     pdfUrl: "/papers/voice-clone-detection-2023.pdf",
     category: "Safety",
     tags: ["Safety", "Research"],
+    image: "/GenAI.webp",
     content: `Voice cloning technology has advanced rapidly, creating both opportunities and security challenges. This paper presents a comprehensive study of voice clone detection, introducing novel techniques for identifying synthetic speech with high accuracy.
 
 ## Overview
@@ -126,25 +129,16 @@ Experimental results show 97.3% accuracy on cross-dataset evaluation, demonstrat
 ];
 
 interface Props {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
-export async function generateMetadata({ params }: Props) {
-  const paper = papers.find(p => p.id === params.id);
-  if (!paper) {
-    return {
-      title: "Paper Not Found — ScamAI",
-    };
-  }
-  
-  return {
-    title: `${paper.title} — ScamAI Research`,
-    description: paper.description,
-  };
-}
+
+
+
 
 export default function PaperPage({ params }: Props) {
-  const paper = papers.find(p => p.id === params.id);
+  const unwrappedParams = use(params) as { id: string };
+  const paper = papers.find(p => p.id === unwrappedParams.id);
   const [copySuccess, setCopySuccess] = useState(false);
   
   if (!paper) {
@@ -166,20 +160,20 @@ export default function PaperPage({ params }: Props) {
     const lines = content.split('\n');
     return lines.map((line, index) => {
       if (line.startsWith('## ')) {
-        return <h2 key={index} className="text-2xl font-bold text-gray-900 mt-8 mb-4">{line.slice(3)}</h2>;
+        return <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-4">{line.slice(3)}</h2>;
       } else if (line.startsWith('### ')) {
-        return <h3 key={index} className="text-xl font-semibold text-gray-900 mt-6 mb-3">{line.slice(4)}</h3>;
+        return <h3 key={index} className="text-xl font-semibold text-white mt-6 mb-3">{line.slice(4)}</h3>;
       } else if (line.startsWith('- **')) {
         const match = line.match(/- \*\*(.*?)\*\*: (.*)/);
         if (match) {
-          return <p key={index} className="text-gray-700 mb-2"><strong>{match[1]}</strong>: {match[2]}</p>;
+          return <p key={index} className="text-white/80 mb-2"><strong>{match[1]}</strong>: {match[2]}</p>;
         }
       } else if (line.startsWith('- ')) {
-        return <p key={index} className="text-gray-700 mb-2">• {line.slice(2)}</p>;
+        return <p key={index} className="text-white/80 mb-2">• {line.slice(2)}</p>;
       } else if (line.trim() === '') {
         return <br key={index} />;
       } else {
-        return <p key={index} className="text-gray-700 mb-4 leading-relaxed">{line}</p>;
+        return <p key={index} className="text-white/80 mb-4 leading-relaxed">{line}</p>;
       }
       return null;
     });
@@ -239,15 +233,15 @@ export default function PaperPage({ params }: Props) {
         </header>
 
         {/* Content */}
-        <article className="bg-white rounded-2xl p-8 md:p-12 shadow-lg text-gray-900 mb-16">
-          <div className="prose prose-lg max-w-none">
+        <article className="rounded-2xl p-8 md:p-12 mb-16">
+          <div className="prose prose-lg max-w-none text-white">
             {renderContent(paper.content)}
           </div>
           
           {/* Authors */}
-          <section className="border-t border-gray-200 pt-8 mt-12">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">{paper.year}</h3>
-            <div className="text-gray-700">
+          <section className="border-t border-white/20 pt-8 mt-12">
+            <h3 className="text-lg font-semibold text-white mb-4">{paper.year}</h3>
+            <div className="text-white/80">
               <strong>Authors:</strong> {paper.authors.join(', ')}
             </div>
           </section>
@@ -256,7 +250,6 @@ export default function PaperPage({ params }: Props) {
         {/* Keep Reading Section */}
         <section>
           <h2 className="text-2xl font-bold tracking-tight mb-6 text-white">Keep reading</h2>
-          <p className="text-white/60 mb-8">View all</p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {papers
@@ -267,18 +260,24 @@ export default function PaperPage({ params }: Props) {
                   href={`/research/publication/paper/${relatedPaper.id}`}
                   className="group block"
                 >
-                  <article className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-200 group-hover:-translate-y-1">
-                    <div className="aspect-video bg-gray-100"></div>
-                    <div className="p-6">
+                  <article className="rounded-xl overflow-hidden transition-all duration-200">
+                    <div className="aspect-video bg-gray-100 overflow-hidden">
+                      <img 
+                        src={relatedPaper.image} 
+                        alt={relatedPaper.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="px-0 pt-4">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-md">
+                        <span className="px-2 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-md border border-white/20">
                           {relatedPaper.category}
                         </span>
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors leading-tight">
+                      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors leading-tight">
                         {relatedPaper.title}
                       </h3>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-white/70">
                         {new Date(relatedPaper.publishDate).toLocaleDateString('en-US', { 
                           year: 'numeric', 
                           month: 'short', 
@@ -296,9 +295,4 @@ export default function PaperPage({ params }: Props) {
   );
 }
 
-// Generate static paths for all papers
-export function generateStaticParams() {
-  return papers.map((paper) => ({
-    id: paper.id,
-  }));
-}
+
