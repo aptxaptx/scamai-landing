@@ -62,6 +62,8 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   ];
 
   const storiesLinks = [
+    "News",
+    "Type of Scams",
     "Scam Trends",
   ];
 
@@ -384,7 +386,11 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
               </div>
               <nav className="flex flex-col gap-2 px-2" aria-label="Stories">
                 {storiesLinks.map((item) => {
-                  const href = item === "Scam Trends" ? "#" : "#";
+                  const href =
+                    item === "News" ? "/stories/news" :
+                    item === "Type of Scams" ? "/stories/type-of-scams" :
+                    item === "Scam Trends" ? "/stories/scam-trends" :
+                    "#";
                   
                   return (
                     <a
