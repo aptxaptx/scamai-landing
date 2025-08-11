@@ -428,10 +428,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
               <nav className="flex flex-col gap-2 px-2" aria-label="Company">
                 {companyLinks.map((item) => {
                   const href =
-                    item === "About Us" ? "#" :
-                    item === "People" ? "#" :
-                    item === "Partnership" ? "#" :
-                    item === "Investors" ? "#" :
+                    item === "About Us" ? "/company/about" :
+                    item === "People" ? "/company/people" :
+                    item === "Partnership" ? "/company/partnership" :
+                    item === "Investors" ? "/company/investors" :
                     "#";
                   return (
                     <a
@@ -583,7 +583,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="flex items-center gap-6 text-sm text-white/60">
                   <Link href="#" className="hover:text-white transition-colors">Stories</Link>
-                  <Link href="#" className="hover:text-white transition-colors">Company</Link>
+                  <Link href="/company/about" className="hover:text-white transition-colors">Company</Link>
                   <Link href="/demo" className="hover:text-white transition-colors">Get Demo</Link>
                 </div>
                 <div className="flex items-center gap-6 text-sm text-white/40">
