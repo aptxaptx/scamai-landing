@@ -12,7 +12,7 @@ const voiceClonesPageData: ProductPageProps = {
     parentName: "Research",
     currentName: "Voice Clones",
     nextPath: "/research/scam-text-detection",
-    nextName: "Scam Text Detection",
+    nextName: "Messages",
   },
   hero: {
     category: "Research Solutions for Voice Clone Detection",
@@ -67,6 +67,7 @@ const voiceClonesPageData: ProductPageProps = {
     description: "Ensure audio authenticity in your research with our advanced voice verification technology.",
     primary: { text: "Schedule a Demo", href: "https://cal.com/scamai/25min?overlayCalendar=true" },
   },
+  backgroundImage: "/visual.webp",
 };
 
 export default function VoiceClonesPage() {

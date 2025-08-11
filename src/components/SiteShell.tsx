@@ -53,6 +53,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
     "GenAI Images/Videos",
     "Deepfakes/Faceswap",
     "Voice Cloning",
+    "Messages",
     "Link/QR Code",
     "Research",
     "Publication",
@@ -74,13 +75,13 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   return (
     <div className="min-h-dvh px-5 md:px-0 pt-2 pb-5 md:pl-[240px]">
       {/* Sidebar */}
-      <aside className="p-2 z-10 flex flex-col md:fixed md:top-4 md:left-0 md:w-[240px] md:h-[calc(100dvh-32px)]">
+      <aside className="p-2 z-10 flex flex-col md:fixed md:top-2 md:left-0 md:w-[240px] md:h-[calc(100dvh-16px)]">
         <Link href="/" className="flex items-center gap-2 px-2 pb-4">
           {/* SVG logo */}
           <img src="/logo.svg" alt="Reality Inc. logo" className="h-8 w-8" />
           <span className="text-lg md:text-xl tracking-tight text-white">Reality Inc.</span>
         </Link>
-        <div className="md:flex-1 grid content-center overflow-hidden">
+        <div className="md:flex-1 grid content-center overflow-y-auto overflow-x-hidden" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
           <div className="relative">
             {/* Primary panel */}
             <div
@@ -131,7 +132,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                       <button
                         key={item}
                         type="button"
-                        onClick={() => router.push("/research/ai-generated-media")}
+                        onClick={() => router.push("/research")}
                         className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                       >
                         <span>{item}</span>
@@ -203,9 +204,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Business submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out ${
+              className={`absolute inset-0 transition-transform duration-300 ease-out overflow-y-auto overflow-x-hidden ${
                 submenu === "business" ? "translate-x-0" : "translate-x-full"
               }`}
+              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}
             >
               <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
                 <button
@@ -249,9 +251,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Individuals submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out ${
+              className={`absolute inset-0 transition-transform duration-300 ease-out overflow-y-auto overflow-x-hidden ${
                 submenu === "individuals" ? "translate-x-0" : "translate-x-full"
               }`}
+              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}
             >
               <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
                 <button
@@ -291,9 +294,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Research submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out ${
+              className={`absolute inset-0 transition-transform duration-300 ease-out overflow-y-auto overflow-x-hidden ${
                 submenu === "research" ? "translate-x-0" : "translate-x-full"
               }`}
+              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}
             >
               <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
                 <button
@@ -318,8 +322,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     ? "/research/deepfakes"
                     : item === "Voice Cloning"
                     ? "/research/voice-clones"
-                    : item === "Link/QR Code"
+                    : item === "Messages"
                     ? "/research/scam-text-detection"
+                    : item === "Link/QR Code"
+                    ? "/research/link-qr-code"
                     : item === "Publication"
                     ? "/research/publication"
                     : item === "Datasets"
@@ -335,7 +341,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     >
                       {item}
                     </div>
-                  ) : item === "GenAI Images/Videos" || item === "Deepfakes/Faceswap" || item === "Voice Cloning" || item === "Link/QR Code" || item === "Publication" || item === "Datasets" || item === "ScamDB" ? (
+                  ) : item === "GenAI Images/Videos" || item === "Deepfakes/Faceswap" || item === "Voice Cloning" || item === "Messages" || item === "Link/QR Code" || item === "Publication" || item === "Datasets" || item === "ScamDB" ? (
                     <Link
                       key={item}
                       href={href}
@@ -358,9 +364,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Stories submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out ${
+              className={`absolute inset-0 transition-transform duration-300 ease-out overflow-y-auto overflow-x-hidden ${
                 submenu === "stories" ? "translate-x-0" : "translate-x-full"
               }`}
+              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}
             >
               <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
                 <button
@@ -394,9 +401,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Company submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out ${
+              className={`absolute inset-0 transition-transform duration-300 ease-out overflow-y-auto overflow-x-hidden ${
                 submenu === "company" ? "translate-x-0" : "translate-x-full"
               }`}
+              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}
             >
               <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
                 <button
@@ -432,7 +440,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
       {/* Topbar */}
       {!hideTopbar && (
-        <header className="fixed right-5 top-4 z-30 flex items-center gap-2">
+        <header className="fixed right-5 top-2 z-30 flex items-center gap-2">
           <button
             aria-label="Search"
             className="h-9 w-9 rounded-xl grid place-items-center bg-white/5 border border-white/10 backdrop-blur-md"
@@ -449,7 +457,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
       )}
 
       {/* Main */}
-      <main className={`${hideTopbar ? "pt-4 md:pt-6 lg:pt-8" : "pt-16 md:pt-20 lg:pt-24"} pr-4 md:pr-0`}>
+      <main className={`${hideTopbar ? "pt-4 md:pt-6 lg:pt-8" : "pt-12 md:pt-16 lg:pt-20"} pr-4 md:pr-0`}>
         {children}
 
         {secondaryLinks.length > 0 && (
@@ -532,6 +540,11 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                   </li>
                   <li>
                     <Link href="/research/scam-text-detection" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Messages
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/research/link-qr-code" className="text-white/70 hover:text-white text-sm transition-colors">
                       Link/QR Code
                     </Link>
                   </li>
