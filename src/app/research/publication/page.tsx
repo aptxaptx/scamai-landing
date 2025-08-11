@@ -60,7 +60,7 @@ const publicationPageData: ProductPageProps = {
   cta: {
     headline: "Collaborate with us.",
     description: "Interested in research collaboration or accessing our published work? Get in touch.",
-    primary: { text: "Contact Research Team", href: "https://cal.com/scamai/25min?overlayCalendar=true" },
+    primary: { text: "Contact Research Team", href: "/demo" },
   },
   backgroundImage: "/legal.webp",
 };

@@ -82,8 +82,8 @@ export default function ImpersonationPage() {
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-semibold text-white mb-3">Stop live impersonation.</h3>
             <p className="text-white/80 text-base mb-6">Protect calls, sign-ins, and KYC flows from spoofing attacks.</p>
-            <a
-              href="https://cal.com/scamai/25min?overlayCalendar=true"
+              <a
+                href="/demo"
               className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Schedule a Demo

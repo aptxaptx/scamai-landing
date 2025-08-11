@@ -126,7 +126,7 @@ export default function ApiPlatformPage() {
                   <li key={b} className="flex gap-2"><span aria-hidden>✓</span><span>{b}</span></li>
                 ))}
               </ul>
-              <a href="https://cal.com/scamai/25min?overlayCalendar=true" className="mt-6 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4">Learn more</a>
+              <a href="/demo" className="mt-6 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4">Learn more</a>
             </article>
           ))}
         </div>
@@ -172,7 +172,7 @@ export default function ApiPlatformPage() {
               <div>
                 <h3 className="text-xl font-semibold">{f.title}</h3>
                 <p className="mt-2 text-white/80 text-sm">{f.desc}</p>
-                <a href="https://cal.com/scamai/25min?overlayCalendar=true" className="mt-3 inline-flex text-sm font-semibold underline underline-offset-4">Learn more</a>
+                <a href="/demo" className="mt-3 inline-flex text-sm font-semibold underline underline-offset-4">Learn more</a>
               </div>
             </article>
           ))}
@@ -273,7 +273,7 @@ export default function ApiPlatformPage() {
         </p>
         <div className="mt-5 flex items-center justify-center gap-3">
           <a href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Start exploring</a>
-          <a href="https://cal.com/scamai/25min?overlayCalendar=true" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Talk to our team</a>
+          <a href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Talk to our team</a>
         </div>
       </section>
     </SiteShell>

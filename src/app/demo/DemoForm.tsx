@@ -64,8 +64,8 @@ export default function DemoForm() {
       if (!res.ok) {
         throw new Error("Failed to submit. Please try again.");
       }
-      // Redirect to scheduling regardless of email backend success
-      window.location.href = "https://cal.com/scamai/25min?overlayCalendar=true";
+      // Redirect to our demo page first; scheduling happens there
+      window.location.href = "/demo";
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
       setSubmitting(false);

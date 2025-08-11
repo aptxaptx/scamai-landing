@@ -57,13 +57,14 @@ export default function ResearchPage() {
         ].map((card) => (
           <article
             key={card.title}
-            className="relative rounded-2xl p-6 md:p-8 overflow-hidden hover:bg-white/10 transition-colors min-h-[200px]"
+            className="relative rounded-2xl p-6 md:p-8 overflow-hidden hover:bg-white/10 transition-colors min-h-[200px] cursor-pointer"
           >
             <h2 className="text-lg font-semibold tracking-tight">{card.title}</h2>
             <p className="mt-2 text-sm text-white/80">{card.desc}</p>
-            <Link href={card.href} className="mt-4 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4">
+            <Link href={card.href} className="mt-4 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4 relative z-10">
               Learn more →
             </Link>
+            <Link href={card.href} aria-label={`Open ${card.title}`} className="absolute inset-0" />
           </article>
         ))}
       </section>

@@ -603,7 +603,7 @@ const deepfakeProductData: ProductPageProps = {
   cta: {
     headline: "Research with confidence.",
     description: "Add an extra layer of authenticity verification to your research process.",
-    primary: { text: "Schedule a Demo", href: "https://cal.com/scamai/25min?overlayCalendar=true" },
+    primary: { text: "Schedule a Demo", href: "/demo" },
   },
   backgroundImage: "/deepfake.webp",
 };

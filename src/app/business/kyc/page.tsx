@@ -110,7 +110,7 @@ export default function KycPage() {
               <h3 className="text-2xl font-semibold text-white mb-4">KYC deepfakes, caught live.</h3>
               <p className="text-white/80 text-base mb-6">Add an extra layer of security to your KYC/ID Verification process.</p>
               <a
-                href="https://cal.com/scamai/25min?overlayCalendar=true"
+                href="/demo"
                 className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 Schedule a Demo
