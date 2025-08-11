@@ -10,9 +10,9 @@ const scamTextDetectionPageData: ProductPageProps = {
   breadcrumb: {
     parentPath: "/research",
     parentName: "Research",
-    currentName: "Scam Text Detection",
-    nextPath: "/research/large-scale-database",
-    nextName: "ScamNet Database",
+    currentName: "Messages",
+    nextPath: "/research/link-qr-code",
+    nextName: "Link/QR Code",
   },
   hero: {
     category: "Research Solutions for Scam Text Detection",

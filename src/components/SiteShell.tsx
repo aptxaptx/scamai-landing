@@ -53,6 +53,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
     "GenAI Images/Videos",
     "Deepfakes/Faceswap",
     "Voice Cloning",
+    "Messages",
     "Link/QR Code",
     "Research",
     "Publication",
@@ -131,7 +132,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                       <button
                         key={item}
                         type="button"
-                        onClick={() => router.push("/research/ai-generated-media")}
+                        onClick={() => router.push("/research")}
                         className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                       >
                         <span>{item}</span>
@@ -318,8 +319,10 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     ? "/research/deepfakes"
                     : item === "Voice Cloning"
                     ? "/research/voice-clones"
-                    : item === "Link/QR Code"
+                    : item === "Messages"
                     ? "/research/scam-text-detection"
+                    : item === "Link/QR Code"
+                    ? "/research/link-qr-code"
                     : item === "Publication"
                     ? "/research/publication"
                     : item === "Datasets"
@@ -335,7 +338,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     >
                       {item}
                     </div>
-                  ) : item === "GenAI Images/Videos" || item === "Deepfakes/Faceswap" || item === "Voice Cloning" || item === "Link/QR Code" || item === "Publication" || item === "Datasets" || item === "ScamDB" ? (
+                  ) : item === "GenAI Images/Videos" || item === "Deepfakes/Faceswap" || item === "Voice Cloning" || item === "Messages" || item === "Link/QR Code" || item === "Publication" || item === "Datasets" || item === "ScamDB" ? (
                     <Link
                       key={item}
                       href={href}
@@ -532,6 +535,11 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                   </li>
                   <li>
                     <Link href="/research/scam-text-detection" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Messages
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/research/link-qr-code" className="text-white/70 hover:text-white text-sm transition-colors">
                       Link/QR Code
                     </Link>
                   </li>

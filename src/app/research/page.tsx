@@ -40,9 +40,14 @@ export default function ResearchPage() {
             href: "/research/voice-clones",
           },
           {
-            title: "Scam Text Detection",
+            title: "Messages",
             desc: "Natural language processing for identifying fraudulent and scam text content.",
             href: "/research/scam-text-detection",
+          },
+          {
+            title: "Link/QR Code",
+            desc: "Detection and analysis of malicious URLs and QR codes for security research.",
+            href: "/research/link-qr-code",
           },
           {
             title: "Large Scale Database",
@@ -62,6 +67,13 @@ export default function ResearchPage() {
           </article>
         ))}
       </section>
+
+      {/* Page background with card styling */}
+      <div
+        className="fixed inset-0 -z-10 opacity-60 bg-cover bg-center"
+        style={{ backgroundImage: "url('/visual.webp')" }}
+        aria-hidden
+      />
     </SiteShell>
   );
 }
