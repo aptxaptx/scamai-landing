@@ -4,88 +4,8 @@ import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-
-// Sample data for papers and datasets
-const papers = [
-  {
-    id: 1,
-    title: "Advanced Deepfake Detection Using Multi-Modal Analysis",
-    authors: "Smith, J., Johnson, A., Williams, R.",
-    venue: "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
-    year: 2024,
-    date: "March 15, 2024",
-    description: "A comprehensive approach to detecting deepfakes using combined visual and audio analysis techniques.",
-    pdfUrl: "/papers/deepfake-detection-2024.pdf",
-    tags: ["Deepfake", "Computer Vision", "Multi-Modal"],
-    image: "/deepfake.webp",
-    category: "Research"
-  },
-  {
-    id: 2,
-    title: "ScamNet: Large-Scale Fraud Detection in Digital Communications",
-    authors: "Brown, M., Davis, K., Miller, S.",
-    venue: "ACM Conference on Computer and Communications Security (CCS)",
-    year: 2024,
-    date: "October 8, 2024",
-    description: "Novel neural network architecture for detecting fraudulent communications at scale.",
-    pdfUrl: "/papers/scamnet-2024.pdf",
-    tags: ["Fraud Detection", "Neural Networks", "NLP"],
-    image: "/fakenews.webp",
-    category: "Publication"
-  },
-  {
-    id: 3,
-    title: "Voice Clone Detection: Challenges and Solutions",
-    authors: "Wilson, T., Anderson, L., Taylor, P.",
-    venue: "International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
-    year: 2023,
-    date: "June 22, 2023",
-    description: "Comprehensive study on detecting synthetic voice clones with state-of-the-art accuracy.",
-    pdfUrl: "/papers/voice-clone-detection-2023.pdf",
-    tags: ["Voice Cloning", "Audio Processing", "Detection"],
-    image: "/GenAI.webp",
-    category: "Safety"
-  }
-];
-
-const datasets = [
-  {
-    id: 1,
-    title: "DeepFake-1M Dataset",
-    description: "Large-scale dataset containing 1 million labeled deepfake and authentic video samples",
-    size: "2.5 TB",
-    samples: "1,000,000",
-    domains: ["Video", "Face Manipulation"],
-    downloadUrl: "/datasets/deepfake-1m",
-    date: "January 10, 2024",
-    image: "/visual.webp",
-    category: "Dataset"
-  },
-  {
-    id: 2,
-    title: "ScamText-100K",
-    description: "Comprehensive collection of labeled scam and legitimate text messages across multiple languages",
-    size: "150 MB", 
-    samples: "100,000",
-    domains: ["Text", "Multilingual", "Fraud"],
-    downloadUrl: "/datasets/scamtext-100k",
-    date: "February 20, 2024",
-    image: "/scamdb.webp",
-    category: "Dataset"
-  },
-  {
-    id: 3,
-    title: "VoiceClone-50K",
-    description: "Audio dataset featuring original and cloned voice samples for detection research",
-    size: "800 GB",
-    samples: "50,000",
-    domains: ["Audio", "Voice Synthesis"],
-    downloadUrl: "/datasets/voiceclone-50k",
-    date: "December 5, 2023",
-    image: "/dating.webp",
-    category: "Dataset"
-  }
-];
+import { papers } from "./papers/data";
+import { datasets } from "./datasets/data";
 
 export default function PublicationPage() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'publications' | 'datasets'>('all');
@@ -284,8 +204,8 @@ export default function PublicationPage() {
             <Link
               key={`${item.type}-${item.id}`}
               href={item.type === 'paper' 
-                ? `/research/publication/paper/${item.id}` 
-                : item.downloadUrl
+                ? `/research/publication/papers/${item.id}` 
+                : `/research/publication/datasets/${item.id}`
               }
               className="group block"
             >
