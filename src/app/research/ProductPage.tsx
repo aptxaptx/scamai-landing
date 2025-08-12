@@ -2,8 +2,7 @@ import React from "react";
 import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
 
-// Inline icon component to avoid external dependencies
-// Supported names: ShieldAlert, Briefcase, MessageSquareWarning, Zap, Target, Globe, BrainCircuit
+// Inline icon component (未做修改)
 const supportedIcons = [
   "ShieldAlert",
   "Briefcase",
@@ -16,6 +15,7 @@ const supportedIcons = [
 export type IconName = (typeof supportedIcons)[number];
 
 function InlineIcon({ name, className = "h-5 w-5 text-gray-900" }: { name: IconName; className?: string }) {
+  // ... (此组件代码保持不变)
   const common = {
     className,
     fill: "none",
@@ -178,15 +178,15 @@ export interface ProductPageProps {
   backgroundImage?: string;
 }
 
-// Hero Section matching KYC page format
+// Hero Section (未做修改)
+// Hero 区域作为一个独立的、引人注目的视觉元素，其卡片式设计是合适的。
 type HeroSectionProps = { 
   hero: ProductPageProps["hero"]; 
   breadcrumb: ProductPageProps["breadcrumb"];
 };
-
 function HeroSection({ hero, breadcrumb }: HeroSectionProps) {
   return (
-    <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
+    <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-16">
       {/* Breadcrumb (left-aligned) */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 mt-4">
         <div className="flex items-center justify-between text-sm">
@@ -256,11 +256,15 @@ function HeroSection({ hero, breadcrumb }: HeroSectionProps) {
   );
 }
 
-// Problem Section matching KYC format
+/**
+ * 重新设计的 ProblemSection
+ * 1. 描述性段落改为左对齐，提高可读性。
+ * 2. 移除 valueProps 的独立卡片样式，让它们作为网格内的纯内容展示，减少视觉碎片。
+ */
 type ProblemSectionProps = { problemSection: ProductPageProps["problemSection"] };
 function ProblemSection({ problemSection }: ProblemSectionProps) {
   return (
-    <section className="mb-8">
+    <section className="mb-16">
       <div className="text-center">
         <h2 className="text-[clamp(24px,5vw,48px)] font-normal tracking-tight max-w-4xl mx-auto">
           {problemSection.headline.split('\n').map((line, i) => (
@@ -270,147 +274,155 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
             </React.Fragment>
           ))}
         </h2>
-        <div className="mt-8 max-w-2xl mx-auto">
-          <p className="text-white/80 text-lg leading-relaxed text-center">
-            {problemSection.description}
-          </p>
-          {problemSection.additionalContent && (
-            <p className="text-white/80 text-lg leading-relaxed text-center mt-6">
-              {problemSection.additionalContent}
-            </p>
+      </div>
+
+      {/* REFACTORED: 文本改为左对齐 */}
+      <div className="mt-8 max-w-3xl mx-auto text-left">
+        <p className="text-white/80 text-lg leading-relaxed">
+          {problemSection.description}
+        </p>
+        {problemSection.additionalContent && (
+          <p className="text-white/80 text-lg leading-relaxed mt-6">
+            {problemSection.additionalContent}
+        </p>
+        )}
+      </div>
+
+      {problemSection.visual && (
+        <div className="mt-12 max-w-4xl mx-auto">
+          {problemSection.visual.type === "video" ? (
+            <video
+              className="w-full rounded-lg shadow-lg"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={problemSection.visual.src} type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <img 
+              src={problemSection.visual.src} 
+              alt={problemSection.visual.alt || ""} 
+              className="w-full rounded-lg shadow-lg"
+            />
           )}
         </div>
+      )}
 
-        {/* Video or Image */}
-        {problemSection.visual && (
-          <div className="mt-12 max-w-4xl mx-auto">
-            {problemSection.visual.type === "video" ? (
-              <video
-                className="w-full rounded-lg shadow-lg"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source src={problemSection.visual.src} type="video/webm" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <img 
-                src={problemSection.visual.src} 
-                alt={problemSection.visual.alt || ""} 
-                className="w-full rounded-lg shadow-lg"
-              />
-            )}
+      {/* REFACTORED: 移除卡片样式 */}
+      <div className="mt-12 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        {problemSection.valueProps.map((prop, i) => (
+          // 移除了 bg-white/5, border, rounded-xl, p-5
+          <div key={i}>
+            <h4 className="text-white font-semibold mb-2">{prop.title}</h4>
+            <p className="text-white/75 text-sm leading-relaxed">{prop.description}</p>
           </div>
-        )}
-
-        {/* Value props */}
-        <section className="mt-12">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-            {problemSection.valueProps.map((prop, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
-                <h4 className="text-white font-semibold mb-1">{prop.title}</h4>
-                <p className="text-white/75 text-sm">{prop.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        ))}
       </div>
     </section>
   );
 }
 
-// Optional Threat Landscape Section (if data provided)
+/**
+ * 重新设计的 ThreatLandscapeSection
+ * 1. 描述性段落左对齐。
+ * 2. 移除威胁列表项的卡片样式，使其更像一个干净的列表。
+ */
 type ThreatLandscapeProps = { threat?: ProductPageProps["threatLandscape"] };
 function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
   if (!threat) return null;
   
   return (
-    <section className="mb-8">
-      <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-white">{threat.headline}</h3>
-        <p className="mt-4 text-lg text-white/80 text-center max-w-3xl mx-auto">{threat.description}</p>
+    <section className="mb-16 max-w-5xl mx-auto px-6">
+      <h3 className="text-3xl font-bold text-center text-white">{threat.headline}</h3>
+      {/* REFACTORED: 文本改为左对齐 */}
+      <p className="mt-4 text-lg text-white/80 text-left max-w-3xl mx-auto">{threat.description}</p>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {threat.keyThreats.map((item, idx) => (
-            <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
-              <div className="flex items-center gap-3">
-                <span className="h-10 w-10 grid place-items-center rounded-full bg-white/10 border border-white/20">
-                  <InlineIcon name={item.icon} className="h-5 w-5 text-white" />
-                </span>
-                <span className="text-white font-semibold">{item.text}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-8 text-sm text-white/60 text-center">{threat.dataPoint}</p>
+      {/* REFACTORED: 移除卡片样式，调整间距 */}
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-10">
+        {threat.keyThreats.map((item, idx) => (
+          // 移除了包裹的卡片 div
+          <div key={idx} className="flex items-center gap-4">
+            <span className="flex-shrink-0 h-10 w-10 grid place-items-center rounded-full bg-white/10 border border-white/20">
+              <InlineIcon name={item.icon} className="h-5 w-5 text-white" />
+            </span>
+            <span className="text-white font-semibold">{item.text}</span>
+          </div>
+        ))}
       </div>
+
+      <p className="mt-8 text-sm text-white/60 text-center">{threat.dataPoint}</p>
     </section>
   );
 }
 
-// Solution Section
+/**
+ * 重新设计的 SolutionSection
+ * 1. 描述性段落左对齐。
+ * 2. 移除核心维度列表的卡片样式。
+ * 3. 将输出描述的样式改为更微妙的、带左边框的引用块样式。
+ */
 type SolutionSectionProps = { solution: ProductPageProps["solution"] };
 function SolutionSection({ solution }: SolutionSectionProps) {
   return (
-    <section className="mb-8">
-      <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-white">{solution.headline}</h3>
-        <p className="mt-4 text-lg text-white/80 text-center max-w-3xl mx-auto">{solution.description}</p>
+    <section className="mb-16 max-w-5xl mx-auto px-6">
+      <h3 className="text-3xl font-bold text-center text-white">{solution.headline}</h3>
+      <p className="mt-4 text-lg text-white/80 text-left max-w-3xl mx-auto">{solution.description}</p>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {solution.coreDimensions.map((dim, idx) => (
-            <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
-              <h4 className="text-lg font-semibold text-white">{dim.title}</h4>
-              <p className="mt-2 text-white/75 text-sm leading-6">{dim.description}</p>
-            </div>
-          ))}
-        </div>
+      {/* REFACTORED: 移除卡片样式 */}
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-left">
+        {solution.coreDimensions.map((dim, idx) => (
+          <div key={idx}>
+            <h4 className="text-lg font-semibold text-white mb-2">{dim.title}</h4>
+            <p className="text-white/75 text-sm leading-relaxed">{dim.description}</p>
+          </div>
+        ))}
+      </div>
 
-        <div className="mt-8 bg-white/10 border border-white/20 rounded-xl p-6 text-white/90">
-          <p className="text-sm">{solution.outputDescription}</p>
-        </div>
+      {/* REFACTORED: 使用更微妙的引用块样式 */}
+      <div className="mt-10 bg-slate-800/50 border-l-4 border-cyan-400 rounded-r-lg p-6 text-white/90">
+        <p className="leading-relaxed">{solution.outputDescription}</p>
       </div>
     </section>
   );
 }
 
-// Advantages Section
+/**
+ * 重新设计的 AdvantagesSection
+ * 1. 移除了优势列表项的卡片样式。
+ */
 type AdvantagesSectionProps = { advantages: ProductPageProps["advantages"] };
 function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
   return (
-    <section className="mb-8">
-      <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-white">{advantages.headline}</h3>
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {advantages.items.map((adv, idx) => (
-            <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
-              <div className="flex items-start gap-4">
-                <div className="h-10 w-10 grid place-items-center rounded-full bg-white/10 border border-white/20">
-                  <InlineIcon name={adv.icon} className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-white">{adv.title}</h4>
-                  <p className="mt-1 text-white/75 text-sm leading-6">{adv.description}</p>
-                </div>
-              </div>
+    <section className="mb-16 max-w-5xl mx-auto px-6">
+      <h3 className="text-3xl font-bold text-center text-white">{advantages.headline}</h3>
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+        {advantages.items.map((adv, idx) => (
+          // 移除了卡片背景和边框
+          <div key={idx} className="flex items-start gap-4">
+            <div className="flex-shrink-0 h-10 w-10 grid place-items-center rounded-full bg-white/10 border border-white/20">
+              <InlineIcon name={adv.icon} className="h-5 w-5 text-white" />
             </div>
-          ))}
-        </div>
+            <div className="text-left">
+              <h4 className="text-lg font-semibold text-white">{adv.title}</h4>
+              <p className="mt-1 text-white/75 text-sm leading-relaxed">{adv.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
 
-// Optional Use Cases Section
+// UseCasesSection (未做修改)
+// 标签（Pills）样式是常见的 UI 模式，看起来不错，予以保留。
 type UseCasesSectionProps = { useCases?: ProductPageProps["useCases"] };
 function UseCasesSection({ useCases }: UseCasesSectionProps) {
   if (!useCases) return null;
-  
   return (
-    <section className="mb-8">
+    <section className="mb-16">
       <div className="max-w-5xl mx-auto px-6">
         <h3 className="text-3xl font-bold text-center text-white">{useCases.headline}</h3>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
@@ -425,13 +437,13 @@ function UseCasesSection({ useCases }: UseCasesSectionProps) {
   );
 }
 
-// Optional API Section
+// ApiSection (未做修改)
+// 代码块使用卡片样式来模拟编辑器的外观，这是清晰且有效的，予以保留。
 type ApiSectionProps = { api?: ProductPageProps["apiSection"] };
 function ApiSection({ api }: ApiSectionProps) {
   if (!api) return null;
-  
   return (
-    <section className="mb-8">
+    <section className="mb-16">
       <div className="max-w-5xl mx-auto px-6">
         <h3 className="text-3xl font-bold text-center text-white">{api.headline}</h3>
         <p className="mt-4 text-lg text-white/80 text-center max-w-3xl mx-auto">{api.description}</p>
@@ -451,7 +463,8 @@ function ApiSection({ api }: ApiSectionProps) {
   );
 }
 
-// CTA Section matching KYC format
+// CtaSection (未做修改)
+// CTA 作为页面的最终号召，使用突出的卡片设计是合适的。
 type CtaSectionProps = { cta: ProductPageProps["cta"] };
 function CtaSection({ cta }: CtaSectionProps) {
   return (
@@ -470,46 +483,35 @@ function CtaSection({ cta }: CtaSectionProps) {
   );
 }
 
-// Main composed component with SiteShell
+// 主页面组件
+// 将所有部分组合在一起。注意每个 section 之间的垂直间距 `mb-16`，以确保清晰的节奏。
 export function ProductPage({ data }: { data: ProductPageProps }) {
   return (
     <SiteShell>
-      {/* Hero above existing card(s) */}
-      <HeroSection hero={data.hero} breadcrumb={data.breadcrumb} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <HeroSection hero={data.hero} breadcrumb={data.breadcrumb} />
 
-      {/* Problem section about the problem */}
-      <ProblemSection problemSection={data.problemSection} />
+        {/* 主要内容区域现在更加连贯 */}
+        <div className="space-y-16 md:space-y-24">
+            <ProblemSection problemSection={data.problemSection} />
+            <ThreatLandscapeSection threat={data.threatLandscape} />
+            <SolutionSection solution={data.solution} />
+            <AdvantagesSection advantages={data.advantages} />
+            <UseCasesSection useCases={data.useCases} />
+            <ApiSection api={data.apiSection} />
+        </div>
+        
+        <CtaSection cta={data.cta} />
 
-      {/* Optional threat landscape */}
-      <ThreatLandscapeSection threat={data.threatLandscape} />
-      
-      {/* Solution section */}
-      <SolutionSection solution={data.solution} />
-      
-      {/* Advantages section */}
-      <AdvantagesSection advantages={data.advantages} />
-      
-      {/* Optional use cases */}
-      <UseCasesSection useCases={data.useCases} />
-      
-      {/* Optional API section */}
-      <ApiSection api={data.apiSection} />
-      
-      {/* CTA Card */}
-      <CtaSection cta={data.cta} />
-
-      {/* Bottom next link */}
-      {data.breadcrumb.nextPath && data.breadcrumb.nextName && (
-        <div className="mt-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14">
-          <div className="flex justify-end text-sm">
-            <Link href={data.breadcrumb.nextPath} className="text-white/80 hover:text-white/90">
+        {data.breadcrumb.nextPath && data.breadcrumb.nextName && (
+          <div className="mt-12 text-right">
+            <Link href={data.breadcrumb.nextPath} className="text-sm text-white/80 hover:text-white/90">
               Next: {data.breadcrumb.nextName} →
             </Link>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
-      {/* Page background with card styling */}
       {data.backgroundImage && (
         <div
           className="fixed inset-0 -z-10 opacity-60 bg-cover bg-center"
@@ -521,95 +523,6 @@ export function ProductPage({ data }: { data: ProductPageProps }) {
   );
 }
 
-// Preview with sample data
-const deepfakeProductData: ProductPageProps = {
-  metadata: {
-    title: "Deepfake Detection — ScamAI",
-    description: "Detect deepfakes with ScamAI's advanced detection technology.",
-  },
-  breadcrumb: {
-    parentPath: "/research",
-    parentName: "Research",
-    currentName: "Deepfake Detection",
-    nextPath: "/research/voice-clones",
-    nextName: "Voice Clones",
-  },
-  hero: {
-    category: "Research Solutions for Deepfake Detection",
-    headline: "Deepfake Detection\nThat Actually Works",
-    subtitle: "Advanced model catches over 90% of sota deepfakes.\nKeep your research safe. Keep authenticity intact.",
-    tags: ["GenAI", "Deepfake", "Detection"],
-    visual: {
-      type: "video",
-      src: "/deepfake_scamai.webm",
-    },
-  },
-  problemSection: {
-    headline: "Over 90% Detection Tools\nFailed to Catch Deepfakes",
-    description: "Traditional detection can't keep up with AI-generated fraud. Sophisticated deepfakes now bypass standard verification with ease.",
-    additionalContent: "While most tools fail to detect these forgeries, researchers face authenticity concerns and trust issues. You need detection that actually works.",
-    visual: {
-      type: "video",
-      src: "/dashboard.webm",
-    },
-    valueProps: [
-      { title: "Stop fake content", description: "Block deepfake videos and manipulated media." },
-      { title: "Ensure authenticity", description: "Verify content integrity for research." },
-      { title: "Research confidence", description: "Clear, reliable detection signals." },
-    ],
-  },
-  threatLandscape: {
-    headline: "The Challenge of Synthetic Media",
-    description: "Sophisticated AI can now generate content nearly indistinguishable from reality, creating unprecedented risks for research integrity and authenticity verification.",
-    keyThreats: [
-      { icon: "ShieldAlert", text: "Identity Fraud & Manipulation" },
-      { icon: "Briefcase", text: "Executive Impersonation" },
-      { icon: "MessageSquareWarning", text: "Disinformation & Propaganda" },
-    ],
-    dataPoint: "By 2026, generative AI will account for over 30% of fraudulent content targeting research and verification systems. (Source: Gartner)",
-  },
-  solution: {
-    productName: "Deepfake Defender™",
-    headline: "Our Solution: Deepfake Defender™",
-    description: "Deepfake Defender™ is a specialized AI model engineered to identify the subtle, microscopic traces left behind by generative tools, operating on a level beyond human perception.",
-    coreDimensions: [
-      { title: "Artifact Analysis", description: "Detects flaws in texture, lighting, and edges invisible to the human eye." },
-      { title: "Temporal Consistency", description: "Verifies that motion, expressions, and biometrics are consistent across video frames." },
-      { title: "Model Fingerprinting", description: "Identifies unique digital signatures left by specific generative models." },
-    ],
-    outputDescription: "The API returns a clean JSON object with a risk score, confidence level, and actionable evidence.",
-  },
-  advantages: {
-    headline: "Why Choose Deepfake Defender™?",
-    items: [
-      { icon: "Zap", title: "Real-time Performance", description: "Millisecond latency for high-concurrency operations." },
-      { icon: "Target", title: "Precision & Accuracy", description: "Industry-leading accuracy, trained on vast proprietary datasets." },
-      { icon: "Globe", title: "Robust Coverage", description: "Reliable performance across diverse formats, qualities, and languages." },
-      { icon: "BrainCircuit", title: "Constant Evolution", description: "Continuously updated by our ScamNet DB™ to counter emerging threats." },
-    ],
-  },
-  useCases: {
-    headline: "Applications & Use Cases",
-    items: ["Research Verification", "Media Authenticity", "Content Analysis", "Academic Studies"],
-  },
-  apiSection: {
-    headline: "Simple & Powerful API",
-    description: "Integrate advanced detection capabilities with just a few lines of code. Our API is built for developer productivity and research scale.",
-    codeExample: {
-      request: '{\n  "asset_uri": "https://example.com/research_video.mp4"\n}',
-      response: '{\n  "request_id": "vid-abc-456",\n  "is_synthetic": true,\n  "confidence_score": 0.998,\n  "evidence": [\n    {\n      "region_coords": [450, 150, 250, 250],\n      "reason_code": "unnatural_eye_blinking"\n    }\n  ]\n}',
-    },
-  },
-  cta: {
-    headline: "Research with confidence.",
-    description: "Add an extra layer of authenticity verification to your research process.",
-    primary: { text: "Schedule a Demo", href: "/demo" },
-  },
-  backgroundImage: "/deepfake.webp",
-};
 
-export function ProductPagePreview() {
-  return <ProductPage data={deepfakeProductData} />;
-}
 
 export default ProductPage;

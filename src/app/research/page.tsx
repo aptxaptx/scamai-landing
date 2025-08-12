@@ -22,47 +22,47 @@ export default function ResearchPage() {
       </section>
 
       {/* Research areas grid */}
-      <section className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <section className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           {
             title: "AI-Generated Media",
-            desc: "Detection and analysis of AI-generated images, videos, and multimedia content.",
+            desc: "Detect synthetic images, videos, and multimedia content using advanced AI models.",
             href: "/research/ai-generated-media",
           },
           {
             title: "Deepfakes",
-            desc: "Advanced detection methods for deepfake videos and synthetic media.",
+            desc: "Real-time detection of deepfake videos and facial manipulation techniques.",
             href: "/research/deepfakes",
           },
           {
             title: "Voice Clones",
-            desc: "Research on voice synthesis detection and audio authenticity verification.",
+            desc: "Audio authenticity verification and voice synthesis detection algorithms.",
             href: "/research/voice-clones",
           },
           {
-            title: "Messages",
-            desc: "Natural language processing for identifying fraudulent and scam text content.",
+            title: "Scam Text Detection",
+            desc: "NLP models for identifying fraudulent messages and social engineering attempts.",
             href: "/research/scam-text-detection",
           },
           {
-            title: "Link/QR Code",
-            desc: "Detection and analysis of malicious URLs and QR codes for security research.",
+            title: "Malicious Links & QR Codes",
+            desc: "URL analysis and QR code security for threat detection and prevention.",
             href: "/research/link-qr-code",
           },
           {
-            title: "ScamDB",
-            desc: "Scalable database systems for storing and querying detection results.",
+            title: "ScamNet Database",
+            desc: "Large-scale threat intelligence database with real-time query capabilities.",
             href: "/research/large-scale-database",
           },
         ].map((card) => (
           <article
             key={card.title}
-            className="relative rounded-2xl p-6 md:p-8 overflow-hidden hover:bg-white/10 transition-colors min-h-[200px] cursor-pointer"
+            className="relative border border-white/15 rounded-xl p-6 hover:border-white/25 transition-all duration-200 group cursor-pointer"
           >
-            <h2 className="text-lg font-semibold tracking-tight">{card.title}</h2>
-            <p className="mt-2 text-sm text-white/80">{card.desc}</p>
-            <Link href={card.href} className="mt-4 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4 relative z-10">
-              Learn more →
+            <h2 className="text-lg font-semibold tracking-tight text-white">{card.title}</h2>
+            <p className="mt-3 text-sm text-white/75 leading-relaxed">{card.desc}</p>
+            <Link href={card.href} className="mt-4 inline-flex text-sm font-medium text-white/85 hover:text-white group-hover:translate-x-1 transition-all duration-200 relative z-10">
+              Explore research →
             </Link>
             <Link href={card.href} aria-label={`Open ${card.title}`} className="absolute inset-0" />
           </article>
