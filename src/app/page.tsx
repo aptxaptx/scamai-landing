@@ -109,9 +109,7 @@ export default function Home() {
               {
                 title: "Why Us",
                 desc: "Best‑in‑class accuracy and low‑latency inference with simple, production‑ready APIs. Ship trust in days, not months.",
-                bg: (
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white/10 to-white/[0.03]" />
-                ),
+                bg: <div className="absolute inset-0 -z-10 bg-[url('/whyus.webp')] bg-cover bg-center opacity-70" />,
                 href: "/demo",
                 light: true,
               },
