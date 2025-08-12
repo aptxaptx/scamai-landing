@@ -5,7 +5,7 @@ export const metadata = { title: "Deepfakes/Faceswap — ScamAI" };
 const deepfakePageData: ProductPageProps = {
   metadata: {
     title: "Deepfakes/Faceswap — ScamAI",
-    description: "Detect deepfakes and faceswap manipulation with ScamAI's advanced detection technology.",
+    description: "Detect deepfakes and faceswaps with ScamAI's advanced real-time detection.",
   },
   breadcrumb: {
     parentPath: "/research",
