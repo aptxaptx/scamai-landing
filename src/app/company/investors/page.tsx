@@ -10,7 +10,7 @@ export default function InvestorsPage() {
         <div className="max-w-3xl mx-auto px-5 md:px-8 text-center">
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-white">Investors</h1>
           <p className="mt-4 text-white/70 leading-relaxed">
-            Fighting scams and fraud is a long journey. We’re not actively seeking investment partners; if our mission resonates and you share our patience, resilience, and sense of responsibility, we’re open to a conversation.
+            Fighting scams and fraud is a long journey. We’re not actively seeking investment partners; if our mission resonates and you share our passion, resilience, and sense of responsibility, we’re open to a conversation.
           </p>
           <p className="mt-3 text-white/70 leading-relaxed">
             We operate from a clear set of values: Integrity & accountability, People first, Rigor with humility, and Building for decades. These principles guide what we build, how we ship, and the partnerships we choose.
