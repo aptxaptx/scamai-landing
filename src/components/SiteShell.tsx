@@ -506,9 +506,9 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-white/70 hover:text-white text-sm transition-colors">
+                    <Link href="/demo" className="text-white/70 hover:text-white text-sm transition-colors">
                       Contact Sales
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -576,6 +576,55 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                   </li>
                 </ul>
               </div>
+
+              {/* Stories */}
+              <div>
+                <h3 className="text-white font-semibold mb-4">Stories</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="/stories/news" className="text-white/70 hover:text-white text-sm transition-colors">
+                      News
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/stories/type-of-scams" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Type of Scams
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/stories/scam-trends" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Scam Trends
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Company */}
+              <div>
+                <h3 className="text-white font-semibold mb-4">Company</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="/company/about" className="text-white/70 hover:text-white text-sm transition-colors">
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/company/people" className="text-white/70 hover:text-white text-sm transition-colors">
+                      People
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/company/partnership" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Partnership
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/company/investors" className="text-white/70 hover:text-white text-sm transition-colors">
+                      Investors
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Bottom Section */}
@@ -588,6 +637,8 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                 </div>
                 <div className="flex items-center gap-6 text-sm text-white/40">
                   <Link href="#" className="hover:text-white transition-colors">Manage Cookies</Link>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">X</a>
+                  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
                   <span>© 2025 Reality Inc. All rights reserved.</span>
                 </div>
               </div>
