@@ -170,7 +170,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                       <button
                         key={item}
                         type="button"
-                        onClick={() => setSubmenu(submenu === "company" ? "none" : "company")}
+                        onClick={() => router.push("/company/about")}
                         className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                       >
                         <span>{item}</span>
