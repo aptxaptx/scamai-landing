@@ -77,7 +77,7 @@ const linkQRCodePageData: ProductPageProps = {
     description: "Protect your research with advanced URL and QR code threat detection capabilities.",
     primary: { text: "Schedule a Demo", href: "https://cal.com/scamai/25min?overlayCalendar=true" },
   },
-  backgroundImage: "/link.webp",
+  backgroundImage: "/fakenews.webp",
 };
 
 export default function LinkQRCodePage() {
