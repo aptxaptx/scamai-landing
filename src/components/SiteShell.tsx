@@ -76,13 +76,12 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   return (
     <div className="min-h-dvh px-5 md:px-0 pt-2 pb-5 md:pl-[240px]">
       {/* Sidebar */}
-      <aside className="p-2 z-10 flex flex-col md:fixed md:top-8 md:left-0 md:w-[240px] md:h-[calc(100dvh-64px)] md:overflow-y-auto">
+      <aside className="p-2 z-10 flex flex-col md:fixed md:left-0 md:w-[240px] md:top-8 md:h-[calc(100dvh-64px)] md:overflow-y-auto">
         <Link href="/" className="flex items-center gap-2 px-2 pb-4">
           {/* SVG logo */}
-          <img src="/logo.svg" alt="Reality Inc. logo" className="h-8 w-8" />
-          <span className="text-lg md:text-xl tracking-tight text-white">Reality Inc.</span>
+          <img src="/scamailogo.png" alt="Scam AI logo" className="h-8 w-auto" />
         </Link>
-        <div className="md:flex-1 grid content-start overflow-hidden">
+        <div className="md:flex-1 grid content-center md:-mt-2 overflow-hidden">
           <div className="relative">
             {/* Primary panel */}
             <div
@@ -448,16 +447,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
       {/* Topbar */}
       {!hideTopbar && (
-        <header className="fixed right-5 top-2 z-30 flex items-center gap-2">
-          <button
-            aria-label="Search"
-            className="h-9 w-9 rounded-xl grid place-items-center bg-white/5 border border-white/10 backdrop-blur-md"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              <circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
-          </button>
+        <header className="fixed right-5 top-2 md:top-[40px] z-30 flex items-center gap-2">
           <a href="/demo" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 font-semibold">
             Demo
           </a>
