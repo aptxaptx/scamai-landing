@@ -11,13 +11,14 @@ const scamNetDatabasePageData: ProductPageProps = {
     parentPath: "/research",
     parentName: "Research",
     currentName: "ScamNet Database",
-    nextPath: "/research/datasets",
-    nextName: "Datasets",
+    nextPath: "/research/publication",
+    nextName: "Publications",
   },
   hero: {
     category: "Research Database for Scam Analysis",
-    headline: "The Intelligence Engine Powering\nNext-Generation Fraud Defense",
-    subtitle: "Welcome to ScamNet DB™, the most comprehensive and real-time database of active scams on the planet.\nThis is not just a static blocklist; it's a living ecosystem of threat intelligence that forms the core foundation of the entire Scam.ai platform. 🧠",
+    headline: "The Intelligence Engine Powering",
+    subtitle: "Next-Generation Fraud Defense",
+    description: "Welcome to ScamNet DB™, the most comprehensive and real-time database of active scams on the planet. This is not just a static blocklist; it's a living ecosystem of threat intelligence that forms the core foundation of the entire Scam.ai platform. 🧠",
     tags: ["Database", "Scam Intelligence", "Research Data", "ScamNet DB"],
     visual: {
       type: "image",

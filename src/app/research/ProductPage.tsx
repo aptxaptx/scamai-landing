@@ -107,6 +107,7 @@ export interface ProductPageProps {
     category: string;
     headline: string;
     subtitle: string;
+    description?: string;
     tags: string[];
     visual?: {
       type: "video" | "image";
@@ -211,7 +212,7 @@ function HeroSection({ hero, breadcrumb }: HeroSectionProps) {
             </React.Fragment>
           ))}
         </h1>
-        <p className="mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
+        <p className="mt-4 text-white/85 text-[clamp(16px,2.5vw,24px)] font-semibold max-w-2xl mx-auto">
           {hero.subtitle.split('\n').map((line, i) => (
             <React.Fragment key={i}>
               {line}
@@ -219,6 +220,11 @@ function HeroSection({ hero, breadcrumb }: HeroSectionProps) {
             </React.Fragment>
           ))}
         </p>
+        {hero.description && (
+          <p className="mt-6 text-white/75 text-[clamp(14px,2vw,18px)] max-w-3xl mx-auto leading-relaxed">
+            {hero.description}
+          </p>
+        )}
 
         {/* Tags */}
         <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
@@ -492,16 +498,14 @@ export function ProductPage({ data }: { data: ProductPageProps }) {
         <HeroSection hero={data.hero} breadcrumb={data.breadcrumb} />
 
         {/* 主要内容区域现在更加连贯 */}
-        <div className="space-y-16 md:space-y-24">
-            <ProblemSection problemSection={data.problemSection} />
-            <ThreatLandscapeSection threat={data.threatLandscape} />
-            <SolutionSection solution={data.solution} />
-            <AdvantagesSection advantages={data.advantages} />
-            <UseCasesSection useCases={data.useCases} />
-            <ApiSection api={data.apiSection} />
-        </div>
-        
-        <CtaSection cta={data.cta} />
+                 <div className="space-y-16 md:space-y-24">
+             <ProblemSection problemSection={data.problemSection} />
+             <ThreatLandscapeSection threat={data.threatLandscape} />
+             <SolutionSection solution={data.solution} />
+             <AdvantagesSection advantages={data.advantages} />
+             <UseCasesSection useCases={data.useCases} />
+             <ApiSection api={data.apiSection} />
+         </div>
 
         {data.breadcrumb.nextPath && data.breadcrumb.nextName && (
           <div className="mt-12 text-right">

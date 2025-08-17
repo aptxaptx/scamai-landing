@@ -1,23 +1,24 @@
 import { ProductPage, ProductPageProps } from "../ProductPage";
 
-export const metadata = { title: "Deepfakes/Faceswap — ScamAI" };
+export const metadata = { title: "Deepfakes (Faceswap) — ScamAI" };
 
 const deepfakePageData: ProductPageProps = {
   metadata: {
-    title: "Deepfakes/Faceswap — ScamAI",
+    title: "Deepfakes (Faceswap) — ScamAI",
     description: "Detect deepfakes and faceswaps with ScamAI's advanced real-time detection.",
   },
   breadcrumb: {
     parentPath: "/research",
     parentName: "Research",
-    currentName: "Deepfakes/Faceswap",
+    currentName: "Deepfakes (Faceswap)",
     nextPath: "/research/ai-generated-media",
     nextName: "AI-Generated Media",
   },
   hero: {
-    category: "Research Solutions for Deepfake Detection",
-    headline: "Real-Time Deepfake Detection\nDefending the Truth in Visual Content",
-    subtitle: "Scam.ai's Video Integrity™ model analyzes video and images frame-by-frame,\nproviding instant, precise alerts before deepfake content can cause identity fraud or reputational damage.",
+    category: "Deepfake Detection",
+    headline: "Real-Time Deepfake Detection",
+    subtitle: "Defending the Truth in Visual Content",
+    description: "Scam.ai's Video Integrity™ model analyzes video and images frame-by-frame, providing instant, precise alerts before deepfake content can cause identity fraud or reputational damage.",
     tags: ["GenAI", "Deepfake", "Faceswap", "Video Integrity"],
     visual: {
       type: "video",

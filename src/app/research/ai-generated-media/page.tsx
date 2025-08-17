@@ -1,10 +1,10 @@
 import { ProductPage, ProductPageProps } from "../ProductPage";
 
-export const metadata = { title: "GenAI Images/Videos — ScamAI" };
+export const metadata = { title: "GenAI Media Detection — ScamAI" };
 
 const aiGeneratedMediaPageData: ProductPageProps = {
   metadata: {
-    title: "GenAI Images/Videos — ScamAI",
+    title: "GenAI Media Detection — ScamAI",
     description: "Detect AI-generated images and videos with ScamAI's advanced detection technology.",
   },
   breadcrumb: {
@@ -15,9 +15,10 @@ const aiGeneratedMediaPageData: ProductPageProps = {
     nextName: "Voice Clones",
   },
   hero: {
-    category: "Research Solutions for AI-Generated Media Detection",
-    headline: "Detect AI-Generated Images & Video\nVerifying Reality in a Synthetic World",
-    subtitle: "Scam.ai's Visual Authenticity™ model analyzes visual content for the hidden signatures of generative AI,\nproviding instant alerts before fake products, evidence, or realities can be used to deceive.",
+    category: "AI-Generated Media Detection",
+    headline: "Detect AI-Generated Images and Video",
+    subtitle: "Verifying Reality in a Synthetic World",
+    description: "Scam.ai's Visual Authenticity™ model analyzes visual content for the hidden signatures of generative AI, providing instant alerts before fake products, evidence, or realities can be used to deceive.",
     tags: ["GenAI", "Synthetic Media", "Detection", "Visual Authenticity"],
     visual: {
       type: "image",
