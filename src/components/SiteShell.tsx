@@ -76,13 +76,13 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
   return (
     <div className="min-h-dvh px-5 md:px-0 pt-2 pb-5 md:pl-[240px]">
       {/* Sidebar */}
-      <aside className="p-2 z-10 flex flex-col md:fixed md:left-0 md:w-[240px] md:top-8 md:h-[calc(100dvh-64px)] md:overflow-y-auto">
+      <aside className="p-2 z-10 flex flex-col md:fixed md:left-0 md:w-[240px] md:top-8 md:h-[calc(100dvh-64px)] md:overflow-y-auto overflow-x-auto">
         <Link href="/" className="flex items-center gap-2 px-2 pb-4">
           {/* SVG logo */}
           <img src="/scamailogo.png" alt="Scam AI logo" className="h-8 w-auto" />
         </Link>
-        <div className="md:flex-1 grid content-center md:-mt-2 overflow-hidden">
-          <div className="relative">
+        <div className="md:flex-1 grid content-center md:-mt-2 overflow-x-auto md:overflow-hidden">
+          <div className="relative min-w-[280px] md:min-w-0">
             {/* Primary panel */}
             <div
               className={`transition-transform duration-300 ease-out ${
@@ -204,7 +204,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Business submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out  ${
+              className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out  ${
                 submenu === "business" ? "translate-x-0" : "translate-x-full"
               }`}
             
@@ -251,7 +251,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Individuals submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out  ${
+              className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out  ${
                 submenu === "individuals" ? "translate-x-0" : "translate-x-full"
               }`}
              
@@ -294,7 +294,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Research submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out  ${
+              className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out  ${
                 submenu === "research" ? "translate-x-0" : "translate-x-full"
               }`}
              
@@ -312,7 +312,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                   <span>Home</span>
                 </button>
               </div>
-              <nav className="flex flex-col gap-1 md:gap-2 px-2 overflow-y-auto max-h-[calc(100vh-200px)]" aria-label="Research">
+              <nav className="flex flex-col gap-1 md:gap-2 px-2 overflow-y-auto max-h-[calc(100vh-200px)] md:max-h-none" aria-label="Research">
                 {researchLinks.map((item) => {
                   const href = item === "Detection Models"
                     ? "#"
@@ -362,7 +362,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Stories submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out  ${
+              className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out  ${
                 submenu === "stories" ? "translate-x-0" : "translate-x-full"
               }`}
          
@@ -403,7 +403,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
             {/* Company submenu panel */}
             <div
-              className={`absolute inset-0 transition-transform duration-300 ease-out  ${
+              className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out  ${
                 submenu === "company" ? "translate-x-0" : "translate-x-full"
               }`}
            
