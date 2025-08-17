@@ -95,7 +95,7 @@ export default function Home() {
                 href: "/research/voice-clones",
               },
               {
-                title: "Link/QR Detection",
+                title: "Link & QR Code Detection",
                 desc: "Detect malicious URLs, QR codes and redirectors used in phishing scams.",
                 bg: <div className="absolute inset-0 -z-10 bg-[url('/link.webp')] bg-cover bg-center opacity-60" />,
                 href: "/research/scam-text-detection",

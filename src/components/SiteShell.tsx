@@ -50,11 +50,11 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
 
   const researchLinks = [
     "Detection Models",
-    "GenAI Images/Videos",
-    "Deepfakes/Faceswap",
+    "GenAI Media Detection",
+    "Deepfakes (Faceswap)",
     "Voice Cloning",
     "Messages",
-    "Link/QR Code",
+    "Link & QR Code",
     "Research",
     "Publication",
     "ScamDB",
@@ -316,15 +316,15 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                 {researchLinks.map((item) => {
                   const href = item === "Detection Models"
                     ? "#"
-                    : item === "GenAI Images/Videos" 
+                    : item === "GenAI Media Detection" 
                     ? "/research/ai-generated-media"
-                    : item === "Deepfakes/Faceswap"
+                    : item === "Deepfakes (Faceswap)"
                     ? "/research/deepfakes"
                     : item === "Voice Cloning"
                     ? "/research/voice-clones"
                     : item === "Messages"
                     ? "/research/scam-text-detection"
-                    : item === "Link/QR Code"
+                    : item === "Link & QR Code"
                     ? "/research/link-qr-code"
                     : item === "Publication"
                     ? "/research/publication"
@@ -339,7 +339,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                     >
                       {item}
                     </div>
-                  ) : item === "GenAI Images/Videos" || item === "Deepfakes/Faceswap" || item === "Voice Cloning" || item === "Messages" || item === "Link/QR Code" || item === "Publication" || item === "ScamDB" ? (
+                  ) : item === "GenAI Media Detection" || item === "Deepfakes (Faceswap)" || item === "Voice Cloning" || item === "Messages" || item === "Link & QR Code" || item === "Publication" || item === "ScamDB" ? (
                     <Link
                       key={item}
                       href={href}
@@ -523,12 +523,12 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                 <ul className="space-y-2">
                   <li>
                     <Link href="/research/ai-generated-media" className="text-white/70 hover:text-white text-sm transition-colors">
-                      GenAI Images/Videos
+                      GenAI Media Detection
                     </Link>
                   </li>
                   <li>
                     <Link href="/research/deepfakes" className="text-white/70 hover:text-white text-sm transition-colors">
-                      Deepfakes/Faceswap
+                      Deepfakes (Faceswap)
                     </Link>
                   </li>
                   <li>
@@ -543,7 +543,7 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
                   </li>
                   <li>
                     <Link href="/research/link-qr-code" className="text-white/70 hover:text-white text-sm transition-colors">
-                      Link/QR Code
+                      Link & QR Code
                     </Link>
                   </li>
 

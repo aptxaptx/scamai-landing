@@ -492,16 +492,14 @@ export function ProductPage({ data }: { data: ProductPageProps }) {
         <HeroSection hero={data.hero} breadcrumb={data.breadcrumb} />
 
         {/* 主要内容区域现在更加连贯 */}
-        <div className="space-y-16 md:space-y-24">
-            <ProblemSection problemSection={data.problemSection} />
-            <ThreatLandscapeSection threat={data.threatLandscape} />
-            <SolutionSection solution={data.solution} />
-            <AdvantagesSection advantages={data.advantages} />
-            <UseCasesSection useCases={data.useCases} />
-            <ApiSection api={data.apiSection} />
-        </div>
-        
-        <CtaSection cta={data.cta} />
+                 <div className="space-y-16 md:space-y-24">
+             <ProblemSection problemSection={data.problemSection} />
+             <ThreatLandscapeSection threat={data.threatLandscape} />
+             <SolutionSection solution={data.solution} />
+             <AdvantagesSection advantages={data.advantages} />
+             <UseCasesSection useCases={data.useCases} />
+             <ApiSection api={data.apiSection} />
+         </div>
 
         {data.breadcrumb.nextPath && data.breadcrumb.nextName && (
           <div className="mt-12 text-right">

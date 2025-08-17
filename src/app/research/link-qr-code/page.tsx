@@ -1,21 +1,21 @@
 import { ProductPage, ProductPageProps } from "../ProductPage";
 
-export const metadata = { title: "Link/QR Code Detection — ScamAI" };
+export const metadata = { title: "Link & QR Code Detection — ScamAI" };
 
 const linkQRCodePageData: ProductPageProps = {
   metadata: {
-    title: "Link/QR Code Detection — ScamAI",
+    title: "Link & QR Code Detection — ScamAI",
     description: "Detect malicious links and QR codes with ScamAI's advanced URL analysis technology.",
   },
   breadcrumb: {
     parentPath: "/research",
     parentName: "Research",
-    currentName: "Link/QR Code",
+    currentName: "Link & QR Code",
     nextPath: "/research/large-scale-database",
     nextName: "ScamNet Database",
   },
   hero: {
-    category: "Research Solutions for Link & QR Code Detection",
+    category: "Link & QR Code Detection",
     headline: "Link & QR Code Detection\nMalicious URL Analysis",
     subtitle: "Identify dangerous links and malicious QR codes.\nProtect against URL-based attacks and fraud.",
     tags: ["URL Analysis", "QR Code", "Link Detection"],
