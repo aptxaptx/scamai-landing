@@ -25,6 +25,16 @@ export default function ResearchPage() {
       <section className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           {
+            title: "ScamNet Database",
+            desc: "Large-scale threat intelligence database with real-time query capabilities.",
+            href: "/research/large-scale-database",
+          },
+          {
+            title: "Publications & Datasets",
+            desc: "Research papers, datasets, and publications advancing fraud detection and AI security.",
+            href: "/research/publication",
+          },
+          {
             title: "AI-Generated Media",
             desc: "Detect synthetic images, videos, and multimedia content using advanced AI models.",
             href: "/research/ai-generated-media",
@@ -48,11 +58,6 @@ export default function ResearchPage() {
             title: "Malicious Links & QR Codes",
             desc: "URL analysis and QR code security for threat detection and prevention.",
             href: "/research/link-qr-code",
-          },
-          {
-            title: "ScamNet Database",
-            desc: "Large-scale threat intelligence database with real-time query capabilities.",
-            href: "/research/large-scale-database",
           },
         ].map((card) => (
           <article

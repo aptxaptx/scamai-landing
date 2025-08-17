@@ -11,8 +11,8 @@ const scamNetDatabasePageData: ProductPageProps = {
     parentPath: "/research",
     parentName: "Research",
     currentName: "ScamNet Database",
-    nextPath: "/research/datasets",
-    nextName: "Datasets",
+    nextPath: "/research/publication",
+    nextName: "Publications",
   },
   hero: {
     category: "Research Database for Scam Analysis",

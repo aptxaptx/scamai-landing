@@ -56,8 +56,8 @@ export default function SiteShell({ children, secondaryLinks = [], hideTopbar = 
     "Messages",
     "Link & QR Code",
     "Research",
-    "Publication",
     "ScamDB",
+    "Publication",
   ];
 
   const storiesLinks = [
