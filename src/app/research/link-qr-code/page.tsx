@@ -16,8 +16,9 @@ const linkQRCodePageData: ProductPageProps = {
   },
   hero: {
     category: "Link & QR Code Detection",
-    headline: "Link & QR Code Detection\nMalicious URL Analysis",
-    subtitle: "Identify dangerous links and malicious QR codes.\nProtect against URL-based attacks and fraud.",
+    headline: "Link & QR Code Detection",
+    subtitle: "Malicious URL Analysis",
+    description: "Identify dangerous links and malicious QR codes. Protect against URL-based attacks and fraud.",
     tags: ["URL Analysis", "QR Code", "Link Detection"],
     visual: {
       type: "image",

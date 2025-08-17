@@ -16,8 +16,9 @@ const voiceClonesPageData: ProductPageProps = {
   },
   hero: {
     category: "AI Voice Clone Detection",
-    headline: "Real-Time AI Voice Clone Detection\nSecure Every Conversation",
-    subtitle: "Our Auditory Guardian™ model instantly identifies synthetic speech and deepfake audio, stopping voice-based fraud in real time.",
+    headline: "Real-Time AI Voice Clone Detection",
+    subtitle: "Secure Every Conversation",
+    description: "Our Auditory Guardian™ model instantly identifies synthetic speech and deepfake audio, stopping voice-based fraud in real time.",
     tags: ["Voice AI", "Audio Synthesis", "Detection", "Auditory Guardian"],
     visual: {
       type: "image",

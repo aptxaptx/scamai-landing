@@ -16,8 +16,9 @@ const aiGeneratedMediaPageData: ProductPageProps = {
   },
   hero: {
     category: "AI-Generated Media Detection",
-    headline: "Detect AI-Generated Images and Video\nVerifying Reality in a Synthetic World",
-    subtitle: "Scam.ai's Visual Authenticity™ model analyzes visual content for the hidden signatures of generative AI,\nproviding instant alerts before fake products, evidence, or realities can be used to deceive.",
+    headline: "Detect AI-Generated Images and Video",
+    subtitle: "Verifying Reality in a Synthetic World",
+    description: "Scam.ai's Visual Authenticity™ model analyzes visual content for the hidden signatures of generative AI, providing instant alerts before fake products, evidence, or realities can be used to deceive.",
     tags: ["GenAI", "Synthetic Media", "Detection", "Visual Authenticity"],
     visual: {
       type: "image",

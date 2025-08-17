@@ -16,8 +16,9 @@ const deepfakePageData: ProductPageProps = {
   },
   hero: {
     category: "Deepfake Detection",
-    headline: "Real-Time Deepfake Detection\nDefending the Truth in Visual Content",
-    subtitle: "Scam.ai's Video Integrity™ model analyzes video and images frame-by-frame,\nproviding instant, precise alerts before deepfake content can cause identity fraud or reputational damage.",
+    headline: "Real-Time Deepfake Detection",
+    subtitle: "Defending the Truth in Visual Content",
+    description: "Scam.ai's Video Integrity™ model analyzes video and images frame-by-frame, providing instant, precise alerts before deepfake content can cause identity fraud or reputational damage.",
     tags: ["GenAI", "Deepfake", "Faceswap", "Video Integrity"],
     visual: {
       type: "video",
