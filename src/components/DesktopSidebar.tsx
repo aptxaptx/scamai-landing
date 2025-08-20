@@ -104,7 +104,7 @@ export default function DesktopSidebar() {
           <div className={`transition-transform duration-300 ease-out ${
             submenu === "none" ? "translate-x-0" : "-translate-x-full"
           }`}>
-            <nav className="flex flex-col gap-2 px-4 pt-6" aria-label="Primary">
+            <nav className="flex flex-col gap-2 px-4 pt-10" aria-label="Primary">
               {mainLinks.map((item) => {
                 if (item === "For Business") {
                   return (
