@@ -110,3 +110,28 @@ body {
     );
   }
 }
+
+/* Desktop sidebar and mobile menu styles */
+@media (max-width: 768px) {
+  /* Hide desktop sidebar on mobile */
+  aside[data-desktop-sidebar] {
+    display: none !important;
+  }
+  
+  /* Prevent body scroll when mobile menu is open */
+  body.mobile-menu-open {
+    overflow: hidden;
+  }
+  
+  /* Smooth hamburger animation */
+  .hamburger-line {
+    transform-origin: center;
+  }
+}
+
+/* Show desktop sidebar on desktop */
+@media (min-width: 769px) {
+  aside[data-desktop-sidebar] {
+    display: flex !important;
+  }
+}
