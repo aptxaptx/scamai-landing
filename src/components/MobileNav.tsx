@@ -2,16 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const pathname = usePathname();
-  const router = useRouter();
 
   // Close menu when route changes
   useEffect(() => {
     setIsOpen(false);
+    setExpandedSection(null);
   }, [pathname]);
 
   // Prevent body scroll when menu is open
@@ -27,14 +28,14 @@ export default function MobileNav() {
     };
   }, [isOpen]);
 
-  const mainLinks = [
-    { label: "Home", href: "/" },
-    { label: "For Business", href: "/business?s=usecase" },
-    { label: "For Individuals", href: "/individuals?s=mobile" },
-    { label: "Research", href: "/research" },
-    { label: "Stories", href: "/stories/news" },
-    { label: "Company", href: "/company/about" },
-  ];
+  const closeMenu = () => {
+    setIsOpen(false);
+    setExpandedSection(null);
+  };
+
+  const toggleSection = (section: string) => {
+    setExpandedSection(expandedSection === section ? null : section);
+  };
 
   return (
     <>
@@ -72,7 +73,7 @@ export default function MobileNav() {
       {isOpen && (
         <div 
           className="md:hidden fixed inset-0 bg-black/50 z-40"
-          onClick={() => setIsOpen(false)}
+          onClick={closeMenu}
         />
       )}
 
@@ -81,17 +82,152 @@ export default function MobileNav() {
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}>
         <div className="p-5 overflow-y-auto h-full">
-          <nav className="flex flex-col gap-1">
-            {mainLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block rounded-xl px-4 py-4 text-lg font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+          <nav className="flex flex-col gap-2">
+            {/* Home */}
+            <Link
+              href="/"
+              onClick={closeMenu}
+              className="block rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              Home
+            </Link>
+
+            {/* For Business */}
+            <div>
+              <button
+                onClick={() => toggleSection("business")}
+                className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
               >
-                {link.label}
-              </Link>
-            ))}
+                <span>For Business</span>
+                <span className={`transition-transform duration-200 ${expandedSection === "business" ? "rotate-90" : ""}`}>→</span>
+              </button>
+              {expandedSection === "business" && (
+                <div className="ml-4 mt-1 space-y-1">
+                  <Link href="/business?s=usecase" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    Business Use Cases
+                  </Link>
+                  <Link href="/api-platform" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    API Platform
+                  </Link>
+                  <a href="https://docu.scam.ai" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    API Documentation
+                  </a>
+                  <Link href="/demo" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    Contact Sales
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* For Individuals */}
+            <div>
+              <button
+                onClick={() => toggleSection("individuals")}
+                className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+              >
+                <span>For Individuals</span>
+                <span className={`transition-transform duration-200 ${expandedSection === "individuals" ? "rotate-90" : ""}`}>→</span>
+              </button>
+              {expandedSection === "individuals" && (
+                <div className="ml-4 mt-1 space-y-1">
+                  <Link href="/individuals?s=mobile" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    Mobile App
+                  </Link>
+                  <Link href="/individuals?s=plugin" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    Browser Plugin
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Research */}
+            <div>
+              <button
+                onClick={() => toggleSection("research")}
+                className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+              >
+                <span>Research</span>
+                <span className={`transition-transform duration-200 ${expandedSection === "research" ? "rotate-90" : ""}`}>→</span>
+              </button>
+              {expandedSection === "research" && (
+                <div className="ml-4 mt-1 space-y-1">
+                  <div className="px-3 py-1 text-xs font-medium text-white/50 tracking-wide">Detection Models</div>
+                  <Link href="/research/ai-generated-media" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    GenAI Media Detection
+                  </Link>
+                  <Link href="/research/deepfakes" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    Deepfakes (Faceswap)
+                  </Link>
+                  <Link href="/research/voice-clones" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    Voice Cloning
+                  </Link>
+                  <Link href="/research/scam-text-detection" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    Messages
+                  </Link>
+                  <Link href="/research/link-qr-code" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    Link & QR Code
+                  </Link>
+                  <div className="px-3 py-1 text-xs font-medium text-white/50 tracking-wide mt-2">Research</div>
+                  <Link href="/research/large-scale-database" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    ScamDB
+                  </Link>
+                  <Link href="/research/publication" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    Publication
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Stories */}
+            <div>
+              <button
+                onClick={() => toggleSection("stories")}
+                className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+              >
+                <span>Stories</span>
+                <span className={`transition-transform duration-200 ${expandedSection === "stories" ? "rotate-90" : ""}`}>→</span>
+              </button>
+              {expandedSection === "stories" && (
+                <div className="ml-4 mt-1 space-y-1">
+                  <Link href="/stories/news" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    News
+                  </Link>
+                  <Link href="/stories/type-of-scams" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    Type of Scams
+                  </Link>
+                  <Link href="/stories/scam-trends" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    Scam Trends
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Company */}
+            <div>
+              <button
+                onClick={() => toggleSection("company")}
+                className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+              >
+                <span>Company</span>
+                <span className={`transition-transform duration-200 ${expandedSection === "company" ? "rotate-90" : ""}`}>→</span>
+              </button>
+              {expandedSection === "company" && (
+                <div className="ml-4 mt-1 space-y-1">
+                  <Link href="/company/about" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    About Us
+                  </Link>
+                  <Link href="/company/people" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    People
+                  </Link>
+                  <Link href="/company/partnership" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    Partnership
+                  </Link>
+                  <Link href="/company/investors" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    Investors
+                  </Link>
+                </div>
+              )}
+            </div>
           </nav>
         </div>
       </div>
