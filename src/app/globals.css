@@ -121,11 +121,20 @@ body {
   /* Prevent body scroll when mobile menu is open */
   body.mobile-menu-open {
     overflow: hidden;
+    position: fixed;
+    width: 100%;
   }
   
   /* Smooth hamburger animation */
   .hamburger-line {
     transform-origin: center;
+  }
+  
+  /* Ensure mobile menu scrolls properly */
+  .mobile-menu-container {
+    height: calc(100vh - 73px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 

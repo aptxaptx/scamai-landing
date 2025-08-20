@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [expandedSection, setExpandedSection] = useState<"business" | "individuals" | "models" | "research" | "stories" | "company" | null>(null);
   const pathname = usePathname();
 
   // Close menu when route changes
@@ -81,7 +81,8 @@ export default function MobileNav() {
       <div className={`md:hidden fixed top-[73px] left-0 right-0 bottom-0 bg-black z-40 transform transition-transform duration-300 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}>
-        <div className="p-5 overflow-y-auto h-full">
+        <div className="mobile-menu-container">
+          <div className="p-5 pb-10">
           <nav className="flex flex-col gap-2">
             {/* Home */}
             <Link
@@ -140,6 +141,37 @@ export default function MobileNav() {
               )}
             </div>
 
+            {/* Models */}
+            <div>
+              <button
+                onClick={() => toggleSection("models")}
+                className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+              >
+                <span>Models</span>
+                <span className={`transition-transform duration-200 ${expandedSection === "models" ? "rotate-90" : ""}`}>→</span>
+              </button>
+              {expandedSection === "models" && (
+                <div className="ml-4 mt-1 space-y-1">
+                  <div className="px-3 py-1 text-xs font-medium text-white/50 tracking-wide">Detection Models</div>
+                  <Link href="/research/deepfakes" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    Deepfakes (Faceswap)
+                  </Link>
+                  <Link href="/research/ai-generated-media" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    GenAI Media Detection
+                  </Link>
+                  <Link href="/research/voice-clones" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    Voice Cloning
+                  </Link>
+                  <Link href="/research/scam-text-detection" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    Messages
+                  </Link>
+                  <Link href="/research/link-qr-code" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                    Link & QR Code
+                  </Link>
+                </div>
+              )}
+            </div>
+
             {/* Research */}
             <div>
               <button
@@ -151,28 +183,11 @@ export default function MobileNav() {
               </button>
               {expandedSection === "research" && (
                 <div className="ml-4 mt-1 space-y-1">
-                  <div className="px-3 py-1 text-xs font-medium text-white/50 tracking-wide">Detection Models</div>
-                  <Link href="/research/ai-generated-media" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
-                    GenAI Media Detection
-                  </Link>
-                  <Link href="/research/deepfakes" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
-                    Deepfakes (Faceswap)
-                  </Link>
-                  <Link href="/research/voice-clones" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
-                    Voice Cloning
-                  </Link>
-                  <Link href="/research/scam-text-detection" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
-                    Messages
-                  </Link>
-                  <Link href="/research/link-qr-code" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
-                    Link & QR Code
-                  </Link>
-                  <div className="px-3 py-1 text-xs font-medium text-white/50 tracking-wide mt-2">Research</div>
-                  <Link href="/research/large-scale-database" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
-                    ScamDB
-                  </Link>
-                  <Link href="/research/publication" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                  <Link href="/research/publication" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
                     Publication
+                  </Link>
+                  <Link href="/research/large-scale-database" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    ScamDB
                   </Link>
                 </div>
               )}
@@ -229,6 +244,7 @@ export default function MobileNav() {
               )}
             </div>
           </nav>
+          </div>
         </div>
       </div>
     </>

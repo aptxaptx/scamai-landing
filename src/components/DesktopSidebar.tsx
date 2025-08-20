@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-type SubmenuType = "none" | "business" | "individuals" | "research" | "stories" | "company";
+type SubmenuType = "none" | "business" | "individuals" | "models" | "research" | "stories" | "company";
 
 export default function DesktopSidebar() {
   const pathname = usePathname();
@@ -34,6 +34,7 @@ export default function DesktopSidebar() {
     "Home",
     "For Business", 
     "For Individuals",
+    "Models",
     "Research",
     "Stories",
     "Company",
@@ -46,16 +47,18 @@ export default function DesktopSidebar() {
     "Contact Sales",
   ];
 
-  const researchLinks = [
+  const modelsLinks = [
     "Detection Models",
-    "GenAI Media Detection",
     "Deepfakes (Faceswap)",
+    "GenAI Media Detection",
     "Voice Cloning",
     "Messages",
     "Link & QR Code",
-    "Research",
-    "ScamDB",
+  ];
+
+  const researchLinks = [
     "Publication",
+    "ScamDB",
   ];
 
   const storiesLinks = [
@@ -124,12 +127,30 @@ export default function DesktopSidebar() {
                     </button>
                   );
                 }
+                if (item === "Models") {
+                  return (
+                    <button
+                      key={item}
+                      type="button"
+                      onClick={() => setSubmenu(submenu === "models" ? "none" : "models")}
+                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+                    >
+                      <span>{item}</span>
+                      <span
+                        aria-hidden
+                        className="text-white/60 opacity-0 translate-x-1 transition-all group-hover:opacity-60 group-hover:translate-x-0"
+                      >
+                        →
+                      </span>
+                    </button>
+                  );
+                }
                 if (item === "Research") {
                   return (
                     <button
                       key={item}
                       type="button"
-                      onClick={() => router.push("/research")}
+                      onClick={() => router.push("/research/publication")}
                       className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                     >
                       <span>{item}</span>
@@ -200,7 +221,7 @@ export default function DesktopSidebar() {
           </div>
 
           {/* Business submenu panel */}
-          <div className={`absolute inset-0 min-w-[280px] md:min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
+          <div className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
             submenu === "business" ? "translate-x-0" : "translate-x-full"
           }`}>
             <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
@@ -216,7 +237,7 @@ export default function DesktopSidebar() {
                 <span>Home</span>
               </button>
             </div>
-            <nav className="flex flex-col gap-2 px-2" aria-label="For Business">
+            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="For Business">
               {businessLinks.map((item) => {
                 const href =
                   item === "Business Use Cases"
@@ -260,7 +281,7 @@ export default function DesktopSidebar() {
                 <span>Home</span>
               </button>
             </div>
-            <nav className="flex flex-col gap-2 px-2" aria-label="For Individuals">
+            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="For Individuals">
               {individualsLinks.map((item) => {
                 const href = isIndividualsPage ? `?${item.href.split("?")[1]}` : item.href;
                 const handleClick: React.MouseEventHandler<HTMLAnchorElement> | undefined = isIndividualsPage
@@ -278,6 +299,59 @@ export default function DesktopSidebar() {
                   >
                     {item.label}
                   </a>
+                );
+              })}
+            </nav>
+          </div>
+
+          {/* Models submenu panel */}
+          <div className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
+            submenu === "models" ? "translate-x-0" : "translate-x-full"
+          }`}>
+            <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
+              <button
+                type="button"
+                onClick={() => {
+                  setSubmenu("none");
+                  router.push("/");
+                }}
+                className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-white/10"
+              >
+                <span aria-hidden>←</span>
+                <span>Home</span>
+              </button>
+            </div>
+            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="Models">
+              {modelsLinks.map((item) => {
+                const href = item === "Detection Models"
+                  ? "#"
+                  : item === "GenAI Media Detection" 
+                  ? "/research/ai-generated-media"
+                  : item === "Deepfakes (Faceswap)"
+                  ? "/research/deepfakes"
+                  : item === "Voice Cloning"
+                  ? "/research/voice-clones"
+                  : item === "Messages"
+                  ? "/research/scam-text-detection"
+                  : item === "Link & QR Code"
+                  ? "/research/link-qr-code"
+                  : "#";
+                
+                return item === "Detection Models" ? (
+                  <div
+                    key={item}
+                    className="block rounded-xl px-3 py-1.5 text-sm font-medium text-white/50 tracking-wide"
+                  >
+                    {item}
+                  </div>
+                ) : (
+                  <Link
+                    key={item}
+                    href={href}
+                    className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors ml-4"
+                  >
+                    {item}
+                  </Link>
                 );
               })}
             </nav>
@@ -302,47 +376,20 @@ export default function DesktopSidebar() {
             </div>
             <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="Research">
               {researchLinks.map((item) => {
-                const href = item === "Detection Models"
-                  ? "#"
-                  : item === "GenAI Media Detection" 
-                  ? "/research/ai-generated-media"
-                  : item === "Deepfakes (Faceswap)"
-                  ? "/research/deepfakes"
-                  : item === "Voice Cloning"
-                  ? "/research/voice-clones"
-                  : item === "Messages"
-                  ? "/research/scam-text-detection"
-                  : item === "Link & QR Code"
-                  ? "/research/link-qr-code"
-                  : item === "Publication"
+                const href = item === "Publication"
                   ? "/research/publication"
                   : item === "ScamDB"
                   ? "/research/large-scale-database"
                   : "#";
                 
-                return item === "Detection Models" || item === "Research" ? (
-                  <div
-                    key={item}
-                    className={`block rounded-xl px-3 py-1.5 text-sm font-medium text-white/50 tracking-wide ${item === "Research" ? "mt-4" : ""}`}
-                  >
-                    {item}
-                  </div>
-                ) : item === "GenAI Media Detection" || item === "Deepfakes (Faceswap)" || item === "Voice Cloning" || item === "Messages" || item === "Link & QR Code" || item === "Publication" || item === "ScamDB" ? (
+                return (
                   <Link
-                    key={item}
-                    href={href}
-                    className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors ml-4"
-                  >
-                    {item}
-                  </Link>
-                ) : (
-                  <a
                     key={item}
                     href={href}
                     className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                   >
                     {item}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
@@ -365,7 +412,7 @@ export default function DesktopSidebar() {
                 <span>Home</span>
               </button>
             </div>
-            <nav className="flex flex-col gap-2 px-2" aria-label="Stories">
+            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="Stories">
               {storiesLinks.map((item) => {
                 const href =
                   item === "News" ? "/stories/news" :
@@ -374,13 +421,13 @@ export default function DesktopSidebar() {
                   "#";
                 
                 return (
-                  <a
+                  <Link
                     key={item}
                     href={href}
                     className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                   >
                     {item}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
@@ -403,7 +450,7 @@ export default function DesktopSidebar() {
                 <span>Home</span>
               </button>
             </div>
-            <nav className="flex flex-col gap-2 px-2" aria-label="Company">
+            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="Company">
               {companyLinks.map((item) => {
                 const href =
                   item === "About Us" ? "/company/about" :
@@ -412,13 +459,13 @@ export default function DesktopSidebar() {
                   item === "Investors" ? "/company/investors" :
                   "#";
                 return (
-                  <a
+                  <Link
                     key={item}
                     href={href}
                     className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                   >
                     {item}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
