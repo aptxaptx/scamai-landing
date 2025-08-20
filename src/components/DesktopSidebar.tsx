@@ -10,10 +10,20 @@ export default function DesktopSidebar() {
   const pathname = usePathname();
   const router = useRouter();
   
+  const isModelPage = pathname && (
+    pathname.startsWith("/research/ai-generated-media") ||
+    pathname.startsWith("/research/deepfakes") ||
+    pathname.startsWith("/research/voice-clones") ||
+    pathname.startsWith("/research/scam-text-detection") ||
+    pathname.startsWith("/research/link-qr-code")
+  );
+  
   const initialSubmenu: SubmenuType = pathname?.startsWith("/business")
     ? "business"
     : pathname?.startsWith("/individuals")
     ? "individuals"
+    : isModelPage
+    ? "models"
     : pathname?.startsWith("/research")
     ? "research"
     : "none";
@@ -23,15 +33,22 @@ export default function DesktopSidebar() {
 
   useEffect(() => {
     if (!pathname) return;
+    
+    const isModelPage = pathname.startsWith("/research/ai-generated-media") ||
+      pathname.startsWith("/research/deepfakes") ||
+      pathname.startsWith("/research/voice-clones") ||
+      pathname.startsWith("/research/scam-text-detection") ||
+      pathname.startsWith("/research/link-qr-code");
+    
     if (pathname.startsWith("/business")) setSubmenu("business");
     else if (pathname.startsWith("/individuals")) setSubmenu("individuals");
+    else if (isModelPage) setSubmenu("models");
     else if (pathname.startsWith("/research")) setSubmenu("research");
     else if (pathname.startsWith("/company")) setSubmenu("company");
     else setSubmenu("none");
   }, [pathname]);
 
   const mainLinks = [
-    "Home",
     "For Business", 
     "For Individuals",
     "Models",
@@ -76,20 +93,18 @@ export default function DesktopSidebar() {
 
   return (
     <aside 
-      className="p-2 z-10 fixed left-0 w-[240px] top-8 h-[calc(100dvh-64px)] overflow-y-auto flex flex-col"
+      className="z-10 fixed left-0 w-[200px] top-16 h-[calc(100dvh-80px)] overflow-y-auto flex flex-col"
       data-desktop-sidebar
     >
-      <Link href="/" className="flex items-center gap-2 px-2 pb-4">
-        <img src="/scamailogo.png" alt="Scam AI logo" className="h-8 w-auto" />
-      </Link>
-      
-      <div className="flex-1 grid content-center -mt-2 overflow-hidden">
+      <div className="flex flex-col h-full">
+        {/* Navigation menu - starts from top */}
+        <div className="flex-1 overflow-hidden">
         <div className="relative min-w-[280px] md:min-w-0">
           {/* Primary panel */}
           <div className={`transition-transform duration-300 ease-out ${
             submenu === "none" ? "translate-x-0" : "-translate-x-full"
           }`}>
-            <nav className="flex flex-col gap-2 px-2" aria-label="Primary">
+            <nav className="flex flex-col gap-2 px-4 pt-6" aria-label="Primary">
               {mainLinks.map((item) => {
                 if (item === "For Business") {
                   return (
@@ -199,15 +214,7 @@ export default function DesktopSidebar() {
                     </button>
                   );
                 }
-                return item === "Home" ? (
-                  <Link
-                    key={item}
-                    href="/"
-                    className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
-                  >
-                    {item}
-                  </Link>
-                ) : (
+                return (
                   <a
                     key={item}
                     href="#"
@@ -224,7 +231,7 @@ export default function DesktopSidebar() {
           <div className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
             submenu === "business" ? "translate-x-0" : "translate-x-full"
           }`}>
-            <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
+            <div className="px-4 pb-4 flex items-center gap-2 text-white/70">
               <button
                 type="button"
                 onClick={() => {
@@ -237,7 +244,7 @@ export default function DesktopSidebar() {
                 <span>Home</span>
               </button>
             </div>
-            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="For Business">
+            <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="For Business">
               {businessLinks.map((item) => {
                 const href =
                   item === "Business Use Cases"
@@ -268,7 +275,7 @@ export default function DesktopSidebar() {
           <div className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
             submenu === "individuals" ? "translate-x-0" : "translate-x-full"
           }`}>
-            <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
+            <div className="px-4 pb-4 flex items-center gap-2 text-white/70">
               <button
                 type="button"
                 onClick={() => {
@@ -281,7 +288,7 @@ export default function DesktopSidebar() {
                 <span>Home</span>
               </button>
             </div>
-            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="For Individuals">
+            <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="For Individuals">
               {individualsLinks.map((item) => {
                 const href = isIndividualsPage ? `?${item.href.split("?")[1]}` : item.href;
                 const handleClick: React.MouseEventHandler<HTMLAnchorElement> | undefined = isIndividualsPage
@@ -308,7 +315,7 @@ export default function DesktopSidebar() {
           <div className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
             submenu === "models" ? "translate-x-0" : "translate-x-full"
           }`}>
-            <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
+            <div className="px-4 pb-4 flex items-center gap-2 text-white/70">
               <button
                 type="button"
                 onClick={() => {
@@ -321,7 +328,7 @@ export default function DesktopSidebar() {
                 <span>Home</span>
               </button>
             </div>
-            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="Models">
+            <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Models">
               {modelsLinks.map((item) => {
                 const href = item === "Detection Models"
                   ? "#"
@@ -361,7 +368,7 @@ export default function DesktopSidebar() {
           <div className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
             submenu === "research" ? "translate-x-0" : "translate-x-full"
           }`}>
-            <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
+            <div className="px-4 pb-4 flex items-center gap-2 text-white/70">
               <button
                 type="button"
                 onClick={() => {
@@ -374,7 +381,7 @@ export default function DesktopSidebar() {
                 <span>Home</span>
               </button>
             </div>
-            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="Research">
+            <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Research">
               {researchLinks.map((item) => {
                 const href = item === "Publication"
                   ? "/research/publication"
@@ -399,7 +406,7 @@ export default function DesktopSidebar() {
           <div className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
             submenu === "stories" ? "translate-x-0" : "translate-x-full"
           }`}>
-            <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
+            <div className="px-4 pb-4 flex items-center gap-2 text-white/70">
               <button
                 type="button"
                 onClick={() => {
@@ -412,7 +419,7 @@ export default function DesktopSidebar() {
                 <span>Home</span>
               </button>
             </div>
-            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="Stories">
+            <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Stories">
               {storiesLinks.map((item) => {
                 const href =
                   item === "News" ? "/stories/news" :
@@ -437,7 +444,7 @@ export default function DesktopSidebar() {
           <div className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
             submenu === "company" ? "translate-x-0" : "translate-x-full"
           }`}>
-            <div className="px-2 pb-4 flex items-center gap-2 text-white/70">
+            <div className="px-4 pb-4 flex items-center gap-2 text-white/70">
               <button
                 type="button"
                 onClick={() => {
@@ -450,7 +457,7 @@ export default function DesktopSidebar() {
                 <span>Home</span>
               </button>
             </div>
-            <nav className="flex flex-col gap-2 px-2 overflow-y-auto max-h-none" aria-label="Company">
+            <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Company">
               {companyLinks.map((item) => {
                 const href =
                   item === "About Us" ? "/company/about" :
@@ -470,6 +477,17 @@ export default function DesktopSidebar() {
               })}
             </nav>
           </div>
+        </div>
+        </div>
+        
+        {/* Get A Demo Button */}
+        <div className="p-4 mt-auto">
+          <Link 
+            href="/demo"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 font-semibold text-white hover:bg-white/10 transition-colors"
+          >
+            Get A Demo
+          </Link>
         </div>
       </div>
     </aside>

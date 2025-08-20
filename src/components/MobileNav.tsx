@@ -84,15 +84,6 @@ export default function MobileNav() {
         <div className="mobile-menu-container">
           <div className="p-5 pb-10">
           <nav className="flex flex-col gap-2">
-            {/* Home */}
-            <Link
-              href="/"
-              onClick={closeMenu}
-              className="block rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
-            >
-              Home
-            </Link>
-
             {/* For Business */}
             <div>
               <button
@@ -244,6 +235,17 @@ export default function MobileNav() {
               )}
             </div>
           </nav>
+          
+          {/* Get A Demo Button */}
+          <div className="mt-8 px-4">
+            <Link 
+              href="/demo" 
+              onClick={closeMenu}
+              className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white hover:bg-white/10 transition-colors"
+            >
+              Get A Demo
+            </Link>
+          </div>
           </div>
         </div>
       </div>
