@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend only if API key is available
+const resendApiKey = process.env.RESEND_API_KEY;
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 export async function POST(req: Request) {
   try {
@@ -10,7 +12,15 @@ export async function POST(req: Request) {
     // Log to console for debugging
     console.log("[Demo Request] -> sales@get-reality.com", body);
     
-    // Send email via Resend
+    // Send email via Resend (only if configured)
+    if (!resend) {
+      console.log("[Demo Request] Resend not configured, logging request only");
+      return NextResponse.json({ 
+        ok: true, 
+        message: "Request logged successfully (email service not configured)" 
+      });
+    }
+
     try {
       const { data, error } = await resend.emails.send({
         from: 'ScamAI Website <noreply@test.get-reality.com>',
