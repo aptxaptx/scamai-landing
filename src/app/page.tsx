@@ -47,14 +47,14 @@ export default function Home() {
             <div className="hero-image-bg" aria-hidden="true" />
             <div className="hero-image-vignette" aria-hidden="true" />
             <div className="relative z-10 text-center p-6 sm:p-8 md:p-12 lg:p-14">
-              <p className="text-white text-base mb-3 sm:mb-4">Build with ScamAI</p>
+              <p className="text-white text-base mb-3 sm:mb-4">Build with ScamAI to</p>
               <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight leading-[0.95] md:leading-[1.05] max-w-4xl mx-auto">
-                The platform for<br />
-                AI misuse detection
+                Detect  <br />Fakes and Scams <br />
+             
               </h1>
               <p className="mt-3 sm:mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
-                APIs for deepfakes, GenAI media,<br className="block sm:hidden" />
-                voice clones, and scam detection.
+                Prevention of Deepfakes, GenAI,
+                Voice clones & Scams.
               </p>
 
               <div className="mt-6 sm:mt-8 flex items-center justify-center">
