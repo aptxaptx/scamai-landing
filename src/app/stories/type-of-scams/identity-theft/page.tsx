@@ -16,9 +16,13 @@ export default function IdentityTheftPage() {
             Identity theft is one of the most devastating types of fraud. Scammers steal personal information to open accounts, make purchases, or commit crimes in your name, leaving you to deal with the financial and legal consequences.
           </p>
           
-          {/* Image Placeholder */}
-          <div className="my-12 bg-gray-800 rounded-lg h-64 flex items-center justify-center">
-            <span className="text-white text-2xl font-bold">Picture</span>
+          {/* Image */}
+          <div className="my-12">
+            <img 
+              src="/identity-theft-scam.png" 
+              alt="Identity Theft Scam Illustration" 
+              className="w-full h-full rounded-lg object-cover"
+            />
           </div>
         </section>
 

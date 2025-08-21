@@ -16,9 +16,13 @@ export default function FaceSwappingPage() {
             Advanced AI technology is being used to create convincing fake videos and images by swapping faces. These deepfake scams can be incredibly persuasive, making it difficult to distinguish between real and manipulated content.
           </p>
           
-          {/* Image Placeholder */}
-          <div className="my-12 bg-gray-800 rounded-lg h-64 flex items-center justify-center">
-            <span className="text-white text-2xl font-bold">Picture</span>
+          {/* Image */}
+          <div className="my-12">
+            <img 
+              src="/face-swapping scam.png" 
+              alt="Face Swapping Scam Illustration" 
+              className="w-full h-full rounded-lg object-cover"
+            />
           </div>
         </section>
 

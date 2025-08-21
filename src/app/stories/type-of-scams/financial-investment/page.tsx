@@ -16,9 +16,13 @@ export default function FinancialInvestmentPage() {
             Investment scams promise high returns with little risk, but they're designed to steal your money. Scammers use sophisticated tactics to make fraudulent investments appear legitimate and profitable.
           </p>
           
-          {/* Image Placeholder */}
-          <div className="my-12 bg-gray-800 rounded-lg h-64 flex items-center justify-center">
-            <span className="text-white text-2xl font-bold">Picture</span>
+          {/* Image */}
+          <div className="my-12">
+            <img 
+              src="/financial-scam.png" 
+              alt="Financial Investment Scam Illustration" 
+              className="w-full h-full rounded-lg object-cover"
+            />
           </div>
         </section>
 

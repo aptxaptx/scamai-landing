@@ -16,9 +16,13 @@ export default function VoiceCloningPage() {
             A new wave of sophisticated scams is leveraging artificial intelligence to replicate the voices of people you trust. Here's a breakdown of how these scams work, the warning signs to look for, and the steps you can take to protect yourself.
           </p>
           
-          {/* Image Placeholder */}
-          <div className="my-12 bg-gray-800 rounded-lg h-64 flex items-center justify-center">
-            <span className="text-white text-2xl font-bold">Picture</span>
+          {/* Image */}
+          <div className="my-12">
+            <img 
+              src="/voice-cloning-scam.png" 
+              alt="Voice Cloning Scam Illustration" 
+              className="w-full h-full rounded-lg object-cover"
+            />
           </div>
         </section>
 

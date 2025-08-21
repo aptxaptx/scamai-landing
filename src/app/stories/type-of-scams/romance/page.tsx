@@ -16,9 +16,13 @@ export default function RomancePage() {
             Romance scams target people looking for love and companionship. Scammers create fake online personas and build emotional connections with victims, only to exploit their trust for financial gain.
           </p>
           
-          {/* Image Placeholder */}
-          <div className="my-12 bg-gray-800 rounded-lg h-64 flex items-center justify-center">
-            <span className="text-white text-2xl font-bold">Picture</span>
+          {/* Image */}
+          <div className="my-12">
+            <img 
+              src="/romance-scam.png" 
+              alt="Romance Scam Illustration" 
+              className="w-full h-full rounded-lg object-cover"
+            />
           </div>
         </section>
 

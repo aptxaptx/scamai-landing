@@ -1,14 +1,85 @@
+"use client";
+
 import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 
-export const metadata = { title: "Types of Scams — ScamAI" };
+// 定义诈骗类型数据
+const scamTypes = [
+  {
+    id: "voice-cloning",
+    title: "Voice Cloning Scam",
+    description: "AI voice replicas impersonating trusted individuals to steal information.",
+    category: "Voice AI",
+    image: "/voice-cloning-scam.png",
+    date: "2024-01-15",
+    href: "/stories/type-of-scams/voice-cloning",
+  },
+  {
+    id: "face-swapping",
+    title: "Face Swapping Scam",
+    description: "Deepfake videos and images used for blackmail and fraud.",
+    category: "Video AI",
+    image: "/face-swapping scam.png",
+    date: "2024-01-14",
+    href: "/stories/type-of-scams/face-swapping",
+  },
+  {
+    id: "ai-generated-images",
+    title: "AI-Generated Images Scam",
+    description: "Synthetic media designed to deceive and manipulate victims.",
+    category: "Image AI",
+    image: "/AI-image-scam.png",
+    date: "2024-01-13",
+    href: "/stories/type-of-scams/ai-generated-images",
+  },
+  {
+    id: "identity-theft",
+    title: "Identity Theft Scam",
+    description: "Stealing personal information for fraud and unauthorized purchases.",
+    category: "Data Theft",
+    image: "/identity-theft-scam.png",
+    date: "2024-01-12",
+    href: "/stories/type-of-scams/identity-theft",
+  },
+  {
+    id: "financial-investment",
+    title: "Financial Investment Scam",
+    description: "Fake investment opportunities with unrealistic returns.",
+    category: "Financial",
+    image: "/financial-scam.png",
+    date: "2024-01-11",
+    href: "/stories/type-of-scams/financial-investment",
+  },
+  {
+    id: "romance",
+    title: "Romance Scam",
+    description: "Fake online relationships to extract money and gifts.",
+    category: "Social",
+    image: "/romance-scam.png",
+    date: "2024-01-10",
+    href: "/stories/type-of-scams/romance",
+  },
+];
 
 export default function TypeOfScamsPage() {
   return (
     <SiteShell>
-      {/* Hero */}
-      <section className="relative overflow-hidden rounded-2xl backdrop-blur-sm grid place-items-center">
-        <div className="relative z-10 text-center p-10 md:p-16 lg:p-20">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden rounded-2xl backdrop-blur-sm">
+        {/* Breadcrumb */}
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 pt-4">
+          <div className="flex items-center justify-between text-sm">
+            <div className="text-white/70">
+              <Link href="/stories" className="hover:text-white/90">Stories</Link>
+              <span className="mx-2">/</span>
+              <span className="text-white/90">Types of Scams</span>
+            </div>
+          </div>
+        </div>
+        
+        <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
           <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">
             Types of Scams
           </h1>
@@ -18,59 +89,42 @@ export default function TypeOfScamsPage() {
         </div>
       </section>
 
-      {/* Scam types grid */}
-      <section className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          {
-            title: "Voice Cloning Scam",
-            desc: "AI voice replicas impersonating trusted individuals to steal information.",
-            href: "/stories/type-of-scams/voice-cloning",
-          },
-          {
-            title: "Face Swapping Scam",
-            desc: "Deepfake videos and images used for blackmail and fraud.",
-            href: "/stories/type-of-scams/face-swapping",
-          },
-          {
-            title: "AI-Generated Images Scam",
-            desc: "Synthetic media designed to deceive and manipulate victims.",
-            href: "/stories/type-of-scams/ai-generated-images",
-          },
-          {
-            title: "Identity Theft Scam",
-            desc: "Stealing personal information for fraud and unauthorized purchases.",
-            href: "/stories/type-of-scams/identity-theft",
-          },
-          {
-            title: "Financial Investment Scam",
-            desc: "Fake investment opportunities with unrealistic returns.",
-            href: "/stories/type-of-scams/financial-investment",
-          },
-          {
-            title: "Romance Scam",
-            desc: "Fake online relationships to extract money and gifts.",
-            href: "/stories/type-of-scams/romance",
-          },
-        ].map((card) => (
-          <article
-            key={card.title}
-            className="relative border border-white/15 rounded-xl p-6 hover:border-white/25 transition-all duration-200 group cursor-pointer flex flex-col h-full"
-          >
-            <div className="flex-1">
-              <h2 className="text-lg font-semibold tracking-tight text-white mb-3">{card.title}</h2>
-              <p className="text-sm text-white/75 leading-relaxed">{card.desc}</p>
-            </div>
-            <div className="mt-4">
-              <Link href={card.href} className="inline-flex text-sm font-medium text-white/85 hover:text-white group-hover:translate-x-1 transition-all duration-200 relative z-10">
-                Learn more →
-              </Link>
-            </div>
-            <Link href={card.href} aria-label={`Open ${card.title}`} className="absolute inset-0" />
-          </article>
-        ))}
+      {/* Items Grid */}
+      <section className="mt-8 mr-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {scamTypes.map((item) => (
+            <Link
+              key={item.id}
+              href={item.href}
+              className="group block"
+            >
+              <article className="rounded-xl overflow-hidden transition-all duration-200 h-full flex flex-col">
+                {/* Image */}
+                <div className="aspect-video bg-gray-100 overflow-hidden">
+                  <Image 
+                    src={item.image} 
+                    alt={item.title}
+                    width={400}
+                    height={225}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
+                  />
+                </div>
+                
+                {/* Content */}
+                <div className="px-0 pt-4 flex-1 flex flex-col">
+                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors leading-tight">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-sm text-white/70 mb-3">
+                    {item.description}
+                  </p>
+                </div>
+              </article>
+            </Link>
+          ))}
+        </div>
       </section>
-
-      {/* Plain black background (use global body bg) */}
     </SiteShell>
   );
 }
