@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 type Item = { id: number; label: "deepfake" | "real" };
 
@@ -41,9 +42,11 @@ export default function MinimalGame({ items, answers, setAnswers, email }: {
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.div key={current.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.18 }}>
               <div className="aspect-square bg-white/10 rounded-lg overflow-hidden relative">
-                <img 
+                <Image 
                   src={`/demo-images/sample-${(current.id % 6) + 1}.jpg`} 
                   alt={`Detection sample ${current.id + 1}`}
+                  width={400}
+                  height={400}
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;

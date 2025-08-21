@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function MobileNav() {
@@ -43,7 +44,7 @@ export default function MobileNav() {
       <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
         <div className="flex items-center justify-between px-5 py-3">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/scamailogo.png" alt="Scam AI logo" className="h-8 w-auto" />
+            <Image src="/scamailogo.png" alt="Scam AI logo" width={200} height={32} className="h-8 w-auto" />
           </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
