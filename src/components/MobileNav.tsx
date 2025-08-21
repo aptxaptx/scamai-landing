@@ -33,7 +33,7 @@ export default function MobileNav() {
     setExpandedSection(null);
   };
 
-  const toggleSection = (section: string) => {
+  const toggleSection = (section: "business" | "individuals" | "models" | "research" | "stories" | "company") => {
     setExpandedSection(expandedSection === section ? null : section);
   };
 

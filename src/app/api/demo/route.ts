@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from 'resend';
 
-const resend = new Resend('re_3fBjDLGN_7wQer8SvbsjyzMDRK3HZSF3A');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     // Send email via Resend
     try {
       const { data, error } = await resend.emails.send({
-        from: 'ScamAI Website <noreply@scam.ai>',
+        from: 'ScamAI Website <noreply@test.get-reality.com>',
         to: ['sales@get-reality.com'],
         cc: ['dennisng@scam.ai', 'benren@scam.ai', 'neo@get-reality.com'],
         subject: `New Demo Request - ${body.company || 'Company'} - ${body.useCase}`,
@@ -76,7 +76,10 @@ This email was automatically generated from the ScamAI website demo form.
 
       if (error) {
         console.error('[Resend] Email failed to send:', error);
-        return NextResponse.json({ ok: false, error: 'Failed to send email' }, { status: 500 });
+        console.error('[Resend] Error type:', typeof error);
+        console.error('[Resend] Error keys:', Object.keys(error));
+        const errorMessage = JSON.stringify(error) || 'Unknown error';
+        return NextResponse.json({ ok: false, error: `Failed to send email: ${errorMessage}` }, { status: 500 });
       }
 
       console.log('[Resend] Email sent successfully:', data);

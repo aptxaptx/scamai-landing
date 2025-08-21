@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import MobileNav from "./MobileNav";
 import DesktopSidebar from "./DesktopSidebar";
 import SiteFooter from "./SiteFooter";
@@ -17,9 +18,9 @@ export default function SiteShell({
     <div className="min-h-dvh px-5 md:px-0 pt-2 pb-5 md:pl-[200px]">
       {/* Logo - Top Left of Website */}
       <div className="fixed top-4 left-4 z-40 md:left-6">
-        <a href="/" className="block">
+        <Link href="/" className="block">
           <img src="/scamailogo.png" alt="Scam AI logo" className="h-8 w-auto" />
-        </a>
+        </Link>
       </div>
       
       {/* Mobile Navigation */}

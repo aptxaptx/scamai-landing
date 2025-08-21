@@ -47,14 +47,14 @@ export default function Home() {
             <div className="hero-image-bg" aria-hidden="true" />
             <div className="hero-image-vignette" aria-hidden="true" />
             <div className="relative z-10 text-center p-6 sm:p-8 md:p-12 lg:p-14">
-              <p className="text-white text-base mb-3 sm:mb-4">Build with ScamAI</p>
+              <p className="text-white text-base mb-3 sm:mb-4">Build with ScamAI to</p>
               <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight leading-[0.95] md:leading-[1.05] max-w-4xl mx-auto">
-                The platform for<br />
-                AI misuse detection
+                Detect  <br />Fakes and Scams <br />
+             
               </h1>
               <p className="mt-3 sm:mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
-                APIs for deepfakes, GenAI media,<br className="block sm:hidden" />
-                voice clones, and scam detection.
+                Prevention of Deepfakes, GenAI,
+                Voice clones & Scams.
               </p>
 
               <div className="mt-6 sm:mt-8 flex items-center justify-center">
@@ -77,16 +77,17 @@ export default function Home() {
           >
             {[
               {
+                title: "Deepfake Detection",
+                desc: "Catch face swaps, lip‑sync and synthetic personas across images and video.",
+                bg: <div className="absolute inset-0 -z-10 bg-[url('/deepfake.webp')] bg-cover bg-top opacity-60" />,
+                overlay: <div className="absolute inset-0 -z-10 bg-[#3D38F5]/43" />,
+                href: "/research/deepfakes",
+              },
+              {
                 title: "GenAI Detection",
                 desc: "Detect AI-generated images and videos; flag manipulations and synthetic content.",
                 bg: <div className="absolute inset-0 -z-10 bg-[url('/GenAI.webp')] bg-cover bg-left-top opacity-70" />,
                 href: "/research/ai-generated-media",
-              },
-              {
-                title: "Deepfake Detection",
-                desc: "Catch face swaps, lip‑sync and synthetic personas across images and video.",
-                bg: <div className="absolute inset-0 -z-10 bg-[url('/deepfake.webp')] bg-cover bg-center opacity-60" />,
-                href: "/research/deepfakes",
               },
               {
                 title: "Voice-cloning Detection",
@@ -119,6 +120,7 @@ export default function Home() {
                 className={`relative rounded-2xl p-8 backdrop-blur-sm transition-colors overflow-hidden min-h-[280px] flex flex-col justify-between ${card.light ? "bg-white text-black hover:bg-white" : "bg-white/5 hover:bg-white/10"}`}
               >
                 {card.bg}
+                {card.overlay}
                 <h3 className="text-lg font-semibold tracking-tight">{card.title}</h3>
                 <p className={`mt-2 text-sm ${card.light ? "text-black/70" : "text-white/80"}`}>{card.desc}</p>
                 <a href={card.href} className={`mt-4 inline-flex text-sm font-semibold underline underline-offset-4 ${card.light ? "text-black/90" : "text-white/90"}`}>Learn more</a>
