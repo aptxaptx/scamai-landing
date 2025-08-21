@@ -10,8 +10,8 @@ export default function SiteFooter() {
             <h3 className="text-white font-semibold mb-4">For Business</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/business?s=usecase" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Business Use Cases
+                <Link href="/business" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Use Cases
                 </Link>
               </li>
               <li>
@@ -49,45 +49,48 @@ export default function SiteFooter() {
             </ul>
           </div>
 
+          {/* Models */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Models</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/models/deepfakes" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Deepfakes (Faceswap)
+                </Link>
+              </li>
+              <li>
+                <Link href="/models/ai-generated-media" className="text-white/70 hover:text-white text-sm transition-colors">
+                  GenAI Media Detection
+                </Link>
+              </li>
+              <li>
+                <Link href="/models/voice-clones" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Voice Cloning
+                </Link>
+              </li>
+              <li>
+                <Link href="/models/scam-text-detection" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Messages
+                </Link>
+              </li>
+              <li>
+                <Link href="/models/link-qr-code" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Link & QR Code
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Research */}
           <div>
             <h3 className="text-white font-semibold mb-4">Research</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/research/ai-generated-media" className="text-white/70 hover:text-white text-sm transition-colors">
-                  GenAI Media Detection
-                </Link>
-              </li>
-              <li>
-                <Link href="/research/deepfakes" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Deepfakes (Faceswap)
-                </Link>
-              </li>
-              <li>
-                <Link href="/research/voice-clones" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Voice Cloning
-                </Link>
-              </li>
-              <li>
-                <Link href="/research/scam-text-detection" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Messages
-                </Link>
-              </li>
-              <li>
-                <Link href="/research/link-qr-code" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Link & QR Code
-                </Link>
-              </li>
-              <li>
                 <Link href="/research/publication" className="text-white/70 hover:text-white text-sm transition-colors">
                   Publication
                 </Link>
               </li>
-              <li>
-                <Link href="/research/large-scale-database" className="text-white/70 hover:text-white text-sm transition-colors">
-                  ScamDB
-                </Link>
-              </li>
+
             </ul>
           </div>
 

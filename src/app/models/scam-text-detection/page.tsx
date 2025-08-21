@@ -1,4 +1,4 @@
-import { ProductPage, ProductPageProps } from "../ProductPage";
+import { ProductPage, ProductPageProps } from "../../research/ProductPage";
 
 export const metadata = { title: "Scam Text Detection — ScamAI" };
 

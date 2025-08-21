@@ -95,8 +95,8 @@ export default function MobileNav() {
               </button>
               {expandedSection === "business" && (
                 <div className="ml-4 mt-1 space-y-1">
-                  <Link href="/business?s=usecase" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
-                    Business Use Cases
+                  <Link href="/business" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
+                    Use Cases
                   </Link>
                   <Link href="/api-platform" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
                     API Platform
@@ -161,9 +161,7 @@ export default function MobileNav() {
                   <Link href="/research/publication" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
                     Publication
                   </Link>
-                  <Link href="/research/large-scale-database" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
-                    ScamDB
-                  </Link>
+
                 </div>
               )}
             </div>

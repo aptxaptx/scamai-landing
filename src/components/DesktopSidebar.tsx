@@ -52,7 +52,7 @@ export default function DesktopSidebar() {
   ];
 
   const businessLinks = [
-    "Business Use Cases",
+    "Use Cases",
     "API Platform",
     "API Documentation",
     "Contact Sales",
@@ -69,7 +69,6 @@ export default function DesktopSidebar() {
 
   const researchLinks = [
     "Publication",
-    "ScamDB",
   ];
 
   const storiesLinks = [
@@ -102,7 +101,7 @@ export default function DesktopSidebar() {
                     <button
                       key={item}
                       type="button"
-                      onClick={() => router.push("/business?s=usecase")}
+                      onClick={() => setSubmenu(submenu === "business" ? "none" : "business")}
                       className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                     >
                       <span>{item}</span>
@@ -221,8 +220,8 @@ export default function DesktopSidebar() {
             <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="For Business">
               {businessLinks.map((item) => {
                 const href =
-                  item === "Business Use Cases"
-                    ? "/business?s=usecase"
+                  item === "Use Cases"
+                    ? "/business"
                     : item === "API Platform"
                     ? "/api-platform"
                     : item === "API Documentation"
@@ -230,6 +229,7 @@ export default function DesktopSidebar() {
                     : item === "Contact Sales"
                     ? "/demo"
                     : "/business";
+                
                 return (
                   <Link
                     key={item}
