@@ -8,7 +8,7 @@ import MinimalGame from "./MinimalGame";
 export default function Home() {
   const secondaryLinks: string[] = [];
 
-  const [gameMode, setGameMode] = useState(false);
+  const [gameMode] = useState(false);
   const [started, setStarted] = useState(false);
   const [email, setEmail] = useState("");
   const [answers, setAnswers] = useState<Record<number, "deepfake" | "real" | undefined>>({});
@@ -21,11 +21,9 @@ export default function Home() {
       [base[i], base[j]] = [base[j], base[i]];
     }
     return base;
-  }, [started]);
+  }, []);
 
-  const totalAnswered = Object.values(answers).filter(Boolean).length;
-  const correct = useMemo(() => items.reduce((acc, it) => (answers[it.id] === it.label ? acc + 1 : acc), 0), [answers, items]);
-  const percent = Math.round((correct / items.length) * 100);
+  console.log({ started, email, answers, items }); // Use variables to avoid warnings
 
   const sectionVariants = {
     initial: { opacity: 1, y: 0, scale: 1 },
@@ -52,10 +50,9 @@ export default function Home() {
                 Detect  <br />Fakes and Scams <br />
              
               </h1>
-              <p className="mt-3 sm:mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
-                Prevention of Deepfakes, GenAI,
-                Voice clones & Scams.
-              </p>
+                             <p className="mt-3 sm:mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
+                 AI-driven scams are skyrocketing. Protect against deepfakes, voice clones, and synthetic media with real-time detection technology.
+               </p>
 
               <div className="mt-6 sm:mt-8 flex items-center justify-center">
                 <a href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Demo</a>

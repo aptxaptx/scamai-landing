@@ -10,13 +10,7 @@ export default function DesktopSidebar() {
   const pathname = usePathname();
   const router = useRouter();
   
-        const isModelPage = pathname && (
-        pathname.startsWith("/models/ai-generated-media") ||
-        pathname.startsWith("/models/deepfakes") ||
-        pathname.startsWith("/models/voice-clones") ||
-        pathname.startsWith("/models/scam-text-detection") ||
-        pathname.startsWith("/models/link-qr-code")
-      );
+        // Removed unused isModelPage variable
   
   const isBusinessPath = pathname && (
     pathname.startsWith("/business") ||

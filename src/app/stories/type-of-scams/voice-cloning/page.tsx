@@ -13,7 +13,7 @@ export default function VoiceCloningPage() {
             AI Voice Cloning Scams
           </h1>
           <p className="text-lg text-white/90 max-w-4xl mx-auto leading-[1.77] text-left">
-            A new wave of sophisticated scams is leveraging artificial intelligence to replicate the voices of people you trust. Here's a breakdown of how these scams work, the warning signs to look for, and the steps you can take to protect yourself.
+            A new wave of sophisticated scams is leveraging artificial intelligence to replicate the voices of people you trust. Here&apos;s a breakdown of how these scams work, the warning signs to look for, and the steps you can take to protect yourself.
           </p>
           
           {/* Image */}
@@ -38,7 +38,7 @@ export default function VoiceCloningPage() {
           {/* Highlighted Box */}
           <div className="border-l-4 border-white bg-white/5 p-6 my-12">
             <p className="text-xl text-white font-medium leading-[1.77]">
-              A familiar voice is no longer a guarantee of authenticity. Verifying a caller's identity through a separate channel is now essential.
+              A familiar voice is no longer a guarantee of authenticity. Verifying a caller&apos;s identity through a separate channel is now essential.
             </p>
           </div>
         </section>

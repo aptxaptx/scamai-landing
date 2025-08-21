@@ -92,16 +92,16 @@ export default function ApiPlatformPage() {
               <div className="text-green-400"># Detect deepfakes in seconds</div>
               <div className="text-white mt-2">
                 curl -X POST https://api.scam.ai/v1/detect \<br/>
-                &nbsp;&nbsp;-H "Authorization: Bearer $API_KEY" \<br/>
-                &nbsp;&nbsp;-F "file=@suspicious_video.mp4" \<br/>
-                &nbsp;&nbsp;-F "type=deepfake"
+                &nbsp;&nbsp;-H &quot;Authorization: Bearer $API_KEY&quot; \<br/>
+                &nbsp;&nbsp;-F &quot;file=@suspicious_video.mp4&quot; \<br/>
+                &nbsp;&nbsp;-F &quot;type=deepfake&quot;
               </div>
               <div className="text-gray-400 mt-4"># Response</div>
               <div className="text-blue-300 mt-2">
                 {`{`}<br/>
-                &nbsp;&nbsp;"confidence": 0.95,<br/>
-                &nbsp;&nbsp;"prediction": "deepfake",<br/>
-                &nbsp;&nbsp;"regions": [...]<br/>
+                &nbsp;&nbsp;&quot;confidence&quot;: 0.95,<br/>
+                &nbsp;&nbsp;&quot;prediction&quot;: &quot;deepfake&quot;,<br/>
+                &nbsp;&nbsp;&quot;regions&quot;: [...]<br/>
                 {`}`}
               </div>
             </div>

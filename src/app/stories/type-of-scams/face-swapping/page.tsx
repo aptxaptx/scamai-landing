@@ -32,7 +32,7 @@ export default function FaceSwappingPage() {
             What is a Face Swapping Scam?
           </h2>
           <p className="text-lg text-white/80 leading-[1.77] mb-6">
-            Criminals use advanced AI to manipulate or generate video footage, replacing a person's face or simulating real-time video calls. These deepfakes can convincingly impersonate leaders, employees, or public figures to deceive viewers and drive harmful actions.
+            Criminals use advanced AI to manipulate or generate video footage, replacing a person&apos;s face or simulating real-time video calls. These deepfakes can convincingly impersonate leaders, employees, or public figures to deceive viewers and drive harmful actions.
           </p>
           
           {/* Highlighted Box */}
@@ -117,7 +117,7 @@ export default function FaceSwappingPage() {
                   Educate Your Team
                 </h3>
                 <p className="text-lg text-white/80 leading-[1.77]">
-                  Educate staff that "seeing is believing" no longer applies in the AI era.
+                  Educate staff that &quot;seeing is believing&quot; no longer applies in the AI era.
                 </p>
               </div>
             </div>

@@ -38,7 +38,7 @@ export default function RomancePage() {
           {/* Highlighted Box */}
           <div className="border-l-4 border-white bg-white/5 p-6 my-12">
             <p className="text-xl text-white font-medium leading-[1.77]">
-              Romance scammers are masters of manipulation, using emotional tactics to exploit victims' desire for love and connection.
+              Romance scammers are masters of manipulation, using emotional tactics to exploit victims&apos; desire for love and connection.
             </p>
           </div>
         </section>
@@ -58,7 +58,7 @@ export default function RomancePage() {
             <div className="flex items-start gap-3">
               <span className="text-white text-lg">•</span>
               <p className="text-lg text-white/80 leading-[1.77]">
-                Rapid emotional escalation, constant flattery, or "love-bombing."
+                Rapid emotional escalation, constant flattery, or &quot;love-bombing.&quot;
               </p>
             </div>
             <div className="flex items-start gap-3">

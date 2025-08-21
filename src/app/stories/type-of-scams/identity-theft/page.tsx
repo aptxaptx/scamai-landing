@@ -38,7 +38,7 @@ export default function IdentityTheftPage() {
           {/* Highlighted Box */}
           <div className="border-l-4 border-white bg-white/5 p-6 my-12">
             <p className="text-xl text-white font-medium leading-[1.77]">
-              Identity theft can go undetected for months, allowing scammers to cause extensive damage before you even realize what's happening.
+              Identity theft can go undetected for months, allowing scammers to cause extensive damage before you even realize what&apos;s happening.
             </p>
           </div>
         </section>

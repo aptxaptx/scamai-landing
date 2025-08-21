@@ -2,8 +2,7 @@
 
 import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
-import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+// Removed unused imports
 
 // 定义诈骗类型数据
 const scamTypes = [
@@ -101,11 +100,9 @@ export default function TypeOfScamsPage() {
               <article className="rounded-xl overflow-hidden transition-all duration-200 h-full flex flex-col">
                 {/* Image */}
                 <div className="aspect-video bg-gray-100 overflow-hidden">
-                  <Image 
+                  <img 
                     src={item.image} 
                     alt={item.title}
-                    width={400}
-                    height={225}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
                   />
                 </div>

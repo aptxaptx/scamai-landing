@@ -3,16 +3,7 @@ import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
 
 // Inline icon component for scam types
-const supportedIcons = [
-  "ShieldAlert",
-  "Briefcase", 
-  "MessageSquareWarning",
-  "Zap",
-  "Target",
-  "Globe",
-  "BrainCircuit",
-] as const;
-export type IconName = (typeof supportedIcons)[number];
+export type IconName = "ShieldAlert" | "Briefcase" | "MessageSquareWarning" | "Zap" | "Target" | "Globe" | "BrainCircuit";
 
 function InlineIcon({ name, className = "h-5 w-5 text-gray-900" }: { name: IconName; className?: string }) {
   const common = {

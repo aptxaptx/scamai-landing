@@ -118,14 +118,7 @@ export default function AboutPage() {
   );
 }
 
-function Card({ title, description }: { title: string; description: string }) {
-  return (
-    <div className="rounded-2xl border border-white/10 p-5 md:p-6">
-      <h3 className="text-lg md:text-xl font-semibold text-white">{title}</h3>
-      <p className="mt-2 text-white/60 leading-relaxed">{description}</p>
-    </div>
-  );
-}
+// Removed unused Card component
 
 function MiniCard({ title, description, badge }: { title: string; description: string; badge?: string }) {
   return (

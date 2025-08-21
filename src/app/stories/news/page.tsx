@@ -1,7 +1,7 @@
 "use client";
 
 import SiteShell from "@/components/SiteShell";
-import Image from "next/image";
+// Removed unused Image import
 import { useState } from "react";
 
 interface NewsItem {

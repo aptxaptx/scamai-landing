@@ -3,16 +3,7 @@ import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
 
 // Inline icon component (未做修改)
-const supportedIcons = [
-  "ShieldAlert",
-  "Briefcase",
-  "MessageSquareWarning",
-  "Zap",
-  "Target",
-  "Globe",
-  "BrainCircuit",
-] as const;
-export type IconName = (typeof supportedIcons)[number];
+export type IconName = "ShieldAlert" | "Briefcase" | "MessageSquareWarning" | "Zap" | "Target" | "Globe" | "BrainCircuit";
 
 function InlineIcon({ name, className = "h-5 w-5 text-gray-900" }: { name: IconName; className?: string }) {
   // ... (此组件代码保持不变)
@@ -470,25 +461,7 @@ function ApiSection({ api }: ApiSectionProps) {
   );
 }
 
-// CtaSection (未做修改)
-// CTA 作为页面的最终号召，使用突出的卡片设计是合适的。
-type CtaSectionProps = { cta: ProductPageProps["cta"] };
-function CtaSection({ cta }: CtaSectionProps) {
-  return (
-    <div className="mt-16 max-w-2xl mx-auto">
-      <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
-        <h3 className="text-2xl font-semibold text-white mb-4">{cta.headline}</h3>
-        <p className="text-white/80 text-base mb-6">{cta.description}</p>
-        <a
-          href={cta.primary.href}
-          className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
-        >
-          {cta.primary.text}
-        </a>
-      </div>
-    </div>
-  );
-}
+// Removed unused CtaSection
 
 // 主页面组件
 // 将所有部分组合在一起。注意每个 section 之间的垂直间距 `mb-16`，以确保清晰的节奏。

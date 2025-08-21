@@ -13,7 +13,7 @@ export default function FinancialInvestmentPage() {
             Financial Investment Scams
           </h1>
           <p className="text-lg text-white/90 max-w-4xl mx-auto leading-[1.77] text-left">
-            Investment scams promise high returns with little risk, but they're designed to steal your money. Scammers use sophisticated tactics to make fraudulent investments appear legitimate and profitable.
+            Investment scams promise high returns with little risk, but they&apos;re designed to steal your money. Scammers use sophisticated tactics to make fraudulent investments appear legitimate and profitable.
           </p>
           
           {/* Image */}
