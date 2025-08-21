@@ -75,11 +75,11 @@ const voiceClonesPageData: ProductPageProps = {
     items: ["Banking & Finance", "Corporate Communications Security", "Social Media & Content Platforms", "Intelligent Contact Centers"],
   },
   apiSection: {
-    headline: "Easy API Integration",
-    description: "Integrate AI voice detection in minutes with our developer-friendly REST API.",
-    codeExample: {
-      request: '{\n  "audio_url": "https://example.com/call.wav"\n}',
-      response: '{\n  "request_id": "aud-xyz-123",\n  "is_clone": true,\n  "confidence_score": 0.996,\n  "evidence": [\n    {\n      "reason": "spectral_inconsistency"\n    }\n  ]\n}',
+    headline: "API Integration",
+    description: "Ready to integrate Auditory Guardian™ into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    apiDocumentation: {
+      text: "View Complete API Documentation",
+      href: "https://docu.scam.ai/introduction",
     },
   },
   cta: {

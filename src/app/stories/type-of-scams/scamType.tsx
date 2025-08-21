@@ -335,7 +335,7 @@ function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
         {threat.keyThreats.map((item, idx) => (
           <div key={idx} className="text-center">
             <div className="flex items-center justify-center gap-4 mb-3">
-              <span className="flex-shrink-0 h-10 w-10 grid place-items-center rounded-full bg-white/10 border border-white/20">
+              <span className="flex-shrink-0 h-10 w-10 grid place-items-center">
                 <InlineIcon name={item.icon} className="h-5 w-5 text-white" />
               </span>
               <span className="text-white font-semibold">{item.text}</span>
@@ -397,7 +397,7 @@ function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
         {advantages.items.map((adv, idx) => (
           <div key={idx} className="flex items-start gap-4">
-            <div className="flex-shrink-0 h-10 w-10 grid place-items-center rounded-full bg-white/10 border border-white/20">
+            <div className="flex-shrink-0 h-10 w-10 grid place-items-center">
               <InlineIcon name={adv.icon} className="h-5 w-5 text-white" />
             </div>
             <div className="text-left">

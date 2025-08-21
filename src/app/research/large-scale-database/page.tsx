@@ -18,7 +18,7 @@ const scamNetDatabasePageData: ProductPageProps = {
     category: "Research Database for Scam Analysis",
     headline: "The Intelligence Engine Powering",
     subtitle: "Next-Generation Fraud Defense",
-    description: "Welcome to ScamNet DB™, the most comprehensive and real-time database of active scams on the planet. This is not just a static blocklist; it's a living ecosystem of threat intelligence that forms the core foundation of the entire Scam.ai platform. 🧠",
+    description: "Welcome to ScamNet DB™, the most comprehensive and real-time database of active scams on the planet. This is not just a static blocklist; it's a living ecosystem of threat intelligence that forms the core foundation of the entire Scam.ai platform.",
     tags: ["Database", "Scam Intelligence", "Research Data", "ScamNet DB"],
     visual: {
       type: "image",
@@ -75,11 +75,11 @@ const scamNetDatabasePageData: ProductPageProps = {
     items: ["Threat Intelligence Enrichment", "Proactive Infrastructure Blocking", "Security Research & Forensics", "Transaction & Onboarding Risk Assessment"],
   },
   apiSection: {
-    headline: "Seamless Integration & Code Example",
-    description: "Querying our database is simple. Get the critical information you need with a single, fast API call.",
-    codeExample: {
-      request: '{\n  "entity_type": "crypto_wallet",\n  "value": "bc1qxyz..."\n}',
-      response: '{\n  "request_id": "db-ghi-789",\n  "entity": "bc1qxyz...",\n  "is_known_scam": true,\n  "risk_score": 1.0,\n  "first_seen_utc": "2025-08-08T18:30:00Z",\n  "last_seen_utc": "2025-08-08T19:25:00Z",\n  "associated_campaigns": ["Pig Butchering Scam Campaign #42"],\n  "linked_entities": {\n    "domains": ["secure-invest-now.net"],\n    "phone_numbers": ["+18885559876"]\n  }\n}',
+    headline: "API Integration",
+    description: "Ready to integrate ScamNet DB™ into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    apiDocumentation: {
+      text: "View Complete API Documentation",
+      href: "https://docu.scam.ai/introduction",
     },
   },
   cta: {

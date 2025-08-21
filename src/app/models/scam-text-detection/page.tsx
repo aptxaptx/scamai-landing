@@ -18,7 +18,7 @@ const scamTextDetectionPageData: ProductPageProps = {
     category: "Scam Text Detection",
     headline: "Instantly Identify and Neutralize",
     subtitle: "Malicious Texts",
-    description: "Scam.ai's Text Guardian™ model analyzes text messages and short-form content in real time to detect and block phishing, smishing, and other text-based scams before a user can click a malicious link or fall for a fraudulent request. 🎣",
+    description: "Scam.ai's Text Guardian™ model analyzes text messages and short-form content in real time to detect and block phishing, smishing, and other text-based scams before a user can click a malicious link or fall for a fraudulent request.",
     tags: ["Text Analysis", "Scam Detection", "NLP", "Text Guardian"],
     visual: {
       type: "image",
@@ -75,11 +75,11 @@ const scamTextDetectionPageData: ProductPageProps = {
     items: ["Telecommunications & Messaging Apps", "Enterprise Communications", "Financial Services", "Online Marketplaces"],
   },
   apiSection: {
-    headline: "Seamless Integration & Code Example",
-    description: "Deploying Text Guardian™ is straightforward. Our developer-friendly REST API allows you to start protecting your platform in minutes.",
-    codeExample: {
-      request: '{\n  "sender": "+18885551234",\n  "message_body": "Your Fedex package has a customs fee. Pay now to avoid delays: https://bit.ly/xyz123"\n}',
-      response: '{\n  "request_id": "txt-def-456",\n  "is_scam": true,\n  "risk_score": 0.99,\n  "scam_type": "delivery_smishing",\n  "malicious_entities": [\n    {\n      "type": "url",\n      "value": "https://bit.ly/xyz123",\n      "final_destination": "https://phishing-site.example.com/payment"\n    }\n  ]\n}',
+    headline: "API Integration",
+    description: "Ready to integrate Text Guardian™ into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    apiDocumentation: {
+      text: "View Complete API Documentation",
+      href: "https://docu.scam.ai/introduction",
     },
   },
   cta: {

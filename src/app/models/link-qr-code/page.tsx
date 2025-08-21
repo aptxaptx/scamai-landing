@@ -66,11 +66,11 @@ const linkQRCodePageData: ProductPageProps = {
     items: ["Phishing Research", "URL Security Analysis", "QR Code Security", "Fraud Pattern Studies"],
   },
   apiSection: {
-    headline: "URL Analysis API",
-    description: "Integrate link and QR code analysis into your research workflow with our comprehensive URL security API.",
-    codeExample: {
-      request: '{\n  "url": "https://bit.ly/suspicious-link",\n  "analyze_qr": true,\n  "deep_scan": true\n}',
-      response: '{\n  "request_id": "url-pqr-901",\n  "is_malicious": true,\n  "confidence_score": 0.918,\n  "threat_type": "phishing",\n  "final_destination": "fake-bank-login.com",\n  "reputation_score": 0.12,\n  "redirects": 3\n}',
+    headline: "API Integration",
+    description: "Ready to integrate link and QR code analysis into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    apiDocumentation: {
+      text: "View Complete API Documentation",
+      href: "https://docu.scam.ai/introduction",
     },
   },
   cta: {

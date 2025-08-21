@@ -155,9 +155,13 @@ export interface ProductPageProps {
   apiSection?: {
     headline: string;
     description: string;
-    codeExample: {
+    codeExample?: {
       request: string;
       response: string;
+    };
+    apiDocumentation?: {
+      text: string;
+      href: string;
     };
   };
   cta: {
@@ -348,7 +352,7 @@ function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
         {threat.keyThreats.map((item, idx) => (
           // 移除了包裹的卡片 div
           <div key={idx} className="flex items-center gap-4">
-            <span className="flex-shrink-0 h-10 w-10 grid place-items-center rounded-full bg-white/10 border border-white/20">
+            <span className="flex-shrink-0 h-10 w-10 grid place-items-center">
               <InlineIcon name={item.icon} className="h-5 w-5 text-white" />
             </span>
             <span className="text-white font-semibold">{item.text}</span>
@@ -405,7 +409,7 @@ function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
         {advantages.items.map((adv, idx) => (
           // 移除了卡片背景和边框
           <div key={idx} className="flex items-start gap-4">
-            <div className="flex-shrink-0 h-10 w-10 grid place-items-center rounded-full bg-white/10 border border-white/20">
+            <div className="flex-shrink-0 h-10 w-10 grid place-items-center">
               <InlineIcon name={adv.icon} className="h-5 w-5 text-white" />
             </div>
             <div className="text-left">
@@ -451,16 +455,34 @@ function ApiSection({ api }: ApiSectionProps) {
         <h3 className="text-3xl font-bold text-center text-white">{api.headline}</h3>
         <p className="mt-4 text-lg text-white/80 text-center max-w-3xl mx-auto">{api.description}</p>
 
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
-            <div className="text-sm text-gray-400 font-mono">Request</div>
-            <pre className="mt-2 overflow-auto text-sm font-mono"><code>{api.codeExample.request}</code></pre>
+        {api.codeExample && (
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
+              <div className="text-sm text-gray-400 font-mono">Request</div>
+              <pre className="mt-2 overflow-auto text-sm font-mono"><code>{api.codeExample.request}</code></pre>
+            </div>
+            <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
+              <div className="text-sm text-gray-400 font-mono">Response</div>
+              <pre className="mt-2 overflow-auto text-sm font-mono"><code>{api.codeExample.response}</code></pre>
+            </div>
           </div>
-          <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
-            <div className="text-sm text-gray-400 font-mono">Response</div>
-            <pre className="mt-2 overflow-auto text-sm font-mono"><code>{api.codeExample.response}</code></pre>
+        )}
+
+        {api.apiDocumentation && (
+          <div className="mt-10 text-center">
+            <a
+              href={api.apiDocumentation.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 text-lg"
+            >
+              {api.apiDocumentation.text}
+              <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
