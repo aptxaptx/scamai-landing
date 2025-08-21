@@ -11,7 +11,7 @@ const deepfakePageData: ProductPageProps = {
     parentPath: "/research",
     parentName: "Research",
     currentName: "Deepfakes (Faceswap)",
-    nextPath: "/research/ai-generated-media",
+    nextPath: "/models/ai-generated-media",
     nextName: "AI-Generated Media",
   },
   hero: {

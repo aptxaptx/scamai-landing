@@ -37,27 +37,27 @@ export default function ResearchPage() {
           {
             title: "AI-Generated Media",
             desc: "Detect synthetic images, videos, and multimedia content using advanced AI models.",
-            href: "/research/ai-generated-media",
+            href: "/models/ai-generated-media",
           },
           {
             title: "Deepfakes",
             desc: "Real-time detection of deepfake videos and facial manipulation techniques.",
-            href: "/research/deepfakes",
+            href: "/models/deepfakes",
           },
           {
             title: "Voice Clones",
             desc: "Audio authenticity verification and voice synthesis detection algorithms.",
-            href: "/research/voice-clones",
+            href: "/models/voice-clones",
           },
           {
             title: "Scam Text Detection",
             desc: "NLP models for identifying fraudulent messages and social engineering attempts.",
-            href: "/research/scam-text-detection",
+            href: "/models/scam-text-detection",
           },
           {
             title: "Malicious Links & QR Codes",
             desc: "URL analysis and QR code security for threat detection and prevention.",
-            href: "/research/link-qr-code",
+            href: "/models/link-qr-code",
           },
         ].map((card) => (
           <article

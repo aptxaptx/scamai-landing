@@ -39,11 +39,24 @@ export default function ApiPlatformPage() {
             <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Audio</span>
           </div>
 
-          {/* Hero video placeholder */}
+          {/* API Demo Section */}
           <div className="mt-8 max-w-4xl mx-auto">
-            <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-white/5">
-              <div className="aspect-video grid place-items-center text-white/70 text-sm">
-                Video placeholder — platform overview
+            <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-gradient-to-br from-white/10 to-white/5">
+              <div className="aspect-video p-8 flex flex-col justify-center">
+                <div className="text-center">
+                  <h3 className="text-2xl font-semibold text-white mb-4">See ScamAI API in Action</h3>
+                  <p className="text-white/80 mb-6 max-w-2xl mx-auto">
+                    Experience real-time deepfake detection with simple API calls. Upload content and get instant results with confidence scores.
+                  </p>
+                  <div className="inline-flex items-center gap-4">
+                    <a href="/demo" className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors">
+                      Try Live Demo
+                    </a>
+                    <a href="https://docu.scam.ai" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 transition-colors">
+                      View Docs
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -67,11 +80,31 @@ export default function ApiPlatformPage() {
         </div>
       </section>
 
-      {/* Secondary video placeholder (dashboard/demo) */}
+      {/* API Code Example */}
       <div className="mt-12 max-w-4xl mx-auto">
-        <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-white/5">
-          <div className="aspect-video grid place-items-center text-white/70 text-sm">
-            Video placeholder — API usage / dashboard demo
+        <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-gray-900">
+          <div className="p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-white font-semibold">Simple API Integration</h3>
+              <span className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">cURL</span>
+            </div>
+            <div className="bg-black/50 rounded p-4 font-mono text-sm">
+              <div className="text-green-400"># Detect deepfakes in seconds</div>
+              <div className="text-white mt-2">
+                curl -X POST https://api.scam.ai/v1/detect \<br/>
+                &nbsp;&nbsp;-H "Authorization: Bearer $API_KEY" \<br/>
+                &nbsp;&nbsp;-F "file=@suspicious_video.mp4" \<br/>
+                &nbsp;&nbsp;-F "type=deepfake"
+              </div>
+              <div className="text-gray-400 mt-4"># Response</div>
+              <div className="text-blue-300 mt-2">
+                {`{`}<br/>
+                &nbsp;&nbsp;"confidence": 0.95,<br/>
+                &nbsp;&nbsp;"prediction": "deepfake",<br/>
+                &nbsp;&nbsp;"regions": [...]<br/>
+                {`}`}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -167,7 +200,14 @@ export default function ApiPlatformPage() {
             },
           ].map((f) => (
             <article key={f.title} className="border border-white/10 p-6 grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-4">
-              <div className="aspect-video bg-white/5" aria-hidden />
+              <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-white/10">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <span className="text-white text-xl">🔍</span>
+                  </div>
+                  <span className="text-white/80 text-sm">{f.title}</span>
+                </div>
+              </div>
               <div>
                 <h3 className="text-xl font-semibold">{f.title}</h3>
                 <p className="mt-2 text-white/80 text-sm">{f.desc}</p>
@@ -208,7 +248,24 @@ export default function ApiPlatformPage() {
           </p>
           <a href="/demo" className="mt-4 inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Start exploring</a>
         </div>
-        <div className="mt-8 aspect-[16/7] bg-white/5 border border-white/10" aria-hidden />
+        <div className="mt-8 aspect-[16/7] bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 border border-white/10 rounded-lg flex items-center justify-center">
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="w-20 h-20 bg-white/10 rounded-lg flex items-center justify-center">
+                <span className="text-white text-3xl">⚡</span>
+              </div>
+              <div className="text-4xl text-white/60">+</div>
+              <div className="w-20 h-20 bg-white/10 rounded-lg flex items-center justify-center">
+                <span className="text-white text-3xl">🛡️</span>
+              </div>
+              <div className="text-4xl text-white/60">=</div>
+              <div className="w-20 h-20 bg-white/10 rounded-lg flex items-center justify-center">
+                <span className="text-white text-3xl">🚀</span>
+              </div>
+            </div>
+            <p className="text-white/80 text-lg">Fast • Reliable • Scalable</p>
+          </div>
+        </div>
       </section>
 
       {/* Customers */}
@@ -221,8 +278,19 @@ export default function ApiPlatformPage() {
             { name: "Social", blurb: "Label synthetic media and keep feeds authentic." },
             { name: "IP", blurb: "Detect AI remixes and derivative content." },
           ].map((c) => (
-            <article key={c.name} className="border border-white/10 p-4">
-              <div className="h-40 bg-white/5 mb-3" aria-hidden />
+            <article key={c.name} className="border border-white/10 p-4 hover:bg-white/5 transition-colors">
+              <div className="h-40 bg-gradient-to-br from-blue-500/10 to-purple-500/10 mb-3 rounded-lg flex items-center justify-center border border-white/5">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-white text-2xl">
+                      {c.name === "Fintech" ? "💳" : 
+                       c.name === "Dating" ? "💕" : 
+                       c.name === "Social" ? "📱" : "🎨"}
+                    </span>
+                  </div>
+                  <span className="text-white/60 text-xs">Use Case</span>
+                </div>
+              </div>
               <h3 className="font-semibold">{c.name}</h3>
               <p className="text-sm text-white/80 mt-1">{c.blurb}</p>
             </article>

@@ -16,13 +16,18 @@ export default function AIGeneratedImagesPage() {
             Artificial intelligence can now create incredibly realistic images that never existed. Scammers use these AI-generated images to create fake profiles, fake products, and fake evidence to deceive victims.
           </p>
           
-          {/* Image */}
-          <div className="my-12">
-            <img 
-              src="/AI-image-scam.png" 
-              alt="AI-Generated Images Scam Illustration" 
-              className="w-full h-full rounded-lg object-cover"
-            />
+          {/* AI-Generated Image Example */}
+          <div className="my-12 bg-gradient-to-br from-red-500/20 to-purple-500/20 rounded-lg h-64 flex items-center justify-center border border-red-500/30 relative overflow-hidden">
+            <div className="text-center">
+              <div className="w-24 h-24 bg-red-500/30 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-red-500/50">
+                <span className="text-white text-4xl">⚠️</span>
+              </div>
+              <h3 className="text-white text-xl font-semibold mb-2">AI-Generated Content</h3>
+              <p className="text-white/80 text-sm max-w-md">Example of sophisticated AI-generated imagery used in scams</p>
+            </div>
+            <div className="absolute top-4 right-4 bg-red-500/20 border border-red-500/50 rounded-full px-3 py-1">
+              <span className="text-red-300 text-xs font-semibold">⚠ FAKE</span>
+            </div>
           </div>
         </section>
 

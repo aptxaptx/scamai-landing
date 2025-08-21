@@ -40,7 +40,21 @@ export default function MinimalGame({ items, answers, setAnswers, email }: {
         {!isDone ? (
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.div key={current.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.18 }}>
-              <div className="aspect-square bg-white/10 grid place-items-center text-sm text-white/60">image {current.id + 1} placeholder</div>
+              <div className="aspect-square bg-white/10 rounded-lg overflow-hidden relative">
+                <img 
+                  src={`/demo-images/sample-${(current.id % 6) + 1}.jpg`} 
+                  alt={`Detection sample ${current.id + 1}`}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.parentElement!.innerHTML = `<div class="w-full h-full grid place-items-center text-sm text-white/60">Sample ${current.id + 1}</div>`;
+                  }}
+                />
+                <div className="absolute bottom-2 right-2 px-2 py-1 bg-black/70 rounded text-xs text-white">
+                  {current.label === "deepfake" ? "AI Generated" : "Authentic"}
+                </div>
+              </div>
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <button onClick={() => onAnswer("deepfake")} className="border border-white/20 px-4 py-2 text-sm hover:bg-white hover:text-black transition-colors">Deepfake</button>
                 <button onClick={() => onAnswer("real")} className="border border-white/20 px-4 py-2 text-sm hover:bg-white hover:text-black transition-colors">Real</button>

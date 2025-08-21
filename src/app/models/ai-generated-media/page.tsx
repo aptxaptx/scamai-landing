@@ -11,7 +11,7 @@ const aiGeneratedMediaPageData: ProductPageProps = {
     parentPath: "/research",
     parentName: "Research",
     currentName: "AI-Generated Media",
-    nextPath: "/research/voice-clones",
+    nextPath: "/models/voice-clones",
     nextName: "Voice Clones",
   },
   hero: {

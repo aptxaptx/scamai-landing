@@ -93,13 +93,13 @@ export default function Home() {
                 title: "Voice-cloning Detection",
                 desc: "Identify cloned voices and synthetic audio with signal-level analysis.",
                 bg: <div className="absolute inset-0 -z-10 bg-[url('https://i.pinimg.com/originals/d8/e6/eb/d8e6eb6b345ada088e2448947c483ab4.gif')] bg-cover bg-center opacity-40" />,
-                href: "/research/voice-clones",
+                href: "/models/voice-clones",
               },
               {
                 title: "Link & QR Code Detection",
                 desc: "Detect malicious URLs, QR codes and redirectors used in phishing scams.",
                 bg: <div className="absolute inset-0 -z-10 bg-[url('/link.webp')] bg-cover bg-center opacity-60" />,
-                href: "/research/scam-text-detection",
+                href: "/models/scam-text-detection",
               },
               {
                 title: "ScamDB",

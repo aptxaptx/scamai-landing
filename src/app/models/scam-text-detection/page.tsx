@@ -11,7 +11,7 @@ const scamTextDetectionPageData: ProductPageProps = {
     parentPath: "/research",
     parentName: "Research",
     currentName: "Messages",
-    nextPath: "/research/link-qr-code",
+    nextPath: "/models/link-qr-code",
     nextName: "Link & QR Code",
   },
   hero: {

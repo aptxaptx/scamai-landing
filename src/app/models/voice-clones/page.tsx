@@ -11,7 +11,7 @@ const voiceClonesPageData: ProductPageProps = {
     parentPath: "/research",
     parentName: "Research",
     currentName: "Voice Clones",
-    nextPath: "/research/scam-text-detection",
+    nextPath: "/models/scam-text-detection",
     nextName: "Messages",
   },
   hero: {

@@ -18,7 +18,13 @@ export default function DesktopSidebar() {
         pathname.startsWith("/models/link-qr-code")
       );
   
-  const initialSubmenu: SubmenuType = pathname?.startsWith("/business")
+  const isBusinessPath = pathname && (
+    pathname.startsWith("/business") ||
+    pathname === "/api-platform" ||
+    pathname === "/demo"
+  );
+  
+  const initialSubmenu: SubmenuType = isBusinessPath
     ? "business"
     : pathname?.startsWith("/models")
     ? "models"
@@ -35,7 +41,11 @@ export default function DesktopSidebar() {
   useEffect(() => {
     if (!pathname) return;
     
-    if (pathname.startsWith("/business")) setSubmenu("business");
+    const isBusinessPage = pathname.startsWith("/business") || 
+                          pathname === "/api-platform" || 
+                          pathname === "/demo";
+    
+    if (isBusinessPage) setSubmenu("business");
     else if (pathname.startsWith("/models")) setSubmenu("models");
     else if (pathname.startsWith("/research")) setSubmenu("research");
     else if (pathname.startsWith("/stories")) setSubmenu("stories");
@@ -68,16 +78,16 @@ export default function DesktopSidebar() {
   ];
 
   const researchLinks = [
-    "Publication",
+    "Research Overview",
+    "Publications & Datasets",
   ];
 
   const storiesLinks = [
     "News",
     "Type of Scams",
-    "Scam Trends",
   ];
 
-  const companyLinks = ["About Us", "People", "Partnership", "Investors"];
+  const companyLinks = ["About Us", "Partnership", "Investors"];
 
 
 
@@ -138,7 +148,7 @@ export default function DesktopSidebar() {
                     <button
                       key={item}
                       type="button"
-                      onClick={() => router.push("/research/publication")}
+                      onClick={() => setSubmenu(submenu === "research" ? "none" : "research")}
                       className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                     >
                       <span>{item}</span>
@@ -174,7 +184,7 @@ export default function DesktopSidebar() {
                     <button
                       key={item}
                       type="button"
-                      onClick={() => router.push("/company/about")}
+                      onClick={() => setSubmenu(submenu === "company" ? "none" : "company")}
                       className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                     >
                       <span>{item}</span>
@@ -319,10 +329,10 @@ export default function DesktopSidebar() {
             </div>
             <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Research">
               {researchLinks.map((item) => {
-                const href = item === "Publication"
+                const href = item === "Research Overview"
+                  ? "/research"
+                  : item === "Publications & Datasets"
                   ? "/research/publication"
-                  : item === "ScamDB"
-                  ? "/research/large-scale-database"
                   : "#";
                 
                 return (

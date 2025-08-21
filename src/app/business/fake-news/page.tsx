@@ -49,11 +49,31 @@ export default function FakeNewsPage() {
         </div>
       </section>
 
-      {/* Video placeholder */}
+      {/* Interactive Demo Section */}
       <div className="mt-12 max-w-4xl mx-auto">
-        <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-white/5">
-          <div className="aspect-video grid place-items-center text-white/70 text-sm">
-            Video placeholder — replace with your .webm or .mp4
+        <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-gradient-to-br from-blue-500/10 to-green-500/10">
+          <div className="aspect-video p-8 flex flex-col justify-center">
+            <div className="text-center">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-blue-300 text-xl">🔍</span>
+                </div>
+                <div className="text-white text-xl font-semibold">Real-time Detection</div>
+              </div>
+              <h3 className="text-2xl font-semibold text-white mb-4">See Fake News Detection in Action</h3>
+              <p className="text-white/80 mb-6 max-w-2xl mx-auto">
+                Watch our AI identify manipulated media, deepfakes, and synthetic content in real-time across news feeds, social media, and editorial workflows.
+              </p>
+              <div className="inline-flex items-center gap-4">
+                <a href="/demo" className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors">
+                  Try Detection Demo
+                </a>
+                <div className="flex items-center gap-2 text-white/70">
+                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                  <span className="text-sm">Live detection available</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
