@@ -86,7 +86,7 @@ export default function Home() {
               {
                 title: "GenAI Detection",
                 desc: "Detect AI-generated images and videos; flag manipulations and synthetic content.",
-                bg: <div className="absolute inset-0 -z-10 bg-[url('/GenAI.webp')] bg-cover bg-left-top opacity-70" />,
+                bg: <div className="absolute inset-0 -z-10 bg-[url('/GenAI.webp')] bg-cover bg-center opacity-70" />,
                 href: "/research/ai-generated-media",
               },
               {
