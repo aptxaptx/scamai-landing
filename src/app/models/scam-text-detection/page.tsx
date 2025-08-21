@@ -18,7 +18,7 @@ const scamTextDetectionPageData: ProductPageProps = {
     category: "Scam Text Detection",
     headline: "Instantly Identify and Neutralize",
     subtitle: "Malicious Texts",
-    description: "Scam.ai's Text Guardian™ model analyzes text messages and short-form content in real time to detect and block phishing, smishing, and other text-based scams before a user can click a malicious link or fall for a fraudulent request. 🎣",
+    description: "Scam.ai's Text Guardian™ model analyzes text messages and short-form content in real time to detect and block phishing, smishing, and other text-based scams before a user can click a malicious link or fall for a fraudulent request.",
     tags: ["Text Analysis", "Scam Detection", "NLP", "Text Guardian"],
     visual: {
       type: "image",
