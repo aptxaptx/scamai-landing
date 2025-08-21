@@ -1,5 +1,6 @@
 import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function FinancialInvestmentPage() {
   return (
@@ -18,10 +19,12 @@ export default function FinancialInvestmentPage() {
           
           {/* Image */}
           <div className="my-12">
-            <img 
+            <Image 
               src="/financial-scam.png" 
               alt="Financial Investment Scam Illustration" 
-              className="w-full h-full rounded-lg object-cover"
+              width={800}
+              height={400}
+              className="w-full h-auto rounded-lg object-cover"
             />
           </div>
         </section>

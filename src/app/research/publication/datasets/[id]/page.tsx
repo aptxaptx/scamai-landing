@@ -2,6 +2,7 @@
 
 import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { useState, use } from "react";
 import { datasets } from "../data";
@@ -163,9 +164,11 @@ export default function DatasetPage({ params }: Props) {
                 >
                   <article className="rounded-xl overflow-hidden transition-all duration-200">
                     <div className="aspect-video bg-gray-100 overflow-hidden">
-                      <img 
+                      <Image 
                         src={relatedDataset.image} 
                         alt={relatedDataset.title}
+                        width={400}
+                        height={225}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
                       />
                     </div>

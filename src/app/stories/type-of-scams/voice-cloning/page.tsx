@@ -1,5 +1,6 @@
 import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function VoiceCloningPage() {
   return (
@@ -18,10 +19,12 @@ export default function VoiceCloningPage() {
           
           {/* Image */}
           <div className="my-12">
-            <img 
+            <Image 
               src="/voice-cloning-scam.png" 
               alt="Voice Cloning Scam Illustration" 
-              className="w-full h-full rounded-lg object-cover"
+              width={800}
+              height={400}
+              className="w-full h-auto rounded-lg object-cover"
             />
           </div>
         </section>

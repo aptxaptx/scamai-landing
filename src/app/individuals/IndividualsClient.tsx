@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 import SiteShell from "@/components/SiteShell";
 
 export default function IndividualsClient() {
@@ -48,10 +49,11 @@ export default function IndividualsClient() {
         <section id="mobile" className="scroll-mt-24">
           <div className="relative rounded-2xl overflow-hidden h-full">
             {/* Background Image */}
-            <img
+            <Image
               src="/impersonation.webp"
               alt="Mobile scam protection preview"
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
             {/* Dark overlay for better text readability */}
             <div className="absolute inset-0 bg-black/50"></div>
@@ -86,10 +88,11 @@ export default function IndividualsClient() {
         <section id="plugin" className="scroll-mt-24">
           <div className="relative rounded-2xl overflow-hidden h-full">
             {/* Background Image */}
-            <img
+            <Image
               src="/fakenews.webp"
               alt="Browser protection preview"
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
             {/* Dark overlay for better text readability */}
             <div className="absolute inset-0 bg-black/50"></div>

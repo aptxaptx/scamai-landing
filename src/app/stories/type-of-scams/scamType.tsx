@@ -1,6 +1,7 @@
 import React from "react";
 import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
+import Image from "next/image";
 
 // Inline icon component for scam types
 export type IconName = "ShieldAlert" | "Briefcase" | "MessageSquareWarning" | "Zap" | "Target" | "Globe" | "BrainCircuit";
@@ -236,9 +237,11 @@ function HeroSection({ hero, breadcrumb }: HeroSectionProps) {
                 Your browser does not support the video tag.
               </video>
             ) : (
-              <img 
+              <Image 
                 src={hero.visual.src} 
                 alt={hero.visual.alt || ""} 
+                width={800}
+                height={600}
                 className="w-full rounded-lg shadow-lg"
               />
             )}
@@ -290,9 +293,11 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
               Your browser does not support the video tag.
             </video>
           ) : (
-            <img 
+            <Image 
               src={problemSection.visual.src} 
               alt={problemSection.visual.alt || ""} 
+              width={800}
+              height={600}
               className="w-full rounded-lg shadow-lg"
             />
           )}
