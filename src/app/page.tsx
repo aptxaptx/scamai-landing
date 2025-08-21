@@ -81,13 +81,13 @@ export default function Home() {
                 desc: "Catch face swaps, lip‑sync and synthetic personas across images and video.",
                 bg: <div className="absolute inset-0 -z-10 bg-[url('/deepfake.webp')] bg-cover bg-top opacity-60" />,
                 overlay: <div className="absolute inset-0 -z-10 bg-[#3D38F5]/43" />,
-                href: "/research/deepfakes",
+                href: "/models/deepfakes",
               },
               {
                 title: "GenAI Detection",
                 desc: "Detect AI-generated images and videos; flag manipulations and synthetic content.",
                 bg: <div className="absolute inset-0 -z-10 bg-[url('/GenAI.webp')] bg-cover bg-center opacity-70" />,
-                href: "/research/ai-generated-media",
+                href: "/models/ai-generated-media",
               },
               {
                 title: "Voice-cloning Detection",

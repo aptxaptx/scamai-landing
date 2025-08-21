@@ -4,53 +4,47 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-type SubmenuType = "none" | "business" | "individuals" | "models" | "research" | "stories" | "company";
+type SubmenuType = "none" | "business" | "models" | "research" | "stories" | "company";
 
 export default function DesktopSidebar() {
   const pathname = usePathname();
   const router = useRouter();
   
-  const isModelPage = pathname && (
-    pathname.startsWith("/research/ai-generated-media") ||
-    pathname.startsWith("/research/deepfakes") ||
-    pathname.startsWith("/research/voice-clones") ||
-    pathname.startsWith("/research/scam-text-detection") ||
-    pathname.startsWith("/research/link-qr-code")
-  );
+        const isModelPage = pathname && (
+        pathname.startsWith("/models/ai-generated-media") ||
+        pathname.startsWith("/models/deepfakes") ||
+        pathname.startsWith("/models/voice-clones") ||
+        pathname.startsWith("/models/scam-text-detection") ||
+        pathname.startsWith("/models/link-qr-code")
+      );
   
   const initialSubmenu: SubmenuType = pathname?.startsWith("/business")
     ? "business"
-    : pathname?.startsWith("/individuals")
-    ? "individuals"
-    : isModelPage
+    : pathname?.startsWith("/models")
     ? "models"
     : pathname?.startsWith("/research")
     ? "research"
+    : pathname?.startsWith("/stories")
+    ? "stories"
+    : pathname?.startsWith("/company")
+    ? "company"
     : "none";
     
   const [submenu, setSubmenu] = useState<SubmenuType>(initialSubmenu);
-  const isIndividualsPage = !!pathname && pathname.startsWith("/individuals");
 
   useEffect(() => {
     if (!pathname) return;
     
-    const isModelPage = pathname.startsWith("/research/ai-generated-media") ||
-      pathname.startsWith("/research/deepfakes") ||
-      pathname.startsWith("/research/voice-clones") ||
-      pathname.startsWith("/research/scam-text-detection") ||
-      pathname.startsWith("/research/link-qr-code");
-    
     if (pathname.startsWith("/business")) setSubmenu("business");
-    else if (pathname.startsWith("/individuals")) setSubmenu("individuals");
-    else if (isModelPage) setSubmenu("models");
+    else if (pathname.startsWith("/models")) setSubmenu("models");
     else if (pathname.startsWith("/research")) setSubmenu("research");
+    else if (pathname.startsWith("/stories")) setSubmenu("stories");
     else if (pathname.startsWith("/company")) setSubmenu("company");
     else setSubmenu("none");
   }, [pathname]);
 
   const mainLinks = [
     "For Business", 
-    "For Individuals",
     "Models",
     "Research",
     "Stories",
@@ -86,10 +80,7 @@ export default function DesktopSidebar() {
 
   const companyLinks = ["About Us", "People", "Partnership", "Investors"];
 
-  const individualsLinks = [
-    { label: "Mobile App", href: "/individuals?s=mobile" },
-    { label: "Browser Plugin", href: "/individuals?s=plugin" },
-  ];
+
 
   return (
     <aside 
@@ -124,24 +115,7 @@ export default function DesktopSidebar() {
                     </button>
                   );
                 }
-                if (item === "For Individuals") {
-                  return (
-                    <button
-                      key={item}
-                      type="button"
-                      onClick={() => router.push("/individuals?s=mobile")}
-                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
-                    >
-                      <span>{item}</span>
-                      <span
-                        aria-hidden
-                        className="text-white/60 opacity-0 translate-x-1 transition-all group-hover:opacity-60 group-hover:translate-x-0"
-                      >
-                        →
-                      </span>
-                    </button>
-                  );
-                }
+
                 if (item === "Models") {
                   return (
                     <button
@@ -271,45 +245,7 @@ export default function DesktopSidebar() {
             </nav>
           </div>
 
-          {/* Individuals submenu panel */}
-          <div className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
-            submenu === "individuals" ? "translate-x-0" : "translate-x-full"
-          }`}>
-            <div className="px-4 pb-4 flex items-center gap-2 text-white/70">
-              <button
-                type="button"
-                onClick={() => {
-                  setSubmenu("none");
-                  router.push("/");
-                }}
-                className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-white/10"
-              >
-                <span aria-hidden>←</span>
-                <span>Home</span>
-              </button>
-            </div>
-            <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="For Individuals">
-              {individualsLinks.map((item) => {
-                const href = isIndividualsPage ? `?${item.href.split("?")[1]}` : item.href;
-                const handleClick: React.MouseEventHandler<HTMLAnchorElement> | undefined = isIndividualsPage
-                  ? (e) => {
-                      e.preventDefault();
-                      router.replace(href, { scroll: false });
-                    }
-                  : undefined;
-                return (
-                  <a
-                    key={item.label}
-                    href={href}
-                    onClick={handleClick}
-                    className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                );
-              })}
-            </nav>
-          </div>
+
 
           {/* Models submenu panel */}
           <div className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
@@ -333,15 +269,15 @@ export default function DesktopSidebar() {
                 const href = item === "Detection Models"
                   ? "#"
                   : item === "GenAI Media Detection" 
-                  ? "/research/ai-generated-media"
+                  ? "/models/ai-generated-media"
                   : item === "Deepfakes (Faceswap)"
-                  ? "/research/deepfakes"
+                  ? "/models/deepfakes"
                   : item === "Voice Cloning"
-                  ? "/research/voice-clones"
+                  ? "/models/voice-clones"
                   : item === "Messages"
-                  ? "/research/scam-text-detection"
+                  ? "/models/scam-text-detection"
                   : item === "Link & QR Code"
-                  ? "/research/link-qr-code"
+                  ? "/models/link-qr-code"
                   : "#";
                 
                 return item === "Detection Models" ? (

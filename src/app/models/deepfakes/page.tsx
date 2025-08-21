@@ -15,9 +15,9 @@ const deepfakePageData: ProductPageProps = {
     nextName: "AI-Generated Media",
   },
   hero: {
-    category: "Deepfake Detection",
-    headline: "Real-Time Deepfake Detection",
-    subtitle: "Defending the Truth in Visual Content",
+    category: "Deepfake Detection Model",
+    headline: "Defending the Truth in Human Face",
+    subtitle: "Real-Time Deepfake Detection",
     description: "Scam.ai's Video Integrity™ model analyzes video and images frame-by-frame, providing instant, precise alerts before deepfake content can cause identity fraud or reputational damage.",
     tags: ["GenAI", "Deepfake", "Faceswap", "Video Integrity"],
     visual: {
@@ -26,7 +26,7 @@ const deepfakePageData: ProductPageProps = {
     },
   },
   problemSection: {
-    headline: "The Threat: \"Seeing is Believing\"\nIs a Thing of the Past",
+    headline: "The Threat: \"Seeing is Believing\" Is a Thing of the Past",
     description: "Today, creating a deepfake video convincing enough to fool human eyes—and even traditional bank KYC systems—costs just a few dollars. Is your verification process ready for this challenge?",
     visual: {
       type: "image",
@@ -39,19 +39,9 @@ const deepfakePageData: ProductPageProps = {
       { title: "Disinformation & News Manipulation", description: "Maliciously creating videos of public figures to cause social panic or damage a company's reputation." },
     ],
   },
-  threatLandscape: {
-    headline: "The Challenge of Synthetic Media",
-    description: "Sophisticated AI can now generate content nearly indistinguishable from reality, creating unprecedented risks for research integrity and authenticity verification.",
-    keyThreats: [
-      { icon: "ShieldAlert", text: "Identity Verification Fraud" },
-      { icon: "Briefcase", text: "Executive Impersonation" },
-      { icon: "MessageSquareWarning", text: "Disinformation & News Manipulation" },
-    ],
-    dataPoint: "According to Gartner, up to 30% of video and image content in corporate communications will be synthetically altered by AI by 2026.",
-  },
   solution: {
     productName: "Video Integrity™",
-    headline: "Our Solution: Video Integrity™ — The Digital Forensics Expert",
+    headline: "Video Integrity™ — The Digital Forensics Expert",
     description: "Video Integrity™ employs a multi-dimensional analysis engine, acting like a seasoned digital forensics expert to catch the microscopic flaws left behind by AI generation models—flaws that are invisible to the naked eye.",
     coreDimensions: [
       { title: "Spatial Artifact Analysis", description: "Detects unnatural transitions and flaws in facial features, lighting reflections, and skin textures." },
@@ -61,7 +51,7 @@ const deepfakePageData: ProductPageProps = {
     outputDescription: "The API returns a JSON object in real-time, containing an \"is_deepfake\" boolean, a \"confidence_score\", and the coordinates of \"suspicious_regions\".",
   },
   advantages: {
-    headline: "Our Advantage: Why Choose Video Integrity™?",
+    headline: "Why Choose Video Integrity™?",
     items: [
       { icon: "Zap", title: "Millisecond-Level Response", description: "Optimized for real-time communications like phone calls and voice chat, ensuring instant detection with no perceivable latency." },
       { icon: "Target", title: "Unparalleled Accuracy", description: "Trained on the world's largest proprietary database of synthetic and real video data, achieving industry-leading low false-positive and high-recall rates." },
@@ -72,14 +62,6 @@ const deepfakePageData: ProductPageProps = {
   useCases: {
     headline: "Use Cases & Applications",
     items: ["Financial Services (Remote Onboarding/KYC)", "Video Conferencing Security", "Insurance Industry (Remote Claims Verification)", "News & Social Media (Content Authenticity)"],
-  },
-  apiSection: {
-    headline: "Seamless Integration & Code Example",
-    description: "Integrate Video Integrity™ easily with our clear and robust API.",
-    codeExample: {
-      request: '{\n  "video_url": "https://example.com/kyc_video.mp4"\n}',
-      response: '{\n  "request_id": "vid-abc-456",\n  "is_deepfake": true,\n  "confidence_score": 0.998,\n  "suspicious_regions": [\n    {\n      "box_coordinates": [450, 150, 250, 250],\n      "reason": "Unnatural eye blinking pattern"\n    }\n  ]\n}',
-    },
   },
   cta: {
     headline: "Take the Next Step",

@@ -12,7 +12,7 @@ export const papers = [
     pdfUrl: "https://arxiv.org/abs/2503.20084",
     category: "Research",
     tags: ["Deepfake", "Multi-modal LLMs", "Computer Vision"],
-    image: "/deepfake.webp",
+    image: "/multimodel.png",
     content: `Deepfake detection remains a critical challenge in the era of advanced generative models, particularly as synthetic media becomes more sophisticated. In this study, we explore the potential of state of the art multi-modal (reasoning) large language models (LLMs) for deepfake image detection.
 
 ## Abstract
@@ -64,7 +64,7 @@ arXiv:2503.20084 [cs.CV] (or arXiv:2503.20084v2 [cs.CV] for this version)`,
     pdfUrl: "https://arxiv.org/abs/2502.10920",
     category: "Publication",
     tags: ["Deepfake Detection", "Real-world Applications", "Computer Vision"],
-    image: "/GenAI.webp",
+    image: "/deepfakework.png",
     content: `Deepfakes, particularly those involving faceswap-based manipulations, have sparked significant societal concern due to their increasing realism and potential for misuse. Despite rapid advancements in generative models, detection methods have not kept pace, creating a critical gap in defense strategies.
 
 ## Abstract

@@ -17,7 +17,7 @@ export default function BusinessPage() {
              Use Cases
           </h1>
           <p className="mt-4 text-white/85 text-[clamp(15px,2.2vw,20px)] max-w-3xl mx-auto">
-            Our Models help you detect and prevent fraud from misuse of AI.
+            Deploy enterprise-grade AI detection models to identify deepfakes, synthetic media, and AI-generated fraud in real-time.
           </p>
           <div className="mt-6 flex items-center justify-center">
             <a

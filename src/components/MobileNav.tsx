@@ -33,7 +33,7 @@ export default function MobileNav() {
     setExpandedSection(null);
   };
 
-  const toggleSection = (section: "business" | "individuals" | "models" | "research" | "stories" | "company") => {
+  const toggleSection = (section: "business" | "models" | "research" | "stories" | "company") => {
     setExpandedSection(expandedSection === section ? null : section);
   };
 
@@ -113,23 +113,7 @@ export default function MobileNav() {
 
             {/* For Individuals */}
             <div>
-              <button
-                onClick={() => toggleSection("individuals")}
-                className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
-              >
-                <span>For Individuals</span>
-                <span className={`transition-transform duration-200 ${expandedSection === "individuals" ? "rotate-90" : ""}`}>→</span>
-              </button>
-              {expandedSection === "individuals" && (
-                <div className="ml-4 mt-1 space-y-1">
-                  <Link href="/individuals?s=mobile" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
-                    Mobile App
-                  </Link>
-                  <Link href="/individuals?s=plugin" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
-                    Browser Plugin
-                  </Link>
-                </div>
-              )}
+
             </div>
 
             {/* Models */}
@@ -144,19 +128,19 @@ export default function MobileNav() {
               {expandedSection === "models" && (
                 <div className="ml-4 mt-1 space-y-1">
                   <div className="px-3 py-1 text-xs font-medium text-white/50 tracking-wide">Detection Models</div>
-                  <Link href="/research/deepfakes" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                  <Link href="/models/deepfakes" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
                     Deepfakes (Faceswap)
                   </Link>
-                  <Link href="/research/ai-generated-media" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                  <Link href="/models/ai-generated-media" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
                     GenAI Media Detection
                   </Link>
-                  <Link href="/research/voice-clones" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                  <Link href="/models/voice-clones" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
                     Voice Cloning
                   </Link>
-                  <Link href="/research/scam-text-detection" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                  <Link href="/models/scam-text-detection" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
                     Messages
                   </Link>
-                  <Link href="/research/link-qr-code" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
+                  <Link href="/models/link-qr-code" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
                     Link & QR Code
                   </Link>
                 </div>
