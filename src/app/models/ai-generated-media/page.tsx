@@ -75,11 +75,11 @@ const aiGeneratedMediaPageData: ProductPageProps = {
     items: ["E-commerce & Marketplace Trust", "Insurance & Financial Services", "Social Media & Dating Apps", "Legal & News Media"],
   },
   apiSection: {
-    headline: "Seamless Integration & Code Example",
-    description: "Integrate Visual Authenticity™ easily with our clear and robust API.",
-    codeExample: {
-      request: '{\n  "image_url": "https://example.com/product_image.jpg"\n}',
-      response: '{\n  "request_id": "img-abc-123",\n  "is_generated": true,\n  "confidence_score": 0.992,\n  "predicted_source_family": "Midjourney"\n}',
+    headline: "API Integration",
+    description: "Ready to integrate Visual Authenticity™ into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    apiDocumentation: {
+      text: "View Complete API Documentation",
+      href: "https://docu.scam.ai/introduction",
     },
   },
   cta: {

@@ -63,6 +63,14 @@ const deepfakePageData: ProductPageProps = {
     headline: "Use Cases & Applications",
     items: ["Financial Services (Remote Onboarding/KYC)", "Video Conferencing Security", "Insurance Industry (Remote Claims Verification)", "News & Social Media (Content Authenticity)"],
   },
+  apiSection: {
+    headline: "API Integration",
+    description: "Ready to integrate Video Integrity™ into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    apiDocumentation: {
+      text: "View Complete API Documentation",
+      href: "https://docu.scam.ai/introduction",
+    },
+  },
   cta: {
     headline: "Take the Next Step",
     description: "Protect your organization with advanced deepfake detection.",
