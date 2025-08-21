@@ -1,77 +1,171 @@
-import { ScamTypePage, ScamTypePageProps } from "../scamType";
-
-export const metadata = { title: "Voice Cloning Scam — ScamAI" };
-
-const voiceCloningPageData: ScamTypePageProps = {
-  metadata: {
-    title: "Voice Cloning Scam — ScamAI",
-    description: "Learn about voice cloning scams and how ScamAI protects against AI-generated voice fraud.",
-  },
-  breadcrumb: {
-    parentPath: "/stories/type-of-scams",
-    parentName: "Types of Scams",
-    currentName: "Voice Cloning Scam",
-    nextPath: "/stories/type-of-scams/face-swapping",
-    nextName: "Face Swapping Scam",
-  },
-  hero: {
-    category: "AI-Powered Voice Fraud",
-    headline: "Voice Cloning Scams\nWhen Your Voice Becomes a Weapon",
-    subtitle: "AI-generated voice replicas are being used to impersonate trusted individuals,\nstealing sensitive information and money through convincing phone calls and messages.",
-    tags: ["Voice AI", "Impersonation", "Social Engineering", "Phone Fraud"],
-    visual: {
-      type: "image",
-      src: "/voice-cloning.webp",
-    },
-  },
-  problemSection: {
-    headline: "The Threat: Your Voice Can Be Cloned\nIn Just Minutes",
-    description: "Modern AI technology can create convincing voice replicas from just a few seconds of audio. Scammers use these cloned voices to bypass security measures and gain trust through familiar-sounding phone calls.",
-    visual: {
-      type: "image",
-      src: "/voice-threat.webp",
-      alt: "Voice cloning threat landscape",
-    },
-    dataPoint: "According to recent studies, AI voice cloning can now replicate a voice with 95% accuracy using just 3-5 seconds of audio.",
-  },
-  threatLandscape: {
-    headline: "The Voice Cloning Challenge",
-    description: "AI voice synthesis has become so advanced that it can replicate emotional nuances, accents, and speech patterns with frightening accuracy.",
-    keyThreats: [
-      { icon: "ShieldAlert", text: "Family Impersonation", description: "Attackers clone voices of loved ones to request emergency money transfers or sensitive information." },
-      { icon: "Briefcase", text: "Business Executive Fraud", description: "Scammers impersonate CEOs or managers to authorize fraudulent transactions or access company systems." },
-      { icon: "MessageSquareWarning", text: "Customer Service Bypass", description: "Using cloned voices to bypass identity verification in banking and financial services." },
-    ],
-  },
-  solution: {
-    productName: "VoiceGuard™",
-    headline: "Our Solution: VoiceGuard™ — The Voice Authentication Expert",
-    description: "VoiceGuard™ uses advanced audio forensics to detect AI-generated voices by analyzing subtle patterns that human ears cannot perceive.",
-    coreDimensions: [
-      { title: "Audio Artifact Analysis", description: "Detects unnatural patterns in frequency distribution and audio compression artifacts." },
-      { title: "Emotional Consistency Detection", description: "Analyzes emotional expression patterns to identify artificial voice synthesis." },
-      { title: "Biometric Voice Fingerprinting", description: "Creates unique voice signatures to distinguish real from cloned voices." },
-    ],
-    outputDescription: "The API returns real-time analysis with confidence scores and detailed detection of AI-generated voice characteristics.",
-  },
-  advantages: {
-    headline: "Why Choose VoiceGuard™?",
-    items: [
-      { icon: "Zap", title: "Real-Time Detection", description: "Instant analysis during phone calls and voice messages with no delay." },
-      { icon: "Target", title: "High Accuracy", description: "99.7% detection rate for AI-generated voices with minimal false positives." },
-      { icon: "Globe", title: "Multi-Language Support", description: "Works across all languages and accents with consistent accuracy." },
-      { icon: "BrainCircuit", title: "Continuous Learning", description: "Adapts to new voice cloning techniques and emerging threats." },
-    ],
-  },
-
-  cta: {
-    headline: "Protect Against Voice Cloning",
-    description: "Don't let AI voices deceive you or your organization.",
-    primary: { text: "Get Started", href: "/demo" },
-  },
-  backgroundImage: "/voice-background.webp",
-};
+import SiteShell from "@/components/SiteShell";
+import Link from "next/link";
 
 export default function VoiceCloningPage() {
-  return <ScamTypePage data={voiceCloningPageData} />;
+  return (
+    <SiteShell>
+      {/* Main Content */}
+      <div className="max-w-4xl mx-auto px-8 pt-16 sm:pt-24 pb-12">
+        
+        {/* Hero Section */}
+        <section className="text-center mb-16">
+          <h1 className="text-4xl sm:text-5xl font-medium text-white mb-6 leading-tight">
+            AI Voice Cloning Scams
+          </h1>
+          <p className="text-lg text-white/90 max-w-4xl mx-auto leading-[1.77] text-left">
+            A new wave of sophisticated scams is leveraging artificial intelligence to replicate the voices of people you trust. Here's a breakdown of how these scams work, the warning signs to look for, and the steps you can take to protect yourself.
+          </p>
+          
+          {/* Image Placeholder */}
+          <div className="my-12 bg-gray-800 rounded-lg h-64 flex items-center justify-center">
+            <span className="text-white text-2xl font-bold">Picture</span>
+          </div>
+        </section>
+
+        {/* What is a Voice Cloning Scam */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
+            What is Voice Clone Scam?
+          </h2>
+          <p className="text-lg text-white/80 leading-[1.77] mb-6">
+            Attackers use AI to replicate real voices with high accuracy, making calls that sound nearly identical to trusted colleagues, leaders, or relatives. These synthetic voices are often used to demand money transfers, share confidential data, or override normal processes.
+          </p>
+          
+          {/* Highlighted Box */}
+          <div className="border-l-4 border-white bg-white/5 p-6 my-12">
+            <p className="text-xl text-white font-medium leading-[1.77]">
+              A familiar voice is no longer a guarantee of authenticity. Verifying a caller's identity through a separate channel is now essential.
+            </p>
+          </div>
+        </section>
+
+        {/* Warning Signs */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
+            Warning Signs:
+          </h2>
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <span className="text-white text-lg">•</span>
+              <p className="text-lg text-white/80 leading-[1.77]">
+                Voice sounds right but speech rhythm or emotional tone feels unnatural.
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-white text-lg">•</span>
+              <p className="text-lg text-white/80 leading-[1.77]">
+                Caller insists on urgency, secrecy, or skipping normal checks.
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-white text-lg">•</span>
+              <p className="text-lg text-white/80 leading-[1.77]">
+                Inconsistencies in background noise, echo, or call quality.
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-white text-lg">•</span>
+              <p className="text-lg text-white/80 leading-[1.77]">
+                Refusal to verify through other secure channels.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* How to Protect Yourself */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
+            Protect Yourself:
+          </h2>
+          <p className="text-lg text-white/80 leading-[1.77] mb-8 text-left">
+            Stay vigilant and use multiple verification methods to protect yourself from voice cloning scams:
+          </p>
+          
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <span className="text-white text-lg">•</span>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Establish Security Policies
+                </h3>
+                <p className="text-lg text-white/80 leading-[1.77]">
+                  Establish policies that no sensitive or financial action can be taken based on a single voice request.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-3">
+              <span className="text-white text-lg">•</span>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Train Your Team
+                </h3>
+                <p className="text-lg text-white/80 leading-[1.77]">
+                  Train employees to recognize voice cloning tactics and unusual caller behavior.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-3">
+              <span className="text-white text-lg">•</span>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Multi-Channel Verification
+                </h3>
+                <p className="text-lg text-white/80 leading-[1.77]">
+                  Require multi-channel verification. Callback to known number, secure messaging, or in-person confirmation.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-3">
+              <span className="text-white text-lg">•</span>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Layered Approval Process
+                </h3>
+                <p className="text-lg text-white/80 leading-[1.77]">
+                  Keep layered approval processes in place for financial or sensitive requests.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Product CTA Section */}
+        <section className="text-center">
+          <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
+            How Can Our Product Help?
+          </h2>
+          <div className="bg-white/5 rounded-lg p-8">
+            <p className="text-lg text-white/80 leading-[1.77] mb-6">
+              Our advanced voice cloning detection technology provides real-time protection against AI-generated voice fraud, helping you stay one step ahead of scammers.
+            </p>
+            <Link 
+              href="/demo"
+              className="inline-block px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors text-lg"
+            >
+              Get Protected Now
+            </Link>
+          </div>
+        </section>
+
+        {/* Navigation */}
+        <div className="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
+          <Link 
+            href="/stories/type-of-scams"
+            className="text-sm text-white/70 hover:text-white transition-colors"
+          >
+            ← Back to Types of Scams
+          </Link>
+          <Link 
+            href="/stories/type-of-scams/face-swapping"
+            className="text-sm text-white/70 hover:text-white transition-colors"
+          >
+            Next: Face Swapping Scam →
+          </Link>
+        </div>
+      </div>
+    </SiteShell>
+  );
 }

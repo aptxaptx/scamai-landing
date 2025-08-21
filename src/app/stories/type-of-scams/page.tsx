@@ -37,12 +37,12 @@ export default function TypeOfScamsPage() {
             href: "/stories/type-of-scams/ai-generated-images",
           },
           {
-            title: "Identity Theft Scams",
+            title: "Identity Theft Scam",
             desc: "Stealing personal information for fraud and unauthorized purchases.",
             href: "/stories/type-of-scams/identity-theft",
           },
           {
-            title: "Financial Investment Scams",
+            title: "Financial Investment Scam",
             desc: "Fake investment opportunities with unrealistic returns.",
             href: "/stories/type-of-scams/financial-investment",
           },
