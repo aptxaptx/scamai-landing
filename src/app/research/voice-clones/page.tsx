@@ -88,6 +88,7 @@ const voiceClonesPageData: ProductPageProps = {
     primary: { text: "Request a Demo", href: "/demo" },
   },
   backgroundImage: "/visual.webp",
+  overlayColor: "bg-purple-600/32",
 };
 
 export default function VoiceClonesPage() {

@@ -77,16 +77,17 @@ export default function Home() {
           >
             {[
               {
+                title: "Deepfake Detection",
+                desc: "Catch face swaps, lip‑sync and synthetic personas across images and video.",
+                bg: <div className="absolute inset-0 -z-10 bg-[url('/deepfake.webp')] bg-cover bg-top opacity-60" />,
+                overlay: <div className="absolute inset-0 -z-10 bg-[#3D38F5]/43" />,
+                href: "/research/deepfakes",
+              },
+              {
                 title: "GenAI Detection",
                 desc: "Detect AI-generated images and videos; flag manipulations and synthetic content.",
                 bg: <div className="absolute inset-0 -z-10 bg-[url('/GenAI.webp')] bg-cover bg-left-top opacity-70" />,
                 href: "/research/ai-generated-media",
-              },
-              {
-                title: "Deepfake Detection",
-                desc: "Catch face swaps, lip‑sync and synthetic personas across images and video.",
-                bg: <div className="absolute inset-0 -z-10 bg-[url('/deepfake.webp')] bg-cover bg-center opacity-60" />,
-                href: "/research/deepfakes",
               },
               {
                 title: "Voice-cloning Detection",
@@ -119,6 +120,7 @@ export default function Home() {
                 className={`relative rounded-2xl p-8 backdrop-blur-sm transition-colors overflow-hidden min-h-[280px] flex flex-col justify-between ${card.light ? "bg-white text-black hover:bg-white" : "bg-white/5 hover:bg-white/10"}`}
               >
                 {card.bg}
+                {card.overlay}
                 <h3 className="text-lg font-semibold tracking-tight">{card.title}</h3>
                 <p className={`mt-2 text-sm ${card.light ? "text-black/70" : "text-white/80"}`}>{card.desc}</p>
                 <a href={card.href} className={`mt-4 inline-flex text-sm font-semibold underline underline-offset-4 ${card.light ? "text-black/90" : "text-white/90"}`}>Learn more</a>

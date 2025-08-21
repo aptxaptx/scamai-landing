@@ -177,6 +177,7 @@ export interface ProductPageProps {
     };
   };
   backgroundImage?: string;
+  overlayColor?: string;
 }
 
 // Hero Section (未做修改)
@@ -517,11 +518,17 @@ export function ProductPage({ data }: { data: ProductPageProps }) {
       </div>
 
       {data.backgroundImage && (
-        <div
-          className="fixed inset-0 -z-10 opacity-60 bg-cover bg-center"
-          style={{ backgroundImage: `url('${data.backgroundImage}')` }}
-          aria-hidden
-        />
+        <>
+          <div
+            className="fixed inset-0 -z-10 opacity-60 bg-cover bg-center"
+            style={{ backgroundImage: `url('${data.backgroundImage}')` }}
+            aria-hidden
+          />
+          <div
+            className={`fixed inset-0 -z-10 ${data.overlayColor || 'bg-[#3D38F5]/43'}`}
+            aria-hidden
+          />
+        </>
       )}
     </SiteShell>
   );
