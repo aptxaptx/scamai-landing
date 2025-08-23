@@ -86,11 +86,6 @@ export default function SiteFooter() {
             <h3 className="text-white font-semibold mb-4">Research</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/research" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Research Overview
-                </Link>
-              </li>
-              <li>
                 <Link href="/research/publication" className="text-white/70 hover:text-white text-sm transition-colors">
                   Publications & Datasets
                 </Link>

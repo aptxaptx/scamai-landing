@@ -159,9 +159,6 @@ export default function MobileNav() {
               </button>
               {expandedSection === "research" && (
                 <div className="ml-4 mt-1 space-y-1">
-                  <Link href="/research" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
-                    Research Overview
-                  </Link>
                   <Link href="/research/publication" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
                     Publications & Datasets
                   </Link>

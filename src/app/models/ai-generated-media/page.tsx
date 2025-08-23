@@ -8,8 +8,8 @@ const aiGeneratedMediaPageData: ProductPageProps = {
     description: "Detect AI-generated images and videos with ScamAI's advanced detection technology.",
   },
   breadcrumb: {
-    parentPath: "/research",
-    parentName: "Research",
+    parentPath: "/",
+    parentName: "Home",
     currentName: "AI-Generated Media",
     nextPath: "/models/voice-clones",
     nextName: "Voice Clones",

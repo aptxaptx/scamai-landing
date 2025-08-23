@@ -8,8 +8,8 @@ const linkQRCodePageData: ProductPageProps = {
     description: "Detect malicious links and QR codes with ScamAI's advanced URL analysis technology.",
   },
   breadcrumb: {
-    parentPath: "/research",
-    parentName: "Research",
+    parentPath: "/",
+    parentName: "Home",
     currentName: "Link & QR Code",
     nextPath: "/research/large-scale-database",
     nextName: "ScamNet Database",

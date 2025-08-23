@@ -8,8 +8,8 @@ const scamNetDatabasePageData: ProductPageProps = {
     description: "Access the world's largest database of scam patterns and fraudulent content for research.",
   },
   breadcrumb: {
-    parentPath: "/research",
-    parentName: "Research",
+    parentPath: "/",
+    parentName: "Home",
     currentName: "ScamNet Database",
     nextPath: "/research/publication",
     nextName: "Publications",

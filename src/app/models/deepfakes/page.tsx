@@ -8,8 +8,8 @@ const deepfakePageData: ProductPageProps = {
     description: "Detect deepfakes and faceswaps with ScamAI's advanced real-time detection.",
   },
   breadcrumb: {
-    parentPath: "/research",
-    parentName: "Research",
+    parentPath: "/",
+    parentName: "Home",
     currentName: "Deepfakes (Faceswap)",
     nextPath: "/models/ai-generated-media",
     nextName: "AI-Generated Media",

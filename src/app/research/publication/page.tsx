@@ -64,7 +64,7 @@ export default function PublicationPage() {
         <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 pt-4">
           <div className="flex items-center justify-between text-sm">
             <div className="text-white/70">
-              <Link href="/research" className="hover:text-white/90">Research</Link>
+              <Link href="/" className="hover:text-white/90">Home</Link>
               <span className="mx-2">/</span>
               <span className="text-white/90">Publications</span>
             </div>

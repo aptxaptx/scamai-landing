@@ -72,7 +72,6 @@ export default function DesktopSidebar() {
   ];
 
   const researchLinks = [
-    "Research Overview",
     "Publications & Datasets",
   ];
 
@@ -323,9 +322,7 @@ export default function DesktopSidebar() {
             </div>
             <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Research">
               {researchLinks.map((item) => {
-                const href = item === "Research Overview"
-                  ? "/research"
-                  : item === "Publications & Datasets"
+                const href = item === "Publications & Datasets"
                   ? "/research/publication"
                   : "#";
                 

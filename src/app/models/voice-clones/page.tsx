@@ -8,8 +8,8 @@ const voiceClonesPageData: ProductPageProps = {
     description: "Detect AI voice clones and synthetic audio with ScamAI's real-time detection technology.",
   },
   breadcrumb: {
-    parentPath: "/research",
-    parentName: "Research",
+    parentPath: "/",
+    parentName: "Home",
     currentName: "Voice Clones",
     nextPath: "/models/scam-text-detection",
     nextName: "Messages",
