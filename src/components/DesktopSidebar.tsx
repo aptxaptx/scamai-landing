@@ -6,7 +6,12 @@ import { usePathname, useRouter } from "next/navigation";
 
 type SubmenuType = "none" | "business" | "models" | "research" | "stories" | "company";
 
-export default function DesktopSidebar() {
+type DesktopSidebarProps = {
+  isVisible: boolean;
+  onToggleVisibility: () => void;
+};
+
+export default function DesktopSidebar({ isVisible, onToggleVisibility }: DesktopSidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
   
@@ -86,7 +91,11 @@ export default function DesktopSidebar() {
 
   return (
     <aside 
-      className="z-10 fixed left-0 w-[200px] top-16 h-[calc(100dvh-80px)] overflow-y-auto flex flex-col"
+      className={`z-10 fixed top-16 h-[calc(100dvh-80px)] overflow-y-auto flex flex-col transition-all duration-300 ${
+        isVisible 
+          ? "left-0 w-[200px]" 
+          : "-left-[200px] w-[200px]"
+      }`}
       data-desktop-sidebar
     >
       <div className="flex flex-col h-full">
@@ -110,7 +119,7 @@ export default function DesktopSidebar() {
                           router.push("/business");
                         }
                       }}
-                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
                     >
                       <span>{item}</span>
                       <span
@@ -134,7 +143,7 @@ export default function DesktopSidebar() {
                           router.push("/models/deepfakes");
                         }
                       }}
-                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
                     >
                       <span>{item}</span>
                       <span
@@ -157,7 +166,7 @@ export default function DesktopSidebar() {
                           router.push("/research/publication");
                         }
                       }}
-                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
                     >
                       <span>{item}</span>
                       <span
@@ -180,7 +189,7 @@ export default function DesktopSidebar() {
                           router.push("/stories/news");
                         }
                       }}
-                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
                     >
                       <span>{item}</span>
                       <span
@@ -203,7 +212,7 @@ export default function DesktopSidebar() {
                           router.push("/company/about");
                         }
                       }}
-                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+                      className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
                     >
                       <span>{item}</span>
                       <span
@@ -244,6 +253,7 @@ export default function DesktopSidebar() {
                 <span aria-hidden>←</span>
                 <span>Home</span>
               </button>
+
             </div>
             <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="For Business">
               {businessLinks.map((item) => {
@@ -291,6 +301,7 @@ export default function DesktopSidebar() {
                 <span aria-hidden>←</span>
                 <span>Home</span>
               </button>
+
             </div>
             <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Models">
               {modelsLinks.map((item) => {
@@ -344,6 +355,7 @@ export default function DesktopSidebar() {
                 <span aria-hidden>←</span>
                 <span>Home</span>
               </button>
+
             </div>
             <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Research">
               {researchLinks.map((item) => {
@@ -380,6 +392,7 @@ export default function DesktopSidebar() {
                 <span aria-hidden>←</span>
                 <span>Home</span>
               </button>
+
             </div>
             <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Stories">
               {storiesLinks.map((item) => {
@@ -418,6 +431,7 @@ export default function DesktopSidebar() {
                 <span aria-hidden>←</span>
                 <span>Home</span>
               </button>
+
             </div>
             <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Company">
               {companyLinks.map((item) => {
