@@ -87,13 +87,7 @@ export interface ScamTypePageProps {
     title: string;
     description: string;
   };
-  breadcrumb: {
-    parentPath: string;
-    parentName: string;
-    currentName: string;
-    nextPath?: string;
-    nextName?: string;
-  };
+
   hero: {
     category: string;
     headline: string;
@@ -176,24 +170,11 @@ export interface ScamTypePageProps {
 // Hero Section for scam types
 type HeroSectionProps = { 
   hero: ScamTypePageProps["hero"]; 
-  breadcrumb: ScamTypePageProps["breadcrumb"];
 };
-function HeroSection({ hero, breadcrumb }: HeroSectionProps) {
+function HeroSection({ hero }: HeroSectionProps) {
   return (
     <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-16">
-      {/* Breadcrumb (left-aligned) */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 mt-4">
-        <div className="flex items-center justify-between text-sm">
-          <div className="text-white/70">
-            <Link href={breadcrumb.parentPath} className="hover:text-white/90">{breadcrumb.parentName}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-white/90">{breadcrumb.currentName}</span>
-          </div>
-          {breadcrumb.nextPath && breadcrumb.nextName && (
-            <Link href={breadcrumb.nextPath} className="text-white/80 hover:text-white/90">Next: {breadcrumb.nextName} →</Link>
-          )}
-        </div>
-      </div>
+
 
       <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
         <p className="text-white text-base mb-4">{hero.category}</p>
@@ -480,7 +461,7 @@ export function ScamTypePage({ data }: { data: ScamTypePageProps }) {
   return (
     <SiteShell>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <HeroSection hero={data.hero} breadcrumb={data.breadcrumb} />
+        <HeroSection hero={data.hero} />
 
         <div className="space-y-16 md:space-y-24">
             <ProblemSection problemSection={data.problemSection} />
@@ -493,13 +474,7 @@ export function ScamTypePage({ data }: { data: ScamTypePageProps }) {
         
         <CtaSection cta={data.cta} />
 
-        {data.breadcrumb.nextPath && data.breadcrumb.nextName && (
-          <div className="mt-12 text-right">
-            <Link href={data.breadcrumb.nextPath} className="text-sm text-white/80 hover:text-white/90">
-              Next: {data.breadcrumb.nextName} →
-            </Link>
-          </div>
-        )}
+
       </div>
 
       {data.backgroundImage && (

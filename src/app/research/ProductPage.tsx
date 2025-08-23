@@ -88,7 +88,7 @@ export interface ProductPageProps {
     title: string;
     description: string;
   };
-  breadcrumb: {
+  breadcrumb?: {
     parentPath: string;
     parentName: string;
     currentName: string;
@@ -180,24 +180,11 @@ export interface ProductPageProps {
 // Hero 区域作为一个独立的、引人注目的视觉元素，其卡片式设计是合适的。
 type HeroSectionProps = { 
   hero: ProductPageProps["hero"]; 
-  breadcrumb: ProductPageProps["breadcrumb"];
+  breadcrumb?: ProductPageProps["breadcrumb"];
 };
 function HeroSection({ hero, breadcrumb }: HeroSectionProps) {
   return (
     <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-16">
-      {/* Breadcrumb (left-aligned) */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 mt-4">
-        <div className="flex items-center justify-between text-sm">
-          <div className="text-white/70">
-            <Link href={breadcrumb.parentPath} className="hover:text-white/90">{breadcrumb.parentName}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-white/90">{breadcrumb.currentName}</span>
-          </div>
-          {breadcrumb.nextPath && breadcrumb.nextName && (
-            <Link href={breadcrumb.nextPath} className="text-white/80 hover:text-white/90">Next: {breadcrumb.nextName} →</Link>
-          )}
-        </div>
-      </div>
 
       <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
         <p className="text-white text-base mb-4">{hero.category}</p>
@@ -508,7 +495,7 @@ export function ProductPage({ data }: { data: ProductPageProps }) {
              <ApiSection api={data.apiSection} />
          </div>
 
-        {data.breadcrumb.nextPath && data.breadcrumb.nextName && (
+        {data.breadcrumb?.nextPath && data.breadcrumb?.nextName && (
           <div className="mt-12 text-right">
             <Link href={data.breadcrumb.nextPath} className="text-sm text-white/80 hover:text-white/90">
               Next: {data.breadcrumb.nextName} →

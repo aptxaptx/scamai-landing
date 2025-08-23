@@ -72,7 +72,6 @@ export default function DesktopSidebar() {
   ];
 
   const researchLinks = [
-    "Research Overview",
     "Publications & Datasets",
   ];
 
@@ -105,7 +104,12 @@ export default function DesktopSidebar() {
                     <button
                       key={item}
                       type="button"
-                      onClick={() => setSubmenu(submenu === "business" ? "none" : "business")}
+                      onClick={() => {
+                        setSubmenu(submenu === "business" ? "none" : "business");
+                        if (submenu !== "business") {
+                          router.push("/business");
+                        }
+                      }}
                       className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                     >
                       <span>{item}</span>
@@ -124,7 +128,12 @@ export default function DesktopSidebar() {
                     <button
                       key={item}
                       type="button"
-                      onClick={() => setSubmenu(submenu === "models" ? "none" : "models")}
+                      onClick={() => {
+                        setSubmenu(submenu === "models" ? "none" : "models");
+                        if (submenu !== "models") {
+                          router.push("/models/deepfakes");
+                        }
+                      }}
                       className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                     >
                       <span>{item}</span>
@@ -142,7 +151,12 @@ export default function DesktopSidebar() {
                     <button
                       key={item}
                       type="button"
-                      onClick={() => setSubmenu(submenu === "research" ? "none" : "research")}
+                      onClick={() => {
+                        setSubmenu(submenu === "research" ? "none" : "research");
+                        if (submenu !== "research") {
+                          router.push("/research/publication");
+                        }
+                      }}
                       className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                     >
                       <span>{item}</span>
@@ -160,7 +174,12 @@ export default function DesktopSidebar() {
                     <button
                       key={item}
                       type="button"
-                      onClick={() => setSubmenu(submenu === "stories" ? "none" : "stories")}
+                      onClick={() => {
+                        setSubmenu(submenu === "stories" ? "none" : "stories");
+                        if (submenu !== "stories") {
+                          router.push("/stories/news");
+                        }
+                      }}
                       className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                     >
                       <span>{item}</span>
@@ -178,7 +197,12 @@ export default function DesktopSidebar() {
                     <button
                       key={item}
                       type="button"
-                      onClick={() => setSubmenu(submenu === "company" ? "none" : "company")}
+                      onClick={() => {
+                        setSubmenu(submenu === "company" ? "none" : "company");
+                        if (submenu !== "company") {
+                          router.push("/company/about");
+                        }
+                      }}
                       className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
                     >
                       <span>{item}</span>
@@ -323,9 +347,7 @@ export default function DesktopSidebar() {
             </div>
             <nav className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none" aria-label="Research">
               {researchLinks.map((item) => {
-                const href = item === "Research Overview"
-                  ? "/research"
-                  : item === "Publications & Datasets"
+                const href = item === "Publications & Datasets"
                   ? "/research/publication"
                   : "#";
                 

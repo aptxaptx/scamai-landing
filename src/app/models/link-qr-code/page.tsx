@@ -7,13 +7,7 @@ const linkQRCodePageData: ProductPageProps = {
     title: "Link & QR Code Detection — ScamAI",
     description: "Detect malicious links and QR codes with ScamAI's advanced URL analysis technology.",
   },
-  breadcrumb: {
-    parentPath: "/research",
-    parentName: "Research",
-    currentName: "Link & QR Code",
-    nextPath: "/research/large-scale-database",
-    nextName: "ScamNet Database",
-  },
+
   hero: {
     category: "Link & QR Code Detection",
     headline: "Link & QR Code Detection",

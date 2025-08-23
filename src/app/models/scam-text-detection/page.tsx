@@ -7,13 +7,7 @@ const scamTextDetectionPageData: ProductPageProps = {
     title: "Scam Text Detection — ScamAI",
     description: "Detect scam text messages and fraudulent communications with ScamAI's advanced detection technology.",
   },
-  breadcrumb: {
-    parentPath: "/research",
-    parentName: "Research",
-    currentName: "Messages",
-    nextPath: "/models/link-qr-code",
-    nextName: "Link & QR Code",
-  },
+
   hero: {
     category: "Scam Text Detection",
     headline: "Instantly Identify and Neutralize",
