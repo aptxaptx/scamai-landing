@@ -182,7 +182,7 @@ type HeroSectionProps = {
   hero: ProductPageProps["hero"]; 
   breadcrumb?: ProductPageProps["breadcrumb"];
 };
-function HeroSection({ hero, breadcrumb }: HeroSectionProps) {
+function HeroSection({ hero }: HeroSectionProps) {
   return (
     <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-16">
 

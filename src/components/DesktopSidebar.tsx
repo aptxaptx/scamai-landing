@@ -8,10 +8,9 @@ type SubmenuType = "none" | "business" | "models" | "research" | "stories" | "co
 
 type DesktopSidebarProps = {
   isVisible: boolean;
-  onToggleVisibility: () => void;
 };
 
-export default function DesktopSidebar({ isVisible, onToggleVisibility }: DesktopSidebarProps) {
+export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
   

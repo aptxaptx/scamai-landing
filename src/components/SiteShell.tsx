@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
 import DesktopSidebar from "./DesktopSidebar";
 import SiteFooter from "./SiteFooter";
+import { useSidebar } from "@/contexts/SidebarContext";
 
 // --- Icon Components ---
 
@@ -67,11 +67,7 @@ export default function SiteShell({
   children,
   secondaryLinks = [],
 }: SiteShellProps) {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
-
-  const handleToggleSidebar = () => {
-    setIsSidebarVisible(!isSidebarVisible);
-  };
+  const { isSidebarVisible, toggleSidebar } = useSidebar();
 
   return (
     <div
@@ -93,8 +89,8 @@ export default function SiteShell({
 
         {/* --- REFINED Sidebar Toggle Button --- */}
         <button
-          onClick={handleToggleSidebar}
-          className="flex items-center justify-center w-8 h-8 rounded-md text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+          onClick={toggleSidebar}
+          className="flex items-center justify-center w-8 h-8 rounded-md text-white/60 hover:text-white hover:bg-white/10 transition-colors"
           aria-label={isSidebarVisible ? "Hide sidebar" : "Show sidebar"}
           title={isSidebarVisible ? "Hide sidebar" : "Show sidebar"}
         >
@@ -108,7 +104,6 @@ export default function SiteShell({
       {/* Desktop Sidebar */}
       <DesktopSidebar
         isVisible={isSidebarVisible}
-        onToggleVisibility={handleToggleSidebar}
       />
 
       {/* Main Content */}
