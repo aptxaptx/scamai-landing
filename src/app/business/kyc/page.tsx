@@ -1,5 +1,6 @@
 import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata = {
   title: "KYC/ID Verification — ScamAI",
@@ -11,17 +12,13 @@ export default function KycPage() {
     <SiteShell>
       {/* Hero above existing card(s) */}
       <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
-        {/* Breadcrumb (left-aligned) */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 mt-4">
-          <div className="flex items-center justify-between text-sm">
-            <div className="text-white/70">
-              <Link href="/business" className="hover:text-white/90">Business</Link>
-              <span className="mx-2">/</span>
-              <span className="text-white/90">KYC/ID Verification</span>
-            </div>
-            <Link href="/business/dating" className="text-white/80 hover:text-white/90">Next: Dating Apps →</Link>
-          </div>
-        </div>
+        <Breadcrumb 
+          items={[
+            { label: "Business", href: "/business" },
+            { label: "KYC/ID Verification" }
+          ]}
+          nextItem={{ label: "Dating Apps", href: "/business/dating" }}
+        />
 
         <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
           <p className="text-white text-base mb-4">Solutions for KYC/ID Verification</p>

@@ -1,5 +1,6 @@
 import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata = {
   title: "Dating Apps — ScamAI",
@@ -11,16 +12,12 @@ export default function DatingAppsPage() {
     <SiteShell>
       {/* Hero */}
       <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
-        {/* Breadcrumb (left-aligned) */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 mt-4">
-          <div className="flex items-center justify-start text-sm">
-            <div className="text-white/70">
-              <Link href="/business" className="hover:text-white/90">Business</Link>
-              <span className="mx-2">/</span>
-              <span className="text-white/90">Dating Apps</span>
-            </div>
-          </div>
-        </div>
+        <Breadcrumb 
+          items={[
+            { label: "Business", href: "/business" },
+            { label: "Dating Apps" }
+          ]}
+        />
 
         <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
           <p className="text-white text-base mb-3">Solutions for Dating Apps</p>
@@ -85,7 +82,7 @@ export default function DatingAppsPage() {
       </section>
 
       {/* Bottom next link */}
-      <div className="mt-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14">
+      <div className="mt-10 w-full max-w-6xl mx-auto">
         <div className="flex justify-end text-sm">
           <Link href="/business/impersonation" className="text-white/80 hover:text-white/90">Next: Impersonation →</Link>
         </div>

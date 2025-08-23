@@ -1,6 +1,5 @@
 import React from "react";
 import SiteShell from "@/components/SiteShell";
-import Link from "next/link";
 import Image from "next/image";
 
 // Inline icon component for scam types
