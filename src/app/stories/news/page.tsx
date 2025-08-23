@@ -150,21 +150,9 @@ export default function NewsPage() {
     <SiteShell>
       {/* Hero Section */}
       <section className="relative overflow-hidden rounded-2xl backdrop-blur-sm">
-        {/* Breadcrumb */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 pt-4">
-          <div className="flex items-center justify-between text-sm">
-            <div className="text-white/70">
-              <Link href="/stories" className="hover:text-white/90">Stories</Link>
-              <span className="mx-2">/</span>
-              <span className="text-white/90">News</span>
-            </div>
-          </div>
-        </div>
+
         
         <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
-          <div className="inline-block px-4 py-2 mb-4 text-sm font-medium text-white/80 bg-white/10 rounded-full">
-            Stories
-          </div>
           <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">
             Scam-Related News
           </h1>

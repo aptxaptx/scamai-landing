@@ -35,7 +35,29 @@ export default function MobileNav() {
   };
 
   const toggleSection = (section: "business" | "models" | "research" | "stories" | "company") => {
-    setExpandedSection(expandedSection === section ? null : section);
+    if (expandedSection === section) {
+      setExpandedSection(null);
+    } else {
+      setExpandedSection(section);
+      // Navigate to the first page in the section
+      switch (section) {
+        case "business":
+          window.location.href = "/business";
+          break;
+        case "models":
+          window.location.href = "/models/deepfakes";
+          break;
+        case "research":
+          window.location.href = "/research/publication";
+          break;
+        case "stories":
+          window.location.href = "/stories/news";
+          break;
+        case "company":
+          window.location.href = "/company/about";
+          break;
+      }
+    }
   };
 
   return (

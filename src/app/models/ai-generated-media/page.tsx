@@ -7,13 +7,7 @@ const aiGeneratedMediaPageData: ProductPageProps = {
     title: "GenAI Media Detection — ScamAI",
     description: "Detect AI-generated images and videos with ScamAI's advanced detection technology.",
   },
-  breadcrumb: {
-    parentPath: "/",
-    parentName: "Home",
-    currentName: "AI-Generated Media",
-    nextPath: "/models/voice-clones",
-    nextName: "Voice Clones",
-  },
+
   hero: {
     category: "AI-Generated Media Detection",
     headline: "Detect AI-Generated Images and Video",

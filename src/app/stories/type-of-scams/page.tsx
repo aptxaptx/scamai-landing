@@ -68,16 +68,7 @@ export default function TypeOfScamsPage() {
     <SiteShell>
       {/* Hero Section */}
       <section className="relative overflow-hidden rounded-2xl backdrop-blur-sm">
-        {/* Breadcrumb */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14 pt-4">
-          <div className="flex items-center justify-between text-sm">
-            <div className="text-white/70">
-              <Link href="/stories" className="hover:text-white/90">Stories</Link>
-              <span className="mx-2">/</span>
-              <span className="text-white/90">Types of Scams</span>
-            </div>
-          </div>
-        </div>
+
         
         <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
           <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">

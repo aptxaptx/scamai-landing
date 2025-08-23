@@ -7,13 +7,7 @@ const voiceClonesPageData: ProductPageProps = {
     title: "Voice Cloning — ScamAI",
     description: "Detect AI voice clones and synthetic audio with ScamAI's real-time detection technology.",
   },
-  breadcrumb: {
-    parentPath: "/",
-    parentName: "Home",
-    currentName: "Voice Clones",
-    nextPath: "/models/scam-text-detection",
-    nextName: "Messages",
-  },
+
   hero: {
     category: "AI Voice Clone Detection",
     headline: "Real-Time AI Voice Clone Detection",

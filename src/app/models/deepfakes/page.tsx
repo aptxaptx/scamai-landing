@@ -7,15 +7,9 @@ const deepfakePageData: ProductPageProps = {
     title: "Deepfakes (Faceswap) — ScamAI",
     description: "Detect deepfakes and faceswaps with ScamAI's advanced real-time detection.",
   },
-  breadcrumb: {
-    parentPath: "/",
-    parentName: "Home",
-    currentName: "Deepfakes (Faceswap)",
-    nextPath: "/models/ai-generated-media",
-    nextName: "AI-Generated Media",
-  },
+
   hero: {
-    category: "Deepfake Detection Model",
+    category: "Deepfake Detection",
     headline: "Defending the Truth in Human Face",
     subtitle: "Real-Time Deepfake Detection",
     description: "Scam.ai's Video Integrity™ model analyzes video and images frame-by-frame, providing instant, precise alerts before deepfake content can cause identity fraud or reputational damage.",

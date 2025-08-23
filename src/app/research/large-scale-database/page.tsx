@@ -7,13 +7,7 @@ const scamNetDatabasePageData: ProductPageProps = {
     title: "ScamNet Database — ScamAI",
     description: "Access the world's largest database of scam patterns and fraudulent content for research.",
   },
-  breadcrumb: {
-    parentPath: "/",
-    parentName: "Home",
-    currentName: "ScamNet Database",
-    nextPath: "/research/publication",
-    nextName: "Publications",
-  },
+
   hero: {
     category: "Research Database for Scam Analysis",
     headline: "The Intelligence Engine Powering",
