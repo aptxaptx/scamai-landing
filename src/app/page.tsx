@@ -1,7 +1,7 @@
 "use client";
 
 import SiteShell from "@/components/SiteShell";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import MinimalGame from "./MinimalGame";
 
@@ -12,15 +12,17 @@ export default function Home() {
   const [started, setStarted] = useState(false);
   const [email, setEmail] = useState("");
   const [answers, setAnswers] = useState<Record<number, "deepfake" | "real" | undefined>>({});
+  const [items, setItems] = useState<Array<{ id: number; label: "deepfake" | "real" }>>([]);
 
-  const items = useMemo(() => {
+  // Initialize items on client-side only to avoid hydration mismatch
+  useEffect(() => {
     // 30 items total: 15 deepfake, 15 real; shuffle
     const base = Array.from({ length: 30 }, (_, i) => ({ id: i, label: (i < 15 ? "deepfake" : "real") as "deepfake" | "real" }));
     for (let i = base.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [base[i], base[j]] = [base[j], base[i]];
     }
-    return base;
+    setItems(base);
   }, []);
 
   console.log({ started, email, answers, items }); // Use variables to avoid warnings
@@ -144,7 +146,7 @@ export default function Home() {
                 </div>
               </motion.div>
             ) : (
-              <MinimalGame items={items} answers={answers} setAnswers={setAnswers} email={email} />
+              items.length > 0 && <MinimalGame items={items} answers={answers} setAnswers={setAnswers} email={email} />
             )}
           </section>
         )}
