@@ -160,12 +160,6 @@ export default function MobileNav() {
                   <Link href="/models/voice-clones" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
                     Voice Cloning
                   </Link>
-                  <Link href="/models/scam-text-detection" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
-                    Messages
-                  </Link>
-                  <Link href="/models/link-qr-code" onClick={closeMenu} className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2">
-                    Link & QR Code
-                  </Link>
                 </div>
               )}
             </div>
