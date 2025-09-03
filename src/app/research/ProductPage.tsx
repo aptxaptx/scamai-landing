@@ -102,7 +102,7 @@ export interface ProductPageProps {
     description?: string;
     tags: string[];
     visual?: {
-      type: "video" | "image";
+      type: "video" | "image" | "audio";
       src: string;
       alt?: string;
     };
@@ -112,7 +112,7 @@ export interface ProductPageProps {
     description: string;
     additionalContent?: string;
     visual?: {
-      type: "video" | "image";
+      type: "video" | "image" | "audio";
       src: string;
       alt?: string;
     };
@@ -232,6 +232,20 @@ function HeroSection({ hero }: HeroSectionProps) {
                 <source src={hero.visual.src} type="video/webm" />
                 Your browser does not support the video tag.
               </video>
+            ) : hero.visual.type === "audio" ? (
+              <div className="text-center">
+                <audio
+                  className="w-full max-w-md mx-auto rounded-lg shadow-lg"
+                  controls
+                  preload="metadata"
+                >
+                  <source src={hero.visual.src} type="audio/mpeg" />
+                  Your browser does not support the audio tag.
+                </audio>
+                <p className="mt-4 text-white/60 text-sm">
+                  {hero.visual.alt}
+                </p>
+              </div>
             ) : (
               <Image 
                 src={hero.visual.src} 
@@ -293,6 +307,20 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
               <source src={problemSection.visual.src} type="video/webm" />
               Your browser does not support the video tag.
             </video>
+          ) : problemSection.visual.type === "audio" ? (
+            <div className="text-center">
+              <audio
+                className="w-full max-w-md mx-auto rounded-lg shadow-lg"
+                controls
+                preload="metadata"
+              >
+                <source src={problemSection.visual.src} type="audio/mpeg" />
+                Your browser does not support the audio tag.
+              </audio>
+              <p className="mt-4 text-white/60 text-sm">
+                {problemSection.visual.alt}
+              </p>
+            </div>
           ) : (
             <Image 
               src={problemSection.visual.src} 
