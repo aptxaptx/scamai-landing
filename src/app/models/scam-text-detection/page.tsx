@@ -49,9 +49,9 @@ const scamTextDetectionPageData: ProductPageProps = {
     headline: "Our Solution: Text Guardian — Proactive Threat Detection",
     description: "Text Guardian functions as a sophisticated language analysis engine, understanding the intent and context behind every message to identify malicious behavior with incredible accuracy.",
     coreDimensions: [
-      { title: "LLM-Powered Intent Analysis", description: "Powered by a proprietary Large Language Model (LLM) fine-tuned on millions of scams from our ScamNet DB, our model goes beyond keywords to understand the true intent, urgency, and manipulative tactics in a message." }
-      { title: "Real-Time Link & URL Unmasking", description: "The model automatically analyzes any embedded links, following redirects and checking the final destination against our ScamNet DB for known phishing domains, even if the link is shortened or obfuscated." }
-      { title: "Threat Actor Pattern Recognition", description: "Text Guardian identifies and cross-references unique phrases, phone number blocks, and URL patterns associated with known scam campaigns, allowing it to block new attacks that share a common origin." }
+      { title: "LLM-Powered Intent Analysis", description: "Powered by a proprietary Large Language Model (LLM) fine-tuned on millions of scams from our ScamNet DB, our model goes beyond keywords to understand the true intent, urgency, and manipulative tactics in a message." },
+      { title: "Real-Time Link & URL Unmasking", description: "The model automatically analyzes any embedded links, following redirects and checking the final destination against our ScamNet DB for known phishing domains, even if the link is shortened or obfuscated." },
+      { title: "Threat Actor Pattern Recognition", description: "Text Guardian identifies and cross-references unique phrases, phone number blocks, and URL patterns associated with known scam campaigns, allowing it to block new attacks that share a common origin." },
     ],
     outputDescription: "The model's output is a clear, actionable JSON response containing a risk score, the specific scam type detected (e.g., 'smishing', 'impersonation'), and any identified malicious entities.",
   },
