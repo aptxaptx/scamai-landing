@@ -12,8 +12,8 @@ const voiceClonesPageData: ProductPageProps = {
     category: "AI Voice Clone Detection",
     headline: "Real-Time AI Voice Clone Detection",
     subtitle: "Secure Every Conversation",
-    description: "Our Auditory Guardian™ model instantly identifies synthetic speech and deepfake audio, stopping voice-based fraud in real time.",
-    tags: ["Voice AI", "Audio Synthesis", "Detection", "Auditory Guardian"],
+    description: "Our VoiceGuard model instantly identifies synthetic speech and deepfake audio, stopping voice-based fraud in real time.",
+    tags: ["Voice AI", "Audio Synthesis", "Detection", "VoiceGuard"],
     visual: {
       type: "image",
       src: "/visual.webp",
@@ -45,9 +45,9 @@ const voiceClonesPageData: ProductPageProps = {
     dataPoint: "The accessibility of voice cloning technology is leading to a rapid increase in sophisticated vishing and impersonation attacks.",
   },
   solution: {
-    productName: "Auditory Guardian™",
-    headline: "Solution: Auditory Guardian™",
-    description: "Auditory Guardian™ analyzes the acoustic and spectral footprint of audio to find microscopic traces left by AI voice generators, detecting what the human ear cannot.",
+    productName: "VoiceGuard",
+    headline: "Solution: VoiceGuard",
+    description: "VoiceGuard analyzes the acoustic and spectral footprint of audio to find microscopic traces left by AI voice generators, detecting what the human ear cannot.",
     coreDimensions: [
       { title: "Acoustic Fingerprinting", description: "Identifies non-human timbral and phase characteristics introduced during audio synthesis." },
       { title: "Spectrogram Anomaly Detection", description: "Locates unnatural harmonics and inconsistencies that differ from organic speech." },
@@ -56,7 +56,7 @@ const voiceClonesPageData: ProductPageProps = {
     outputDescription: "The API returns a real-time verdict, confidence score, and evidence for automated action.",
   },
   advantages: {
-    headline: "The Auditory Guardian™ Advantage",
+    headline: "The VoiceGuard Advantage",
     items: [
       { icon: "Zap", title: "Millisecond Response", description: "Provides low-latency detection suitable for live calls and contact centers." },
       { icon: "Target", title: "Unparalleled Accuracy", description: "Trained on diverse global datasets for high precision across different accents and languages." },
@@ -70,7 +70,7 @@ const voiceClonesPageData: ProductPageProps = {
   },
   apiSection: {
     headline: "API Integration",
-    description: "Ready to integrate Auditory Guardian™ into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    description: "Ready to integrate VoiceGuard into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
     apiDocumentation: {
       text: "View Complete API Documentation",
       href: "https://docu.scam.ai/introduction",

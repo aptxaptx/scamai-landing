@@ -12,12 +12,12 @@ const aiGeneratedMediaPageData: ProductPageProps = {
     category: "AI-Generated Media Detection",
     headline: "Detect AI-Generated Images and Video",
     subtitle: "Verifying Reality in a Synthetic World",
-    description: "Scam.ai's Visual Authenticity™ model analyzes visual content for the hidden signatures of generative AI, providing instant alerts before fake products, evidence, or realities can be used to deceive.",
-    tags: ["GenAI", "Synthetic Media", "Detection", "Visual Authenticity"],
+    description: "Scam.ai's GhostScripter model analyzes visual content for the hidden signatures of generative AI, providing instant alerts before fake products, evidence, or realities can be used to deceive.",
+    tags: ["GenAI", "Synthetic Media", "Detection", "GhostScripter"],
     visual: {
       type: "image",
-      src: "/GenAI.webp",
-      alt: "AI Generated Media Detection",
+      src: "/fake-news.jpg",
+      alt: "Examples of AI-generated fake news images showing fabricated content",
     },
   },
   problemSection: {
@@ -45,9 +45,9 @@ const aiGeneratedMediaPageData: ProductPageProps = {
     dataPoint: "As of August 2025, it is estimated that over 15 billion images have been created by generative AI models, with less than 5% containing visible watermarks or disclosures.",
   },
   solution: {
-    productName: "Visual Authenticity™",
-    headline: "Our Solution: Visual Authenticity™ — The Pixel Provenance Expert",
-    description: "Visual Authenticity™ acts as a digital art forensics expert. It looks beyond what an image depicts and analyzes the very fabric of its pixels to determine its origin—whether it was captured by a camera or created by a generative model.",
+    productName: "GhostScripter",
+    headline: "Our Solution: GhostScripter — The Pixel Provenance Expert",
+    description: "GhostScripter acts as a digital art forensics expert. It looks beyond what an image depicts and analyzes the very fabric of its pixels to determine its origin—whether it was captured by a camera or created by a generative model.",
     coreDimensions: [
       { title: "Generative Model Fingerprinting", description: "Identifies the invisible, systematic patterns and noise profiles that are unique to specific families of generative models (e.g., the digital \"brushstrokes\" of DALL-E vs. Midjourney)." },
       { title: "Unnatural Detail & Consistency Analysis", description: "Scrutinizes images for tell-tale AI flaws, such as flawed physics in shadows and reflections, unnatural symmetry, or illogical details in complex backgrounds." },
@@ -56,7 +56,7 @@ const aiGeneratedMediaPageData: ProductPageProps = {
     outputDescription: "The API returns a JSON object in real-time, containing an \"is_generated\" boolean, a \"confidence_score\", and a prediction of the \"source_model_family\".",
   },
   advantages: {
-    headline: "Our Advantage: Why Choose Visual Authenticity™?",
+    headline: "Our Advantage: Why Choose GhostScripter?",
     items: [
       { icon: "Zap", title: "Millisecond-Level Response", description: "Optimized for real-time communications like phone calls and voice chat, ensuring instant detection with no perceivable latency." },
       { icon: "Target", title: "Unparalleled Accuracy", description: "Trained on the world's largest proprietary database of synthetic and real visual data, achieving industry-leading low false-positive and high-recall rates." },
@@ -70,7 +70,7 @@ const aiGeneratedMediaPageData: ProductPageProps = {
   },
   apiSection: {
     headline: "API Integration",
-    description: "Ready to integrate Visual Authenticity™ into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    description: "Ready to integrate GhostScripter into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
     apiDocumentation: {
       text: "View Complete API Documentation",
       href: "https://docu.scam.ai/introduction",

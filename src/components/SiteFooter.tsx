@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SiteFooter() {
   return (
@@ -152,6 +153,28 @@ export default function SiteFooter() {
               <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">X</a>
               <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
               <span>© 2025 Reality Inc. All rights reserved.</span>
+            </div>
+          </div>
+          
+          {/* Compliance Logos */}
+          <div className="mt-8 pt-6 border-t border-white/10">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+              <div className="flex items-center gap-6">
+                <Image
+                  src="/seal_GDPR.svg"
+                  alt="GDPR Compliant"
+                  width={80}
+                  height={80}
+                  className="w-16 h-16 md:w-20 md:h-20 opacity-70 hover:opacity-100 transition-opacity"
+                />
+                <Image
+                  src="/seal_SOC2.svg"
+                  alt="SOC 2 Compliant"
+                  width={80}
+                  height={80}
+                  className="w-16 h-16 md:w-20 md:h-20 opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
             </div>
           </div>
         </div>
