@@ -24,8 +24,8 @@ const deepfakePageData: ProductPageProps = {
     description: "Today, creating a deepfake video convincing enough to fool human eyes—and even traditional bank KYC systems—costs just a few dollars. Is your verification process ready for this challenge?",
     visual: {
       type: "image",
-      src: "/visual.webp",
-      alt: "Deepfake threat landscape",
+      src: "/deeepfake-detection.png",
+      alt: "Deepfake detection interface showing WallFacer analysis results",
     },
     valueProps: [
       { title: "Identity Verification Fraud (KYC Fraud)", description: "Attackers use dynamic, fake face videos to bypass \"liveness detection\" checks at financial institutions and exchanges." },
