@@ -25,8 +25,8 @@ const aiGeneratedMediaPageData: ProductPageProps = {
     description: "With text-to-image and text-to-video models, anyone can create convincing, high-resolution visuals of anything imaginable in seconds. This has created a new wave of fraud based on fabricating reality itself, rendering simple visual inspection obsolete.",
     visual: {
       type: "image",
-      src: "/visual.webp",
-      alt: "Visual generation threat landscape",
+      src: "/gen-ai-detected.png",
+      alt: "GhostScripter AI detection interface showing AI-generated content identification results",
     },
     valueProps: [
       { title: "E-commerce & Product Fraud", description: "Scammers use AI to generate alluring images of products that don't exist, taking payment for items they can never ship." },
