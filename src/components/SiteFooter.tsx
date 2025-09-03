@@ -69,16 +69,6 @@ export default function SiteFooter() {
                   Voice Cloning
                 </Link>
               </li>
-              <li>
-                <Link href="/models/scam-text-detection" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Messages
-                </Link>
-              </li>
-              <li>
-                <Link href="/models/link-qr-code" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Link & QR Code
-                </Link>
-              </li>
             </ul>
           </div>
 

@@ -71,8 +71,6 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
     "Deepfakes (Faceswap)",
     "GenAI Media Detection",
     "Voice Cloning",
-    "Messages",
-    "Link & QR Code",
   ];
 
   const researchLinks = [
@@ -312,10 +310,6 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                   ? "/models/deepfakes"
                   : item === "Voice Cloning"
                   ? "/models/voice-clones"
-                  : item === "Messages"
-                  ? "/models/scam-text-detection"
-                  : item === "Link & QR Code"
-                  ? "/models/link-qr-code"
                   : "#";
                 
                 return item === "Detection Models" ? (
