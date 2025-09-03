@@ -12,7 +12,7 @@ const deepfakePageData: ProductPageProps = {
     category: "Deepfake Detection",
     headline: "Defending the Truth in Human Face",
     subtitle: "Real-Time Deepfake Detection",
-    description: "Scam.ai's Video Integrity™ model analyzes video and images frame-by-frame, providing instant, precise alerts before deepfake content can cause identity fraud or reputational damage.",
+    description: "Scam.ai's Video Integrity model analyzes video and images frame-by-frame, providing instant, precise alerts before deepfake content can cause identity fraud or reputational damage.",
     tags: ["GenAI", "Deepfake", "Faceswap", "Video Integrity"],
     visual: {
       type: "video",
@@ -34,9 +34,9 @@ const deepfakePageData: ProductPageProps = {
     ],
   },
   solution: {
-    productName: "Video Integrity™",
-    headline: "Video Integrity™ — The Digital Forensics Expert",
-    description: "Video Integrity™ employs a multi-dimensional analysis engine, acting like a seasoned digital forensics expert to catch the microscopic flaws left behind by AI generation models—flaws that are invisible to the naked eye.",
+    productName: "Video Integrity",
+    headline: "Video Integrity — The Digital Forensics Expert",
+    description: "Video Integrity employs a multi-dimensional analysis engine, acting like a seasoned digital forensics expert to catch the microscopic flaws left behind by AI generation models—flaws that are invisible to the naked eye.",
     coreDimensions: [
       { title: "Spatial Artifact Analysis", description: "Detects unnatural transitions and flaws in facial features, lighting reflections, and skin textures." },
       { title: "Temporal Consistency Detection", description: "Analyzes the consistency of micro-expressions, blink rates, and even pulse-related color changes in skin between video frames to see if they align with real human physiology." },
@@ -45,7 +45,7 @@ const deepfakePageData: ProductPageProps = {
     outputDescription: "The API returns a JSON object in real-time, containing an \"is_deepfake\" boolean, a \"confidence_score\", and the coordinates of \"suspicious_regions\".",
   },
   advantages: {
-    headline: "Why Choose Video Integrity™?",
+    headline: "Why Choose Video Integrity?",
     items: [
       { icon: "Zap", title: "Millisecond-Level Response", description: "Optimized for real-time communications like phone calls and voice chat, ensuring instant detection with no perceivable latency." },
       { icon: "Target", title: "Unparalleled Accuracy", description: "Trained on the world's largest proprietary database of synthetic and real video data, achieving industry-leading low false-positive and high-recall rates." },
@@ -59,7 +59,7 @@ const deepfakePageData: ProductPageProps = {
   },
   apiSection: {
     headline: "API Integration",
-    description: "Ready to integrate Video Integrity™ into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    description: "Ready to integrate Video Integrity into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
     apiDocumentation: {
       text: "View Complete API Documentation",
       href: "https://docu.scam.ai/introduction",

@@ -36,9 +36,9 @@ const linkQRCodePageData: ProductPageProps = {
     ],
   },
   solution: {
-    productName: "LinkGuard™",
-    headline: "Our Solution: LinkGuard™",
-    description: "LinkGuard™ analyzes URLs, shortened links, and QR codes to detect malicious destinations, phishing attempts, and fraudulent websites using advanced pattern recognition.",
+    productName: "LinkGuard",
+    headline: "Our Solution: LinkGuard",
+    description: "LinkGuard analyzes URLs, shortened links, and QR codes to detect malicious destinations, phishing attempts, and fraudulent websites using advanced pattern recognition.",
     coreDimensions: [
       { title: "URL Analysis", description: "Deep analysis of URL structure, domain reputation, and redirection chains." },
       { title: "QR Code Decoding", description: "Decode QR codes and analyze embedded URLs for malicious content." },
@@ -47,7 +47,7 @@ const linkQRCodePageData: ProductPageProps = {
     outputDescription: "Provides comprehensive analysis with risk scores and detailed threat intelligence for URLs and QR codes.",
   },
   advantages: {
-    headline: "Why Choose LinkGuard™?",
+    headline: "Why Choose LinkGuard?",
     items: [
       { icon: "Target", title: "High Detection Rate", description: "Advanced algorithms trained on millions of malicious URLs." },
       { icon: "Zap", title: "Real-time Analysis", description: "Instant URL and QR code analysis for immediate threat detection." },

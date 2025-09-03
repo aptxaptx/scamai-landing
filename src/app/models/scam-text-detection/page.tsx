@@ -12,7 +12,7 @@ const scamTextDetectionPageData: ProductPageProps = {
     category: "Scam Text Detection",
     headline: "Instantly Identify and Neutralize",
     subtitle: "Malicious Texts",
-    description: "Scam.ai's Text Guardian™ model analyzes text messages and short-form content in real time to detect and block phishing, smishing, and other text-based scams before a user can click a malicious link or fall for a fraudulent request.",
+    description: "Scam.ai's Text Guardian model analyzes text messages and short-form content in real time to detect and block phishing, smishing, and other text-based scams before a user can click a malicious link or fall for a fraudulent request.",
     tags: ["Text Analysis", "Scam Detection", "NLP", "Text Guardian"],
     visual: {
       type: "image",
@@ -45,23 +45,23 @@ const scamTextDetectionPageData: ProductPageProps = {
     dataPoint: "A 2025 report from the Federal Trade Commission (FTC) shows that financial losses from text-based scams have surpassed those from email phishing for the first time, totaling over $350 million last year alone.",
   },
   solution: {
-    productName: "Text Guardian™",
-    headline: "Our Solution: Text Guardian™ — Proactive Threat Detection",
-    description: "Text Guardian™ functions as a sophisticated language analysis engine, understanding the intent and context behind every message to identify malicious behavior with incredible accuracy.",
+    productName: "Text Guardian",
+    headline: "Our Solution: Text Guardian — Proactive Threat Detection",
+    description: "Text Guardian functions as a sophisticated language analysis engine, understanding the intent and context behind every message to identify malicious behavior with incredible accuracy.",
     coreDimensions: [
-      { title: "LLM-Powered Intent Analysis", description: "Powered by a proprietary Large Language Model (LLM) fine-tuned on millions of scams from our ScamNet DB™, our model goes beyond keywords to understand the true intent, urgency, and manipulative tactics in a message." },
-      { title: "Real-Time Link & URL Unmasking", description: "The model automatically analyzes any embedded links, following redirects and checking the final destination against our ScamNet DB™ for known phishing domains, even if the link is shortened or obfuscated." },
-      { title: "Threat Actor Pattern Recognition", description: "Text Guardian™ identifies and cross-references unique phrases, phone number blocks, and URL patterns associated with known scam campaigns, allowing it to block new attacks that share a common origin." },
+      { title: "LLM-Powered Intent Analysis", description: "Powered by a proprietary Large Language Model (LLM) fine-tuned on millions of scams from our ScamNet DB, our model goes beyond keywords to understand the true intent, urgency, and manipulative tactics in a message." }
+      { title: "Real-Time Link & URL Unmasking", description: "The model automatically analyzes any embedded links, following redirects and checking the final destination against our ScamNet DB for known phishing domains, even if the link is shortened or obfuscated." }
+      { title: "Threat Actor Pattern Recognition", description: "Text Guardian identifies and cross-references unique phrases, phone number blocks, and URL patterns associated with known scam campaigns, allowing it to block new attacks that share a common origin." }
     ],
     outputDescription: "The model's output is a clear, actionable JSON response containing a risk score, the specific scam type detected (e.g., 'smishing', 'impersonation'), and any identified malicious entities.",
   },
   advantages: {
-    headline: "Our Advantage: Why Choose Text Guardian™?",
+    headline: "Our Advantage: Why Choose Text Guardian?",
     items: [
       { icon: "Zap", title: "Millisecond-Level Response", description: "Optimized for high-throughput messaging platforms, ensuring instant analysis without delaying message delivery." },
       { icon: "Target", title: "Unparalleled Accuracy", description: "Our fine-tuned LLM, trained on the world's largest proprietary database of scam texts, dramatically reduces false positives and detects novel threats." },
       { icon: "Globe", title: "Exceptional Robustness", description: "Effectively understands and analyzes text containing typos, slang, emojis, and multiple languages." },
-      { icon: "BrainCircuit", title: "Constantly Evolving", description: "Our model is continuously re-trained with the latest scam data from ScamNet DB™, ensuring it stays ahead of evolving scammer tactics." },
+      { icon: "BrainCircuit", title: "Constantly Evolving", description: "Our model is continuously re-trained with the latest scam data from ScamNet DB, ensuring it stays ahead of evolving scammer tactics." }
     ],
   },
   useCases: {
@@ -70,7 +70,7 @@ const scamTextDetectionPageData: ProductPageProps = {
   },
   apiSection: {
     headline: "API Integration",
-    description: "Ready to integrate Text Guardian™ into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    description: "Ready to integrate Text Guardian into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
     apiDocumentation: {
       text: "View Complete API Documentation",
       href: "https://docu.scam.ai/introduction",

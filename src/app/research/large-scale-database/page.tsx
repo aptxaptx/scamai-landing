@@ -12,7 +12,7 @@ const scamNetDatabasePageData: ProductPageProps = {
     category: "Research Database for Scam Analysis",
     headline: "The Intelligence Engine Powering",
     subtitle: "Next-Generation Fraud Defense",
-    description: "Welcome to ScamNet DB™, the most comprehensive and real-time database of active scams on the planet. This is not just a static blocklist; it's a living ecosystem of threat intelligence that forms the core foundation of the entire Scam.ai platform.",
+    description: "Welcome to ScamNet DB, the most comprehensive and real-time database of active scams on the planet. This is not just a static blocklist; it's a living ecosystem of threat intelligence that forms the core foundation of the entire Scam.ai platform.",
     tags: ["Database", "Scam Intelligence", "Research Data", "ScamNet DB"],
     visual: {
       type: "image",
@@ -45,9 +45,9 @@ const scamNetDatabasePageData: ProductPageProps = {
     dataPoint: "In 2025, the average lifespan of a phishing website is less than 4 hours, making real-time intelligence the only effective defense.",
   },
   solution: {
-    productName: "ScamNet DB™",
-    headline: "Our Solution: ScamNet DB™ — A Living Intelligence Ecosystem",
-    description: "ScamNet DB™ is designed to ingest, process, and act on threat data at machine speed. It provides the crucial context and ground truth needed to power effective, real-time fraud detection.",
+    productName: "ScamNet DB",
+    headline: "Our Solution: ScamNet DB — A Living Intelligence Ecosystem",
+    description: "ScamNet DB is designed to ingest, process, and act on threat data at machine speed. It provides the crucial context and ground truth needed to power effective, real-time fraud detection.",
     coreDimensions: [
       { title: "Multi-Source, Global Ingestion Engine", description: "We collect data from a massive network of reliable sources, including dark web monitoring, a global honeypot network, direct user reports, and proprietary data feeds from our partners." },
       { title: "AI-Powered Correlation & Enrichment", description: "Our AI engine instantly processes and enriches raw data, linking seemingly unrelated entities. It connects a scammer's phone number to the phishing link they sent, the scam content used, the crypto wallet for payment, and the time of the report." },
@@ -70,7 +70,7 @@ const scamNetDatabasePageData: ProductPageProps = {
   },
   apiSection: {
     headline: "API Integration",
-    description: "Ready to integrate ScamNet DB™ into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+    description: "Ready to integrate ScamNet DB into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
     apiDocumentation: {
       text: "View Complete API Documentation",
       href: "https://docu.scam.ai/introduction",
