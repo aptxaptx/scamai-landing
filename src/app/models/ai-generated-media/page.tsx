@@ -16,8 +16,8 @@ const aiGeneratedMediaPageData: ProductPageProps = {
     tags: ["GenAI", "Synthetic Media", "Detection", "GhostScripter"],
     visual: {
       type: "image",
-      src: "/GenAI.webp",
-      alt: "AI Generated Media Detection",
+      src: "/fake-news.jpg",
+      alt: "Examples of AI-generated fake news images showing fabricated content",
     },
   },
   problemSection: {
