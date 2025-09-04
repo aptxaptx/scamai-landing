@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
 import DesktopSidebar from "./DesktopSidebar";
-import SiteFooter from "./SiteFooter";
 import { useSidebar } from "@/contexts/SidebarContext";
 
 // --- Icon Components ---
@@ -71,7 +70,7 @@ export default function SiteShell({
 
   return (
     <div
-      className={`min-h-dvh px-5 md:px-0 pt-2 pb-5 transition-all duration-300 ${
+      className={`min-h-dvh px-5 md:px-0 pt-2 transition-all duration-300 flex flex-col ${
         isSidebarVisible ? "md:pl-[200px]" : "md:pl-0"
       }`}
     >
@@ -107,7 +106,7 @@ export default function SiteShell({
       />
 
       {/* Main Content */}
-      <main className="pr-4 md:pr-0">
+      <main className="pr-4 md:pr-0 flex-1">
         {children}
 
         {/* Secondary Links */}
@@ -125,8 +124,13 @@ export default function SiteShell({
         )}
       </main>
 
-      {/* Footer */}
-      <SiteFooter />
+      {/* Simple Footer */}
+      <footer className="mt-auto py-6 px-5 md:px-8 border-t border-white/10">
+        <div className="text-center text-sm text-white/50">
+          © 2025 Reality Inc. All rights reserved.
+        </div>
+      </footer>
+
     </div>
   );
 }
