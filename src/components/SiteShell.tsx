@@ -44,7 +44,7 @@ export default function SiteShell({
 
   return (
     <div
-      className={`min-h-dvh px-5 md:px-0 pt-2 pb-5 transition-all duration-300 ${
+      className={`min-h-dvh px-5 md:px-0 pb-5 transition-all duration-300 ${
         isSidebarVisible ? "md:pl-[200px]" : "md:pl-0"
       }`}
     >
@@ -78,7 +78,7 @@ export default function SiteShell({
       <DesktopSidebar isVisible={isSidebarVisible} />
 
       {/* Main Content */}
-      <main className="pr-4 md:pr-0">
+      <main className="pr-4 md:pr-0 overflow-x-hidden">
         {children}
 
         {/* Secondary Links */}

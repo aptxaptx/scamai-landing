@@ -1,7 +1,7 @@
 "use client";
 
 import SiteShell from "@/components/SiteShell";
-import { useMemo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import MinimalGame from "./MinimalGame";
 
@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <SiteShell secondaryLinks={secondaryLinks}>
-      <div className="relative">
+      <div className="relative w-full">
         {/* Hero */}
         <AnimatePresence>
           {!gameMode && (
@@ -50,7 +50,15 @@ export default function Home() {
               variants={sectionVariants}
               initial="initial"
               exit="exit"
-              className="relative overflow-hidden border border-white/10 min-h-[40vh] sm:min-h-[45vh] md:min-h-[50vh] lg:min-h-[55vh] grid place-items-center"
+              className="relative overflow-hidden h-screen grid place-items-center"
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                zIndex: 1,
+              }}
             >
               <div className="hero-image-bg" aria-hidden="true" />
               <div className="hero-image-vignette" aria-hidden="true" />
@@ -77,6 +85,9 @@ export default function Home() {
             </motion.section>
           )}
         </AnimatePresence>
+
+        {/* Spacer for fixed hero */}
+        <div className="h-screen" />
 
         {/* Game mode */}
         {gameMode && (

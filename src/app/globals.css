@@ -23,7 +23,9 @@ body {
 }
 
 /***** Force square corners site-wide *****/
-* { border-radius: 0 !important; }
+* {
+  border-radius: 0 !important;
+}
 
 /***** Landing components *****/
 .hero-wrapper {
@@ -76,16 +78,15 @@ body {
   filter: blur(18px) saturate(120%);
 }
 
-/* Image background: cover and crop from top-left */
+/* Image background: cover and center */
 .hero-image-bg {
   position: absolute;
   inset: 0;
   background-color: #000000;
-  background-image: 
-    linear-gradient(rgba(0, 0, 255, 0.3), rgba(0, 0, 255, 0.3)),
+  background-image: linear-gradient(rgba(0, 0, 255, 0.3), rgba(0, 0, 255, 0.3)),
     url("/hero.webp");
   background-repeat: no-repeat;
-  background-position: left top; /* crop anchor */
+  background-position: center center; /* center the image */
   background-size: cover; /* fill and crop */
 }
 .hero-image-vignette {
@@ -102,7 +103,7 @@ body {
 /* Mobile tweaks: reduce perceived height and improve text contrast */
 @media (max-width: 640px) {
   .hero-image-bg {
-    background-position: center top;
+    background-position: center center;
   }
   .hero-image-vignette {
     background: radial-gradient(
@@ -119,19 +120,19 @@ body {
   aside[data-desktop-sidebar] {
     display: none !important;
   }
-  
+
   /* Prevent body scroll when mobile menu is open */
   body.mobile-menu-open {
     overflow: hidden;
     position: fixed;
     width: 100%;
   }
-  
+
   /* Smooth hamburger animation */
   .hamburger-line {
     transform-origin: center;
   }
-  
+
   /* Ensure mobile menu scrolls properly */
   .mobile-menu-container {
     height: calc(100vh - 73px);
