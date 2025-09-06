@@ -50,14 +50,11 @@ export default function Home() {
               variants={sectionVariants}
               initial="initial"
               exit="exit"
-              className="relative overflow-hidden rounded-2xl border border-white/10 min-h-[40vh] sm:min-h-[45vh] md:min-h-[50vh] lg:min-h-[55vh] grid place-items-center"
+              className="relative overflow-hidden border border-white/10 min-h-[40vh] sm:min-h-[45vh] md:min-h-[50vh] lg:min-h-[55vh] grid place-items-center"
             >
               <div className="hero-image-bg" aria-hidden="true" />
               <div className="hero-image-vignette" aria-hidden="true" />
               <div className="relative z-10 text-center p-6 sm:p-8 md:p-12 lg:p-14">
-                <p className="text-white text-base mb-3 sm:mb-4">
-                  Build with ScamAI to
-                </p>
                 <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight leading-[0.95] md:leading-[1.05] max-w-4xl mx-auto">
                   Detect <br />
                   Fakes and Scams <br />

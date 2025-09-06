@@ -9,8 +9,8 @@ import { useSidebar } from "@/contexts/SidebarContext";
 
 // --- Icon Components ---
 
-// Icon for when the sidebar is VISIBLE (prompts user to HIDE)
-const IconSidebarHide = (props: React.SVGProps<SVGSVGElement>) => (
+// Simple menu icon for both states
+const MenuIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
@@ -23,38 +23,11 @@ const IconSidebarHide = (props: React.SVGProps<SVGSVGElement>) => (
     strokeLinejoin="round"
     {...props}
   >
-    {/* Outer container with rounded corners */}
-    <rect x="3" y="3" width="18" height="18" rx="3" />
-    {/* Vertical line representing the sidebar's edge */}
-    <path d="M9 3v18" />
-    {/* Left-pointing chevron indicating the "collapse" action */}
-    <path d="M15 9l-3 3 3 3" />
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="18" x2="21" y2="18" />
   </svg>
 );
-
-// Icon for when the sidebar is HIDDEN (prompts user to SHOW)
-const IconSidebarShow = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    {/* Outer container with rounded corners */}
-    <rect x="3" y="3" width="18" height="18" rx="3" />
-    {/* Vertical line representing the sidebar's edge (consistent position) */}
-    <path d="M9 3v18" />
-    {/* Right-pointing chevron indicating the "expand" action */}
-    <path d="M12 9l3 3-3 3" />
-  </svg>
-);
-
 
 // --- Main Component ---
 
@@ -87,14 +60,14 @@ export default function SiteShell({
           />
         </Link>
 
-        {/* --- REFINED Sidebar Toggle Button --- */}
+        {/* --- Simple Menu Toggle Button --- */}
         <button
           onClick={toggleSidebar}
           className="flex items-center justify-center w-8 h-8 rounded-md text-white/60 hover:text-white hover:bg-white/10 transition-colors"
           aria-label={isSidebarVisible ? "Hide sidebar" : "Show sidebar"}
           title={isSidebarVisible ? "Hide sidebar" : "Show sidebar"}
         >
-          {isSidebarVisible ? <IconSidebarHide /> : <IconSidebarShow />}
+          <MenuIcon />
         </button>
       </div>
 
@@ -102,9 +75,7 @@ export default function SiteShell({
       <MobileNav />
 
       {/* Desktop Sidebar */}
-      <DesktopSidebar
-        isVisible={isSidebarVisible}
-      />
+      <DesktopSidebar isVisible={isSidebarVisible} />
 
       {/* Main Content */}
       <main className="pr-4 md:pr-0">
