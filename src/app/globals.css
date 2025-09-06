@@ -83,8 +83,7 @@ body {
   position: absolute;
   inset: 0;
   background-color: #000000;
-  background-image: linear-gradient(rgba(0, 0, 255, 0.3), rgba(0, 0, 255, 0.3)),
-    url("/hero.webp");
+  background-image: url("/hero.webp");
   background-repeat: no-repeat;
   background-position: center center; /* center the image */
   background-size: cover; /* fill and crop */

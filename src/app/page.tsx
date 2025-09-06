@@ -32,7 +32,8 @@ export default function Home() {
     setItems(base);
   }, []);
 
-  console.log({ started, email, answers, items }); // Use variables to avoid warnings
+  // Use variables to avoid warnings
+  void { started, email, answers, items };
 
   const sectionVariants = {
     initial: { opacity: 1, y: 0, scale: 1 },

@@ -110,12 +110,17 @@ export default function MobileNav() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 right-0 w-full h-screen bg-black/95 backdrop-blur-sm z-[60] transform transition-all duration-300 ${
+        className={`md:hidden fixed left-0 right-0 bg-black/95 backdrop-blur-sm transform transition-all duration-300 ${
           isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         }`}
-        style={{ paddingTop: "73px" }}
+        style={{
+          top: "0",
+          paddingTop: "calc(3rem + 24px + 1px)",
+          zIndex: 50,
+          height: "100vh",
+        }}
       >
-        <div className="mobile-menu-container">
+        <div className="mobile-menu-container h-full overflow-y-auto">
           <div className="p-5 pb-10">
             <nav className="flex flex-col gap-2">
               {/* For Business */}
@@ -324,8 +329,21 @@ export default function MobileNav() {
               </div>
             </nav>
 
-            {/* Get A Demo Button */}
+            {/* Login Button */}
             <div className="mt-8 px-4">
+              <a
+                href="https://app.scam.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/15 transition-colors"
+              >
+                Login
+              </a>
+            </div>
+
+            {/* Get A Demo Button */}
+            <div className="mt-4 px-4">
               <Link
                 href="/demo"
                 onClick={closeMenu}
