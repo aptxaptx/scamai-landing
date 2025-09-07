@@ -72,7 +72,7 @@ export default function SiteShell({
       </div>
 
       {/* Login and Contact Sales Buttons - Desktop Only */}
-      <div className="md:block fixed top-4 right-4 z-[9999] flex gap-3">
+      <div className="hidden md:block fixed top-4 right-4 z-[9999] flex gap-3">
         <a
           href="https://app.scam.ai"
           target="_blank"
@@ -86,7 +86,9 @@ export default function SiteShell({
           LOGIN
         </a>
         <a
-          href="/contact-sales"
+          href="https://cal.com/scamai/15min"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black hover:bg-gray-100 transition-colors text-sm font-bold border-2 border-white shadow-2xl"
           style={{
             borderRadius: "0",

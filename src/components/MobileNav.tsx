@@ -135,7 +135,8 @@ export default function MobileNav() {
             {/* Get A Demo Button */}
             <div className="mt-4 px-4">
               <Button
-                href="/demo"
+                href="https://cal.com/scamai/15min"
+                external
                 variant="outline"
                 className="w-full"
                 onClick={closeMenu}
