@@ -81,7 +81,7 @@ export default function MobileNav() {
         <div className="flex items-center justify-between px-5 py-3">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/scamailogo.png"
+              src="/logo.svg"
               alt="Scam AI logo"
               width={200}
               height={32}

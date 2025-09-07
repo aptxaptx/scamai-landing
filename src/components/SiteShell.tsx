@@ -77,7 +77,7 @@ export default function SiteShell({
           href="https://app.scam.ai"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-black/10 text-white hover:bg-black/20 transition-colors text-xs font-bold border border-white shadow-lg"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-black/30 text-white hover:bg-black/40 transition-colors text-xs font-bold border border-white shadow-lg"
           style={{
             borderRadius: "0",
             zIndex: 9999,
