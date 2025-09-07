@@ -5,7 +5,6 @@ import Image from "next/image";
 import MobileNav from "./MobileNav";
 import DesktopSidebar from "./DesktopSidebar";
 import SiteFooter from "./SiteFooter";
-import LoginButton from "./ui/LoginButton";
 import { useSidebar } from "@/contexts/SidebarContext";
 
 // --- Icon Components ---
@@ -72,8 +71,31 @@ export default function SiteShell({
         </button>
       </div>
 
-      {/* Login Button - Desktop Only */}
-      <LoginButton desktopOnly />
+      {/* Login and Contact Sales Buttons - Desktop Only */}
+      <div className="md:block fixed top-4 right-4 z-[9999] flex gap-3">
+        <a
+          href="https://app.scam.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-transparent text-white hover:bg-white/10 transition-colors text-sm font-bold border-2 border-white shadow-2xl"
+          style={{
+            borderRadius: "0",
+            zIndex: 9999,
+          }}
+        >
+          LOGIN
+        </a>
+        <a
+          href="/contact-sales"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black hover:bg-gray-100 transition-colors text-sm font-bold border-2 border-white shadow-2xl"
+          style={{
+            borderRadius: "0",
+            zIndex: 9999,
+          }}
+        >
+          CONTACT SALES
+        </a>
+      </div>
 
       {/* Mobile Navigation */}
       <MobileNav />
