@@ -5,6 +5,7 @@ import Image from "next/image";
 import MobileNav from "./MobileNav";
 import DesktopSidebar from "./DesktopSidebar";
 import SiteFooter from "./SiteFooter";
+import LoginButton from "./ui/LoginButton";
 import { useSidebar } from "@/contexts/SidebarContext";
 
 // --- Icon Components ---
@@ -71,17 +72,8 @@ export default function SiteShell({
         </button>
       </div>
 
-      {/* Login Button - Desktop Only (Mobile users use hamburger menu) */}
-      <div className="hidden md:block fixed top-4 right-4 z-[100] md:right-6">
-        <a
-          href="https://app.scam.ai"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-white/20 text-white hover:bg-white/30 transition-colors text-sm font-medium border-2 border-white/40 shadow-lg"
-        >
-          Login
-        </a>
-      </div>
+      {/* Login Button - Desktop Only */}
+      <LoginButton desktopOnly />
 
       {/* Mobile Navigation */}
       <MobileNav />

@@ -3,71 +3,75 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { NAVIGATION_SECTIONS, APP_CONFIG } from "@/constants";
+import Button from "./ui/Button";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
-  const [expandedSection, setExpandedSection] = useState<
-    | "business"
-    | "individuals"
-    | "models"
-    | "research"
-    | "stories"
-    | "company"
-    | null
-  >(null);
-  const pathname = usePathname();
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
-  // Close menu when route changes
-  useEffect(() => {
-    setIsOpen(false);
-    setExpandedSection(null);
-  }, [pathname]);
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add("mobile-menu-open");
-    } else {
-      document.body.classList.remove("mobile-menu-open");
-    }
-
-    return () => {
-      document.body.classList.remove("mobile-menu-open");
-    };
-  }, [isOpen]);
+  const openMenu = () => {
+    setIsOpen(true);
+    document.body.classList.add("mobile-menu-open");
+  };
 
   const closeMenu = () => {
     setIsOpen(false);
     setExpandedSection(null);
+    document.body.classList.remove("mobile-menu-open");
   };
 
-  const toggleSection = (
-    section: "business" | "models" | "research" | "stories" | "company"
-  ) => {
-    if (expandedSection === section) {
-      setExpandedSection(null);
-    } else {
-      setExpandedSection(section);
-      // Navigate to the first page in the section
-      switch (section) {
-        case "business":
-          window.location.href = "/business";
-          break;
-        case "models":
-          window.location.href = "/models/deepfakes";
-          break;
-        case "research":
-          window.location.href = "/research/publication";
-          break;
-        case "stories":
-          window.location.href = "/stories/news";
-          break;
-        case "company":
-          window.location.href = "/company/about";
-          break;
-      }
-    }
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove("mobile-menu-open");
+    };
+  }, []);
+
+  const toggleSection = (sectionKey: string) => {
+    setExpandedSection(expandedSection === sectionKey ? null : sectionKey);
+  };
+
+  const renderNavigationSection = (sectionKey: string) => {
+    const section = NAVIGATION_SECTIONS[sectionKey];
+    if (!section) return null;
+
+    const isExpanded = expandedSection === sectionKey;
+
+    return (
+      <div key={sectionKey}>
+        <button
+          onClick={() => toggleSection(sectionKey)}
+          className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+        >
+          <span>{section.title}</span>
+          <span
+            className={`transition-transform duration-200 ${
+              isExpanded ? "rotate-90" : ""
+            }`}
+          >
+            →
+          </span>
+        </button>
+
+        {isExpanded && (
+          <div className="ml-4 mt-2 space-y-1">
+            {section.links.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                onClick={closeMenu}
+                className="block rounded-xl px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                {...(link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -84,26 +88,15 @@ export default function MobileNav() {
               className="h-8 w-auto"
             />
           </Link>
+
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={openMenu}
             className="flex flex-col items-center justify-center w-8 h-8 space-y-1.5"
             aria-label="Toggle menu"
           >
-            <span
-              className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+            <span className="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300" />
+            <span className="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300" />
+            <span className="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300" />
           </button>
         </div>
       </header>
@@ -123,234 +116,32 @@ export default function MobileNav() {
         <div className="mobile-menu-container h-full overflow-y-auto">
           <div className="p-5 pb-10">
             <nav className="flex flex-col gap-2">
-              {/* For Business */}
-              <div>
-                <button
-                  onClick={() => toggleSection("business")}
-                  className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
-                >
-                  <span>For Business</span>
-                  <span
-                    className={`transition-transform duration-200 ${
-                      expandedSection === "business" ? "rotate-90" : ""
-                    }`}
-                  >
-                    →
-                  </span>
-                </button>
-                {expandedSection === "business" && (
-                  <div className="ml-4 mt-1 space-y-1">
-                    <Link
-                      href="/business"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      Use Cases
-                    </Link>
-                    <Link
-                      href="/api-platform"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      API Platform
-                    </Link>
-                    <a
-                      href="https://docu.scam.ai"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      API Documentation
-                    </a>
-                    <Link
-                      href="/demo"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      Contact Sales
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* For Individuals */}
-              <div></div>
-
-              {/* Models */}
-              <div>
-                <button
-                  onClick={() => toggleSection("models")}
-                  className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
-                >
-                  <span>Models</span>
-                  <span
-                    className={`transition-transform duration-200 ${
-                      expandedSection === "models" ? "rotate-90" : ""
-                    }`}
-                  >
-                    →
-                  </span>
-                </button>
-                {expandedSection === "models" && (
-                  <div className="ml-4 mt-1 space-y-1">
-                    <div className="px-3 py-1 text-xs font-medium text-white/50 tracking-wide">
-                      Detection Models
-                    </div>
-                    <Link
-                      href="/models/deepfakes"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2"
-                    >
-                      Deepfakes (Faceswap)
-                    </Link>
-                    <Link
-                      href="/models/ai-generated-media"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2"
-                    >
-                      GenAI Media Detection
-                    </Link>
-                    <Link
-                      href="/models/voice-clones"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors ml-2"
-                    >
-                      Voice Cloning
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Research */}
-              <div>
-                <button
-                  onClick={() => toggleSection("research")}
-                  className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
-                >
-                  <span>Research</span>
-                  <span
-                    className={`transition-transform duration-200 ${
-                      expandedSection === "research" ? "rotate-90" : ""
-                    }`}
-                  >
-                    →
-                  </span>
-                </button>
-                {expandedSection === "research" && (
-                  <div className="ml-4 mt-1 space-y-1">
-                    <Link
-                      href="/research/publication"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      Publications & Datasets
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Stories */}
-              <div>
-                <button
-                  onClick={() => toggleSection("stories")}
-                  className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
-                >
-                  <span>Stories</span>
-                  <span
-                    className={`transition-transform duration-200 ${
-                      expandedSection === "stories" ? "rotate-90" : ""
-                    }`}
-                  >
-                    →
-                  </span>
-                </button>
-                {expandedSection === "stories" && (
-                  <div className="ml-4 mt-1 space-y-1">
-                    <Link
-                      href="/stories/news"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      News
-                    </Link>
-                    <Link
-                      href="/stories/type-of-scams"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      Type of Scams
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Company */}
-              <div>
-                <button
-                  onClick={() => toggleSection("company")}
-                  className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
-                >
-                  <span>Company</span>
-                  <span
-                    className={`transition-transform duration-200 ${
-                      expandedSection === "company" ? "rotate-90" : ""
-                    }`}
-                  >
-                    →
-                  </span>
-                </button>
-                {expandedSection === "company" && (
-                  <div className="ml-4 mt-1 space-y-1">
-                    <Link
-                      href="/company/about"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      About Us
-                    </Link>
-
-                    <Link
-                      href="/company/partnership"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      Partnership
-                    </Link>
-                    <Link
-                      href="/company/investors"
-                      onClick={closeMenu}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                    >
-                      Investors
-                    </Link>
-                  </div>
-                )}
-              </div>
+              {Object.keys(NAVIGATION_SECTIONS).map(renderNavigationSection)}
             </nav>
 
             {/* Login Button */}
             <div className="mt-8 px-4">
-              <a
-                href="https://app.scam.ai"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Button
+                href={APP_CONFIG.loginUrl}
+                external
+                variant="secondary"
+                className="w-full"
                 onClick={closeMenu}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/15 transition-colors"
               >
                 Login
-              </a>
+              </Button>
             </div>
 
             {/* Get A Demo Button */}
             <div className="mt-4 px-4">
-              <Link
+              <Button
                 href="/demo"
+                variant="outline"
+                className="w-full"
                 onClick={closeMenu}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white hover:bg-white/10 transition-colors"
               >
                 Get A Demo
-              </Link>
+              </Button>
             </div>
           </div>
         </div>

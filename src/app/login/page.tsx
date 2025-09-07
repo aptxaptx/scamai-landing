@@ -104,7 +104,7 @@ export default function LoginPage() {
           {/* Sign Up Link */}
           <div className="mt-6 text-center">
             <p className="text-white/60 text-sm">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <a
                 href="https://app.scam.ai/signup"
                 className="text-white hover:text-white/80 transition-colors font-medium"
