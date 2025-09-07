@@ -1,7 +1,7 @@
 import { NavigationSection } from "@/types";
 
 export const MAIN_NAVIGATION: string[] = [
-  "For Business",
+  "Use Cases",
   "Models",
   "Research",
   "Stories",
@@ -10,9 +10,8 @@ export const MAIN_NAVIGATION: string[] = [
 
 export const NAVIGATION_SECTIONS: Record<string, NavigationSection> = {
   business: {
-    title: "For Business",
+    title: "Use Cases",
     links: [
-      { label: "Use Cases", href: "/business" },
       { label: "API Platform", href: "/api-platform" },
       {
         label: "API Documentation",

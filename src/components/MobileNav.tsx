@@ -76,8 +76,8 @@ export default function MobileNav() {
 
   return (
     <>
-      {/* Mobile Header */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-[70] bg-black/95 backdrop-blur-sm border-b border-white/10">
+      {/* Mobile Bottom Bar with Logo and Hamburger */}
+      <header className="md:hidden fixed bottom-0 left-0 right-0 z-[70] bg-black/95 backdrop-blur-sm border-t border-white/10">
         <div className="flex items-center justify-between px-5 py-3">
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -90,24 +90,35 @@ export default function MobileNav() {
           </Link>
 
           <button
-            onClick={openMenu}
+            onClick={isOpen ? closeMenu : openMenu}
             className="flex flex-col items-center justify-center w-8 h-8 space-y-1.5"
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            <span className="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300" />
-            <span className="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300" />
-            <span className="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300" />
+            <span
+              className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
+                isOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            />
+            <span
+              className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
+                isOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
+                isOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            />
           </button>
         </div>
       </header>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed left-0 right-0 bg-black/95 backdrop-blur-sm transform transition-all duration-300 ${
+        className={`md:hidden fixed top-0 left-0 right-0 bg-black/95 backdrop-blur-sm transform transition-all duration-300 ${
           isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         }`}
         style={{
-          top: "0",
           paddingTop: "calc(3rem + 24px + 1px)",
           zIndex: 50,
           height: "100vh",

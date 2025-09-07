@@ -72,7 +72,7 @@ export default function SiteShell({
       </div>
 
       {/* Login and Contact Sales Buttons - Desktop Only */}
-      <div className="hidden md:block fixed top-4 right-4 z-[9999] flex gap-3">
+      <div className=" md:block fixed top-4 right-4 z-[9999] flex gap-3">
         <a
           href="https://app.scam.ai"
           target="_blank"
