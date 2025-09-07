@@ -58,30 +58,35 @@ export default function BusinessPage() {
             link: "/business/legal-compliance",
           },
         ].map((card) => (
-          <article
-            key={card.title}
-            className="relative rounded-2xl p-6 md:p-8 overflow-hidden min-h-[260px] md:min-h-[320px]"
-          >
-            <div
-              className="absolute inset-0 -z-10 opacity-80 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${card.image})` }}
-              aria-hidden="true"
-            />
-            <div
-              className="absolute inset-0 -z-10 bg-black/10"
-              aria-hidden="true"
-            />
+          <Link key={card.title} href={card.link}>
+            <article className="relative rounded-2xl p-6 md:p-8 overflow-hidden min-h-[260px] md:min-h-[320px] z-10 hover:scale-105 transition-transform duration-200 cursor-pointer">
+              <div
+                className="absolute inset-0 z-0 opacity-100 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${card.image})` }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-0 z-0 bg-black/20"
+                aria-hidden="true"
+              />
 
-            <h2 className="mt-4 text-lg font-semibold tracking-tight">
-              {card.title}
-            </h2>
-            <p className="mt-2 text-sm text-white/80">{card.desc}</p>
-            <span className="absolute right-4 bottom-4 text-xs text-white/70">
-              {card.tag}
-            </span>
-          </article>
+              <h2 className="relative z-10 mt-4 text-lg font-semibold tracking-tight text-white">
+                {card.title}
+              </h2>
+              <p className="relative z-10 mt-2 text-sm text-white/90">
+                {card.desc}
+              </p>
+              <span className="absolute right-4 bottom-4 z-10 text-xs text-white/80">
+                {card.tag}
+              </span>
+            </article>
+          </Link>
         ))}
       </section>
+
+      {/* Background with same styling as landing page */}
+      <div className="hero-image-bg fixed inset-0 -z-10" aria-hidden />
+      <div className="hero-image-vignette fixed inset-0 -z-10" aria-hidden />
     </SiteShell>
   );
 }

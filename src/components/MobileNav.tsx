@@ -35,6 +35,22 @@ export default function MobileNav() {
     const section = NAVIGATION_SECTIONS[sectionKey];
     if (!section) return null;
 
+    // Special handling for Company - make it a direct link
+    if (sectionKey === "company") {
+      return (
+        <div key={sectionKey}>
+          <Link
+            href="/company/about"
+            onClick={closeMenu}
+            className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+          >
+            <span>{section.title}</span>
+            <span className="transition-transform duration-200">→</span>
+          </Link>
+        </div>
+      );
+    }
+
     const isExpanded = expandedSection === sectionKey;
 
     return (
@@ -94,17 +110,17 @@ export default function MobileNav() {
             className="flex flex-col items-center justify-center w-8 h-8 space-y-1.5"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            <span
+            <span 
               className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
                 isOpen ? "rotate-45 translate-y-2" : ""
               }`}
             />
-            <span
+            <span 
               className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
                 isOpen ? "opacity-0" : ""
               }`}
             />
-            <span
+            <span 
               className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
                 isOpen ? "-rotate-45 -translate-y-2" : ""
               }`}
@@ -126,8 +142,10 @@ export default function MobileNav() {
       >
         <div className="mobile-menu-container h-full overflow-y-auto">
           <div className="p-5 pb-10">
-            <nav className="flex flex-col gap-2">
-              {Object.keys(NAVIGATION_SECTIONS).map(renderNavigationSection)}
+          <nav className="flex flex-col gap-2">
+                    {Object.keys(NAVIGATION_SECTIONS)
+                      .filter(key => key !== "stories") // Hide Stories from menu
+                      .map(renderNavigationSection)}
             </nav>
 
             {/* Login Button */}
@@ -154,7 +172,7 @@ export default function MobileNav() {
               >
                 Get A Demo
               </Button>
-            </div>
+          </div>
           </div>
         </div>
       </div>

@@ -1,11 +1,6 @@
 import { NavigationSection } from "@/types";
 
-export const MAIN_NAVIGATION: string[] = [
-  "Use Cases",
-  "Models",
-  "Stories",
-  "Company",
-];
+export const MAIN_NAVIGATION: string[] = ["Use Cases", "Models", "Company"];
 
 export const NAVIGATION_SECTIONS: Record<string, NavigationSection> = {
   business: {
@@ -21,7 +16,7 @@ export const NAVIGATION_SECTIONS: Record<string, NavigationSection> = {
         children: [
           { label: "Deepfakes D1.2", href: "/models/deepfakes" },
           {
-            label: "AI-Generated A1.1",
+            label: "AI Image A1.1",
             href: "/models/ai-generated-media",
           },
           { label: "Voiceclone V1.0", href: "/models/voice-clones" },
@@ -48,7 +43,6 @@ export const NAVIGATION_SECTIONS: Record<string, NavigationSection> = {
     links: [
       { label: "About Us", href: "/company/about" },
       { label: "Partnership", href: "/company/partnership" },
-      { label: "Investors", href: "/company/investors" },
     ],
   },
 };

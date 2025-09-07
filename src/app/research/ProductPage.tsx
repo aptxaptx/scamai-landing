@@ -4,9 +4,22 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Inline icon component (未做修改)
-export type IconName = "ShieldAlert" | "Briefcase" | "MessageSquareWarning" | "Zap" | "Target" | "Globe" | "BrainCircuit";
+export type IconName =
+  | "ShieldAlert"
+  | "Briefcase"
+  | "MessageSquareWarning"
+  | "Zap"
+  | "Target"
+  | "Globe"
+  | "BrainCircuit";
 
-function InlineIcon({ name, className = "h-5 w-5 text-gray-900" }: { name: IconName; className?: string }) {
+function InlineIcon({
+  name,
+  className = "h-5 w-5 text-gray-900",
+}: {
+  name: IconName;
+  className?: string;
+}) {
   // ... (此组件代码保持不变)
   const common = {
     className,
@@ -178,29 +191,28 @@ export interface ProductPageProps {
 
 // Hero Section (未做修改)
 // Hero 区域作为一个独立的、引人注目的视觉元素，其卡片式设计是合适的。
-type HeroSectionProps = { 
-  hero: ProductPageProps["hero"]; 
+type HeroSectionProps = {
+  hero: ProductPageProps["hero"];
   breadcrumb?: ProductPageProps["breadcrumb"];
 };
 function HeroSection({ hero }: HeroSectionProps) {
   return (
     <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-16">
-
       <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
         <p className="text-white text-base mb-4">{hero.category}</p>
         <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight max-w-4xl mx-auto">
-          {hero.headline.split('\n').map((line, i) => (
+          {hero.headline.split("\n").map((line, i) => (
             <React.Fragment key={i}>
               {line}
-              {i < hero.headline.split('\n').length - 1 && <br />}
+              {i < hero.headline.split("\n").length - 1 && <br />}
             </React.Fragment>
           ))}
         </h1>
         <p className="mt-4 text-white/85 text-[clamp(16px,2.5vw,24px)] font-semibold max-w-2xl mx-auto">
-          {hero.subtitle.split('\n').map((line, i) => (
+          {hero.subtitle.split("\n").map((line, i) => (
             <React.Fragment key={i}>
               {line}
-              {i < hero.subtitle.split('\n').length - 1 && <br />}
+              {i < hero.subtitle.split("\n").length - 1 && <br />}
             </React.Fragment>
           ))}
         </p>
@@ -213,7 +225,10 @@ function HeroSection({ hero }: HeroSectionProps) {
         {/* Tags */}
         <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
           {hero.tags.map((tag, i) => (
-            <span key={i} className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">
+            <span
+              key={i}
+              className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15"
+            >
               {tag}
             </span>
           ))}
@@ -242,14 +257,12 @@ function HeroSection({ hero }: HeroSectionProps) {
                   <source src={hero.visual.src} type="audio/mpeg" />
                   Your browser does not support the audio tag.
                 </audio>
-                <p className="mt-4 text-white/60 text-sm">
-                  {hero.visual.alt}
-                </p>
+                <p className="mt-4 text-white/60 text-sm">{hero.visual.alt}</p>
               </div>
             ) : (
-              <Image 
-                src={hero.visual.src} 
-                alt={hero.visual.alt || ""} 
+              <Image
+                src={hero.visual.src}
+                alt={hero.visual.alt || ""}
                 width={800}
                 height={600}
                 className="w-full rounded-lg shadow-lg"
@@ -267,16 +280,18 @@ function HeroSection({ hero }: HeroSectionProps) {
  * 1. 描述性段落改为左对齐，提高可读性。
  * 2. 移除 valueProps 的独立卡片样式，让它们作为网格内的纯内容展示，减少视觉碎片。
  */
-type ProblemSectionProps = { problemSection: ProductPageProps["problemSection"] };
+type ProblemSectionProps = {
+  problemSection: ProductPageProps["problemSection"];
+};
 function ProblemSection({ problemSection }: ProblemSectionProps) {
   return (
     <section className="mb-16">
       <div className="text-center">
         <h2 className="text-[clamp(24px,5vw,48px)] font-normal tracking-tight max-w-4xl mx-auto">
-          {problemSection.headline.split('\n').map((line, i) => (
+          {problemSection.headline.split("\n").map((line, i) => (
             <React.Fragment key={i}>
               {line}
-              {i < problemSection.headline.split('\n').length - 1 && <br />}
+              {i < problemSection.headline.split("\n").length - 1 && <br />}
             </React.Fragment>
           ))}
         </h2>
@@ -290,7 +305,7 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
         {problemSection.additionalContent && (
           <p className="text-white/80 text-lg leading-relaxed mt-6">
             {problemSection.additionalContent}
-        </p>
+          </p>
         )}
       </div>
 
@@ -322,9 +337,9 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
               </p>
             </div>
           ) : (
-            <Image 
-              src={problemSection.visual.src} 
-              alt={problemSection.visual.alt || ""} 
+            <Image
+              src={problemSection.visual.src}
+              alt={problemSection.visual.alt || ""}
               width={800}
               height={600}
               className="w-full rounded-lg shadow-lg"
@@ -339,7 +354,9 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
           // 移除了 bg-white/5, border, rounded-xl, p-5
           <div key={i}>
             <h4 className="text-white font-semibold mb-2">{prop.title}</h4>
-            <p className="text-white/75 text-sm leading-relaxed">{prop.description}</p>
+            <p className="text-white/75 text-sm leading-relaxed">
+              {prop.description}
+            </p>
           </div>
         ))}
       </div>
@@ -355,12 +372,16 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
 type ThreatLandscapeProps = { threat?: ProductPageProps["threatLandscape"] };
 function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
   if (!threat) return null;
-  
+
   return (
     <section className="mb-16 max-w-5xl mx-auto px-6">
-      <h3 className="text-3xl font-bold text-center text-white">{threat.headline}</h3>
+      <h3 className="text-3xl font-bold text-center text-white">
+        {threat.headline}
+      </h3>
       {/* REFACTORED: 文本改为左对齐 */}
-      <p className="mt-4 text-lg text-white/80 text-left max-w-3xl mx-auto">{threat.description}</p>
+      <p className="mt-4 text-lg text-white/80 text-left max-w-3xl mx-auto">
+        {threat.description}
+      </p>
 
       {/* REFACTORED: 移除卡片样式，调整间距 */}
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-10">
@@ -375,7 +396,9 @@ function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
         ))}
       </div>
 
-      <p className="mt-8 text-sm text-white/60 text-center">{threat.dataPoint}</p>
+      <p className="mt-8 text-sm text-white/60 text-center">
+        {threat.dataPoint}
+      </p>
     </section>
   );
 }
@@ -388,25 +411,40 @@ function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
  */
 type SolutionSectionProps = { solution: ProductPageProps["solution"] };
 function SolutionSection({ solution }: SolutionSectionProps) {
+  // Return null if solution is empty or missing required properties
+  if (!solution || !solution.headline || !solution.coreDimensions) {
+    return null;
+  }
+
   return (
     <section className="mb-16 max-w-5xl mx-auto px-6">
-      <h3 className="text-3xl font-bold text-center text-white">{solution.headline}</h3>
-      <p className="mt-4 text-lg text-white/80 text-left max-w-3xl mx-auto">{solution.description}</p>
+      <h3 className="text-3xl font-bold text-center text-white">
+        {solution.headline}
+      </h3>
+      <p className="mt-4 text-lg text-white/80 text-left max-w-3xl mx-auto">
+        {solution.description}
+      </p>
 
       {/* REFACTORED: 移除卡片样式 */}
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-left">
         {solution.coreDimensions.map((dim, idx) => (
           <div key={idx}>
-            <h4 className="text-lg font-semibold text-white mb-2">{dim.title}</h4>
-            <p className="text-white/75 text-sm leading-relaxed">{dim.description}</p>
+            <h4 className="text-lg font-semibold text-white mb-2">
+              {dim.title}
+            </h4>
+            <p className="text-white/75 text-sm leading-relaxed">
+              {dim.description}
+            </p>
           </div>
         ))}
       </div>
 
       {/* REFACTORED: 使用更微妙的引用块样式 */}
-      <div className="mt-10 bg-slate-800/50 border-l-4 border-cyan-400 rounded-r-lg p-6 text-white/90">
-        <p className="leading-relaxed">{solution.outputDescription}</p>
-      </div>
+      {solution.outputDescription && (
+        <div className="mt-10 bg-slate-800/50 border-l-4 border-cyan-400 rounded-r-lg p-6 text-white/90">
+          <p className="leading-relaxed">{solution.outputDescription}</p>
+        </div>
+      )}
     </section>
   );
 }
@@ -417,9 +455,16 @@ function SolutionSection({ solution }: SolutionSectionProps) {
  */
 type AdvantagesSectionProps = { advantages: ProductPageProps["advantages"] };
 function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
+  // Return null if advantages is empty or missing required properties
+  if (!advantages || !advantages.headline || !advantages.items) {
+    return null;
+  }
+
   return (
     <section className="mb-16 max-w-5xl mx-auto px-6">
-      <h3 className="text-3xl font-bold text-center text-white">{advantages.headline}</h3>
+      <h3 className="text-3xl font-bold text-center text-white">
+        {advantages.headline}
+      </h3>
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
         {advantages.items.map((adv, idx) => (
           // 移除了卡片背景和边框
@@ -429,7 +474,9 @@ function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
             </div>
             <div className="text-left">
               <h4 className="text-lg font-semibold text-white">{adv.title}</h4>
-              <p className="mt-1 text-white/75 text-sm leading-relaxed">{adv.description}</p>
+              <p className="mt-1 text-white/75 text-sm leading-relaxed">
+                {adv.description}
+              </p>
             </div>
           </div>
         ))}
@@ -442,14 +489,19 @@ function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
 // 标签（Pills）样式是常见的 UI 模式，看起来不错，予以保留。
 type UseCasesSectionProps = { useCases?: ProductPageProps["useCases"] };
 function UseCasesSection({ useCases }: UseCasesSectionProps) {
-  if (!useCases) return null;
+  if (!useCases || !useCases.headline || !useCases.items) return null;
   return (
     <section className="mb-16">
       <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-white">{useCases.headline}</h3>
+        <h3 className="text-3xl font-bold text-center text-white">
+          {useCases.headline}
+        </h3>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
           {useCases.items.map((item, idx) => (
-            <span key={idx} className="rounded-full bg-white/10 text-white/85 text-sm font-semibold px-4 py-2 border border-white/15">
+            <span
+              key={idx}
+              className="rounded-full bg-white/10 text-white/85 text-sm font-semibold px-4 py-2 border border-white/15"
+            >
               {item}
             </span>
           ))}
@@ -467,18 +519,26 @@ function ApiSection({ api }: ApiSectionProps) {
   return (
     <section className="mb-16">
       <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-white">{api.headline}</h3>
-        <p className="mt-4 text-lg text-white/80 text-center max-w-3xl mx-auto">{api.description}</p>
+        <h3 className="text-3xl font-bold text-center text-white">
+          {api.headline}
+        </h3>
+        <p className="mt-4 text-lg text-white/80 text-center max-w-3xl mx-auto">
+          {api.description}
+        </p>
 
         {api.codeExample && (
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
               <div className="text-sm text-gray-400 font-mono">Request</div>
-              <pre className="mt-2 overflow-auto text-sm font-mono"><code>{api.codeExample.request}</code></pre>
+              <pre className="mt-2 overflow-auto text-sm font-mono">
+                <code>{api.codeExample.request}</code>
+              </pre>
             </div>
             <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
               <div className="text-sm text-gray-400 font-mono">Response</div>
-              <pre className="mt-2 overflow-auto text-sm font-mono"><code>{api.codeExample.response}</code></pre>
+              <pre className="mt-2 overflow-auto text-sm font-mono">
+                <code>{api.codeExample.response}</code>
+              </pre>
             </div>
           </div>
         )}
@@ -492,8 +552,18 @@ function ApiSection({ api }: ApiSectionProps) {
               className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 text-lg"
             >
               {api.apiDocumentation.text}
-              <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg
+                className="ml-2 h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
               </svg>
             </a>
           </div>
@@ -514,18 +584,21 @@ export function ProductPage({ data }: { data: ProductPageProps }) {
         <HeroSection hero={data.hero} breadcrumb={data.breadcrumb} />
 
         {/* 主要内容区域现在更加连贯 */}
-                 <div className="space-y-16 md:space-y-24">
-             <ProblemSection problemSection={data.problemSection} />
-             <ThreatLandscapeSection threat={data.threatLandscape} />
-             <SolutionSection solution={data.solution} />
-             <AdvantagesSection advantages={data.advantages} />
-             <UseCasesSection useCases={data.useCases} />
-             <ApiSection api={data.apiSection} />
-         </div>
+        <div className="space-y-16 md:space-y-24">
+          <ProblemSection problemSection={data.problemSection} />
+          <ThreatLandscapeSection threat={data.threatLandscape} />
+          <SolutionSection solution={data.solution} />
+          <AdvantagesSection advantages={data.advantages} />
+          <UseCasesSection useCases={data.useCases} />
+          <ApiSection api={data.apiSection} />
+        </div>
 
         {data.breadcrumb?.nextPath && data.breadcrumb?.nextName && (
           <div className="mt-12 text-right">
-            <Link href={data.breadcrumb.nextPath} className="text-sm text-white/80 hover:text-white/90">
+            <Link
+              href={data.breadcrumb.nextPath}
+              className="text-sm text-white/80 hover:text-white/90"
+            >
               Next: {data.breadcrumb.nextName} →
             </Link>
           </div>
@@ -540,7 +613,9 @@ export function ProductPage({ data }: { data: ProductPageProps }) {
             aria-hidden
           />
           <div
-            className={`fixed inset-0 -z-10 ${data.overlayColor || 'bg-[#3D38F5]/43'}`}
+            className={`fixed inset-0 -z-10 ${
+              data.overlayColor || "bg-[#3D38F5]/43"
+            }`}
             aria-hidden
           />
         </>
@@ -548,7 +623,5 @@ export function ProductPage({ data }: { data: ProductPageProps }) {
     </SiteShell>
   );
 }
-
-
 
 export default ProductPage;

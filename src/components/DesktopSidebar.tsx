@@ -4,13 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-type SubmenuType =
-  | "none"
-  | "business"
-  | "models"
-  | "research"
-  | "stories"
-  | "company";
+type SubmenuType = "none" | "business" | "models" | "research" | "company";
 
 type DesktopSidebarProps = {
   isVisible: boolean;
@@ -34,8 +28,6 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
     ? "models"
     : pathname?.startsWith("/research")
     ? "research"
-    : pathname?.startsWith("/stories")
-    ? "stories"
     : pathname?.startsWith("/company")
     ? "company"
     : "none";
@@ -53,28 +45,25 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
     if (isBusinessPage) setSubmenu("business");
     else if (pathname.startsWith("/models")) setSubmenu("models");
     else if (pathname.startsWith("/research")) setSubmenu("research");
-    else if (pathname.startsWith("/stories")) setSubmenu("stories");
     else if (pathname.startsWith("/company")) setSubmenu("company");
     else setSubmenu("none");
   }, [pathname]);
 
-  const mainLinks = ["Use Cases", "Models", "Stories", "Company"];
+  const mainLinks = ["Use Cases", "Models", "Company"];
 
   const businessLinks = ["Use Cases"];
 
   const modelsLinks = [
     "Detection Models",
     "Deepfakes D1.2",
-    "AI-Generated A1.1",
+    "AI Image A1.1",
     "Voiceclone V1.0",
     "Research",
   ];
 
   const researchLinks = ["Publications & Datasets"];
 
-  const storiesLinks = ["News", "Type of Scams"];
-
-  const companyLinks = ["About Us", "Partnership", "Investors"];
+  const companyLinks = ["About Us", "Partnership"];
 
   return (
     <aside
@@ -172,44 +161,11 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                       </button>
                     );
                   }
-                  if (item === "Stories") {
-                    return (
-                      <button
-                        key={item}
-                        type="button"
-                        onClick={() => {
-                          setSubmenu(
-                            submenu === "stories" ? "none" : "stories"
-                          );
-                          if (submenu !== "stories") {
-                            router.push("/stories/news");
-                          }
-                        }}
-                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
-                      >
-                        <span>{item}</span>
-                        <span
-                          aria-hidden
-                          className="text-white/60 opacity-0 translate-x-1 transition-all group-hover:opacity-60 group-hover:translate-x-0"
-                        >
-                          →
-                        </span>
-                      </button>
-                    );
-                  }
                   if (item === "Company") {
                     return (
-                      <button
+                      <Link
                         key={item}
-                        type="button"
-                        onClick={() => {
-                          setSubmenu(
-                            submenu === "company" ? "none" : "company"
-                          );
-                          if (submenu !== "company") {
-                            router.push("/company/about");
-                          }
-                        }}
+                        href="/company/about"
                         className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
                       >
                         <span>{item}</span>
@@ -219,7 +175,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                         >
                           →
                         </span>
-                      </button>
+                      </Link>
                     );
                   }
                   return (
@@ -318,7 +274,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                   const href =
                     item === "Detection Models"
                       ? "#"
-                      : item === "AI-Generated A1.1"
+                      : item === "AI Image A1.1"
                       ? "/models/ai-generated-media"
                       : item === "Deepfakes D1.2"
                       ? "/models/deepfakes"
@@ -373,52 +329,6 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                   const href =
                     item === "Publications & Datasets"
                       ? "/research/publication"
-                      : "#";
-
-                  return (
-                    <Link
-                      key={item}
-                      href={href}
-                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
-                    >
-                      {item}
-                    </Link>
-                  );
-                })}
-              </nav>
-            </div>
-
-            {/* Stories submenu panel */}
-            <div
-              className={`absolute inset-0 min-w-[280px] md:min-w-0 transition-transform duration-300 ease-out ${
-                submenu === "stories" ? "translate-x-0" : "translate-x-full"
-              }`}
-            >
-              <div className="px-4 pb-4 flex items-center gap-2 text-white/70">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSubmenu("none");
-                    router.push("/");
-                  }}
-                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-white/10"
-                >
-                  <span aria-hidden>←</span>
-                  <span>Home</span>
-                </button>
-              </div>
-              <nav
-                className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none"
-                aria-label="Stories"
-              >
-                {storiesLinks.map((item) => {
-                  const href =
-                    item === "News"
-                      ? "/stories/news"
-                      : item === "Type of Scams"
-                      ? "/stories/type-of-scams"
-                      : item === "Scam Trends"
-                      ? "/stories/scam-trends"
                       : "#";
 
                   return (
