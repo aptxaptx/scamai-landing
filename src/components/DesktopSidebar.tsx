@@ -58,26 +58,16 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
     else setSubmenu("none");
   }, [pathname]);
 
-  const mainLinks = [
-    "For Business",
-    "Models",
-    "Research",
-    "Stories",
-    "Company",
-  ];
+  const mainLinks = ["Use Cases", "Models", "Stories", "Company"];
 
-  const businessLinks = [
-    "Use Cases",
-    "API Platform",
-    "API Documentation",
-    "Contact Sales",
-  ];
+  const businessLinks = ["Use Cases"];
 
   const modelsLinks = [
     "Detection Models",
-    "Deepfakes (Faceswap)",
-    "GenAI Media Detection",
-    "Voice Cloning",
+    "Deepfakes D1.2",
+    "AI-Generated A1.1",
+    "Voiceclone V1.0",
+    "Research",
   ];
 
   const researchLinks = ["Publications & Datasets"];
@@ -108,7 +98,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                 aria-label="Primary"
               >
                 {mainLinks.map((item) => {
-                  if (item === "For Business") {
+                  if (item === "Use Cases") {
                     return (
                       <button
                         key={item}
@@ -266,7 +256,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
               </div>
               <nav
                 className="flex flex-col gap-2 px-4 overflow-y-auto max-h-none"
-                aria-label="For Business"
+                aria-label="Use Cases"
               >
                 {businessLinks.map((item) => {
                   const href =
@@ -328,11 +318,11 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                   const href =
                     item === "Detection Models"
                       ? "#"
-                      : item === "GenAI Media Detection"
+                      : item === "AI-Generated A1.1"
                       ? "/models/ai-generated-media"
-                      : item === "Deepfakes (Faceswap)"
+                      : item === "Deepfakes D1.2"
                       ? "/models/deepfakes"
-                      : item === "Voice Cloning"
+                      : item === "Voiceclone V1.0"
                       ? "/models/voice-clones"
                       : "#";
 

@@ -3,7 +3,6 @@ import { NavigationSection } from "@/types";
 export const MAIN_NAVIGATION: string[] = [
   "Use Cases",
   "Models",
-  "Research",
   "Stories",
   "Company",
 ];
@@ -11,15 +10,7 @@ export const MAIN_NAVIGATION: string[] = [
 export const NAVIGATION_SECTIONS: Record<string, NavigationSection> = {
   business: {
     title: "Use Cases",
-    links: [
-      { label: "API Platform", href: "/api-platform" },
-      {
-        label: "API Documentation",
-        href: "https://docu.scam.ai",
-        external: true,
-      },
-      { label: "Contact Sales", href: "/demo" },
-    ],
+    links: [],
   },
   models: {
     title: "Models",
@@ -28,14 +19,15 @@ export const NAVIGATION_SECTIONS: Record<string, NavigationSection> = {
         label: "Detection Models",
         href: "#",
         children: [
-          { label: "Deepfakes (Faceswap)", href: "/models/deepfakes" },
+          { label: "Deepfakes D1.2", href: "/models/deepfakes" },
           {
-            label: "GenAI Media Detection",
+            label: "AI-Generated A1.1",
             href: "/models/ai-generated-media",
           },
-          { label: "Voice Cloning", href: "/models/voice-clones" },
+          { label: "Voiceclone V1.0", href: "/models/voice-clones" },
         ],
       },
+      { label: "Research", href: "/research/publication" },
     ],
   },
   research: {

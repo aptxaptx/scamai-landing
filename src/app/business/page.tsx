@@ -60,7 +60,7 @@ export default function BusinessPage() {
         ].map((card) => (
           <article
             key={card.title}
-            className="relative rounded-2xl   p-6 md:p-8 overflow-hidden hover:bg-white/10 transition-colors min-h-[260px] md:min-h-[320px]"
+            className="relative rounded-2xl p-6 md:p-8 overflow-hidden min-h-[260px] md:min-h-[320px]"
           >
             <div
               className="absolute inset-0 -z-10 opacity-80 bg-cover bg-center bg-no-repeat"
@@ -79,15 +79,6 @@ export default function BusinessPage() {
             <span className="absolute right-4 bottom-4 text-xs text-white/70">
               {card.tag}
             </span>
-            {card.link && (
-              <Link
-                href={card.link}
-                aria-label={`Open ${card.title}`}
-                className="absolute inset-0"
-              >
-                {/* overlay link */}
-              </Link>
-            )}
           </article>
         ))}
       </section>
