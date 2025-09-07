@@ -77,7 +77,7 @@ export default function SiteShell({
           href="https://app.scam.ai"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-transparent text-white hover:bg-white/10 transition-colors text-sm font-bold border-2 border-white shadow-2xl"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-black/10 text-white hover:bg-black/20 transition-colors text-xs font-bold border border-white shadow-lg"
           style={{
             borderRadius: "0",
             zIndex: 9999,
@@ -89,7 +89,7 @@ export default function SiteShell({
           href="https://cal.com/scamai/15min"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black hover:bg-gray-100 transition-colors text-sm font-bold border-2 border-white shadow-2xl"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black hover:bg-gray-100 transition-colors text-xs font-bold border border-white shadow-lg"
           style={{
             borderRadius: "0",
             zIndex: 9999,
