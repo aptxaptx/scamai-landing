@@ -32,8 +32,11 @@ export const ANIMATION_DURATION = {
 } as const;
 
 export const HERO_CONFIG = {
-  title: "",
-  subtitle: "",
-  description: "",
-  cta: undefined,
+  title: "Protect Against\nAI-Generated Scams",
+  subtitle: "Real-Time Detection\nFor a Safer Digital World",
+  description: "Advanced AI technology that detects deepfakes, voice clones, and synthetic media before they can deceive.",
+  cta: {
+    label: "Get Started",
+    href: "/demo"
+  },
 } as const;

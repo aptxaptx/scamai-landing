@@ -11,17 +11,14 @@ export default function Home() {
   return (
     <SiteShell secondaryLinks={secondaryLinks}>
       <div className="relative w-full">
-        {/* Hero */}
+        {/* Hero Section */}
         <AnimatePresence>
           <HeroSection hero={HERO_CONFIG} />
         </AnimatePresence>
 
-        {/* Spacer for fixed hero */}
-        <div className="h-screen" />
-
         {/* Partnership Section */}
-        <section className="py-12 px-5 md:px-8 bg-black/10">
-          <div className="max-w-6xl mx-auto">
+        <section className="py-12 px-0 md:px-8 bg-black/10">
+          <div className="max-w-6xl mx-auto px-5 md:px-0">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="text-white/70">
                 <h3 className="text-lg font-medium mb-2">Partnering with</h3>
@@ -61,8 +58,8 @@ export default function Home() {
         </section>
 
         {/* Research Collaboration Section */}
-        <section className="py-16 px-5 md:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="py-16 px-0 md:px-8">
+          <div className="max-w-4xl mx-auto px-5 md:px-0 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Collaborate with Our Research Team
             </h2>
@@ -74,8 +71,8 @@ export default function Home() {
         </section>
 
         {/* New Section */}
-        <section className="py-16 px-5 md:px-8 bg-black/20">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="py-16 px-0 md:px-8 bg-black/20">
+          <div className="max-w-4xl mx-auto px-5 md:px-0 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Protect What Matters Most
             </h2>

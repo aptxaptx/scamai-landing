@@ -38,14 +38,6 @@ export default function HeroSection({ hero }: HeroSectionProps) {
       initial="initial"
       exit="exit"
       className="relative overflow-hidden h-screen grid place-items-center"
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        zIndex: 1,
-      }}
     >
       <div className="hero-image-bg" aria-hidden="true" />
       <div className="hero-image-vignette" aria-hidden="true" />

@@ -107,10 +107,9 @@ export default function AboutPage() {
       {/* Team & partners CTAs */}
       <section className="py-12 md:py-20">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
-          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             <CTA href="/company/people" title="People" subtitle="Meet the team building ScamAI" />
             <CTA href="/company/partnership" title="Partnership" subtitle="Work with us to protect your users" />
-            <CTA href="/company/investors" title="Investors" subtitle="Updates and materials" />
           </div>
         </div>
       </section>

@@ -375,8 +375,6 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                       ? "/company/people"
                       : item === "Partnership"
                       ? "/company/partnership"
-                      : item === "Investors"
-                      ? "/company/investors"
                       : "#";
                   return (
                     <Link

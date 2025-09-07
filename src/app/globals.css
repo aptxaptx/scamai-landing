@@ -109,8 +109,8 @@ body {
   .hero-image-vignette {
     background: radial-gradient(
       140% 140% at 50% 20%,
-      rgba(0, 0, 0, 0) 45%,
-      rgba(0, 0, 0, 0.8) 100%
+      rgba(0, 0, 0, 0) 55%,
+      rgba(0, 0, 0, 0.75) 100%
     );
   }
 }
