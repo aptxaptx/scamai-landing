@@ -10,10 +10,22 @@ import Link from "next/link";
 export default function BusinessPage() {
   return (
     <SiteShell>
-      {/* Use Cases section removed as requested */}
+      {/* Hero Section */}
+      <section className="mt-16 mb-12 max-w-6xl mx-auto px-4">
+        <div className="text-left">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Business Use Cases
+          </h1>
+          <p className="text-lg md:text-xl text-white/80 max-w-3xl leading-relaxed">
+            Protect your business from AI-powered fraud with our comprehensive
+            detection solutions. From identity verification to content
+            authenticity, safeguard your operations across every touchpoint.
+          </p>
+        </div>
+      </section>
 
       {/* Category grid */}
-      <section className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {[
           {
             title: "KYC/ID Verification",
@@ -84,9 +96,10 @@ export default function BusinessPage() {
         ))}
       </section>
 
-      {/* Background with same styling as landing page */}
+      {/* Background with same styling as landing page + dark overlay */}
       <div className="hero-image-bg fixed inset-0 -z-10" aria-hidden />
       <div className="hero-image-vignette fixed inset-0 -z-10" aria-hidden />
+      <div className="fixed inset-0 -z-10 bg-black/50" aria-hidden />
     </SiteShell>
   );
 }
