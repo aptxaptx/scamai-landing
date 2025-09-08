@@ -511,67 +511,6 @@ function UseCasesSection({ useCases }: UseCasesSectionProps) {
   );
 }
 
-// ApiSection (未做修改)
-// 代码块使用卡片样式来模拟编辑器的外观，这是清晰且有效的，予以保留。
-type ApiSectionProps = { api?: ProductPageProps["apiSection"] };
-function ApiSection({ api }: ApiSectionProps) {
-  if (!api) return null;
-  return (
-    <section className="mb-16">
-      <div className="max-w-5xl mx-auto px-6">
-        <h3 className="text-3xl font-bold text-center text-white">
-          {api.headline}
-        </h3>
-        <p className="mt-4 text-lg text-white/80 text-center max-w-3xl mx-auto">
-          {api.description}
-        </p>
-
-        {api.codeExample && (
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
-              <div className="text-sm text-gray-400 font-mono">Request</div>
-              <pre className="mt-2 overflow-auto text-sm font-mono">
-                <code>{api.codeExample.request}</code>
-              </pre>
-            </div>
-            <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
-              <div className="text-sm text-gray-400 font-mono">Response</div>
-              <pre className="mt-2 overflow-auto text-sm font-mono">
-                <code>{api.codeExample.response}</code>
-              </pre>
-            </div>
-          </div>
-        )}
-
-        {api.apiDocumentation && (
-          <div className="mt-10 text-center">
-            <a
-              href={api.apiDocumentation.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 text-lg"
-            >
-              {api.apiDocumentation.text}
-              <svg
-                className="ml-2 h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </a>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
 
 // CTA Section
 type CtaSectionProps = { cta?: ProductPageProps["cta"] };

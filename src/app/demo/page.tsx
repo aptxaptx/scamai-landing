@@ -16,7 +16,7 @@ export default function DemoPage() {
           Redirecting to booking...
         </h1>
         <p className="text-white/80">
-          If you're not redirected automatically,{" "}
+          If you&rsquo;re not redirected automatically,{" "}
           <a
             href="https://cal.com/scamai/15min"
             target="_blank"

@@ -3,11 +3,9 @@
 import SiteShell from "@/components/SiteShell";
 import HeroSection from "@/components/sections/HeroSection";
 import LogoBar from "@/components/sections/LogoBar";
-import AnimatedTwoColumn from "@/components/sections/AnimatedTwoColumn";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { AnimatePresence } from "framer-motion";
 import { HERO_CONFIG } from "@/constants";
-import Image from "next/image";
 
 export default function Home() {
   const secondaryLinks: string[] = [];
@@ -78,7 +76,7 @@ export default function Home() {
             <div className="space-y-8 max-w-lg">
               <h2 className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight leading-tight">Voice Clone</h2>
               <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
-                A desperate call from your child. An urgent plea from your parent. The voice sounds real, but it's not them.
+                A desperate call from your child. An urgent plea from your parent. The voice sounds real, but it&rsquo;s not them.
               </p>
               
               <div className="pt-8">

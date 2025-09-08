@@ -11,8 +11,8 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">1. Agreement to Terms</h2>
             <p>
-              These Terms of Service ("Terms") govern your use of ScamAI, a service provided by Reality Inc. 
-              ("Company," "we," "our," or "us"). By accessing or using our service, you agree to be bound by these Terms.
+              These Terms of Service (&ldquo;Terms&rdquo;) govern your use of ScamAI, a service provided by Reality Inc. 
+              (&ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;). By accessing or using our service, you agree to be bound by these Terms.
             </p>
           </section>
 
