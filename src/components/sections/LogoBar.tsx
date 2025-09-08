@@ -15,6 +15,7 @@ export default function LogoBar() {
     { src: "/google.webp", alt: "Google", link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
     { src: "/University_of_California,_Berkeley_logo.svg.png", alt: "UC Berkeley", link: null, className: "filter grayscale brightness-[2.5] opacity-70 hover:opacity-100 transition-opacity" },
     { src: "/skydeck.png", alt: "SkyDeck", link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
+    { src: "/21972-312_SOC_NonCPA_Blk.png", alt: "SOC Compliance", link: null, width: 180, height: 60, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
     { 
       src: "/producthunt.svg", 
       alt: "Product Hunt", 

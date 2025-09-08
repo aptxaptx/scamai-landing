@@ -51,39 +51,69 @@ export default function Home() {
 
         {/* Two Column Feature Section - Apple Style */}
         <div className="flex flex-col lg:flex-row w-full">
-          {/* Left Column - Light Background */}
-          <div className="w-full lg:w-1/2 bg-gradient-to-b from-gray-50 to-gray-100 py-32 px-12 flex flex-col items-center justify-center text-center min-h-[600px]">
+          {/* Left Column - Dark Background */}
+          <div className="w-full lg:w-1/2 bg-gradient-to-b from-gray-900 to-black pt-32 pb-16 px-12 flex flex-col items-center justify-center text-center min-h-[600px]">
             <div className="space-y-8 max-w-lg">
-              <h2 className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight leading-tight">Deepfake</h2>
-              <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
+              <h2 className="text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">Deepfake</h2>
+              <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
                 Traditional detection methods fail against sophisticated deepfake attacks. IDV/KYC vendors are not ready.
               </p>
               
               <div className="pt-8">
-                <img 
-                  src="/deeepfake-detection.png" 
-                  alt="Deepfake Detection" 
-                  className="max-w-full mx-auto object-contain drop-shadow-lg"
-                />
+                <div className="relative">
+                  <img 
+                    src="/deepfake_frame.webp" 
+                    alt="Deepfake Detection" 
+                    className="max-w-full mx-auto object-contain"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-transparent to-gray-900 opacity-60 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900 opacity-60 pointer-events-none"></div>
+                </div>
               </div>
             </div>
           </div>
           
-          {/* Right Column - Dark Background */}
-          <div className="w-full lg:w-1/2 bg-gradient-to-b from-gray-900 to-black py-32 px-12 flex flex-col items-center justify-center text-center min-h-[600px]">
+          {/* Right Column - Light Background */}
+          <div className="w-full lg:w-1/2 bg-gradient-to-b from-gray-50 to-gray-100 pt-32 pb-16 px-12 flex flex-col items-center justify-center text-center min-h-[600px]">
             <div className="space-y-8 max-w-lg">
-              <h2 className="text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">Voice Clone</h2>
-              <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
+              <h2 className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight leading-tight">Voice Clone</h2>
+              <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
                 A desperate call from your child. An urgent plea from your parent. The voice sounds real, but it's not them.
               </p>
               
               <div className="pt-8">
-                <img 
-                  src="/voice-detected.png" 
-                  alt="Voice Cloning Detection" 
-                  className="max-w-full mx-auto object-contain drop-shadow-lg"
-                />
+                <div className="relative">
+                  <img 
+                    src="/voice-clone-detect.webp" 
+                    alt="Voice Clone Detection" 
+                    className="max-w-full mx-auto object-contain"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-transparent to-gray-100 opacity-60 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-gray-100 via-transparent to-gray-100 opacity-60 pointer-events-none"></div>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="w-full bg-black py-24 text-center">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-4xl md:text-5xl font-light text-white mb-6 tracking-tight">
+              Ready to Protect Your Organization?
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light leading-relaxed">
+              Get advanced deepfake and voice clone detection technology to safeguard your business from AI-driven fraud.
+            </p>
+            <div className="flex justify-center">
+              <a
+                href="https://cal.com/scamai/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-black px-8 py-3 font-semibold hover:bg-gray-100 transition-colors"
+              >
+                Schedule Call
+              </a>
             </div>
           </div>
         </div>
