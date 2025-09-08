@@ -5,7 +5,14 @@ export const MAIN_NAVIGATION: string[] = ["Use Cases", "Models", "Company"];
 export const NAVIGATION_SECTIONS: Record<string, NavigationSection> = {
   business: {
     title: "Use Cases",
-    links: [],
+    links: [
+      { label: "KYC & Identity Verification", href: "/business/kyc" },
+      { label: "Dating & Social Apps", href: "/business/dating" },
+      { label: "Fake News Detection", href: "/business/fake-news" },
+      { label: "Impersonation & Fraud", href: "/business/impersonation" },
+      { label: "IP & Copyright", href: "/business/ip-copyright" },
+      { label: "Legal & Compliance", href: "/business/legal-compliance" },
+    ],
   },
   models: {
     title: "Models",

@@ -66,7 +66,7 @@ export default function HeroSection({ hero }: HeroSectionProps) {
         </div>
         
         {hero.title && (
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-8 leading-tight tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light text-white mb-8 leading-tight tracking-tight">
             {showTypingEffect ? (
               <TypingEffect
                 text={hero.title}

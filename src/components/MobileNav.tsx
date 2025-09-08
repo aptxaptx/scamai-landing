@@ -71,19 +71,50 @@ export default function MobileNav() {
 
         {isExpanded && (
           <div className="ml-4 mt-2 space-y-1">
-            {section.links.map((link, index) => (
-              <Link
-                key={index}
-                href={link.href}
-                onClick={closeMenu}
-                className="block rounded-xl px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                {...(link.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {section.links.map((link, index) => {
+              // Special handling for Detection Models header in Models section
+              if (sectionKey === "models" && link.label === "Detection Models") {
+                return (
+                  <div key={index}>
+                    <div className="block rounded-xl px-3 py-1.5 text-xs font-medium text-white/50 tracking-wide">
+                      {link.label}
+                    </div>
+                    {/* Render child links indented */}
+                    {link.children && (
+                      <div className="ml-4 space-y-1">
+                        {link.children.map((child, childIndex) => (
+                          <Link
+                            key={childIndex}
+                            href={child.href}
+                            onClick={closeMenu}
+                            className="block rounded-xl px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                            {...(child.external
+                              ? { target: "_blank", rel: "noopener noreferrer" }
+                              : {})}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              // Regular link rendering for other items
+              return (
+                <Link
+                  key={index}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="block rounded-xl px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                  {...(link.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>
@@ -112,7 +143,7 @@ export default function MobileNav() {
           >
             <span 
               className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "rotate-45 translate-y-2" : ""
+                isOpen ? "rotate-45 translate-y-[7px]" : ""
               }`}
             />
             <span 
@@ -122,7 +153,7 @@ export default function MobileNav() {
             />
             <span 
               className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-2" : ""
+                isOpen ? "-rotate-45 -translate-y-[7px]" : ""
               }`}
             />
           </button>
@@ -144,7 +175,7 @@ export default function MobileNav() {
           <div className="p-5 pb-10">
           <nav className="flex flex-col gap-2">
                     {Object.keys(NAVIGATION_SECTIONS)
-                      .filter(key => key !== "stories") // Hide Stories from menu
+                      .filter(key => key !== "stories" && key !== "business") // Hide Stories and Use Cases from menu
                       .map(renderNavigationSection)}
             </nav>
 
