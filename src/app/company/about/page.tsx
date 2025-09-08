@@ -1,4 +1,3 @@
-import Link from "next/link";
 import UseCasesMore from "./UseCasesMore";
 import SiteShell from "@/components/SiteShell";
 
@@ -7,6 +6,7 @@ export const metadata = { title: "About Us — ScamAI" };
 export default function AboutPage() {
   return (
     <SiteShell>
+      <div className="bg-black min-h-screen -mx-0 -my-5">
       {/* Hero */}
       <section className="py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
@@ -108,11 +108,12 @@ export default function AboutPage() {
       <section className="py-12 md:py-20">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-            <CTA href="/company/people" title="People" subtitle="Meet the team building ScamAI" />
-            <CTA href="/company/partnership" title="Partnership" subtitle="Work with us to protect your users" />
+            <CTA title="People" subtitle="Meet the team building ScamAI" />
+            <CTA title="Partnership" subtitle="Work with us to protect your users" />
           </div>
         </div>
       </section>
+      </div>
     </SiteShell>
   );
 }
@@ -135,20 +136,16 @@ function MiniCard({ title, description, badge }: { title: string; description: s
 
 // LeftItem removed along with the left column items
 
-function CTA({ href, title, subtitle }: { href: string; title: string; subtitle: string }) {
+function CTA({ title, subtitle }: { title: string; subtitle: string }) {
   return (
-    <Link
-      href={href}
-      className="group rounded-2xl border border-white/10 p-5 md:p-6 hover:border-white/20 transition-colors"
-    >
+    <div className="rounded-2xl border border-white/10 p-5 md:p-6">
       <div className="flex items-center justify-between gap-4">
         <div>
           <div className="text-base md:text-lg font-semibold text-white">{title}</div>
           <div className="mt-1 text-sm text-white/60">{subtitle}</div>
         </div>
-        <div className="text-white/40 group-hover:text-white/70 transition-colors">→</div>
       </div>
-    </Link>
+    </div>
   );
 }
 

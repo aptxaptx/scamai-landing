@@ -56,7 +56,7 @@ export default function PaperPage({ params }: Props) {
 
   return (
     <SiteShell>
-      <div className="max-w-4xl mr-8">
+      <div className="max-w-4xl mx-auto px-6 py-8">
         {/* Header */}
         <header className="mb-8">
           <p className="text-white/70 mb-2">

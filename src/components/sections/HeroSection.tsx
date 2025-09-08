@@ -96,15 +96,7 @@ export default function HeroSection({ hero }: HeroSectionProps) {
         )}
 
         {hero.cta && (
-          <div className="mt-12 flex items-center justify-center gap-4">
-            <Button
-              href="https://www.youtube.com/watch?v=qh3NGpYRG3I"
-              external
-              variant="outline"
-              className="rounded-full px-8 py-3 font-semibold"
-            >
-              Watch Demo
-            </Button>
+          <div className="mt-12 flex items-center justify-center">
             <Button
               href={hero.cta.href}
               className="rounded-full bg-white text-black px-8 py-3 font-semibold shadow-sm"

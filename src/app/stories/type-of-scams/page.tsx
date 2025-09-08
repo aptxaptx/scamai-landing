@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 // Removed unused imports
 
-// 定义诈骗类型数据
+// Define scam types data
 const scamTypes = [
   {
     id: "voice-cloning",

@@ -3,7 +3,7 @@ import SiteShell from "@/components/SiteShell";
 import Link from "next/link";
 import Image from "next/image";
 
-// Inline icon component (未做修改)
+// Inline icon component
 export type IconName =
   | "ShieldAlert"
   | "Briefcase"
@@ -20,7 +20,7 @@ function InlineIcon({
   name: IconName;
   className?: string;
 }) {
-  // ... (此组件代码保持不变)
+  // Component code remains unchanged
   const common = {
     className,
     fill: "none",
@@ -189,8 +189,8 @@ export interface ProductPageProps {
   overlayColor?: string;
 }
 
-// Hero Section (未做修改)
-// Hero 区域作为一个独立的、引人注目的视觉元素，其卡片式设计是合适的。
+// Hero Section
+// Hero area as an independent, eye-catching visual element with card-style design.
 type HeroSectionProps = {
   hero: ProductPageProps["hero"];
   breadcrumb?: ProductPageProps["breadcrumb"];
@@ -276,9 +276,9 @@ function HeroSection({ hero }: HeroSectionProps) {
 }
 
 /**
- * 重新设计的 ProblemSection
- * 1. 描述性段落改为左对齐，提高可读性。
- * 2. 移除 valueProps 的独立卡片样式，让它们作为网格内的纯内容展示，减少视觉碎片。
+ * Redesigned ProblemSection
+ * 1. Descriptive paragraphs left-aligned for better readability.
+ * 2. Remove independent card styles from valueProps, display as grid content to reduce visual fragments.
  */
 type ProblemSectionProps = {
   problemSection: ProductPageProps["problemSection"];
@@ -297,7 +297,7 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
         </h2>
       </div>
 
-      {/* REFACTORED: 文本改为左对齐 */}
+      {/* REFACTORED: Text changed to left-aligned */}
       <div className="mt-8 max-w-3xl mx-auto text-left">
         <p className="text-white/80 text-lg leading-relaxed">
           {problemSection.description}
@@ -348,10 +348,10 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
         </div>
       )}
 
-      {/* REFACTORED: 移除卡片样式 */}
+      {/* REFACTORED: Remove card styles */}
       <div className="mt-12 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
         {problemSection.valueProps.map((prop, i) => (
-          // 移除了 bg-white/5, border, rounded-xl, p-5
+          // Removed bg-white/5, border, rounded-xl, p-5
           <div key={i}>
             <h4 className="text-white font-semibold mb-2">{prop.title}</h4>
             <p className="text-white/75 text-sm leading-relaxed">
@@ -365,9 +365,9 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
 }
 
 /**
- * 重新设计的 ThreatLandscapeSection
- * 1. 描述性段落左对齐。
- * 2. 移除威胁列表项的卡片样式，使其更像一个干净的列表。
+ * Redesigned ThreatLandscapeSection
+ * 1. Descriptive paragraphs left-aligned.
+ * 2. Remove card styles from threat list items, making them more like a clean list.
  */
 type ThreatLandscapeProps = { threat?: ProductPageProps["threatLandscape"] };
 function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
@@ -378,15 +378,15 @@ function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
       <h3 className="text-3xl font-bold text-center text-white">
         {threat.headline}
       </h3>
-      {/* REFACTORED: 文本改为左对齐 */}
+      {/* REFACTORED: Text changed to left-aligned */}
       <p className="mt-4 text-lg text-white/80 text-left max-w-3xl mx-auto">
         {threat.description}
       </p>
 
-      {/* REFACTORED: 移除卡片样式，调整间距 */}
+      {/* REFACTORED: Remove card styles, adjust spacing */}
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-10">
         {threat.keyThreats.map((item, idx) => (
-          // 移除了包裹的卡片 div
+          // Removed wrapping card div
           <div key={idx} className="flex items-center gap-4">
             <span className="flex-shrink-0 h-10 w-10 grid place-items-center">
               <InlineIcon name={item.icon} className="h-5 w-5 text-white" />
@@ -404,10 +404,10 @@ function ThreatLandscapeSection({ threat }: ThreatLandscapeProps) {
 }
 
 /**
- * 重新设计的 SolutionSection
- * 1. 描述性段落左对齐。
- * 2. 移除核心维度列表的卡片样式。
- * 3. 将输出描述的样式改为更微妙的、带左边框的引用块样式。
+ * Redesigned SolutionSection
+ * 1. Descriptive paragraphs left-aligned.
+ * 2. Remove card styles from core dimensions list.
+ * 3. Change output description style to more subtle, left-bordered quote block style.
  */
 type SolutionSectionProps = { solution: ProductPageProps["solution"] };
 function SolutionSection({ solution }: SolutionSectionProps) {
@@ -425,7 +425,7 @@ function SolutionSection({ solution }: SolutionSectionProps) {
         {solution.description}
       </p>
 
-      {/* REFACTORED: 移除卡片样式 */}
+      {/* REFACTORED: Remove card styles */}
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-left">
         {solution.coreDimensions.map((dim, idx) => (
           <div key={idx}>
@@ -439,7 +439,7 @@ function SolutionSection({ solution }: SolutionSectionProps) {
         ))}
       </div>
 
-      {/* REFACTORED: 使用更微妙的引用块样式 */}
+      {/* REFACTORED: Use more subtle quote block style */}
       {solution.outputDescription && (
         <div className="mt-10 bg-slate-800/50 border-l-4 border-cyan-400 rounded-r-lg p-6 text-white/90">
           <p className="leading-relaxed">{solution.outputDescription}</p>
@@ -450,8 +450,8 @@ function SolutionSection({ solution }: SolutionSectionProps) {
 }
 
 /**
- * 重新设计的 AdvantagesSection
- * 1. 移除了优势列表项的卡片样式。
+ * Redesigned AdvantagesSection
+ * 1. Removed card styles from advantage list items.
  */
 type AdvantagesSectionProps = { advantages: ProductPageProps["advantages"] };
 function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
@@ -467,7 +467,7 @@ function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
       </h3>
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
         {advantages.items.map((adv, idx) => (
-          // 移除了卡片背景和边框
+          // Removed card background and borders
           <div key={idx} className="flex items-start gap-4">
             <div className="flex-shrink-0 h-10 w-10 grid place-items-center">
               <InlineIcon name={adv.icon} className="h-5 w-5 text-white" />
@@ -485,8 +485,8 @@ function AdvantagesSection({ advantages }: AdvantagesSectionProps) {
   );
 }
 
-// UseCasesSection (未做修改)
-// 标签（Pills）样式是常见的 UI 模式，看起来不错，予以保留。
+// UseCasesSection (unchanged)
+// Tag (Pills) style is a common UI pattern, looks good, retained.
 type UseCasesSectionProps = { useCases?: ProductPageProps["useCases"] };
 function UseCasesSection({ useCases }: UseCasesSectionProps) {
   if (!useCases || !useCases.headline || !useCases.items) return null;
@@ -573,7 +573,36 @@ function ApiSection({ api }: ApiSectionProps) {
   );
 }
 
-// Removed unused CtaSection
+// CTA Section
+type CtaSectionProps = { cta?: ProductPageProps["cta"] };
+function CtaSection({ cta }: CtaSectionProps) {
+  if (!cta || !cta.headline) return null;
+  
+  return (
+    <section className="bg-black py-24 text-center">
+      <div className="max-w-4xl mx-auto px-6">
+        <h2 className="text-4xl md:text-5xl font-light text-white mb-6 tracking-tight">
+          {cta.headline}
+        </h2>
+        {cta.description && (
+          <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light leading-relaxed">
+            {cta.description}
+          </p>
+        )}
+        <div className="flex justify-center">
+          <a
+            href="https://cal.com/scamai/15min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-black px-8 py-3 font-semibold hover:bg-gray-100 transition-colors"
+          >
+            Schedule Call
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 // 主页面组件
 // 将所有部分组合在一起。注意每个 section 之间的垂直间距 `mb-16`，以确保清晰的节奏。
@@ -590,8 +619,10 @@ export function ProductPage({ data }: { data: ProductPageProps }) {
           <SolutionSection solution={data.solution} />
           <AdvantagesSection advantages={data.advantages} />
           <UseCasesSection useCases={data.useCases} />
-          <ApiSection api={data.apiSection} />
+     
         </div>
+        
+        <CtaSection cta={data.cta} />
 
         {data.breadcrumb?.nextPath && data.breadcrumb?.nextName && (
           <div className="mt-12 text-right">

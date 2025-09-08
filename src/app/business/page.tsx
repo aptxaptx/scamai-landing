@@ -5,7 +5,6 @@ export const metadata = {
 };
 
 import SiteShell from "@/components/SiteShell";
-import Link from "next/link";
 
 export default function BusinessPage() {
   return (
@@ -70,29 +69,27 @@ export default function BusinessPage() {
             link: "/business/legal-compliance",
           },
         ].map((card) => (
-          <Link key={card.title} href={card.link}>
-            <article className="relative rounded-2xl p-6 md:p-8 overflow-hidden min-h-[260px] md:min-h-[320px] z-10 hover:scale-105 transition-transform duration-200 cursor-pointer">
-              <div
-                className="absolute inset-0 z-0 opacity-100 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${card.image})` }}
-                aria-hidden="true"
-              />
-              <div
-                className="absolute inset-0 z-0 bg-black/20"
-                aria-hidden="true"
-              />
+          <article key={card.title} className="relative rounded-2xl p-6 md:p-8 overflow-hidden min-h-[260px] md:min-h-[320px] z-10">
+            <div
+              className="absolute inset-0 z-0 opacity-100 bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${card.image})` }}
+              aria-hidden="true"
+            />
+            <div
+              className="absolute inset-0 z-0 bg-black/20"
+              aria-hidden="true"
+            />
 
-              <h2 className="relative z-10 mt-4 text-lg font-semibold tracking-tight text-white">
-                {card.title}
-              </h2>
-              <p className="relative z-10 mt-2 text-sm text-white/90">
-                {card.desc}
-              </p>
-              <span className="absolute right-4 bottom-4 z-10 text-xs text-white/80">
-                {card.tag}
-              </span>
-            </article>
-          </Link>
+            <h2 className="relative z-10 mt-4 text-lg font-semibold tracking-tight text-white">
+              {card.title}
+            </h2>
+            <p className="relative z-10 mt-2 text-sm text-white/90">
+              {card.desc}
+            </p>
+            <span className="absolute right-4 bottom-4 z-10 text-xs text-white/80">
+              {card.tag}
+            </span>
+          </article>
         ))}
       </section>
 
