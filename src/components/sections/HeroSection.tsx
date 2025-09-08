@@ -61,11 +61,12 @@ export default function HeroSection({ hero }: HeroSectionProps) {
 
       <div className="relative z-10 text-center p-6 sm:p-8 md:p-12 lg:p-14">
         {/* Logo directly above headline */}
-        <div className="flex justify-center mb-3">
-          <img src="/scamailogo.png" alt="Scam AI" className="h-10 w-auto md:h-12" />
+        <div className="flex justify-center mb-6">
+          <img src="/scamailogo.png" alt="Scam AI" className="h-12 w-auto md:h-14" />
         </div>
+        
         {hero.title && (
-          <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight leading-[0.95] md:leading-[1.05] max-w-4xl mx-auto text-white">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-8 leading-tight tracking-tight">
             {showTypingEffect ? (
               <TypingEffect
                 text={hero.title}
@@ -80,10 +81,7 @@ export default function HeroSection({ hero }: HeroSectionProps) {
         )}
 
         {hero.subtitle && showSubtitle && (
-          <div
-            className="mt-3 sm:mt-4 text-white text-[clamp(16px,2.5vw,24px)] max-w-2xl mx-auto font-normal"
-            style={{ fontFamily: "var(--font-poppins)" }}
-          >
+          <p className="text-xl md:text-2xl text-white/85 mb-12 font-light tracking-wide">
             {showTypingEffect ? (
               <TypingEffect
                 text={hero.subtitle}
@@ -92,37 +90,24 @@ export default function HeroSection({ hero }: HeroSectionProps) {
                 fadeOutDelay={0}
               />
             ) : (
-              <div className="block">
-                {hero.subtitle.split("\n").map((line, index) => (
-                  <React.Fragment key={index}>
-                    {line}
-                    {index < hero.subtitle.split("\n").length - 1 && <br />}
-                  </React.Fragment>
-                ))}
-              </div>
+              <span className="block">{hero.subtitle}</span>
             )}
-          </div>
-        )}
-
-        {hero.description && (
-          <p className="mt-3 sm:mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
-            {hero.description}
           </p>
         )}
 
         {hero.cta && (
-          <div className="mt-6 sm:mt-8 flex items-center justify-center gap-3">
+          <div className="mt-12 flex items-center justify-center gap-4">
             <Button
               href="https://www.youtube.com/watch?v=qh3NGpYRG3I"
               external
               variant="outline"
-              className="rounded-full px-5 py-3 font-semibold"
+              className="rounded-full px-8 py-3 font-semibold"
             >
               Watch Demo
             </Button>
             <Button
               href={hero.cta.href}
-              className="rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm"
+              className="rounded-full bg-white text-black px-8 py-3 font-semibold shadow-sm"
             >
               {hero.cta.label}
             </Button>

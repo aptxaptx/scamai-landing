@@ -181,7 +181,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     <a
                       key={item}
                       href="#"
-                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                     >
                       {item}
                     </a>
@@ -237,7 +237,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                           ? "noopener noreferrer"
                           : undefined
                       }
-                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                     >
                       {item}
                     </Link>
@@ -334,7 +334,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     <Link
                       key={item}
                       href={href}
-                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                     >
                       {item}
                     </Link>
@@ -379,7 +379,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     <Link
                       key={item}
                       href={href}
-                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                     >
                       {item}
                     </Link>

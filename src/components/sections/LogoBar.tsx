@@ -1,9 +1,14 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export default function LogoBar() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
   const logos = [
     { src: "/aws.webp", alt: "AWS", link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
     { src: "/nvidia.webp", alt: "NVIDIA", link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
@@ -14,8 +19,8 @@ export default function LogoBar() {
       src: "/producthunt.svg", 
       alt: "Product Hunt", 
       link: "https://www.producthunt.com/products/scam-ai",
-      width: 160,
-      height: 50,
+      width: 240,
+      height: 75,
       className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity"
     }
   ];
@@ -26,7 +31,7 @@ export default function LogoBar() {
   return (
     <section className="w-full bg-black/80 py-10 border-t border-white/10 overflow-hidden">
       <div className="logo-carousel">
-        <div className="logo-track animate-carousel">
+        <div className={`logo-track ${isLoaded ? 'animate-carousel' : ''}`}>
           {allLogos.map((logo, index) => (
             <div key={index} className="logo-slide">
               {logo.link ? (
@@ -34,7 +39,8 @@ export default function LogoBar() {
                   href={logo.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className={`${logo.width ? `w-[${logo.width}px]` : 'w-[120px]'} ${logo.height ? `h-[${logo.height}px]` : 'h-[40px]'} mx-12 flex items-center justify-center`}
+                  className="w-40 h-12 mx-12 flex items-center justify-center"
+                  style={{ width: logo.width ? `${logo.width}px` : '120px', height: logo.height ? `${logo.height}px` : '40px' }}
                 >
                   <img 
                     src={logo.src} 
@@ -45,7 +51,8 @@ export default function LogoBar() {
                   />
                 </a>
               ) : (
-                <div className={`${logo.width ? `w-[${logo.width}px]` : 'w-[120px]'} ${logo.height ? `h-[${logo.height}px]` : 'h-[40px]'} mx-12 flex items-center justify-center`}>
+                <div className="w-40 h-12 mx-12 flex items-center justify-center"
+                     style={{ width: logo.width ? `${logo.width}px` : '120px', height: logo.height ? `${logo.height}px` : '40px' }}>
                   <img 
                     src={logo.src} 
                     alt={logo.alt}
