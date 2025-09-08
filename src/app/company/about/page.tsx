@@ -16,7 +16,7 @@ export default function AboutPage() {
               Making the internet safe to trust
             </h1>
             <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg text-white/60 leading-relaxed">
-              Reality Inc. builds ScamAI™ that identifies AI-generated deception across media, text, and voice. Our mission is to restore confidence online by verifying what is real—at scale.
+              Reality Inc. builds Scam AI Platform that identifies AI-generated deception across media, text, and voice. Our mission is to restore confidence online by verifying what is real—at scale.
             </p>
           </div>
         </div>
