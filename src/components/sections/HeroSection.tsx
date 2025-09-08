@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HeroSection as HeroSectionType } from "@/types";
 import Button from "@/components/ui/Button";
 import TypingEffect from "@/components/ui/TypingEffect";
+import Image from "next/image";
 
 interface HeroSectionProps {
   hero: HeroSectionType;
@@ -15,7 +16,6 @@ const sectionVariants = {
 
 export default function HeroSection({ hero }: HeroSectionProps) {
   const [showTypingEffect, setShowTypingEffect] = useState(false);
-  const [titleTypingComplete, setTitleTypingComplete] = useState(false);
   const [showSubtitle, setShowSubtitle] = useState(false);
   const titleCharCount = hero.title?.length || 0;
   const typingSpeed = 80;
@@ -62,7 +62,7 @@ export default function HeroSection({ hero }: HeroSectionProps) {
       <div className="relative z-10 text-center p-6 sm:p-8 md:p-12 lg:p-14">
         {/* Logo directly above headline */}
         <div className="flex justify-center mb-6">
-          <img src="/scamailogo.png" alt="Scam AI" className="h-12 w-auto md:h-14" />
+          <Image src="/scamailogo.png" alt="Scam AI" className="h-12 w-auto md:h-14" width={120} height={48} />
         </div>
         
         {hero.title && (

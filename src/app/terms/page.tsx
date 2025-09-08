@@ -99,7 +99,7 @@ export default function TermsOfService() {
 
             <h3 className="text-xl font-medium text-white mb-2 mt-4">6.4 Price Changes</h3>
             <p>
-              We may change our pricing with 30 days' advance notice for monthly plans and 90 days' 
+              We may change our pricing with 30 days&apos; advance notice for monthly plans and 90 days&apos; 
               advance notice for annual plans. Price increases will not affect your current billing 
               period but will apply to subsequent renewals.
             </p>

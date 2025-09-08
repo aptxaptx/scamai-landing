@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function SiteFooter() {
   return (
     <footer className="bg-black/80 text-white py-16 mt-0 w-full">
@@ -6,7 +8,7 @@ export default function SiteFooter() {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <img src="/scamailogo.png" alt="Scam AI" className="h-8 w-auto" />
+              <Image src="/scamailogo.png" alt="Scam AI" className="h-8 w-auto" width={100} height={32} />
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               Combat deepfakes, voice clones, and synthetic media fraud.

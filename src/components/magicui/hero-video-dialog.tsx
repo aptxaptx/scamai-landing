@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 
 type HeroVideoDialogProps = {
   className?: string;
@@ -26,10 +27,12 @@ export default function HeroVideoDialog({
         className="relative w-full max-w-[1100px] mx-auto overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] hover:bg-white/10 transition-colors"
         aria-label="Play video"
       >
-        <img
+        <Image
           src={thumbnailSrc}
           alt={thumbnailAlt}
           className="block w-full h-auto"
+          width={1100}
+          height={600}
         />
         {/* Bottom gradient fade like reference */}
         <span className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-black/70" />

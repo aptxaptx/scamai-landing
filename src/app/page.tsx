@@ -6,6 +6,7 @@ import LogoBar from "@/components/sections/LogoBar";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { AnimatePresence } from "framer-motion";
 import { HERO_CONFIG } from "@/constants";
+import Image from "next/image";
 
 export default function Home() {
   const secondaryLinks: string[] = [];
@@ -59,9 +60,11 @@ export default function Home() {
               
               <div className="pt-8">
                 <div className="relative">
-                  <img 
+                  <Image 
                     src="/deepfake_frame.webp" 
                     alt="Deepfake Detection" 
+                    width={500}
+                    height={300}
                     className="max-w-full mx-auto object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-transparent to-gray-900 opacity-60 pointer-events-none"></div>
@@ -81,9 +84,11 @@ export default function Home() {
               
               <div className="pt-8">
                 <div className="relative">
-                  <img 
+                  <Image 
                     src="/voice-clone-detect.webp" 
                     alt="Voice Clone Detection" 
+                    width={500}
+                    height={300}
                     className="max-w-full mx-auto object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-transparent to-gray-100 opacity-60 pointer-events-none"></div>

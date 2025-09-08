@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function LogoBar() {
@@ -43,7 +43,7 @@ export default function LogoBar() {
                   className="w-40 h-12 mx-12 flex items-center justify-center"
                   style={{ width: logo.width ? `${logo.width}px` : '120px', height: logo.height ? `${logo.height}px` : '40px' }}
                 >
-                  <img 
+                  <Image 
                     src={logo.src} 
                     alt={logo.alt}
                     width={logo.width || 120}
@@ -54,7 +54,7 @@ export default function LogoBar() {
               ) : (
                 <div className="w-40 h-12 mx-12 flex items-center justify-center"
                      style={{ width: logo.width ? `${logo.width}px` : '120px', height: logo.height ? `${logo.height}px` : '40px' }}>
-                  <img 
+                  <Image 
                     src={logo.src} 
                     alt={logo.alt}
                     width={logo.width || 120}

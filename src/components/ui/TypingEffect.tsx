@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface TypingEffectProps {
   text: string;
@@ -14,14 +14,10 @@ export default function TypingEffect({
   text,
   speed = 100,
   className = "",
-  fadeOutDelay = 2000,
 }: TypingEffectProps) {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
-  
-  // Remove the fade out functionality
-  const shouldFadeOut = false;
 
   useEffect(() => {
     if (currentIndex < text.length) {

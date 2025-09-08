@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import MobileNav from "./MobileNav";
 import DesktopSidebar from "./DesktopSidebar";
 import SiteFooter from "./SiteFooter";
