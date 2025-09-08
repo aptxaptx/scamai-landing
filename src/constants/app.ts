@@ -32,8 +32,8 @@ export const ANIMATION_DURATION = {
 } as const;
 
 export const HERO_CONFIG = {
-  title: "Combat AI-driven Fraud",
-  subtitle: "",
+  title: "Seeing is no longer believing",
+  subtitle: "Combat deepfake, voiceclone and ai-driven scams.",
   description: "",
   cta: {
     label: "Get Started",

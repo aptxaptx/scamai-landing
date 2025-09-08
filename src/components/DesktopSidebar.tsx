@@ -49,7 +49,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
     else setSubmenu("none");
   }, [pathname]);
 
-  const mainLinks = ["Use Cases", "Models", "Company"];
+  const mainLinks = ["Use Cases", "Models", "Research", "Company"];
 
   const businessLinks = ["Use Cases"];
 
@@ -58,7 +58,6 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
     "Deepfakes D1.2",
     "AI Image A1.1",
     "Voiceclone V1.0",
-    "Research",
   ];
 
   const researchLinks = ["Publications & Datasets"];

@@ -92,8 +92,8 @@ export default function MobileNav() {
 
   return (
     <>
-      {/* Mobile Bottom Bar with Logo and Hamburger */}
-      <header className="md:hidden fixed bottom-0 left-0 right-0 z-[70] bg-black/95 backdrop-blur-sm border-t border-white/10">
+      {/* Mobile Top Bar with Logo and Hamburger (sticks above everything) */}
+      <header className="md:hidden fixed top-0 left-0 right-0 z-[10000] bg-black/95 backdrop-blur-sm border-b border-white/10">
         <div className="flex items-center justify-between px-5 py-3">
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -136,7 +136,7 @@ export default function MobileNav() {
         }`}
         style={{
           paddingTop: "calc(3rem + 24px + 1px)",
-          zIndex: 50,
+          zIndex: 9999,
           height: "100vh",
         }}
       >

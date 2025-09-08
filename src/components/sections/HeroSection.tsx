@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { TextAnimate } from "@/components/magicui/text-animate";
 import { HeroSection as HeroSectionType } from "@/types";
 import Button from "@/components/ui/Button";
 import TypingEffect from "@/components/ui/TypingEffect";
@@ -49,24 +48,23 @@ export default function HeroSection({ hero }: HeroSectionProps) {
           <img src="/scamailogo.png" alt="Scam AI" className="h-10 w-auto md:h-12" />
         </div>
         {hero.title && (
-          <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight leading-[0.95] md:leading-[1.05] max-w-4xl mx-auto">
-            <TextAnimate
-              as="span"
-              animation="blurInUp"
-              by="character"
-              duration={0.6}
-              startOnView={false}
-              className="inline-block text-white"
-              segmentClassName="text-white"
-            >
-              {hero.title}
-            </TextAnimate>
+          <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight leading-[0.95] md:leading-[1.05] max-w-4xl mx-auto text-white">
+            {showTypingEffect ? (
+              <TypingEffect
+                text={hero.title}
+                speed={80}
+                className="block"
+                fadeOutDelay={0}
+              />
+            ) : (
+              <span className="block">{hero.title}</span>
+            )}
           </h1>
         )}
 
         {hero.subtitle && (
           <div
-            className="mt-3 sm:mt-4 text-white text-[clamp(32px,5vw,64px)] max-w-2xl mx-auto font-normal"
+            className="mt-3 sm:mt-4 text-white text-[clamp(16px,2.5vw,24px)] max-w-2xl mx-auto font-normal"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             {showTypingEffect ? (
@@ -96,7 +94,15 @@ export default function HeroSection({ hero }: HeroSectionProps) {
         )}
 
         {hero.cta && (
-          <div className="mt-6 sm:mt-8 flex items-center justify-center">
+          <div className="mt-6 sm:mt-8 flex items-center justify-center gap-3">
+            <Button
+              href="https://www.youtube.com/watch?v=qh3NGpYRG3I"
+              external
+              variant="outline"
+              className="rounded-full px-5 py-3 font-semibold"
+            >
+              Watch Demo
+            </Button>
             <Button
               href={hero.cta.href}
               className="rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm"

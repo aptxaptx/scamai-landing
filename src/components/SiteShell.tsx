@@ -48,38 +48,29 @@ export default function SiteShell({
         isSidebarVisible ? "md:pl-[200px]" : "md:pl-0"
       }`}
     >
-      {/* Top-left Menu button; changes to HOME when menu is open (visible on all sizes) */}
-      <div className="fixed top-4 left-4 z-[10000] md:left-6 flex items-center gap-3">
+      {/* DESKTOP HEADER (md+): top-left Menu and top-right actions */}
+      {/* Top-left Menu button (desktop only) */}
+      <div className="flex fixed top-4 left-4 z-[10000] md:left-6 items-center gap-3">
         <button
-          onClick={() => {
-            if (!isSidebarVisible) {
-              toggleSidebar();
-            } else {
-              window.location.href = "/";
-            }
-          }}
-          className="inline-flex items-center justify-center h-8 px-3 border border-white/20 bg-white/10 text-white text-xs font-semibold hover:bg-white/20 transition-colors"
-          aria-label={isSidebarVisible ? "Go home" : "Open menu"}
-          title={isSidebarVisible ? "Home" : "Menu"}
+          onClick={toggleSidebar}
+          className="inline-flex items-center justify-center h-10 px-4 border border-white/20 bg-white/10 text-white text-sm font-semibold hover:bg-white/20 transition-colors"
+          aria-label="Open menu"
+          title="Menu"
         >
-          {!isSidebarVisible ? (
-            <span className="inline-flex items-center gap-1">
-              <MenuIcon />
-              <span>MENU</span>
-            </span>
-          ) : (
-            <span>HOME</span>
-          )}
+          <span className="inline-flex items-center gap-2">
+            <MenuIcon width={22} height={22} />
+            <span>MENU</span>
+          </span>
         </button>
       </div>
 
-      {/* Login and Contact Sales Buttons - desktop only */}
-      <div className=" md:flex fixed top-4 right-4 z-[9999] gap-3">
+      {/* Top-right actions (desktop only) */}
+      <div className="flex fixed top-4 right-4 z-[9999] gap-0 whitespace-nowrap">
         <a
           href="https://app.scam.ai"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-black/30 text-white hover:bg-black/40 transition-colors text-xs font-bold border border-white shadow-lg"
+          className="inline-flex items-center gap-2 px-5 py-2 bg-black/30 text-white hover:bg-black/40 transition-colors text-sm font-bold border border-white shadow-lg"
           style={{
             borderRadius: "0",
             zIndex: 9999,
@@ -91,7 +82,7 @@ export default function SiteShell({
           href="https://cal.com/scamai/15min"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black hover:bg-gray-100 transition-colors text-xs font-bold border border-white shadow-lg"
+          className="inline-flex items-center gap-2 px-5 py-2 bg-white text-black hover:bg-gray-100 transition-colors text-sm font-bold border border-white shadow-lg -ml-px"
           style={{
             borderRadius: "0",
             zIndex: 9999,
@@ -101,7 +92,7 @@ export default function SiteShell({
         </a>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* MOBILE NAVIGATION (below md): bottom bar + overlay menu */}
       <MobileNav />
 
       {/* Desktop Sidebar */}
