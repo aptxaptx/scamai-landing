@@ -47,7 +47,6 @@ export default function Home() {
             <div className="space-y-2">
               <h2 className="text-4xl font-semibold text-gray-900">Deepfake</h2>
               <p className="text-gray-600">
-                Real-time detection.<br />
                 Uncompromising accuracy.
               </p>
             </div>
