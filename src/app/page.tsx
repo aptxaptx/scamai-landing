@@ -2,8 +2,11 @@
 
 import SiteShell from "@/components/SiteShell";
 import HeroSection from "@/components/sections/HeroSection";
+import LogoBar from "@/components/sections/LogoBar";
+import AnimatedTwoColumn from "@/components/sections/AnimatedTwoColumn";
 import { AnimatePresence } from "framer-motion";
 import { HERO_CONFIG } from "@/constants";
+import Image from "next/image";
 
 export default function Home() {
   const secondaryLinks: string[] = [];
@@ -16,47 +19,70 @@ export default function Home() {
           <HeroSection hero={HERO_CONFIG} />
         </AnimatePresence>
 
-        {/* Partnership Section */}
-        <section className="py-12 px-0 md:px-8 bg-black/10">
-          <div className="max-w-6xl mx-auto px-5 md:px-0">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="text-white/70">
-                <h3 className="text-lg font-medium mb-2">Partnering with</h3>
-                <p className="text-base">Global Innovators</p>
-              </div>
+        {/* Logo Bar Section */}
+        <LogoBar />
 
-              <div className="flex items-center justify-center flex-wrap gap-8 md:gap-12">
-                {/* NVIDIA */}
-                <div className="flex items-center gap-2 text-white/80">
-                  <div className="w-8 h-8 bg-white/20 rounded flex items-center justify-center">
-                    <span className="text-xs font-bold">N</span>
-                  </div>
-                  <span className="text-xl font-bold">NVIDIA</span>
-                </div>
-
-                {/* Inception Program */}
-                <div className="text-white/80 text-center">
-                  <div className="text-sm font-medium">INCEPTION</div>
-                  <div className="text-xs">PROGRAM</div>
-                </div>
-
-                {/* Google Cloud */}
-                <div className="flex items-center gap-2 text-white/80">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-xs">☁</span>
-                  </div>
-                  <span className="text-xl font-medium">Google Cloud</span>
-                </div>
-
-                {/* AWS */}
-                <div className="text-white/80">
-                  <span className="text-2xl font-bold italic">aws</span>
-                </div>
-              </div>
-            </div>
+        {/* Full Width Warning Section - Apple Style */}
+        <div className="w-full bg-gray-100 py-20 text-center">
+          <div className="max-w-4xl mx-auto px-4">
+            <p className="text-lg text-gray-600 mb-4">Scammers steal</p>
+            
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-900 mb-8">
+              Your face.<br />
+              Your voice.
+            </h2>
+            
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+              ScamAI detection technology, models, and services work together to 
+              protect your identity from deepfakes and voice cloning — whether 
+              you're an individual or an enterprise.
+            </p>
           </div>
-        </section>
+        </div>
 
+        {/* Animated Two Column Section - Apple Style */}
+        <div className="flex flex-col md:flex-row w-full">
+          {/* Left Column - Light Background */}
+          <div className="w-full md:w-1/2 bg-blue-50 py-20 px-8 flex flex-col items-center justify-between text-center">
+            <div className="space-y-2">
+              <h2 className="text-4xl font-semibold text-gray-900">Deepfake</h2>
+              <p className="text-gray-600">
+                Real-time detection.<br />
+                Uncompromising accuracy.
+              </p>
+            </div>
+            
+            
+            <div className="mt-8">
+              <img 
+                src="/deeepfake-detection.png" 
+                alt="Deepfake" 
+                className="max-w-[80%] mx-auto object-contain"
+              />
+            </div>
+            
+          </div>
+          
+          {/* Right Column - Dark Background */}
+          <div className="w-full md:w-1/2 bg-black py-20 px-8 flex flex-col items-center justify-between text-center">
+            <div className="space-y-2">
+              <h2 className="text-4xl font-semibold text-white">Voice Cloning</h2>
+              <p className="text-gray-300">
+                Unbelievably accurate. Incredibly fast.
+              </p>
+            </div>
+            
+            
+            <div className="mt-8">
+              <img 
+                src="/voice-detected.png" 
+                alt="Voice Cloning" 
+                className="max-w-[80%] mx-auto object-contain"
+              />
+            </div>
+            
+          </div>
+        </div>
         
       </div>
     </SiteShell>

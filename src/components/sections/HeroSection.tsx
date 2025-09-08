@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { HeroSection as HeroSectionType } from "@/types";
 import Button from "@/components/ui/Button";
@@ -15,6 +15,10 @@ const sectionVariants = {
 
 export default function HeroSection({ hero }: HeroSectionProps) {
   const [showTypingEffect, setShowTypingEffect] = useState(false);
+  const [titleTypingComplete, setTitleTypingComplete] = useState(false);
+  const [showSubtitle, setShowSubtitle] = useState(false);
+  const titleCharCount = hero.title?.length || 0;
+  const typingSpeed = 80;
 
   useEffect(() => {
     // Check if user has visited before
@@ -28,8 +32,21 @@ export default function HeroSection({ hero }: HeroSectionProps) {
     } else {
       // Returning visitor - show static text
       setShowTypingEffect(false);
+      setShowSubtitle(true); // Show subtitle immediately for returning visitors
     }
   }, []);
+  
+  // Show subtitle after title is done typing
+  useEffect(() => {
+    if (showTypingEffect && !showSubtitle) {
+      const delay = titleCharCount * typingSpeed + 300; // Add a small buffer
+      const timer = setTimeout(() => {
+        setShowSubtitle(true);
+      }, delay);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [showTypingEffect, showSubtitle, titleCharCount]);
 
   return (
     <motion.section
@@ -62,7 +79,7 @@ export default function HeroSection({ hero }: HeroSectionProps) {
           </h1>
         )}
 
-        {hero.subtitle && (
+        {hero.subtitle && showSubtitle && (
           <div
             className="mt-3 sm:mt-4 text-white text-[clamp(16px,2.5vw,24px)] max-w-2xl mx-auto font-normal"
             style={{ fontFamily: "var(--font-poppins)" }}

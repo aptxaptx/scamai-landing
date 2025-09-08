@@ -19,7 +19,9 @@ export default function TypingEffect({
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
-  const [shouldFadeOut, setShouldFadeOut] = useState(false);
+  
+  // Remove the fade out functionality
+  const shouldFadeOut = false;
 
   useEffect(() => {
     if (currentIndex < text.length) {
@@ -32,41 +34,23 @@ export default function TypingEffect({
     } else if (currentIndex === text.length && !isTypingComplete) {
       // Typing is complete
       setIsTypingComplete(true);
-
-      // Start fade out after delay (or immediately if delay is 0)
-      if (fadeOutDelay === 0) {
-        setShouldFadeOut(true);
-      } else {
-        const fadeOutTimer = setTimeout(() => {
-          setShouldFadeOut(true);
-        }, fadeOutDelay);
-
-        return () => clearTimeout(fadeOutTimer);
-      }
     }
-  }, [currentIndex, text, speed, isTypingComplete, fadeOutDelay]);
+  }, [currentIndex, text, speed, isTypingComplete]);
 
   return (
-    <AnimatePresence>
-      {!shouldFadeOut && (
-        <motion.span
-          className={className}
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 1 } }}
-        >
-          {displayText.split("\n").map((line, index) => (
-            <React.Fragment key={index}>
-              {line}
-              {index < displayText.split("\n").length - 1 && <br />}
-            </React.Fragment>
-          ))}
-          {isTypingComplete ? (
-            <span className="animate-pulse">|</span>
-          ) : (
-            <span className="animate-pulse">|</span>
-          )}
-        </motion.span>
+    <motion.span
+      className={className}
+      initial={{ opacity: 1 }}
+    >
+      {displayText.split("\n").map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          {index < displayText.split("\n").length - 1 && <br />}
+        </React.Fragment>
+      ))}
+      {!isTypingComplete && (
+        <span className="animate-pulse">|</span>
       )}
-    </AnimatePresence>
+    </motion.span>
   );
 }
