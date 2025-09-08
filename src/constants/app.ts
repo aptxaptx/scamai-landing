@@ -32,8 +32,8 @@ export const ANIMATION_DURATION = {
 } as const;
 
 export const HERO_CONFIG = {
-  title: "Stop AI Scams",
-  subtitle: "Real‑time detection",
+  title: "Combat AI-driven Fraud",
+  subtitle: "",
   description: "",
   cta: {
     label: "Get Started",

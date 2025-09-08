@@ -48,31 +48,33 @@ export default function SiteShell({
         isSidebarVisible ? "md:pl-[200px]" : "md:pl-0"
       }`}
     >
-      {/* Logo and Sidebar Toggle - Top Left of Website */}
-      <div className="fixed top-4 left-4 z-40 md:left-6 flex items-center gap-3">
-        <Link href="/" className="block">
-          <Image
-            src="/scamailogo.png"
-            alt="Scam AI logo"
-            width={200}
-            height={32}
-            className="h-8 w-auto"
-          />
-        </Link>
-
-        {/* --- Simple Menu Toggle Button --- */}
+      {/* Top-left Menu button; changes to HOME when menu is open (visible on all sizes) */}
+      <div className="fixed top-4 left-4 z-[10000] md:left-6 flex items-center gap-3">
         <button
-          onClick={toggleSidebar}
-          className="flex items-center justify-center w-8 h-8 rounded-md text-white/60 hover:text-white hover:bg-white/10 transition-colors"
-          aria-label={isSidebarVisible ? "Hide sidebar" : "Show sidebar"}
-          title={isSidebarVisible ? "Hide sidebar" : "Show sidebar"}
+          onClick={() => {
+            if (!isSidebarVisible) {
+              toggleSidebar();
+            } else {
+              window.location.href = "/";
+            }
+          }}
+          className="inline-flex items-center justify-center h-8 px-3 border border-white/20 bg-white/10 text-white text-xs font-semibold hover:bg-white/20 transition-colors"
+          aria-label={isSidebarVisible ? "Go home" : "Open menu"}
+          title={isSidebarVisible ? "Home" : "Menu"}
         >
-          <MenuIcon />
+          {!isSidebarVisible ? (
+            <span className="inline-flex items-center gap-1">
+              <MenuIcon />
+              <span>MENU</span>
+            </span>
+          ) : (
+            <span>HOME</span>
+          )}
         </button>
       </div>
 
-      {/* Login and Contact Sales Buttons - Desktop Only */}
-      <div className=" md:block fixed top-4 right-4 z-[9999] flex gap-3">
+      {/* Login and Contact Sales Buttons - desktop only */}
+      <div className=" md:flex fixed top-4 right-4 z-[9999] gap-3">
         <a
           href="https://app.scam.ai"
           target="_blank"

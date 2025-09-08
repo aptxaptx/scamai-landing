@@ -4,8 +4,9 @@ import { useEffect } from "react";
 
 export default function DemoPage() {
   useEffect(() => {
-    // Redirect to Cal.com booking page
-    window.location.href = "https://cal.com/scamai/15min";
+    // Open booking in a new tab and keep this page as fallback
+    const url = "https://cal.com/scamai/15min";
+    window.open(url, "_blank", "noopener,noreferrer");
   }, []);
 
   return (
@@ -18,6 +19,8 @@ export default function DemoPage() {
           If you're not redirected automatically,{" "}
           <a
             href="https://cal.com/scamai/15min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-white underline hover:text-white/80"
           >
             click here

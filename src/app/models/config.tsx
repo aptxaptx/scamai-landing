@@ -59,12 +59,11 @@ export const detectionModelsConfig: Record<
       items: [],
     },
     apiSection: {
-      headline: "API Integration",
-      description:
-        "Ready to integrate DeepGuard into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+      headline: "",
+      description: "",
       apiDocumentation: {
-        text: "View Complete API Documentation",
-        href: "https://docu.scam.ai/introduction",
+        text: "",
+        href: "",
       },
     },
     cta: {

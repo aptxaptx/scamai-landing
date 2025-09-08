@@ -70,7 +70,7 @@ const linkQRCodePageData: ProductPageProps = {
   cta: {
     headline: "Analyze links with confidence.",
     description: "Protect your research with advanced URL and QR code threat detection capabilities.",
-    primary: { text: "Schedule a Demo", href: "https://cal.com/scamai/25min?overlayCalendar=true" },
+    primary: { text: "Schedule a Demo", href: "https://cal.com/scamai/25min?overlayCalendar=true", external: true },
   },
   backgroundImage: "/fakenews.webp",
 };

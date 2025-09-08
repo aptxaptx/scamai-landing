@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { TextAnimate } from "@/components/magicui/text-animate";
 import { HeroSection as HeroSectionType } from "@/types";
 import Button from "@/components/ui/Button";
 import TypingEffect from "@/components/ui/TypingEffect";
@@ -43,14 +44,23 @@ export default function HeroSection({ hero }: HeroSectionProps) {
       <div className="hero-image-vignette" aria-hidden="true" />
 
       <div className="relative z-10 text-center p-6 sm:p-8 md:p-12 lg:p-14">
+        {/* Logo directly above headline */}
+        <div className="flex justify-center mb-3">
+          <img src="/scamailogo.png" alt="Scam AI" className="h-10 w-auto md:h-12" />
+        </div>
         {hero.title && (
           <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight leading-[0.95] md:leading-[1.05] max-w-4xl mx-auto">
-            {hero.title.split("\n").map((line, index) => (
-              <React.Fragment key={index}>
-                {line}
-                {index < hero.title.split("\n").length - 1 && <br />}
-              </React.Fragment>
-            ))}
+            <TextAnimate
+              as="span"
+              animation="blurInUp"
+              by="character"
+              duration={0.6}
+              startOnView={false}
+              className="inline-block text-white"
+              segmentClassName="text-white"
+            >
+              {hero.title}
+            </TextAnimate>
           </h1>
         )}
 
