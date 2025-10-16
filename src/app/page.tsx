@@ -1,6 +1,7 @@
 "use client";
 
 import SiteShell from "@/components/SiteShell";
+import LogoBar from "@/components/sections/LogoBar";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import Image from "next/image";
 
@@ -23,6 +24,9 @@ export default function Home() {
             </p>
           </div>
         </div>
+
+        {/* Logo Bar Section */}
+        <LogoBar />
 
         {/* Full Width Hero Section - Apple Style */}
         <div className="relative w-full bg-gradient-to-b from-gray-50 to-white py-32 text-center overflow-hidden">
