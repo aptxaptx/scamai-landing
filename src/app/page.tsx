@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <SiteShell secondaryLinks={secondaryLinks}>
-      <div className="relative w-full">
+      <div className="relative w-full pt-16">
         {/* Hero Section - Minimalist Style */}
         <div className="relative w-full bg-white py-32 md:py-40 lg:py-48">
           <div className="max-w-5xl mx-auto px-6">

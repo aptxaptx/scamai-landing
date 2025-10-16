@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
-import { SidebarProvider } from "@/contexts/SidebarContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -62,7 +61,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
-        <SidebarProvider>{children}</SidebarProvider>
+        {children}
       </body>
     </html>
   );
