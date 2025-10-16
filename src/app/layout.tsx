@@ -22,11 +22,33 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Scam AI - Scam Prevention Platform",
-  description: "A clean, modern landing page inspired by OpenAI's GPT-5 hero.",
+  description: "Advanced detection for deepfakes, voice clones and frauds. Protect your organization from AI-powered fraud.",
   icons: {
     icon: "/logo.svg",
     shortcut: "/logo.svg",
     apple: "/logo.svg",
+  },
+  openGraph: {
+    title: "Scam AI - Scam Prevention Platform",
+    description: "Advanced detection for deepfakes, voice clones and frauds. Protect your organization from AI-powered fraud.",
+    url: "https://scam.ai",
+    siteName: "Scam AI",
+    images: [
+      {
+        url: "/Logo2.png",
+        width: 1200,
+        height: 630,
+        alt: "Scam AI - Scam Prevention Platform",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scam AI - Scam Prevention Platform",
+    description: "Advanced detection for deepfakes, voice clones and frauds. Protect your organization from AI-powered fraud.",
+    images: ["/Logo2.png"],
   },
 };
 
