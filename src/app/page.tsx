@@ -19,9 +19,27 @@ export default function Home() {
               <br />
               AI-Powered Fraud
             </h1>
-            <p className="text-lg md:text-xl text-gray-500 font-light max-w-2xl">
+            <p className="text-lg md:text-xl text-gray-500 font-light max-w-2xl mb-8">
               APIs for deepfakes, voice clones and frauds detection
             </p>
+            <div className="flex gap-4">
+              <a
+                href="https://app.scam.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-black text-white text-sm font-light tracking-wide hover:bg-gray-800 transition-colors"
+              >
+                Try for free
+              </a>
+              <a
+                href="https://cal.com/scamai/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-white text-black text-sm font-light tracking-wide border border-gray-300 hover:bg-gray-50 transition-colors"
+              >
+                Request a Demo
+              </a>
+            </div>
           </div>
         </div>
 

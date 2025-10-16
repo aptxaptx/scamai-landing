@@ -1,14 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 
 export default function LogoBar() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
   const logos = [
     { src: "/aws.webp", alt: "AWS", link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
     { src: "/nvidia.webp", alt: "NVIDIA", link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
@@ -31,7 +26,7 @@ export default function LogoBar() {
   return (
     <section className="w-full bg-black/80 py-10 border-t border-white/10 overflow-hidden">
       <div className="logo-carousel">
-        <div className={`logo-track ${isLoaded ? 'animate-carousel' : ''}`}>
+        <div className="logo-track animate-carousel">
           {allLogos.map((logo, index) => (
             <div key={index} className="logo-slide">
               {logo.link ? (
