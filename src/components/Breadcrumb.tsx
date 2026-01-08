@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useSidebar } from "@/contexts/SidebarContext";
 
 type BreadcrumbItem = {
   label: string;
@@ -17,14 +16,8 @@ type BreadcrumbProps = {
 };
 
 export default function Breadcrumb({ items, nextItem }: BreadcrumbProps) {
-  const { isSidebarVisible } = useSidebar();
-
   return (
-    <div className={`relative z-10 w-full max-w-6xl mx-auto mt-4 ${
-      isSidebarVisible 
-        ? "px-8 md:px-12 lg:px-14" 
-        : "px-8 md:px-6 lg:px-8"
-    }`}>
+    <div className="relative z-10 w-full max-w-6xl mx-auto mt-4 px-8 md:px-6 lg:px-8">
       <div className="flex items-center justify-between text-sm">
         <div className="text-white/70">
           {items.map((item, index) => (

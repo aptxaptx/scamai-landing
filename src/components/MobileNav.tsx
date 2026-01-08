@@ -1,24 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { NAVIGATION_SECTIONS, APP_CONFIG } from "@/constants";
-import Button from "./ui/Button";
 
-export default function MobileNav() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+interface MobileNavProps {
+  isOpen: boolean;
+  onClose: () => void;
+  expandedSection: string | null;
+  setExpandedSection: (section: string | null) => void;
+}
 
-  const openMenu = () => {
-    setIsOpen(true);
-    document.body.classList.add("mobile-menu-open");
-  };
-
+export default function MobileNav({ isOpen, onClose, expandedSection, setExpandedSection }: MobileNavProps) {
   const closeMenu = () => {
-    setIsOpen(false);
+    onClose();
     setExpandedSection(null);
-    document.body.classList.remove("mobile-menu-open");
   };
 
   useEffect(() => {
@@ -35,17 +31,19 @@ export default function MobileNav() {
     const section = NAVIGATION_SECTIONS[sectionKey];
     if (!section) return null;
 
-    // Special handling for Company - make it a direct link
+    // Special handling for Company and Pricing - make them direct links with arrow
     if (sectionKey === "company") {
       return (
-        <div key={sectionKey}>
+        <div key={sectionKey} className="border-b border-gray-200 bg-white">
           <Link
             href="/company/about"
             onClick={closeMenu}
-            className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+            className="w-full text-left px-6 py-4 text-lg font-medium text-gray-900 hover:bg-gray-50 transition-colors flex items-center justify-between"
           >
             <span>{section.title}</span>
-            <span className="transition-transform duration-200">→</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
         </div>
       );
@@ -54,40 +52,43 @@ export default function MobileNav() {
     const isExpanded = expandedSection === sectionKey;
 
     return (
-      <div key={sectionKey}>
+      <div key={sectionKey} className="border-b border-gray-200 bg-white">
         <button
           onClick={() => toggleSection(sectionKey)}
-          className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+          className="w-full text-left px-6 py-4 text-lg font-medium text-gray-900 hover:bg-gray-50 transition-colors flex items-center justify-between"
         >
           <span>{section.title}</span>
-          <span
-            className={`transition-transform duration-200 ${
-              isExpanded ? "rotate-90" : ""
+          <svg
+            className={`w-5 h-5 transition-transform duration-200 ${
+              isExpanded ? "rotate-180" : ""
             }`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            →
-          </span>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
 
         {isExpanded && (
-          <div className="ml-4 mt-2 space-y-1">
+          <div className="bg-gray-50 py-2">
             {section.links.map((link, index) => {
               // Special handling for Detection Models header in Models section
               if (sectionKey === "models" && link.label === "Detection Models") {
                 return (
                   <div key={index}>
-                    <div className="block rounded-xl px-3 py-1.5 text-xs font-medium text-white/50 tracking-wide">
+                    <div className="px-8 py-2 text-sm font-medium text-gray-500">
                       {link.label}
                     </div>
                     {/* Render child links indented */}
                     {link.children && (
-                      <div className="ml-4 space-y-1">
+                      <div>
                         {link.children.map((child, childIndex) => (
                           <Link
                             key={childIndex}
                             href={child.href}
                             onClick={closeMenu}
-                            className="block rounded-xl px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                            className="block px-10 py-2.5 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors"
                             {...(child.external
                               ? { target: "_blank", rel: "noopener noreferrer" }
                               : {})}
@@ -106,7 +107,7 @@ export default function MobileNav() {
                   key={index}
                   href={link.href}
                   onClick={closeMenu}
-                  className="block rounded-xl px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                  className="block px-8 py-2.5 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors"
                   {...(link.external
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
@@ -123,87 +124,77 @@ export default function MobileNav() {
 
   return (
     <>
-      {/* Mobile Top Bar with Logo and Hamburger (sticks above everything) */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-[10000] bg-black/95 backdrop-blur-sm border-b border-white/10">
-        <div className="flex items-center justify-between px-5 py-3">
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/logo.svg"
-              alt="Scam AI logo"
-              width={200}
-              height={32}
-              className="h-8 w-auto"
-            />
-          </Link>
-
-          <button
-            onClick={isOpen ? closeMenu : openMenu}
-            className="flex flex-col items-center justify-center w-8 h-8 space-y-1.5"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-          >
-            <span 
-              className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "rotate-45 translate-y-[7px]" : ""
-              }`}
-            />
-            <span 
-              className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span 
-              className={`hamburger-line block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-[7px]" : ""
-              }`}
-            />
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile Menu */}
+      {/* Mobile Menu Trigger Button - Hidden, controlled by SiteShell */}
+      
+      {/* Mobile Full Screen Menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 right-0 bg-black/95 backdrop-blur-sm transform transition-all duration-300 ${
-          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        className={`md:hidden fixed inset-0 bg-gray-50 transform transition-all duration-300 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{
-          paddingTop: "calc(3rem + 24px + 1px)",
-          zIndex: 9999,
-          height: "100vh",
-        }}
+        style={{ zIndex: 99999 }}
       >
-        <div className="mobile-menu-container h-full overflow-y-auto">
-          <div className="p-5 pb-10">
-          <nav className="flex flex-col gap-2">
-                    {Object.keys(NAVIGATION_SECTIONS)
-                      .filter(key => key !== "stories" && key !== "business") // Hide Stories and Use Cases from menu
-                      .map(renderNavigationSection)}
-            </nav>
-
-            {/* Login Button */}
-            <div className="mt-8 px-4">
-              <Button
-                href={APP_CONFIG.loginUrl}
-                external
-                variant="secondary"
-                className="w-full"
-                onClick={closeMenu}
-              >
-                Login
-              </Button>
-            </div>
-
-            {/* Get A Demo Button */}
-            <div className="mt-4 px-4">
-              <Button
-                href="https://cal.com/scamai/15min"
-                external
-                variant="outline"
-                className="w-full"
-                onClick={closeMenu}
-              >
-                Get A Demo
-              </Button>
+        <div className="flex flex-col h-full">
+          {/* Header with Get Demo button and Close button */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-white">
+            <Link
+              href="https://cal.com/scamai/15min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-2.5 bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors"
+            >
+              Get a Demo
+            </Link>
+            
+            <button
+              onClick={closeMenu}
+              className="p-2 hover:bg-gray-100 transition-colors"
+              aria-label="Close menu"
+            >
+              <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
+
+          {/* Navigation Menu */}
+          <div className="flex-1 overflow-y-auto">
+            <nav className="flex flex-col">
+              {/* Use Cases */}
+              {renderNavigationSection("business")}
+              
+              {/* Models */}
+              {renderNavigationSection("models")}
+              
+              {/* Research */}
+              {renderNavigationSection("research")}
+              
+              {/* Company - Direct Link */}
+              {renderNavigationSection("company")}
+              
+            </nav>
+          </div>
+
+          {/* Bottom Section - Language Selector and Sign Up Button */}
+          <div className="p-6 border-t border-gray-200 bg-white flex items-center justify-between">
+            {/* Language Selector */}
+            <button className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">
+              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+              <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            {/* Sign Up Button */}
+            <Link
+              href={APP_CONFIG.loginUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-black text-white text-base font-medium hover:bg-gray-800 transition-colors"
+            >
+              Sign up
+            </Link>
           </div>
         </div>
       </div>

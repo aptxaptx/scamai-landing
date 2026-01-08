@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #000000;
-  --panel: #0e0e10;
-  --muted: #9ba3af;
-  --text: #f3f4f6;
-  --text-soft: #e5e7eb;
+  --bg: #ffffff;
+  --panel: #f9fafb;
+  --muted: #6b7280;
+  --text: #111827;
+  --text-soft: #374151;
 }
 
 @theme inline {
@@ -19,8 +19,8 @@
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: #ffffff;
+  color: #111827;
   font-family: var(--font-poppins);
 }
 
