@@ -6,6 +6,20 @@
   --muted: #9ca3af;
   --text: #f8fafc;
   --text-soft: #cbd5e1;
+  --hero-gradient: radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.25), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.25), transparent 35%),
+    linear-gradient(180deg, rgba(5, 5, 15, 0.9), rgba(3, 3, 10, 0.98));
+}
+
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --panel: #f8fafc;
+  --muted: #475569;
+  --text: #0f172a;
+  --text-soft: #334155;
+  --hero-gradient: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.18), transparent 35%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(226, 232, 240, 0.9));
 }
 
 @theme inline {
@@ -33,9 +47,7 @@ body {
 .hero-gradient {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.25), transparent 35%),
-    radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.25), transparent 35%),
-    linear-gradient(180deg, rgba(5, 5, 15, 0.9), rgba(3, 3, 10, 0.98));
+  background: var(--hero-gradient);
   filter: saturate(120%);
 }
 

@@ -5,12 +5,26 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage, languages, Language } from "@/contexts/LanguageContext";
 
-export default function SimpleNav() {
+export default function SimpleNav({
+  theme,
+  onToggleTheme,
+}: {
+  theme: "light" | "dark";
+  onToggleTheme: () => void;
+}) {
+  const isDark = theme === "dark";
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const { language, setLanguage, t } = useLanguage();
+  const navLink = isDark
+    ? "text-slate-200 hover:text-white hover:bg-white/5"
+    : "text-slate-700 hover:text-black hover:bg-slate-100";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#05050f]/90 backdrop-blur border-b border-white/10">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur border-b ${
+        isDark ? "bg-[#05050f]/90 border-white/10" : "bg-white/90 border-slate-200"
+      }`}
+    >
       <div className="h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500" />
       
       <div className="container mx-auto px-6">
@@ -35,7 +49,9 @@ export default function SimpleNav() {
                 setOpenDropdown(null);
               }}
             >
-              <button className="relative flex items-center gap-1.5 px-4 py-2 text-base font-normal text-slate-200 hover:text-white transition-all duration-200 rounded-md hover:bg-white/5">
+              <button
+                className={`relative flex items-center gap-1.5 px-4 py-2 text-base font-normal rounded-md transition-all duration-200 ${navLink}`}
+              >
                 {t("nav.products")}
                 <svg 
                   className={`w-3 h-3 transition-transform duration-200 ${openDropdown === "products" ? "rotate-180" : ""}`}
@@ -48,15 +64,40 @@ export default function SimpleNav() {
               </button>
               {openDropdown === "products" && (
                 <div className="absolute top-full left-0 pt-2 w-56">
-                  <div className="bg-[#0b0b18] border border-white/10 shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div
+                    className={`shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ${
+                      isDark ? "bg-[#0b0b18] border border-white/10" : "bg-white border border-slate-200"
+                    }`}
+                  >
                   <div className="py-2">
-                    <Link href="/models/deepfakes" className="block px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-white transition-colors duration-150">
+                    <Link
+                      href="/models/deepfakes"
+                      className={`block px-4 py-3 text-sm transition-colors duration-150 ${
+                        isDark
+                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                    >
                       {t("products.deepfake")}
                     </Link>
-                    <Link href="/models/voice-clones" className="block px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-white transition-colors duration-150">
+                    <Link
+                      href="/models/voice-clones"
+                      className={`block px-4 py-3 text-sm transition-colors duration-150 ${
+                        isDark
+                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                    >
                       {t("products.voice")}
                     </Link>
-                    <Link href="/models/ai-generated-media" className="block px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-white transition-colors duration-150">
+                    <Link
+                      href="/models/ai-generated-media"
+                      className={`block px-4 py-3 text-sm transition-colors duration-150 ${
+                        isDark
+                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                    >
                       {t("products.aimedia")}
                     </Link>
                   </div>
@@ -75,7 +116,9 @@ export default function SimpleNav() {
                 setOpenDropdown(null);
               }}
             >
-              <button className="relative flex items-center gap-1.5 px-4 py-2 text-base font-normal text-slate-200 hover:text-white transition-all duration-200 rounded-md hover:bg-white/5">
+              <button
+                className={`relative flex items-center gap-1.5 px-4 py-2 text-base font-normal rounded-md transition-all duration-200 ${navLink}`}
+              >
                 {t("nav.industries")}
                 <svg 
                   className={`w-3 h-3 transition-transform duration-200 ${openDropdown === "industries" ? "rotate-180" : ""}`}
@@ -88,18 +131,50 @@ export default function SimpleNav() {
               </button>
               {openDropdown === "industries" && (
                 <div className="absolute top-full left-0 pt-2 w-64">
-                  <div className="bg-[#0b0b18] border border-white/10 shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div
+                    className={`shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ${
+                      isDark ? "bg-[#0b0b18] border border-white/10" : "bg-white border border-slate-200"
+                    }`}
+                  >
                   <div className="py-2">
-                    <Link href="/business/kyc" className="block px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-white transition-colors duration-150">
+                    <Link
+                      href="/business/kyc"
+                      className={`block px-4 py-3 text-sm transition-colors duration-150 ${
+                        isDark
+                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                    >
                       {t("industries.kyc")}
                     </Link>
-                    <Link href="/business/dating" className="block px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-white transition-colors duration-150">
+                    <Link
+                      href="/business/dating"
+                      className={`block px-4 py-3 text-sm transition-colors duration-150 ${
+                        isDark
+                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                    >
                       {t("industries.dating")}
                     </Link>
-                    <Link href="/business/fake-news" className="block px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-white transition-colors duration-150">
+                    <Link
+                      href="/business/fake-news"
+                      className={`block px-4 py-3 text-sm transition-colors duration-150 ${
+                        isDark
+                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                    >
                       {t("industries.fakenews")}
                     </Link>
-                    <Link href="/business/impersonation" className="block px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-white transition-colors duration-150">
+                    <Link
+                      href="/business/impersonation"
+                      className={`block px-4 py-3 text-sm transition-colors duration-150 ${
+                        isDark
+                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                    >
                       {t("industries.impersonation")}
                     </Link>
                   </div>
@@ -118,7 +193,9 @@ export default function SimpleNav() {
                 setOpenDropdown(null);
               }}
             >
-              <button className="relative flex items-center gap-1.5 px-4 py-2 text-base font-normal text-slate-200 hover:text-white transition-all duration-200 rounded-md hover:bg-white/5">
+              <button
+                className={`relative flex items-center gap-1.5 px-4 py-2 text-base font-normal rounded-md transition-all duration-200 ${navLink}`}
+              >
                 {t("nav.resources")}
                 <svg 
                   className={`w-3 h-3 transition-transform duration-200 ${openDropdown === "resources" ? "rotate-180" : ""}`}
@@ -131,15 +208,40 @@ export default function SimpleNav() {
               </button>
               {openDropdown === "resources" && (
                 <div className="absolute top-full left-0 pt-2 w-64">
-                  <div className="bg-[#0b0b18] border border-white/10 shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div
+                    className={`shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ${
+                      isDark ? "bg-[#0b0b18] border border-white/10" : "bg-white border border-slate-200"
+                    }`}
+                  >
                   <div className="py-2">
-                    <Link href="/research/publication" className="block px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-white transition-colors duration-150">
+                    <Link
+                      href="/research/publication"
+                      className={`block px-4 py-3 text-sm transition-colors duration-150 ${
+                        isDark
+                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                    >
                       {t("resources.publications")}
                     </Link>
-                    <Link href="/stories/news" className="block px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-white transition-colors duration-150">
+                    <Link
+                      href="/stories/news"
+                      className={`block px-4 py-3 text-sm transition-colors duration-150 ${
+                        isDark
+                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                    >
                       {t("resources.news")}
                     </Link>
-                    <Link href="/stories/type-of-scams" className="block px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-white transition-colors duration-150">
+                    <Link
+                      href="/stories/type-of-scams"
+                      className={`block px-4 py-3 text-sm transition-colors duration-150 ${
+                        isDark
+                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                    >
                       {t("resources.scams")}
                     </Link>
                   </div>
@@ -151,7 +253,7 @@ export default function SimpleNav() {
             {/* Company Link */}
             <Link 
               href="/company/about" 
-              className="flex items-center gap-1.5 px-4 py-2 text-base font-normal text-slate-200 hover:text-white transition-all duration-200 rounded-md hover:bg-white/5"
+              className={`flex items-center gap-1.5 px-4 py-2 text-base font-normal rounded-md transition-all duration-200 ${navLink}`}
             >
               {t("nav.company")}
               <svg className="w-3 h-3 opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,7 +264,7 @@ export default function SimpleNav() {
             {/* Pricing Link */}
             <Link 
               href="/pricing" 
-              className="flex items-center gap-1.5 px-4 py-2 text-base font-normal text-slate-200 hover:text-white transition-all duration-200 rounded-md hover:bg-white/5"
+              className={`flex items-center gap-1.5 px-4 py-2 text-base font-normal rounded-md transition-all duration-200 ${navLink}`}
             >
               {t("nav.pricing")}
               <svg className="w-3 h-3 opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -178,7 +280,7 @@ export default function SimpleNav() {
               href="https://app.scam.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 text-base font-normal text-slate-200 hover:text-white transition-all duration-200 rounded-md hover:bg-white/5"
+              className={`px-4 py-2 text-base font-normal rounded-md transition-all duration-200 ${navLink}`}
             >
               {t("nav.signup")}
             </Link>
@@ -194,6 +296,18 @@ export default function SimpleNav() {
               {t("nav.demo")}
             </Link>
 
+            {/* Theme Toggle */}
+            <button
+              onClick={onToggleTheme}
+              className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 border ${
+                isDark
+                  ? "text-slate-200 border-white/20 hover:bg-white/5"
+                  : "text-slate-700 border-slate-200 hover:bg-slate-100"
+              }`}
+            >
+              {isDark ? "Light Mode" : "Dark Mode"}
+            </button>
+
             {/* Language Selector */}
             <div 
               className="relative"
@@ -204,12 +318,23 @@ export default function SimpleNav() {
                 setOpenDropdown(null);
               }}
             >
-              <button className="flex items-center gap-1.5 p-2 hover:bg-white/5 rounded-full transition-all duration-200">
-                <svg className="w-5 h-5 text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <button
+                className={`flex items-center gap-1.5 p-2 rounded-full transition-all duration-200 ${
+                  isDark ? "hover:bg-white/5" : "hover:bg-slate-100"
+                }`}
+              >
+                <svg
+                  className={`w-5 h-5 ${isDark ? "text-slate-200" : "text-slate-700"}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                 </svg>
                 <svg 
-                  className={`w-3 h-3 text-slate-200 transition-transform duration-200 ${openDropdown === "language" ? "rotate-180" : ""}`}
+                  className={`w-3 h-3 transition-transform duration-200 ${
+                    openDropdown === "language" ? "rotate-180" : ""
+                  } ${isDark ? "text-slate-200" : "text-slate-700"}`}
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
@@ -219,7 +344,11 @@ export default function SimpleNav() {
               </button>
               {openDropdown === "language" && (
                 <div className="absolute top-full right-0 pt-2 w-48">
-                  <div className="bg-[#0b0b18] border border-white/10 shadow-xl rounded-lg max-h-96 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div
+                    className={`shadow-xl rounded-lg max-h-96 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200 ${
+                      isDark ? "bg-[#0b0b18] border border-white/10" : "bg-white border border-slate-200"
+                    }`}
+                  >
                   <div className="py-2">
                     {Object.entries(languages).map(([code, { name }]) => (
                       <button
@@ -229,9 +358,13 @@ export default function SimpleNav() {
                           setOpenDropdown(null);
                         }}
                         className={`block w-full text-left px-4 py-3 text-sm transition-colors duration-150 ${
-                          language === code 
-                            ? "bg-white/10 text-white font-medium" 
-                            : "text-slate-200 hover:bg-white/5 hover:text-white"
+                          language === code
+                            ? isDark
+                              ? "bg-white/10 text-white font-medium"
+                              : "bg-slate-100 text-slate-900 font-medium"
+                            : isDark
+                            ? "text-slate-200 hover:bg-white/5 hover:text-white"
+                            : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                         }`}
                       >
                         {name}
