@@ -4,15 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage, languages, Language } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
-export default function SimpleNav({
-  theme,
-  onToggleTheme,
-}: {
-  theme: "light" | "dark";
-  onToggleTheme: () => void;
-}) {
-  const isDark = theme === "dark";
+export default function SimpleNav() {
+  const { toggleTheme, isDark } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const { language, setLanguage, t } = useLanguage();
   const navLink = isDark
@@ -298,14 +293,33 @@ export default function SimpleNav({
 
             {/* Theme Toggle */}
             <button
-              onClick={onToggleTheme}
-              className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 border ${
+              onClick={toggleTheme}
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 border ${
                 isDark
                   ? "text-slate-200 border-white/20 hover:bg-white/5"
                   : "text-slate-700 border-slate-200 hover:bg-slate-100"
               }`}
             >
-              {isDark ? "Light Mode" : "Dark Mode"}
+              {isDark ? (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.8}
+                    d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                  />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.8}
+                    d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"
+                  />
+                </svg>
+              )}
             </button>
 
             {/* Language Selector */}

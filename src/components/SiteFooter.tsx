@@ -1,7 +1,10 @@
-import Image from "next/image";
+"use client";
 
-export default function SiteFooter({ theme = "dark" }: { theme?: "light" | "dark" }) {
-  const isDark = theme === "dark";
+import Image from "next/image";
+import { useTheme } from "@/contexts/ThemeContext";
+
+export default function SiteFooter() {
+  const { isDark } = useTheme();
   return (
     <footer
       className={`py-16 w-full border-t ${

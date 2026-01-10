@@ -4,9 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import SimpleNav from "@/components/SimpleNav";
 import SiteFooter from "@/components/SiteFooter";
-import { LanguageProvider } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
-type Theme = "light" | "dark";
 type PlaygroundTab = "image" | "voice" | "video";
 type SolutionTab = "vision" | "audio" | "firewall";
 
@@ -50,7 +49,7 @@ const solutionTabs: Record<
 };
 
 export default function Home() {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const { isDark } = useTheme();
   const [activePlaygroundTab, setActivePlaygroundTab] =
     useState<PlaygroundTab>("image");
   const [demoCount, setDemoCount] = useState(0);
@@ -68,7 +67,6 @@ export default function Home() {
     voice: false,
     video: false,
   });
-  const isDark = theme === "dark";
   const panelClass = isDark
     ? "bg-white/5 border border-white/10"
     : "bg-white border border-slate-200";
@@ -83,22 +81,7 @@ export default function Home() {
     if (!Number.isNaN(storedCount)) {
       setDemoCount(storedCount);
     }
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "light" || storedTheme === "dark") {
-      setTheme(storedTheme);
-      document.documentElement.dataset.theme = storedTheme;
-      return;
-    }
-    const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-    const nextTheme = prefersLight ? "light" : "dark";
-    setTheme(nextTheme);
-    document.documentElement.dataset.theme = nextTheme;
   }, []);
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    localStorage.setItem("theme", theme);
-  }, [theme]);
 
   const handleRunDetection = () => {
     const newCount = demoCount + 1;
@@ -143,25 +126,21 @@ export default function Home() {
   };
 
   return (
-    <LanguageProvider>
-      <div
-        className={`min-h-screen relative overflow-hidden ${
-          isDark ? "bg-[#04040a] text-white" : "bg-white text-slate-900"
-        }`}
-      >
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="radar-beam" />
-          <div className="grid-noise" />
-          <div className="glow-orb orb-1" />
-          <div className="glow-orb orb-2" />
-        </div>
+    <div
+      className={`min-h-screen relative overflow-hidden ${
+        isDark ? "bg-[#04040a] text-white" : "bg-white text-slate-900"
+      }`}
+    >
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="radar-beam" />
+        <div className="grid-noise" />
+        <div className="glow-orb orb-1" />
+        <div className="glow-orb orb-2" />
+      </div>
 
-        <SimpleNav
-          theme={theme}
-          onToggleTheme={() => setTheme(isDark ? "light" : "dark")}
-        />
+      <SimpleNav />
 
-        <main className="pt-[78px] relative z-10">
+      <main className="pt-[78px] relative z-10">
           {/* Hero */}
           <section className="relative overflow-hidden">
             <div className="absolute inset-0 hero-gradient" />
@@ -839,8 +818,7 @@ if check.is_fake:
           </section>
         </main>
 
-        <SiteFooter theme={theme} />
+        <SiteFooter />
       </div>
-    </LanguageProvider>
   );
 }
