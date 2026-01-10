@@ -13,6 +13,7 @@ export default function SiteShell({ children }: SiteShellProps) {
 
   return (
     <div
+      suppressHydrationWarning
       className={`min-h-dvh ${
         isDark ? "bg-[#0b0b18] text-white" : "bg-[#f7f9fc] text-slate-900"
       }`}

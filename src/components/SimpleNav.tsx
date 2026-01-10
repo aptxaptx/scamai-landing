@@ -16,7 +16,7 @@ export default function SimpleNav() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur border-b ${
+      className={`app-fixed-header fixed top-0 left-0 right-0 z-50 backdrop-blur border-b ${
         isDark ? "bg-[#05050f]/90 border-white/10" : "bg-white/90 border-slate-200"
       }`}
     >

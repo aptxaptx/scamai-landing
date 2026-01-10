@@ -36,6 +36,12 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-poppins);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 :root[data-theme="light"] .site-shell-content [class*="text-white"] {
@@ -43,6 +49,11 @@ body {
 }
 :root[data-theme="dark"] .site-shell-content [class*="text-black"] {
   color: #e5e7eb !important;
+}
+
+.app-fixed-header {
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /***** Force square corners site-wide *****/

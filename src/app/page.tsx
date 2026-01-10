@@ -127,6 +127,7 @@ export default function Home() {
 
   return (
     <div
+      suppressHydrationWarning
       className={`min-h-screen relative overflow-hidden ${
         isDark ? "bg-[#04040a] text-white" : "bg-white text-slate-900"
       }`}
