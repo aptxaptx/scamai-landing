@@ -15,7 +15,13 @@ export default function SiteFooter() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center mb-4">
-              <Image src="/scamailogo.png" alt="Scam AI" className="h-8 w-auto" width={100} height={32} />
+              <Image
+                src="/scamailogo.png"
+                alt="Scam AI"
+                className={`h-8 w-auto ${isDark ? "" : "invert"}`}
+                width={100}
+                height={32}
+              />
             </div>
             <p className={`${isDark ? "text-slate-400" : "text-slate-600"} mb-6 max-w-md`}>
               The AI firewall that keeps deepfakes and synthetic fraud out of your KYC, onboarding, and identity flows.

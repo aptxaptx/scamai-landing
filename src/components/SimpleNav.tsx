@@ -30,7 +30,7 @@ export default function SimpleNav() {
               alt="Scam AI"
               width={140}
               height={28}
-              className="h-7 w-auto"
+              className={`h-7 w-auto transition duration-200 ${isDark ? "" : "invert"}`}
             />
           </Link>
 

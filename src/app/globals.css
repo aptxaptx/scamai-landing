@@ -38,6 +38,13 @@ body {
   font-family: var(--font-poppins);
 }
 
+:root[data-theme="light"] .site-shell-content [class*="text-white"] {
+  color: #0f172a !important;
+}
+:root[data-theme="dark"] .site-shell-content [class*="text-black"] {
+  color: #e5e7eb !important;
+}
+
 /***** Force square corners site-wide *****/
 * {
   border-radius: 0 !important;

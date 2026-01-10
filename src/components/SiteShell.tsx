@@ -13,21 +13,16 @@ export default function SiteShell({ children }: SiteShellProps) {
 
   return (
     <div
-      className={`min-h-dvh relative ${
-        isDark ? "bg-[#04040a] text-white" : "bg-white text-slate-900"
+      className={`min-h-dvh ${
+        isDark ? "bg-[#0b0b18] text-white" : "bg-[#f7f9fc] text-slate-900"
       }`}
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="radar-beam" />
-        <div className="grid-noise" />
-        <div className="glow-orb orb-1" />
-        <div className="glow-orb orb-2" />
-      </div>
-
       <SimpleNav />
 
-      <main className="pt-[78px] relative z-10">
-        {children}
+      <main className="pt-[78px]">
+        <div className="max-w-6xl mx-auto px-6 pb-16 site-shell-content">
+          {children}
+        </div>
       </main>
 
       <SiteFooter />
