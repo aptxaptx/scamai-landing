@@ -1,41 +1,64 @@
-import SiteShell from "@/components/SiteShell";
-import { Link } from "@/i18n/navigation";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { getTranslations } from "next-intl/server";
+
 import Breadcrumb from "@/components/Breadcrumb";
+import SiteShell from "@/components/SiteShell";
+import { rtlLocales, type Locale } from "@/i18n/config";
+import { Link } from "@/i18n/navigation";
+import { getMdxContent } from "@/lib/mdx";
 
 export const metadata = {
   title: "KYC/ID Verification — ScamAI",
   description: "Detect forged IDs and deepfakes during onboarding with ScamAI.",
 };
 
-export default function KycPage() {
+export default async function KycPage({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Business.Kyc" });
+  const common = await getTranslations({ locale, namespace: "Business.Common" });
+  const { source } = await getMdxContent("kyc", locale, "business");
+  const isRtl = rtlLocales.includes(locale);
+
   return (
     <SiteShell>
       {/* Hero above existing card(s) */}
       <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-6">
         <Breadcrumb 
           items={[
-            { label: "Business", href: "/business" },
-            { label: "KYC/ID Verification" }
+            { label: common("breadcrumb.business"), href: "/business" },
+            { label: t("breadcrumb") }
           ]}
-          nextItem={{ label: "Dating Apps", href: "/business/dating" }}
+          nextItem={{ label: t("nextLabel"), href: "/business/dating" }}
         />
 
         <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
-          <p className="text-white text-base mb-4">Solutions for KYC/ID Verification</p>
+          <p className="text-white text-base mb-4">{t("eyebrow")}</p>
           <h1 className="text-[clamp(32px,7.5vw,72px)] font-normal tracking-tight max-w-4xl mx-auto">
-            Deepfake Detection<br />
-            That Actually Works
+            {t("titleLine1")}
+            <br />
+            {t("titleLine2")}
           </h1>
           <p className="mt-4 text-white/85 text-[clamp(14px,2vw,18px)] max-w-2xl mx-auto">
-            OnlyFace model catches over 90% of sota deepfakes.<br />
-            Keep your business safe. Keep your trust intact.
+            {t("subtitleLine1")}
+            <br />
+            {t("subtitleLine2")}
           </p>
 
           {/* Tags */}
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">GenAI</span>
-            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Deepfake</span>
-            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Liveness & ID</span>
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">
+              {t("tags.genai")}
+            </span>
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">
+              {t("tags.deepfake")}
+            </span>
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">
+              {t("tags.liveness")}
+            </span>
           </div>
 
           <div className="mt-8 max-w-4xl mx-auto">
@@ -47,7 +70,7 @@ export default function KycPage() {
               playsInline
             >
               <source src="/deepfake_scamai.webm" type="video/webm" />
-              Your browser does not support the video tag.
+              {common("videoFallback")}
             </video>
           </div>
         </div>
@@ -57,16 +80,15 @@ export default function KycPage() {
       <section className="mb-8">
         <div className="text-center">
           <h2 className="text-[clamp(24px,5vw,48px)] font-normal tracking-tight max-w-4xl mx-auto">
-            Over 90% KYC/ID Verification vendors<br />
-            Failed to Detect Deepfakes
+            {t("problemTitleLine1")}
+            <br />
+            {t("problemTitleLine2")}
           </h2>
-          <div className="mt-8 max-w-2xl mx-auto">
-            <p className="text-white/80 text-lg leading-relaxed text-center">
-              Traditional KYC can&apos;t keep up with AI-generated fraud. Fake IDs, synthetic faces, and manipulated documents now bypass standard verification with ease.
-            </p>
-            <p className="text-white/80 text-lg leading-relaxed text-center mt-6">
-              While most vendors fail to detect these forgeries, your business faces identity fraud, account takeovers, and compliance risks. You need detection that actually works.
-            </p>
+          <div
+            className="mt-8 max-w-2xl mx-auto prose dark:prose-invert max-w-none text-white/80 text-lg leading-relaxed text-center"
+            dir={isRtl ? "rtl" : "ltr"}
+          >
+            <MDXRemote source={source} />
           </div>
 
           {/* Dashboard Video */}
@@ -79,7 +101,7 @@ export default function KycPage() {
               playsInline
             >
               <source src="/dashboard.webm" type="video/webm" />
-              Your browser does not support the video tag.
+              {common("videoFallback")}
             </video>
           </div>
 
@@ -87,16 +109,16 @@ export default function KycPage() {
           <section className="mt-12">
             <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
-                <h4 className="text-white font-semibold mb-1">Stop fake signups</h4>
-                <p className="text-white/75 text-sm">Block deepfake faces and forged IDs at onboarding.</p>
+                <h4 className="text-white font-semibold mb-1">{t("valueProps.0.title")}</h4>
+                <p className="text-white/75 text-sm">{t("valueProps.0.description")}</p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
-                <h4 className="text-white font-semibold mb-1">Cut fraud losses</h4>
-                <p className="text-white/75 text-sm">Stop payout fraud and mule accounts early.</p>
+                <h4 className="text-white font-semibold mb-1">{t("valueProps.1.title")}</h4>
+                <p className="text-white/75 text-sm">{t("valueProps.1.description")}</p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
-                <h4 className="text-white font-semibold mb-1">Pass compliance audits</h4>
-                <p className="text-white/75 text-sm">Clear, auditable KYC/AML signals.</p>
+                <h4 className="text-white font-semibold mb-1">{t("valueProps.2.title")}</h4>
+                <p className="text-white/75 text-sm">{t("valueProps.2.description")}</p>
               </div>
             </div>
           </section>
@@ -104,13 +126,13 @@ export default function KycPage() {
           {/* CTA Card */}
           <div className="mt-16 max-w-2xl mx-auto">
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
-              <h3 className="text-2xl font-semibold text-white mb-4">KYC deepfakes, caught live.</h3>
-              <p className="text-white/80 text-base mb-6">Add an extra layer of security to your KYC/ID Verification process.</p>
+              <h3 className="text-2xl font-semibold text-white mb-4">{t("cta.title")}</h3>
+              <p className="text-white/80 text-base mb-6">{t("cta.description")}</p>
               <a
                 href="/demo"
                 className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
-                Schedule a Demo
+                {common("cta")}
               </a>
             </div>
           </div>
@@ -120,7 +142,9 @@ export default function KycPage() {
       {/* Bottom next link */}
       <div className="mt-10 w-full max-w-6xl mx-auto px-8 md:px-12 lg:px-14">
         <div className="flex justify-end text-sm">
-          <Link href="/business/dating" className="text-white/80 hover:text-white/90">Next: Dating Apps →</Link>
+          <Link href="/business/dating" className="text-white/80 hover:text-white/90">
+            {common("next", { label: t("nextLabel") })}
+          </Link>
         </div>
       </div>
 
@@ -133,4 +157,3 @@ export default function KycPage() {
     </SiteShell>
   );
 }
-

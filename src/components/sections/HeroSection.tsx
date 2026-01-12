@@ -3,16 +3,16 @@
 import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
-  const t = useTranslations();
+  const t = useTranslations("HomePage.Hero");
   
   return (
     <section className="relative w-full min-h-[500px] bg-white flex items-center justify-center border-b border-gray-200">
       <div className="max-w-6xl mx-auto px-6 py-32 text-center">
         <h1 className="text-5xl md:text-7xl font-light text-gray-900 mb-6">
-          {t("hero.title")}
+          {t("title")}
         </h1>
         <p className="text-xl text-gray-600 mb-8">
-          {t("hero.subtitle")}
+          {t("subtitle")}
         </p>
         <div className="flex gap-4 justify-center">
           <button 
@@ -21,10 +21,10 @@ export default function HeroSection() {
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0039CC'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0047FF'}
           >
-            {t("hero.primary")}
+            {t("primaryCta")}
           </button>
           <button className="px-8 py-3 border border-gray-300 text-gray-900 rounded hover:bg-gray-50 transition-colors">
-            {t("hero.secondary")}
+            {t("secondaryCta")}
           </button>
         </div>
       </div>

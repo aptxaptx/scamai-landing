@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import { Link } from "@/i18n/navigation";
 type BreadcrumbItem = {
   label: string;
@@ -15,6 +17,8 @@ type BreadcrumbProps = {
 };
 
 export default function Breadcrumb({ items, nextItem }: BreadcrumbProps) {
+  const t = useTranslations("Navigation");
+
   return (
     <div className="relative z-10 w-full max-w-6xl mx-auto mt-4 px-8 md:px-6 lg:px-8">
       <div className="flex items-center justify-between text-sm">
@@ -34,7 +38,7 @@ export default function Breadcrumb({ items, nextItem }: BreadcrumbProps) {
         </div>
         {nextItem ? (
           <Link href={nextItem.href} className="text-white/80 hover:text-white/90">
-            Next: {nextItem.label} →
+            {t("next", { label: nextItem.label })}
           </Link>
         ) : (
           <div></div> // Empty div to maintain flex layout

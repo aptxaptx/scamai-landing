@@ -2,64 +2,106 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
+
 import SimpleNav from "@/components/SimpleNav";
 import SiteFooter from "@/components/SiteFooter";
-import { useTheme } from "next-themes";
 
 type PlaygroundTab = "image" | "voice" | "video";
 type SolutionTab = "vision" | "audio" | "firewall";
 
-const playgroundTabs: { key: PlaygroundTab; label: string; badge?: string }[] = [
-  { key: "image", label: "Image Detection", badge: "Active" },
-  { key: "voice", label: "Voice Clone", badge: "Beta" },
-  { key: "video", label: "Video Deepfake", badge: "Coming Soon" },
-];
-
-const solutionTabs: Record<
-  SolutionTab,
-  { title: string; description: string; bullets: string[] }
-> = {
-  vision: {
-    title: "Deepfake Vision",
-    description: "Pixel-level analysis for diffusion artifacts and shadow mismatch.",
-    bullets: [
-      "Detect diffusion fingerprints and GAN residue",
-      "Frame-by-frame heatmaps for investigators",
-      "Auto-block rules for high-risk flows",
-    ],
-  },
-  audio: {
-    title: "Audio Sentinel",
-    description: "Catches synthetic cadence and timbre anomalies in voice calls.",
-    bullets: [
-      "Real-time scoring during IVR and agent calls",
-      "Voice clone library with continuous updates",
-      "Adaptive thresholds tuned to your risk engine",
-    ],
-  },
-  firewall: {
-    title: "Real-time Firewall",
-    description: "<100ms API response for blocking bots and synthetic traffic.",
-    bullets: [
-      "Inline decisioning for KYC and onboarding",
-      "Edge-cached models with autoscaling",
-      "Webhook and gRPC streaming for SIEMs",
-    ],
-  },
-};
-
 export default function Home() {
+  const t = useTranslations("HomePage");
+  const locale = useLocale();
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const isDark = mounted && resolvedTheme === "dark";
+  const playgroundTabs = useMemo(
+    () => [
+      { key: "image" as const, label: t("Playground.tabs.image.label"), badge: t("Playground.tabs.image.badge") },
+      { key: "voice" as const, label: t("Playground.tabs.voice.label"), badge: t("Playground.tabs.voice.badge") },
+      { key: "video" as const, label: t("Playground.tabs.video.label"), badge: t("Playground.tabs.video.badge") },
+    ],
+    [t]
+  );
+  const solutionTabs = useMemo(
+    () => ({
+      vision: {
+        title: t("Solutions.tabs.vision.title"),
+        description: t("Solutions.tabs.vision.description"),
+        bullets: [
+          t("Solutions.tabs.vision.bullets.0"),
+          t("Solutions.tabs.vision.bullets.1"),
+          t("Solutions.tabs.vision.bullets.2"),
+        ],
+      },
+      audio: {
+        title: t("Solutions.tabs.audio.title"),
+        description: t("Solutions.tabs.audio.description"),
+        bullets: [
+          t("Solutions.tabs.audio.bullets.0"),
+          t("Solutions.tabs.audio.bullets.1"),
+          t("Solutions.tabs.audio.bullets.2"),
+        ],
+      },
+      firewall: {
+        title: t("Solutions.tabs.firewall.title"),
+        description: t("Solutions.tabs.firewall.description"),
+        bullets: [
+          t("Solutions.tabs.firewall.bullets.0"),
+          t("Solutions.tabs.firewall.bullets.1"),
+          t("Solutions.tabs.firewall.bullets.2"),
+        ],
+      },
+    }),
+    [t]
+  );
+  const heroStats = useMemo(
+    () => [
+      { title: t("Hero.stats.0.title"), desc: t("Hero.stats.0.description") },
+      { title: t("Hero.stats.1.title"), desc: t("Hero.stats.1.description") },
+      { title: t("Hero.stats.2.title"), desc: t("Hero.stats.2.description") },
+    ],
+    [t]
+  );
+  const problemStats = useMemo(
+    () => [
+      t("Problem.stats.0"),
+      t("Problem.stats.1"),
+      t("Problem.stats.2"),
+    ],
+    [t]
+  );
+  const developerBullets = useMemo(
+    () => [
+      t("Developer.bullets.0"),
+      t("Developer.bullets.1"),
+      t("Developer.bullets.2"),
+      t("Developer.bullets.3"),
+    ],
+    [t]
+  );
+  const featureLabels = useMemo(
+    () => ({
+      image: t("Pricing.features.image"),
+      voice: t("Pricing.features.voice"),
+      video: t("Pricing.features.video"),
+    }),
+    [t]
+  );
   const [activePlaygroundTab, setActivePlaygroundTab] =
     useState<PlaygroundTab>("image");
   const [demoCount, setDemoCount] = useState(0);
-  const [playgroundResult, setPlaygroundResult] = useState({
-    verdict: "🔴 AI-Generated (99.8%)",
-    analysis: "High frequency artifacts detected in background texture.",
-    action: "Integrate API to block this automatically.",
-  });
+  const initialPlaygroundResult = useMemo(
+    () => ({
+      verdict: t("Playground.result.default.verdict"),
+      analysis: t("Playground.result.default.analysis"),
+      action: t("Playground.result.default.action"),
+    }),
+    [t]
+  );
+  const [playgroundResult, setPlaygroundResult] = useState(initialPlaygroundResult);
   const [activeSolution, setActiveSolution] = useState<SolutionTab>("vision");
   const [videoOverlay, setVideoOverlay] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -88,6 +130,9 @@ export default function Home() {
   useEffect(() => {
     setMounted(true);
   }, []);
+  useEffect(() => {
+    setPlaygroundResult(initialPlaygroundResult);
+  }, [initialPlaygroundResult]);
 
   const handleRunDetection = () => {
     const newCount = demoCount + 1;
@@ -95,29 +140,29 @@ export default function Home() {
     localStorage.setItem("demo_count", String(newCount));
 
     const verdicts = {
-      image: "🔴 AI-Generated (99.8%)",
-      voice: "🟠 Likely Synthetic (93.2%)",
-      video: "🟡 Suspicious (Awaiting Full Model)",
+      image: t("Playground.result.image.verdict"),
+      voice: t("Playground.result.voice.verdict"),
+      video: t("Playground.result.video.verdict"),
     };
     const analyses = {
-      image: "High-frequency diffusion artifacts and edge halos spotted.",
-      voice: "Spectral cadence mismatch and cloned prosody detected.",
-      video: "Temporal jitter flagged. Beta model will auto-block on release.",
+      image: t("Playground.result.image.analysis"),
+      voice: t("Playground.result.voice.analysis"),
+      video: t("Playground.result.video.analysis"),
     };
 
     setPlaygroundResult({
       verdict: verdicts[activePlaygroundTab],
       analysis: analyses[activePlaygroundTab],
-      action: "Integrate API to block this.",
+      action: t("Playground.result.action"),
     });
   };
 
   const priceLabel = useMemo(() => {
-    if (monthlyVerifications > 100000) return "Contact Sales for Volume Discount";
+    if (monthlyVerifications > 100000) return t("Pricing.contactSales");
     const overageBlocks = Math.max(0, Math.ceil((monthlyVerifications - 10000) / 10000));
     const estimate = 49 + overageBlocks * 29 + (featureToggles.voice ? 20 : 0) + (featureToggles.video ? 25 : 0);
-    return `$${estimate.toLocaleString()} / month`;
-  }, [monthlyVerifications, featureToggles.voice, featureToggles.video]);
+    return t("Pricing.estimate", { price: estimate.toLocaleString(locale) });
+  }, [monthlyVerifications, featureToggles.voice, featureToggles.video, locale, t]);
 
   const handleVideoPlay = () => {
     setVideoOverlay(false);
@@ -159,25 +204,24 @@ export default function Home() {
                     : "bg-slate-100 border border-slate-200 text-indigo-700"
                 }`}
               >
-                Hacker Chic · Enterprise Grade · Dark Mode
+                {t("Hero.kicker")}
               </div>
               <h1
                 className={`text-4xl md:text-6xl font-semibold leading-tight md:leading-[1.05] mb-6 ${
                   isDark ? "text-white" : "text-slate-900"
                 }`}
               >
-                The AI Firewall Against Deepfakes and Synthetic Fraud.
+                {t("Hero.title")}
               </h1>
               <p className={`text-lg md:text-xl ${softText} max-w-3xl mx-auto mb-10`}>
-                Enterprise-grade detection models that protect your KYC flows, identity verification,
-                and platform integrity from generative AI attacks.
+                {t("Hero.subtitle")}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
                 <a
                   href="#playground"
                   className="px-8 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 text-white font-semibold tracking-tight shadow-[0_0_45px_rgba(99,102,241,0.4)] hover:shadow-[0_0_65px_rgba(99,102,241,0.6)] transition-all"
                 >
-                  Try the Demo Now
+                  {t("Hero.primaryCta")}
                 </a>
                 <a
                   href="https://app.scam.ai"
@@ -189,15 +233,11 @@ export default function Home() {
                       : "border border-slate-300 text-slate-900 hover:bg-slate-100"
                   }`}
                 >
-                  Get API Key
+                  {t("Hero.secondaryCta")}
                 </a>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left max-w-5xl mx-auto">
-                {[
-                  { title: "99.99% Uptime", desc: "Battle-tested SLAs for regulated flows." },
-                  { title: "<100ms Decisions", desc: "Inline blocks before fraud escalates." },
-                  { title: "Global Coverage", desc: "Optimized for KYC, fintech, and marketplaces." },
-                ].map((item) => (
+                {heroStats.map((item) => (
                   <div
                     key={item.title}
                     className={`p-5 backdrop-blur-sm hover:border-indigo-400/40 transition ${
@@ -229,16 +269,16 @@ export default function Home() {
                       isDark ? "text-indigo-200" : "text-indigo-700"
                     }`}
                   >
-                    Product-led
+                    {t("Playground.kicker")}
                   </p>
-                  <h2 className="text-3xl md:text-4xl font-semibold">Test Our Detection Models</h2>
+                  <h2 className="text-3xl md:text-4xl font-semibold">{t("Playground.title")}</h2>
                 </div>
                 <div className={`flex items-center gap-3 text-sm ${mutedText}`}>
                   <span className={`px-3 py-1 ${panelClass}`}>
-                    5 Free Trials
+                    {t("Playground.freeTrials", { count: 5 })}
                   </span>
                   <span className={`px-3 py-1 ${panelClass}`}>
-                    Demo count: {demoCount}/5
+                    {t("Playground.demoCount", { count: demoCount, limit: 5 })}
                   </span>
                 </div>
               </div>
@@ -294,17 +334,17 @@ export default function Home() {
                     >
                       <div className="flex items-start justify-between mb-4">
                         <div>
-                          <p className={`text-sm ${mutedText}`}>Upload Area</p>
+                          <p className={`text-sm ${mutedText}`}>{t("Playground.uploadArea")}</p>
                           <p className={`text-sm ${isDark ? "text-slate-400" : "text-slate-600"}`}>
-                            Drag & drop an image or paste URL. JPG, PNG, WEBP (Max 5MB)
+                            {t("Playground.uploadHint")}
                           </p>
                         </div>
                         <span className="text-[10px] uppercase tracking-[0.16em] text-indigo-200">
                           {activePlaygroundTab === "image"
-                            ? "High Fidelity"
+                            ? t("Playground.badges.image")
                             : activePlaygroundTab === "voice"
-                            ? "Audio Beta"
-                            : "Video Soon"}
+                            ? t("Playground.badges.voice")
+                            : t("Playground.badges.video")}
                         </span>
                       </div>
                       <div
@@ -313,10 +353,10 @@ export default function Home() {
                         }`}
                       >
                         <p className={softText}>
-                          Drag & drop an image here or paste an image URL
+                          {t("Playground.dropzonePrompt")}
                           <br />
                           <span className={`text-sm ${isDark ? "text-slate-500" : "text-slate-600"}`}>
-                            Supported formats: JPG, PNG, WEBP (Max 5MB)
+                            {t("Playground.dropzoneFormats")}
                           </span>
                         </p>
                       </div>
@@ -325,10 +365,12 @@ export default function Home() {
                           onClick={handleRunDetection}
                           className="px-5 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 text-white font-semibold shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:shadow-[0_0_45px_rgba(79,70,229,0.6)] transition"
                         >
-                          Run Detection
+                          {t("Playground.runDetection")}
                         </button>
                         <span className={`text-xs ${mutedText}`}>
-                          {5 - Math.min(demoCount, 5)} free checks remaining
+                          {t("Playground.remaining", {
+                            count: 5 - Math.min(demoCount, 5),
+                          })}
                         </span>
                       </div>
                     </div>
@@ -341,10 +383,10 @@ export default function Home() {
                           }`}
                         >
                           <p className="text-lg font-semibold mb-2">
-                            You've hit the limit of 5 free checks.
+                            {t("Playground.limit.title", { limit: 5 })}
                           </p>
                           <p className={`mb-4 ${softText}`}>
-                            Create a free account to continue testing at scale.
+                            {t("Playground.limit.description")}
                           </p>
                           <a
                             href="https://app.scam.ai"
@@ -352,19 +394,19 @@ export default function Home() {
                             rel="noopener noreferrer"
                             className="px-5 py-2 bg-white text-black font-semibold tracking-tight"
                           >
-                            Sign Up for Free
+                            {t("Playground.limit.cta")}
                           </a>
                         </div>
                       )}
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-xs uppercase tracking-[0.18em] text-indigo-200 mb-2">
-                            Result Card
+                            {t("Playground.result.label")}
                           </p>
                           <p className="text-xl font-semibold">{playgroundResult.verdict}</p>
                         </div>
                         <span className="px-3 py-1 text-xs bg-red-500/20 border border-red-500/30 text-red-200">
-                          High Risk
+                          {t("Playground.risk")}
                         </span>
                       </div>
                       <div className={`p-4 ${panelClass}`}>
@@ -378,7 +420,7 @@ export default function Home() {
                             isDark ? "text-indigo-200 hover:text-white" : "text-indigo-700"
                           }`}
                         >
-                          Integrate API →
+                          {t("Playground.integrate")}
                         </a>
                       </div>
                     </div>
@@ -398,14 +440,14 @@ export default function Home() {
           >
             <div className="max-w-6xl mx-auto px-6">
               <p className={`text-xs uppercase tracking-[0.2em] mb-4 ${mutedText}`}>
-                Trusted by innovators & backed by the best
+                {t("Trust.kicker")}
               </p>
               <div className="flex flex-wrap items-center gap-6 md:gap-10 mb-10">
                 {[
-                  { src: "/skydeck.png", alt: "SkyDeck Logo", width: 120, height: 34 },
-                  { src: "/aws.webp", alt: "AWS Partner", width: 90, height: 30 },
-                  { src: "/nvidia.webp", alt: "Nvidia Inception", width: 110, height: 32 },
-                  { src: "/google.webp", alt: "GCP", width: 90, height: 30 },
+                  { src: "/skydeck.png", alt: t("Trust.logos.skydeck"), width: 120, height: 34 },
+                  { src: "/aws.webp", alt: t("Trust.logos.aws"), width: 90, height: 30 },
+                  { src: "/nvidia.webp", alt: t("Trust.logos.nvidia"), width: 110, height: 32 },
+                  { src: "/google.webp", alt: t("Trust.logos.google"), width: 90, height: 30 },
                 ].map((logo) => (
                   <div
                     key={logo.alt}
@@ -419,7 +461,7 @@ export default function Home() {
                 <div className={`relative overflow-hidden ${panelClass}`}>
                   <Image
                     src="/skydeck.png"
-                    alt="Berkeley SkyDeck"
+                    alt={t("Trust.featured.imageAlt")}
                     width={640}
                     height={360}
                     className="w-full h-full object-cover"
@@ -432,14 +474,13 @@ export default function Home() {
                       isDark ? "text-indigo-200" : "text-indigo-700"
                     }`}
                   >
-                    Featured Story
+                    {t("Trust.featured.kicker")}
                   </p>
                   <h3 className="text-3xl font-semibold">
-                    From Berkeley SkyDeck to $2M Seed Round.
+                    {t("Trust.featured.title")}
                   </h3>
                   <p className={softText}>
-                    Learn how we are building the definitive defense layer against the next
-                    generation of AI fraud.
+                    {t("Trust.featured.description")}
                   </p>
                   <a
                     href="/stories/skydeck"
@@ -447,7 +488,7 @@ export default function Home() {
                       isDark ? "text-indigo-200 hover:text-white" : "text-indigo-700"
                     }`}
                   >
-                    Read Our Story →
+                    {t("Trust.featured.cta")}
                   </a>
                 </div>
               </div>
@@ -488,13 +529,13 @@ export default function Home() {
                           isDark ? "text-red-200" : "text-red-600"
                         }`}
                       >
-                        Red Team Footage
+                        {t("Problem.video.kicker")}
                       </span>
                       <p className="text-lg font-semibold mb-4">
-                        Watch: How we bypassed standard KYC in 10 seconds.
+                        {t("Problem.video.title")}
                       </p>
                       <span className="px-4 py-2 border border-red-400/60 text-red-100">
-                        ▶ Play
+                        {t("Problem.video.cta")}
                       </span>
                     </button>
                   )}
@@ -506,19 +547,14 @@ export default function Home() {
                     isDark ? "text-red-200" : "text-red-600"
                   }`}
                 >
-                  The Problem Landscape
+                  {t("Problem.kicker")}
                 </p>
-                <h3 className="text-3xl font-semibold mb-3">Traditional KYC is Broken.</h3>
+                <h3 className="text-3xl font-semibold mb-3">{t("Problem.title")}</h3>
                 <p className={`${softText} mb-6`}>
-                  Generative AI has made liveness detection obsolete. Attackers are scaling bypasses
-                  faster than you can patch them.
+                  {t("Problem.description")}
                 </p>
                 <div className="grid grid-cols-1 gap-4">
-                  {[
-                    "3,000% Increase in Deepfake Fraud (2024)",
-                    "< 10s Time required to clone a voice",
-                    "0% Effectiveness of human review against Diffusion Models",
-                  ].map((stat) => (
+                  {problemStats.map((stat) => (
                     <div
                       key={stat}
                       className={`p-4 flex items-center justify-between border ${
@@ -555,9 +591,9 @@ export default function Home() {
                     isDark ? "text-indigo-200" : "text-indigo-700"
                   }`}
                 >
-                  Complete Defense Suite
+                  {t("Solutions.kicker")}
                 </p>
-                <h3 className="text-3xl font-semibold mb-6">Giga-grade controls for modern fraud.</h3>
+                <h3 className="text-3xl font-semibold mb-6">{t("Solutions.title")}</h3>
                 <div className="space-y-3">
                   {(["vision", "audio", "firewall"] as SolutionTab[]).map((key) => (
                     <button
@@ -591,7 +627,7 @@ export default function Home() {
                       isDark ? "text-indigo-200" : "text-indigo-700"
                     }`}
                   >
-                    Threat Analysis
+                    {t("Solutions.analysis.kicker")}
                   </p>
                   <h4 className="text-2xl font-semibold mb-4">{solutionTabs[activeSolution].title}</h4>
                   <p className={`${softText} mb-6`}>{solutionTabs[activeSolution].description}</p>
@@ -609,9 +645,9 @@ export default function Home() {
                   </div>
                   <div className={`border p-4 ${isDark ? "border-white/10 bg-black/60" : "border-slate-200 bg-white"}`}>
                     <div className="flex items-center justify-between mb-2">
-                      <p className={`text-sm ${softText}`}>Live log · Blocked Requests</p>
+                      <p className={`text-sm ${softText}`}>{t("Solutions.analysis.logTitle")}</p>
                       <span className="px-3 py-1 text-xs bg-green-500/10 text-green-200 border border-green-500/30">
-                        Realtime
+                        {t("Solutions.analysis.realtime")}
                       </span>
                     </div>
                     <div
@@ -619,9 +655,9 @@ export default function Home() {
                         isDark ? "text-slate-200" : "text-slate-800"
                       }`}
                     >
-                      <p>[00:01:12] FACE-SWAP attempt blocked · confidence 99.2%</p>
-                      <p>[00:01:15] VOICE-CLONE IVR flagged · fallback to OTP</p>
-                      <p>[00:01:19] IMPERSONATION API denied · rule: Vision-Strict</p>
+                      <p>{t("Solutions.analysis.logs.0")}</p>
+                      <p>{t("Solutions.analysis.logs.1")}</p>
+                      <p>{t("Solutions.analysis.logs.2")}</p>
                     </div>
                   </div>
                 </div>
@@ -643,18 +679,13 @@ export default function Home() {
                     isDark ? "text-indigo-200" : "text-indigo-700"
                   }`}
                 >
-                  Built for Developers
+                  {t("Developer.kicker")}
                 </p>
                 <h3 className="text-3xl font-semibold mb-4">
-                  Built for Developers, Integrated in Minutes.
+                  {t("Developer.title")}
                 </h3>
                 <ul className={`space-y-3 ${softText}`}>
-                  {[
-                    "✅ REST & gRPC Support",
-                    "✅ < 100ms Latency",
-                    "✅ 99.99% Uptime SLA",
-                    "✅ SOC2 Compliant (Ready)",
-                  ].map((item) => (
+                  {developerBullets.map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <span className="text-indigo-300 mt-1">▣</span>
                       <span>{item}</span>
@@ -669,7 +700,7 @@ export default function Home() {
                       : "border border-slate-300 text-indigo-700 hover:bg-slate-100"
                   }`}
                 >
-                  Read the Documentation →
+                  {t("Developer.cta")}
                 </a>
               </div>
               <div
@@ -678,9 +709,9 @@ export default function Home() {
                 }`}
               >
                 <div className={`flex items-center justify-between text-xs mb-3 ${mutedText}`}>
-                  <span>Python SDK</span>
+                  <span>{t("Developer.sdk")}</span>
                   <span className={isDark ? "text-indigo-200" : "text-indigo-700"}>
-                    Latency target: &lt;100ms
+                    {t("Developer.latencyTarget")}
                   </span>
                 </div>
                 <pre
@@ -688,18 +719,7 @@ export default function Home() {
                     isDark ? "text-slate-100 bg-black/40" : "text-slate-900 bg-slate-100"
                   }`}
                 >
-{`import scamai
-
-client = scamai.Client(api_key="sk_live_...")
-
-# Detect deepfake in real-time
-check = client.detect.image(
-    url="https://user-upload.jpg",
-    sensitivity="high"
-)
-
-if check.is_fake:
-    print(f"Blocked: {check.reason} ({check.confidence}%)")`}
+{t("Developer.code")}
                 </pre>
               </div>
             </div>
@@ -721,15 +741,17 @@ if check.is_fake:
                       isDark ? "text-indigo-200" : "text-indigo-700"
                     }`}
                   >
-                    Transparent Pricing
+                    {t("Pricing.kicker")}
                   </p>
-                  <h3 className="text-3xl font-semibold">Transparent Pricing. Pay as you Grow.</h3>
+                  <h3 className="text-3xl font-semibold">{t("Pricing.title")}</h3>
                 </div>
               </div>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className={`md:col-span-2 p-6 ${panelClass}`}>
                   <label className={`text-sm mb-2 block ${mutedText}`}>
-                    Monthly Verifications: {monthlyVerifications.toLocaleString()}
+                    {t("Pricing.monthlyLabel", {
+                      count: monthlyVerifications.toLocaleString(locale),
+                    })}
                   </label>
                   <input
                     type="range"
@@ -751,11 +773,7 @@ if check.is_fake:
                           className="accent-indigo-400"
                         />
                         <span className={key === "image" ? "text-white" : ""}>
-                          {key === "image"
-                            ? "Image Detection"
-                            : key === "voice"
-                            ? "Voice Analysis"
-                            : "Video Analysis"}
+                          {featureLabels[key]}
                         </span>
                       </label>
                     ))}
@@ -767,18 +785,17 @@ if check.is_fake:
                       isDark ? "text-indigo-200" : "text-indigo-700"
                     }`}
                   >
-                    Estimated Cost
+                    {t("Pricing.estimateLabel")}
                   </p>
                   <p className="text-3xl font-semibold mb-2">{priceLabel}</p>
-                  <p className={`text-sm mb-4 ${softText}`}>Includes 10,000 API calls</p>
+                  <p className={`text-sm mb-4 ${softText}`}>{t("Pricing.includes")}</p>
                   <p className={`text-sm mb-4 ${mutedText}`}>
-                    If slider exceeds 100k checks we route you directly to sales for a volume
-                    discount and tailored SLAs.
+                    {t("Pricing.note")}
                   </p>
                   <ul className={`text-sm space-y-2 ${softText}`}>
-                    <li>All plans include: API Access</li>
-                    <li>Community Support</li>
-                    <li>99.9% Uptime</li>
+                    <li>{t("Pricing.list.0")}</li>
+                    <li>{t("Pricing.list.1")}</li>
+                    <li>{t("Pricing.list.2")}</li>
                   </ul>
                 </div>
               </div>
@@ -794,7 +811,7 @@ if check.is_fake:
           >
             <div className="max-w-3xl mx-auto px-6 text-center">
               <h3 className="text-3xl md:text-4xl font-semibold mb-4">
-                Ready to Secure Your Platform?
+                {t("FinalCta.title")}
               </h3>
               <div className="flex flex-wrap items-center justify-center gap-4 mb-3">
                 <a
@@ -803,7 +820,7 @@ if check.is_fake:
                   rel="noopener noreferrer"
                   className="px-7 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 text-white font-semibold shadow-[0_0_40px_rgba(99,102,241,0.4)] hover:shadow-[0_0_55px_rgba(99,102,241,0.6)] transition"
                 >
-                  Contact Sales
+                  {t("FinalCta.primary")}
                 </a>
                 <a
                   href="https://app.scam.ai"
@@ -815,11 +832,11 @@ if check.is_fake:
                       : "border border-slate-300 text-slate-900 hover:bg-slate-100"
                   }`}
                 >
-                  Start with Free Developer Tier
+                  {t("FinalCta.secondary")}
                 </a>
               </div>
               <p className={softText}>
-                SOC2-ready, audited, and built in Berkeley to stop the next generation of AI fraud.
+                {t("FinalCta.description")}
               </p>
             </div>
           </section>

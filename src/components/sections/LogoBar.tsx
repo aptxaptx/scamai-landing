@@ -2,22 +2,24 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function LogoBar() {
+  const t = useTranslations("HomePage.LogoBar");
   const [isLoaded, setIsLoaded] = useState(false);
   
   useEffect(() => {
     setIsLoaded(true);
   }, []);
   const logos = [
-    { src: "/aws.webp", alt: "AWS", link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
-    { src: "/nvidia.webp", alt: "NVIDIA", link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
-    { src: "/google.webp", alt: "Google", link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
-    { src: "/skydeck.png", alt: "SkyDeck", link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
-    { src: "/21972-312_SOC_NonCPA_Blk.png", alt: "SOC Compliance", link: null, width: 180, height: 60, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
+    { src: "/aws.webp", alt: t("aws"), link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
+    { src: "/nvidia.webp", alt: t("nvidia"), link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
+    { src: "/google.webp", alt: t("google"), link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
+    { src: "/skydeck.png", alt: t("skydeck"), link: null, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
+    { src: "/21972-312_SOC_NonCPA_Blk.png", alt: t("soc"), link: null, width: 180, height: 60, className: "filter grayscale brightness-150 opacity-70 hover:opacity-100 transition-opacity" },
     { 
       src: "/producthunt.svg", 
-      alt: "Product Hunt", 
+      alt: t("productHunt"),
       link: "https://www.producthunt.com/products/scam-ai",
       width: 240,
       height: 75,

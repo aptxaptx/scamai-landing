@@ -1,14 +1,16 @@
 // Global types and interfaces
 
 export interface NavigationLink {
-  label: string;
+  label?: string;
+  labelKey?: string;
   href: string;
   external?: boolean;
   children?: NavigationLink[];
 }
 
 export interface NavigationSection {
-  title: string;
+  title?: string;
+  titleKey?: string;
   links: NavigationLink[];
 }
 

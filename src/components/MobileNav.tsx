@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
+
 import { Link } from "@/i18n/navigation";
 import { NAVIGATION_SECTIONS, APP_CONFIG } from "@/constants";
 
@@ -12,6 +14,8 @@ interface MobileNavProps {
 }
 
 export default function MobileNav({ isOpen, onClose, expandedSection, setExpandedSection }: MobileNavProps) {
+  const t = useTranslations();
+
   const closeMenu = () => {
     onClose();
     setExpandedSection(null);
@@ -40,7 +44,7 @@ export default function MobileNav({ isOpen, onClose, expandedSection, setExpande
             onClick={closeMenu}
             className="w-full text-left px-6 py-4 text-lg font-medium text-gray-900 hover:bg-gray-50 transition-colors flex items-center justify-between"
           >
-            <span>{section.title}</span>
+            <span>{section.titleKey ? t(section.titleKey) : section.title}</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -57,7 +61,7 @@ export default function MobileNav({ isOpen, onClose, expandedSection, setExpande
           onClick={() => toggleSection(sectionKey)}
           className="w-full text-left px-6 py-4 text-lg font-medium text-gray-900 hover:bg-gray-50 transition-colors flex items-center justify-between"
         >
-          <span>{section.title}</span>
+          <span>{section.titleKey ? t(section.titleKey) : section.title}</span>
           <svg
             className={`w-5 h-5 transition-transform duration-200 ${
               isExpanded ? "rotate-180" : ""
@@ -74,11 +78,11 @@ export default function MobileNav({ isOpen, onClose, expandedSection, setExpande
           <div className="bg-gray-50 py-2">
             {section.links.map((link, index) => {
               // Special handling for Detection Models header in Models section
-              if (sectionKey === "models" && link.label === "Detection Models") {
+              if (sectionKey === "models" && link.labelKey === "Navigation.links.detectionModels") {
                 return (
                   <div key={index}>
                     <div className="px-8 py-2 text-sm font-medium text-gray-500">
-                      {link.label}
+                      {link.labelKey ? t(link.labelKey) : link.label}
                     </div>
                     {/* Render child links indented */}
                     {link.children && (
@@ -93,7 +97,7 @@ export default function MobileNav({ isOpen, onClose, expandedSection, setExpande
                               ? { target: "_blank", rel: "noopener noreferrer" }
                               : {})}
                           >
-                            {child.label}
+                            {child.labelKey ? t(child.labelKey) : child.label}
                           </Link>
                         ))}
                       </div>
@@ -107,16 +111,16 @@ export default function MobileNav({ isOpen, onClose, expandedSection, setExpande
                   key={index}
                   href={link.href}
                   onClick={closeMenu}
-                  className="block px-8 py-2.5 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors"
-                  {...(link.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
+                className="block px-8 py-2.5 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+                {...(link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
+                {link.labelKey ? t(link.labelKey) : link.label}
+              </Link>
+            );
+          })}
+        </div>
         )}
       </div>
     );
@@ -142,13 +146,13 @@ export default function MobileNav({ isOpen, onClose, expandedSection, setExpande
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-2.5 bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors"
             >
-              Get a Demo
+              {t("Navigation.mobile.getDemo")}
             </Link>
             
             <button
               onClick={closeMenu}
               className="p-2 hover:bg-gray-100 transition-colors"
-              aria-label="Close menu"
+              aria-label={t("Navigation.mobile.closeMenu")}
             >
               <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -193,7 +197,7 @@ export default function MobileNav({ isOpen, onClose, expandedSection, setExpande
               rel="noopener noreferrer"
               className="px-6 py-3 bg-black text-white text-base font-medium hover:bg-gray-800 transition-colors"
             >
-              Sign up
+              {t("Navigation.mobile.signUp")}
             </Link>
           </div>
         </div>

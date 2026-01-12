@@ -4,52 +4,52 @@ export const MAIN_NAVIGATION: string[] = ["Use Cases", "Models", "Company"];
 
 export const NAVIGATION_SECTIONS: Record<string, NavigationSection> = {
   business: {
-    title: "Use Cases",
+    titleKey: "Navigation.sections.business",
     links: [
-      { label: "KYC & Identity Verification", href: "/business/kyc" },
-      { label: "Dating & Social Apps", href: "/business/dating" },
-      { label: "Fake News Detection", href: "/business/fake-news" },
-      { label: "Impersonation & Fraud", href: "/business/impersonation" },
-      { label: "IP & Copyright", href: "/business/ip-copyright" },
-      { label: "Legal & Compliance", href: "/business/legal-compliance" },
+      { labelKey: "Navigation.links.kyc", href: "/business/kyc" },
+      { labelKey: "Navigation.links.dating", href: "/business/dating" },
+      { labelKey: "Navigation.links.fakeNews", href: "/business/fake-news" },
+      { labelKey: "Navigation.links.impersonation", href: "/business/impersonation" },
+      { labelKey: "Navigation.links.ip", href: "/business/ip-copyright" },
+      { labelKey: "Navigation.links.legalCompliance", href: "/business/legal-compliance" },
     ],
   },
   models: {
-    title: "Models",
+    titleKey: "Navigation.sections.models",
     links: [
       {
-        label: "Detection Models",
+        labelKey: "Navigation.links.detectionModels",
         href: "#",
         children: [
-          { label: "Deepfakes D1.2", href: "/models/deepfakes" },
+          { labelKey: "Navigation.links.deepfakes", href: "/models/deepfakes" },
           {
-            label: "AI Image A1.1",
+            labelKey: "Navigation.links.aiImage",
             href: "/models/ai-generated-media",
           },
-          { label: "Voiceclone V1.0", href: "/models/voice-clones" },
+          { labelKey: "Navigation.links.voiceClone", href: "/models/voice-clones" },
         ],
       },
-      { label: "Research", href: "/research/publication" },
+      { labelKey: "Navigation.links.research", href: "/research/publication" },
     ],
   },
   research: {
-    title: "Research",
+    titleKey: "Navigation.sections.research",
     links: [
-      { label: "Publications & Datasets", href: "/research/publication" },
+      { labelKey: "Navigation.links.publications", href: "/research/publication" },
     ],
   },
   stories: {
-    title: "Stories",
+    titleKey: "Navigation.sections.stories",
     links: [
-      { label: "News", href: "/stories/news" },
-      { label: "Type of Scams", href: "/stories/type-of-scams" },
+      { labelKey: "Navigation.links.news", href: "/stories/news" },
+      { labelKey: "Navigation.links.scams", href: "/stories/type-of-scams" },
     ],
   },
   company: {
-    title: "Company",
+    titleKey: "Navigation.sections.company",
     links: [
-      { label: "About Us", href: "/company/about" },
-      { label: "Partnership", href: "/company/partnership" },
+      { labelKey: "Navigation.links.about", href: "/company/about" },
+      { labelKey: "Navigation.links.partnership", href: "/company/partnership" },
     ],
   },
 };
@@ -57,10 +57,10 @@ export const NAVIGATION_SECTIONS: Record<string, NavigationSection> = {
 export const FOOTER_SECTIONS: NavigationSection[] = [
   NAVIGATION_SECTIONS.business,
   {
-    title: "For Individuals",
+    titleKey: "Navigation.sections.individuals",
     links: [
-      { label: "Mobile App", href: "/individuals?s=mobile" },
-      { label: "Browser Plugin", href: "/individuals?s=plugin" },
+      { labelKey: "Navigation.links.mobileApp", href: "/individuals?s=mobile" },
+      { labelKey: "Navigation.links.browserPlugin", href: "/individuals?s=plugin" },
     ],
   },
   NAVIGATION_SECTIONS.models,
@@ -70,12 +70,12 @@ export const FOOTER_SECTIONS: NavigationSection[] = [
 ];
 
 export const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/scam-ai/" },
+  { labelKey: "Navigation.social.linkedin", href: "https://www.linkedin.com/company/scam-ai/" },
 ];
 
 export const FOOTER_LINKS = [
-  { label: "Stories", href: "#" },
-  { label: "Company", href: "/company/about" },
-  { label: "Get Demo", href: "/demo" },
-  { label: "Manage Cookies", href: "#" },
+  { labelKey: "Navigation.links.stories", href: "#" },
+  { labelKey: "Navigation.sections.company", href: "/company/about" },
+  { labelKey: "Navigation.links.getDemo", href: "/demo" },
+  { labelKey: "Navigation.links.manageCookies", href: "#" },
 ];

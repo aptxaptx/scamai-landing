@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { NAVIGATION_SECTIONS } from "@/constants";
 
 export default function DesktopNav() {
+  const t = useTranslations();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -43,24 +45,24 @@ export default function DesktopNav() {
           {section.links.map((link, index) => {
             // Handle nested children (like Detection Models)
             if (link.children) {
-              return (
-                <div key={index}>
-                  <div className="px-4 py-2 text-sm font-medium text-gray-500">
-                    {link.label}
-                  </div>
-                  {link.children.map((child, childIndex) => (
-                    <Link
-                      key={childIndex}
-                      href={child.href}
+                  return (
+                    <div key={index}>
+                      <div className="px-4 py-2 text-sm font-medium text-gray-500">
+                        {link.labelKey ? t(link.labelKey) : link.label}
+                      </div>
+                      {link.children.map((child, childIndex) => (
+                        <Link
+                          key={childIndex}
+                          href={child.href}
                       className="block px-6 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
-                      {...(child.external
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
+                          {...(child.external
+                            ? { target: "_blank", rel: "noopener noreferrer" }
+                            : {})}
+                        >
+                          {child.labelKey ? t(child.labelKey) : child.label}
+                        </Link>
+                      ))}
+                    </div>
               );
             }
 
@@ -73,7 +75,7 @@ export default function DesktopNav() {
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
               >
-                {link.label}
+                {link.labelKey ? t(link.labelKey) : link.label}
               </Link>
             );
           })}
@@ -91,7 +93,7 @@ export default function DesktopNav() {
         onMouseLeave={handleMouseLeave}
       >
         <button className="px-4 py-2 text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors flex items-center gap-1">
-          Use Cases
+          {t(NAVIGATION_SECTIONS.business.titleKey ?? "")}
           <svg
             className={`w-4 h-4 transition-transform ${
               openDropdown === "business" ? "rotate-180" : ""
@@ -118,7 +120,7 @@ export default function DesktopNav() {
         onMouseLeave={handleMouseLeave}
       >
         <button className="px-4 py-2 text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors flex items-center gap-1">
-          Models
+          {t(NAVIGATION_SECTIONS.models.titleKey ?? "")}
           <svg
             className={`w-4 h-4 transition-transform ${
               openDropdown === "models" ? "rotate-180" : ""
@@ -145,7 +147,7 @@ export default function DesktopNav() {
         onMouseLeave={handleMouseLeave}
       >
         <button className="px-4 py-2 text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors flex items-center gap-1">
-          Research
+          {t(NAVIGATION_SECTIONS.research.titleKey ?? "")}
           <svg
             className={`w-4 h-4 transition-transform ${
               openDropdown === "research" ? "rotate-180" : ""
@@ -172,7 +174,7 @@ export default function DesktopNav() {
         onMouseLeave={handleMouseLeave}
       >
         <button className="px-4 py-2 text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors flex items-center gap-1">
-          Company
+          {t(NAVIGATION_SECTIONS.company.titleKey ?? "")}
           <svg
             className={`w-4 h-4 transition-transform ${
               openDropdown === "company" ? "rotate-180" : ""

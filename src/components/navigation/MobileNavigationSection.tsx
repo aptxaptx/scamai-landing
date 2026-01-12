@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 import { NavigationSection } from "@/types";
 import NavigationItem from "./NavigationItem";
 
@@ -11,6 +12,7 @@ export default function MobileNavigationSection({
   section,
   onLinkClick,
 }: MobileNavigationSectionProps) {
+  const t = useTranslations();
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpanded = () => setIsExpanded(!isExpanded);
@@ -21,7 +23,7 @@ export default function MobileNavigationSection({
         onClick={toggleExpanded}
         className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
       >
-        <span>{section.title}</span>
+        <span>{section.titleKey ? t(section.titleKey) : section.title}</span>
         <span
           className={`transition-transform duration-200 ${
             isExpanded ? "rotate-90" : ""
