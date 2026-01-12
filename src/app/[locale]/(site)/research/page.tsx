@@ -1,22 +1,40 @@
+import { getTranslations } from "next-intl/server";
+
 import SiteShell from "@/components/SiteShell";
+import { type Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { getAllPapers } from "@/lib/mdx";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Research.Page" });
+  return {
+    title: t("metadata.title"),
+  };
+}
 
 export default async function ResearchPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Research.Page" });
   const papers = await getAllPapers(locale);
 
   return (
     <SiteShell>
       <div className="max-w-5xl mx-auto">
         <div className="mb-10">
-          <h1 className="text-3xl md:text-4xl font-semibold">Research</h1>
+          <h1 className="text-3xl md:text-4xl font-semibold">
+            {t("hero.title")}
+          </h1>
           <p className="text-slate-600 mt-2">
-            Publications, datasets, and long-form analysis from the ScamAI team.
+            {t("hero.description")}
           </p>
         </div>
 
@@ -41,7 +59,7 @@ export default async function ResearchPage({
                     href={`/research/publication/papers/${paper.id}`}
                     className="font-semibold text-indigo-600 hover:text-indigo-800"
                   >
-                    Read summary
+                    {t("links.readSummary")}
                   </Link>
                   {paper.pdfUrl ? (
                     <a
@@ -50,7 +68,7 @@ export default async function ResearchPage({
                       rel="noopener noreferrer"
                       className="text-slate-600 hover:text-slate-900"
                     >
-                      View PDF
+                      {t("links.viewPdf")}
                     </a>
                   ) : null}
                 </div>

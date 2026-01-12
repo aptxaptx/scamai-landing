@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 
 export default function UseCasesMore() {
+  const t = useTranslations("Company.UseCasesMore");
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const isDark = mounted && resolvedTheme === "dark";
@@ -29,11 +31,11 @@ export default function UseCasesMore() {
         >
           {expanded ? (
             <>
-              Show less <span aria-hidden>↑</span>
+              {t("showLess")} <span aria-hidden>↑</span>
             </>
           ) : (
             <>
-              More… <span aria-hidden>→</span>
+              {t("showMore")} <span aria-hidden>→</span>
             </>
           )}
         </button>
@@ -42,17 +44,49 @@ export default function UseCasesMore() {
       {expanded ? (
         <div className={`mt-6 border-t pt-5 ${divider}`}>
           <div className={`text-xs tracking-widest uppercase mb-3 text-center ${label}`}>
-            Other potential use cases
+            {t("title")}
           </div>
           <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-            <Mini title="Voice spoofing authentication" desc="Verify callers during IVR/agent handoffs; flag cloned voices." isDark={isDark} />
-            <Mini title="Executive impersonation (BEC)" desc="Detect spoofed emails, invoices, and voice notes in finance workflows." isDark={isDark} />
-            <Mini title="Vendor and procurement fraud" desc="Validate vendor onboarding and payment‑change requests." isDark={isDark} />
-            <Mini title="Customer support impersonation" desc="Spot fake agents or users across chat, email, and voice." isDark={isDark} />
-            <Mini title="Brand impersonation takedown" desc="Find cloned sites, ads, and social accounts using your brand." isDark={isDark} />
-            <Mini title="Marketplace seller verification" desc="Prevent synthetic sellers and doctored product media." isDark={isDark} />
-            <Mini title="Social profile verification" desc="Detect bots, synthetic personas, and deepfake avatars." isDark={isDark} />
-            <Mini title="Email/SMS phishing scanning" desc="Score inbound messages and attachments before delivery." isDark={isDark} />
+            <Mini
+              title={t("items.0.title")}
+              desc={t("items.0.description")}
+              isDark={isDark}
+            />
+            <Mini
+              title={t("items.1.title")}
+              desc={t("items.1.description")}
+              isDark={isDark}
+            />
+            <Mini
+              title={t("items.2.title")}
+              desc={t("items.2.description")}
+              isDark={isDark}
+            />
+            <Mini
+              title={t("items.3.title")}
+              desc={t("items.3.description")}
+              isDark={isDark}
+            />
+            <Mini
+              title={t("items.4.title")}
+              desc={t("items.4.description")}
+              isDark={isDark}
+            />
+            <Mini
+              title={t("items.5.title")}
+              desc={t("items.5.description")}
+              isDark={isDark}
+            />
+            <Mini
+              title={t("items.6.title")}
+              desc={t("items.6.description")}
+              isDark={isDark}
+            />
+            <Mini
+              title={t("items.7.title")}
+              desc={t("items.7.description")}
+              isDark={isDark}
+            />
           </div>
 
           {/* Integrations section removed as requested */}

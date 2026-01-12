@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 import UseCasesMore from "./UseCasesMore";
 
 export default function AboutContent() {
+  const t = useTranslations("Company.About");
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const isDark = mounted && resolvedTheme === "dark";
@@ -25,12 +27,14 @@ export default function AboutContent() {
       <section className="py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <div className="text-center">
-            <p className={`text-xs tracking-widest uppercase ${muted}`}>Company</p>
+            <p className={`text-xs tracking-widest uppercase ${muted}`}>
+              {t("hero.kicker")}
+            </p>
             <h1 className={`mt-3 text-4xl md:text-6xl font-semibold tracking-tight ${heading}`}>
-              Making the internet safe to trust
+              {t("hero.title")}
             </h1>
             <p className={`mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed ${soft}`}>
-              Reality Inc. builds Scam AI Platform that identifies AI-generated deception across media, text, and voice. Our mission is to restore confidence online by verifying what is real—at scale.
+              {t("hero.description")}
             </p>
           </div>
         </div>
@@ -40,11 +44,13 @@ export default function AboutContent() {
       <section className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <div className="text-center">
-            <h2 className={`text-sm font-semibold tracking-wider ${muted}`}>Mission</h2>
+            <h2 className={`text-sm font-semibold tracking-wider ${muted}`}>
+              {t("mission.kicker")}
+            </h2>
             <p className={`mt-3 text-2xl md:text-[28px] leading-snug max-w-3xl mx-auto ${isDark ? "text-white/90" : "text-slate-800"}`}>
-              Build a trustworthy layer for the internet—so people,
+              {t("mission.line1")}
               <br />
-              businesses, and institutions can know what to believe.
+              {t("mission.line2")}
             </p>
           </div>
         </div>
@@ -54,42 +60,79 @@ export default function AboutContent() {
       <section className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <div className="text-center">
-            <h2 className={`text-sm font-semibold tracking-wider ${muted}`}>What we build</h2>
+            <h2 className={`text-sm font-semibold tracking-wider ${muted}`}>
+              {t("build.kicker")}
+            </h2>
           </div>
           <p className={`mt-3 text-2xl md:text-[28px] leading-snug max-w-3xl mx-auto text-center ${isDark ? "text-white/90" : "text-slate-800"}`}>
-            One‑stop solution for scam/AI misuse prevention
+            {t("build.line1")}
             <br />
-            for enterprises and individuals.
+            {t("build.line2")}
           </p>
           <div className="mt-4 grid gap-6">
             <div className="grid gap-5">
               {/* Foundation layer */}
               <div id="foundation" className={`rounded-3xl p-5 md:p-6 ${panel}`}>
                 <div className="mb-5 flex items-baseline justify-between gap-4">
-                  <div className={`${heading} font-semibold`}>Detection Infrastructure</div>
-                  <div className={`text-xs tracking-widest uppercase ${muted}`}>Foundation Layer</div>
+                  <div className={`${heading} font-semibold`}>{t("build.foundation.title")}</div>
+                  <div className={`text-xs tracking-widest uppercase ${muted}`}>
+                    {t("build.foundation.label")}
+                  </div>
                 </div>
                 <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-                  <MiniCard title="Models" description="Multimodal detectors across image, video, voice, and text." isDark={isDark} />
-                  <MiniCard title="Database" description="Continuously updated ScamDB of signals, hashes, and adversarial patterns." isDark={isDark} />
-                  <MiniCard title="APIs" description="Simple, stable APIs that deliver risk scores and guidance." isDark={isDark} />
+                  <MiniCard
+                    title={t("build.foundation.cards.0.title")}
+                    description={t("build.foundation.cards.0.description")}
+                    isDark={isDark}
+                  />
+                  <MiniCard
+                    title={t("build.foundation.cards.1.title")}
+                    description={t("build.foundation.cards.1.description")}
+                    isDark={isDark}
+                  />
+                  <MiniCard
+                    title={t("build.foundation.cards.2.title")}
+                    description={t("build.foundation.cards.2.description")}
+                    isDark={isDark}
+                  />
                 </div>
               </div>
 
               {/* Application Layer */}
               <div className={`rounded-3xl p-5 md:p-6 ${panel}`}>
                 <div className="mb-5 flex items-baseline justify-between gap-4">
-                  <div className={`${heading} font-semibold`}>Use cases</div>
-                  <div className={`text-xs tracking-widest uppercase ${muted}`}>Application Layer</div>
+                  <div className={`${heading} font-semibold`}>{t("build.applications.title")}</div>
+                  <div className={`text-xs tracking-widest uppercase ${muted}`}>
+                    {t("build.applications.label")}
+                  </div>
                 </div>
                 <p className={`text-sm mb-4 ${soft}`}>
-                  Our detection infrastructure generalizes across industries. Our initial focus areas are IDV deepfake and Data; together they represent a small portion of the overall addressable market.
+                  {t("build.applications.description")}
                 </p>
                 <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                  <MiniCard title="IDV deepfake" badge="Current focus" description="Authenticate KYC/IDV by detecting face swaps and synthetic identities." isDark={isDark} />
-                  <MiniCard title="Data" badge="Current focus" description="Capture and enrich threat signals across platforms and channels." isDark={isDark} />
-                  <MiniCard title="Enterprise cyber-security" description="Protect employees and systems from impersonation and phishing." isDark={isDark} />
-                  <MiniCard title="Consumer scam" badge="End of 2025" description="Safeguard users from fraud across messages, calls, and social." isDark={isDark} />
+                  <MiniCard
+                    title={t("build.applications.cards.0.title")}
+                    badge={t("build.applications.cards.0.badge")}
+                    description={t("build.applications.cards.0.description")}
+                    isDark={isDark}
+                  />
+                  <MiniCard
+                    title={t("build.applications.cards.1.title")}
+                    badge={t("build.applications.cards.1.badge")}
+                    description={t("build.applications.cards.1.description")}
+                    isDark={isDark}
+                  />
+                  <MiniCard
+                    title={t("build.applications.cards.2.title")}
+                    description={t("build.applications.cards.2.description")}
+                    isDark={isDark}
+                  />
+                  <MiniCard
+                    title={t("build.applications.cards.3.title")}
+                    badge={t("build.applications.cards.3.badge")}
+                    description={t("build.applications.cards.3.description")}
+                    isDark={isDark}
+                  />
                 </div>
                 <UseCasesMore />
               </div>
@@ -102,13 +145,31 @@ export default function AboutContent() {
       <section className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <div className="text-center mb-6">
-            <h2 className={`text-sm font-semibold tracking-wider ${muted}`}>Values</h2>
+            <h2 className={`text-sm font-semibold tracking-wider ${muted}`}>
+              {t("values.kicker")}
+            </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-            <MiniCard title="Integrity & accountability" description="Do the right thing—especially when it’s difficult." isDark={isDark} />
-            <MiniCard title="People first" description="Protect individuals and communities from harm. Optimize for long‑term trust over short‑term wins." isDark={isDark} />
-            <MiniCard title="Rigor with humility" description="Seek truth through evidence, openness, and critique. Change our minds when the data says so." isDark={isDark} />
-            <MiniCard title="Build for decades" description="Think long‑term. Favor simplicity, privacy, and durability in what we choose to create." isDark={isDark} />
+            <MiniCard
+              title={t("values.cards.0.title")}
+              description={t("values.cards.0.description")}
+              isDark={isDark}
+            />
+            <MiniCard
+              title={t("values.cards.1.title")}
+              description={t("values.cards.1.description")}
+              isDark={isDark}
+            />
+            <MiniCard
+              title={t("values.cards.2.title")}
+              description={t("values.cards.2.description")}
+              isDark={isDark}
+            />
+            <MiniCard
+              title={t("values.cards.3.title")}
+              description={t("values.cards.3.description")}
+              isDark={isDark}
+            />
           </div>
         </div>
       </section>
@@ -117,8 +178,16 @@ export default function AboutContent() {
       <section className="py-12 md:py-20">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-            <CTA title="People" subtitle="Meet the team building ScamAI" isDark={isDark} />
-            <CTA title="Partnership" subtitle="Work with us to protect your users" isDark={isDark} />
+            <CTA
+              title={t("cta.people.title")}
+              subtitle={t("cta.people.subtitle")}
+              isDark={isDark}
+            />
+            <CTA
+              title={t("cta.partnership.title")}
+              subtitle={t("cta.partnership.subtitle")}
+              isDark={isDark}
+            />
           </div>
         </div>
       </section>

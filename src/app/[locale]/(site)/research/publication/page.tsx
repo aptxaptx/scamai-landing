@@ -4,10 +4,13 @@ import SiteShell from "@/components/SiteShell";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { papers } from "./papers/data";
 import { datasets } from "./datasets/data";
 
 export default function PublicationPage() {
+  const t = useTranslations("Research.Publication");
+  const locale = useLocale();
   const [activeFilter, setActiveFilter] = useState<'all' | 'publications' | 'datasets'>('all');
   const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'alphabetical-az' | 'alphabetical-za'>('newest');
   const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
@@ -64,13 +67,13 @@ export default function PublicationPage() {
         
         <div className="relative z-10 text-center p-8 md:p-12 lg:p-14">
           <div className="inline-block px-4 py-2 mb-4 text-sm font-medium text-white/80 bg-white/10 rounded-full">
-            Research
+            {t("hero.kicker")}
           </div>
           <h1 className="text-[clamp(32px,7vw,64px)] font-bold tracking-tight">
-            Publications & Datasets
+            {t("hero.title")}
           </h1>
           <p className="mt-4 text-white/85 text-[clamp(15px,2.2vw,20px)] max-w-3xl mx-auto">
-            Our latest research papers and datasets advancing fraud detection and AI security.
+            {t("hero.description")}
           </p>
         </div>
       </section>
@@ -87,7 +90,7 @@ export default function PublicationPage() {
                   : 'text-white/70 hover:text-white hover:bg-white/10'
               }`}
             >
-              All ({allItems.length})
+              {t("filters.all")} ({allItems.length})
             </button>
             <button
               onClick={() => setActiveFilter('publications')}
@@ -97,7 +100,7 @@ export default function PublicationPage() {
                   : 'text-white/70 hover:text-white hover:bg-white/10'
               }`}
             >
-              Publications ({papers.length})
+              {t("filters.publications")} ({papers.length})
             </button>
             <button
               onClick={() => setActiveFilter('datasets')}
@@ -107,20 +110,20 @@ export default function PublicationPage() {
                   : 'text-white/70 hover:text-white hover:bg-white/10'
               }`}
             >
-              Datasets ({datasets.length})
+              {t("filters.datasets")} ({datasets.length})
             </button>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-white/50 text-sm">Sort by:</span>
+            <span className="text-white/50 text-sm">{t("sort.label")}</span>
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setSortDropdownOpen(!sortDropdownOpen)}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-colors text-sm"
               >
-                {sortBy === 'newest' && 'Newest → Oldest'}
-                {sortBy === 'oldest' && 'Oldest → Newest'}
-                {sortBy === 'alphabetical-az' && 'Alphabetical (A-Z)'}
-                {sortBy === 'alphabetical-za' && 'Alphabetical (Z-A)'}
+                {sortBy === 'newest' && t("sort.newest")}
+                {sortBy === 'oldest' && t("sort.oldest")}
+                {sortBy === 'alphabetical-az' && t("sort.az")}
+                {sortBy === 'alphabetical-za' && t("sort.za")}
                 <svg className={`w-4 h-4 transition-transform ${sortDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19 9-7 7-7-7" />
                 </svg>
@@ -142,7 +145,7 @@ export default function PublicationPage() {
                     }`}>
                       {sortBy === 'newest' && <div className="w-2 h-2 rounded-full bg-blue-600"></div>}
                     </div>
-                    Newest → Oldest
+                    {t("sort.newest")}
                   </button>
                   <button
                     onClick={() => {
@@ -158,7 +161,7 @@ export default function PublicationPage() {
                     }`}>
                       {sortBy === 'oldest' && <div className="w-2 h-2 rounded-full bg-blue-600"></div>}
                     </div>
-                    Oldest → Newest
+                    {t("sort.oldest")}
                   </button>
                   <button
                     onClick={() => {
@@ -174,7 +177,7 @@ export default function PublicationPage() {
                     }`}>
                       {sortBy === 'alphabetical-az' && <div className="w-2 h-2 rounded-full bg-blue-600"></div>}
                     </div>
-                    Alphabetical (A-Z)
+                    {t("sort.az")}
                   </button>
                   <button
                     onClick={() => {
@@ -190,7 +193,7 @@ export default function PublicationPage() {
                     }`}>
                       {sortBy === 'alphabetical-za' && <div className="w-2 h-2 rounded-full bg-blue-600"></div>}
                     </div>
-                    Alphabetical (Z-A)
+                    {t("sort.za")}
                   </button>
                 </div>
               )}
@@ -236,7 +239,7 @@ export default function PublicationPage() {
                   </h3>
                   
                   <p className="text-sm text-white/70 mb-3">
-                    {new Date(item.date).toLocaleDateString('en-US', { 
+                    {new Date(item.date).toLocaleDateString(locale, { 
                       year: 'numeric', 
                       month: 'long', 
                       day: 'numeric' 
@@ -252,21 +255,20 @@ export default function PublicationPage() {
       <section className="mt-16 text-center mr-8">
         <div className="bg-white/5 rounded-2xl p-8 md:p-12">
           <h2 className="text-2xl font-bold tracking-tight mb-4">
-            Collaborate with Our Research Team
+            {t("cta.title")}
           </h2>
           <p className="text-white/70 text-lg mb-6 max-w-2xl mx-auto">
-            Interested in research collaboration, dataset access, or discussing our publications? Get in touch with our research team.
+            {t("cta.description")}
           </p>
           <Link
             href="/demo"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-xl hover:bg-white/90 transition-colors"
           >
-            Contact Research Team
+            {t("cta.button")}
           </Link>
         </div>
       </section>
     </SiteShell>
   );
 }
-
 

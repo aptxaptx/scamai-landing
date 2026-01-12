@@ -1,8 +1,10 @@
 import SiteShell from "@/components/SiteShell";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function FaceSwappingPage() {
+  const t = useTranslations("Stories.FaceSwapping");
   return (
     <SiteShell>
       {/* Main Content */}
@@ -11,17 +13,17 @@ export default function FaceSwappingPage() {
         {/* Hero Section */}
         <section className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-medium text-white mb-6 leading-tight">
-            AI Face Swapping Scams
+            {t("hero.title")}
           </h1>
           <p className="text-lg text-white/90 max-w-4xl mx-auto leading-[1.77] text-left">
-            Advanced AI technology is being used to create convincing fake videos and images by swapping faces. These deepfake scams can be incredibly persuasive, making it difficult to distinguish between real and manipulated content.
+            {t("hero.description")}
           </p>
           
           {/* Image */}
           <div className="my-12">
             <Image 
               src="/face-swapping scam.png" 
-              alt="Face Swapping Scam Illustration" 
+              alt={t("hero.imageAlt")}
               width={800}
               height={400}
               className="w-full h-auto rounded-lg object-cover"
@@ -32,16 +34,16 @@ export default function FaceSwappingPage() {
         {/* What is a Face Swapping Scam */}
         <section className="mb-16">
           <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
-            What is a Face Swapping Scam?
+            {t("whatIs.title")}
           </h2>
           <p className="text-lg text-white/80 leading-[1.77] mb-6">
-            Criminals use advanced AI to manipulate or generate video footage, replacing a person&apos;s face or simulating real-time video calls. These deepfakes can convincingly impersonate leaders, employees, or public figures to deceive viewers and drive harmful actions.
+            {t("whatIs.description")}
           </p>
           
           {/* Highlighted Box */}
           <div className="border-l-4 border-white bg-white/5 p-6 my-12">
             <p className="text-xl text-white font-medium leading-[1.77]">
-              Seeing is no longer believing. AI-generated face swaps can create convincing fake videos that are nearly impossible to detect with the naked eye.
+              {t("whatIs.highlight")}
             </p>
           </div>
         </section>
@@ -49,31 +51,31 @@ export default function FaceSwappingPage() {
         {/* Warning Signs */}
         <section className="mb-16">
           <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
-            Warning Signs:
+            {t("warning.title")}
           </h2>
           <div className="space-y-4">
             <div className="flex items-start gap-3">
               <span className="text-white text-lg">•</span>
               <p className="text-lg text-white/80 leading-[1.77]">
-                Lip movements not perfectly aligned with spoken words.
+                {t("warning.items.0")}
               </p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white text-lg">•</span>
               <p className="text-lg text-white/80 leading-[1.77]">
-                Irregular eye blinking, unnatural facial movements, or distortions.
+                {t("warning.items.1")}
               </p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white text-lg">•</span>
               <p className="text-lg text-white/80 leading-[1.77]">
-                Lighting, shadows, or reflections inconsistent with the environment.
+                {t("warning.items.2")}
               </p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white text-lg">•</span>
               <p className="text-lg text-white/80 leading-[1.77]">
-                Unexpected video call requests from unusual or spoofed accounts.
+                {t("warning.items.3")}
               </p>
             </div>
           </div>
@@ -82,10 +84,10 @@ export default function FaceSwappingPage() {
         {/* How to Protect Yourself */}
         <section className="mb-16">
           <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
-            Protect Yourself:
+            {t("protect.title")}
           </h2>
           <p className="text-lg text-white/80 leading-[1.77] mb-8 text-left">
-            Stay vigilant and use multiple verification methods to protect yourself from face swapping scams:
+            {t("protect.description")}
           </p>
           
           <div className="space-y-4">
@@ -93,10 +95,10 @@ export default function FaceSwappingPage() {
               <span className="text-white text-lg">•</span>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Verify Identity Beyond Video
+                  {t("protect.items.0.title")}
                 </h3>
                 <p className="text-lg text-white/80 leading-[1.77]">
-                  Do not rely on video presence alone as proof of identity.
+                  {t("protect.items.0.description")}
                 </p>
               </div>
             </div>
@@ -105,10 +107,10 @@ export default function FaceSwappingPage() {
               <span className="text-white text-lg">•</span>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Implement Secondary Verification
+                  {t("protect.items.1.title")}
                 </h3>
                 <p className="text-lg text-white/80 leading-[1.77]">
-                  Implement protocols requiring secondary verification for sensitive instructions given over video.
+                  {t("protect.items.1.description")}
                 </p>
               </div>
             </div>
@@ -117,10 +119,10 @@ export default function FaceSwappingPage() {
               <span className="text-white text-lg">•</span>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Educate Your Team
+                  {t("protect.items.2.title")}
                 </h3>
                 <p className="text-lg text-white/80 leading-[1.77]">
-                  Educate staff that &quot;seeing is believing&quot; no longer applies in the AI era.
+                  {t("protect.items.2.description")}
                 </p>
               </div>
             </div>
@@ -129,10 +131,10 @@ export default function FaceSwappingPage() {
               <span className="text-white text-lg">•</span>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Use Secure Collaboration Tools
+                  {t("protect.items.3.title")}
                 </h3>
                 <p className="text-lg text-white/80 leading-[1.77]">
-                  Use secure collaboration tools with stronger authentication methods.
+                  {t("protect.items.3.description")}
                 </p>
               </div>
             </div>
@@ -142,17 +144,17 @@ export default function FaceSwappingPage() {
         {/* Product CTA Section */}
         <section className="text-center">
           <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
-            How Can Our Product Help?
+            {t("cta.title")}
           </h2>
           <div className="bg-white/5 rounded-lg p-8">
             <p className="text-lg text-white/80 leading-[1.77] mb-6">
-              Our advanced face swapping detection technology uses sophisticated AI algorithms to identify manipulated content and protect you from deepfake scams.
+              {t("cta.description")}
             </p>
             <Link 
               href="/demo"
               className="inline-block px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors text-lg"
             >
-              Get Protected Now
+              {t("cta.button")}
             </Link>
           </div>
         </section>
@@ -163,13 +165,13 @@ export default function FaceSwappingPage() {
             href="/stories/type-of-scams"
             className="text-sm text-white/70 hover:text-white transition-colors"
           >
-            ← Back to Types of Scams
+            {t("nav.back")}
           </Link>
           <Link 
             href="/stories/type-of-scams/ai-generated-images"
             className="text-sm text-white/70 hover:text-white transition-colors"
           >
-            Next: AI-Generated Images Scam →
+            {t("nav.next")}
           </Link>
         </div>
       </div>

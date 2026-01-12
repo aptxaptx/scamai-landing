@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { useState, use } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { datasets } from "../data";
 import { papers } from "../../papers/data";
 
@@ -13,6 +14,8 @@ interface Props {
 }
 
 export default function DatasetPage({ params }: Props) {
+  const t = useTranslations("Research.Dataset");
+  const locale = useLocale();
   const unwrappedParams = use(params) as { id: string };
   const dataset = datasets.find(d => d.id === unwrappedParams.id);
   const [copySuccess, setCopySuccess] = useState(false);
@@ -29,7 +32,7 @@ export default function DatasetPage({ params }: Props) {
       setCopySuccess(true);
       setTimeout(() => setCopySuccess(false), 2000);
     } catch (err) {
-      console.error('Failed to copy: ', err);
+      console.error(t("copyError"), err);
     }
   };
 
@@ -63,7 +66,7 @@ export default function DatasetPage({ params }: Props) {
         {/* Header */}
         <header className="mb-8">
           <p className="text-white/70 mb-2">
-            {new Date(dataset.date).toLocaleDateString('en-US', { 
+            {new Date(dataset.date).toLocaleDateString(locale, { 
               year: 'numeric', 
               month: 'long', 
               day: 'numeric' 
@@ -93,19 +96,19 @@ export default function DatasetPage({ params }: Props) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div className="bg-white/5 rounded-lg p-4 border border-white/10">
               <div className="text-2xl font-bold text-white">{dataset.size}</div>
-              <div className="text-sm text-white/70">Dataset Size</div>
+              <div className="text-sm text-white/70">{t("stats.size")}</div>
             </div>
             <div className="bg-white/5 rounded-lg p-4 border border-white/10">
               <div className="text-2xl font-bold text-white">{dataset.samples}</div>
-              <div className="text-sm text-white/70">Samples</div>
+              <div className="text-sm text-white/70">{t("stats.samples")}</div>
             </div>
             <div className="bg-white/5 rounded-lg p-4 border border-white/10">
               <div className="text-2xl font-bold text-white">{dataset.license}</div>
-              <div className="text-sm text-white/70">License</div>
+              <div className="text-sm text-white/70">{t("stats.license")}</div>
             </div>
             <div className="bg-white/5 rounded-lg p-4 border border-white/10">
               <div className="text-2xl font-bold text-white">{dataset.category}</div>
-              <div className="text-sm text-white/70">Type</div>
+              <div className="text-sm text-white/70">{t("stats.type")}</div>
             </div>
           </div>
 
@@ -116,7 +119,7 @@ export default function DatasetPage({ params }: Props) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-xl hover:bg-white/90 transition-colors"
             >
-              Contact Us
+              {t("buttons.contact")}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
@@ -126,7 +129,7 @@ export default function DatasetPage({ params }: Props) {
                 href={`/research/publication/papers/${relatedPaper.id}`}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
               >
-                Related Paper
+                {t("buttons.relatedPaper")}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
@@ -136,7 +139,7 @@ export default function DatasetPage({ params }: Props) {
               onClick={handleShare}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors"
             >
-              {copySuccess ? 'Copied!' : 'Share'}
+              {copySuccess ? t("buttons.copied") : t("buttons.share")}
             </button>
           </div>
         </header>
@@ -150,7 +153,9 @@ export default function DatasetPage({ params }: Props) {
 
         {/* Related Datasets Section */}
         <section>
-          <h2 className="text-2xl font-bold tracking-tight mb-6 text-white">Related Datasets</h2>
+          <h2 className="text-2xl font-bold tracking-tight mb-6 text-white">
+            {t("sections.relatedDatasets")}
+          </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {datasets
@@ -185,7 +190,7 @@ export default function DatasetPage({ params }: Props) {
                         {relatedDataset.samples} samples • {relatedDataset.size}
                       </p>
                       <p className="text-sm text-white/70">
-                        {new Date(relatedDataset.date).toLocaleDateString('en-US', { 
+                        {new Date(relatedDataset.date).toLocaleDateString(locale, { 
                           year: 'numeric', 
                           month: 'short', 
                           day: 'numeric' 

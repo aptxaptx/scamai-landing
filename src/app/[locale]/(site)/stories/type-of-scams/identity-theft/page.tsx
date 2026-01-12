@@ -1,8 +1,10 @@
 import SiteShell from "@/components/SiteShell";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function IdentityTheftPage() {
+  const t = useTranslations("Stories.IdentityTheft");
   return (
     <SiteShell>
       {/* Main Content */}
@@ -11,17 +13,17 @@ export default function IdentityTheftPage() {
         {/* Hero Section */}
         <section className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-medium text-white mb-6 leading-tight">
-            Identity Theft Scams
+            {t("hero.title")}
           </h1>
           <p className="text-lg text-white/90 max-w-4xl mx-auto leading-[1.77] text-left">
-            Identity theft is one of the most devastating types of fraud. Scammers steal personal information to open accounts, make purchases, or commit crimes in your name, leaving you to deal with the financial and legal consequences.
+            {t("hero.description")}
           </p>
           
           {/* Image */}
           <div className="my-12">
             <Image 
               src="/identity-theft-scam.png" 
-              alt="Identity Theft Scam Illustration" 
+              alt={t("hero.imageAlt")}
               width={800}
               height={400}
               className="w-full h-auto rounded-lg object-cover"
@@ -32,16 +34,16 @@ export default function IdentityTheftPage() {
         {/* What is Identity Theft */}
         <section className="mb-16">
           <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
-            What is Identity Theft?
+            {t("whatIs.title")}
           </h2>
           <p className="text-lg text-white/80 leading-[1.77] mb-6">
-            Scammers misuse stolen, leaked, or AI-synthesized identity data to impersonate individuals or create synthetic profiles. These stolen identities are used to bypass verification, gain unauthorized access, or open fraudulent accounts.
+            {t("whatIs.description")}
           </p>
           
           {/* Highlighted Box */}
           <div className="border-l-4 border-white bg-white/5 p-6 my-12">
             <p className="text-xl text-white font-medium leading-[1.77]">
-              Identity theft can go undetected for months, allowing scammers to cause extensive damage before you even realize what&apos;s happening.
+              {t("whatIs.highlight")}
             </p>
           </div>
         </section>
@@ -49,31 +51,31 @@ export default function IdentityTheftPage() {
         {/* Warning Signs */}
         <section className="mb-16">
           <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
-            Warning Signs:
+            {t("warning.title")}
           </h2>
           <div className="space-y-4">
             <div className="flex items-start gap-3">
               <span className="text-white text-lg">•</span>
               <p className="text-lg text-white/80 leading-[1.77]">
-                Multiple accounts sharing the same contact details or credentials.
+                {t("warning.items.0")}
               </p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white text-lg">•</span>
               <p className="text-lg text-white/80 leading-[1.77]">
-                Inconsistencies between official documents, financial history, or identity records.
+                {t("warning.items.1")}
               </p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white text-lg">•</span>
               <p className="text-lg text-white/80 leading-[1.77]">
-                Requests to skip standard onboarding, due diligence, or background checks.
+                {t("warning.items.2")}
               </p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white text-lg">•</span>
               <p className="text-lg text-white/80 leading-[1.77]">
-                Unexpected alerts such as new account activity, login attempts, or verification prompts.
+                {t("warning.items.3")}
               </p>
             </div>
           </div>
@@ -82,10 +84,10 @@ export default function IdentityTheftPage() {
         {/* How to Protect Yourself */}
         <section className="mb-16">
           <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
-            Protect Yourself:
+            {t("protect.title")}
           </h2>
           <p className="text-lg text-white/80 leading-[1.77] mb-8 text-left">
-            Take proactive steps to protect your identity and personal information:
+            {t("protect.description")}
           </p>
           
           <div className="space-y-4">
@@ -93,10 +95,10 @@ export default function IdentityTheftPage() {
               <span className="text-white text-lg">•</span>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Strong Onboarding Verification
+                  {t("protect.items.0.title")}
                 </h3>
                 <p className="text-lg text-white/80 leading-[1.77]">
-                  Enforce strong onboarding verification, including biometric or multi-factor authentication.
+                  {t("protect.items.0.description")}
                 </p>
               </div>
             </div>
@@ -105,10 +107,10 @@ export default function IdentityTheftPage() {
               <span className="text-white text-lg">•</span>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Monitor Account Activity
+                  {t("protect.items.1.title")}
                 </h3>
                 <p className="text-lg text-white/80 leading-[1.77]">
-                  Monitor accounts for unusual activity or overlapping identity details.
+                  {t("protect.items.1.description")}
                 </p>
               </div>
             </div>
@@ -117,10 +119,10 @@ export default function IdentityTheftPage() {
               <span className="text-white text-lg">•</span>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Restrict Data Access
+                  {t("protect.items.2.title")}
                 </h3>
                 <p className="text-lg text-white/80 leading-[1.77]">
-                  Restrict access to sensitive data and apply least-privilege principles.
+                  {t("protect.items.2.description")}
                 </p>
               </div>
             </div>
@@ -129,10 +131,10 @@ export default function IdentityTheftPage() {
               <span className="text-white text-lg">•</span>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Regular Security Audits
+                  {t("protect.items.3.title")}
                 </h3>
                 <p className="text-lg text-white/80 leading-[1.77]">
-                  Conduct regular audits to identify and remove compromised or fraudulent accounts.
+                  {t("protect.items.3.description")}
                 </p>
               </div>
             </div>
@@ -142,17 +144,17 @@ export default function IdentityTheftPage() {
         {/* Product CTA Section */}
         <section className="text-center">
           <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
-            How Can Our Product Help?
+            {t("cta.title")}
           </h2>
           <div className="bg-white/5 rounded-lg p-8">
             <p className="text-lg text-white/80 leading-[1.77] mb-6">
-              Our identity theft protection technology monitors your personal information across the dark web and alerts you to potential threats before they become serious problems.
+              {t("cta.description")}
             </p>
             <Link 
               href="/demo"
               className="inline-block px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors text-lg"
             >
-              Get Protected Now
+              {t("cta.button")}
             </Link>
           </div>
         </section>
@@ -163,13 +165,13 @@ export default function IdentityTheftPage() {
             href="/stories/type-of-scams"
             className="text-sm text-white/70 hover:text-white transition-colors"
           >
-            ← Back to Types of Scams
+            {t("nav.back")}
           </Link>
           <Link 
             href="/stories/type-of-scams/financial-investment"
             className="text-sm text-white/70 hover:text-white transition-colors"
           >
-            Next: Financial Investment Scams →
+            {t("nav.next")}
           </Link>
         </div>
       </div>

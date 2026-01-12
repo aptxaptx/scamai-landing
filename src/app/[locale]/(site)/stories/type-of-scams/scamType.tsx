@@ -1,6 +1,7 @@
 import React from "react";
 import SiteShell from "@/components/SiteShell";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 // Inline icon component for scam types
 export type IconName = "ShieldAlert" | "Briefcase" | "MessageSquareWarning" | "Zap" | "Target" | "Globe" | "BrainCircuit";
@@ -171,6 +172,7 @@ type HeroSectionProps = {
   hero: ScamTypePageProps["hero"]; 
 };
 function HeroSection({ hero }: HeroSectionProps) {
+  const t = useTranslations("Stories.ScamType");
   return (
     <section className="relative overflow-hidden rounded-2xl grid place-items-center mb-16">
 
@@ -214,7 +216,7 @@ function HeroSection({ hero }: HeroSectionProps) {
                 playsInline
               >
                 <source src={hero.visual.src} type="video/webm" />
-                Your browser does not support the video tag.
+                {t("videoFallback")}
               </video>
             ) : (
               <Image 
@@ -235,6 +237,7 @@ function HeroSection({ hero }: HeroSectionProps) {
 // Problem Section for scam types
 type ProblemSectionProps = { problemSection: ScamTypePageProps["problemSection"] };
 function ProblemSection({ problemSection }: ProblemSectionProps) {
+  const t = useTranslations("Stories.ScamType");
   return (
     <section className="mb-16">
       <div className="text-center">
@@ -270,7 +273,7 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
               playsInline
             >
               <source src={problemSection.visual.src} type="video/webm" />
-              Your browser does not support the video tag.
+              {t("videoFallback")}
             </video>
           ) : (
             <Image 
@@ -414,6 +417,7 @@ function UseCasesSection({ useCases }: UseCasesSectionProps) {
 // API Section for scam types
 type ApiSectionProps = { api?: ScamTypePageProps["apiSection"] };
 function ApiSection({ api }: ApiSectionProps) {
+  const t = useTranslations("Stories.ScamType");
   if (!api) return null;
   return (
     <section className="mb-16">
@@ -423,11 +427,11 @@ function ApiSection({ api }: ApiSectionProps) {
 
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
-            <div className="text-sm text-gray-400 font-mono">Request</div>
+            <div className="text-sm text-gray-400 font-mono">{t("request")}</div>
             <pre className="mt-2 overflow-auto text-sm font-mono"><code>{api.codeExample.request}</code></pre>
           </div>
           <div className="rounded-lg bg-slate-900 text-gray-200 p-4 border border-white/10">
-            <div className="text-sm text-gray-400 font-mono">Response</div>
+            <div className="text-sm text-gray-400 font-mono">{t("response")}</div>
             <pre className="mt-2 overflow-auto text-sm font-mono"><code>{api.codeExample.response}</code></pre>
           </div>
         </div>
@@ -488,4 +492,3 @@ export function ScamTypePage({ data }: { data: ScamTypePageProps }) {
 }
 
 export default ScamTypePage;
-
