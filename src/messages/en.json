@@ -318,7 +318,53 @@
       "cta": "Schedule a Demo",
       "next": "Next: {label} →"
     },
+    "Page": {
+      "metadata": {
+        "title": "Business Use Case — ScamAI",
+        "description": "Explore ScamAI's AI misuse prevention solutions tailored for businesses."
+      },
+      "hero": {
+        "title": "Business Use Cases",
+        "description": "Protect your business from AI-powered fraud with our comprehensive detection solutions. From identity verification to content authenticity, safeguard your operations across every touchpoint."
+      },
+      "cards": [
+        {
+          "title": "KYC/ID Verification",
+          "description": "Detect forged IDs and deepfakes during onboarding.",
+          "tag": "Deepfake"
+        },
+        {
+          "title": "Dating Apps",
+          "description": "Stop catfishing with image, video, and voice checks.",
+          "tag": "GenAI"
+        },
+        {
+          "title": "Online Meeting",
+          "description": "Block face and voice spoofing in real time.",
+          "tag": "Deepfake & Voiceclone"
+        },
+        {
+          "title": "Fake News & Misinformation",
+          "description": "Flag AI-generated media and misleading narratives quickly.",
+          "tag": "GenAI"
+        },
+        {
+          "title": "IP/Copyright Protection",
+          "description": "Detect unauthorized AI remixes and derivative content.",
+          "tag": "Deepfake & GenAI"
+        },
+        {
+          "title": "Legal & Compliance",
+          "description": "Verify provenance and meet emerging AI regulations.",
+          "tag": "Deepfake"
+        }
+      ]
+    },
     "Kyc": {
+      "metadata": {
+        "title": "KYC/ID Verification — ScamAI",
+        "description": "Detect forged IDs and deepfakes during onboarding with ScamAI."
+      },
       "breadcrumb": "KYC/ID Verification",
       "nextLabel": "Dating Apps",
       "eyebrow": "Solutions for KYC/ID Verification",
@@ -353,6 +399,10 @@
       }
     },
     "Dating": {
+      "metadata": {
+        "title": "Dating Apps — ScamAI",
+        "description": "Stop catfishing with image, video, and voice checks. Block face and voice spoofing in real time."
+      },
       "breadcrumb": "Dating Apps",
       "nextLabel": "Impersonation",
       "eyebrow": "Solutions for Dating Apps",
@@ -383,6 +433,10 @@
       }
     },
     "FakeNews": {
+      "metadata": {
+        "title": "Fake News & Misinformation — ScamAI",
+        "description": "Flag AI-generated media and misleading narratives quickly."
+      },
       "breadcrumb": "Fake News & Misinformation",
       "nextLabel": "IP/Copyright Protection",
       "eyebrow": "Solutions for Media Integrity",
@@ -418,6 +472,10 @@
       }
     },
     "Impersonation": {
+      "metadata": {
+        "title": "Impersonation — ScamAI",
+        "description": "Block face and voice spoofing in real time."
+      },
       "breadcrumb": "Impersonation",
       "nextLabel": "Fake News & Misinformation",
       "eyebrow": "Solutions for Impersonation",
@@ -445,6 +503,10 @@
       }
     },
     "IpCopyright": {
+      "metadata": {
+        "title": "IP/Copyright Protection — ScamAI",
+        "description": "Detect unauthorized AI remixes and derivative content."
+      },
       "breadcrumb": "IP/Copyright Protection",
       "nextLabel": "Legal & Compliance",
       "eyebrow": "Solutions for IP/Copyright Protection",
@@ -472,6 +534,10 @@
       }
     },
     "LegalCompliance": {
+      "metadata": {
+        "title": "Legal & Compliance — ScamAI",
+        "description": "Verify provenance and meet emerging AI regulations."
+      },
       "breadcrumb": "Legal & Compliance",
       "nextLabel": "KYC/ID Verification",
       "eyebrow": "Solutions for Legal & Compliance",
@@ -496,6 +562,271 @@
       "cta": {
         "title": "Be confident in compliance.",
         "description": "Add provenance checks across uploads, reviews, and discovery."
+      }
+    }
+  },
+  "Models": {
+    "Deepfakes": {
+      "metadata": {
+        "title": "Deepfakes (Faceswap) — ScamAI",
+        "description": "Detect deepfakes and faceswaps with ScamAI's advanced real-time detection."
+      },
+      "hero": {
+        "category": "Deepfake Detection",
+        "headline": "Defending the Truth in Human Face",
+        "subtitle": "Real-Time Deepfake Detection",
+        "tags": ["GenAI", "Deepfake", "Faceswap"]
+      },
+      "problemSection": {
+        "headline": "The Threat: \"Seeing is Believing\" Is a Thing of the Past",
+        "visualAlt": "Deepfake detection interface showing analysis results"
+      },
+      "cta": {
+        "headline": "Take the Next Step",
+        "description": "Protect your organization with advanced deepfake detection."
+      }
+    },
+    "AiGeneratedMedia": {
+      "metadata": {
+        "title": "AI Image Detection — ScamAI",
+        "description": "Detect AI-generated images and videos with ScamAI's advanced detection technology."
+      },
+      "hero": {
+        "category": "AI-Generated Media Detection",
+        "headline": "Detect AI-Generated Images and Video",
+        "subtitle": "Verifying Reality in a Synthetic World",
+        "tags": ["GenAI", "Synthetic Media", "Detection"],
+        "visualAlt": "Examples of AI-generated fake news images showing fabricated content"
+      },
+      "problemSection": {
+        "headline": "The Threat: Is Any Image\nReal Anymore?",
+        "visualAlt": "AI detection interface showing AI-generated content identification results"
+      }
+    },
+    "VoiceClones": {
+      "metadata": {
+        "title": "Voice Cloning — ScamAI",
+        "description": "Detect AI voice clones and synthetic audio with ScamAI's real-time detection technology."
+      },
+      "hero": {
+        "category": "AI Voice Clone Detection",
+        "headline": "Real-Time AI Voice Clone Detection",
+        "subtitle": "Secure Every Conversation",
+        "tags": ["Voice AI", "Audio Synthesis", "Detection", "VoiceGuard"],
+        "visualAlt": "Example synthetic audio file Sale0625.mp3 generated by minimax.io"
+      },
+      "problemSection": {
+        "headline": "The Threat: Can You Trust What You Hear?",
+        "visualAlt": "Voice detection interface showing analysis results for synthetic audio"
+      },
+      "cta": {
+        "headline": "Secure Your Audio Channels",
+        "description": "Protect your users from voice-based fraud and impersonation."
+      }
+    },
+    "ScamTextDetection": {
+      "metadata": {
+        "title": "Scam Text Detection — ScamAI",
+        "description": "Detect scam text messages and fraudulent communications with ScamAI's advanced detection technology."
+      },
+      "hero": {
+        "category": "Scam Text Detection",
+        "headline": "Instantly Identify and Neutralize",
+        "subtitle": "Malicious Texts",
+        "description": "Scam.ai's Text Guardian model analyzes text messages and short-form content in real time to detect and block phishing, smishing, and other text-based scams before a user can click a malicious link or fall for a fraudulent request.",
+        "tags": ["Text Analysis", "Scam Detection", "NLP", "Text Guardian"],
+        "visualAlt": "Text and Link Analysis"
+      },
+      "problemSection": {
+        "headline": "The Threat: The Evolving Threat\nin Your Pocket",
+        "description": "Traditional spam filters are no longer enough. Scammers now use sophisticated tactics like personalized messages, URL shorteners, and urgent, emotion-driven language to trick even wary users. These attacks are a direct line to your customers and employees, bypassing many conventional security layers.",
+        "visualAlt": "Text-based threat landscape",
+        "valueProps": [
+          {
+            "title": "Smishing (SMS Phishing)",
+            "description": "Fake delivery notifications, bank alerts, or password reset links sent via text message."
+          },
+          {
+            "title": "Impersonation Scams",
+            "description": "Messages pretending to be from a CEO, colleague, or family member asking for gift cards, wire transfers, or sensitive information."
+          },
+          {
+            "title": "Urgency & Scare Tactics",
+            "description": "Fraudulent claims like \"Your account has been compromised\" or \"A warrant has been issued for your arrest\" to provoke an immediate, panicked response."
+          }
+        ]
+      },
+      "threatLandscape": {
+        "headline": "The Challenge of Text-Based Fraud",
+        "description": "Text-based scams have evolved beyond simple spam, using sophisticated psychological manipulation and technical evasion tactics to bypass traditional security measures.",
+        "keyThreats": [
+          "Smishing (SMS Phishing)",
+          "Impersonation Scams",
+          "Malicious Links"
+        ],
+        "dataPoint": "A 2025 report from the Federal Trade Commission (FTC) shows that financial losses from text-based scams have surpassed those from email phishing for the first time, totaling over $350 million last year alone."
+      },
+      "solution": {
+        "productName": "Text Guardian",
+        "headline": "Our Solution: Text Guardian — Proactive Threat Detection",
+        "description": "Text Guardian functions as a sophisticated language analysis engine, understanding the intent and context behind every message to identify malicious behavior with incredible accuracy.",
+        "coreDimensions": [
+          {
+            "title": "LLM-Powered Intent Analysis",
+            "description": "Powered by a proprietary Large Language Model (LLM) fine-tuned on millions of scams from our ScamNet DB, our model goes beyond keywords to understand the true intent, urgency, and manipulative tactics in a message."
+          },
+          {
+            "title": "Real-Time Link & URL Unmasking",
+            "description": "The model automatically analyzes any embedded links, following redirects and checking the final destination against our ScamNet DB for known phishing domains, even if the link is shortened or obfuscated."
+          },
+          {
+            "title": "Threat Actor Pattern Recognition",
+            "description": "Text Guardian identifies and cross-references unique phrases, phone number blocks, and URL patterns associated with known scam campaigns, allowing it to block new attacks that share a common origin."
+          }
+        ],
+        "outputDescription": "The model's output is a clear, actionable JSON response containing a risk score, the specific scam type detected (e.g., 'smishing', 'impersonation'), and any identified malicious entities."
+      },
+      "advantages": {
+        "headline": "Our Advantage: Why Choose Text Guardian?",
+        "items": [
+          {
+            "title": "Millisecond-Level Response",
+            "description": "Optimized for high-throughput messaging platforms, ensuring instant analysis without delaying message delivery."
+          },
+          {
+            "title": "Unparalleled Accuracy",
+            "description": "Our fine-tuned LLM, trained on the world's largest proprietary database of scam texts, dramatically reduces false positives and detects novel threats."
+          },
+          {
+            "title": "Exceptional Robustness",
+            "description": "Effectively understands and analyzes text containing typos, slang, emojis, and multiple languages."
+          },
+          {
+            "title": "Constantly Evolving",
+            "description": "Our model is continuously re-trained with the latest scam data from ScamNet DB, ensuring it stays ahead of evolving scammer tactics."
+          }
+        ]
+      },
+      "useCases": {
+        "headline": "Use Cases & Applications",
+        "items": [
+          "Telecommunications & Messaging Apps",
+          "Enterprise Communications",
+          "Financial Services",
+          "Online Marketplaces"
+        ]
+      },
+      "apiSection": {
+        "headline": "API Integration",
+        "description": "Ready to integrate Text Guardian into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+        "apiDocumentation": {
+          "text": "View Complete API Documentation"
+        }
+      },
+      "cta": {
+        "headline": "Take the Next Step",
+        "description": "Protect your organization with advanced text-based scam detection.",
+        "primary": {
+          "text": "Request a Demo"
+        }
+      }
+    },
+    "LinkQrCode": {
+      "metadata": {
+        "title": "Link & QR Code Detection — ScamAI",
+        "description": "Detect malicious links and QR codes with ScamAI's advanced URL analysis technology."
+      },
+      "hero": {
+        "category": "Link & QR Code Detection",
+        "headline": "Link & QR Code Detection",
+        "subtitle": "Malicious URL Analysis",
+        "description": "Identify dangerous links and malicious QR codes. Protect against URL-based attacks and fraud.",
+        "tags": ["URL Analysis", "QR Code", "Link Detection"],
+        "visualAlt": "Link and QR Code Analysis"
+      },
+      "problemSection": {
+        "headline": "Malicious Links\nAre Everywhere",
+        "description": "Attackers use shortened URLs, QR codes, and deceptive links to bypass security measures and trick users.",
+        "additionalContent": "Researchers need tools to analyze and detect malicious URLs and QR codes that are used in various attack vectors and fraud schemes.",
+        "visualAlt": "URL and link analysis tools",
+        "valueProps": [
+          {
+            "title": "Detect malicious URLs",
+            "description": "Identify dangerous links and shortened URLs automatically."
+          },
+          {
+            "title": "Analyze QR codes",
+            "description": "Decode and analyze QR codes for malicious content."
+          },
+          {
+            "title": "Research security",
+            "description": "Study URL-based attack patterns and trends."
+          }
+        ]
+      },
+      "solution": {
+        "productName": "LinkGuard",
+        "headline": "Our Solution: LinkGuard",
+        "description": "LinkGuard analyzes URLs, shortened links, and QR codes to detect malicious destinations, phishing attempts, and fraudulent websites using advanced pattern recognition.",
+        "coreDimensions": [
+          {
+            "title": "URL Analysis",
+            "description": "Deep analysis of URL structure, domain reputation, and redirection chains."
+          },
+          {
+            "title": "QR Code Decoding",
+            "description": "Decode QR codes and analyze embedded URLs for malicious content."
+          },
+          {
+            "title": "Reputation Scoring",
+            "description": "Real-time reputation analysis of domains and URL patterns."
+          }
+        ],
+        "outputDescription": "Provides comprehensive analysis with risk scores and detailed threat intelligence for URLs and QR codes."
+      },
+      "advantages": {
+        "headline": "Why Choose LinkGuard?",
+        "items": [
+          {
+            "title": "High Detection Rate",
+            "description": "Advanced algorithms trained on millions of malicious URLs."
+          },
+          {
+            "title": "Real-time Analysis",
+            "description": "Instant URL and QR code analysis for immediate threat detection."
+          },
+          {
+            "title": "Global Coverage",
+            "description": "Monitors threats across all top-level domains and URL shorteners."
+          },
+          {
+            "title": "Adaptive Intelligence",
+            "description": "Continuously updated with new URL-based attack patterns."
+          }
+        ]
+      },
+      "useCases": {
+        "headline": "Research Applications",
+        "items": [
+          "Phishing Research",
+          "URL Security Analysis",
+          "QR Code Security",
+          "Fraud Pattern Studies"
+        ]
+      },
+      "apiSection": {
+        "headline": "API Integration",
+        "description": "Ready to integrate link and QR code analysis into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+        "apiDocumentation": {
+          "text": "View Complete API Documentation"
+        }
+      },
+      "cta": {
+        "headline": "Analyze links with confidence.",
+        "description": "Protect your research with advanced URL and QR code threat detection capabilities.",
+        "primary": {
+          "text": "Schedule a Demo"
+        }
       }
     }
   },

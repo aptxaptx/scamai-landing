@@ -5,10 +5,21 @@ import SiteShell from "@/components/SiteShell";
 import { rtlLocales, type Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { getMdxContent } from "@/lib/mdx";
-export const metadata = {
-  title: "Legal & Compliance — ScamAI",
-  description: "Verify provenance and meet emerging AI regulations.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "Business.LegalCompliance",
+  });
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+  };
+}
 
 export default async function LegalCompliancePage({
   params,

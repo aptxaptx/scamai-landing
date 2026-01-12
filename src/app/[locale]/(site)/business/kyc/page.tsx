@@ -7,10 +7,18 @@ import { rtlLocales, type Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { getMdxContent } from "@/lib/mdx";
 
-export const metadata = {
-  title: "KYC/ID Verification — ScamAI",
-  description: "Detect forged IDs and deepfakes during onboarding with ScamAI.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Business.Kyc" });
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+  };
+}
 
 export default async function KycPage({
   params,
