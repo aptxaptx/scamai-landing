@@ -36,8 +36,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headerLocale = headers().get("x-next-intl-locale") as Locale | null;
-  const cookieLocale = cookies().get("NEXT_LOCALE")?.value as Locale | undefined;
+  const headerStore = await headers();
+  const cookieStore = await cookies();
+  const headerLocale = headerStore.get("x-next-intl-locale") as Locale | null;
+  const cookieLocale = cookieStore.get("NEXT_LOCALE")?.value as Locale | undefined;
   const locale = headerLocale ?? cookieLocale ?? defaultLocale;
   const direction = rtlLocales.includes(locale)
     ? "rtl"

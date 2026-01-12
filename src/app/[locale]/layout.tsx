@@ -13,17 +13,18 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
-  if (!locales.includes(params.locale)) {
+  const { locale } = await params;
+  if (!locales.includes(locale)) {
     notFound();
   }
 
   const baseMessages = (await import("../../messages/en.json")).default;
   let localeMessages: AbstractIntlMessages = {};
-  if (params.locale !== defaultLocale) {
+  if (locale !== defaultLocale) {
     try {
-      localeMessages = (await import(`../../messages/${params.locale}.json`)).default;
+      localeMessages = (await import(`../../messages/${locale}.json`)).default;
     } catch {
       localeMessages = {};
     }
@@ -35,7 +36,7 @@ export default async function LocaleLayout({
   } as AbstractIntlMessages;
 
   return (
-    <Providers locale={params.locale} messages={messages}>
+    <Providers locale={locale} messages={messages}>
       {children}
     </Providers>
   );
