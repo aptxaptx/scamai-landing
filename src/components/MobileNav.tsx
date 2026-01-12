@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { NAVIGATION_SECTIONS, APP_CONFIG } from "@/constants";
 
 interface MobileNavProps {

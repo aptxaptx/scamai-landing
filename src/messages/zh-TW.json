@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "products": "產品",
+    "industries": "行業",
+    "resources": "資源",
+    "company": "公司",
+    "pricing": "定價",
+    "signup": "註冊",
+    "demo": "獲取演示"
+  },
+  "products": {
+    "deepfake": "深度偽造檢測",
+    "voice": "語音克隆檢測",
+    "aimedia": "AI 媒體檢測"
+  },
+  "industries": {
+    "kyc": "KYC 與身份驗證",
+    "dating": "約會與社交應用",
+    "fakenews": "假新聞檢測",
+    "impersonation": "冒充與詐騙"
+  },
+  "resources": {
+    "publications": "出版物與數據集",
+    "news": "新聞",
+    "scams": "詐騙類型"
+  },
+  "hero": {
+    "title": "英雄區塊",
+    "subtitle": "準備重新設計",
+    "primary": "主要 CTA",
+    "secondary": "次要 CTA"
+  },
+  "content": {
+    "title": "內容區域準備重新設計",
+    "subtitle": "整個網站採用乾淨的白色背景"
+  },
+  "footer": {
+    "tagline": "對抗深度偽造、語音克隆和合成媒體詐騙。",
+    "products": "產品",
+    "company": "公司",
+    "about": "關於",
+    "research": "研究",
+    "contact": "聯繫",
+    "copyright": "© 2024 Reality Inc. 版權所有。ScamAI 是 Reality Inc. 的產品。",
+    "privacy": "隱私政策",
+    "terms": "服務條款"
+  }
+}

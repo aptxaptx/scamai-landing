@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "products": "製品",
+    "industries": "業界",
+    "resources": "リソース",
+    "company": "会社",
+    "pricing": "料金",
+    "signup": "サインアップ",
+    "demo": "デモを取得"
+  },
+  "products": {
+    "deepfake": "ディープフェイク検出",
+    "voice": "音声クローン検出",
+    "aimedia": "AI メディア検出"
+  },
+  "industries": {
+    "kyc": "KYC・本人確認",
+    "dating": "出会い系・SNS",
+    "fakenews": "フェイクニュース検出",
+    "impersonation": "なりすまし・詐欺"
+  },
+  "resources": {
+    "publications": "出版物とデータセット",
+    "news": "ニュース",
+    "scams": "詐欺の種類"
+  },
+  "hero": {
+    "title": "ヒーローセクション",
+    "subtitle": "再設計の準備完了",
+    "primary": "主要CTA",
+    "secondary": "セカンダリCTA"
+  },
+  "content": {
+    "title": "コンテンツエリアの再設計準備完了",
+    "subtitle": "サイト全体がクリーンな白い背景"
+  },
+  "footer": {
+    "tagline": "ディープフェイク、音声クローン、合成メディア詐欺と戦う。",
+    "products": "製品",
+    "company": "会社",
+    "about": "について",
+    "research": "研究",
+    "contact": "お問い合わせ",
+    "copyright": "© 2024 Reality Inc. 無断転載を禁じます。ScamAI は Reality Inc. の製品です。",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約"
+  }
+}

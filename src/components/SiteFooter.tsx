@@ -1,10 +1,17 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme } from "next-themes";
 
 export default function SiteFooter() {
-  const { isDark } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const isDark = mounted && resolvedTheme === "dark";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <footer
       className={`py-16 w-full border-t ${

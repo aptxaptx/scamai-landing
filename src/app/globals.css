@@ -11,7 +11,7 @@
     linear-gradient(180deg, rgba(5, 5, 15, 0.9), rgba(3, 3, 10, 0.98));
 }
 
-:root[data-theme="light"] {
+:root.light {
   --bg: #ffffff;
   --panel: #f8fafc;
   --muted: #475569;
@@ -44,10 +44,10 @@ html {
   scroll-behavior: smooth;
 }
 
-:root[data-theme="light"] .site-shell-content [class*="text-white"] {
+:root.light .site-shell-content [class*="text-white"] {
   color: #0f172a !important;
 }
-:root[data-theme="dark"] .site-shell-content [class*="text-black"] {
+:root.dark .site-shell-content [class*="text-black"] {
   color: #e5e7eb !important;
 }
 

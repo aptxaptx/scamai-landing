@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { cookies, headers } from "next/headers";
 import { Inter, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
-import Providers from "@/contexts/Providers";
+import { defaultLocale, rtlLocales, type Locale } from "@/i18n/config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,17 +31,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headerLocale = headers().get("x-next-intl-locale") as Locale | null;
+  const cookieLocale = cookies().get("NEXT_LOCALE")?.value as Locale | undefined;
+  const locale = headerLocale ?? cookieLocale ?? defaultLocale;
+  const direction = rtlLocales.includes(locale)
+    ? "rtl"
+    : "ltr";
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} dir={direction} suppressHydrationWarning>
       <body
         className={`${inter.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        {children}
       </body>
     </html>
   );

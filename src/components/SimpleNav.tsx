@@ -1,15 +1,24 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useLanguage, languages, Language } from "@/contexts/LanguageContext";
-import { useTheme } from "@/contexts/ThemeContext";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
+
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function SimpleNav() {
-  const { toggleTheme, isDark } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const { language, setLanguage, t } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+  const t = useTranslations();
+  const isDark = mounted && resolvedTheme === "dark";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const navLink = isDark
     ? "text-slate-200 hover:text-white hover:bg-white/5"
     : "text-slate-700 hover:text-black hover:bg-slate-100";
@@ -291,103 +300,21 @@ export default function SimpleNav() {
               {t("nav.demo")}
             </Link>
 
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-              className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 border ${
-                isDark
-                  ? "text-slate-200 border-white/20 hover:bg-white/5"
-                  : "text-slate-700 border-slate-200 hover:bg-slate-100"
-              }`}
-            >
-              {isDark ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.8}
-                    d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                  />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.8}
-                    d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"
-                  />
-                </svg>
-              )}
-            </button>
-
-            {/* Language Selector */}
-            <div 
-              className="relative"
-              onMouseEnter={() => {
-                setOpenDropdown("language");
-              }}
-              onMouseLeave={() => {
-                setOpenDropdown(null);
-              }}
-            >
-              <button
-                className={`flex items-center gap-1.5 p-2 rounded-full transition-all duration-200 ${
-                  isDark ? "hover:bg-white/5" : "hover:bg-slate-100"
-                }`}
-              >
-                <svg
-                  className={`w-5 h-5 ${isDark ? "text-slate-200" : "text-slate-700"}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
-                <svg 
-                  className={`w-3 h-3 transition-transform duration-200 ${
-                    openDropdown === "language" ? "rotate-180" : ""
-                  } ${isDark ? "text-slate-200" : "text-slate-700"}`}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openDropdown === "language" && (
-                <div className="absolute top-full right-0 pt-2 w-48">
-                  <div
-                    className={`shadow-xl rounded-lg max-h-96 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200 ${
-                      isDark ? "bg-[#0b0b18] border border-white/10" : "bg-white border border-slate-200"
-                    }`}
-                  >
-                  <div className="py-2">
-                    {Object.entries(languages).map(([code, { name }]) => (
-                      <button
-                        key={code}
-                        onClick={() => {
-                          setLanguage(code as Language);
-                          setOpenDropdown(null);
-                        }}
-                        className={`block w-full text-left px-4 py-3 text-sm transition-colors duration-150 ${
-                          language === code
-                            ? isDark
-                              ? "bg-white/10 text-white font-medium"
-                              : "bg-slate-100 text-slate-900 font-medium"
-                            : isDark
-                            ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                            : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-                        }`}
-                      >
-                        {name}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                </div>
-              )}
+            <div className="flex items-center gap-2">
+              <ThemeToggle
+                className={
+                  isDark
+                    ? "text-slate-200 border-white/20 hover:bg-white/5"
+                    : "text-slate-700 border-slate-200 hover:bg-slate-100"
+                }
+              />
+              <LanguageSwitcher
+                className={
+                  isDark
+                    ? "text-slate-200 border-white/20 hover:bg-white/5"
+                    : "text-slate-700 border-slate-200 hover:bg-slate-100"
+                }
+              />
             </div>
           </div>
         </div>

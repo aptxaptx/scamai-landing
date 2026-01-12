@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "products": "Products",
+    "industries": "Industries",
+    "resources": "Resources",
+    "company": "Company",
+    "pricing": "Pricing",
+    "signup": "Sign up",
+    "demo": "Get a Demo"
+  },
+  "products": {
+    "deepfake": "Deepfake Detection",
+    "voice": "Voice Clone Detection",
+    "aimedia": "AI Media Detection"
+  },
+  "industries": {
+    "kyc": "KYC & Identity Verification",
+    "dating": "Dating & Social Apps",
+    "fakenews": "Fake News Detection",
+    "impersonation": "Impersonation & Fraud"
+  },
+  "resources": {
+    "publications": "Publications & Datasets",
+    "news": "News",
+    "scams": "Type of Scams"
+  },
+  "hero": {
+    "title": "Hero Section",
+    "subtitle": "Ready for redesign",
+    "primary": "Primary CTA",
+    "secondary": "Secondary CTA"
+  },
+  "content": {
+    "title": "Content area ready for redesign",
+    "subtitle": "Clean white background throughout the site"
+  },
+  "footer": {
+    "tagline": "Combat deepfakes, voice clones, and synthetic media fraud.",
+    "products": "Products",
+    "company": "Company",
+    "about": "About",
+    "research": "Research",
+    "contact": "Contact",
+    "copyright": "© 2024 Reality Inc. All rights reserved. ScamAI is a product of Reality Inc.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}

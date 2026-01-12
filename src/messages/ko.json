@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "products": "제품",
+    "industries": "산업",
+    "resources": "리소스",
+    "company": "회사",
+    "pricing": "가격",
+    "signup": "가입하기",
+    "demo": "데모 받기"
+  },
+  "products": {
+    "deepfake": "딥페이크 탐지",
+    "voice": "음성 복제 탐지",
+    "aimedia": "AI 미디어 탐지"
+  },
+  "industries": {
+    "kyc": "KYC 및 신원 확인",
+    "dating": "데이팅 및 소셜 앱",
+    "fakenews": "가짜 뉴스 탐지",
+    "impersonation": "사칭 및 사기"
+  },
+  "resources": {
+    "publications": "출판물 및 데이터셋",
+    "news": "뉴스",
+    "scams": "사기 유형"
+  },
+  "hero": {
+    "title": "히어로 섹션",
+    "subtitle": "재설계 준비 완료",
+    "primary": "기본 CTA",
+    "secondary": "보조 CTA"
+  },
+  "content": {
+    "title": "콘텐츠 영역 재설계 준비 완료",
+    "subtitle": "사이트 전체에 깨끗한 흰색 배경"
+  },
+  "footer": {
+    "tagline": "딥페이크, 음성 복제 및 합성 미디어 사기에 맞서 싸웁니다.",
+    "products": "제품",
+    "company": "회사",
+    "about": "소개",
+    "research": "연구",
+    "contact": "문의하기",
+    "copyright": "© 2024 Reality Inc. 모든 권리 보유. ScamAI는 Reality Inc.의 제품입니다.",
+    "privacy": "개인정보 처리방침",
+    "terms": "서비스 약관"
+  }
+}

@@ -1,9 +1,9 @@
 "use client";
 
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
-  const { t } = useLanguage();
+  const t = useTranslations();
   
   return (
     <section className="relative w-full min-h-[500px] bg-white flex items-center justify-center border-b border-gray-200">

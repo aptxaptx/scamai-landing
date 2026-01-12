@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { NAVIGATION_SECTIONS } from "@/constants";
 
 export default function DesktopNav() {

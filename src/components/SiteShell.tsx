@@ -1,6 +1,7 @@
 "use client";
 
-import { useTheme } from "@/contexts/ThemeContext";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import SimpleNav from "./SimpleNav";
 import SiteFooter from "./SiteFooter";
 
@@ -9,7 +10,13 @@ type SiteShellProps = {
 };
 
 export default function SiteShell({ children }: SiteShellProps) {
-  const { isDark } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const isDark = mounted && resolvedTheme === "dark";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <div
