@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 
 import SimpleNav from "@/components/SimpleNav";
 import SiteFooter from "@/components/SiteFooter";
+import { Link } from "@/i18n/navigation";
 
 type PlaygroundTab = "image" | "voice" | "video";
 type SolutionTab = "vision" | "audio" | "firewall";
@@ -482,14 +483,14 @@ export default function Home() {
                   <p className={softText}>
                     {t("Trust.featured.description")}
                   </p>
-                  <a
+                  <Link
                     href="/stories/skydeck"
                     className={`font-semibold ${
                       isDark ? "text-indigo-200 hover:text-white" : "text-indigo-700"
                     }`}
                   >
                     {t("Trust.featured.cta")}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -692,7 +693,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <a
+                <Link
                   href="/docs"
                   className={`inline-flex mt-6 px-5 py-2 font-semibold ${
                     isDark
@@ -701,7 +702,7 @@ export default function Home() {
                   }`}
                 >
                   {t("Developer.cta")}
-                </a>
+                </Link>
               </div>
               <div
                 className={`p-5 shadow-[0_0_45px_rgba(79,70,229,0.25)] border ${

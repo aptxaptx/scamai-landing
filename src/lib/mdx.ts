@@ -131,7 +131,7 @@ export async function getAllPapers(locale: string): Promise<PaperRecord[]> {
   }
 
   const results: PaperRecord[] = [];
-  for (const { slug, locale: resolvedLocale, filePath } of matched.values()) {
+  for (const { slug, filePath } of matched.values()) {
     const source = await readFile(filePath, "utf8");
     const parsed = matter(source);
     const frontmatter = parsed.data as PaperFrontmatter;

@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import SiteShell from "@/components/SiteShell";
+import { Link } from "@/i18n/navigation";
 
 export default function IndividualsClient() {
   const t = useTranslations("Individuals.Page");
@@ -35,12 +36,12 @@ export default function IndividualsClient() {
           </p>
           
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
+            <Link
               href="/demo"
               className="inline-flex items-center gap-2 rounded-full border-2 border-white text-white px-8 py-3 font-semibold hover:bg-white hover:text-black transition-all duration-200"
             >
               {t("hero.cta")}
-            </a>
+            </Link>
           </div>
         </div>
       </section>

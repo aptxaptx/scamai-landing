@@ -48,9 +48,9 @@ export default function ApiPlatformPage() {
                     Experience real-time deepfake detection with simple API calls. Upload content and get instant results with confidence scores.
                   </p>
                   <div className="inline-flex items-center gap-4">
-                    <a href="/demo" className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors">
+                    <Link href="/demo" className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors">
                       Try Live Demo
-                    </a>
+                    </Link>
                     <a href="https://docu.scam.ai" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 transition-colors">
                       View Docs
                     </a>
@@ -157,7 +157,7 @@ export default function ApiPlatformPage() {
                   <li key={b} className="flex gap-2"><span aria-hidden>✓</span><span>{b}</span></li>
                 ))}
               </ul>
-              <a href="/demo" className="mt-6 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4">Learn more</a>
+              <Link href="/demo" className="mt-6 inline-flex text-sm font-semibold text-white/90 underline underline-offset-4">Learn more</Link>
             </article>
           ))}
         </div>
@@ -210,7 +210,7 @@ export default function ApiPlatformPage() {
               <div>
                 <h3 className="text-xl font-semibold">{f.title}</h3>
                 <p className="mt-2 text-white/80 text-sm">{f.desc}</p>
-                <a href="/demo" className="mt-3 inline-flex text-sm font-semibold underline underline-offset-4">Learn more</a>
+                <Link href="/demo" className="mt-3 inline-flex text-sm font-semibold underline underline-offset-4">Learn more</Link>
               </div>
             </article>
           ))}
@@ -245,7 +245,7 @@ export default function ApiPlatformPage() {
           <p className="mt-3 text-white/80 max-w-2xl mx-auto">
             SDKs for Node and Python, event streams, and audit logs—designed for production scale and observability.
           </p>
-          <a href="/demo" className="mt-4 inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Start exploring</a>
+          <Link href="/demo" className="mt-4 inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Start exploring</Link>
         </div>
         <div className="mt-8 aspect-[16/7] bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 border border-white/10 rounded-lg flex items-center justify-center">
           <div className="text-center">
@@ -338,8 +338,8 @@ export default function ApiPlatformPage() {
           Start with a sandbox key or book a 25‑minute walkthrough with our team.
         </p>
         <div className="mt-5 flex items-center justify-center gap-3">
-          <a href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Start exploring</a>
-          <a href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Talk to our team</a>
+          <Link href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Start exploring</Link>
+          <Link href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Talk to our team</Link>
         </div>
       </section>
     </SiteShell>

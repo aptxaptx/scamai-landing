@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function SiteFooter() {
   const t = useTranslations("Footer");
@@ -51,19 +52,19 @@ export default function SiteFooter() {
           <div>
             <h3 className={`${isDark ? "text-white" : "text-slate-900"} font-semibold mb-4`}>{t("sections.product")}</h3>
             <ul className={`space-y-2 ${isDark ? "text-slate-300" : "text-slate-700"}`}>
-              <li><a href="/features" className="hover:text-indigo-500 transition-colors">{t("links.features")}</a></li>
-              <li><a href="/docs" className="hover:text-indigo-500 transition-colors">{t("links.api")}</a></li>
-              <li><a href="/pricing" className="hover:text-indigo-500 transition-colors">{t("links.pricing")}</a></li>
-              <li><a href="/status" className="hover:text-indigo-500 transition-colors">{t("links.status")}</a></li>
+              <li><Link href="/features" className="hover:text-indigo-500 transition-colors">{t("links.features")}</Link></li>
+              <li><Link href="/docs" className="hover:text-indigo-500 transition-colors">{t("links.api")}</Link></li>
+              <li><Link href="/pricing" className="hover:text-indigo-500 transition-colors">{t("links.pricing")}</Link></li>
+              <li><Link href="/status" className="hover:text-indigo-500 transition-colors">{t("links.status")}</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className={`${isDark ? "text-white" : "text-slate-900"} font-semibold mb-4`}>{t("sections.company")}</h3>
             <ul className={`space-y-2 ${isDark ? "text-slate-300" : "text-slate-700"}`}>
-              <li><a href="/stories/skydeck" className="hover:text-indigo-500 transition-colors">{t("links.about")}</a></li>
-              <li><a href="/careers" className="hover:text-indigo-500 transition-colors">{t("links.careers")}</a></li>
-              <li><a href="/blog" className="hover:text-indigo-500 transition-colors">{t("links.blog")}</a></li>
+              <li><Link href="/stories/skydeck" className="hover:text-indigo-500 transition-colors">{t("links.about")}</Link></li>
+              <li><Link href="/careers" className="hover:text-indigo-500 transition-colors">{t("links.careers")}</Link></li>
+              <li><Link href="/blog" className="hover:text-indigo-500 transition-colors">{t("links.blog")}</Link></li>
               <li><a href="https://cal.com/scamai/15min" className="hover:text-indigo-500 transition-colors">{t("links.contact")}</a></li>
             </ul>
           </div>
@@ -71,9 +72,9 @@ export default function SiteFooter() {
           <div>
             <h3 className={`${isDark ? "text-white" : "text-slate-900"} font-semibold mb-4`}>{t("sections.legal")}</h3>
             <ul className={`space-y-2 ${isDark ? "text-slate-300" : "text-slate-700"}`}>
-              <li><a href="/privacy" className="hover:text-indigo-500 transition-colors">{t("links.privacy")}</a></li>
-              <li><a href="/terms" className="hover:text-indigo-500 transition-colors">{t("links.terms")}</a></li>
-              <li><a href="/abuse" className="hover:text-indigo-500 transition-colors">{t("links.reportAbuse")}</a></li>
+              <li><Link href="/privacy" className="hover:text-indigo-500 transition-colors">{t("links.privacy")}</Link></li>
+              <li><Link href="/terms" className="hover:text-indigo-500 transition-colors">{t("links.terms")}</Link></li>
+              <li><Link href="/abuse" className="hover:text-indigo-500 transition-colors">{t("links.reportAbuse")}</Link></li>
             </ul>
           </div>
         </div>
@@ -85,8 +86,8 @@ export default function SiteFooter() {
         >
           <p>{t("copyright")}</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="/privacy" className="hover:text-indigo-500 transition-colors">{t("links.privacyShort")}</a>
-            <a href="/terms" className="hover:text-indigo-500 transition-colors">{t("links.termsShort")}</a>
+            <Link href="/privacy" className="hover:text-indigo-500 transition-colors">{t("links.privacyShort")}</Link>
+            <Link href="/terms" className="hover:text-indigo-500 transition-colors">{t("links.termsShort")}</Link>
           </div>
         </div>
       </div>

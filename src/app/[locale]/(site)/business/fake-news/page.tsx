@@ -87,9 +87,9 @@ export default async function FakeNewsPage({
               <h3 className="text-2xl font-semibold text-white mb-4">{t("demo.title")}</h3>
               <p className="text-white/80 mb-6 max-w-2xl mx-auto">{t("demo.description")}</p>
               <div className="inline-flex items-center gap-4">
-                <a href="/demo" className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors">
+                <Link href="/demo" className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors">
                   {t("demo.cta")}
-                </a>
+                </Link>
                 <div className="flex items-center gap-2 text-white/70">
                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                   <span className="text-sm">{t("demo.status")}</span>
@@ -124,12 +124,12 @@ export default async function FakeNewsPage({
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-semibold text-white mb-3">{t("cta.title")}</h3>
             <p className="text-white/80 text-base mb-6">{t("cta.description")}</p>
-              <a
-                href="/demo"
+            <Link
+              href="/demo"
               className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               {common("cta")}
-            </a>
+            </Link>
           </div>
         </div>
       </section>

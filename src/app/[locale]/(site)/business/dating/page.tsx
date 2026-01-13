@@ -111,12 +111,12 @@ export default async function DatingAppsPage({
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-semibold text-white mb-3">{t("cta.title")}</h3>
             <p className="text-white/80 text-base mb-6">{t("cta.description")}</p>
-              <a
-                href="/demo"
+            <Link
+              href="/demo"
               className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               {common("cta")}
-            </a>
+            </Link>
           </div>
         </div>
       </section>
