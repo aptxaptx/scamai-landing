@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getRequestConfig } from "next-intl/server";
+import type { AbstractIntlMessages } from "next-intl";
 
 import { defaultLocale, locales, type Locale } from "./config";
 
@@ -14,7 +15,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   if (locale === defaultLocale) {
     return {
       locale,
-      messages: baseMessages,
+      messages: baseMessages as unknown as AbstractIntlMessages,
     };
   }
 
@@ -30,6 +31,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: {
       ...baseMessages,
       ...localeMessages,
-    },
+    } as unknown as AbstractIntlMessages,
   };
 });

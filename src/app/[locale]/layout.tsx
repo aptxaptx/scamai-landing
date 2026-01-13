@@ -33,7 +33,7 @@ export default async function LocaleLayout({
   const messages = {
     ...baseMessages,
     ...localeMessages,
-  } as AbstractIntlMessages;
+  } as unknown as AbstractIntlMessages;
 
   return (
     <Providers locale={locale} messages={messages}>
