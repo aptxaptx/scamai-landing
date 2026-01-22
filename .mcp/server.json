@@ -1,0 +1,124 @@
+{
+  "name": "scamai-landing-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for ScamAI Landing Page project",
+  "resources": [
+    {
+      "uri": "scamai://docs/readme",
+      "name": "Project Documentation",
+      "mimeType": "text/markdown",
+      "description": "Main README with project overview and setup instructions"
+    },
+    {
+      "uri": "scamai://docs/refactoring",
+      "name": "Refactoring Guide",
+      "mimeType": "text/markdown",
+      "description": "Guidelines for refactoring and code improvements"
+    },
+    {
+      "uri": "scamai://components/list",
+      "name": "Component List",
+      "mimeType": "application/json",
+      "description": "List of all React components in the project"
+    },
+    {
+      "uri": "scamai://translations/list",
+      "name": "Supported Languages",
+      "mimeType": "application/json",
+      "description": "List of all supported languages and translation files"
+    }
+  ],
+  "tools": [
+    {
+      "name": "get_component",
+      "description": "Get the source code of a specific component",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "componentName": {
+            "type": "string",
+            "description": "Name of the component to retrieve"
+          }
+        },
+        "required": ["componentName"]
+      }
+    },
+    {
+      "name": "get_translation",
+      "description": "Get translation strings for a specific language",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "locale": {
+            "type": "string",
+            "description": "Language code (e.g., en, zh-CN, es)",
+            "enum": ["en", "zh-CN", "zh-TW", "es", "fr", "de", "pt", "ja", "ko", "ar", "id"]
+          },
+          "key": {
+            "type": "string",
+            "description": "Optional translation key path (e.g., HomePage.Hero.title)"
+          }
+        },
+        "required": ["locale"]
+      }
+    },
+    {
+      "name": "list_pages",
+      "description": "List all pages in the Next.js app directory",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ],
+  "prompts": [
+    {
+      "name": "add_translation",
+      "description": "Add a new translation string to all language files",
+      "arguments": [
+        {
+          "name": "key",
+          "description": "Translation key path (e.g., HomePage.NewSection.title)",
+          "required": true
+        },
+        {
+          "name": "value",
+          "description": "English translation value",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "create_component",
+      "description": "Create a new React component with TypeScript",
+      "arguments": [
+        {
+          "name": "componentName",
+          "description": "Name of the component (e.g., MyNewComponent)",
+          "required": true
+        },
+        {
+          "name": "componentType",
+          "description": "Type of component: page, section, or ui",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "update_styling",
+      "description": "Update Tailwind CSS styling throughout the project",
+      "arguments": [
+        {
+          "name": "target",
+          "description": "What to update: colors, spacing, typography, or borders",
+          "required": true
+        },
+        {
+          "name": "changes",
+          "description": "Description of the styling changes to make",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

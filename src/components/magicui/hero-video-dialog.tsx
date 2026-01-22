@@ -34,8 +34,7 @@ export default function HeroVideoDialog({
           width={1100}
           height={600}
         />
-        {/* Bottom gradient fade like reference */}
-        <span className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-black/70" />
+        {/* Bottom fade removed */}
         {/* Center play pill */}
         <span className="absolute inset-0 grid place-items-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-black/70 px-5 py-3 text-white backdrop-blur border border-white/10">

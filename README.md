@@ -14,6 +14,22 @@ npm run dev
 npm run lint
 ```
 
+## MCP Support
+
+This project is Model Context Protocol (MCP) ready! The repository includes MCP server configuration for enhanced AI assistant integration.
+
+**MCP Configuration Files:**
+- `mcp-config.json` - Root MCP configuration
+- `.mcp/server.json` - Detailed server setup with resources, tools, and prompts
+- `.mcp/README.md` - Complete MCP documentation
+
+**Features:**
+- 📁 Access project documentation and code structure
+- 🔧 Tools for component management and translations
+- 🎨 Prompts for styling updates and component creation
+- 🌍 Multi-language translation support (11 languages)
+
+See [.mcp/README.md](.mcp/README.md) for detailed MCP usage instructions.
 
 ## TODO
 

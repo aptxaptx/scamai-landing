@@ -107,7 +107,7 @@ export default async function AIGeneratedImagesPage({
           </p>
 
           {/* AI-Generated Image Example */}
-          <div className="my-12 bg-gradient-to-br from-red-500/20 to-purple-500/20 rounded-lg h-64 flex items-center justify-center border border-red-500/30 relative overflow-hidden">
+          <div className="my-12 bg-red-500/20 rounded-lg h-64 flex items-center justify-center border border-red-500/30 relative overflow-hidden">
             <div className="text-center">
               <div className="w-24 h-24 bg-red-500/30 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-red-500/50">
                 <span className="text-white text-4xl">⚠️</span>

@@ -2,25 +2,19 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --bg: #03030a;
-  --panel: #0b0b18;
-  --muted: #9ca3af;
-  --text: #f8fafc;
-  --text-soft: #cbd5e1;
-  --hero-gradient: radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.25), transparent 35%),
-    radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.25), transparent 35%),
-    linear-gradient(180deg, rgba(5, 5, 15, 0.9), rgba(3, 3, 10, 0.98));
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --muted: #6b7280;
+  --text: #111827;
+  --text-soft: #374151;
 }
 
 :root.light {
   --bg: #ffffff;
-  --panel: #f8fafc;
-  --muted: #475569;
-  --text: #0f172a;
-  --text-soft: #334155;
-  --hero-gradient: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.18), transparent 35%),
-    radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.18), transparent 35%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(226, 232, 240, 0.9));
+  --panel: #ffffff;
+  --muted: #6b7280;
+  --text: #111827;
+  --text-soft: #374151;
 }
 
 @theme inline {
@@ -29,14 +23,12 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: var(--font-geist-mono);
-  --font-poppins: var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
-    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -57,42 +49,66 @@ html {
   transform: translateZ(0);
 }
 
-/***** Force square corners site-wide *****/
-* {
+/***** Apply rounded corners site-wide *****/
+button,
+.button,
+input,
+select,
+textarea,
+[class*="border"],
+[class*="bg-"],
+img,
+video {
+  border-radius: 0.75rem !important;
+}
+
+/* Navigation header and sections should have no border radius */
+header,
+.app-fixed-header,
+section {
   border-radius: 0 !important;
+}
+
+/* Specific overrides for different element types */
+.rounded-full,
+[class*="rounded-full"] {
+  border-radius: 9999px !important;
+}
+
+.rounded-xl,
+[class*="rounded-xl"] {
+  border-radius: 0.75rem !important;
+}
+
+.rounded-2xl,
+[class*="rounded-2xl"] {
+  border-radius: 1rem !important;
+}
+
+.rounded-3xl,
+[class*="rounded-3xl"] {
+  border-radius: 1.5rem !important;
 }
 
 /***** Landing visuals *****/
 .hero-gradient {
   position: absolute;
   inset: 0;
-  background: var(--hero-gradient);
-  filter: saturate(120%);
+  background: transparent;
 }
 
 .radar-beam {
   position: absolute;
   inset: -20%;
-  background: conic-gradient(
-    from 90deg,
-    rgba(99, 102, 241, 0.1),
-    rgba(59, 130, 246, 0.3),
-    rgba(14, 165, 233, 0.05),
-    transparent 55%
-  );
-  animation: spin 12s linear infinite;
-  filter: blur(40px);
-  opacity: 0.45;
+  background: transparent;
+  display: none;
 }
 
 .grid-noise {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(circle at 50% 40%, black 50%, transparent 70%);
-  opacity: 0.35;
+  background: transparent;
+  display: none;
 }
 
 .glow-orb {
@@ -106,20 +122,22 @@ html {
 .orb-1 {
   top: 10%;
   left: 5%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.8), transparent 55%);
+  background: transparent;
+  display: none;
 }
 
 .orb-2 {
   bottom: 5%;
   right: 0;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.8), transparent 55%);
+  background: transparent;
+  display: none;
 }
 
 .iphone-frame {
   position: relative;
   border: 1px solid rgba(248, 113, 113, 0.35);
   padding: 10px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(10, 10, 16, 0.95));
+  background: rgba(0, 0, 0, 0.8);
 }
 
 @keyframes spin {

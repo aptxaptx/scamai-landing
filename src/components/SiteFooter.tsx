@@ -17,9 +17,7 @@ export default function SiteFooter() {
   }, []);
   return (
     <footer
-      className={`py-16 w-full border-t ${
-        isDark ? "bg-[#05050f] border-white/10 text-slate-100" : "bg-white border-slate-200 text-slate-800"
-      }`}
+      className="py-16 w-full border-t bg-white border-gray-200 text-gray-900"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">

@@ -48,9 +48,9 @@
   "HomePage": {
     "Hero": {
       "kicker": "黑客美学 · 企业级 · 深色模式",
-      "title": "对抗深度伪造与合成欺诈的 AI 防火墙。",
-      "subtitle": "企业级检测模型，保护你的 KYC 流程、身份验证与平台完整性，抵御生成式 AI 攻击。",
-      "primaryCta": "立即体验演示",
+      "title": "别被欺骗\n由 AI",
+      "subtitle": "检测 AI 生成的图像、音频和视频。\n大规模打击 AI 驱动的诈骗。",
+      "primaryCta": "立即尝试",
       "secondaryCta": "获取 API Key",
       "stats": [
         {
@@ -75,15 +75,15 @@
       "tabs": {
         "image": {
           "label": "图像检测",
-          "badge": "已启用"
+          "badge": ""
         },
         "voice": {
           "label": "语音克隆",
-          "badge": "Beta"
+          "badge": ""
         },
         "video": {
           "label": "视频深伪",
-          "badge": "即将推出"
+          "badge": ""
         }
       },
       "uploadArea": "上传区域",

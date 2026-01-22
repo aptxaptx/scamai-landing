@@ -9,7 +9,7 @@ import SimpleNav from "@/components/SimpleNav";
 import SiteFooter from "@/components/SiteFooter";
 import { Link } from "@/i18n/navigation";
 
-type PlaygroundTab = "image" | "voice" | "video";
+type PlaygroundTab = "image" | "voice";
 type SolutionTab = "vision" | "audio" | "firewall";
 
 export default function Home() {
@@ -22,7 +22,6 @@ export default function Home() {
     () => [
       { key: "image" as const, label: t("Playground.tabs.image.label"), badge: t("Playground.tabs.image.badge") },
       { key: "voice" as const, label: t("Playground.tabs.voice.label"), badge: t("Playground.tabs.voice.badge") },
-      { key: "video" as const, label: t("Playground.tabs.video.label"), badge: t("Playground.tabs.video.badge") },
     ],
     [t]
   );
@@ -58,14 +57,6 @@ export default function Home() {
     }),
     [t]
   );
-  const heroStats = useMemo(
-    () => [
-      { title: t("Hero.stats.0.title"), desc: t("Hero.stats.0.description") },
-      { title: t("Hero.stats.1.title"), desc: t("Hero.stats.1.description") },
-      { title: t("Hero.stats.2.title"), desc: t("Hero.stats.2.description") },
-    ],
-    [t]
-  );
   const problemStats = useMemo(
     () => [
       t("Problem.stats.0"),
@@ -87,7 +78,6 @@ export default function Home() {
     () => ({
       image: t("Pricing.features.image"),
       voice: t("Pricing.features.voice"),
-      video: t("Pricing.features.video"),
     }),
     [t]
   );
@@ -110,13 +100,12 @@ export default function Home() {
   const [featureToggles, setFeatureToggles] = useState({
     image: true,
     voice: false,
-    video: false,
   });
   const panelClass = isDark
-    ? "bg-white/5 border border-white/10"
+    ? "bg-white border border-white/10"
     : "bg-white border border-slate-200";
   const cardOverlay = isDark
-    ? "border bg-black/60 border-white/10"
+    ? "border bg-white border-white/10"
     : "border bg-white border-slate-200";
   const softText = isDark ? "text-slate-200" : "text-slate-700";
   const mutedText = isDark ? "text-slate-400" : "text-slate-600";
@@ -143,12 +132,10 @@ export default function Home() {
     const verdicts = {
       image: t("Playground.result.image.verdict"),
       voice: t("Playground.result.voice.verdict"),
-      video: t("Playground.result.video.verdict"),
     };
     const analyses = {
       image: t("Playground.result.image.analysis"),
       voice: t("Playground.result.voice.analysis"),
-      video: t("Playground.result.video.analysis"),
     };
 
     setPlaygroundResult({
@@ -161,16 +148,16 @@ export default function Home() {
   const priceLabel = useMemo(() => {
     if (monthlyVerifications > 100000) return t("Pricing.contactSales");
     const overageBlocks = Math.max(0, Math.ceil((monthlyVerifications - 10000) / 10000));
-    const estimate = 49 + overageBlocks * 29 + (featureToggles.voice ? 20 : 0) + (featureToggles.video ? 25 : 0);
+    const estimate = 49 + overageBlocks * 29 + (featureToggles.voice ? 20 : 0);
     return t("Pricing.estimate", { price: estimate.toLocaleString(locale) });
-  }, [monthlyVerifications, featureToggles.voice, featureToggles.video, locale, t]);
+  }, [monthlyVerifications, featureToggles.voice, locale, t]);
 
   const handleVideoPlay = () => {
     setVideoOverlay(false);
     videoRef.current?.play();
   };
 
-  const toggleFeature = (key: "image" | "voice" | "video") => {
+  const toggleFeature = (key: "image" | "voice") => {
     setFeatureToggles((prev) => ({
       ...prev,
       [key]: key === "image" ? true : !prev[key],
@@ -180,47 +167,28 @@ export default function Home() {
   return (
     <div
       suppressHydrationWarning
-      className={`min-h-screen relative overflow-hidden ${
-        isDark ? "bg-[#04040a] text-white" : "bg-white text-slate-900"
-      }`}
+      className="min-h-screen relative overflow-hidden bg-white text-slate-900"
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="radar-beam" />
-        <div className="grid-noise" />
-        <div className="glow-orb orb-1" />
-        <div className="glow-orb orb-2" />
-      </div>
-
       <SimpleNav />
 
       <main className="pt-[78px] relative z-10">
           {/* Hero */}
           <section className="relative overflow-hidden">
-            <div className="absolute inset-0 hero-gradient" />
             <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 text-center relative">
-              <div
-                className={`inline-flex items-center gap-2 px-3 py-1 text-xs uppercase tracking-[0.2em] mb-6 ${
-                  isDark
-                    ? "bg-white/5 border border-white/10 text-indigo-200"
-                    : "bg-slate-100 border border-slate-200 text-indigo-700"
-                }`}
-              >
-                {t("Hero.kicker")}
-              </div>
               <h1
-                className={`text-4xl md:text-6xl font-semibold leading-tight md:leading-[1.05] mb-6 ${
+                className={`text-4xl md:text-6xl font-semibold leading-tight md:leading-[1.05] mb-6 whitespace-pre-line ${
                   isDark ? "text-white" : "text-slate-900"
                 }`}
               >
                 {t("Hero.title")}
               </h1>
-              <p className={`text-lg md:text-xl ${softText} max-w-3xl mx-auto mb-10`}>
+              <p className={`text-lg md:text-xl ${softText} max-w-3xl mx-auto mb-10 whitespace-pre-line`}>
                 {t("Hero.subtitle")}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
                 <a
                   href="#playground"
-                  className="px-8 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 text-white font-semibold tracking-tight shadow-[0_0_45px_rgba(99,102,241,0.4)] hover:shadow-[0_0_65px_rgba(99,102,241,0.6)] transition-all"
+                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold tracking-tight shadow-sm hover:shadow-md transition-all"
                 >
                   {t("Hero.primaryCta")}
                 </a>
@@ -230,27 +198,12 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className={`px-8 py-3 font-semibold tracking-tight transition ${
                     isDark
-                      ? "border border-white/40 text-white hover:bg-white/5"
-                      : "border border-slate-300 text-slate-900 hover:bg-slate-100"
+                      ? "border border-white/40 text-white hover:bg-white"
+                      : "border border-slate-300 text-slate-900 hover:bg-white"
                   }`}
                 >
                   {t("Hero.secondaryCta")}
                 </a>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left max-w-5xl mx-auto">
-                {heroStats.map((item) => (
-                  <div
-                    key={item.title}
-                    className={`p-5 backdrop-blur-sm hover:border-indigo-400/40 transition ${
-                      isDark ? "border border-white/10 bg-white/5" : "border border-slate-200 bg-white"
-                    }`}
-                  >
-                    <p className="text-sm uppercase tracking-[0.12em] text-indigo-200 mb-2">
-                      {item.title}
-                    </p>
-                    <p className={`${softText} text-sm leading-relaxed`}>{item.desc}</p>
-                  </div>
-                ))}
               </div>
             </div>
           </section>
@@ -259,39 +212,22 @@ export default function Home() {
           <section
             id="playground"
             className={`py-20 border-t ${
-              isDark ? "border-white/5" : "border-slate-200 bg-slate-50"
+              isDark ? "border-white/5" : "border-slate-200 bg-white"
             }`}
           >
             <div className="max-w-6xl mx-auto px-6">
-              <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
-                <div>
-                  <p
-                    className={`text-xs uppercase tracking-[0.2em] mb-2 ${
-                      isDark ? "text-indigo-200" : "text-indigo-700"
-                    }`}
-                  >
-                    {t("Playground.kicker")}
-                  </p>
-                  <h2 className="text-3xl md:text-4xl font-semibold">{t("Playground.title")}</h2>
-                </div>
-                <div className={`flex items-center gap-3 text-sm ${mutedText}`}>
-                  <span className={`px-3 py-1 ${panelClass}`}>
-                    {t("Playground.freeTrials", { count: 5 })}
-                  </span>
-                  <span className={`px-3 py-1 ${panelClass}`}>
-                    {t("Playground.demoCount", { count: demoCount, limit: 5 })}
-                  </span>
-                </div>
+              <div className="mb-8">
+                <p
+                  className={`text-xs uppercase tracking-[0.2em] mb-2 ${
+                    isDark ? "text-indigo-200" : "text-indigo-700"
+                  }`}
+                >
+                  {t("Playground.kicker")}
+                </p>
+                <h2 className="text-3xl md:text-4xl font-semibold">{t("Playground.title")}</h2>
               </div>
 
               <div className={`backdrop-blur-lg p-6 md:p-8 relative overflow-hidden ${panelClass}`}>
-                <div
-                  className={`absolute inset-0 pointer-events-none ${
-                    isDark
-                      ? "bg-gradient-to-tr from-indigo-500/10 via-transparent to-blue-500/5"
-                      : "bg-gradient-to-tr from-indigo-500/5 via-transparent to-blue-500/10"
-                  }`}
-                />
                 <div className="relative">
                   <div className="flex flex-wrap gap-3 mb-6">
                     {playgroundTabs.map((tab) => (
@@ -304,8 +240,8 @@ export default function Home() {
                               ? "border-indigo-400/60 bg-indigo-500/10 text-white"
                               : "border-indigo-300 bg-indigo-100 text-indigo-900"
                             : isDark
-                            ? "border-white/10 bg-white/0 text-slate-200 hover:bg-white/5"
-                            : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                            ? "border-white/10 bg-white/0 text-slate-200 hover:bg-white"
+                            : "border-slate-200 bg-white text-slate-700 hover:bg-white"
                         }`}
                       >
                         <span>{tab.label}</span>{" "}
@@ -325,7 +261,7 @@ export default function Home() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div
                       className={`p-5 h-full flex flex-col justify-between border ${
-                        isDark ? "border-white/10 bg-black/40" : "border-slate-200 bg-white"
+                        isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"
                       }`}
                       onDragOver={(e) => e.preventDefault()}
                       onDrop={(e) => {
@@ -343,14 +279,12 @@ export default function Home() {
                         <span className="text-[10px] uppercase tracking-[0.16em] text-indigo-200">
                           {activePlaygroundTab === "image"
                             ? t("Playground.badges.image")
-                            : activePlaygroundTab === "voice"
-                            ? t("Playground.badges.voice")
-                            : t("Playground.badges.video")}
+                            : t("Playground.badges.voice")}
                         </span>
                       </div>
                       <div
                         className={`flex-1 border border-dashed min-h-[220px] flex items-center justify-center text-center px-6 ${
-                          isDark ? "border-white/20 bg-white/5" : "border-slate-300 bg-slate-50"
+                          isDark ? "border-white/20 bg-white" : "border-slate-300 bg-white"
                         }`}
                       >
                         <p className={softText}>
@@ -364,7 +298,7 @@ export default function Home() {
                       <div className="flex items-center justify-between mt-4">
                         <button
                           onClick={handleRunDetection}
-                          className="px-5 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 text-white font-semibold shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:shadow-[0_0_45px_rgba(79,70,229,0.6)] transition"
+                          className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-sm hover:shadow-md transition"
                         >
                           {t("Playground.runDetection")}
                         </button>
@@ -380,7 +314,7 @@ export default function Home() {
                       {demoCount >= 5 && (
                         <div
                           className={`absolute inset-0 backdrop-blur-xl border flex flex-col items-center justify-center text-center px-6 ${
-                            isDark ? "bg-black/60 border-white/10" : "bg-white/80 border-slate-200"
+                            isDark ? "bg-white border-white/10" : "bg-white/80 border-slate-200"
                           }`}
                         >
                           <p className="text-lg font-semibold mb-2">
@@ -433,11 +367,7 @@ export default function Home() {
 
           {/* Trust */}
           <section
-            className={`py-16 border-t ${
-              isDark
-                ? "border-white/5 bg-gradient-to-b from-[#05050f] to-[#020208]"
-                : "border-slate-200 bg-gradient-to-b from-slate-50 to-white"
-            }`}
+            className="py-16 border-t border-slate-200 bg-white"
           >
             <div className="max-w-6xl mx-auto px-6">
               <p className={`text-xs uppercase tracking-[0.2em] mb-4 ${mutedText}`}>
@@ -467,7 +397,6 @@ export default function Home() {
                     height={360}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
                 </div>
                 <div className="space-y-3">
                   <p
@@ -498,14 +427,12 @@ export default function Home() {
 
           {/* Problem */}
           <section
-            className={`py-20 border-t ${
-              isDark ? "border-white/5 bg-[#05050f]" : "border-slate-200 bg-slate-50"
-            }`}
+            className="py-20 border-t border-slate-200 bg-white"
           >
             <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
               <div
                 className={`relative p-4 overflow-hidden border ${
-                  isDark ? "border-red-500/20 bg-black/60" : "border-red-200 bg-white"
+                  isDark ? "border-red-500/20 bg-white" : "border-red-200 bg-white"
                 }`}
               >
                 <div className="absolute inset-0 border border-red-500/30 pointer-events-none" />
@@ -522,7 +449,7 @@ export default function Home() {
                     <button
                       onClick={handleVideoPlay}
                       className={`absolute inset-0 flex flex-col items-center justify-center text-center px-6 transition ${
-                        isDark ? "bg-black/70 hover:bg-black/60" : "bg-white/80 hover:bg-white/90"
+                        isDark ? "bg-white hover:bg-white" : "bg-white/80 hover:bg-white/90"
                       }`}
                     >
                       <span
@@ -559,7 +486,7 @@ export default function Home() {
                     <div
                       key={stat}
                       className={`p-4 flex items-center justify-between border ${
-                        isDark ? "border-white/10 bg-white/5" : "border-slate-200 bg-white"
+                        isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"
                       }`}
                     >
                       <p
@@ -579,11 +506,7 @@ export default function Home() {
 
           {/* Solutions */}
           <section
-            className={`py-20 border-t ${
-              isDark
-                ? "border-white/5 bg-gradient-to-b from-[#04040a] via-[#05050f] to-[#04040a]"
-                : "border-slate-200 bg-gradient-to-b from-white via-slate-50 to-white"
-            }`}
+            className="py-20 border-t border-slate-200 bg-white"
           >
             <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-5 gap-10">
               <div className="lg:col-span-2">
@@ -606,8 +529,8 @@ export default function Home() {
                             ? "border-indigo-400/60 bg-indigo-500/10"
                             : "border-indigo-300 bg-indigo-100"
                           : isDark
-                          ? "border-white/10 bg-white/0 hover:bg-white/5"
-                          : "border-slate-200 bg-white hover:bg-slate-50"
+                          ? "border-white/10 bg-white/0 hover:bg-white"
+                          : "border-slate-200 bg-white hover:bg-white"
                       }`}
                     >
                       <p className="text-lg font-semibold">{solutionTabs[key].title}</p>
@@ -617,11 +540,6 @@ export default function Home() {
                 </div>
               </div>
               <div className={`lg:col-span-3 p-6 relative overflow-hidden ${panelClass}`}>
-                <div
-                  className={`absolute -right-10 -top-10 h-40 w-40 blur-3xl ${
-                    isDark ? "bg-indigo-500/20" : "bg-indigo-200/80"
-                  }`}
-                />
                 <div className="relative">
                   <p
                     className={`text-sm uppercase tracking-[0.18em] mb-2 ${
@@ -637,14 +555,14 @@ export default function Home() {
                       <div
                         key={item}
                         className={`p-4 border ${
-                          isDark ? "border-white/10 bg-black/40" : "border-slate-200 bg-slate-50"
+                          isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"
                         }`}
                       >
                         <p className={softText}>{item}</p>
                       </div>
                     ))}
                   </div>
-                  <div className={`border p-4 ${isDark ? "border-white/10 bg-black/60" : "border-slate-200 bg-white"}`}>
+                  <div className={`border p-4 ${isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"}`}>
                     <div className="flex items-center justify-between mb-2">
                       <p className={`text-sm ${softText}`}>{t("Solutions.analysis.logTitle")}</p>
                       <span className="px-3 py-1 text-xs bg-green-500/10 text-green-200 border border-green-500/30">
@@ -669,9 +587,7 @@ export default function Home() {
           {/* Developer Experience */}
           <section
             id="developer"
-            className={`py-20 border-t ${
-              isDark ? "border-white/5 bg-[#05050f]" : "border-slate-200 bg-slate-50"
-            }`}
+            className="py-20 border-t border-slate-200 bg-white"
           >
             <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
               <div>
@@ -697,8 +613,8 @@ export default function Home() {
                   href="/docs"
                   className={`inline-flex mt-6 px-5 py-2 font-semibold ${
                     isDark
-                      ? "border border-white/20 text-indigo-100 hover:bg-white/5"
-                      : "border border-slate-300 text-indigo-700 hover:bg-slate-100"
+                      ? "border border-white/20 text-indigo-100 hover:bg-white"
+                      : "border border-slate-300 text-indigo-700 hover:bg-white"
                   }`}
                 >
                   {t("Developer.cta")}
@@ -706,7 +622,7 @@ export default function Home() {
               </div>
               <div
                 className={`p-5 shadow-[0_0_45px_rgba(79,70,229,0.25)] border ${
-                  isDark ? "border-white/10 bg-black/70" : "border-slate-200 bg-white"
+                  isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"
                 }`}
               >
                 <div className={`flex items-center justify-between text-xs mb-3 ${mutedText}`}>
@@ -717,7 +633,7 @@ export default function Home() {
                 </div>
                 <pre
                   className={`text-sm p-4 overflow-x-auto ${
-                    isDark ? "text-slate-100 bg-black/40" : "text-slate-900 bg-slate-100"
+                    isDark ? "text-slate-100 bg-white" : "text-slate-900 bg-white"
                   }`}
                 >
 {t("Developer.code")}
@@ -728,11 +644,7 @@ export default function Home() {
 
           {/* Pricing */}
           <section
-            className={`py-20 border-t ${
-              isDark
-                ? "border-white/5 bg-gradient-to-b from-[#04040a] to-[#020206]"
-                : "border-slate-200 bg-gradient-to-b from-white to-slate-50"
-            }`}
+            className="py-20 border-t border-slate-200 bg-white"
           >
             <div className="max-w-6xl mx-auto px-6">
               <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
@@ -764,7 +676,7 @@ export default function Home() {
                     className="w-full accent-indigo-400"
                   />
                   <div className={`flex items-center gap-3 mt-6 ${softText}`}>
-                    {(["image", "voice", "video"] as const).map((key) => (
+                    {(["image", "voice"] as const).map((key) => (
                       <label key={key} className="flex items-center gap-2 cursor-pointer">
                         <input
                           type="checkbox"
@@ -780,7 +692,7 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-                <div className={`border p-6 ${isDark ? "border-white/10 bg-black/70" : "border-slate-200 bg-white"}`}>
+                <div className={`border p-6 ${isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"}`}>
                   <p
                     className={`text-sm uppercase tracking-[0.18em] mb-2 ${
                       isDark ? "text-indigo-200" : "text-indigo-700"
@@ -806,9 +718,7 @@ export default function Home() {
           {/* Final CTA */}
           <section
             id="final-cta"
-            className={`py-20 border-t ${
-              isDark ? "border-white/5 bg-[#05050f]" : "border-slate-200 bg-slate-50"
-            }`}
+            className="py-20 border-t border-slate-200 bg-white"
           >
             <div className="max-w-3xl mx-auto px-6 text-center">
               <h3 className="text-3xl md:text-4xl font-semibold mb-4">
@@ -819,7 +729,7 @@ export default function Home() {
                   href="https://cal.com/scamai/15min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-7 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 text-white font-semibold shadow-[0_0_40px_rgba(99,102,241,0.4)] hover:shadow-[0_0_55px_rgba(99,102,241,0.6)] transition"
+                  className="px-7 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-sm hover:shadow-md transition"
                 >
                   {t("FinalCta.primary")}
                 </a>
@@ -829,8 +739,8 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className={`px-7 py-3 transition font-semibold ${
                     isDark
-                      ? "border border-white/30 text-white hover:bg-white/5"
-                      : "border border-slate-300 text-slate-900 hover:bg-slate-100"
+                      ? "border border-white/30 text-white hover:bg-white"
+                      : "border border-slate-300 text-slate-900 hover:bg-white"
                   }`}
                 >
                   {t("FinalCta.secondary")}

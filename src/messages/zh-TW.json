@@ -41,7 +41,7 @@
     "about": "關於",
     "research": "研究",
     "contact": "聯繫",
-    "copyright": "© 2024 Reality Inc. 版權所有。ScamAI 是 Reality Inc. 的產品。",
+    "copyright": " 2024 Reality Inc. 版權所有。ScamAI 是 Reality Inc. 的產品。",
     "privacy": "隱私政策",
     "terms": "服務條款"
   },
@@ -173,7 +173,7 @@
         "genai": "GenAI"
       },
       "demo": {
-        "icon": "🔍",
+        "icon": "",
         "kicker": "Real-time Detection",
         "title": "See Fake News Detection in Action",
         "description": "Watch our AI identify manipulated media, deepfakes, and synthetic content in real-time across news feeds, social media, and editorial workflows.",
@@ -640,29 +640,29 @@
       "dropzonePrompt": "Drag & drop an image here or paste an image URL",
       "dropzoneFormats": "Supported formats: JPG, PNG, WEBP (Max 5MB)",
       "runDetection": "Run Detection",
-      "remaining": "{count} free checks remaining",
+      "remaining": "{count} files remaining today",
       "limit": {
-        "title": "You have hit the limit of {limit} free checks.",
+        "title": "You have hit the limit of {limit} files today.",
         "description": "Create a free account to continue testing at scale.",
         "cta": "Sign Up for Free"
       },
       "result": {
         "label": "Result Card",
         "default": {
-          "verdict": "🔴 AI-Generated (99.8%)",
+          "verdict": " AI-Generated (99.8%)",
           "analysis": "High frequency artifacts detected in background texture.",
           "action": "Integrate API to block this automatically."
         },
         "image": {
-          "verdict": "🔴 AI-Generated (99.8%)",
+          "verdict": " AI-Generated (99.8%)",
           "analysis": "High-frequency diffusion artifacts and edge halos spotted."
         },
         "voice": {
-          "verdict": "🟠 Likely Synthetic (93.2%)",
+          "verdict": " Likely Synthetic (93.2%)",
           "analysis": "Spectral cadence mismatch and cloned prosody detected."
         },
         "video": {
-          "verdict": "🟡 Suspicious (Awaiting Full Model)",
+          "verdict": " Suspicious (Awaiting Full Model)",
           "analysis": "Temporal jitter flagged. Beta model will auto-block on release."
         },
         "action": "Integrate API to block this."
@@ -690,7 +690,7 @@
       "video": {
         "kicker": "Red Team Footage",
         "title": "Watch: How we bypassed standard KYC in 10 seconds.",
-        "cta": "▶ Play"
+        "cta": " Play"
       },
       "kicker": "The Problem Landscape",
       "title": "Traditional KYC is Broken.",
@@ -748,10 +748,10 @@
       "kicker": "Built for Developers",
       "title": "Built for Developers, Integrated in Minutes.",
       "bullets": [
-        "✅ REST & gRPC Support",
-        "✅ < 100ms Latency",
-        "✅ 99.99% Uptime SLA",
-        "✅ SOC2 Compliant (Ready)"
+        "REST & gRPC Support",
+        "< 100ms Latency",
+        "99.99% Uptime SLA",
+        "SOC2 Compliant (Ready)"
       ],
       "cta": "Read the Documentation →",
       "sdk": "Python SDK",
@@ -817,7 +817,7 @@
       "privacyShort": "Privacy",
       "termsShort": "Terms"
     },
-    "copyright": "© 2026 Scam.ai Inc. All rights reserved. Built in Berkeley."
+    "copyright": " 2026 Scam.ai Inc. All rights reserved. Built in Berkeley."
   },
   "Navigation": {
     "sections": {
@@ -1488,7 +1488,7 @@
         "description": "Artificial intelligence can now create incredibly realistic synthetic images that never existed. Learn how to detect AI-generated images, deepfakes, and protect yourself from sophisticated scam detection challenges. Our comprehensive guide covers deepfake detection techniques and AI scam prevention strategies.",
         "exampleTitle": "AI-Generated Content",
         "exampleDescription": "Example of sophisticated AI-generated imagery used in scams",
-        "exampleBadge": "⚠ FAKE"
+        "exampleBadge": " FAKE"
       },
       "whatIs": {
         "title": "What is AI Scam Detection for Synthetic Images?",
@@ -1719,7 +1719,7 @@
           },
           {
             "title": "Platform Synergy",
-            "description": "This is the single source of truth that trains, validates, and powers all other Scam.ai models. It's why our detection products are always smarter and faster. ⚡️"
+            "description": "This is the single source of truth that trains, validates, and powers all other Scam.ai models. It's why our detection products are always smarter and faster. ️"
           }
         ]
       },

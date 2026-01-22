@@ -48,9 +48,9 @@
   "HomePage": {
     "Hero": {
       "kicker": "Hacker Chic · Enterprise Grade · Dark Mode",
-      "title": "The AI Firewall Against Deepfakes and Synthetic Fraud.",
-      "subtitle": "Enterprise-grade detection models that protect your KYC flows, identity verification, and platform integrity from generative AI attacks.",
-      "primaryCta": "Try the Demo Now",
+      "title": "Don't be fooled\nby AI",
+      "subtitle": "Detect AI-generated images, audio, and video.\nCombat AI-powered scams at scale.",
+      "primaryCta": "Try Now",
       "secondaryCta": "Get API Key",
       "stats": [
         {
@@ -73,9 +73,9 @@
       "freeTrials": "{count} Free Trials",
       "demoCount": "Demo count: {count}/{limit}",
       "tabs": {
-        "image": { "label": "Image Detection", "badge": "Active" },
-        "voice": { "label": "Voice Clone", "badge": "Beta" },
-        "video": { "label": "Video Deepfake", "badge": "Coming Soon" }
+        "image": { "label": "Image Detection", "badge": "" },
+        "voice": { "label": "Voice Clone", "badge": "" },
+        "video": { "label": "Video Deepfake", "badge": "" }
       },
       "uploadArea": "Upload Area",
       "uploadHint": "Drag & drop an image or paste URL. JPG, PNG, WEBP (Max 5MB)",

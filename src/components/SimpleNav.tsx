@@ -7,7 +7,6 @@ import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import ThemeToggle from "@/components/ThemeToggle";
 
 export default function SimpleNav() {
   const { resolvedTheme } = useTheme();
@@ -19,18 +18,12 @@ export default function SimpleNav() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  const navLink = isDark
-    ? "text-slate-200 hover:text-white hover:bg-white/5"
-    : "text-slate-700 hover:text-black hover:bg-slate-100";
+  const navLink = "text-black hover:text-gray-900 hover:bg-gray-50 font-semibold";
 
   return (
     <header
-      className={`app-fixed-header fixed top-0 left-0 right-0 z-50 backdrop-blur border-b ${
-        isDark ? "bg-[#05050f]/90 border-white/10" : "bg-white/90 border-slate-200"
-      }`}
+      className="app-fixed-header fixed top-0 left-0 right-0 z-50 backdrop-blur border-b bg-white border-gray-200"
     >
-      <div className="h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500" />
-      
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center">
@@ -54,7 +47,7 @@ export default function SimpleNav() {
               }}
             >
               <button
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-base font-normal rounded-md transition-all duration-200 ${navLink}`}
+                className={`relative flex items-center gap-1.5 px-4 py-2 text-base rounded-md transition-all duration-200 ${navLink}`}
               >
                 {t("nav.products")}
                 <svg 
@@ -70,7 +63,7 @@ export default function SimpleNav() {
                 <div className="absolute top-full left-0 pt-2 w-56">
                   <div
                     className={`shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ${
-                      isDark ? "bg-[#0b0b18] border border-white/10" : "bg-white border border-slate-200"
+                      isDark ? "bg-white border border-white/10" : "bg-white border border-slate-200"
                     }`}
                   >
                   <div className="py-2">
@@ -79,7 +72,7 @@ export default function SimpleNav() {
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
                           ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
                       }`}
                     >
                       {t("products.deepfake")}
@@ -89,7 +82,7 @@ export default function SimpleNav() {
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
                           ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
                       }`}
                     >
                       {t("products.voice")}
@@ -99,7 +92,7 @@ export default function SimpleNav() {
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
                           ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
                       }`}
                     >
                       {t("products.aimedia")}
@@ -121,7 +114,7 @@ export default function SimpleNav() {
               }}
             >
               <button
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-base font-normal rounded-md transition-all duration-200 ${navLink}`}
+                className={`relative flex items-center gap-1.5 px-4 py-2 text-base rounded-md transition-all duration-200 ${navLink}`}
               >
                 {t("nav.industries")}
                 <svg 
@@ -137,7 +130,7 @@ export default function SimpleNav() {
                 <div className="absolute top-full left-0 pt-2 w-64">
                   <div
                     className={`shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ${
-                      isDark ? "bg-[#0b0b18] border border-white/10" : "bg-white border border-slate-200"
+                      isDark ? "bg-white border border-white/10" : "bg-white border border-slate-200"
                     }`}
                   >
                   <div className="py-2">
@@ -146,7 +139,7 @@ export default function SimpleNav() {
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
                           ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
                       }`}
                     >
                       {t("industries.kyc")}
@@ -156,7 +149,7 @@ export default function SimpleNav() {
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
                           ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
                       }`}
                     >
                       {t("industries.dating")}
@@ -166,7 +159,7 @@ export default function SimpleNav() {
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
                           ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
                       }`}
                     >
                       {t("industries.fakenews")}
@@ -176,7 +169,7 @@ export default function SimpleNav() {
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
                           ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
                       }`}
                     >
                       {t("industries.impersonation")}
@@ -198,7 +191,7 @@ export default function SimpleNav() {
               }}
             >
               <button
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-base font-normal rounded-md transition-all duration-200 ${navLink}`}
+                className={`relative flex items-center gap-1.5 px-4 py-2 text-base rounded-md transition-all duration-200 ${navLink}`}
               >
                 {t("nav.resources")}
                 <svg 
@@ -214,7 +207,7 @@ export default function SimpleNav() {
                 <div className="absolute top-full left-0 pt-2 w-64">
                   <div
                     className={`shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ${
-                      isDark ? "bg-[#0b0b18] border border-white/10" : "bg-white border border-slate-200"
+                      isDark ? "bg-white border border-white/10" : "bg-white border border-slate-200"
                     }`}
                   >
                   <div className="py-2">
@@ -223,7 +216,7 @@ export default function SimpleNav() {
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
                           ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
                       }`}
                     >
                       {t("resources.publications")}
@@ -233,7 +226,7 @@ export default function SimpleNav() {
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
                           ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
                       }`}
                     >
                       {t("resources.news")}
@@ -243,7 +236,7 @@ export default function SimpleNav() {
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
                           ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
                       }`}
                     >
                       {t("resources.scams")}
@@ -278,13 +271,13 @@ export default function SimpleNav() {
           </nav>
 
           {/* Right Side Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {/* Sign up Link */}
             <Link
               href="https://app.scam.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-4 py-2 text-base font-normal rounded-md transition-all duration-200 ${navLink}`}
+              className="text-gray-900 text-base font-normal hover:text-gray-600 transition-colors duration-200"
             >
               {t("nav.signup")}
             </Link>
@@ -294,28 +287,12 @@ export default function SimpleNav() {
               href="https://cal.com/scamai/15min"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 text-white text-base font-medium transition-all duration-200 rounded-none hover:shadow-[0_0_25px_rgba(99,102,241,0.6)]"
-              style={{ background: 'linear-gradient(90deg, #6366F1, #8B5CF6, #3B82F6)' }}
+              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white text-base font-medium rounded-xl transition-all duration-200 shadow-sm hover:shadow-md"
             >
               {t("nav.demo")}
             </Link>
 
-            <div className="flex items-center gap-2">
-              <ThemeToggle
-                className={
-                  isDark
-                    ? "text-slate-200 border-white/20 hover:bg-white/5"
-                    : "text-slate-700 border-slate-200 hover:bg-slate-100"
-                }
-              />
-              <LanguageSwitcher
-                className={
-                  isDark
-                    ? "text-slate-200 border-white/20 hover:bg-white/5"
-                    : "text-slate-700 border-slate-200 hover:bg-slate-100"
-                }
-              />
-            </div>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

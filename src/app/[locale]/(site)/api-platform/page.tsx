@@ -40,7 +40,7 @@ export default function ApiPlatformPage() {
 
           {/* API Demo Section */}
           <div className="mt-8 max-w-4xl mx-auto">
-            <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-gradient-to-br from-white/10 to-white/5">
+            <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-white/10">
               <div className="aspect-video p-8 flex flex-col justify-center">
                 <div className="text-center">
                   <h3 className="text-2xl font-semibold text-white mb-4">See ScamAI API in Action</h3>
@@ -199,7 +199,7 @@ export default function ApiPlatformPage() {
             },
           ].map((f) => (
             <article key={f.title} className="border border-white/10 p-6 grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-4">
-              <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-white/10">
+              <div className="aspect-video bg-blue-500/20 rounded-lg flex items-center justify-center border border-white/10">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-2">
                     <span className="text-white text-xl">🔍</span>
@@ -247,7 +247,7 @@ export default function ApiPlatformPage() {
           </p>
           <Link href="/demo" className="mt-4 inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Start exploring</Link>
         </div>
-        <div className="mt-8 aspect-[16/7] bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 border border-white/10 rounded-lg flex items-center justify-center">
+        <div className="mt-8 aspect-[16/7] bg-blue-500/10 border border-white/10 rounded-lg flex items-center justify-center">
           <div className="text-center">
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="w-20 h-20 bg-white/10 rounded-lg flex items-center justify-center">
@@ -278,7 +278,7 @@ export default function ApiPlatformPage() {
             { name: "IP", blurb: "Detect AI remixes and derivative content." },
           ].map((c) => (
             <article key={c.name} className="border border-white/10 p-4 hover:bg-white/5 transition-colors">
-              <div className="h-40 bg-gradient-to-br from-blue-500/10 to-purple-500/10 mb-3 rounded-lg flex items-center justify-center border border-white/5">
+              <div className="h-40 bg-blue-500/10 mb-3 rounded-lg flex items-center justify-center border border-white/5">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <span className="text-white text-2xl">

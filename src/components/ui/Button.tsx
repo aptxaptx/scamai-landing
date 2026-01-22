@@ -27,14 +27,12 @@ export default function Button({
   className,
 }: ButtonProps) {
   const baseClasses = cn(
-    "inline-flex items-center justify-center gap-2 font-bold transition-colors",
+    "inline-flex items-center justify-center gap-2 font-bold transition-colors rounded-xl",
     "disabled:opacity-50 disabled:cursor-not-allowed",
     buttonVariants[variant],
     buttonSizes[size],
     className
   );
-
-  const style = { borderRadius: "0" }; // Square corners per site design
 
   if (href) {
     if (external) {
@@ -44,7 +42,6 @@ export default function Button({
           target="_blank"
           rel="noopener noreferrer"
           className={baseClasses}
-          style={style}
         >
           {children}
         </a>
@@ -52,7 +49,7 @@ export default function Button({
     }
 
     return (
-      <Link href={href} className={baseClasses} style={style}>
+      <Link href={href} className={baseClasses}>
         {children}
       </Link>
     );
@@ -63,7 +60,6 @@ export default function Button({
       onClick={onClick}
       disabled={disabled}
       className={baseClasses}
-      style={style}
     >
       {children}
     </button>

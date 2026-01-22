@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { cookies, headers } from "next/headers";
-import { Inter, Geist_Mono, Poppins } from "next/font/google";
+import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { defaultLocale, rtlLocales, type Locale } from "@/i18n/config";
 
@@ -13,12 +13,6 @@ const inter = Inter({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -48,7 +42,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={direction} suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
+        className={`${inter.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

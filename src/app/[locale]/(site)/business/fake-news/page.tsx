@@ -75,7 +75,7 @@ export default async function FakeNewsPage({
 
       {/* Interactive Demo Section */}
       <div className="mt-12 max-w-4xl mx-auto">
-        <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-gradient-to-br from-blue-500/10 to-green-500/10">
+        <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-blue-500/10">
           <div className="aspect-video p-8 flex flex-col justify-center">
             <div className="text-center">
               <div className="inline-flex items-center gap-3 mb-4">
