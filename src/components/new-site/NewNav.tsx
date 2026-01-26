@@ -83,14 +83,14 @@ export default function NewNav() {
     <>
       <div className="w-full bg-[#0021f3] py-2 text-center rounded-none">
         <p className="text-sm text-white">
-          Scam.ai raise $2.5M and Joined Berkeley SkyDeck(Batch 20){" "}
+          Scam.ai raised $2.5M and joined Berkeley SkyDeck (Batch 20){" "}
           <Link href="/news" className="inline-flex items-center underline hover:opacity-80">
             Read more →
           </Link>
         </p>
       </div>
-      <div className="sticky top-0 z-50 bg-black">
-      <header className="bg-black rounded-none">
+      <div className="sticky top-0 z-50 bg-transparent">
+      <header className="bg-transparent rounded-none">
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 rounded-none">
         <Link href="/" className="flex items-center">
           <img

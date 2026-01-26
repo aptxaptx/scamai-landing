@@ -25,9 +25,9 @@
     "scams": "Tipos de Estafas"
   },
   "hero": {
-    "title": "Sección Hero",
-    "subtitle": "Listo para rediseñar",
-    "primary": "CTA Principal",
+    "title": "No te dejes engañar\npor la IA",
+    "subtitle": "Detecta imágenes, audio y video generados por IA.\nCombate estafas impulsadas por IA a escala.",
+    "primary": "Probar Ahora",
     "secondary": "CTA Secundario"
   },
   "content": {

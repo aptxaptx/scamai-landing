@@ -12,7 +12,7 @@ export default function NewLanding() {
           }}
         />
 
-        <div className="relative mx-auto max-w-4xl px-4 py-32 text-center sm:px-6">
+        <div className="relative mx-auto max-w-4xl px-4 py-32 text-left sm:px-6">
           <p className="mb-6 text-sm text-gray-400">
             It provides what Multi-CDN can't.
           </p>
@@ -22,7 +22,7 @@ export default function NewLanding() {
             Assure consistent security
             <span className="inline-block animate-pulse">_</span>
           </h1>
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-300 sm:text-xl">
+          <p className="mb-10 max-w-2xl text-lg text-gray-300 sm:text-xl">
             A unified layer of security, traffic control and serverless compute services on top of Edge platforms to improve the reliability, performance and affordability of online services.
           </p>
           <Link
