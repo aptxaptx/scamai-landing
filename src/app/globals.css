@@ -41,52 +41,19 @@ html {
   transform: translateZ(0);
 }
 
-/***** Apply rounded corners site-wide *****/
-button,
-.button,
-input,
-select,
-textarea,
-[class*="border"],
-[class*="bg-"],
-img,
-video {
-  border-radius: 0.75rem !important;
-}
-
-/* Navigation header and sections should have no border radius */
-header,
-header *,
-header nav,
-header nav *,
-header a,
-header button,
-header div,
-.app-fixed-header,
-section {
+/* Remove all border radius except for specific rounded-full buttons */
+* {
   border-radius: 0 !important;
-  border: none !important;
 }
 
-/* Specific overrides for different element types */
-.rounded-full,
-[class*="rounded-full"] {
+/* Allow rounded-full only for link and button elements with the class */
+a.rounded-full,
+button.rounded-full {
   border-radius: 9999px !important;
 }
 
-.rounded-xl,
-[class*="rounded-xl"] {
-  border-radius: 0.75rem !important;
-}
-
-.rounded-2xl,
-[class*="rounded-2xl"] {
-  border-radius: 1rem !important;
-}
-
-.rounded-3xl,
-[class*="rounded-3xl"] {
-  border-radius: 1.5rem !important;
+header {
+  border: none !important;
 }
 
 /***** Landing visuals *****/

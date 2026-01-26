@@ -29,8 +29,7 @@ const navItems = [
   { label: "Pricing", href: "/pricing" },
   { 
     label: "Company", 
-    href: "/company", 
-    hasDropdown: true
+    href: "/company"
   },
 ];
 
@@ -81,8 +80,18 @@ export default function NewNav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-transparent rounded-none">
-      <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 rounded-none">
+    <>
+      <div className="w-full bg-[#0021f3] py-2 text-center rounded-none">
+        <p className="text-sm text-white">
+          Scam.ai raise $2.5M and Joined Berkeley SkyDeck(Batch 20){" "}
+          <Link href="/news" className="inline-flex items-center underline hover:opacity-80">
+            Read more →
+          </Link>
+        </p>
+      </div>
+      <div className="sticky top-0 z-50 bg-black">
+      <header className="bg-black rounded-none">
+        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 rounded-none">
         <Link href="/" className="flex items-center">
           <img
             src="/scamai-logo.svg"
@@ -104,11 +113,11 @@ export default function NewNav() {
                 <div key={item.href} className="relative" ref={dropdownRef}>
                   <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex items-center gap-1 text-sm font-medium text-white transition hover:text-white/80"
+                    className="flex items-center gap-1 text-sm font-medium text-white transition-colors duration-150 hover:text-white/80"
                   >
                     {item.label}
                     <svg
-                      className="h-4 w-4"
+                      className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -121,22 +130,6 @@ export default function NewNav() {
                       />
                     </svg>
                   </button>
-                  {isOpen && (
-                    <div className="absolute left-0 top-full z-50 mt-2 w-48 rounded-none border border-gray-200 bg-white shadow-lg">
-                      <div className="py-1">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               );
             }
@@ -168,24 +161,10 @@ export default function NewNav() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <a
-            href="https://app.scam.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-white bg-transparent px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-          >
-            Log In
-          </a>
-          <Link
-            href="/demo"
-            className="border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
-          >
-            Book a demo
-          </Link>
           <div className="relative" ref={langDropdownRef}>
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 border border-white bg-transparent px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+              className="flex items-center gap-1 bg-transparent px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
             >
               <svg
                 className="h-4 w-4"
@@ -202,7 +181,7 @@ export default function NewNav() {
               </svg>
             </button>
             {langOpen && (
-              <div className="absolute right-0 top-full z-50 mt-2 w-48 rounded-none border border-gray-200 bg-white shadow-lg">
+              <div className="absolute right-0 top-full z-50 mt-2 w-48 rounded-lg bg-black shadow-lg">
                 <div className="max-h-64 overflow-y-auto scrollbar-hide">
                   {languages.map((lang) => (
                     <button
@@ -211,7 +190,7 @@ export default function NewNav() {
                       className={`w-full px-4 py-2 text-left text-sm transition ${
                         locale === lang.code
                           ? "bg-blue-600 text-white"
-                          : "text-gray-700 hover:bg-gray-100"
+                          : "text-white hover:bg-gray-800"
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -238,6 +217,20 @@ export default function NewNav() {
               </div>
             )}
           </div>
+          <a
+            href="https://app.scam.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-transparent px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            Log In
+          </a>
+          <Link
+            href="/demo"
+            className="rounded-full border border-[#0021f3] bg-[#0021f3] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0019c7]"
+          >
+            Book a demo
+          </Link>
         </div>
 
         <button
@@ -331,14 +324,14 @@ export default function NewNav() {
               href="https://app.scam.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-white bg-transparent px-3 py-2 text-sm font-semibold text-white"
+              className="bg-transparent px-3 py-2 text-sm font-semibold text-white"
               onClick={() => setOpen(false)}
             >
               Log In
             </a>
             <Link
               href="/demo"
-              className="border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-700"
+              className="rounded-full border border-[#0021f3] bg-[#0021f3] px-3 py-2 text-sm font-semibold text-white"
               onClick={() => setOpen(false)}
             >
               Book a demo
@@ -347,5 +340,45 @@ export default function NewNav() {
         </div>
       )}
     </header>
+    
+    <div 
+      className={`w-full overflow-hidden bg-black transition-all duration-300 ${
+        (productsOpen || resourcesOpen) ? 'ease-out' : 'ease-in'
+      }`}
+      style={{ 
+        maxHeight: (productsOpen || resourcesOpen) ? '400px' : '0',
+        paddingTop: (productsOpen || resourcesOpen) ? '16px' : '0',
+        paddingBottom: (productsOpen || resourcesOpen) ? '16px' : '0'
+      }}
+    >
+      <div className={`mx-auto max-w-6xl px-4 transition-opacity duration-200 ${
+        (productsOpen || resourcesOpen) ? 'opacity-100' : 'opacity-0'
+      }`}>
+        <div className="flex flex-col gap-1">
+          {productsOpen && navItems.find(item => item.label === "Product")?.children?.map((child) => (
+            <Link
+              key={child.href}
+              href={child.href}
+              className="block px-4 py-3 text-sm text-white hover:bg-gray-800 rounded-lg transition-colors duration-150"
+              onClick={() => setProductsOpen(false)}
+            >
+              {child.label}
+            </Link>
+          ))}
+          {resourcesOpen && navItems.find(item => item.label === "Resources")?.children?.map((child) => (
+            <Link
+              key={child.href}
+              href={child.href}
+              className="block px-4 py-3 text-sm text-white hover:bg-gray-800 rounded-lg transition-colors duration-150"
+              onClick={() => setResourcesOpen(false)}
+            >
+              {child.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+    </div>
+    </>
   );
 }

@@ -27,9 +27,9 @@ export default function NewLanding() {
           </p>
           <Link
             href="/demo"
-            className="inline-block rounded-lg bg-white px-8 py-4 text-base font-semibold text-[#0b0f1f] shadow-lg transition hover:bg-gray-100"
+            className="inline-block rounded-full bg-white px-8 py-4 text-base font-semibold text-[#0b0f1f] shadow-lg transition hover:bg-gray-100"
           >
-            Book a Demo
+            Test Now
           </Link>
         </div>
       </section>
@@ -52,7 +52,7 @@ export default function NewLanding() {
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur"
+              className="border border-white/10 bg-white/5 p-6 backdrop-blur"
             >
               <h3 className="text-lg font-semibold text-white">{item.title}</h3>
               <p className="mt-3 text-sm text-[#9ec4ff]">{item.body}</p>
@@ -81,7 +81,7 @@ export default function NewLanding() {
             ].map((step, index) => (
               <div
                 key={step}
-                className="rounded-[24px] border border-white/10 bg-white/5 p-5 text-sm text-[#cfe0ff]"
+                className="border border-white/10 bg-white/5 p-5 text-sm text-[#cfe0ff]"
               >
                 <span className="text-[#9ec4ff]">0{index + 1}.</span> {step}
               </div>
@@ -100,7 +100,7 @@ export default function NewLanding() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-[28px] border border-white/10 bg-white/5 p-6 text-white"
+                className="border border-white/10 bg-white/5 p-6 text-white"
               >
                 <p className="text-xs text-[#9ec4ff]">{stat.label}</p>
                 <p className="mt-2 text-2xl font-semibold text-white">{stat.value}</p>
@@ -111,7 +111,7 @@ export default function NewLanding() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 text-center backdrop-blur">
+        <div className="border border-white/10 bg-white/5 p-8 text-center backdrop-blur">
           <h2 className="text-3xl font-semibold">Ready to rebuild trust?</h2>
           <p className="mt-3 text-sm text-[#cfe0ff]">
             Start from a clean slate with a detection platform built for the
@@ -120,13 +120,13 @@ export default function NewLanding() {
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/demo"
-              className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#0b0f1f]"
+              className="bg-white px-7 py-3 text-sm font-semibold text-[#0b0f1f]"
             >
               Schedule a Demo
             </Link>
             <Link
               href="/contact"
-              className="rounded-full border border-white/30 px-7 py-3 text-sm font-semibold text-white"
+              className="border border-white/30 px-7 py-3 text-sm font-semibold text-white"
             >
               Speak with Sales
             </Link>
