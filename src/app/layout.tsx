@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { cookies, headers } from "next/headers";
 import { Inter, Geist_Mono } from "next/font/google";
+import NewNav from "@/components/new-site/NewNav";
+import NewFooter from "@/components/new-site/NewFooter";
 import "./globals.css";
 import { defaultLocale, rtlLocales, type Locale } from "@/i18n/config";
 
@@ -44,7 +46,9 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} ${geistMono.variable} antialiased`}
       >
+        <NewNav />
         {children}
+        <NewFooter />
       </body>
     </html>
   );

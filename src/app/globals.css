@@ -2,19 +2,13 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --bg: #030303;
-  --panel: #0a0a0a;
-  --muted: #a1a1aa;
-  --text: #fafafa;
-  --text-soft: #e5e7eb;
-}
-
-:root.dark {
-  --bg: #030303;
-  --panel: #0a0a0a;
-  --muted: #a1a1aa;
-  --text: #fafafa;
-  --text-soft: #e5e7eb;
+  --bg: #0b0b0b;
+  --panel: #111111;
+  --muted: #9ca3af;
+  --text: #f5f5f5;
+  --text-soft: #cbd5f5;
+  --border: #1f1f1f;
+  --accent: #6d5dfb;
 }
 
 @theme inline {
@@ -37,12 +31,7 @@ html {
   scroll-behavior: smooth;
 }
 
-:root.light .site-shell-content [class*="text-white"] {
-  color: #0f172a !important;
-}
-:root.dark .site-shell-content [class*="text-black"] {
-  color: #e5e7eb !important;
-}
+/* Dark-only theme: no light overrides */
 
 .app-fixed-header {
   will-change: transform;

@@ -1,18 +1,5 @@
-import SiteShell from "@/components/SiteShell";
+import NewPage from "@/components/new-site/NewPage";
 
-export const metadata = { title: "People — ScamAI" };
-
-export default function PeoplePage() {
-  return (
-    <SiteShell>
-      <section className="py-20">
-        <div className="max-w-3xl mx-auto px-5 md:px-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-white">People</h1>
-          <p className="mt-3 text-white/60">Coming soon.</p>
-        </div>
-      </section>
-    </SiteShell>
-  );
+export default function Page() {
+  return <NewPage title="Company • People" subtitle="Rebuilt from scratch. Dark-first, minimal, and focused." />;
 }
-
-
