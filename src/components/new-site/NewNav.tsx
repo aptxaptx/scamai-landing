@@ -81,10 +81,7 @@ export default function NewNav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 relative rounded-none">
-      <div className="absolute inset-0 bg-[#0b0f1f] bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.35),_transparent_55%),radial-gradient(circle_at_bottom_left,_rgba(29,78,216,0.35),_transparent_55%)]" />
-      <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-[#1d4ed8]/50 blur-3xl" />
-      <div className="absolute -right-20 top-32 h-80 w-80 rounded-full bg-[#3b82f6]/40 blur-3xl" />
+    <header className="sticky top-0 z-50 bg-transparent rounded-none">
       <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 rounded-none">
         <Link href="/" className="flex items-center">
           <img
@@ -175,7 +172,7 @@ export default function NewNav() {
             href="https://app.scam.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-[#60a5fa] bg-[#1e3a8a] px-4 py-2 text-sm font-semibold text-white transition hover:border-[#93c5fd]"
+            className="border border-white bg-transparent px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
           >
             Log In
           </a>
@@ -188,7 +185,7 @@ export default function NewNav() {
           <div className="relative" ref={langDropdownRef}>
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
+              className="flex items-center gap-1 border border-white bg-transparent px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
             >
               <svg
                 className="h-4 w-4"
@@ -213,7 +210,7 @@ export default function NewNav() {
                       onClick={() => switchLocale(lang.code)}
                       className={`w-full px-4 py-2 text-left text-sm transition ${
                         locale === lang.code
-                          ? "bg-black text-white"
+                          ? "bg-blue-600 text-white"
                           : "text-gray-700 hover:bg-gray-100"
                       }`}
                     >
@@ -334,7 +331,7 @@ export default function NewNav() {
               href="https://app.scam.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-[#60a5fa] bg-[#1e3a8a] px-3 py-2 text-sm font-semibold text-white"
+              className="border border-white bg-transparent px-3 py-2 text-sm font-semibold text-white"
               onClick={() => setOpen(false)}
             >
               Log In

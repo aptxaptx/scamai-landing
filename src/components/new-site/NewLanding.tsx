@@ -3,10 +3,14 @@ import Link from "next/link";
 export default function NewLanding() {
   return (
     <main className="bg-[#0b0f1f] text-white">
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.35),_transparent_55%),radial-gradient(circle_at_bottom_left,_rgba(29,78,216,0.35),_transparent_55%)]" />
-        <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-[#1d4ed8]/50 blur-3xl" />
-        <div className="absolute -right-20 bottom-20 h-80 w-80 rounded-full bg-[#3b82f6]/40 blur-3xl" />
+      <section className="relative overflow-hidden -mt-[73px] pt-[73px]">
+        <div className="absolute inset-0 -top-[73px] bg-[#0b0f1f]" />
+        <div 
+          className="absolute inset-0 -top-[73px] bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/hero.svg)',
+          }}
+        />
 
         <div className="relative mx-auto max-w-4xl px-4 py-32 text-center sm:px-6">
           <p className="mb-6 text-sm text-gray-400">
