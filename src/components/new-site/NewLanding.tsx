@@ -2,63 +2,35 @@ import Link from "next/link";
 
 export default function NewLanding() {
   return (
-    <main className="bg-[#0b0b0b] text-white">
-      <section className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:py-24">
-        <div className="flex-1 space-y-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#6d5dfb]">
-            ScamAI Platform
-          </p>
-          <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-            Stop synthetic fraud before it hits your business.
-          </h1>
-          <p className="text-base text-[#cbd5f5] sm:text-lg">
-            A new detection stack that verifies media, identity, and intent in
-            real time. Built for teams who cannot afford false positives.
-          </p>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/demo"
-              className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-black"
-            >
-              Request a Demo
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-lg border border-[#2a2a2a] px-6 py-3 text-sm font-semibold text-white"
-            >
-              Talk to Sales
-            </Link>
-          </div>
-          <div className="flex flex-wrap gap-6 text-xs text-[#9ca3af]">
-            <span>99.4% detection accuracy</span>
-            <span>Sub-200ms responses</span>
-            <span>Global coverage</span>
-          </div>
-        </div>
+    <main className="bg-[#0b0f1f] text-white">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.35),_transparent_55%),radial-gradient(circle_at_bottom_left,_rgba(29,78,216,0.35),_transparent_55%)]" />
+        <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-[#1d4ed8]/50 blur-3xl" />
+        <div className="absolute -right-20 bottom-20 h-80 w-80 rounded-full bg-[#3b82f6]/40 blur-3xl" />
 
-        <div className="flex-1">
-          <div className="rounded-2xl border border-[#1f1f1f] bg-[#111111] p-6">
-            <p className="text-sm font-semibold text-[#9ca3af]">Live Risk Feed</p>
-            <div className="mt-6 space-y-4">
-              {[
-                "Synthetic voice spoof detected",
-                "Deepfake video flagged",
-                "KYC anomaly resolved",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center justify-between rounded-xl border border-[#1f1f1f] bg-[#0f0f0f] px-4 py-3 text-sm"
-                >
-                  <span>{item}</span>
-                  <span className="text-[#6d5dfb]">Verified</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="relative mx-auto max-w-4xl px-4 py-32 text-center sm:px-6">
+          <p className="mb-6 text-sm text-gray-400">
+            It provides what Multi-CDN can't.
+          </p>
+          <h1 className="mb-6 text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl">
+            Virtual edge can
+            <br />
+            Assure consistent security
+            <span className="inline-block animate-pulse">_</span>
+          </h1>
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-300 sm:text-xl">
+            A unified layer of security, traffic control and serverless compute services on top of Edge platforms to improve the reliability, performance and affordability of online services.
+          </p>
+          <Link
+            href="/demo"
+            className="inline-block rounded-lg bg-white px-8 py-4 text-base font-semibold text-[#0b0f1f] shadow-lg transition hover:bg-gray-100"
+          >
+            Book a Demo
+          </Link>
         </div>
       </section>
 
-      <section className="border-t border-[#1f1f1f] bg-[#0f0f0f]">
+      <section className="bg-[#0a1022]">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 py-12 sm:px-6 md:grid-cols-3">
           {[
             {
@@ -76,10 +48,10 @@ export default function NewLanding() {
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-2xl border border-[#1f1f1f] bg-[#111111] p-6"
+              className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur"
             >
               <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm text-[#9ca3af]">{item.body}</p>
+              <p className="mt-3 text-sm text-[#9ec4ff]">{item.body}</p>
             </div>
           ))}
         </div>
@@ -88,11 +60,11 @@ export default function NewLanding() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#6d5dfb]">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#9ec4ff]">
               How it works
             </p>
             <h2 className="text-3xl font-semibold">3 steps to safer decisions</h2>
-            <p className="text-sm text-[#9ca3af]">
+            <p className="text-sm text-[#cfe0ff]">
               Plug in ScamAI, send your verification events, and get a clear
               risk score that your automation and analysts can act on.
             </p>
@@ -105,16 +77,16 @@ export default function NewLanding() {
             ].map((step, index) => (
               <div
                 key={step}
-                className="rounded-2xl border border-[#1f1f1f] bg-[#111111] p-5 text-sm text-[#cbd5f5]"
+                className="rounded-[24px] border border-white/10 bg-white/5 p-5 text-sm text-[#cfe0ff]"
               >
-                <span className="text-[#6d5dfb]">0{index + 1}.</span> {step}
+                <span className="text-[#9ec4ff]">0{index + 1}.</span> {step}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-[#1f1f1f] bg-[#0f0f0f]">
+      <section className="bg-[#0a1022]">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
           <div className="grid gap-8 md:grid-cols-3">
             {[
@@ -122,8 +94,11 @@ export default function NewLanding() {
               { label: "Average decision time", value: "180ms" },
               { label: "Signals processed daily", value: "84M" },
             ].map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-[#1f1f1f] bg-[#111111] p-6">
-                <p className="text-xs text-[#9ca3af]">{stat.label}</p>
+              <div
+                key={stat.label}
+                className="rounded-[28px] border border-white/10 bg-white/5 p-6 text-white"
+              >
+                <p className="text-xs text-[#9ec4ff]">{stat.label}</p>
                 <p className="mt-2 text-2xl font-semibold text-white">{stat.value}</p>
               </div>
             ))}
@@ -132,22 +107,22 @@ export default function NewLanding() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="rounded-2xl border border-[#1f1f1f] bg-[#111111] p-8 text-center">
+        <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 text-center backdrop-blur">
           <h2 className="text-3xl font-semibold">Ready to rebuild trust?</h2>
-          <p className="mt-3 text-sm text-[#9ca3af]">
-            Start from a clean slate with a detection platform that is built for
-            the modern threat landscape.
+          <p className="mt-3 text-sm text-[#cfe0ff]">
+            Start from a clean slate with a detection platform built for the
+            modern threat landscape.
           </p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/demo"
-              className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-black"
+              className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#0b0f1f]"
             >
               Schedule a Demo
             </Link>
             <Link
               href="/contact"
-              className="rounded-lg border border-[#2a2a2a] px-6 py-3 text-sm font-semibold text-white"
+              className="rounded-full border border-white/30 px-7 py-3 text-sm font-semibold text-white"
             >
               Speak with Sales
             </Link>

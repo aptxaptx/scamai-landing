@@ -20,11 +20,15 @@
 }
 
 body {
-  background: var(--bg);
+  background: #0b0f1f !important;
   color: var(--text);
   font-family: var(--font-inter);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+html {
+  background: #0b0f1f !important;
 }
 
 html {
@@ -53,9 +57,16 @@ video {
 
 /* Navigation header and sections should have no border radius */
 header,
+header *,
+header nav,
+header nav *,
+header a,
+header button,
+header div,
 .app-fixed-header,
 section {
   border-radius: 0 !important;
+  border: none !important;
 }
 
 /* Specific overrides for different element types */
@@ -162,4 +173,14 @@ section {
   aside[data-desktop-sidebar] {
     display: flex !important;
   }
+}
+
+/* Hide scrollbar but keep scrolling functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }

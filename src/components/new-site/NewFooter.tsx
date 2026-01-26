@@ -5,11 +5,12 @@ export default function NewFooter() {
     <footer className="border-t border-[#1f1f1f] bg-[#0b0b0b]">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div className="space-y-3">
-          <div className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-[#6d5dfb] text-sm font-semibold text-white">
-              SA
-            </span>
-            <span className="text-base font-semibold text-white">ScamAI</span>
+          <div className="flex items-center">
+            <img
+              src="/scamai-logo.svg"
+              alt="ScamAI"
+              className="h-8 w-auto"
+            />
           </div>
           <p className="text-sm text-[#9ca3af]">
             Defense-grade detection for synthetic media and fraud at scale.
