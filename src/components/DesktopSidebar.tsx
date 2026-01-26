@@ -99,7 +99,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                             router.push("/business");
                           }
                         }}
-                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
+                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors flex items-center gap-2"
                       >
                         <span>{item}</span>
                         <span
@@ -123,7 +123,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                             router.push("/models/deepfakes");
                           }
                         }}
-                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
+                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors flex items-center gap-2"
                       >
                         <span>{item}</span>
                         <span
@@ -148,7 +148,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                             router.push("/research/publication");
                           }
                         }}
-                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
+                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors flex items-center gap-2"
                       >
                         <span>{item}</span>
                         <span
@@ -165,7 +165,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                       <Link
                         key={item}
                         href="/company/about"
-                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-2"
+                        className="group text-left w-full rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors flex items-center gap-2"
                       >
                         <span>{item}</span>
                         <span
@@ -181,7 +181,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     <a
                       key={item}
                       href="#"
-                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors"
                     >
                       {item}
                     </a>
@@ -203,7 +203,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     setSubmenu("none");
                     router.push("/");
                   }}
-                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-zinc-900/10"
                 >
                   <span aria-hidden>←</span>
                   <span>Home</span>
@@ -237,7 +237,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                           ? "noopener noreferrer"
                           : undefined
                       }
-                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors"
                     >
                       {item}
                     </Link>
@@ -259,7 +259,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     setSubmenu("none");
                     router.push("/");
                   }}
-                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-zinc-900/10"
                 >
                   <span aria-hidden>←</span>
                   <span>Home</span>
@@ -292,7 +292,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     <Link
                       key={item}
                       href={href}
-                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors ml-4"
+                      className="block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors ml-4"
                     >
                       {item}
                     </Link>
@@ -314,7 +314,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     setSubmenu("none");
                     router.push("/");
                   }}
-                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-zinc-900/10"
                 >
                   <span aria-hidden>←</span>
                   <span>Home</span>
@@ -334,7 +334,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     <Link
                       key={item}
                       href={href}
-                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors"
                     >
                       {item}
                     </Link>
@@ -356,7 +356,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     setSubmenu("none");
                     router.push("/");
                   }}
-                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-zinc-900/10"
                 >
                   <span aria-hidden>←</span>
                   <span>Home</span>
@@ -379,7 +379,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
                     <Link
                       key={item}
                       href={href}
-                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                      className="block rounded-xl px-3 py-3 text-base font-light tracking-wide text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors"
                     >
                       {item}
                     </Link>
@@ -394,7 +394,7 @@ export default function DesktopSidebar({ isVisible }: DesktopSidebarProps) {
         <div className="p-4 mt-auto">
           <Link
             href="/demo"
-            className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 font-semibold text-white hover:bg-white/10 transition-colors"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-zinc-900/5 px-4 py-2 font-semibold text-white hover:bg-zinc-900/10 transition-colors"
           >
             Get A Demo
           </Link>

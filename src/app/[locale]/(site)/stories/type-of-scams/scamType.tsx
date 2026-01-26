@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 // Inline icon component for scam types
 export type IconName = "ShieldAlert" | "Briefcase" | "MessageSquareWarning" | "Zap" | "Target" | "Globe" | "BrainCircuit";
 
-function InlineIcon({ name, className = "h-5 w-5 text-gray-900" }: { name: IconName; className?: string }) {
+function InlineIcon({ name, className = "h-5 w-5 text-zinc-100" }: { name: IconName; className?: string }) {
   const common = {
     className,
     fill: "none",
@@ -199,7 +199,7 @@ function HeroSection({ hero }: HeroSectionProps) {
         {/* Tags */}
         <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
           {hero.tags.map((tag, i) => (
-            <span key={i} className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">
+            <span key={i} className="px-3 py-1 rounded-full text-xs text-white/85 bg-zinc-900/10 border border-white/15">
               {tag}
             </span>
           ))}
@@ -404,7 +404,7 @@ function UseCasesSection({ useCases }: UseCasesSectionProps) {
         <h3 className="text-3xl font-bold text-center text-white">{useCases.headline}</h3>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
           {useCases.items.map((item, idx) => (
-            <span key={idx} className="rounded-full bg-white/10 text-white/85 text-sm font-semibold px-4 py-2 border border-white/15">
+            <span key={idx} className="rounded-full bg-zinc-900/10 text-white/85 text-sm font-semibold px-4 py-2 border border-white/15">
               {item}
             </span>
           ))}
@@ -445,12 +445,12 @@ type CtaSectionProps = { cta: ScamTypePageProps["cta"] };
 function CtaSection({ cta }: CtaSectionProps) {
   return (
     <div className="mt-16 max-w-2xl mx-auto">
-      <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
+      <div className="bg-zinc-900/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
         <h3 className="text-2xl font-semibold text-white mb-4">{cta.headline}</h3>
         <p className="text-white/80 text-base mb-6">{cta.description}</p>
         <a
           href={cta.primary.href}
-          className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+          className="inline-block bg-zinc-900 text-zinc-100 px-8 py-3 rounded-lg font-medium hover:bg-zinc-900/90 transition-all duration-200 shadow-lg hover:shadow-xl"
         >
           {cta.primary.text}
         </a>

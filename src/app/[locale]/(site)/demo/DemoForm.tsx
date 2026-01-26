@@ -82,30 +82,30 @@ export default function DemoForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm text-white/80 mb-1" htmlFor="name">Full name</label>
-              <input id="name" name="name" value={form.name} onChange={handleChange} className="w-full bg-white/5 border border-white/15 px-3 py-2" placeholder="Jane Doe" />
+              <input id="name" name="name" value={form.name} onChange={handleChange} className="w-full bg-zinc-900/5 border border-white/15 px-3 py-2" placeholder="Jane Doe" />
             </div>
             <div>
               <label className="block text-sm text-white/80 mb-1" htmlFor="company">Company</label>
-              <input id="company" name="company" value={form.company} onChange={handleChange} className="w-full bg-white/5 border border-white/15 px-3 py-2" placeholder="Acme Inc." />
+              <input id="company" name="company" value={form.company} onChange={handleChange} className="w-full bg-zinc-900/5 border border-white/15 px-3 py-2" placeholder="Acme Inc." />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm text-white/80 mb-1" htmlFor="email">Work email</label>
-              <input id="email" name="email" type="email" value={form.email} onChange={handleChange} className="w-full bg-white/5 border border-white/15 px-3 py-2" placeholder="jane@acme.com" />
+              <input id="email" name="email" type="email" value={form.email} onChange={handleChange} className="w-full bg-zinc-900/5 border border-white/15 px-3 py-2" placeholder="jane@acme.com" />
               <p className="mt-1 text-xs text-white/60">Please use your company email. Personal addresses (gmail, outlook, etc.) are not accepted.</p>
             </div>
             <div>
               <label className="block text-sm text-white/80 mb-1" htmlFor="timezone">Time zone</label>
-              <input id="timezone" name="timezone" value={form.timezone} onChange={handleChange} className="w-full bg-white/5 border border-white/15 px-3 py-2" placeholder="e.g., PST / UTC‑8" />
+              <input id="timezone" name="timezone" value={form.timezone} onChange={handleChange} className="w-full bg-zinc-900/5 border border-white/15 px-3 py-2" placeholder="e.g., PST / UTC‑8" />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm text-white/80 mb-1" htmlFor="useCase">Primary use case</label>
-              <select id="useCase" name="useCase" value={form.useCase} onChange={handleChange} className="w-full bg-white/5 border border-white/15 px-3 py-2">
+              <select id="useCase" name="useCase" value={form.useCase} onChange={handleChange} className="w-full bg-zinc-900/5 border border-white/15 px-3 py-2">
                 <option>KYC/ID Verification</option>
                 <option>Dating Apps</option>
                 <option>Impersonation</option>
@@ -117,7 +117,7 @@ export default function DemoForm() {
             </div>
             <div>
               <label className="block text-sm text-white/80 mb-1" htmlFor="volume">Expected volume</label>
-              <select id="volume" name="volume" value={form.volume} onChange={handleChange} className="w-full bg-white/5 border border-white/15 px-3 py-2">
+              <select id="volume" name="volume" value={form.volume} onChange={handleChange} className="w-full bg-zinc-900/5 border border-white/15 px-3 py-2">
                 <option>&lt;10k / month</option>
                 <option>10k–100k / month</option>
                 <option>100k–1M / month</option>
@@ -128,7 +128,7 @@ export default function DemoForm() {
 
           <div>
             <label className="block text-sm text-white/80 mb-1" htmlFor="notes">Describe your requirements</label>
-            <textarea id="notes" name="notes" rows={5} value={form.notes} onChange={handleChange} className="w-full bg-white/5 border border-white/15 px-3 py-2" placeholder="What flows are you securing? Any target KPIs or regions?" />
+            <textarea id="notes" name="notes" rows={5} value={form.notes} onChange={handleChange} className="w-full bg-zinc-900/5 border border-white/15 px-3 py-2" placeholder="What flows are you securing? Any target KPIs or regions?" />
           </div>
 
           {error && <p className="text-red-300 text-sm">{error}</p>}
@@ -138,7 +138,7 @@ export default function DemoForm() {
           </div>
 
           <div className="mt-4">
-            <button type="submit" className="bg-white text-black px-6 py-3 font-semibold" disabled={submitting}>
+            <button type="submit" className="bg-zinc-900 text-zinc-100 px-6 py-3 font-semibold" disabled={submitting}>
               {submitting ? "Submitting..." : "Submit Request"}
             </button>
           </div>
@@ -163,7 +163,7 @@ export default function DemoForm() {
               <p>We look forward to partnering with you to deploy robust fraud detection and strengthen your security posture.</p>
             </div>
             <div className="mt-6 flex justify-center">
-              <button onClick={() => setSuccess(false)} className="rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm font-semibold hover:bg-white/10 transition-colors">
+              <button onClick={() => setSuccess(false)} className="rounded-full border border-white/15 bg-zinc-900/5 px-5 py-2 text-sm font-semibold hover:bg-zinc-900/10 transition-colors">
                 Close
               </button>
             </div>

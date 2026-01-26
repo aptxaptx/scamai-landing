@@ -54,7 +54,7 @@ export default async function IpCopyrightPage({
 
           {/* Tags */}
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-zinc-900/10 border border-white/15">
               {t("tags.primary")}
             </span>
           </div>
@@ -75,7 +75,7 @@ export default async function IpCopyrightPage({
 
       {/* Video placeholder */}
       <div className="mt-12 max-w-4xl mx-auto">
-        <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-white/5">
+        <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-zinc-900/5">
           <div className="aspect-video grid place-items-center text-white/70 text-sm">
             {common("videoPlaceholder")}
           </div>
@@ -85,15 +85,15 @@ export default async function IpCopyrightPage({
       {/* Value props */}
       <section className="mt-12">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
+          <div className="bg-zinc-900/5 border border-white/10 rounded-xl p-5 text-left">
             <h4 className="text-white font-semibold mb-1">{t("valueProps.0.title")}</h4>
             <p className="text-white/75 text-sm">{t("valueProps.0.description")}</p>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
+          <div className="bg-zinc-900/5 border border-white/10 rounded-xl p-5 text-left">
             <h4 className="text-white font-semibold mb-1">{t("valueProps.1.title")}</h4>
             <p className="text-white/75 text-sm">{t("valueProps.1.description")}</p>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-xl p-5 text-left">
+          <div className="bg-zinc-900/5 border border-white/10 rounded-xl p-5 text-left">
             <h4 className="text-white font-semibold mb-1">{t("valueProps.2.title")}</h4>
             <p className="text-white/75 text-sm">{t("valueProps.2.description")}</p>
           </div>
@@ -103,12 +103,12 @@ export default async function IpCopyrightPage({
       {/* CTA Card */}
       <section className="mb-12 mt-16">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
+          <div className="bg-zinc-900/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-semibold text-white mb-3">{t("cta.title")}</h3>
             <p className="text-white/80 text-base mb-6">{t("cta.description")}</p>
             <Link
               href="/demo"
-              className="inline-block bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="inline-block bg-zinc-900 text-zinc-100 px-8 py-3 rounded-lg font-medium hover:bg-zinc-900/90 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               {common("cta")}
             </Link>

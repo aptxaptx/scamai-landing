@@ -37,7 +37,7 @@ export default function LoginPage() {
         </div>
 
         {/* Login Form */}
-        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-8">
+        <div className="bg-zinc-900/5 backdrop-blur-sm border border-white/10 rounded-lg p-8">
           <h1 className="text-2xl font-bold text-white text-center mb-6">
             Sign in to ScamAI
           </h1>
@@ -57,7 +57,7 @@ export default function LoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent"
+                className="w-full px-3 py-2 bg-zinc-900/10 border border-white/20 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent"
                 placeholder="Enter your email"
               />
             </div>
@@ -76,7 +76,7 @@ export default function LoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent"
+                className="w-full px-3 py-2 bg-zinc-900/10 border border-white/20 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent"
                 placeholder="Enter your password"
               />
             </div>
@@ -95,7 +95,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-white text-black py-2 px-4 rounded-md font-semibold hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-zinc-900 text-zinc-100 py-2 px-4 rounded-md font-semibold hover:bg-zinc-900/90 focus:outline-none focus:ring-2 focus:ring-white/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? "Signing in..." : "Sign in"}
             </button>
@@ -118,7 +118,7 @@ export default function LoginPage() {
           <div className="mt-6 pt-6 border-t border-white/10">
             <a
               href="https://app.scam.ai"
-              className="w-full inline-flex items-center justify-center gap-2 py-2 px-4 bg-white/10 text-white rounded-md hover:bg-white/15 transition-colors text-sm"
+              className="w-full inline-flex items-center justify-center gap-2 py-2 px-4 bg-zinc-900/10 text-white rounded-md hover:bg-zinc-900/15 transition-colors text-sm"
             >
               Continue to ScamAI App
             </a>

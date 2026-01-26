@@ -192,8 +192,8 @@ export default function NewsClient() {
               onClick={() => setActiveFilter("all")}
               className={`px-3 py-1 text-sm rounded-md transition-colors ${
                 activeFilter === "all"
-                  ? "bg-white text-black font-medium"
-                  : "text-white/70 hover:text-white hover:bg-white/10"
+                  ? "bg-zinc-900 text-zinc-100 font-medium"
+                  : "text-white/70 hover:text-white hover:bg-zinc-900/10"
               }`}
             >
               {t("filters.all")} ({categories.all})
@@ -202,8 +202,8 @@ export default function NewsClient() {
               onClick={() => setActiveFilter("business-fraud")}
               className={`px-3 py-1 text-sm rounded-md transition-colors ${
                 activeFilter === "business-fraud"
-                  ? "bg-white text-black font-medium"
-                  : "text-white/70 hover:text-white hover:bg-white/10"
+                  ? "bg-zinc-900 text-zinc-100 font-medium"
+                  : "text-white/70 hover:text-white hover:bg-zinc-900/10"
               }`}
             >
               {t("filters.businessFraud")} ({categories["business-fraud"]})
@@ -212,8 +212,8 @@ export default function NewsClient() {
               onClick={() => setActiveFilter("deepfake-abuse")}
               className={`px-3 py-1 text-sm rounded-md transition-colors ${
                 activeFilter === "deepfake-abuse"
-                  ? "bg-white text-black font-medium"
-                  : "text-white/70 hover:text-white hover:bg-white/10"
+                  ? "bg-zinc-900 text-zinc-100 font-medium"
+                  : "text-white/70 hover:text-white hover:bg-zinc-900/10"
               }`}
             >
               {t("filters.deepfakeAbuse")} ({categories["deepfake-abuse"]})
@@ -222,8 +222,8 @@ export default function NewsClient() {
               onClick={() => setActiveFilter("celebrity-impersonation")}
               className={`px-3 py-1 text-sm rounded-md transition-colors ${
                 activeFilter === "celebrity-impersonation"
-                  ? "bg-white text-black font-medium"
-                  : "text-white/70 hover:text-white hover:bg-white/10"
+                  ? "bg-zinc-900 text-zinc-100 font-medium"
+                  : "text-white/70 hover:text-white hover:bg-zinc-900/10"
               }`}
             >
               {t("filters.celebrityImpersonation")} (
@@ -233,8 +233,8 @@ export default function NewsClient() {
               onClick={() => setActiveFilter("technology-threat")}
               className={`px-3 py-1 text-sm rounded-md transition-colors ${
                 activeFilter === "technology-threat"
-                  ? "bg-white text-black font-medium"
-                  : "text-white/70 hover:text-white hover:bg-white/10"
+                  ? "bg-zinc-900 text-zinc-100 font-medium"
+                  : "text-white/70 hover:text-white hover:bg-zinc-900/10"
               }`}
             >
               {t("filters.technologyThreat")} (
@@ -244,8 +244,8 @@ export default function NewsClient() {
               onClick={() => setActiveFilter("policy-regulation")}
               className={`px-3 py-1 text-sm rounded-md transition-colors ${
                 activeFilter === "policy-regulation"
-                  ? "bg-white text-black font-medium"
-                  : "text-white/70 hover:text-white hover:bg-white/10"
+                  ? "bg-zinc-900 text-zinc-100 font-medium"
+                  : "text-white/70 hover:text-white hover:bg-zinc-900/10"
               }`}
             >
               {t("filters.policyRegulation")} (
@@ -257,7 +257,7 @@ export default function NewsClient() {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setSortDropdownOpen(!sortDropdownOpen)}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-colors text-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/10 text-white rounded-lg hover:bg-zinc-900/20 transition-colors text-sm"
               >
                 {sortBy === "newest" && t("sort.newest")}
                 {sortBy === "oldest" && t("sort.oldest")}
@@ -281,23 +281,23 @@ export default function NewsClient() {
               </button>
 
               {sortDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-10">
+                <div className="absolute top-full left-0 mt-2 w-48 bg-zinc-900 rounded-lg shadow-lg border border-zinc-800 py-2 z-10">
                   <button
                     onClick={() => {
                       setSortBy("newest");
                       setSortDropdownOpen(false);
                     }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-50 flex items-center gap-3 ${
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-zinc-800 flex items-center gap-3 ${
                       sortBy === "newest"
                         ? "text-blue-600 font-medium"
-                        : "text-gray-700"
+                        : "text-zinc-300"
                     }`}
                   >
                     <div
                       className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
                         sortBy === "newest"
                           ? "border-blue-600"
-                          : "border-gray-300"
+                          : "border-zinc-700"
                       }`}
                     >
                       {sortBy === "newest" && (
@@ -311,17 +311,17 @@ export default function NewsClient() {
                       setSortBy("oldest");
                       setSortDropdownOpen(false);
                     }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-50 flex items-center gap-3 ${
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-zinc-800 flex items-center gap-3 ${
                       sortBy === "oldest"
                         ? "text-blue-600 font-medium"
-                        : "text-gray-700"
+                        : "text-zinc-300"
                     }`}
                   >
                     <div
                       className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
                         sortBy === "oldest"
                           ? "border-blue-600"
-                          : "border-gray-300"
+                          : "border-zinc-700"
                       }`}
                     >
                       {sortBy === "oldest" && (
@@ -335,17 +335,17 @@ export default function NewsClient() {
                       setSortBy("alphabetical-az");
                       setSortDropdownOpen(false);
                     }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-50 flex items-center gap-3 ${
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-zinc-800 flex items-center gap-3 ${
                       sortBy === "alphabetical-az"
                         ? "text-blue-600 font-medium"
-                        : "text-gray-700"
+                        : "text-zinc-300"
                     }`}
                   >
                     <div
                       className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
                         sortBy === "alphabetical-az"
                           ? "border-blue-600"
-                          : "border-gray-300"
+                          : "border-zinc-700"
                       }`}
                     >
                       {sortBy === "alphabetical-az" && (
@@ -359,17 +359,17 @@ export default function NewsClient() {
                       setSortBy("alphabetical-za");
                       setSortDropdownOpen(false);
                     }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-50 flex items-center gap-3 ${
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-zinc-800 flex items-center gap-3 ${
                       sortBy === "alphabetical-za"
                         ? "text-blue-600 font-medium"
-                        : "text-gray-700"
+                        : "text-zinc-300"
                     }`}
                   >
                     <div
                       className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
                         sortBy === "alphabetical-za"
                           ? "border-blue-600"
-                          : "border-gray-300"
+                          : "border-zinc-700"
                       }`}
                     >
                       {sortBy === "alphabetical-za" && (
@@ -411,7 +411,7 @@ export default function NewsClient() {
                 {/* Content */}
                 <div className="px-0 pt-4 flex-1 flex flex-col">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="px-2 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-md border border-white/20">
+                    <span className="px-2 py-1 text-xs font-medium bg-zinc-900/10 text-white/80 rounded-md border border-white/20">
                       {categoryLabels[item.categoryKey]}
                     </span>
                   </div>
@@ -440,7 +440,7 @@ export default function NewsClient() {
 
       {/* CTA Section */}
       <section className="mt-16 text-center mr-8">
-        <div className="bg-white/5 rounded-2xl p-8 md:p-12">
+        <div className="bg-zinc-900/5 rounded-2xl p-8 md:p-12">
           <h2 className="text-2xl font-bold tracking-tight mb-4">
             {t("cta.title")}
           </h2>
@@ -449,7 +449,7 @@ export default function NewsClient() {
           </p>
           <Link
             href="/demo"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-xl hover:bg-white/90 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 text-zinc-100 font-semibold rounded-xl hover:bg-zinc-900/90 transition-colors"
           >
             {t("cta.button")}
           </Link>

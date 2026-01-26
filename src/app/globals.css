@@ -2,19 +2,19 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --bg: #ffffff;
-  --panel: #ffffff;
-  --muted: #6b7280;
-  --text: #111827;
-  --text-soft: #374151;
+  --bg: #030303;
+  --panel: #0a0a0a;
+  --muted: #a1a1aa;
+  --text: #fafafa;
+  --text-soft: #e5e7eb;
 }
 
-:root.light {
-  --bg: #ffffff;
-  --panel: #ffffff;
-  --muted: #6b7280;
-  --text: #111827;
-  --text-soft: #374151;
+:root.dark {
+  --bg: #030303;
+  --panel: #0a0a0a;
+  --muted: #a1a1aa;
+  --text: #fafafa;
+  --text-soft: #e5e7eb;
 }
 
 @theme inline {

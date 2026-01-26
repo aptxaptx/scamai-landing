@@ -15,7 +15,7 @@ export type IconName =
 
 function InlineIcon({
   name,
-  className = "h-5 w-5 text-gray-900",
+  className = "h-5 w-5 text-zinc-100",
 }: {
   name: IconName;
   className?: string;
@@ -227,7 +227,7 @@ function HeroSection({ hero }: HeroSectionProps) {
           {hero.tags.map((tag, i) => (
             <span
               key={i}
-              className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15"
+              className="px-3 py-1 rounded-full text-xs text-white/85 bg-zinc-900/10 border border-white/15"
             >
               {tag}
             </span>
@@ -351,7 +351,7 @@ function ProblemSection({ problemSection }: ProblemSectionProps) {
       {/* REFACTORED: Remove card styles */}
       <div className="mt-12 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
         {problemSection.valueProps.map((prop, i) => (
-          // Removed bg-white/5, border, rounded-xl, p-5
+          // Removed bg-zinc-900/5, border, rounded-xl, p-5
           <div key={i}>
             <h4 className="text-white font-semibold mb-2">{prop.title}</h4>
             <p className="text-white/75 text-sm leading-relaxed">
@@ -500,7 +500,7 @@ function UseCasesSection({ useCases }: UseCasesSectionProps) {
           {useCases.items.map((item, idx) => (
             <span
               key={idx}
-              className="rounded-full bg-white/10 text-white/85 text-sm font-semibold px-4 py-2 border border-white/15"
+              className="rounded-full bg-zinc-900/10 text-white/85 text-sm font-semibold px-4 py-2 border border-white/15"
             >
               {item}
             </span>
@@ -533,7 +533,7 @@ function CtaSection({ cta }: CtaSectionProps) {
             href="https://cal.com/scamai/15min"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-black px-8 py-3 font-semibold hover:bg-gray-100 transition-colors"
+            className="bg-zinc-900 text-zinc-100 px-8 py-3 font-semibold hover:bg-zinc-800 transition-colors"
           >
             Schedule Call
           </a>

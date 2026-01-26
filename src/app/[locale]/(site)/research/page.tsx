@@ -33,7 +33,7 @@ export default async function ResearchPage({
           <h1 className="text-3xl md:text-4xl font-semibold">
             {t("hero.title")}
           </h1>
-          <p className="text-slate-600 mt-2">
+          <p className="text-zinc-400 mt-2">
             {t("hero.description")}
           </p>
         </div>
@@ -42,17 +42,17 @@ export default async function ResearchPage({
           {papers.map((paper) => (
             <article
               key={paper.id}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow-sm"
             >
               <div className="flex flex-col gap-2">
                 <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
                   {paper.venue} • {paper.year}
                 </p>
-                <h2 className="text-xl font-semibold text-slate-900">
+                <h2 className="text-xl font-semibold text-zinc-100">
                   {paper.title}
                 </h2>
                 {paper.description ? (
-                  <p className="text-slate-600">{paper.description}</p>
+                  <p className="text-zinc-400">{paper.description}</p>
                 ) : null}
                 <div className="mt-2 flex flex-wrap gap-3 text-sm">
                   <Link
@@ -66,7 +66,7 @@ export default async function ResearchPage({
                       href={paper.pdfUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate-600 hover:text-slate-900"
+                      className="text-zinc-400 hover:text-zinc-100"
                     >
                       {t("links.viewPdf")}
                     </a>

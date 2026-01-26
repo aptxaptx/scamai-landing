@@ -110,7 +110,7 @@ export default async function AIGeneratedImagesPage({
           <div className="my-12 bg-red-500/20 rounded-lg h-64 flex items-center justify-center border border-red-500/30 relative overflow-hidden">
             <div className="text-center">
               <div className="w-24 h-24 bg-red-500/30 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-red-500/50">
-                <span className="text-white text-4xl">⚠️</span>
+                <span className="text-white text-4xl font-bold">!</span>
               </div>
               <h3 className="text-white text-xl font-semibold mb-2">
                 {t("hero.exampleTitle")}
@@ -137,7 +137,7 @@ export default async function AIGeneratedImagesPage({
           </p>
 
           {/* Highlighted Box */}
-          <div className="border-l-4 border-white bg-white/5 p-6 my-12">
+          <div className="border-l-4 border-white bg-zinc-900/5 p-6 my-12">
             <p className="text-xl text-white font-medium leading-[1.77]">
               {t("whatIs.highlight")}
             </p>
@@ -198,13 +198,13 @@ export default async function AIGeneratedImagesPage({
           <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
             {t("cta.title")}
           </h2>
-          <div className="bg-white/5 rounded-lg p-8">
+          <div className="bg-zinc-900/5 rounded-lg p-8">
             <p className="text-lg text-white/80 leading-[1.77] mb-6">
               {t("cta.description")}
             </p>
             <Link
               href="/demo"
-              className="inline-block px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors text-lg"
+              className="inline-block px-8 py-4 bg-zinc-900 text-zinc-100 font-semibold rounded-lg hover:bg-zinc-900/90 transition-colors text-lg"
               title={t("cta.buttonTitle")}
             >
               {t("cta.button")}
@@ -220,7 +220,7 @@ export default async function AIGeneratedImagesPage({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link
               href="/models/deepfakes"
-              className="block p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors"
+              className="block p-4 bg-zinc-900/5 rounded-lg border border-white/10 hover:bg-zinc-900/10 transition-colors"
               title={t("related.items.0.linkTitle")}
             >
               <h4 className="text-white font-semibold mb-2">
@@ -232,7 +232,7 @@ export default async function AIGeneratedImagesPage({
             </Link>
             <Link
               href="/models/voice-clones"
-              className="block p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors"
+              className="block p-4 bg-zinc-900/5 rounded-lg border border-white/10 hover:bg-zinc-900/10 transition-colors"
               title={t("related.items.1.linkTitle")}
             >
               <h4 className="text-white font-semibold mb-2">

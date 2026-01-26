@@ -15,7 +15,7 @@ export default function NavigationItem({
   onClick,
 }: NavigationItemProps) {
   const t = useTranslations();
-  const baseClasses = `block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors ${className}`;
+  const baseClasses = `block rounded-xl px-3 py-3 text-base font-semibold text-zinc-300 hover:text-zinc-100 hover:bg-zinc-800 transition-colors ${className}`;
   const label = link.labelKey ? t(link.labelKey) : link.label ?? "";
 
   if (link.external) {

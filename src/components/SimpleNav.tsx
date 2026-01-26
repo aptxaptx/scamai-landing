@@ -18,11 +18,11 @@ export default function SimpleNav() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  const navLink = "text-black hover:text-gray-900 hover:bg-gray-50 font-semibold";
+  const navLink = "text-zinc-100 hover:text-white hover:bg-zinc-800 font-semibold";
 
   return (
     <header
-      className="app-fixed-header fixed top-0 left-0 right-0 z-50 backdrop-blur border-b bg-white border-gray-200"
+      className="app-fixed-header fixed top-0 left-0 right-0 z-50 backdrop-blur border-b bg-zinc-900 border-zinc-800"
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -63,7 +63,7 @@ export default function SimpleNav() {
                 <div className="absolute top-full left-0 pt-2 w-56">
                   <div
                     className={`shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ${
-                      isDark ? "bg-white border border-white/10" : "bg-white border border-slate-200"
+                      "bg-zinc-900 border border-zinc-800"
                     }`}
                   >
                   <div className="py-2">
@@ -71,8 +71,8 @@ export default function SimpleNav() {
                       href="/models/deepfakes"
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
-                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
+                          ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                          : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                       }`}
                     >
                       {t("products.deepfake")}
@@ -81,8 +81,8 @@ export default function SimpleNav() {
                       href="/models/voice-clones"
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
-                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
+                          ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                          : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                       }`}
                     >
                       {t("products.voice")}
@@ -91,8 +91,8 @@ export default function SimpleNav() {
                       href="/models/ai-generated-media"
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
-                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
+                          ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                          : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                       }`}
                     >
                       {t("products.aimedia")}
@@ -130,7 +130,7 @@ export default function SimpleNav() {
                 <div className="absolute top-full left-0 pt-2 w-64">
                   <div
                     className={`shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ${
-                      isDark ? "bg-white border border-white/10" : "bg-white border border-slate-200"
+                      "bg-zinc-900 border border-zinc-800"
                     }`}
                   >
                   <div className="py-2">
@@ -138,8 +138,8 @@ export default function SimpleNav() {
                       href="/business/kyc"
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
-                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
+                          ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                          : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                       }`}
                     >
                       {t("industries.kyc")}
@@ -148,8 +148,8 @@ export default function SimpleNav() {
                       href="/business/dating"
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
-                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
+                          ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                          : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                       }`}
                     >
                       {t("industries.dating")}
@@ -158,8 +158,8 @@ export default function SimpleNav() {
                       href="/business/fake-news"
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
-                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
+                          ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                          : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                       }`}
                     >
                       {t("industries.fakenews")}
@@ -168,8 +168,8 @@ export default function SimpleNav() {
                       href="/business/impersonation"
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
-                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
+                          ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                          : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                       }`}
                     >
                       {t("industries.impersonation")}
@@ -207,7 +207,7 @@ export default function SimpleNav() {
                 <div className="absolute top-full left-0 pt-2 w-64">
                   <div
                     className={`shadow-xl rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ${
-                      isDark ? "bg-white border border-white/10" : "bg-white border border-slate-200"
+                      "bg-zinc-900 border border-zinc-800"
                     }`}
                   >
                   <div className="py-2">
@@ -215,8 +215,8 @@ export default function SimpleNav() {
                       href="/research/publication"
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
-                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
+                          ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                          : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                       }`}
                     >
                       {t("resources.publications")}
@@ -225,8 +225,8 @@ export default function SimpleNav() {
                       href="/stories/news"
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
-                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
+                          ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                          : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                       }`}
                     >
                       {t("resources.news")}
@@ -235,8 +235,8 @@ export default function SimpleNav() {
                       href="/stories/type-of-scams"
                       className={`block px-4 py-3 text-sm transition-colors duration-150 ${
                         isDark
-                          ? "text-slate-200 hover:bg-white/5 hover:text-white"
-                          : "text-slate-700 hover:bg-gray-50 hover:text-slate-900"
+                          ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                          : "text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100"
                       }`}
                     >
                       {t("resources.scams")}
@@ -277,7 +277,7 @@ export default function SimpleNav() {
               href="https://app.scam.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-900 text-base font-normal hover:text-gray-600 transition-colors duration-200"
+              className="text-zinc-100 text-base font-normal hover:text-zinc-300 transition-colors duration-200"
             >
               {t("nav.signup")}
             </Link>

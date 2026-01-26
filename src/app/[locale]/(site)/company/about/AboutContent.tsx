@@ -14,12 +14,12 @@ export default function AboutContent() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  const heading = isDark ? "text-white" : "text-slate-900";
-  const muted = isDark ? "text-white/70" : "text-slate-600";
-  const soft = isDark ? "text-white/60" : "text-slate-700";
+  const heading = isDark ? "text-white" : "text-zinc-100";
+  const muted = isDark ? "text-white/70" : "text-zinc-400";
+  const soft = isDark ? "text-white/60" : "text-zinc-300";
   const panel = isDark
-    ? "border border-white/15 bg-white/5"
-    : "border border-slate-200 bg-white shadow-sm";
+    ? "border border-white/15 bg-zinc-900/5"
+    : "border border-zinc-800 bg-zinc-900 shadow-sm";
 
   return (
     <>
@@ -47,7 +47,7 @@ export default function AboutContent() {
             <h2 className={`text-sm font-semibold tracking-wider ${muted}`}>
               {t("mission.kicker")}
             </h2>
-            <p className={`mt-3 text-2xl md:text-[28px] leading-snug max-w-3xl mx-auto ${isDark ? "text-white/90" : "text-slate-800"}`}>
+            <p className={`mt-3 text-2xl md:text-[28px] leading-snug max-w-3xl mx-auto ${isDark ? "text-white/90" : "text-zinc-200"}`}>
               {t("mission.line1")}
               <br />
               {t("mission.line2")}
@@ -64,7 +64,7 @@ export default function AboutContent() {
               {t("build.kicker")}
             </h2>
           </div>
-          <p className={`mt-3 text-2xl md:text-[28px] leading-snug max-w-3xl mx-auto text-center ${isDark ? "text-white/90" : "text-slate-800"}`}>
+          <p className={`mt-3 text-2xl md:text-[28px] leading-snug max-w-3xl mx-auto text-center ${isDark ? "text-white/90" : "text-zinc-200"}`}>
             {t("build.line1")}
             <br />
             {t("build.line2")}
@@ -198,12 +198,12 @@ export default function AboutContent() {
 type CardProps = { title: string; description: string; badge?: string; isDark: boolean };
 
 function MiniCard({ title, description, badge, isDark }: CardProps) {
-  const titleColor = isDark ? "text-white" : "text-slate-900";
+  const titleColor = isDark ? "text-white" : "text-zinc-100";
   const badgeColor = isDark
     ? "text-white/70 border-white/15"
-    : "text-slate-700 border-slate-200 bg-white";
-  const bodyColor = isDark ? "text-white/70" : "text-slate-700";
-  const surface = isDark ? "border-white/10 bg-white/5" : "border-slate-200 bg-white shadow-sm";
+    : "text-zinc-300 border-zinc-800 bg-zinc-900";
+  const bodyColor = isDark ? "text-white/70" : "text-zinc-300";
+  const surface = isDark ? "border-white/10 bg-zinc-900/5" : "border-zinc-800 bg-zinc-900 shadow-sm";
   return (
     <div className={`rounded-2xl border p-5 ${surface}`}>
       <div className="flex items-center gap-2">
@@ -222,9 +222,9 @@ function MiniCard({ title, description, badge, isDark }: CardProps) {
 type CtaProps = { title: string; subtitle: string; isDark: boolean };
 
 function CTA({ title, subtitle, isDark }: CtaProps) {
-  const titleColor = isDark ? "text-white" : "text-slate-900";
-  const bodyColor = isDark ? "text-white/70" : "text-slate-700";
-  const surface = isDark ? "border-white/10 bg-white/5" : "border-slate-200 bg-white shadow-sm";
+  const titleColor = isDark ? "text-white" : "text-zinc-100";
+  const bodyColor = isDark ? "text-white/70" : "text-zinc-300";
+  const surface = isDark ? "border-white/10 bg-zinc-900/5" : "border-zinc-800 bg-zinc-900 shadow-sm";
   return (
     <div className={`rounded-2xl border p-5 md:p-6 ${surface}`}>
       <div className="flex items-center justify-between gap-4">

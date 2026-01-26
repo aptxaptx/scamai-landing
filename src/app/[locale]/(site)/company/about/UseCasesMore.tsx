@@ -12,8 +12,8 @@ export default function UseCasesMore() {
   const [expanded, setExpanded] = useState(false);
   const buttonStyle = isDark
     ? "border-white/15 text-white/90 hover:text-white hover:border-white/25"
-    : "border-slate-300 text-slate-800 hover:text-slate-900 hover:border-slate-400 bg-white shadow-sm";
-  const divider = isDark ? "border-white/10" : "border-slate-200";
+    : "border-zinc-700 text-zinc-200 hover:text-zinc-100 hover:border-slate-400 bg-zinc-900 shadow-sm";
+  const divider = isDark ? "border-white/10" : "border-zinc-800";
   const label = isDark ? "text-white/50" : "text-slate-500";
 
   useEffect(() => {
@@ -97,9 +97,9 @@ export default function UseCasesMore() {
 }
 
 function Mini({ title, desc, isDark }: { title: string; desc: string; isDark: boolean }) {
-  const surface = isDark ? "border-white/10 bg-white/5" : "border-slate-200 bg-white shadow-sm";
-  const titleColor = isDark ? "text-white" : "text-slate-900";
-  const bodyColor = isDark ? "text-white/60" : "text-slate-700";
+  const surface = isDark ? "border-white/10 bg-zinc-900/5" : "border-zinc-800 bg-zinc-900 shadow-sm";
+  const titleColor = isDark ? "text-white" : "text-zinc-100";
+  const bodyColor = isDark ? "text-white/60" : "text-zinc-300";
   return (
     <div className={`rounded-2xl border p-5 ${surface}`}>
       <div className={`text-base font-semibold ${titleColor}`}>{title}</div>

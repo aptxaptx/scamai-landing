@@ -94,19 +94,19 @@ export default function DatasetPage({ params }: Props) {
 
           {/* Dataset Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+            <div className="bg-zinc-900/5 rounded-lg p-4 border border-white/10">
               <div className="text-2xl font-bold text-white">{dataset.size}</div>
               <div className="text-sm text-white/70">{t("stats.size")}</div>
             </div>
-            <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+            <div className="bg-zinc-900/5 rounded-lg p-4 border border-white/10">
               <div className="text-2xl font-bold text-white">{dataset.samples}</div>
               <div className="text-sm text-white/70">{t("stats.samples")}</div>
             </div>
-            <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+            <div className="bg-zinc-900/5 rounded-lg p-4 border border-white/10">
               <div className="text-2xl font-bold text-white">{dataset.license}</div>
               <div className="text-sm text-white/70">{t("stats.license")}</div>
             </div>
-            <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+            <div className="bg-zinc-900/5 rounded-lg p-4 border border-white/10">
               <div className="text-2xl font-bold text-white">{dataset.category}</div>
               <div className="text-sm text-white/70">{t("stats.type")}</div>
             </div>
@@ -117,7 +117,7 @@ export default function DatasetPage({ params }: Props) {
               href="https://cal.com/scamai/15min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-xl hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 text-zinc-100 font-semibold rounded-xl hover:bg-zinc-900/90 transition-colors"
             >
               {t("buttons.contact")}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,7 +137,7 @@ export default function DatasetPage({ params }: Props) {
             )}
             <button 
               onClick={handleShare}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900/10 text-white font-semibold rounded-xl hover:bg-zinc-900/20 transition-colors"
             >
               {copySuccess ? t("buttons.copied") : t("buttons.share")}
             </button>
@@ -179,7 +179,7 @@ export default function DatasetPage({ params }: Props) {
                     </div>
                     <div className="px-0 pt-4">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="px-2 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-md border border-white/20">
+                        <span className="px-2 py-1 text-xs font-medium bg-zinc-900/10 text-white/80 rounded-md border border-white/20">
                           {relatedDataset.category}
                         </span>
                       </div>

@@ -91,7 +91,7 @@ export default async function PaperPage({
               href={frontmatter.pdfUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-xl hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 text-zinc-100 font-semibold rounded-xl hover:bg-zinc-900/90 transition-colors"
             >
               {t("readPaper")}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,7 +148,7 @@ export default async function PaperPage({
                     </div>
                     <div className="px-0 pt-4">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="px-2 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-md border border-white/20">
+                        <span className="px-2 py-1 text-xs font-medium bg-zinc-900/10 text-white/80 rounded-md border border-white/20">
                           {relatedPaper.category}
                         </span>
                       </div>

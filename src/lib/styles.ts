@@ -16,17 +16,17 @@ export const buttonStyles = {
     lg: "px-8 py-4 text-lg",
   },
   variants: {
-    primary: "bg-white text-black hover:bg-gray-100",
-    secondary: "bg-white/10 text-white hover:bg-white/15",
-    outline: "border-2 border-white/40 text-white hover:bg-white/10",
-    ghost: "text-white hover:bg-white/10",
+    primary: "bg-zinc-900 text-zinc-100 hover:bg-zinc-800",
+    secondary: "bg-zinc-900/10 text-white hover:bg-zinc-900/15",
+    outline: "border-2 border-white/40 text-white hover:bg-zinc-900/10",
+    ghost: "text-white hover:bg-zinc-900/10",
   },
 };
 
 export const navigationStyles = {
-  link: "block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors",
+  link: "block rounded-xl px-3 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors",
   mobileLink:
-    "w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors",
+    "w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-zinc-900/10 transition-colors",
   section: "flex items-center justify-between",
 };
 

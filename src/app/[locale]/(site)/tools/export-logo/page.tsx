@@ -62,14 +62,14 @@ export default function ExportLogoPage() {
       <h1 className="text-xl font-semibold text-white">Export Logo</h1>
       <p className="mt-2 text-white/70">This tool renders `public/logo.svg` with the text “Reality Inc.” and lets you download a transparent PNG.</p>
 
-      <div className="mt-6 rounded-2xl border border-white/10 p-4 bg-white/5 overflow-auto">
+      <div className="mt-6 rounded-2xl border border-white/10 p-4 bg-zinc-900/5 overflow-auto">
         <canvas ref={canvasRef} className="block" />
       </div>
 
       <button
         onClick={handleDownload}
         disabled={!ready}
-        className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 font-semibold disabled:opacity-50"
+        className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-zinc-900/5 px-4 py-2 font-semibold disabled:opacity-50"
       >
         Download PNG
       </button>

@@ -77,7 +77,7 @@ export default function PartnershipPage() {
               href="https://cal.com/scamai/15min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 font-semibold"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-zinc-900/5 px-4 py-2 font-semibold"
             >
               {t("footer.contact")}
             </Link>

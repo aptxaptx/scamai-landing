@@ -4,10 +4,10 @@ import { ButtonProps } from "@/types";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = {
-  primary: "bg-white text-black hover:bg-gray-100",
-  secondary: "bg-white/10 text-white hover:bg-white/15",
-  outline: "border-2 border-white/40 text-white hover:bg-white/10",
-  ghost: "text-white hover:bg-white/10",
+  primary: "bg-blue-600 text-white hover:bg-blue-700",
+  secondary: "bg-zinc-900/10 text-white hover:bg-zinc-900/15",
+  outline: "border-2 border-white/40 text-white hover:bg-zinc-900/10",
+  ghost: "text-white hover:bg-zinc-900/10",
 };
 
 const buttonSizes = {

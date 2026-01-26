@@ -101,14 +101,10 @@ export default function Home() {
     image: true,
     voice: false,
   });
-  const panelClass = isDark
-    ? "bg-white border border-white/10"
-    : "bg-white border border-slate-200";
-  const cardOverlay = isDark
-    ? "border bg-white border-white/10"
-    : "border bg-white border-slate-200";
-  const softText = isDark ? "text-slate-200" : "text-slate-700";
-  const mutedText = isDark ? "text-slate-400" : "text-slate-600";
+  const panelClass = "bg-zinc-900 border border-zinc-800";
+  const cardOverlay = "border bg-zinc-900 border-zinc-800";
+  const softText = "text-zinc-300";
+  const mutedText = "text-zinc-400";
 
   useEffect(() => {
     const storedCount = Number(localStorage.getItem("demo_count") ?? "0");
@@ -167,7 +163,7 @@ export default function Home() {
   return (
     <div
       suppressHydrationWarning
-      className="min-h-screen relative overflow-hidden bg-white text-slate-900"
+      className="min-h-screen relative overflow-hidden bg-zinc-950 text-zinc-100"
     >
       <SimpleNav />
 
@@ -176,9 +172,7 @@ export default function Home() {
           <section className="relative overflow-hidden">
             <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 text-center relative">
               <h1
-                className={`text-4xl md:text-6xl font-semibold leading-tight md:leading-[1.05] mb-6 whitespace-pre-line ${
-                  isDark ? "text-white" : "text-slate-900"
-                }`}
+                className="text-4xl md:text-6xl font-semibold leading-tight md:leading-[1.05] mb-6 whitespace-pre-line text-zinc-100"
               >
                 {t("Hero.title")}
               </h1>
@@ -196,11 +190,7 @@ export default function Home() {
                   href="https://app.scam.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`px-8 py-3 font-semibold tracking-tight transition ${
-                    isDark
-                      ? "border border-white/40 text-white hover:bg-white"
-                      : "border border-slate-300 text-slate-900 hover:bg-white"
-                  }`}
+                  className="px-8 py-3 font-semibold tracking-tight transition border border-zinc-600 text-zinc-100 hover:bg-zinc-800"
                 >
                   {t("Hero.secondaryCta")}
                 </a>
@@ -211,9 +201,7 @@ export default function Home() {
           {/* Playground */}
           <section
             id="playground"
-            className={`py-20 border-t ${
-              isDark ? "border-white/5" : "border-slate-200 bg-white"
-            }`}
+            className="py-20 border-t border-zinc-800 bg-zinc-950"
           >
             <div className="max-w-6xl mx-auto px-6">
               <div className="mb-8">
@@ -239,9 +227,7 @@ export default function Home() {
                             ? isDark
                               ? "border-indigo-400/60 bg-indigo-500/10 text-white"
                               : "border-indigo-300 bg-indigo-100 text-indigo-900"
-                            : isDark
-                            ? "border-white/10 bg-white/0 text-slate-200 hover:bg-white"
-                            : "border-slate-200 bg-white text-slate-700 hover:bg-white"
+                          : "border-zinc-800 bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
                         }`}
                       >
                         <span>{tab.label}</span>{" "}
@@ -260,9 +246,7 @@ export default function Home() {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div
-                      className={`p-5 h-full flex flex-col justify-between border ${
-                        isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"
-                      }`}
+                      className="p-5 h-full flex flex-col justify-between border border-zinc-800 bg-zinc-900"
                       onDragOver={(e) => e.preventDefault()}
                       onDrop={(e) => {
                         e.preventDefault();
@@ -272,7 +256,7 @@ export default function Home() {
                       <div className="flex items-start justify-between mb-4">
                         <div>
                           <p className={`text-sm ${mutedText}`}>{t("Playground.uploadArea")}</p>
-                          <p className={`text-sm ${isDark ? "text-slate-400" : "text-slate-600"}`}>
+                          <p className="text-sm text-zinc-400">
                             {t("Playground.uploadHint")}
                           </p>
                         </div>
@@ -283,14 +267,12 @@ export default function Home() {
                         </span>
                       </div>
                       <div
-                        className={`flex-1 border border-dashed min-h-[220px] flex items-center justify-center text-center px-6 ${
-                          isDark ? "border-white/20 bg-white" : "border-slate-300 bg-white"
-                        }`}
+                        className="flex-1 border border-dashed min-h-[220px] flex items-center justify-center text-center px-6 border-zinc-700 bg-zinc-900"
                       >
                         <p className={softText}>
                           {t("Playground.dropzonePrompt")}
                           <br />
-                          <span className={`text-sm ${isDark ? "text-slate-500" : "text-slate-600"}`}>
+                          <span className="text-sm text-zinc-400">
                             {t("Playground.dropzoneFormats")}
                           </span>
                         </p>
@@ -313,9 +295,7 @@ export default function Home() {
                     <div className={`relative p-5 flex flex-col gap-4 ${cardOverlay}`}>
                       {demoCount >= 5 && (
                         <div
-                          className={`absolute inset-0 backdrop-blur-xl border flex flex-col items-center justify-center text-center px-6 ${
-                            isDark ? "bg-white border-white/10" : "bg-white/80 border-slate-200"
-                          }`}
+                          className="absolute inset-0 backdrop-blur-xl border flex flex-col items-center justify-center text-center px-6 bg-zinc-900/80 border-zinc-800"
                         >
                           <p className="text-lg font-semibold mb-2">
                             {t("Playground.limit.title", { limit: 5 })}
@@ -327,7 +307,7 @@ export default function Home() {
                             href="https://app.scam.ai"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-5 py-2 bg-white text-black font-semibold tracking-tight"
+                            className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold tracking-tight"
                           >
                             {t("Playground.limit.cta")}
                           </a>
@@ -367,7 +347,7 @@ export default function Home() {
 
           {/* Trust */}
           <section
-            className="py-16 border-t border-slate-200 bg-white"
+            className="py-16 border-t border-zinc-800 bg-zinc-950"
           >
             <div className="max-w-6xl mx-auto px-6">
               <p className={`text-xs uppercase tracking-[0.2em] mb-4 ${mutedText}`}>
@@ -427,13 +407,11 @@ export default function Home() {
 
           {/* Problem */}
           <section
-            className="py-20 border-t border-slate-200 bg-white"
+            className="py-20 border-t border-zinc-800 bg-zinc-950"
           >
             <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
               <div
-                className={`relative p-4 overflow-hidden border ${
-                  isDark ? "border-red-500/20 bg-white" : "border-red-200 bg-white"
-                }`}
+                className="relative p-4 overflow-hidden border border-red-500/20 bg-zinc-900"
               >
                 <div className="absolute inset-0 border border-red-500/30 pointer-events-none" />
                 <div className="iphone-frame">
@@ -448,9 +426,7 @@ export default function Home() {
                   {videoOverlay && (
                     <button
                       onClick={handleVideoPlay}
-                      className={`absolute inset-0 flex flex-col items-center justify-center text-center px-6 transition ${
-                        isDark ? "bg-white hover:bg-white" : "bg-white/80 hover:bg-white/90"
-                      }`}
+                      className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 transition bg-zinc-900/80 hover:bg-zinc-900/90"
                     >
                       <span
                         className={`text-sm uppercase tracking-[0.18em] mb-2 ${
@@ -485,9 +461,7 @@ export default function Home() {
                   {problemStats.map((stat) => (
                     <div
                       key={stat}
-                      className={`p-4 flex items-center justify-between border ${
-                        isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"
-                      }`}
+                      className="p-4 flex items-center justify-between border border-zinc-800 bg-zinc-900"
                     >
                       <p
                         className={`text-lg font-semibold ${
@@ -506,7 +480,7 @@ export default function Home() {
 
           {/* Solutions */}
           <section
-            className="py-20 border-t border-slate-200 bg-white"
+            className="py-20 border-t border-zinc-800 bg-zinc-950"
           >
             <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-5 gap-10">
               <div className="lg:col-span-2">
@@ -528,9 +502,7 @@ export default function Home() {
                           ? isDark
                             ? "border-indigo-400/60 bg-indigo-500/10"
                             : "border-indigo-300 bg-indigo-100"
-                          : isDark
-                          ? "border-white/10 bg-white/0 hover:bg-white"
-                          : "border-slate-200 bg-white hover:bg-white"
+                          : "border-zinc-800 bg-zinc-900 hover:bg-zinc-800"
                       }`}
                     >
                       <p className="text-lg font-semibold">{solutionTabs[key].title}</p>
@@ -554,15 +526,13 @@ export default function Home() {
                     {solutionTabs[activeSolution].bullets.map((item) => (
                       <div
                         key={item}
-                        className={`p-4 border ${
-                          isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"
-                        }`}
+                        className="p-4 border border-zinc-800 bg-zinc-900"
                       >
                         <p className={softText}>{item}</p>
                       </div>
                     ))}
                   </div>
-                  <div className={`border p-4 ${isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"}`}>
+                  <div className="border p-4 border-zinc-800 bg-zinc-900">
                     <div className="flex items-center justify-between mb-2">
                       <p className={`text-sm ${softText}`}>{t("Solutions.analysis.logTitle")}</p>
                       <span className="px-3 py-1 text-xs bg-green-500/10 text-green-200 border border-green-500/30">
@@ -570,9 +540,7 @@ export default function Home() {
                       </span>
                     </div>
                     <div
-                      className={`space-y-2 text-sm font-mono ${
-                        isDark ? "text-slate-200" : "text-slate-800"
-                      }`}
+                      className="space-y-2 text-sm font-mono text-zinc-200"
                     >
                       <p>{t("Solutions.analysis.logs.0")}</p>
                       <p>{t("Solutions.analysis.logs.1")}</p>
@@ -587,7 +555,7 @@ export default function Home() {
           {/* Developer Experience */}
           <section
             id="developer"
-            className="py-20 border-t border-slate-200 bg-white"
+            className="py-20 border-t border-zinc-800 bg-zinc-950"
           >
             <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
               <div>
@@ -611,19 +579,13 @@ export default function Home() {
                 </ul>
                 <Link
                   href="/docs"
-                  className={`inline-flex mt-6 px-5 py-2 font-semibold ${
-                    isDark
-                      ? "border border-white/20 text-indigo-100 hover:bg-white"
-                      : "border border-slate-300 text-indigo-700 hover:bg-white"
-                  }`}
+                  className="inline-flex mt-6 px-5 py-2 font-semibold border border-zinc-700 text-indigo-400 hover:bg-zinc-800"
                 >
                   {t("Developer.cta")}
                 </Link>
               </div>
               <div
-                className={`p-5 shadow-[0_0_45px_rgba(79,70,229,0.25)] border ${
-                  isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"
-                }`}
+                className="p-5 shadow-[0_0_45px_rgba(79,70,229,0.25)] border border-zinc-800 bg-zinc-900"
               >
                 <div className={`flex items-center justify-between text-xs mb-3 ${mutedText}`}>
                   <span>{t("Developer.sdk")}</span>
@@ -632,9 +594,7 @@ export default function Home() {
                   </span>
                 </div>
                 <pre
-                  className={`text-sm p-4 overflow-x-auto ${
-                    isDark ? "text-slate-100 bg-white" : "text-slate-900 bg-white"
-                  }`}
+                  className="text-sm p-4 overflow-x-auto text-zinc-100 bg-zinc-900"
                 >
 {t("Developer.code")}
                 </pre>
@@ -644,7 +604,7 @@ export default function Home() {
 
           {/* Pricing */}
           <section
-            className="py-20 border-t border-slate-200 bg-white"
+            className="py-20 border-t border-zinc-800 bg-zinc-950"
           >
             <div className="max-w-6xl mx-auto px-6">
               <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
@@ -692,7 +652,7 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-                <div className={`border p-6 ${isDark ? "border-white/10 bg-white" : "border-slate-200 bg-white"}`}>
+                <div className="border p-6 border-zinc-800 bg-zinc-900">
                   <p
                     className={`text-sm uppercase tracking-[0.18em] mb-2 ${
                       isDark ? "text-indigo-200" : "text-indigo-700"
@@ -718,7 +678,7 @@ export default function Home() {
           {/* Final CTA */}
           <section
             id="final-cta"
-            className="py-20 border-t border-slate-200 bg-white"
+            className="py-20 border-t border-zinc-800 bg-zinc-950"
           >
             <div className="max-w-3xl mx-auto px-6 text-center">
               <h3 className="text-3xl md:text-4xl font-semibold mb-4">
@@ -737,11 +697,7 @@ export default function Home() {
                   href="https://app.scam.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`px-7 py-3 transition font-semibold ${
-                    isDark
-                      ? "border border-white/30 text-white hover:bg-white"
-                      : "border border-slate-300 text-slate-900 hover:bg-white"
-                  }`}
+                  className="px-7 py-3 transition font-semibold border border-zinc-600 text-zinc-100 hover:bg-zinc-800"
                 >
                   {t("FinalCta.secondary")}
                 </a>

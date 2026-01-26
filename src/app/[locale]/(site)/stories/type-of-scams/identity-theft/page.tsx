@@ -41,7 +41,7 @@ export default function IdentityTheftPage() {
           </p>
           
           {/* Highlighted Box */}
-          <div className="border-l-4 border-white bg-white/5 p-6 my-12">
+          <div className="border-l-4 border-white bg-zinc-900/5 p-6 my-12">
             <p className="text-xl text-white font-medium leading-[1.77]">
               {t("whatIs.highlight")}
             </p>
@@ -146,13 +146,13 @@ export default function IdentityTheftPage() {
           <h2 className="text-2xl font-semibold text-white mb-6 mt-12">
             {t("cta.title")}
           </h2>
-          <div className="bg-white/5 rounded-lg p-8">
+          <div className="bg-zinc-900/5 rounded-lg p-8">
             <p className="text-lg text-white/80 leading-[1.77] mb-6">
               {t("cta.description")}
             </p>
             <Link 
               href="/demo"
-              className="inline-block px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors text-lg"
+              className="inline-block px-8 py-4 bg-zinc-900 text-zinc-100 font-semibold rounded-lg hover:bg-zinc-900/90 transition-colors text-lg"
             >
               {t("cta.button")}
             </Link>

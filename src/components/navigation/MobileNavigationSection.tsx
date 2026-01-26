@@ -21,7 +21,7 @@ export default function MobileNavigationSection({
     <div>
       <button
         onClick={toggleExpanded}
-        className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+        className="w-full text-left rounded-xl px-4 py-3 text-base font-semibold text-zinc-300 hover:text-zinc-100 hover:bg-zinc-800 transition-colors flex items-center justify-between"
       >
         <span>{section.titleKey ? t(section.titleKey) : section.title}</span>
         <span

@@ -38,7 +38,7 @@ export default function IndividualsClient() {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/demo"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-white text-white px-8 py-3 font-semibold hover:bg-white hover:text-black transition-all duration-200"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-white text-white px-8 py-3 font-semibold hover:bg-zinc-900 hover:text-zinc-100 transition-all duration-200"
             >
               {t("hero.cta")}
             </Link>

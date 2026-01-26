@@ -31,7 +31,7 @@ export default function LogoBar() {
   const allLogos = [...logos, ...logos];
   
   return (
-    <section className="w-full bg-white py-10 border-t border-gray-200 overflow-hidden">
+    <section className="w-full bg-zinc-900 py-10 border-t border-zinc-800 overflow-hidden">
       <div className="logo-carousel">
         <div className={`logo-track ${isLoaded ? 'animate-carousel' : ''}`}>
           {allLogos.map((logo, index) => (

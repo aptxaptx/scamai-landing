@@ -37,7 +37,7 @@ export default function DesktopNav() {
 
     return (
       <div
-        className="absolute top-full left-0 mt-2 bg-white border border-gray-200 shadow-lg min-w-[240px] z-50"
+        className="absolute top-full left-0 mt-2 bg-zinc-900 border border-zinc-700 shadow-lg min-w-[240px] z-50"
         onMouseEnter={() => handleMouseEnter(sectionKey)}
         onMouseLeave={handleMouseLeave}
       >
@@ -47,14 +47,14 @@ export default function DesktopNav() {
             if (link.children) {
                   return (
                     <div key={index}>
-                      <div className="px-4 py-2 text-sm font-medium text-gray-500">
+                      <div className="px-4 py-2 text-sm font-medium text-zinc-400">
                         {link.labelKey ? t(link.labelKey) : link.label}
                       </div>
                       {link.children.map((child, childIndex) => (
                         <Link
                           key={childIndex}
                           href={child.href}
-                      className="block px-6 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                      className="block px-6 py-2 text-sm text-zinc-300 hover:bg-zinc-800 transition-colors"
                           {...(child.external
                             ? { target: "_blank", rel: "noopener noreferrer" }
                             : {})}
@@ -70,7 +70,7 @@ export default function DesktopNav() {
               <Link
                 key={index}
                 href={link.href}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                className="block px-4 py-2 text-sm text-zinc-300 hover:bg-zinc-800 transition-colors"
                 {...(link.external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
@@ -92,7 +92,7 @@ export default function DesktopNav() {
         onMouseEnter={() => handleMouseEnter("business")}
         onMouseLeave={handleMouseLeave}
       >
-        <button className="px-4 py-2 text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors flex items-center gap-1">
+        <button className="px-4 py-2 text-sm font-medium text-zinc-100 hover:text-zinc-300 transition-colors flex items-center gap-1">
           {t(NAVIGATION_SECTIONS.business.titleKey ?? "")}
           <svg
             className={`w-4 h-4 transition-transform ${
@@ -119,7 +119,7 @@ export default function DesktopNav() {
         onMouseEnter={() => handleMouseEnter("models")}
         onMouseLeave={handleMouseLeave}
       >
-        <button className="px-4 py-2 text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors flex items-center gap-1">
+        <button className="px-4 py-2 text-sm font-medium text-zinc-100 hover:text-zinc-300 transition-colors flex items-center gap-1">
           {t(NAVIGATION_SECTIONS.models.titleKey ?? "")}
           <svg
             className={`w-4 h-4 transition-transform ${
@@ -146,7 +146,7 @@ export default function DesktopNav() {
         onMouseEnter={() => handleMouseEnter("research")}
         onMouseLeave={handleMouseLeave}
       >
-        <button className="px-4 py-2 text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors flex items-center gap-1">
+        <button className="px-4 py-2 text-sm font-medium text-zinc-100 hover:text-zinc-300 transition-colors flex items-center gap-1">
           {t(NAVIGATION_SECTIONS.research.titleKey ?? "")}
           <svg
             className={`w-4 h-4 transition-transform ${
@@ -173,7 +173,7 @@ export default function DesktopNav() {
         onMouseEnter={() => handleMouseEnter("company")}
         onMouseLeave={handleMouseLeave}
       >
-        <button className="px-4 py-2 text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors flex items-center gap-1">
+        <button className="px-4 py-2 text-sm font-medium text-zinc-100 hover:text-zinc-300 transition-colors flex items-center gap-1">
           {t(NAVIGATION_SECTIONS.company.titleKey ?? "")}
           <svg
             className={`w-4 h-4 transition-transform ${

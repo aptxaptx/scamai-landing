@@ -21,7 +21,7 @@ export default function SiteShell({ children }: SiteShellProps) {
   return (
     <div
       suppressHydrationWarning
-      className="min-h-dvh bg-white text-gray-900"
+      className="min-h-dvh bg-zinc-950 text-zinc-100"
     >
       <SimpleNav />
 

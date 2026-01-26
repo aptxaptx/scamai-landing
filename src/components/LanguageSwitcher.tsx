@@ -69,7 +69,7 @@ export default function LanguageSwitcher({ className }: LanguageSwitcherProps) {
 
       {isOpen && (
         <div className="absolute top-full right-0 w-48">
-          <div className="bg-white border border-gray-200 shadow-xl rounded-2xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="bg-zinc-900 border border-zinc-700 shadow-xl rounded-2xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
             <div className="py-1 max-h-96 overflow-y-auto">
               {languages.map((lang) => {
                 const isSelected = lang.code === locale;
@@ -80,7 +80,7 @@ export default function LanguageSwitcher({ className }: LanguageSwitcherProps) {
                     className={`block w-full text-left px-5 py-3 text-base transition-colors duration-150 ${
                       isSelected
                         ? "bg-black text-white font-medium"
-                        : "text-black hover:bg-gray-100"
+                        : "text-zinc-100 hover:bg-zinc-800"
                     }`}
                   >
                     <div className="flex items-center justify-between">

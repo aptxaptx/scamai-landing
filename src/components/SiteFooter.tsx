@@ -17,7 +17,7 @@ export default function SiteFooter() {
   }, []);
   return (
     <footer
-      className="py-16 w-full border-t bg-white border-gray-200 text-gray-900"
+      className="py-16 w-full border-t bg-zinc-950 border-zinc-800 text-zinc-100"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -37,7 +37,7 @@ export default function SiteFooter() {
             <a
               href="https://linkedin.com/company/scamai"
               className={`inline-flex items-center gap-2 transition-colors ${
-                isDark ? "text-slate-300 hover:text-white" : "text-slate-700 hover:text-black"
+                "text-zinc-300 hover:text-white"
               }`}
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <h3 className={`${isDark ? "text-white" : "text-slate-900"} font-semibold mb-4`}>{t("sections.product")}</h3>
+            <h3 className="text-white font-semibold mb-4">{t("sections.product")}</h3>
             <ul className={`space-y-2 ${isDark ? "text-slate-300" : "text-slate-700"}`}>
               <li><Link href="/features" className="hover:text-indigo-500 transition-colors">{t("links.features")}</Link></li>
               <li><Link href="/docs" className="hover:text-indigo-500 transition-colors">{t("links.api")}</Link></li>
@@ -58,7 +58,7 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <h3 className={`${isDark ? "text-white" : "text-slate-900"} font-semibold mb-4`}>{t("sections.company")}</h3>
+            <h3 className="text-white font-semibold mb-4">{t("sections.company")}</h3>
             <ul className={`space-y-2 ${isDark ? "text-slate-300" : "text-slate-700"}`}>
               <li><Link href="/stories/skydeck" className="hover:text-indigo-500 transition-colors">{t("links.about")}</Link></li>
               <li><Link href="/careers" className="hover:text-indigo-500 transition-colors">{t("links.careers")}</Link></li>
@@ -68,7 +68,7 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <h3 className={`${isDark ? "text-white" : "text-slate-900"} font-semibold mb-4`}>{t("sections.legal")}</h3>
+            <h3 className="text-white font-semibold mb-4">{t("sections.legal")}</h3>
             <ul className={`space-y-2 ${isDark ? "text-slate-300" : "text-slate-700"}`}>
               <li><Link href="/privacy" className="hover:text-indigo-500 transition-colors">{t("links.privacy")}</Link></li>
               <li><Link href="/terms" className="hover:text-indigo-500 transition-colors">{t("links.terms")}</Link></li>

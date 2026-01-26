@@ -24,7 +24,7 @@ export default function HeroVideoDialog({
     <div className={className}>
       <button
         onClick={() => setOpen(true)}
-        className="relative w-full max-w-[1100px] mx-auto overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] hover:bg-white/10 transition-colors"
+        className="relative w-full max-w-[1100px] mx-auto overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/5 shadow-[0_10px_40px_rgba(0,0,0,0.35)] hover:bg-zinc-900/10 transition-colors"
         aria-label="Play video"
       >
         <Image

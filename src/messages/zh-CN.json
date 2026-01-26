@@ -105,20 +105,20 @@
       "result": {
         "label": "结果卡片",
         "default": {
-          "verdict": "🔴 AI 生成 (99.8%)",
+          "verdict": "AI 生成 (99.8%)",
           "analysis": "检测到背景纹理中的高频伪影。",
           "action": "接入 API 自动拦截。"
         },
         "image": {
-          "verdict": "🔴 AI 生成 (99.8%)",
+          "verdict": "AI 生成 (99.8%)",
           "analysis": "检测到高频扩散伪影与边缘光晕。"
         },
         "voice": {
-          "verdict": "🟠 可能为合成 (93.2%)",
+          "verdict": "可能为合成 (93.2%)",
           "analysis": "检测到频谱节奏不匹配与克隆语调。"
         },
         "video": {
-          "verdict": "🟡 可疑（等待完整模型）",
+          "verdict": "可疑（等待完整模型）",
           "analysis": "检测到时间抖动。Beta 模型发布后将自动拦截。"
         },
         "action": "接入 API 进行拦截。"
@@ -146,7 +146,7 @@
       "video": {
         "kicker": "红队实拍",
         "title": "观看：我们如何在 10 秒内绕过标准 KYC。",
-        "cta": "▶ 播放"
+        "cta": "播放"
       },
       "kicker": "问题现状",
       "title": "传统 KYC 已失效。",
@@ -204,10 +204,10 @@
       "kicker": "为开发者而生",
       "title": "面向开发者，分钟级集成。",
       "bullets": [
-        "✅ 支持 REST 与 gRPC",
-        "✅ < 100ms 延迟",
-        "✅ 99.99% SLA",
-        "✅ SOC2 合规（就绪）"
+        "支持 REST 与 gRPC",
+        "< 100ms 延迟",
+        "99.99% SLA",
+        "SOC2 合规（就绪）"
       ],
       "cta": "阅读文档 →",
       "sdk": "Python SDK",
@@ -408,7 +408,7 @@
         "genai": "GenAI"
       },
       "demo": {
-        "icon": "🔍",
+        "icon": "",
         "kicker": "实时检测",
         "title": "查看虚假新闻检测的效果",
         "description": "观看我们的 AI 在新闻流、社媒与编辑流程中实时识别被篡改媒体、深伪与合成内容。",
@@ -725,7 +725,7 @@
           },
           {
             "title": "Platform Synergy",
-            "description": "This is the single source of truth that trains, validates, and powers all other Scam.ai models. It's why our detection products are always smarter and faster. ⚡️"
+            "description": "This is the single source of truth that trains, validates, and powers all other Scam.ai models. It's why our detection products are always smarter and faster."
           }
         ]
       },
@@ -1668,7 +1668,7 @@
         "description": "Artificial intelligence can now create incredibly realistic synthetic images that never existed. Learn how to detect AI-generated images, deepfakes, and protect yourself from sophisticated scam detection challenges. Our comprehensive guide covers deepfake detection techniques and AI scam prevention strategies.",
         "exampleTitle": "AI-Generated Content",
         "exampleDescription": "Example of sophisticated AI-generated imagery used in scams",
-        "exampleBadge": "⚠ FAKE"
+        "exampleBadge": "FAKE"
       },
       "whatIs": {
         "title": "What is AI Scam Detection for Synthetic Images?",

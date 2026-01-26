@@ -33,14 +33,14 @@ export default function ApiPlatformPage() {
 
           {/* Tags */}
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Deepfake</span>
-            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">GenAI</span>
-            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-white/10 border border-white/15">Audio</span>
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-zinc-900/10 border border-white/15">Deepfake</span>
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-zinc-900/10 border border-white/15">GenAI</span>
+            <span className="px-3 py-1 rounded-full text-xs text-white/85 bg-zinc-900/10 border border-white/15">Audio</span>
           </div>
 
           {/* API Demo Section */}
           <div className="mt-8 max-w-4xl mx-auto">
-            <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-white/10">
+            <div className="relative w-full overflow-hidden rounded-lg border border-white/20 bg-zinc-900/10">
               <div className="aspect-video p-8 flex flex-col justify-center">
                 <div className="text-center">
                   <h3 className="text-2xl font-semibold text-white mb-4">See ScamAI API in Action</h3>
@@ -48,10 +48,10 @@ export default function ApiPlatformPage() {
                     Experience real-time deepfake detection with simple API calls. Upload content and get instant results with confidence scores.
                   </p>
                   <div className="inline-flex items-center gap-4">
-                    <Link href="/demo" className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors">
+                    <Link href="/demo" className="px-6 py-3 bg-zinc-900 text-zinc-100 font-semibold rounded-lg hover:bg-zinc-900/90 transition-colors">
                       Try Live Demo
                     </Link>
-                    <a href="https://docu.scam.ai" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 transition-colors">
+                    <a href="https://docu.scam.ai" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg hover:bg-zinc-900/5 transition-colors">
                       View Docs
                     </a>
                   </div>
@@ -85,7 +85,7 @@ export default function ApiPlatformPage() {
           <div className="p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-white font-semibold">Simple API Integration</h3>
-              <span className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">cURL</span>
+              <span className="text-xs text-white/60 bg-zinc-900/10 px-2 py-1 rounded">cURL</span>
             </div>
             <div className="bg-black/50 rounded p-4 font-mono text-sm">
               <div className="text-green-400"># Detect deepfakes in seconds</div>
@@ -149,7 +149,7 @@ export default function ApiPlatformPage() {
               ],
             },
           ].map(({ name, desc, bullets }) => (
-            <article key={name} className="relative border border-white/10 bg-white/5 p-6">
+            <article key={name} className="relative border border-white/10 bg-zinc-900/5 p-6">
               <h3 className="text-lg font-semibold">{name}</h3>
               <p className="mt-2 text-sm text-white/80">{desc}</p>
               <ul className="mt-4 space-y-2 text-sm text-white/85">
@@ -201,8 +201,8 @@ export default function ApiPlatformPage() {
             <article key={f.title} className="border border-white/10 p-6 grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-4">
               <div className="aspect-video bg-blue-500/20 rounded-lg flex items-center justify-center border border-white/10">
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <span className="text-white text-xl">🔍</span>
+                  <div className="w-12 h-12 bg-zinc-900/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <span className="text-white text-xl font-bold">?</span>
                   </div>
                   <span className="text-white/80 text-sm">{f.title}</span>
                 </div>
@@ -245,21 +245,21 @@ export default function ApiPlatformPage() {
           <p className="mt-3 text-white/80 max-w-2xl mx-auto">
             SDKs for Node and Python, event streams, and audit logs—designed for production scale and observability.
           </p>
-          <Link href="/demo" className="mt-4 inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Start exploring</Link>
+          <Link href="/demo" className="mt-4 inline-flex items-center gap-2 rounded-full bg-zinc-900 text-zinc-100 px-5 py-3 font-semibold shadow-sm">Start exploring</Link>
         </div>
         <div className="mt-8 aspect-[16/7] bg-blue-500/10 border border-white/10 rounded-lg flex items-center justify-center">
           <div className="text-center">
             <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="w-20 h-20 bg-white/10 rounded-lg flex items-center justify-center">
-                <span className="text-white text-3xl">⚡</span>
+              <div className="w-20 h-20 bg-zinc-900/10 rounded-lg flex items-center justify-center">
+                <span className="text-white text-3xl font-bold">↯</span>
               </div>
               <div className="text-4xl text-white/60">+</div>
-              <div className="w-20 h-20 bg-white/10 rounded-lg flex items-center justify-center">
-                <span className="text-white text-3xl">🛡️</span>
+              <div className="w-20 h-20 bg-zinc-900/10 rounded-lg flex items-center justify-center">
+                <span className="text-white text-3xl font-bold">◆</span>
               </div>
               <div className="text-4xl text-white/60">=</div>
-              <div className="w-20 h-20 bg-white/10 rounded-lg flex items-center justify-center">
-                <span className="text-white text-3xl">🚀</span>
+              <div className="w-20 h-20 bg-zinc-900/10 rounded-lg flex items-center justify-center">
+                <span className="text-white text-3xl font-bold">→</span>
               </div>
             </div>
             <p className="text-white/80 text-lg">Fast • Reliable • Scalable</p>
@@ -277,14 +277,14 @@ export default function ApiPlatformPage() {
             { name: "Social", blurb: "Label synthetic media and keep feeds authentic." },
             { name: "IP", blurb: "Detect AI remixes and derivative content." },
           ].map((c) => (
-            <article key={c.name} className="border border-white/10 p-4 hover:bg-white/5 transition-colors">
+            <article key={c.name} className="border border-white/10 p-4 hover:bg-zinc-900/5 transition-colors">
               <div className="h-40 bg-blue-500/10 mb-3 rounded-lg flex items-center justify-center border border-white/5">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white text-2xl">
-                      {c.name === "Fintech" ? "💳" : 
-                       c.name === "Dating" ? "💕" : 
-                       c.name === "Social" ? "📱" : "🎨"}
+                  <div className="w-16 h-16 bg-zinc-900/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-white text-2xl font-bold">
+                      {c.name === "Fintech" ? "$" : 
+                       c.name === "Dating" ? "♥" : 
+                       c.name === "Social" ? "#" : "*"}
                     </span>
                   </div>
                   <span className="text-white/60 text-xs">Use Case</span>
@@ -338,8 +338,8 @@ export default function ApiPlatformPage() {
           Start with a sandbox key or book a 25‑minute walkthrough with our team.
         </p>
         <div className="mt-5 flex items-center justify-center gap-3">
-          <Link href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Start exploring</Link>
-          <Link href="/demo" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-3 font-semibold shadow-sm">Talk to our team</Link>
+          <Link href="/demo" className="inline-flex items-center gap-2 rounded-full bg-zinc-900 text-zinc-100 px-5 py-3 font-semibold shadow-sm">Start exploring</Link>
+          <Link href="/demo" className="inline-flex items-center gap-2 rounded-full bg-zinc-900 text-zinc-100 px-5 py-3 font-semibold shadow-sm">Talk to our team</Link>
         </div>
       </section>
     </SiteShell>
