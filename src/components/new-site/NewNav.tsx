@@ -161,7 +161,7 @@ export default function NewNav() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <div className="relative" ref={langDropdownRef}>
+          {/* <div className="relative" ref={langDropdownRef}>
             <button
               onClick={() => setLangOpen(!langOpen)}
               className="flex items-center gap-1 bg-transparent px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
@@ -238,73 +238,96 @@ export default function NewNav() {
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Open menu"
         >
-          <span className="text-lg">{open ? "✕" : "☰"}</span>
+          <span className="text-2xl">{open ? "" : "☰"}</span>
         </button>
       </nav>
 
-      {open && (
-        <div className="relative md:hidden">
-          <div className="absolute inset-0 bg-[#0b0f1f] bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.35),_transparent_55%),radial-gradient(circle_at_bottom_left,_rgba(29,78,216,0.35),_transparent_55%)]" />
-          <div className="relative flex flex-col gap-3 px-4 py-4">
-            {navItems.map((item) => {
-              if (item.children) {
-                const isProduct = item.label === "Product";
-                const isResources = item.label === "Resources";
-                const isOpen = isProduct ? productsOpen : (isResources ? resourcesOpen : false);
-                const setIsOpen = isProduct ? setProductsOpen : (isResources ? setResourcesOpen : () => {});
-                
-                return (
-                  <div key={item.href} className="flex flex-col">
-                    <button
-                      onClick={() => setIsOpen(!isOpen)}
-                      className="flex items-center justify-between rounded-none px-3 py-2 text-sm font-medium text-white hover:bg-white/10"
-                    >
-                      {item.label}
-                      <svg
-                        className="h-4 w-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+      {/* Mobile Full-Screen Menu */}
+      <div
+        className={`fixed inset-0 z-[100] bg-white transition-transform duration-300 ease-in-out md:hidden ${
+          open ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex h-full flex-col">
+          {/* Header */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+            <Link href="/" onClick={() => setOpen(false)}>
+              <img
+                src="/scamai-logo.svg"
+                alt="ScamAI"
+                className="h-8 w-auto"
+              />
+            </Link>
+            <button
+              onClick={() => setOpen(false)}
+              className="text-gray-900 text-3xl leading-none"
+              aria-label="Close menu"
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Menu Items */}
+          <div className="flex-1 overflow-y-auto px-6 py-4">
+            <div className="flex flex-col gap-1">
+              {navItems.map((item) => {
+                if (item.children) {
+                  const isProduct = item.label === "Product";
+                  const isResources = item.label === "Resources";
+                  const isOpen = isProduct ? productsOpen : (isResources ? resourcesOpen : false);
+                  const setIsOpen = isProduct ? setProductsOpen : (isResources ? setResourcesOpen : () => {});
+                  
+                  return (
+                    <div key={item.href}>
+                      <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="w-full flex items-center justify-between py-4 text-lg font-medium text-gray-900 border-b border-gray-100"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </button>
-                    {isOpen && (
-                      <div className="ml-4 mt-2 flex flex-col gap-2">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="rounded-none px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10"
-                            onClick={() => {
-                              setOpen(false);
-                              setIsOpen(false);
-                            }}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              }
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-white hover:bg-white/10"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                  {item.hasDropdown && (
+                        {item.label}
+                        <svg
+                          className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                      {isOpen && (
+                        <div className="py-2 pl-4">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="block py-3 text-base text-gray-600 hover:text-gray-900"
+                              onClick={() => {
+                                setOpen(false);
+                                setIsOpen(false);
+                              }}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="flex items-center justify-between py-4 text-lg font-medium text-gray-900 border-b border-gray-100"
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
                     <svg
-                      className="h-4 w-4"
+                      className="h-5 w-5 text-gray-500"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -313,32 +336,98 @@ export default function NewNav() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
+                        d="M9 5l7 7-7 7"
                       />
                     </svg>
-                  )}
-                </Link>
-              );
-            })}
-            <a
-              href="https://app.scam.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-transparent px-3 py-2 text-sm font-semibold text-white"
-              onClick={() => setOpen(false)}
-            >
-              Log In
-            </a>
-            <Link
-              href="/demo"
-              className="rounded-full border border-[#0021f3] bg-[#0021f3] px-3 py-2 text-sm font-semibold text-white"
-              onClick={() => setOpen(false)}
-            >
-              Book a demo
-            </Link>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="border-t border-gray-200 px-6 py-4">
+            {/* Language Selector - Commented Out
+            <div className="mb-4">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="w-full flex items-center justify-between py-2 text-base text-gray-900"
+              >
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="h-5 w-5 text-gray-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span>{currentLanguage.name}</span>
+                </div>
+                <svg
+                  className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              {langOpen && (
+                <div className="mt-2 max-h-48 overflow-y-auto bg-gray-50 rounded-lg">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        switchLocale(lang.code);
+                        setLangOpen(false);
+                      }}
+                      className={`w-full px-4 py-2 text-left text-sm transition ${
+                        locale === lang.code
+                          ? "bg-blue-100 text-blue-900"
+                          : "text-gray-700 hover:bg-gray-100"
+                      }`}
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            */}
+
+            {/* Action Buttons */}
+            <div className="flex flex-col gap-3">
+              <a
+                href="https://app.scam.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full px-6 py-3 text-center text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+                onClick={() => setOpen(false)}
+              >
+                Log In
+              </a>
+              <Link
+                href="/demo"
+                className="block w-full px-6 py-3 text-center text-sm font-semibold text-white bg-[#0021f3] rounded-lg hover:bg-[#0019c7] transition"
+                onClick={() => setOpen(false)}
+              >
+                Book a demo
+              </Link>
+            </div>
           </div>
         </div>
-      )}
+      </div>
     </header>
     
     <div 
