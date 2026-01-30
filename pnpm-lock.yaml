@@ -21,7 +21,7 @@ importers:
         specifier: 15.4.10
         version: 15.4.10(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-intl:
-        specifier: ^3.13.1
+        specifier: ^3.26.5
         version: 3.26.5(next@15.4.10(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-mdx-remote:
         specifier: ^5.0.0
@@ -38,6 +38,9 @@ importers:
       resend:
         specifier: ^6.7.0
         version: 6.7.0
+      watermarkjs:
+        specifier: ^2.1.1
+        version: 2.1.1
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3.3.3
@@ -2271,6 +2274,9 @@ packages:
 
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
+
+  watermarkjs@2.1.1:
+    resolution: {integrity: sha512-HDabpga8Fz5d61Z7gBkKO2cDsfViAU/mO5qIoWmDX92wJZLb7Dv4L+CwoHAqS4XkqWcYVGy/AF035BD1EN3v/g==}
 
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
@@ -5031,6 +5037,8 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
+
+  watermarkjs@2.1.1: {}
 
   which-boxed-primitive@1.1.1:
     dependencies:

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState, useRef, DragEvent, useEffect } from "react";
-import watermark from "watermarkjs";
 
 type FileWithPreview = {
   file: File;
@@ -65,6 +64,11 @@ export default function NewLanding() {
     }
 
     try {
+      if (typeof window === "undefined") {
+        return URL.createObjectURL(file);
+      }
+
+      const { default: watermark } = await import("watermarkjs");
       const options = {
         init(img: any) {
           img.crossOrigin = 'anonymous';

@@ -217,6 +217,7 @@ export default function NewNav() {
               </div>
             )}
           </div>
+          */}
           <a
             href="https://app.scam.ai"
             target="_blank"
