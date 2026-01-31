@@ -92,7 +92,7 @@ export default function NewNav() {
 
   return (
     <>
-      <div className="w-full bg-[#0021f3] py-2 text-center rounded-none">
+      <div className="w-full bg-[#0021f3] py-2 text-center">
         <p className="text-sm text-white">
           Scam.ai raised $2.5M and joined Berkeley SkyDeck (Batch 20){" "}
           <Link href="/news" className="inline-flex items-center underline hover:opacity-80">
@@ -101,8 +101,8 @@ export default function NewNav() {
         </p>
       </div>
       <div className="sticky top-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
-      <header className="bg-transparent rounded-none">
-        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 rounded-none">
+      <header className="bg-transparent">
+        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href="/" className="flex items-center">
           <img
             src="/scamai-logo.svg"
