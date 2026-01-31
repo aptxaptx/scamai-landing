@@ -143,7 +143,7 @@ export default function NewLanding() {
     const mockResult = {
       isAI,
       confidence: Math.random() * 100,
-      type: (isAI ? 'likely_ai_manipulated' : 'likely_real') as const,
+      type: (isAI ? 'likely_ai_manipulated' : 'likely_real') as 'likely_ai_manipulated' | 'likely_real',
       details: 'Analysis completed using AI detection models'
     };
 
@@ -420,7 +420,7 @@ export default function NewLanding() {
                             <p className="text-xs text-gray-400">Share watermarked image:</p>
                             
                             {/* Native Share Button (Mobile) */}
-                            {typeof navigator !== 'undefined' && navigator.share && (
+                            {typeof navigator !== 'undefined' && typeof navigator.share === 'function' && (
                               <button
                                 onClick={() => shareToSocialMedia(fileData, 'native')}
                                 className="w-full px-4 py-2.5 bg-[#0021f3] hover:bg-[#0018cc] rounded-lg text-sm font-medium text-white transition-colors flex items-center justify-center gap-2"
