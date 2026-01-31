@@ -22,8 +22,7 @@ const navItems = [
     hasDropdown: true,
     children: [
       { label: "Docs", href: "/resources/documentation" },
-      { label: "Security", href: "/resources/security" },
-      { label: "Compliance", href: "/resources/compliance" },
+      { label: "Security & Compliance", href: "/resources/security-compliance" },
     ]
   },
   { label: "Pricing", href: "/pricing" },

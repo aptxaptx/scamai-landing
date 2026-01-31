@@ -11,6 +11,72 @@
   --accent: #6d5dfb;
 }
 
+@keyframes rainbow-border {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes rainbow-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.5));
+  }
+  25% {
+    filter: drop-shadow(0 0 20px rgba(0, 191, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.5));
+  }
+  75% {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+  }
+}
+
+.rainbow-button {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #8a2be2,
+    #00bfff,
+    #ff69b4,
+    #ffd700,
+    #8a2be2
+  );
+  background-size: 200% 100%;
+  animation: rainbow-border 3s ease-in-out infinite;
+  padding: 2px;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.rainbow-button:hover {
+  animation: rainbow-border 1.5s ease-in-out infinite, rainbow-glow 3s ease-in-out infinite;
+}
+
+.rainbow-button-inner {
+  background: white;
+  border-radius: 9999px;
+  padding: 0.625rem 1.5rem;
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.rainbow-button:hover .rainbow-button-inner {
+  background: #f9fafb;
+}
+
+@media (min-width: 640px) {
+  .rainbow-button-inner {
+    font-size: 0.9375rem;
+  }
+}
+
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--text);
@@ -49,7 +115,9 @@ html {
 
 /* Allow rounded-full only for link and button elements with the class */
 a.rounded-full,
-button.rounded-full {
+button.rounded-full,
+.rainbow-button,
+.rainbow-button-inner {
   border-radius: 9999px !important;
 }
 
@@ -150,4 +218,70 @@ header {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
+}
+
+/* Logo Carousel Animation */
+.logo-scroll-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-scroll-track {
+  display: flex;
+  gap: 4rem;
+  animation: logo-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.logo-scroll-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.logo-scroll-item:hover {
+  opacity: 1;
+}
+
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Ensure main background is always black */
+main {
+  background-color: #0b0b0b !important;
+  position: relative;
+}
+
+/* No gap between landing sections - strong negative margin on all viewports */
+main .landing-section {
+  margin-top: 0 !important;
+  margin-bottom: -20px !important;
+  padding-bottom: 0 !important;
+  display: block !important;
+  background-color: #0b0b0b; /* Fallback black background */
+}
+
+/* Mobile: same strong overlap */
+@media (max-width: 640px) {
+  main .landing-section {
+    margin-bottom: -20px !important;
+  }
+  main .landing-section.has-bg {
+    min-height: 50vh;
+  }
+  main .landing-section.has-bg > div:first-of-type {
+    background-size: cover !important;
+    background-position: center !important;
+  }
 }

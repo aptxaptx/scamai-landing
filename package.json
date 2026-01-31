@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
+    "class-variance-authority": "^0.7.1",
     "framer-motion": "^12.25.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.539.0",
