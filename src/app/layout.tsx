@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
-import { cookies, headers } from "next/headers";
 import { Inter } from "next/font/google";
-import NewNav from "@/components/new-site/NewNav";
-import NewFooter from "@/components/new-site/NewFooter";
 import "./globals.css";
-import { defaultLocale, rtlLocales, type Locale } from "@/i18n/config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,28 +18,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headerStore = await headers();
-  const cookieStore = await cookies();
-  const headerLocale = headerStore.get("x-next-intl-locale") as Locale | null;
-  const cookieLocale = cookieStore.get("NEXT_LOCALE")?.value as Locale | undefined;
-  const locale = headerLocale ?? cookieLocale ?? defaultLocale;
-  const direction = rtlLocales.includes(locale)
-    ? "rtl"
-    : "ltr";
-
   return (
-    <html lang={locale} dir={direction} suppressHydrationWarning>
-      <body
-        className={`${inter.variable} antialiased`}
-      >
-        <NewNav />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} antialiased`}>
         {children}
-        <NewFooter />
       </body>
     </html>
   );

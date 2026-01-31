@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 
 import { defaultLocale, locales, type Locale } from "@/i18n/config";
 import Providers from "@/contexts/Providers";
+import NewNav from "@/components/new-site/NewNav";
+import NewFooter from "@/components/new-site/NewFooter";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -37,7 +39,9 @@ export default async function LocaleLayout({
 
   return (
     <Providers locale={locale} messages={messages}>
+      <NewNav />
       {children}
+      <NewFooter />
     </Providers>
   );
 }

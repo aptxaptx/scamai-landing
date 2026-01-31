@@ -248,21 +248,21 @@ export default function NewLanding() {
         />
 
         <div className="relative mx-auto max-w-4xl px-4 py-32 text-left sm:px-6">
-          <p className="mb-6 text-sm text-gray-400">
-            It provides what Multi-CDN can't.
+          <p className="mb-5 text-base text-gray-400 tracking-wide">
+            Don&apos;t let AI fool you.
           </p>
-          <h1 className="mb-6 text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl">
-            Virtual edge can
+          <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            Trust what you see.
             <br />
-            Assure consistent security
+            Verify what you hear.
             <span className="inline-block animate-pulse">_</span>
           </h1>
-          <p className="mb-10 max-w-2xl text-lg text-gray-300 sm:text-xl">
-            A unified layer of security, traffic control and serverless compute services on top of Edge platforms to improve the reliability, performance and affordability of online services.
+          <p className="mb-10 max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">
+            Real or AI? Our leading models detect synthetic media, deepfakes and fraud in real time—so you can protect your brand and build trust.
           </p>
           <Link
             href="/demo"
-            className="inline-block rounded-full bg-white px-8 py-4 text-base font-semibold text-[#0b0f1f] shadow-lg transition hover:bg-gray-100"
+            className="inline-block rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[#0b0f1f] shadow-lg transition hover:bg-gray-100 sm:text-base"
           >
             Test Now
           </Link>

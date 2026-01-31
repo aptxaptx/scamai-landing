@@ -222,13 +222,13 @@ export default function NewNav() {
             href="https://app.scam.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-transparent px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+            className="rounded-full border border-white/80 bg-transparent px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
           >
             Log In
           </a>
           <Link
             href="/demo"
-            className="rounded-full border border-[#0021f3] bg-[#0021f3] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0019c7]"
+            className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-100"
           >
             Book a demo
           </Link>
@@ -420,7 +420,7 @@ export default function NewNav() {
               </a>
               <Link
                 href="/demo"
-                className="block w-full px-6 py-3 text-center text-sm font-semibold text-white bg-[#0021f3] rounded-lg hover:bg-[#0019c7] transition"
+                className="block w-full px-6 py-3 text-center text-sm font-semibold text-gray-700 bg-white rounded-full hover:bg-gray-50 transition"
                 onClick={() => setOpen(false)}
               >
                 Book a demo
