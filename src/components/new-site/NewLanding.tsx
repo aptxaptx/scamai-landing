@@ -272,25 +272,25 @@ export default function NewLanding() {
       <section className="landing-section relative -mt-[73px] pt-[73px] bg-[#0b0b0b] min-h-screen" aria-label="Hero section - AI Trust Platform">
         <div className="relative z-10 mx-auto max-w-5xl px-6 pt-20 pb-32 text-center sm:px-8 lg:pt-28 lg:pb-40">
           <AnimatedSection delay={0.2}>
-            <p className="mb-6 text-sm font-semibold text-gray-400 tracking-[0.08em] sm:text-base lg:mb-8">
+            <p className="mb-4 text-xs font-semibold text-gray-400 tracking-[0.08em] sm:text-sm lg:mb-6">
               All-in-one
             </p>
           </AnimatedSection>
           
           <AnimatedSection delay={0.3}>
-            <h1 className="mb-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl lg:mb-8">
+            <h1 className="mb-5 text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl lg:mb-6">
               AI trust platform
             </h1>
           </AnimatedSection>
           
           <AnimatedSection delay={0.4}>
-            <p className="mb-8 text-lg font-semibold text-gray-200 sm:text-xl lg:text-2xl lg:mb-10">
+            <p className="mb-6 text-base font-semibold text-gray-200 sm:text-lg lg:text-xl lg:mb-8">
               Stop getting fooled by synthetic media and deepfakes.
             </p>
           </AnimatedSection>
           
           <AnimatedSection delay={0.5}>
-            <div className="mb-12 mx-auto max-w-3xl text-base leading-relaxed text-gray-300 sm:text-lg lg:mb-14 space-y-2">
+            <div className="mb-10 mx-auto max-w-3xl text-sm leading-relaxed text-gray-300 sm:text-base lg:mb-12 space-y-1">
               <p>
                 Let your team <span className="font-semibold text-white">detect synthetic media and deepfakes in real time</span>.
               </p>
@@ -318,18 +318,18 @@ export default function NewLanding() {
               <p className="mb-8 text-center text-[10px] font-medium text-gray-500 tracking-[0.15em] uppercase sm:text-xs">
                 Backed and trusted by teams and people from
               </p>
-              <div className="flex items-center justify-center gap-10 sm:gap-14 lg:gap-16 flex-wrap">
-                <div className="h-12 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
-                  <span className="text-xl font-semibold text-gray-400">Meta</span>
+              <div className="flex items-center justify-center gap-8 sm:gap-12 lg:gap-14 flex-wrap">
+                <div className="h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
+                  <span className="text-base font-semibold text-gray-400 sm:text-lg">Meta</span>
                 </div>
-                <div className="h-12 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
-                  <span className="text-xl font-semibold text-gray-400">HP</span>
+                <div className="h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
+                  <span className="text-base font-semibold text-gray-400 sm:text-lg">HP</span>
                 </div>
-                <div className="h-12 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
-                  <span className="text-xl font-semibold text-gray-400">SBI</span>
+                <div className="h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
+                  <span className="text-base font-semibold text-gray-400 sm:text-lg">SBI</span>
                 </div>
-                <div className="h-12 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
-                  <span className="text-xl font-semibold text-gray-400">LG</span>
+                <div className="h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
+                  <span className="text-base font-semibold text-gray-400 sm:text-lg">LG</span>
                 </div>
               </div>
             </div>
@@ -354,12 +354,12 @@ export default function NewLanding() {
             </AnimatedSection>
             
             <AnimatedSection delay={0.2}>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] lg:mb-10">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
                 Fight <span className="text-[#66b3ff]">AI threats</span> with<br /><span className="text-[#66b3ff]">AI defense</span>
               </h2>
             </AnimatedSection>
             
-            <div className="mx-auto max-w-3xl text-lg sm:text-xl text-gray-300 leading-relaxed space-y-2">
+            <div className="mx-auto max-w-3xl text-base sm:text-lg text-gray-300 leading-relaxed space-y-1">
               <p>ScamAI's AI models - <span className="font-bold text-white">Eva-v1</span> adapt as fast as the threats themselves,</p>
               <p>evolving and responding to new attack patterns in real-time.</p>
             </div>
@@ -372,13 +372,13 @@ export default function NewLanding() {
         <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8">
           <AnimatedSection>
             <div className="text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-400 mb-6 sm:text-xs lg:mb-8">
+              <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gray-400 mb-4 sm:text-[10px] lg:mb-6">
                 AI-POWERED SECURITY
               </p>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] lg:mb-10">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
                 Verify what <span className="text-[#66b3ff]">we see</span>
               </h2>
-              <p className="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300 leading-relaxed">
+              <p className="max-w-3xl mx-auto text-base sm:text-lg text-gray-300 leading-relaxed">
                 Deepfakes and synthetic fraud cost businesses millions in fraud losses, chargebacks, and reputational damage every year. Our real-time detection platform stops threats instantly — protecting your revenue, brand reputation, and customer trust before costly damage occurs.
               </p>
             </div>
@@ -391,11 +391,11 @@ export default function NewLanding() {
         <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl">
           {/* Platform Title - no overlay */}
           <AnimatedSection>
-            <div className="text-center mb-20 lg:mb-24">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-400 mb-6 sm:text-xs lg:mb-8">
+            <div className="text-center mb-16 lg:mb-20">
+              <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gray-400 mb-4 sm:text-[10px] lg:mb-6">
                 THE PLATFORM
               </p>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1]">
                 Why teams choose <span className="text-[#66b3ff]">us</span>
               </h2>
             </div>
@@ -403,15 +403,15 @@ export default function NewLanding() {
 
           {/* Feature 1: All-in-One Platform */}
           <AnimatedSection>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-28 lg:mb-32">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-6 sm:text-sm lg:mb-8">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-4 sm:text-xs lg:mb-6">
                   ALL-IN-ONE PLATFORM
                 </p>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.15] lg:mb-8">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
                   One platform for all media verification needs
                 </h3>
-                <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                   Stop juggling multiple detection tools. ScamAI unifies deepfake detection, synthetic media analysis, and fraud prevention into a single platform. One API, one dashboard, complete protection.
                 </p>
               </div>
@@ -452,13 +452,13 @@ export default function NewLanding() {
                 </div>
               </div>
               <div className="order-1 lg:order-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-6 sm:text-sm lg:mb-8">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-4 sm:text-xs lg:mb-6">
                   LIGHTNING FAST
                 </p>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.15] lg:mb-8">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
                   Real-time detection at scale
                 </h3>
-                <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                   Process millions of media files with industry-leading speed. Our Eva-v1 model delivers instant verdicts without compromising accuracy, keeping your platform safe in real-time.
                 </p>
               </div>
@@ -472,18 +472,18 @@ export default function NewLanding() {
         <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl">
           {/* Transparent Pricing */}
           <AnimatedSection>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-28 lg:mb-32">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-6 sm:text-sm lg:mb-8">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-4 sm:text-xs lg:mb-6">
                   $ TRANSPARENT PRICING
                 </p>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.15] lg:mb-8">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
                   Pay only for what you use.
                 </h3>
-                <p className="text-xl font-semibold text-gray-200 mb-8 sm:text-2xl">
+                <p className="text-lg font-semibold text-gray-200 mb-6 sm:text-xl">
                   100 free checks / month
                 </p>
-                <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                   Start with 100 free checks monthly for images and audio. Video detection available on paid plans. Simple pay-as-you-go pricing—no contracts, no setup fees, no commitments. You're only charged for successful checks.
                 </p>
               </div>
@@ -499,7 +499,7 @@ export default function NewLanding() {
 
           {/* Global Compliance */}
           <AnimatedSection delay={0.2}>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-28 lg:mb-32">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
               <div className="order-2 lg:order-1 relative aspect-[4/3] bg-gray-800/40 rounded-2xl border border-gray-700/50 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-800/60 to-gray-900/60" />
                 <div className="relative text-center space-y-2">
@@ -508,13 +508,13 @@ export default function NewLanding() {
                 </div>
               </div>
               <div className="order-1 lg:order-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-6 sm:text-sm lg:mb-8">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-4 sm:text-xs lg:mb-6">
                   ☑ GLOBAL COMPLIANCE
                 </p>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.15] lg:mb-8">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
                   Stay compliant, everywhere.
                 </h3>
-                <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                   Meet data and privacy requirements in the EU, US and APAC using the same integration. Region-specific rules applied automatically. GDPR compliant with full data retention controls. SOC 2 Type II.
                 </p>
               </div>
@@ -525,20 +525,20 @@ export default function NewLanding() {
           <AnimatedSection delay={0.3}>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-6 sm:text-sm lg:mb-8">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-4 sm:text-xs lg:mb-6">
                   DEVELOPER-FIRST
                 </p>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.15] lg:mb-8">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
                   Integrate in minutes, not weeks
                 </h3>
-                <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                   One API call is all you need. Simple REST API, visualization dashboard, and detailed documentation get you from zero to production in under 10 mins.
                 </p>
               </div>
-              <div className="bg-black/60 text-green-400 p-8 rounded-2xl font-mono text-base border border-gray-700/50 sm:text-lg">
+              <div className="bg-black/60 text-green-400 p-6 rounded-2xl font-mono text-sm border border-gray-700/50 sm:text-base">
                 <div>curl -X POST https://api.scam.ai/v1/detect \</div>
-                <div className="ml-6">-H "Authorization: Bearer YOUR_KEY" \</div>
-                <div className="ml-6">-F "file=@image.jpg"</div>
+                <div className="ml-4">-H "Authorization: Bearer YOUR_KEY" \</div>
+                <div className="ml-4">-F "file=@image.jpg"</div>
               </div>
             </div>
           </AnimatedSection>
