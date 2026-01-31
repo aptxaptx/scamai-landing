@@ -257,29 +257,146 @@ header {
   }
 }
 
-/* Ensure main background is always black */
+/* GLOBAL BLACK BACKGROUND - ABSOLUTE PRIORITY */
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-color: #0b0b0b;
+}
+
+html {
+  background: #0b0b0b !important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background: #0b0b0b !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1;
+}
+
+#__next {
+  background: #0b0b0b !important;
+  min-height: 100vh;
+  display: block;
+}
+
 main {
-  background-color: #0b0b0b !important;
+  background: #0b0b0b !important;
+  position: relative;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh;
+  display: block;
+}
+
+header, nav, footer, section {
+  background: #0b0b0b !important;
+}
+
+/* Kill any possible white/gray backgrounds */
+div:not([class*="bg-gray"]):not([class*="bg-white"]) {
+  background-color: transparent;
+}
+
+/* SECTION GAP FIX - AGGRESSIVE OVERLAP */
+main .landing-section {
+  margin: 0 !important;
+  margin-bottom: -40px !important;
+  padding: 0 !important;
+  display: block !important;
+  position: relative;
+  background: #0b0b0b !important;
+  overflow: hidden;
+  border: none !important;
+  outline: none !important;
+}
+
+main .landing-section:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 5rem !important;
+}
+
+/* Ensure ALL section children have black background fallback */
+main .landing-section > div {
   position: relative;
 }
 
-/* No gap between landing sections - strong negative margin on all viewports */
-main .landing-section {
-  margin-top: 0 !important;
-  margin-bottom: -20px !important;
-  padding-bottom: 0 !important;
-  display: block !important;
-  background-color: #0b0b0b; /* Fallback black background */
+main .landing-section > div:first-child {
+  background: #0b0b0b !important;
 }
 
-/* Mobile: same strong overlap */
+/* Background image containers */
+main .landing-section .absolute.inset-0 {
+  background: #0b0b0b !important;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Ensure background images cover fully */
+main .landing-section.has-bg {
+  min-height: 100vh;
+  background: #0b0b0b !important;
+}
+
+main .landing-section.has-bg [style*="backgroundImage"] {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Footer gap fix */
+footer {
+  margin: 0 !important;
+  padding: 3rem 0 0 0 !important;
+  background: #0b0b0b !important;
+  position: relative;
+  z-index: 10;
+  border: none !important;
+}
+
+/* Remove any default spacing from containers */
+main .landing-section .mx-auto,
+main .landing-section .max-w-6xl,
+main .landing-section .max-w-4xl {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Ensure content divs don't add gaps */
+main .landing-section > div > div {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Mobile: same aggressive overlap */
 @media (max-width: 640px) {
-  main .landing-section {
-    margin-bottom: -20px !important;
+  body {
+    overflow-x: hidden;
   }
+  
+  main .landing-section {
+    margin-bottom: -40px !important;
+  }
+  
+  main .landing-section:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 5rem !important;
+  }
+  
   main .landing-section.has-bg {
     min-height: 50vh;
   }
+  
   main .landing-section.has-bg > div:first-of-type {
     background-size: cover !important;
     background-position: center !important;

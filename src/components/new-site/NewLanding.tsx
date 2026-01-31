@@ -268,8 +268,8 @@ export default function NewLanding() {
     return 'File';
   };
   return (
-    <main className="bg-[#0b0b0b] text-white">
-      <section className="landing-section has-bg relative overflow-hidden -mt-[73px] pt-[73px]" >
+    <main className="bg-[#0b0b0b] text-white" role="main">
+      <section className="landing-section has-bg relative overflow-hidden -mt-[73px] pt-[73px]" aria-label="Hero section - AI Trust Platform"  >
         <div className="absolute inset-0 -top-[73px] bg-[#0b0b0b]" />
         <div 
           className="absolute inset-0 -top-[73px] bg-cover bg-center bg-no-repeat"
@@ -298,7 +298,7 @@ export default function NewLanding() {
           </AnimatedSection>
           
           <AnimatedSection delay={0.5}>
-            <div className="mb-8 mx-auto max-w-2xl text-xs leading-relaxed text-gray-300 sm:text-sm space-y-1">
+            <div className="mb-12 mx-auto max-w-2xl text-xs leading-relaxed text-gray-300 sm:text-sm space-y-1">
               <p>
                 Let your team <span className="font-semibold text-white">detect synthetic media and deepfakes in real time</span>.
               </p>
@@ -344,7 +344,8 @@ export default function NewLanding() {
       </section>
 
       {/* Session1: Fight AI threats / AI defense */}
-      <section className="landing-section has-bg relative py-24 pb-32 overflow-hidden" >
+      <section className="landing-section has-bg relative py-32 overflow-hidden" aria-label="AI Defense - Eva-v1 Model" >
+        <div className="absolute inset-0 bg-[#0b0b0b]" />
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -357,8 +358,10 @@ export default function NewLanding() {
               <div className="mb-6 flex justify-center">
                 <img
                   src="/scamai-logo.svg"
-                  alt="ScamAI"
+                  alt="ScamAI - AI Trust Platform Logo"
                   className="h-10 w-auto"
+                  width="120"
+                  height="40"
                 />
               </div>
             </AnimatedSection>
@@ -378,7 +381,8 @@ export default function NewLanding() {
       </section>
 
       {/* Session2: AI-POWERED SECURITY / Trusted By */}
-      <section className="landing-section has-bg relative py-16 pb-24 overflow-hidden" >
+      <section className="landing-section has-bg relative py-32 overflow-hidden" aria-label="AI-Powered Security - Deepfake Protection" >
+        <div className="absolute inset-0 bg-[#0b0b0b]" />
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -403,7 +407,8 @@ export default function NewLanding() {
       </section>
 
       {/* Features Section: THE PLATFORM + All-in-One + Lightning Fast */}
-      <section className="landing-section has-bg relative py-24 pb-32 overflow-hidden" >
+      <section className="landing-section has-bg relative py-32 overflow-hidden" aria-label="Platform Features - Why Teams Choose Us" >
+        <div className="absolute inset-0 bg-[#0b0b0b]" />
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -490,7 +495,8 @@ export default function NewLanding() {
       </section>
 
       {/* Session4: Transparent Pricing, Global Compliance & Developer-First */}
-      <section className="landing-section has-bg relative py-24 pb-32 overflow-hidden" >
+      <section className="landing-section has-bg relative py-32 overflow-hidden" aria-label="Pricing, Compliance & Integration" >
+        <div className="absolute inset-0 bg-[#0b0b0b]" />
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -512,7 +518,7 @@ export default function NewLanding() {
                   100 free checks / month
                 </p>
                 <p className="text-base text-gray-300 leading-relaxed">
-                  No contracts, no setup fees, no minimums. 100 free checks per month for image and audio. Video in paid plans. After that, pay only for what you use. You're only charged when a check completes.
+                  Start with 100 free checks monthly for images and audio. Video detection available on paid plans. Simple pay-as-you-go pricing—no contracts, no setup fees, no commitments. You're only charged for successful checks.
                 </p>
               </div>
               <div className="relative aspect-[4/3] bg-gray-800/40 rounded-lg border border-gray-700 flex items-center justify-center overflow-hidden">
@@ -559,28 +565,14 @@ export default function NewLanding() {
                 <h3 className="text-3xl sm:text-4xl font-bold text-white mb-6">
                   Integrate in minutes, not weeks
                 </h3>
-                <p className="text-base text-gray-300 leading-relaxed mb-6">
+                <p className="text-base text-gray-300 leading-relaxed">
                   One API call is all you need. Simple REST API, visualization dashboard, and detailed documentation get you from zero to production in under 10 mins.
                 </p>
-                <div className="bg-black/60 text-green-400 p-4 rounded font-mono text-xs border border-gray-700">
-                  <div>curl -X POST https://api.scam.ai/v1/detect \</div>
-                  <div className="ml-4">-H "Authorization: Bearer YOUR_KEY" \</div>
-                  <div className="ml-4">-F "file=@image.jpg"</div>
-                </div>
               </div>
-              <div className="relative aspect-[4/3] bg-gray-800/40 rounded-lg border border-gray-700 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-800/60 to-gray-900/60" />
-                <div className="relative text-center space-y-4">
-                  <div className="w-20 h-20 mx-auto bg-gray-700/60 rounded-lg flex items-center justify-center">
-                    <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-semibold text-gray-400">Developer Integration Visual</p>
-                    <p className="text-xs text-gray-500">Code & API Preview</p>
-                  </div>
-                </div>
+              <div className="bg-black/60 text-green-400 p-6 rounded-lg font-mono text-sm border border-gray-700">
+                <div>curl -X POST https://api.scam.ai/v1/detect \</div>
+                <div className="ml-4">-H "Authorization: Bearer YOUR_KEY" \</div>
+                <div className="ml-4">-F "file=@image.jpg"</div>
               </div>
             </div>
           </AnimatedSection>

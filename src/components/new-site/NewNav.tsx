@@ -88,8 +88,8 @@ export default function NewNav() {
           </Link>
         </p>
       </div>
-      <div className="sticky top-0 z-50 bg-transparent">
-      <header className="bg-transparent rounded-none">
+      <div className="sticky top-0 z-50 bg-[#0b0b0b]">
+      <header className="bg-[#0b0b0b] rounded-none">
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 rounded-none">
         <Link href="/" className="flex items-center">
           <img
