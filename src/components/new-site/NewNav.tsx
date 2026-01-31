@@ -5,7 +5,20 @@ import { useState, useRef, useEffect } from "react";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
-const navItems = [
+type NavChild = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+type NavItem = {
+  label: string;
+  href: string;
+  hasDropdown?: boolean;
+  children?: NavChild[];
+};
+
+const navItems: NavItem[] = [
   { 
     label: "Product", 
     href: "/products", 
@@ -21,7 +34,7 @@ const navItems = [
     href: "/resources", 
     hasDropdown: true,
     children: [
-      { label: "Docs", href: "/resources/documentation" },
+      { label: "Documentation", href: "https://docu.scam.ai", external: true },
       { label: "Security & Compliance", href: "/resources/security-compliance" },
     ]
   },
@@ -301,17 +314,33 @@ export default function NewNav() {
                       {isOpen && (
                         <div className="py-2 pl-4">
                           {item.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              className="block py-3 text-base text-gray-600 hover:text-gray-900"
-                              onClick={() => {
-                                setOpen(false);
-                                setIsOpen(false);
-                              }}
-                            >
-                              {child.label}
-                            </Link>
+                            child.external ? (
+                              <a
+                                key={child.href}
+                                href={child.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block py-3 text-base text-gray-600 hover:text-gray-900"
+                                onClick={() => {
+                                  setOpen(false);
+                                  setIsOpen(false);
+                                }}
+                              >
+                                {child.label}
+                              </a>
+                            ) : (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className="block py-3 text-base text-gray-600 hover:text-gray-900"
+                                onClick={() => {
+                                  setOpen(false);
+                                  setIsOpen(false);
+                                }}
+                              >
+                                {child.label}
+                              </Link>
+                            )
                           ))}
                         </div>
                       )}
@@ -455,14 +484,27 @@ export default function NewNav() {
             </Link>
           ))}
           {resourcesOpen && navItems.find(item => item.label === "Resources")?.children?.map((child) => (
-            <Link
-              key={child.href}
-              href={child.href}
-              className="block px-4 py-3 text-sm text-white hover:bg-gray-800 rounded-lg transition-colors duration-150"
-              onClick={() => setResourcesOpen(false)}
-            >
-              {child.label}
-            </Link>
+            child.external ? (
+              <a
+                key={child.href}
+                href={child.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-3 text-sm text-white hover:bg-gray-800 rounded-lg transition-colors duration-150"
+                onClick={() => setResourcesOpen(false)}
+              >
+                {child.label}
+              </a>
+            ) : (
+              <Link
+                key={child.href}
+                href={child.href}
+                className="block px-4 py-3 text-sm text-white hover:bg-gray-800 rounded-lg transition-colors duration-150"
+                onClick={() => setResourcesOpen(false)}
+              >
+                {child.label}
+              </Link>
+            )
           ))}
         </div>
       </div>
