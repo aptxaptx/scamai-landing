@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 
 type NavChild = {
   label: string;
@@ -101,8 +100,8 @@ export default function NewNav() {
           </Link>
         </p>
       </div>
-      <div className="sticky top-0 z-50 bg-[#0b0b0b]">
-      <header className="bg-[#0b0b0b] rounded-none">
+      <div className="sticky top-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+      <header className="bg-transparent rounded-none">
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 rounded-none">
         <Link href="/" className="flex items-center">
           <img
@@ -201,7 +200,7 @@ export default function NewNav() {
                       onClick={() => switchLocale(lang.code)}
                       className={`w-full px-4 py-2 text-left text-sm transition ${
                         locale === lang.code
-                          ? "bg-blue-600 text-white"
+                          ? "bg-[#235BF3] text-white"
                           : "text-white hover:bg-gray-800"
                       }`}
                     >
@@ -257,13 +256,13 @@ export default function NewNav() {
 
       {/* Mobile Full-Screen Menu */}
       <div
-        className={`fixed inset-0 z-[100] bg-white transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-0 z-[100] bg-[#0b0b0b] transition-transform duration-300 ease-in-out md:hidden ${
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex h-full flex-col">
           {/* Header */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-800">
             <Link href="/" onClick={() => setOpen(false)}>
               <img
                 src="/scamai-logo.svg"
@@ -273,7 +272,7 @@ export default function NewNav() {
             </Link>
             <button
               onClick={() => setOpen(false)}
-              className="text-gray-900 text-3xl leading-none"
+              className="text-white text-3xl leading-none"
               aria-label="Close menu"
             >
               ×
@@ -294,11 +293,11 @@ export default function NewNav() {
                     <div key={item.href}>
                       <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="w-full flex items-center justify-between py-4 text-lg font-medium text-gray-900 border-b border-gray-100"
+                        className="w-full flex items-center justify-between py-4 text-lg font-medium text-white border-b border-gray-700"
                       >
                         {item.label}
                         <svg
-                          className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                          className={`h-5 w-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -320,7 +319,7 @@ export default function NewNav() {
                                 href={child.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block py-3 text-base text-gray-600 hover:text-gray-900"
+                                className="block py-3 text-base text-gray-300 hover:text-white"
                                 onClick={() => {
                                   setOpen(false);
                                   setIsOpen(false);
@@ -332,7 +331,7 @@ export default function NewNav() {
                               <Link
                                 key={child.href}
                                 href={child.href}
-                                className="block py-3 text-base text-gray-600 hover:text-gray-900"
+                                className="block py-3 text-base text-gray-300 hover:text-white"
                                 onClick={() => {
                                   setOpen(false);
                                   setIsOpen(false);
@@ -351,12 +350,12 @@ export default function NewNav() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="flex items-center justify-between py-4 text-lg font-medium text-gray-900 border-b border-gray-100"
+                    className="flex items-center justify-between py-4 text-lg font-medium text-white border-b border-gray-700"
                     onClick={() => setOpen(false)}
                   >
                     {item.label}
                     <svg
-                      className="h-5 w-5 text-gray-500"
+                      className="h-5 w-5 text-gray-400"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -375,7 +374,7 @@ export default function NewNav() {
           </div>
 
           {/* Footer */}
-          <div className="border-t border-gray-200 px-6 py-4">
+          <div className="border-t border-gray-700 px-6 py-4">
             {/* Language Selector - Commented Out
             <div className="mb-4">
               <button
@@ -423,7 +422,7 @@ export default function NewNav() {
                       }}
                       className={`w-full px-4 py-2 text-left text-sm transition ${
                         locale === lang.code
-                          ? "bg-blue-100 text-blue-900"
+                          ? "bg-[#235BF3]/10 text-[#235BF3]"
                           : "text-gray-700 hover:bg-gray-100"
                       }`}
                     >
@@ -441,14 +440,14 @@ export default function NewNav() {
                 href="https://app.scam.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full px-6 py-3 text-center text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+                className="block w-full px-6 py-3 text-center text-sm font-semibold text-white bg-transparent border border-gray-600 rounded-lg hover:bg-gray-800 transition"
                 onClick={() => setOpen(false)}
               >
                 Log In
               </a>
               <Link
                 href="/demo"
-                className="block w-full px-6 py-3 text-center text-sm font-semibold text-gray-700 bg-white rounded-full hover:bg-gray-50 transition"
+                className="block w-full px-6 py-3 text-center text-sm font-semibold text-black bg-white rounded-full hover:bg-gray-100 transition"
                 onClick={() => setOpen(false)}
               >
                 Book a demo

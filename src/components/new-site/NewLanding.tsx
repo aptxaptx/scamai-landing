@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useState, useRef, DragEvent, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import HeroBackground from "./HeroBackground";
 
 type FileWithPreview = {
   file: File;
@@ -269,71 +270,45 @@ export default function NewLanding() {
   };
   return (
     <main className="bg-[#0b0b0b] text-white" role="main">
-      <section className="landing-section relative -mt-[73px] pt-[73px] bg-[#0b0b0b] min-h-screen" aria-label="Hero section - AI Trust Platform">
-        <div className="relative z-10 mx-auto max-w-5xl px-6 pt-20 pb-32 text-center sm:px-8 lg:pt-28 lg:pb-40">
-          <AnimatedSection delay={0.2}>
-            <p className="mb-4 text-xs font-semibold text-gray-400 tracking-[0.08em] sm:text-sm lg:mb-6">
-              All-in-one
-            </p>
-          </AnimatedSection>
-          
-          <AnimatedSection delay={0.3}>
-            <h1 className="mb-5 text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl lg:mb-6">
-              AI trust platform
-            </h1>
-          </AnimatedSection>
-          
-          <AnimatedSection delay={0.4}>
-            <p className="mb-6 text-base font-semibold text-gray-200 sm:text-lg lg:text-xl lg:mb-8">
-              Stop getting fooled by synthetic media and deepfakes.
-            </p>
-          </AnimatedSection>
-          
-          <AnimatedSection delay={0.5}>
-            <div className="mb-10 mx-auto max-w-3xl text-sm leading-relaxed text-gray-300 sm:text-base lg:mb-12 space-y-1">
-              <p>
-                Let your team <span className="font-semibold text-white">detect synthetic media and deepfakes in real time</span>.
+      <section className="landing-section relative -mt-[73px] overflow-hidden" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '73px' }} aria-label="Hero section - AI Trust Platform">
+        <HeroBackground className="-top-[73px]" />
+        <div className="relative z-10 w-full max-w-4xl px-8 sm:px-10 lg:px-8">
+          <div className="flex flex-col items-center text-center space-y-5 sm:space-y-6 lg:space-y-8">
+            <AnimatedSection delay={0.2}>
+              <p className="text-[10px] font-semibold text-gray-400 tracking-[0.15em] uppercase sm:text-xs">
+                All-in-one
               </p>
-              <p>
-                <span className="font-semibold text-white">Industry-leading accuracy</span> that fights fraud and unifies trust signals.
-              </p>
-            </div>
-          </AnimatedSection>
-          
-          <AnimatedSection delay={0.6}>
-            <a
-              href="https://app.scam.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rainbow-button inline-block"
-            >
-              <span className="rainbow-button-inner">
-                Try for free
-              </span>
-            </a>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.7}>
-            <div className="mt-16 lg:mt-20">
-              <p className="mb-8 text-center text-[10px] font-medium text-gray-500 tracking-[0.15em] uppercase sm:text-xs">
-                Backed and trusted by teams and people from
-              </p>
-              <div className="flex items-center justify-center gap-8 sm:gap-12 lg:gap-14 flex-wrap">
-                <div className="h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
-                  <span className="text-base font-semibold text-gray-400 sm:text-lg">Meta</span>
-                </div>
-                <div className="h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
-                  <span className="text-base font-semibold text-gray-400 sm:text-lg">HP</span>
-                </div>
-                <div className="h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
-                  <span className="text-base font-semibold text-gray-400 sm:text-lg">SBI</span>
-                </div>
-                <div className="h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-all">
-                  <span className="text-base font-semibold text-gray-400 sm:text-lg">LG</span>
-                </div>
+            </AnimatedSection>
+            
+            <AnimatedSection delay={0.3}>
+              <h1 className="text-3xl font-bold leading-[1.2] tracking-tight sm:text-5xl lg:text-6xl max-w-3xl px-2 sm:px-0">
+                AI trust platform
+              </h1>
+            </AnimatedSection>
+            
+            <AnimatedSection delay={0.4}>
+              <div className="max-w-2xl text-sm leading-[1.7] text-gray-300 sm:text-base sm:leading-relaxed lg:text-lg px-4 sm:px-0">
+                <p className="text-center">
+                  Let your team <span className="font-semibold text-white">detect synthetic media and deepfakes in real time</span>. <span className="font-semibold text-white">Industry-leading accuracy</span> that fights fraud and unifies trust signals.
+                </p>
               </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+            
+            <AnimatedSection delay={0.5}>
+              <div className="pt-6 sm:pt-4">
+                <a
+                  href="https://app.scam.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rainbow-button inline-block"
+                >
+                  <span className="rainbow-button-inner">
+                    Try for free
+                  </span>
+                </a>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -355,7 +330,7 @@ export default function NewLanding() {
             
             <AnimatedSection delay={0.2}>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
-                Fight <span className="text-[#66b3ff]">AI threats</span> with<br /><span className="text-[#66b3ff]">AI defense</span>
+                Fight <span className="text-[#245FFF]">AI threats</span> with<br /><span className="text-[#245FFF]">AI defense</span>
               </h2>
             </AnimatedSection>
             
@@ -376,7 +351,7 @@ export default function NewLanding() {
                 AI-POWERED SECURITY
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
-                Verify what <span className="text-[#66b3ff]">we see</span>
+                Verify what <span className="text-[#245FFF]">we see</span>
               </h2>
               <p className="max-w-3xl mx-auto text-base sm:text-lg text-gray-300 leading-relaxed">
                 Deepfakes and synthetic fraud cost businesses millions in fraud losses, chargebacks, and reputational damage every year. Our real-time detection platform stops threats instantly — protecting your revenue, brand reputation, and customer trust before costly damage occurs.
@@ -396,7 +371,7 @@ export default function NewLanding() {
                 THE PLATFORM
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1]">
-                Why teams choose <span className="text-[#66b3ff]">us</span>
+                Why teams choose <span className="text-[#245FFF]">us</span>
               </h2>
             </div>
           </AnimatedSection>
@@ -405,7 +380,7 @@ export default function NewLanding() {
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
               <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   ALL-IN-ONE PLATFORM
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -452,7 +427,7 @@ export default function NewLanding() {
                 </div>
               </div>
               <div className="order-1 lg:order-2">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   LIGHTNING FAST
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -474,7 +449,7 @@ export default function NewLanding() {
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
               <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   $ TRANSPARENT PRICING
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -508,7 +483,7 @@ export default function NewLanding() {
                 </div>
               </div>
               <div className="order-1 lg:order-2">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   ☑ GLOBAL COMPLIANCE
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -525,7 +500,7 @@ export default function NewLanding() {
           <AnimatedSection delay={0.3}>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66b3ff] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   DEVELOPER-FIRST
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">

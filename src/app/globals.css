@@ -59,10 +59,10 @@
 .rainbow-button-inner {
   background: white;
   border-radius: 9999px;
-  padding: 0.625rem 1.5rem;
+  padding: 0.75rem 2rem;
   color: #1f2937;
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   display: inline-block;
   transition: background 0.3s ease;
 }
@@ -73,7 +73,8 @@
 
 @media (min-width: 640px) {
   .rainbow-button-inner {
-    font-size: 0.9375rem;
+    font-size: 1rem;
+    padding: 0.875rem 2.5rem;
   }
 }
 
@@ -108,14 +109,43 @@ html {
   transform: translateZ(0);
 }
 
-/* Remove all border radius except for specific rounded-full buttons */
-* {
-  border-radius: 0 !important;
+/* Allow all rounded corners - override any defaults */
+.rounded {
+  border-radius: 0.25rem !important;
+}
+.rounded-sm {
+  border-radius: 0.125rem !important;
+}
+.rounded-md {
+  border-radius: 0.375rem !important;
+}
+.rounded-lg {
+  border-radius: 0.5rem !important;
+}
+.rounded-xl {
+  border-radius: 0.75rem !important;
+}
+.rounded-2xl {
+  border-radius: 1rem !important;
+}
+.rounded-3xl {
+  border-radius: 1.5rem !important;
+}
+.rounded-full {
+  border-radius: 9999px !important;
 }
 
-/* Allow rounded-full only for link and button elements with the class */
-a.rounded-full,
-button.rounded-full,
+/* Ensure rounded classes work on all elements */
+a[class*="rounded"],
+button[class*="rounded"],
+div[class*="rounded"],
+span[class*="rounded"],
+select[class*="rounded"],
+input[class*="rounded"] {
+  border-radius: inherit !important;
+}
+
+/* Special elements that should always be round */
 .rainbow-button,
 .rainbow-button-inner {
   border-radius: 9999px !important;
@@ -295,9 +325,7 @@ main {
   display: block;
 }
 
-header, nav, footer {
-  background: #0b0b0b !important;
-}
+/* Header and nav transparent for hero section */
 
 /* CLEAN SPACING - APPLE STYLE */
 main .landing-section {
