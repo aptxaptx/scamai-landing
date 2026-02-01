@@ -65,7 +65,9 @@ export function ForensicAddOns({ currencySymbol, formatPrice }: ForensicAddOnsPr
 
         {/* Contact Sales CTA */}
         <a
-          href="/contact"
+          href="https://cal.com/scamai/15min"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 w-full rounded-xl border-2 border-purple-500/50 bg-purple-500/10 py-3 text-center font-semibold text-purple-300 hover:bg-purple-500/20 hover:border-purple-500 transition-colors"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

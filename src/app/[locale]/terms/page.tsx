@@ -328,7 +328,7 @@ export default function TermsPage() {
             Ready to get started?
           </h2>
           <p className="mb-8 text-lg text-gray-300">
-            Start protecting your platform with 100 free checks per month.
+            Start protecting your platform with 200 free images per month.
           </p>
           <a
             href="https://app.scam.ai"

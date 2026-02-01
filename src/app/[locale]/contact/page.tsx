@@ -124,7 +124,7 @@ export default function ContactPage() {
             <div className="rounded-lg border border-gray-800 bg-black p-6">
               <h3 className="mb-3 text-xl font-bold text-white">Can I try before committing to a paid plan?</h3>
               <p className="text-gray-300">
-                Absolutely! We offer 100 free checks per month with no credit card required. You can test our API, explore the dashboard, and evaluate accuracy before upgrading.
+                Absolutely! We offer 200 free images per month with no credit card required. You can test our API, explore the dashboard, and evaluate accuracy before upgrading.
               </p>
             </div>
           </div>
@@ -153,7 +153,7 @@ export default function ContactPage() {
             Ready to get started?
           </h2>
           <p className="mb-8 text-lg text-gray-300">
-            Start protecting your platform with 100 free checks per month.
+            Start protecting your platform with 200 free images per month.
           </p>
           <a
             href="https://app.scam.ai"

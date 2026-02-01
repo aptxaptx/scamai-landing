@@ -37,7 +37,7 @@ export default function VisionDetectionPage() {
             <div className="rounded-lg border border-gray-800 bg-gray-900/40 p-6">
               <h3 className="mb-3 text-xl font-bold text-white">Face Manipulation Detection</h3>
               <p className="text-gray-300">
-                Identify face swaps, expression changes, and facial attribute manipulations with 99.2% accuracy.
+                Identify face swaps, expression changes, and facial attribute manipulations with 95.3%* accuracy.
               </p>
             </div>
 
@@ -185,7 +185,7 @@ export default function VisionDetectionPage() {
             Start detecting deepfakes today
           </h2>
           <p className="mb-8 text-lg text-gray-300">
-            100 free checks per month. No credit card required.
+            200 free images per month. No credit card required.
           </p>
           <a
             href="https://app.scam.ai"

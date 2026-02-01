@@ -208,7 +208,7 @@ export default function ResourcesPage() {
             Ready to get started?
           </h2>
           <p className="mb-8 text-lg text-gray-300">
-            Start detecting deepfakes with 100 free checks per month.
+            Start detecting deepfakes with 200 free images per month.
           </p>
           <a
             href="https://app.scam.ai"

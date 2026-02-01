@@ -185,7 +185,7 @@ export default function AudioDetectionPage() {
             Start verifying audio authenticity today
           </h2>
           <p className="mb-8 text-lg text-gray-300">
-            100 free checks per month. No credit card required.
+            200 free images per month. No credit card required.
           </p>
           <a
             href="https://app.scam.ai"

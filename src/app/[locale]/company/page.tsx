@@ -37,7 +37,7 @@ export default function CompanyPage() {
             <div className="rounded-lg border border-gray-800 bg-gray-900/40 p-8">
               <div className="space-y-6">
                 <div>
-                  <h3 className="mb-2 text-4xl font-bold text-[#245FFF]">99.2%</h3>
+                  <h3 className="mb-2 text-4xl font-bold text-[#245FFF]">95.3%*</h3>
                   <p className="text-gray-300">Detection accuracy</p>
                 </div>
                 <div>

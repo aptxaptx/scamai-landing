@@ -73,18 +73,20 @@ function PricingPage() {
 ## Pricing Logic
 
 ### Free Tier
-- First 500 checks per month are FREE
+- First 200 images per month are FREE with Eva-v1-Fast model
 - No credit card required
 
 ### Paid Tier
 - Base price: $0.15 per check (after free tier)
 - Optional add-ons:
-  - Adaptive Defense: +$0.20/check
-  - Active Liveness: +$0.10/check
-  - Express Lane: +$0.02/check
+  - Adaptive Defense: +$0.20/check (Real-time GenAI, deepfake & injection attack detection)
+  - Active Liveness: +$0.10/check (Live face detection to verify real human presence and prevent GenAI-generated deepfakes)
+  - Express Lane: +$0.10/check (Ultra-low latency processing with <1s response time)
 
 ### Enterprise Tier
 - Recommended for volumes > 5,000 checks/month
+- Eva-v1-Pro Model (forensic-grade with lower false positives)
+- Thinking (advanced reasoning capabilities)
 - Custom pricing and volume discounts
 - Dedicated support and features
 
@@ -96,11 +98,11 @@ function PricingPage() {
 ## Constants
 
 All pricing values are centralized in `constants.ts`:
-- `FREE_CHECKS`: 500
+- `FREE_CHECKS`: 200 (Eva-v1-Fast model)
 - `BASE_PRICE`: 0.15
 - `ADAPTIVE_DEFENSE_PRICE`: 0.20
 - `ACTIVE_LIVENESS_PRICE`: 0.10
-- `EXPRESS_LANE_PRICE`: 0.02
+- `EXPRESS_LANE_PRICE`: 0.10
 - `FORENSIC_REPORT_PRICE`: 500
 - `VOLUME_DISCOUNT_THRESHOLD`: 5000
 

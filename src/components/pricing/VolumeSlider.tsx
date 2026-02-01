@@ -58,7 +58,9 @@ export function VolumeSlider({ volume, onChange }: VolumeSliderProps) {
                 Unlock enterprise-grade features, volume discounts, and dedicated support for high-volume needs.
               </p>
               <a
-                href="/contact"
+                href="https://cal.com/scamai/15min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0043FA] text-white font-semibold hover:bg-[#0036C8] transition-colors"
               >
                 Talk to Sales

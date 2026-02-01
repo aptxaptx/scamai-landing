@@ -5,6 +5,9 @@ import { useState, useRef, DragEvent, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import HeroBackground from "./HeroBackground";
 import { BentoV1_3, BentoV1_5, BentoV1_26, BentoV1_28 } from "@/components/bento-v1";
+import DeveloperSection from "./DeveloperSection";
+import PricingSection from "./PricingSection";
+import FAQSection from "./FAQSection";
 
 type FileWithPreview = {
   file: File;
@@ -345,15 +348,7 @@ export default function NewLanding() {
       </section>
 
       {/* Session2: AI-POWERED SECURITY / Trusted By */}
-      <section className="landing-section relative overflow-hidden" aria-label="AI-Powered Security - Deepfake Protection" style={{
-        backgroundImage: 'url(/session2.svg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}>
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/50"></div>
-        
+      <section className="landing-section relative overflow-hidden bg-black" aria-label="AI-Powered Security - Deepfake Protection">
         <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 py-20 sm:py-24 lg:py-32">
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -478,10 +473,10 @@ export default function NewLanding() {
                   Pay only for what you use.
                 </h3>
                 <p className="text-lg font-semibold text-gray-200 mb-6 sm:text-xl">
-                  100 free checks / month
+                  200 free images / month
                 </p>
                 <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                  Start with 100 free checks monthly for images and audio. Video detection available on paid plans. Simple pay-as-you-go pricing—no contracts, no setup fees, no commitments. You're only charged for successful checks.
+                  Start with 200 free images monthly with our Eva-v1-Fast model. Simple pay-as-you-go pricing—no contracts, no setup fees, no commitments. You're only charged for successful checks.
                 </p>
               </div>
               {/* Bento 28 - Transparent Pricing, right side */}
@@ -495,61 +490,6 @@ export default function NewLanding() {
 
           {/* Global Compliance */}
           <AnimatedSection delay={0.2}>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div className="order-2 lg:order-1 relative aspect-[4/3] rounded-2xl overflow-hidden">
-                <div className="absolute inset-0 opacity-0">
-                  <div className="relative text-center space-y-2">
-                    <p className="text-sm">Compliance & Certifications</p>
-                    <p className="text-xs">Visual placeholder</p>
-                  </div>
-                </div>
-              </div>
-              <div className="order-1 lg:order-2">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
-                  ☑ GLOBAL COMPLIANCE
-                </p>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
-                  Stay compliant, everywhere.
-                </h3>
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                  Meet data and privacy requirements in the EU, US and APAC using the same integration. Region-specific rules applied automatically. GDPR compliant with full data retention controls. SOC 2 Type II.
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Session5: Developer-First */}
-      <section className="landing-section relative overflow-hidden bg-black" aria-label="Developer Integration">
-        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-20 sm:py-24 lg:py-32">
-          <AnimatedSection>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div className="lg:pl-12">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
-                  DEVELOPER-FIRST
-                </p>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
-                  Integrate in minutes, not weeks
-                </h3>
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                  One API call is all you need. Simple REST API, visualization dashboard, and detailed documentation get you from zero to production in under 10 mins.
-                </p>
-              </div>
-              <div className="bg-black/60 text-green-400 p-6 rounded-2xl font-mono text-sm border border-gray-700/50 sm:text-base">
-                <div>curl -X POST https://api.scam.ai/v1/detect \</div>
-                <div className="ml-4">-H "Authorization: Bearer YOUR_KEY" \</div>
-                <div className="ml-4">-F "file=@image.jpg"</div>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Session6: Global Compliance */}
-      <section className="landing-section relative overflow-hidden bg-black" aria-label="Global Compliance">
-        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-20 sm:py-24 lg:py-32">
-          <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="flex items-center justify-center gap-8 flex-wrap order-2 lg:order-1">
                 <img 
@@ -586,6 +526,16 @@ export default function NewLanding() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Session5: Developer-First */}
+      <DeveloperSection />
+
+      {/* Session6: Pricing */}
+      <PricingSection />
+
+      {/* Session7: FAQ */}
+      <FAQSection />
+
     </main>
   );
 }

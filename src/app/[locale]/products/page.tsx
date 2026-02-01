@@ -33,7 +33,7 @@ export default function ProductsPage() {
               </div>
               <h3 className="mb-3 text-2xl font-bold text-white">Vision Detection</h3>
               <p className="mb-4 text-gray-300">
-                Detect deepfakes in images and videos with 99.2% accuracy. Identify face swaps, manipulated faces, and synthetic generation.
+                Detect deepfakes in images and videos with 95.3%* accuracy. Identify face swaps, manipulated faces, and synthetic generation.
               </p>
               <div className="text-[#66b3ff] group-hover:underline">
                 Learn more →
@@ -96,7 +96,7 @@ export default function ProductsPage() {
               <tbody className="text-gray-300">
                 <tr className="border-b border-gray-800/50">
                   <td className="py-4 px-6">Detection Accuracy</td>
-                  <td className="py-4 px-6 text-center">99.2%</td>
+                  <td className="py-4 px-6 text-center">95.3%*</td>
                   <td className="py-4 px-6 text-center">98.5%</td>
                 </tr>
                 <tr className="border-b border-gray-800/50">
@@ -164,7 +164,7 @@ export default function ProductsPage() {
             Start detecting deepfakes today
           </h2>
           <p className="mb-8 text-lg text-gray-300">
-            100 free checks per month. No credit card required.
+            200 free images per month. No credit card required.
           </p>
           <a
             href="https://app.scam.ai"

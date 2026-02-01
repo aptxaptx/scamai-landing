@@ -12,7 +12,7 @@ import {
 } from './constants';
 
 export function usePricingCalculator() {
-  const [volume, setVolume] = useState(500);
+  const [volume, setVolume] = useState(200);
   const [adaptiveDefense, setAdaptiveDefense] = useState(false);
   const [activeLiveness, setActiveLiveness] = useState(false);
   const [expressLane, setExpressLane] = useState(false);
@@ -27,7 +27,7 @@ export function usePricingCalculator() {
     return price;
   }, [adaptiveDefense, activeLiveness, expressLane]);
 
-  // Calculate total monthly estimate (first 500 checks are free)
+  // Calculate total monthly estimate (first 200 images are free)
   const monthlyEstimate = useMemo(() => {
     const paidChecks = Math.max(0, volume - FREE_CHECKS);
     return paidChecks * pricePerCheck;

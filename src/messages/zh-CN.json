@@ -194,7 +194,7 @@
         "logTitle": "实时日志 · 已拦截请求",
         "realtime": "实时",
         "logs": [
-          "[00:01:12] FACE-SWAP 尝试已拦截 · 置信度 99.2%",
+          "[00:01:12] FACE-SWAP 尝试已拦截 · 置信度 95.3%*",
           "[00:01:15] VOICE-CLONE IVR 已标记 · 回退到 OTP",
           "[00:01:19] IMPERSONATION API 被拒绝 · 规则：Vision-Strict"
         ]

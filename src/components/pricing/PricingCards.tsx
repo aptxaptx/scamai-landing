@@ -36,14 +36,14 @@ export function PricingCards({ volume, pricePerCheck, currencySymbol, decimals, 
             <span className="text-lg text-gray-400">per check</span>
           </div>
           {volume <= FREE_CHECKS && (
-            <p className="mt-2 text-sm text-green-400">✓ Free for first 500 checks</p>
+            <p className="mt-2 text-sm text-green-400">✓ Free for first 200 images with Eva-v1-Fast</p>
           )}
         </div>
 
-        <p className="mb-2 text-sm font-semibold text-[#0043FA]">500 free checks/month</p>
+        <p className="mb-2 text-sm font-semibold text-[#0043FA]">200 free images/month (Eva-v1-Fast)</p>
 
         <p className="mb-8 text-sm text-gray-300 leading-relaxed">
-          For businesses ready to scale with flexible pricing. First 500 checks free, then $0.15/check + optional
+          For businesses ready to scale with flexible pricing. First 200 images free with Eva-v1-Fast model, then $0.15/image + optional
           add-ons.
         </p>
 
@@ -57,10 +57,10 @@ export function PricingCards({ volume, pricePerCheck, currencySymbol, decimals, 
         </a>
 
         <ul className="space-y-3 text-sm text-gray-300">
-          {['Image Detection', 'Deepfake Analysis', 'API Access', 'All optional add-ons'].map((feature, index) => (
+          {['GenAI Detection', 'Deepfake Analysis', 'Eva-v1-Fast Model', 'API Access', 'All optional add-ons'].map((feature, index) => (
             <li key={index} className="flex items-start">
               <svg
-                className={`mr-2 h-5 w-5 flex-shrink-0 ${index === 3 ? 'text-gray-600' : 'text-[#0043FA]'}`}
+                className={`mr-2 h-5 w-5 flex-shrink-0 ${index === 4 ? 'text-gray-600' : 'text-[#0043FA]'}`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -70,7 +70,7 @@ export function PricingCards({ volume, pricePerCheck, currencySymbol, decimals, 
                   clipRule="evenodd"
                 />
               </svg>
-              <span className={index === 3 ? 'text-gray-500' : ''}>{feature}</span>
+              <span className={index === 4 ? 'text-gray-500' : ''}>{feature}</span>
             </li>
           ))}
         </ul>
@@ -102,18 +102,20 @@ export function PricingCards({ volume, pricePerCheck, currencySymbol, decimals, 
               <p className="text-xs text-gray-300">Get volume discounts + enterprise features for 5,000+ checks/month</p>
             </div>
             <p className="text-sm text-gray-300 leading-relaxed">
-              Unlock custom pricing, dedicated support, and premium features tailored for high-volume operations
+              Unlock custom pricing, Eva-v1-Pro forensic-grade model with lower false positives, advanced Thinking capabilities, and dedicated support for high-volume operations
             </p>
           </div>
         ) : (
           <p className="mb-8 text-sm text-gray-300 leading-relaxed">
-            For large organizations with custom needs and dedicated support
+            For large organizations requiring forensic-grade accuracy, lower false positives, and dedicated support. Includes Eva-v1-Pro model and advanced Thinking capabilities.
           </p>
         )}
 
         <a
-          href="/contact"
-          className="mb-8 block w-full rounded-full border border-gray-600 bg-transparent py-3.5 text-center font-semibold text-white hover:bg-gray-800 transition-colors"
+          href="https://cal.com/scamai/15min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mb-8 block w-full rounded-full border-2 border-[#0043FA] bg-gray-800/50 py-3.5 text-center font-semibold text-white hover:bg-[#0043FA] transition-colors"
         >
           Talk to sales →
         </a>
@@ -121,6 +123,8 @@ export function PricingCards({ volume, pricePerCheck, currencySymbol, decimals, 
         <ul className="space-y-3 text-sm text-gray-300">
           {[
             'Everything in Self-Serve',
+            'Eva-v1-Pro Model',
+            'Thinking (Advanced Reasoning)',
             'Volume Discounts',
             'Priority Support & SLA',
             'Dedicated Account Manager',

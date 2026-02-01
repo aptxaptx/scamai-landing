@@ -46,7 +46,7 @@ export default function StructuredData() {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "100 free checks per month"
+      "description": "200 free images per month"
     },
     "aggregateRating": {
       "@type": "AggregateRating",

@@ -9,8 +9,8 @@ export function PricingHero() {
           Pay only for <span className="text-[#0043FA]">what you use</span>
         </h1>
         <p className="mx-auto max-w-3xl text-base text-gray-300 sm:text-lg lg:text-xl leading-relaxed">
-          Transparent, predictable pricing for deepfake detection.{' '}
-          <span className="font-semibold text-white">500 free checks per month</span>, then $0.15/check + optional
+          Transparent, predictable pricing for GenAI and deepfake detection.{' '}
+          <span className="font-semibold text-white">200 free images per month with our Eva-v1-Fast model</span>, then $0.15/image + optional
           add-ons. No hidden fees, no long-term contracts.
         </p>
       </div>

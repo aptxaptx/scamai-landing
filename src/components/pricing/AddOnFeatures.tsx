@@ -29,7 +29,7 @@ export function AddOnFeatures({
     {
       id: 'adaptive-defense',
       name: 'Adaptive Defense',
-      description: 'Real-time deepfake & injection attack detection with advanced AI models',
+      description: 'Real-time GenAI, deepfake & injection attack detection with advanced AI models',
       price: ADAPTIVE_DEFENSE_PRICE,
       checked: adaptiveDefense,
       onChange: setAdaptiveDefense,
@@ -37,7 +37,7 @@ export function AddOnFeatures({
     {
       id: 'active-liveness',
       name: 'Active Liveness',
-      description: 'Interactive KYC movement verification for enhanced identity validation',
+      description: 'Live face detection to verify real human presence and prevent GenAI-generated deepfakes',
       price: ACTIVE_LIVENESS_PRICE,
       checked: activeLiveness,
       onChange: setActiveLiveness,

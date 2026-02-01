@@ -35,18 +35,22 @@ export default function NewPage({
         </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link
-            href="/demo"
+          <a
+            href="https://cal.com/scamai/15min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-black"
           >
             Request Demo
-          </Link>
-          <Link
-            href="/contact"
+          </a>
+          <a
+            href="https://cal.com/scamai/15min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-lg border border-[#2a2a2a] px-6 py-3 text-sm font-semibold text-white"
           >
             Talk to Sales
-          </Link>
+          </a>
         </div>
       </section>
     </main>

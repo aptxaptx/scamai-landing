@@ -69,7 +69,7 @@ export function PriceSummary({
 
           {volume <= FREE_CHECKS ? (
             <div className="mt-4 rounded-xl bg-green-500/10 border border-green-500/30 px-4 py-3">
-              <p className="text-sm font-semibold text-green-400">✓ Within free tier (first 500 checks)</p>
+              <p className="text-sm font-semibold text-green-400">✓ Within free tier (first 200 images with Eva-v1-Fast)</p>
             </div>
           ) : (
             /* Breakdown */
@@ -136,12 +136,12 @@ export function PriceSummary({
             ) : (
               <>
                 <div className="flex justify-between text-gray-300">
-                  <span>Free checks</span>
+                  <span>Free images</span>
                   <span className="font-semibold text-green-400">{FREE_CHECKS.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between text-gray-300">
                   <span>
-                    {(volume - FREE_CHECKS).toLocaleString()} paid checks × {currencySymbol}
+                    {(volume - FREE_CHECKS).toLocaleString()} paid images × {currencySymbol}
                     {formatPrice(pricePerCheck)}
                   </span>
                   <span className="font-semibold">
@@ -171,7 +171,7 @@ export function PriceSummary({
       <div className="mt-6 rounded-3xl bg-gray-900/40 border border-gray-700 p-6">
         <p className="mb-4 text-sm font-semibold text-white">Base Detection Includes:</p>
         <ul className="space-y-2 text-sm text-gray-300">
-          {['Static image analysis', 'Metadata verification', 'RESTful API access', 'Dashboard analytics'].map(
+          {['GenAI & deepfake detection', 'Eva-v1-Fast model', 'RESTful API access', 'Dashboard analytics'].map(
             (feature, index) => (
               <li key={index} className="flex items-start gap-2">
                 <svg className="h-5 w-5 flex-shrink-0 text-[#0043FA]" fill="currentColor" viewBox="0 0 20 20">

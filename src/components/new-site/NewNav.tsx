@@ -83,6 +83,7 @@ export default function NewNav() {
   const [langOpen, setLangOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -109,6 +110,16 @@ export default function NewNav() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const switchLocale = (newLocale: string) => {
     router.replace(pathname, { locale: newLocale });
     setLangOpen(false);
@@ -125,7 +136,7 @@ export default function NewNav() {
         </p>
       </div>
       <div className="fixed top-[34px] left-0 right-0 z-50">
-      <header className="bg-transparent">
+      <header className={`transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6">
         <Link href="/" className="flex items-center">
           <img
@@ -261,12 +272,14 @@ export default function NewNav() {
           >
             Log In
           </a>
-          <Link
-            href="/demo"
+          <a
+            href="https://cal.com/scamai/15min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-100"
           >
             Book a demo
-          </Link>
+          </a>
         </div>
 
         <button
@@ -339,7 +352,7 @@ export default function NewNav() {
                           {/* Talk with Team Card for Mobile */}
                           {(isProduct || isResources) && (
                             <a
-                              href="https://cal.com/dennis-yc-ng/30min"
+                              href="https://cal.com/scamai/15min"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex items-center gap-3 p-4 rounded-lg bg-white/5"
@@ -525,13 +538,15 @@ export default function NewNav() {
               >
                 Log In
               </a>
-              <Link
-                href="/demo"
+              <a
+                href="https://cal.com/scamai/15min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full px-6 py-3 text-center text-sm font-semibold text-black bg-white rounded-full hover:bg-gray-100 transition"
                 onClick={() => setOpen(false)}
               >
                 Book a demo
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -557,7 +572,7 @@ export default function NewNav() {
             {/* Talk with Team Card */}
             <div className="flex-shrink-0" style={{ width: '220px' }}>
               <a
-                href="https://cal.com/dennis-yc-ng/30min"
+                href="https://cal.com/scamai/15min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block h-full p-6 rounded-lg bg-white/5 hover:bg-white/8 transition-all duration-150"
@@ -621,7 +636,7 @@ export default function NewNav() {
             {/* Talk with Team Card */}
             <div className="flex-shrink-0" style={{ width: '220px' }}>
               <a
-                href="https://cal.com/dennis-yc-ng/30min"
+                href="https://cal.com/scamai/15min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block h-full p-6 rounded-lg bg-white/5 hover:bg-white/8 transition-all duration-150"

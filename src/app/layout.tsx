@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: "ScamAI - AI Trust Platform | Deepfake Detection & Synthetic Media Verification",
     template: "%s | ScamAI"
   },
-  description: "All-in-one AI Trust Platform for detecting synthetic media and deepfakes in real-time. Industry-leading accuracy with SOC 2 Type II compliance. 100 free checks per month.",
+  description: "All-in-one AI Trust Platform for detecting synthetic media and deepfakes in real-time. Industry-leading accuracy with SOC 2 Type II compliance. 200 free images per month.",
   keywords: [
     "deepfake detection",
     "synthetic media detection",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://scam.ai",
     title: "ScamAI - AI Trust Platform | Deepfake Detection",
-    description: "Detect synthetic media and deepfakes in real-time with industry-leading accuracy. SOC 2 Type II compliant. 100 free checks per month.",
+    description: "Detect synthetic media and deepfakes in real-time with industry-leading accuracy. SOC 2 Type II compliant. 200 free images per month.",
     siteName: "ScamAI",
     images: [
       {
