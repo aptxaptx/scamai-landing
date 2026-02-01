@@ -1,0 +1,207 @@
+@import ../../../styles/bento/bento-variables
+
+.bento
+    position: relative
+    height: 336px
+    &:before
+        content: ""
+        position: absolute
+        top: 42px
+        left: 50%
+        z-index: -1
+        transform: translateX(-50%)
+        width: 252px
+        height: 252px
+        border-radius: 50%
+        border: 1.5px solid rgba($bento-main, .03)
+        mask-image: linear-gradient(to bottom, black, rgba(0,0,0,.1) 5%,  transparent 10%)
+
+.main,
+.monitor,
+.stand,
+.lines,
+.smiles
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+.main
+    top: -16px
+
+.monitor
+    top: 104px
+    width: 184px
+    height: 128px
+    background: rgba(#121212, .5)
+    border-radius: 24px
+
+.screen
+    position: absolute
+    inset: 4px
+    z-index: 2
+
+.screen,
+.box,
+.stand,
+.foot,
+.smile,
+.in
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+
+.screen
+    &:before,
+    &:after
+        border-radius: 20px
+    &:before
+        background: rgba(248, 248, 248, 0.05)
+        box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.30)
+        backdrop-filter: blur(16px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(165deg, black, transparent 50%)
+
+.boxes
+    position: absolute
+    inset: 18px
+    display: flex
+    align-items: flex-start
+    gap: 8px
+
+.box
+    position: relative
+    flex: 1
+    padding: 12px
+    &:before,
+    &:after
+        border-radius: 12px
+    &:nth-child(1)
+        height: 100%
+        &:before
+            background: rgba(255, 255, 255, 0.05)
+            box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset, 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+            backdrop-filter: blur(6px)
+        &:after
+            border: 1.5px solid rgba(248, 248, 248, 0.40)
+    &:nth-child(2)
+        &:before
+            background: rgba(255, 255, 255, 0.01)
+            box-shadow: 2px 4px 16px 0px rgba(248, 248, 248, 0.06) inset
+            backdrop-filter: blur(50px)
+        &:after
+            border: 1.5px solid rgba(255, 255, 255, 0.1)
+            mask-image: linear-gradient(165deg, black, transparent 50%)
+
+.blocks
+    position: relative
+    z-index: 2
+    display: flex
+    flex-direction: column
+    gap: 3px
+    span
+        height: 4px
+        border-radius: 1px
+        background: rgba($bento-main, .1)
+        &:nth-child(1)
+            width: 28px
+            background: rgba($bento-main, .5)
+
+.stand
+    top: 97px
+    width: 60px
+    height: 74px
+
+.foot
+    position: absolute
+    left: -2px
+    right: -2px
+    bottom: 0
+    height: 9px
+
+.stand,
+.foot
+    &:before,
+    &:after
+        border-radius: 2px
+    &:before
+        background: rgba(40, 40, 40, 0.70)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset
+        backdrop-filter: blur(50px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(165deg, black, transparent 50%)
+
+.lines
+    bottom: calc(100% - 4px)
+
+.smiles
+    top: 16px
+    z-index: 2
+    display: flex
+    justify-content: center
+    align-items: flex-start
+
+.smile
+    &:nth-child(1),
+    &:nth-child(3)
+        margin-top: 20px
+        &:before
+            background: rgba(248, 248, 248, 0.05)
+            box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.30)
+            backdrop-filter: blur(16px)
+        &:after
+            border: 1.5px solid rgba(255, 255, 255, 0.1)
+    &:nth-child(1)
+        &:after
+            mask-image: linear-gradient(135deg, black, transparent 40%)
+        img
+            transform: rotate(-30deg)
+    &:nth-child(2)
+        position: relative
+        margin: 0 20px
+        padding: 4px
+        &:before
+            background: rgba(255, 255, 255, 0.05)
+            box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset, 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+            backdrop-filter: blur(6px)
+        &:after
+            border: 1.5px solid rgba(248, 248, 248, 0.05)
+    &:nth-child(3)
+        &:after
+            mask-image: linear-gradient(-135deg, black, transparent 40%)
+        img
+            transform: rotate(30deg)
+
+.smile:nth-child(1),
+.smile:nth-child(3),
+.in
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    img
+        position: relative
+        z-index: 3
+        filter: drop-shadow(-3px 5px 6px rgba(0, 0, 0, 0.20))
+
+.smile,
+.in
+    &:before,
+    &:after
+        border-radius: 50%
+
+.in
+    z-index: 2
+    &:before
+        background: rgba(248, 248, 248, 0.05)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset, 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(170deg, black, transparent 60%)
+

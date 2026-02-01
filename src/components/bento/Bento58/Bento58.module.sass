@@ -1,0 +1,153 @@
+@import ../../../styles/bento/bento-variables
+
+.bento
+    position: relative
+    height: 336px
+
+.main,
+.monitor,
+.stand
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+.main
+    top: -16px
+
+.monitor
+    top: 80px
+    width: 184px
+    height: 128px
+    border-radius: 32px
+    background: rgba(#121212, .5)
+
+.screen,
+.play,
+.box,
+.progress,
+.stand,
+.foot
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+
+.screen
+    position: absolute
+    inset: 4px
+    z-index: 1
+    &:before,
+    &:after
+        border-radius: 28px
+    &:before
+        background: rgba(248, 248, 248, 0.05)
+        box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.30)
+        backdrop-filter: blur(16px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(155deg, black, transparent 40%)
+    img
+        position: relative
+        z-index: 2
+
+.inner
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    width: 50%
+    border-radius: 28px 0 0 28px
+    background: linear-gradient(96deg, rgba(248, 248, 248, 0.70) 6.66%, rgba(248, 248, 248, 0.01) 98.01%)
+    opacity: .1
+
+.play
+    position: absolute
+    top: -16px
+    right: -36px
+    width: 80px
+    height: 86px
+    &:before,
+    &:after
+        border-radius: 16px
+    &:before
+        background: rgba(248, 248, 248, 0.05)
+        box-shadow: 0px 8px 4px 0px rgba(40, 40, 40, 0.15)
+        backdrop-filter: blur(16px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(165deg, black, transparent 60%)
+    img
+        position: relative
+        z-index: 2
+
+.box
+    position: absolute
+    width: 91px
+    height: 24px
+    &:before,
+    &:after
+        border-radius: 8px
+    &:before
+        background: rgba(40, 40, 40, 0.70)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset
+        backdrop-filter: blur(50px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(175deg, black, transparent 50%)
+    &:nth-child(1)
+        top: 21px
+        left: 16px
+        .progress
+            left: 0
+            right: 18px
+            &:before,
+            &:after
+                border-radius: 8px 0 0 8px
+    &:nth-child(2)
+        top: 53px
+        right: 20px
+        z-index: 3
+        width: 95px
+        .progress
+            left: 0
+            width: 28px
+            &:before,
+            &:after
+                border-radius: 8px 0 0 8px
+
+.progress
+    position: absolute
+    top: 0
+    bottom: 0
+    &:before
+        background: rgba(248, 248, 248, 0.05)
+        backdrop-filter: blur(16px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(160deg, black, transparent 40%)
+
+.stand
+    top: 107px
+    width: 60px
+    height: 74px
+
+.foot
+    position: absolute
+    left: -2px
+    right: -2px
+    bottom: 0
+    height: 9px
+
+.stand,
+.foot
+    &:before,
+    &:after
+        border-radius: 2px
+    &:before
+        background: rgba(40, 40, 40, 0.70)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset
+        backdrop-filter: blur(50px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(165deg, black, transparent 50%)

@@ -1,0 +1,32 @@
+@import ../../../styles/bento/bento-variables
+
+.bento
+    position: relative
+    height: 336px
+    img
+        position: absolute
+        top: -8px
+        left: 50%
+        transform: translateX(-50%)
+    &:before
+        content: ""
+        position: absolute
+        top: 133px
+        left: 50%
+        width: 198px
+        height: 68px
+        transform: translateX(-50%)
+        border-radius: 16px
+        box-shadow: 0px 32px 24px -16px rgba(0, 0, 0, 0.15)
+
+.number
+    position: absolute
+    top: 160px
+    right: calc(50% - 73px)
+    z-index: 2
+    font-size: 12px
+    font-weight: 700
+    line-height: 16px
+    color: $bento-text-secondary
+        
+

@@ -1,0 +1,49 @@
+@import ../../../styles/bento/bento-variables
+
+.bento
+    position: relative
+    height: 336px
+
+.main,
+.boxes
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+.main
+    top: -16px
+
+.boxes
+    top: 279px
+    display: flex
+    gap: 14px
+
+.box
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 16px
+    height: 16px
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 4px
+    &:before
+        background: rgba(248, 248, 248, 0.01)
+        box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.25)
+        backdrop-filter: blur(12px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(165deg, black, transparent 50%)
+    &:nth-child(2)
+        width: 32px
+    span
+        position: relative
+        z-index: 2
+        width: 16px
+        height: 4px
+        border-radius: 1px
+        background: rgba($bento-main, .5)

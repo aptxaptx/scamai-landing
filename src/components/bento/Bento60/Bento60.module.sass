@@ -1,0 +1,166 @@
+@import ../../../styles/bento/bento-variables
+
+.bento
+    position: relative
+    height: 336px
+
+.main,
+.box,
+.monitor
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+.main
+    top: -199px
+
+.box
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+
+.box
+    position: absolute
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 96px
+    height: 40px
+    &:before,
+    &:after
+        border-radius: 20px
+    &:before
+        background: rgba(40, 40, 40, 0.70)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset, 0px 32px 24px -8px rgba(0, 0, 0, 0.40)
+        backdrop-filter: blur(6px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(165deg, black, transparent 50%)
+    img
+        position: relative
+        z-index: 2
+    &:nth-child(1)
+        top: 28px
+    &:nth-child(2)
+        bottom: 34px
+    .lines
+        span
+            &:nth-child(1)
+                background: rgba($bento-main, .75)
+            &:nth-child(2)
+                width: 100%
+
+.lines
+    position: relative
+    z-index: 2
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 52px
+    gap: 2px
+    span
+        width: 28px
+        height: 4px
+        border-radius: 1px
+        background: rgba($bento-main, .1)
+
+.monitor
+    top: 104px
+    width: 184px
+    height: 128px
+    background: rgba(#121212, .5)
+    border-radius: 24px
+
+.screen,
+.block
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+
+.screen
+    position: absolute
+    inset: 4px
+    padding: 12px 24px 12px 12px
+    border-radius: 20px
+    overflow: hidden
+    &:before,
+    &:after
+        border-radius: 20px
+    &:before
+        background: rgba(248, 248, 248, 0.05)
+        box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.30)
+        backdrop-filter: blur(16px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(165deg, black, transparent 50%)
+
+.dots
+    display: flex
+    gap: 4px
+    margin-bottom: 12px
+    span
+        position: relative
+        width: 8px
+        height: 8px
+        &:before,
+        &:after
+            content: ""
+            position: absolute
+            inset: 0
+            border-radius: 50%
+        &:before
+            background: rgba(40, 40, 40, 0.70)
+            box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset, 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+            backdrop-filter: blur(6px)
+        &:after
+            border: 1.5px solid rgba(255, 255, 255, 0.1)
+            mask-image: linear-gradient(165deg, black, transparent 50%)
+
+.row
+    position: relative
+    z-index: 2
+    display: flex
+    align-items: center
+    .lines
+        span
+            &:nth-child(1)
+                background: rgba($bento-main, .5)
+            &:nth-child(2),
+            &:nth-child(3)
+                width: 100%
+
+.block
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 64px
+    height: 72px
+    margin-right: auto
+    &:before,
+    &:after
+        border-radius: 12px
+    &:before
+        background: rgba(255, 255, 255, 0.01)
+        box-shadow: 2px 4px 16px 0px rgba(248, 248, 248, 0.06) inset
+        backdrop-filter: blur(50px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(160deg, black, transparent 50%)
+    img
+        position: relative
+        z-index: 2
+
+.circle
+    position: absolute
+    top: -30px
+    right: -34px
+    width: 92px
+    height: 92px
+    background: rgba(248, 248, 248, 0.20)
+    filter: blur(30px)
