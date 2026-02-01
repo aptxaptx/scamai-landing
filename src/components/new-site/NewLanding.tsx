@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { useState, useRef, DragEvent, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import HeroBackground from "./HeroBackground";
+import { BentoV1_3, BentoV1_5, BentoV1_26, BentoV1_28 } from "@/components/bento-v1";
 
 type FileWithPreview = {
   file: File;
@@ -331,7 +332,7 @@ export default function NewLanding() {
           <div className="text-center">
             <AnimatedSection delay={0.2}>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
-                Fight AI threats<br />with AI defense,
+                Fight AI threats<br />with AI defense
               </h2>
             </AnimatedSection>
             
@@ -353,18 +354,26 @@ export default function NewLanding() {
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/50"></div>
         
-        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 py-20 sm:py-24 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 py-20 sm:py-24 lg:py-32">
           <AnimatedSection>
-            <div className="text-left">
-              <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gray-400 mb-4 sm:text-[10px] lg:mb-6">
-                AI-POWERED SECURITY
-              </p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
-                Verify what <span className="text-[#245FFF]">we see</span>
-              </h2>
-              <p className="max-w-xl text-base sm:text-lg text-gray-300 leading-relaxed">
-                Deepfakes and synthetic fraud cost businesses millions in fraud losses, chargebacks, and reputational damage every year. Our real-time detection platform stops threats instantly — protecting your revenue, brand reputation, and customer trust before costly damage occurs.
-              </p>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="text-left flex flex-col justify-center" style={{ minHeight: '400px' }}>
+                <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gray-400 mb-4 sm:text-[10px] lg:mb-6">
+                  AI-POWERED SECURITY
+                </p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
+                  Verify what <span className="text-[#245FFF]">we see</span>
+                </h2>
+                <p className="max-w-xl text-base sm:text-lg text-gray-300 leading-relaxed">
+                  Deepfakes and synthetic fraud cost businesses millions in fraud losses, chargebacks, and reputational damage every year. Our real-time detection platform stops threats instantly — protecting your revenue, brand reputation, and customer trust before costly damage occurs.
+                </p>
+              </div>
+              {/* Bento 26 - AI-POWERED SECURITY, right side */}
+              <div className="relative flex items-center justify-center" style={{ minHeight: '400px' }}>
+                <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
+                  <BentoV1_26 />
+                </div>
+              </div>
             </div>
           </AnimatedSection>
         </div>
@@ -399,7 +408,7 @@ export default function NewLanding() {
           {/* Feature 1: All-in-One Platform */}
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
-              <div>
+              <div className="lg:pl-12 flex flex-col justify-center" style={{ minHeight: '400px' }}>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   ALL-IN-ONE PLATFORM
                 </p>
@@ -410,20 +419,10 @@ export default function NewLanding() {
                   Stop juggling multiple detection tools. ScamAI unifies deepfake detection, synthetic media analysis, and fraud prevention into a single platform. One API, one dashboard, complete protection.
                 </p>
               </div>
-              {/* Image Placeholder */}
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                <div className="absolute inset-0 opacity-0">
-                  <div className="relative text-center space-y-4">
-                    <div className="w-20 h-20 mx-auto rounded-xl flex items-center justify-center">
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-sm font-semibold">All-in-One Platform Visual</p>
-                      <p className="text-xs">Dashboard & Features Preview</p>
-                    </div>
-                  </div>
+              {/* Bento 3 - All-in-One, right side */}
+              <div className="relative flex items-center justify-center" style={{ minHeight: '400px' }}>
+                <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
+                  <BentoV1_3 />
                 </div>
               </div>
             </div>
@@ -432,23 +431,13 @@ export default function NewLanding() {
           {/* Feature 2: Real-Time Detection */}
           <AnimatedSection delay={0.2}>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Image Placeholder */}
-              <div className="order-2 lg:order-1 relative aspect-[4/3] rounded-2xl overflow-hidden">
-                <div className="absolute inset-0 opacity-0">
-                  <div className="relative text-center space-y-4">
-                    <div className="w-20 h-20 mx-auto rounded-xl flex items-center justify-center">
-                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-sm font-semibold">Real-Time Speed Visual</p>
-                      <p className="text-xs">Performance Metrics Display</p>
-                    </div>
-                  </div>
+              {/* Bento 5 - Lightning Fast, left side */}
+              <div className="order-2 lg:order-1 relative flex items-center justify-center" style={{ minHeight: '400px' }}>
+                <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
+                  <BentoV1_5 />
                 </div>
               </div>
-              <div className="order-1 lg:order-2">
+              <div className="order-1 lg:order-2 flex flex-col justify-center" style={{ minHeight: '400px' }}>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   LIGHTNING FAST
                 </p>
@@ -481,7 +470,7 @@ export default function NewLanding() {
           {/* Transparent Pricing */}
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
-              <div>
+              <div className="lg:pl-12 flex flex-col justify-center" style={{ minHeight: '400px' }}>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   $ TRANSPARENT PRICING
                 </p>
@@ -495,12 +484,10 @@ export default function NewLanding() {
                   Start with 100 free checks monthly for images and audio. Video detection available on paid plans. Simple pay-as-you-go pricing—no contracts, no setup fees, no commitments. You're only charged for successful checks.
                 </p>
               </div>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                <div className="absolute inset-0 opacity-0">
-                  <div className="relative text-center space-y-2">
-                    <p className="text-sm">Dashboard & verification flow</p>
-                    <p className="text-xs">Visual placeholder</p>
-                  </div>
+              {/* Bento 28 - Transparent Pricing, right side */}
+              <div className="relative flex items-center justify-center" style={{ minHeight: '400px' }}>
+                <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
+                  <BentoV1_28 />
                 </div>
               </div>
             </div>
@@ -538,7 +525,7 @@ export default function NewLanding() {
         <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-20 sm:py-24 lg:py-32">
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
+              <div className="lg:pl-12">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   DEVELOPER-FIRST
                 </p>
@@ -553,6 +540,47 @@ export default function NewLanding() {
                 <div>curl -X POST https://api.scam.ai/v1/detect \</div>
                 <div className="ml-4">-H "Authorization: Bearer YOUR_KEY" \</div>
                 <div className="ml-4">-F "file=@image.jpg"</div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Session6: Global Compliance */}
+      <section className="landing-section relative overflow-hidden bg-black" aria-label="Global Compliance">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-20 sm:py-24 lg:py-32">
+          <AnimatedSection>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="flex items-center justify-center gap-8 flex-wrap order-2 lg:order-1">
+                <img 
+                  src="/gdpr-badge.png" 
+                  alt="GDPR Compliant Badge" 
+                  className="h-32 w-32 object-contain"
+                />
+                <img 
+                  src="/soc2-badge.png" 
+                  alt="SOC 2 Type II Certified Badge" 
+                  className="h-32 w-32 object-contain"
+                />
+              </div>
+              <div className="order-1 lg:order-2">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
+                  ☑ GLOBAL COMPLIANCE
+                </p>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
+                  Stay compliant, everywhere.
+                </h3>
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-6">
+                  Meet data protection requirements across EU, US, and APAC with one integration. <strong className="text-white">GDPR compliant</strong> and <strong className="text-white">SOC 2 Type II certified</strong>.
+                </p>
+                <a 
+                  href="https://reality-inc.trust.site/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[#245FFF] hover:text-[#1d4acc] font-semibold transition-colors"
+                >
+                  View our Trust Center →
+                </a>
               </div>
             </div>
           </AnimatedSection>

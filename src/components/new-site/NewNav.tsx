@@ -55,7 +55,8 @@ const navItems: NavItem[] = [
       },
       { 
         label: "Security & Compliance", 
-        href: "/resources/security-compliance",
+        href: "https://reality-inc.trust.site/",
+        external: true,
         description: "Security certifications, compliance standards, and data protection policies"
       },
     ]

@@ -13,14 +13,6 @@ const Bento = ({}: BentoProps) => (
                 alt=""
             />
         </div>
-        <div className={styles.cursor}>
-            <Image
-                src="/bento-v1-images/bento-5-cursor.svg"
-                width={20}
-                height={20}
-                alt=""
-            />
-        </div>
         <div className={styles.tooltip}>
             <span>40% Faster</span>
             <div className={styles.plus}>
@@ -31,11 +23,6 @@ const Bento = ({}: BentoProps) => (
                     alt=""
                 />
             </div>
-        </div>
-        <div className={styles.boxes}>
-            <div className={styles.box}></div>
-            <div className={styles.box}></div>
-            <div className={styles.box}></div>
         </div>
     </div>
 );

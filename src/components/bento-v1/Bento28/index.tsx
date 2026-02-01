@@ -4,7 +4,7 @@ import styles from "./Bento28.module.sass";
 type BentoProps = {};
 
 const Bento = ({}: BentoProps) => (
-    <div className={styles.bento}>
+    <div className={styles.bento} style={{ filter: 'brightness(1.3) contrast(1.1)', position: 'relative', zIndex: 10 }}>
         <div className={styles.head}>
             <div className={styles.lines}></div>
             <div className={styles.block}>
@@ -29,14 +29,6 @@ const Bento = ({}: BentoProps) => (
                 <div className={styles.tooltip}>
                     <div className={styles.title}>
                         $60<span>.00</span>
-                    </div>
-                    <div className={styles.cursor}>
-                        <Image
-                            src="/bento-v1-images/bento-28-cursor.svg"
-                            width={20}
-                            height={20}
-                            alt=""
-                        />
                     </div>
                 </div>
             </div>

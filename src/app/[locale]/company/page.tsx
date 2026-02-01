@@ -1,10 +1,10 @@
 export default function CompanyPage() {
   return (
-    <main className="min-h-screen bg-[#0b0b0b] text-white">
+    <main className="min-h-screen bg-black text-white">
       {/* Hero Section */}
-      <section className="relative py-24 px-4 sm:px-6">
+      <section className="relative py-24 px-4 sm:px-6" style={{ paddingTop: '140px' }}>
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#66b3ff]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#245FFF]">
             ABOUT SCAMAI
           </p>
           <h1 className="mb-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
@@ -37,15 +37,15 @@ export default function CompanyPage() {
             <div className="rounded-lg border border-gray-800 bg-gray-900/40 p-8">
               <div className="space-y-6">
                 <div>
-                  <h3 className="mb-2 text-4xl font-bold text-[#66b3ff]">99.2%</h3>
+                  <h3 className="mb-2 text-4xl font-bold text-[#245FFF]">99.2%</h3>
                   <p className="text-gray-300">Detection accuracy</p>
                 </div>
                 <div>
-                  <h3 className="mb-2 text-4xl font-bold text-[#66b3ff]">&lt;200ms</h3>
+                  <h3 className="mb-2 text-4xl font-bold text-[#245FFF]">&lt;200ms</h3>
                   <p className="text-gray-300">Average processing time</p>
                 </div>
                 <div>
-                  <h3 className="mb-2 text-4xl font-bold text-[#66b3ff]">10M+</h3>
+                  <h3 className="mb-2 text-4xl font-bold text-[#245FFF]">10M+</h3>
                   <p className="text-gray-300">Checks performed monthly</p>
                 </div>
               </div>
