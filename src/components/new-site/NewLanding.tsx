@@ -270,10 +270,10 @@ export default function NewLanding() {
   };
   return (
     <main className="bg-[#0b0b0b] text-white" role="main">
-      <section className="landing-section relative -mt-[73px] overflow-hidden" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '73px' }} aria-label="Hero section - AI Trust Platform">
+      <section className="landing-section relative -mt-[73px] overflow-hidden" style={{ minHeight: '75vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '73px' }} aria-label="Hero section - AI Trust Platform">
         <HeroBackground className="-top-[73px]" />
         <div className="relative z-10 w-full max-w-4xl px-8 sm:px-10 lg:px-8">
-          <div className="flex flex-col items-center text-center space-y-5 sm:space-y-6 lg:space-y-8">
+          <div className="flex flex-col items-center text-center space-y-4 sm:space-y-5 lg:space-y-6">
             <AnimatedSection delay={0.2}>
               <p className="text-[10px] font-semibold text-gray-400 tracking-[0.15em] uppercase sm:text-xs">
                 All-in-one
@@ -288,14 +288,19 @@ export default function NewLanding() {
             
             <AnimatedSection delay={0.4}>
               <div className="max-w-2xl text-sm leading-[1.7] text-gray-300 sm:text-base sm:leading-relaxed lg:text-lg px-4 sm:px-0">
-                <p className="text-center">
-                  Let your team <span className="font-semibold text-white">detect synthetic media and deepfakes in real time</span>. <span className="font-semibold text-white">Industry-leading accuracy</span> that fights fraud and unifies trust signals.
-                </p>
+                <div className="text-center space-y-2">
+                  <p>
+                    <span className="font-semibold text-white">Detect synthetic media and deepfakes in real time</span>.
+                  </p>
+                  <p>
+                    <span className="font-semibold text-white">Industry-leading accuracy</span> that fights fraud and unifies trust signals.
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
             
             <AnimatedSection delay={0.5}>
-              <div className="pt-6 sm:pt-4">
+              <div className="pt-4 sm:pt-3">
                 <a
                   href="https://app.scam.ai"
                   target="_blank"

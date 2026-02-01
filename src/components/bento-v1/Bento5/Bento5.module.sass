@@ -1,0 +1,110 @@
+@import ../../../styles/bento/bento-variables
+
+.bento
+    position: relative
+    width: 100%
+    max-width: 336px
+    height: 336px
+    margin-left: auto
+    margin-right: auto
+
+.image
+    position: absolute
+    top: calc(50% - 8px)
+    left: 52%
+    width: 346px
+    overflow: hidden
+    transform: translate(-50%,-50%)
+    mask-image: radial-gradient(50% 50% at 50% 50%, black, rgba(0, 0, 0, 0))
+    & > img
+        width: 100%
+
+.tooltip
+    position: absolute
+    top: 40px
+    right: 20px
+    z-index: 2
+    display: flex
+    align-items: center
+    height: 40px
+    padding: 0 8px 0 16px
+    border: 1.5px solid rgba(#F8F8F8, .4)
+    border-radius: 20px
+    +bento-shadow2
+    white-space: nowrap
+    +bento-base2-r
+    color: $bento-text-primary
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 2.5px
+        border-radius: 16px
+        overflow: hidden
+    &:before
+        +bento-shadow3
+        background: linear-gradient(0deg, rgba(18, 18, 18, 0.5), rgba(18, 18, 18, 0.5)), rgba(248, 248, 248, 0.01)
+    &:after
+        border: 1px solid rgba(248, 248, 248, 0.1)
+        mask-image: linear-gradient(170deg, black, transparent 90%)
+
+.cursor
+    position: absolute
+    top: 103px
+    right: calc(50% - 106px)
+
+.plus
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 24px
+    height: 24px
+    margin-left: 12px
+    border-radius: 50%
+    background: rgba($bento-main, .1)
+    img
+        width: 8px
+
+.tooltip span,
+.plus
+    position: relative
+    z-index: 2
+
+.boxes
+    position: absolute
+    left: 35px
+    right: 35px
+    bottom: 16px
+    display: flex
+    gap: 20px
+    
+.box
+    position: relative
+    flex: 1
+    height: 28px
+    border-radius: 8px
+    &:after
+        content: ""
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 58%
+        height: 4px
+        transform: translate(-50%,-50%)
+        border-radius: 1px
+        background: rgba($bento-text-secondary, .1)
+    &:nth-child(1)
+        background: rgba(248, 248, 248, 0.05)
+        +bento-shadow2
+        &:before
+            content: ""
+            position: absolute
+            z-index: 1
+            inset: 0
+            border: 1px solid rgba(248, 248, 248, 0.4)
+            border-radius: 8px
+            mask-image: linear-gradient(170deg, black, transparent 50%)
+            pointer-events: none
+            opacity: .25
+        &:after
+            background: $bento-text-primary

@@ -32,6 +32,42 @@ import {
   Bento59,
   Bento60,
 } from '@/components/bento';
+
+import {
+  BentoV1_1,
+  BentoV1_2,
+  BentoV1_3,
+  BentoV1_4,
+  BentoV1_5,
+  BentoV1_6,
+  BentoV1_7,
+  BentoV1_8,
+  BentoV1_9,
+  BentoV1_10,
+  BentoV1_11,
+  BentoV1_12,
+  BentoV1_13,
+  BentoV1_14,
+  BentoV1_15,
+  BentoV1_16,
+  BentoV1_17,
+  BentoV1_18,
+  BentoV1_19,
+  BentoV1_20,
+  BentoV1_21,
+  BentoV1_22,
+  BentoV1_23,
+  BentoV1_24,
+  BentoV1_25,
+  BentoV1_26,
+  BentoV1_27,
+  BentoV1_28,
+  BentoV1_29,
+  BentoV1_30,
+} from '@/components/bento-v1';
+
+import { BentoCrypto, cryptoCards } from '@/components/bento-crypto';
+
 import '@/styles/bento/app.sass';
 
 export default function BentoShowcasePage() {
@@ -43,11 +79,19 @@ export default function BentoShowcasePage() {
             Bento <span className="text-[#0043FA]">Cards Showcase</span>
           </h1>
           <p className="text-xl text-gray-400">
-            30 Beautiful Animated Bento Card Components
+            90 Beautiful Animated Bento Card Components
+          </p>
+          <p className="text-lg text-gray-500 mt-2">
+            30 AI Cards (v2) + 30 Multipurpose Cards (v1) + 30 Crypto Cards (v4)
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Bento Cards v2 - AI Theme */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            <span className="text-[#0043FA]">AI Theme</span> Cards (v2)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bento-wrapper">
             <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 31</h3>
             <Bento31 />
@@ -197,11 +241,190 @@ export default function BentoShowcasePage() {
             <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 60</h3>
             <Bento60 />
           </div>
+          </div>
+        </div>
+
+        {/* Bento Cards v1 - Multipurpose Theme */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            <span className="text-[#0043FA]">Multipurpose</span> Cards (v1)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 1</h3>
+              <BentoV1_1 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 2</h3>
+              <BentoV1_2 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 3</h3>
+              <BentoV1_3 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 4</h3>
+              <BentoV1_4 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 5</h3>
+              <BentoV1_5 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 6</h3>
+              <BentoV1_6 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 7</h3>
+              <BentoV1_7 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 8</h3>
+              <BentoV1_8 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 9</h3>
+              <BentoV1_9 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 10</h3>
+              <BentoV1_10 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 11</h3>
+              <BentoV1_11 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 12</h3>
+              <BentoV1_12 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 13</h3>
+              <BentoV1_13 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 14</h3>
+              <BentoV1_14 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 15</h3>
+              <BentoV1_15 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 16</h3>
+              <BentoV1_16 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 17</h3>
+              <BentoV1_17 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 18</h3>
+              <BentoV1_18 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 19</h3>
+              <BentoV1_19 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 20</h3>
+              <BentoV1_20 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 21</h3>
+              <BentoV1_21 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 22</h3>
+              <BentoV1_22 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 23</h3>
+              <BentoV1_23 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 24</h3>
+              <BentoV1_24 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 25</h3>
+              <BentoV1_25 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 26</h3>
+              <BentoV1_26 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 27</h3>
+              <BentoV1_27 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 28</h3>
+              <BentoV1_28 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 29</h3>
+              <BentoV1_29 />
+            </div>
+            
+            <div className="bento-wrapper">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4">Bento 30</h3>
+              <BentoV1_30 />
+            </div>
+          </div>
+        </div>
+
+        {/* Bento Cards v4 - Crypto Theme */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            <span className="text-[#0043FA]">Crypto</span> Cards (v4)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {cryptoCards.map((card) => (
+              <div key={card.id} className="bento-wrapper">
+                <h3 className="text-sm font-semibold text-gray-400 mb-4">{card.title}</h3>
+                <BentoCrypto
+                  title={card.title}
+                  content={card.content}
+                  image={card.image}
+                  titleButton={card.titleButton}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-16 text-center">
           <p className="text-gray-400">
-            All 30 Bento Card components have been successfully imported and are ready to use!
+            All 90 Bento Card components (v2 + v1 + v4) have been successfully imported and are ready to use!
           </p>
           <a
             href="/"

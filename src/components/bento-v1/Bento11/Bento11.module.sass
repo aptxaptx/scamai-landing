@@ -1,0 +1,102 @@
+@import ../../../styles/bento/bento-variables
+
+.bento
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 336px
+    max-width: 336px
+    margin-left: auto
+    margin-right: auto
+    overflow: hidden
+
+.socials
+    position: relative
+    z-index: 2
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    width: 270px
+    margin-top: -18px
+
+.social,
+.plus
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 60px
+    height: 60px
+    margin: 18px 15px 0
+    &:nth-child(1)
+        margin-left: 30px
+    &:nth-child(2)
+        margin-right: 30px
+    img
+        position: relative
+        z-index: 3
+
+.social
+    &:before
+        content: ""
+        position: absolute
+        inset: 0
+        border: 1.5px solid rgba($bento-main, .1)
+        border-radius: 50%
+        background: rgba($bento-main, .01)
+        box-shadow: 2px 4px 16px 0px rgba(248, 248, 248, 0.06) inset
+        backdrop-filter: blur(50px)
+
+.plus
+    border: 1.5px solid rgba($bento-main, .4)
+    border-radius: 50%
+
+.inner
+    position: absolute
+    inset: 3px
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+    &:before
+        background: linear-gradient(170deg, rgba(18, 18, 18, 0.3), rgba(18, 18, 18, 0.3)), rgba(248, 248, 248, 0.01)
+        box-shadow: 0px 32px 24px -16px rgba(0, 0, 0, 0.4), inset 0px 0px 8px rgba(248, 248, 248, 0.25)
+        backdrop-filter: blur(6px)
+        border-radius: 50%
+    &:after
+        border: 1.5px solid rgba(#F8F8F8, .1)
+        border-radius: 50%
+        mask-image: linear-gradient(to bottom, black, transparent 90%)
+        pointer-events: none
+
+.circles
+    position: absolute
+    inset: 0
+    mask-image: radial-gradient(50% 50% at 50% 50%, black, rgba(0, 0, 0, 0))
+
+.circle
+    position: absolute
+    left: 50%
+    z-index: -2
+    width: 336px
+    height: 336px
+    transform: translateX(-50%)
+    border: 1px solid rgba(#fff, .15)
+    border-radius: 50%
+    &:before
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 50%
+        background: conic-gradient(from 180deg at 50% 50%, rgba(255, 255, 255, 0.00) 0deg, rgba(255, 255, 255, 0.05) 360deg)
+    &:nth-child(1)
+        bottom: 50%
+        &:before
+            transform: rotate(135deg)
+    &:nth-child(2)
+        top: 50%
+        &:before
+            opacity: .3

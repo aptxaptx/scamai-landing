@@ -1,0 +1,192 @@
+@import ../../../styles/bento/bento-variables
+    
+.bento
+    position: relative
+    z-index: 1
+    width: 368px
+    box-sizing: border-box
+    overflow: hidden
+    @media only screen and (max-width: "767px")
+        width: 100%
+    *, *:before, *:after
+        box-sizing: inherit
+    img
+        display: block
+    &.bentoSquare
+        width: 528px
+        @media only screen and (max-width: "767px")
+            width: 100%
+    &.bentoSquare .content
+        display: -webkit-box
+        -webkit-line-clamp: 1
+        -webkit-box-orient: vertical
+        overflow: hidden
+        @media only screen and (max-width: "767px")
+            display: block
+            -webkit-line-clamp: none
+    &.bentoHorizontal
+        width: 700px
+        @media only screen and (max-width: "767px")
+            width: 100%
+    &.bentoHorizontal .inner
+        display: flex
+        align-items: center
+        @media only screen and (max-width: "767px")
+            display: block
+            width: 100%
+    &.bentoHorizontal .preview
+        flex-shrink: 0
+        width: 336px
+        margin: 0
+        @media only screen and (max-width: "767px")
+            width: 100%
+            margin-bottom: 8px
+    &.bentoHorizontal .details
+        padding-left: 32px
+        text-align: center
+        @media only screen and (max-width: "767px")
+            padding: 0 8px
+            text-align: left
+
+.inner
+    position: relative
+    z-index: 4
+    padding: 16px 16px 32px
+
+.overlay
+    position: absolute
+    inset: 0
+    background-color: rgba(40, 40, 40, 0.8)
+    backdrop-filter: blur(50px)
+    box-shadow: inset 2px 4px 16px rgba(248, 248, 248, 0.06)
+    border-radius: 32px
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+        border: 1.5px solid rgba(255, 255, 255, 0.05)
+        border-radius: 32px
+        mask-image: linear-gradient(to bottom, black, transparent 75%)
+        pointer-events: none
+
+.preview
+    position: relative
+    height: 336px
+    margin-bottom: 16px
+    @media only screen and (max-width: "767px")
+        margin-bottom: 8px
+    &.previewBorder
+        &:after
+            content: ""
+            position: absolute
+            inset: 0
+            border: 1.5px solid rgba(248, 248, 248, 0.1)
+            border-radius: 16px
+            mask-image: linear-gradient(to bottom, black, transparent 100%)
+            pointer-events: none
+    &.previewCenterImage
+        position: relative
+        max-width: 336px
+        margin-left: auto
+        margin-right: auto
+        img
+            position: absolute
+            top: 0
+            left: 50%
+            width: 336px
+            transform: translateX(-50%)
+
+.details
+    padding: 0 16px
+    @media only screen and (max-width: "767px")
+        padding: 0 8px
+
+.title
+    margin-bottom: 8px
+    +bento-title
+    color: $bento-text-primary
+
+.content
+    margin-bottom: 24px
+    +bento-body
+    color: $bento-text-secondary
+
+.button
+    position: relative
+    margin: 0
+    padding: 12px 32px
+    background: none
+    border: 0
+    overflow: hidden
+    font-family: "Rubik", sans-serif
+    border-radius: 32px
+    +bento-base-m
+    color: $bento-text-secondary
+    cursor: pointer
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+    &:before
+        background: rgba(40,40,40,.7)
+        box-shadow: inset 2px 4px 16px 0px rgba(248, 248, 248, 0.06)
+        border-radius: 32px
+        backdrop-filter: blur(50px)
+    &:after
+        z-index: 2
+        border: 1px solid rgba(248, 248, 248, 0.25)
+        border-radius: 32px
+        mask-image: linear-gradient(170deg, black, transparent 50%)
+        pointer-events: none
+        opacity: .25
+    &:hover
+        .buttonCircle
+            &:before
+                opacity: 0
+            &:after
+                opacity: 1
+                transform: scale(1)
+
+.buttonTitle
+    position: relative
+    z-index: 4
+
+.buttonCircle
+    position: absolute
+    top: calc(50% - 100px)
+    left: calc(50% - 100px)
+    z-index: 3
+    width: 200px
+    height: 200px
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 50%
+    &:before
+        background: conic-gradient(from 180deg at 50% 50%, rgba(255, 255, 255, 0.01) 180deg, rgba(255, 255, 255, 0.05) 360deg)
+        filter: blur(15px)
+        animation: button-circle 3.6s linear infinite
+        transition: opacity .5s
+    &:after
+        transform: scale(0.5)
+        inset: 30px
+        background: rgba(248,248,248,.12)
+        mask-image: radial-gradient(50% 50% at 50% 50%, black, rgba(0, 0, 0, 0))
+        filter: blur(5px)
+        opacity: 0
+        transition: all 1s
+
+@keyframes button-circle
+    0%
+        transform: translateX(0) rotate(0)
+    25%
+        transform: translateX(-30px) rotate(90deg)
+    50%
+        transform: translateX(0) rotate(180deg)
+    75%
+        transform: translateX(30px) rotate(270deg)
+    100%
+        transform: translateX(0) rotate(360deg)

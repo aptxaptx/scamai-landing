@@ -1,0 +1,26 @@
+@import ../../../styles/bento/bento-variables
+
+.bento
+    position: relative
+    width: 100%
+    max-width: 336px
+    height: 336px
+    margin-left: auto
+    margin-right: auto
+
+.circles,
+.toggles
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 336px
+    transform: translate(-50%,-50%)
+    img
+        width: 100%
+
+.circles
+    mask-image: radial-gradient(50% 50% at 50% 50%, black, transparent 120%)
+
+.toggles
+    z-index: 2
+    opacity: .6
