@@ -269,9 +269,9 @@ export default function NewLanding() {
     return 'File';
   };
   return (
-    <main className="bg-[#0b0b0b] text-white" role="main">
-      <section className="landing-section relative -mt-[73px] overflow-hidden" style={{ minHeight: '75vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '73px' }} aria-label="Hero section - AI Trust Platform">
-        <HeroBackground className="-top-[73px]" />
+    <main className="bg-black text-white" role="main">
+      <section className="landing-section relative overflow-hidden bg-black" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '90px', paddingBottom: 0, marginBottom: 0, marginTop: 0 }} aria-label="Hero section - AI Trust Platform">
+        <HeroBackground className="" />
         <div className="relative z-10 w-full max-w-4xl px-8 sm:px-10 lg:px-8">
           <div className="flex flex-col items-center text-center space-y-4 sm:space-y-5 lg:space-y-6">
             <AnimatedSection delay={0.2}>
@@ -318,24 +318,20 @@ export default function NewLanding() {
       </section>
 
       {/* Session1: Fight AI threats / AI defense */}
-      <section className="landing-section relative py-20 overflow-hidden bg-[#0b0b0b] sm:py-24 lg:py-32" aria-label="AI Defense - Eva-v1 Model">
-        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8">
+      <section className="landing-section relative overflow-hidden" aria-label="AI Defense - Eva-v1 Model" style={{
+        backgroundImage: 'url(/session1.svg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 py-20 sm:py-24 lg:py-32">
           <div className="text-center">
-            <AnimatedSection>
-              <div className="mb-10 flex justify-center lg:mb-12">
-                <img
-                  src="/scamai-logo.svg"
-                  alt="ScamAI - AI Trust Platform Logo"
-                  className="h-12 w-auto lg:h-14"
-                  width="120"
-                  height="40"
-                />
-              </div>
-            </AnimatedSection>
-            
             <AnimatedSection delay={0.2}>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
-                Fight <span className="text-[#245FFF]">AI threats</span> with<br /><span className="text-[#245FFF]">AI defense</span>
+                Fight AI threats<br />with AI defense,
               </h2>
             </AnimatedSection>
             
@@ -348,17 +344,25 @@ export default function NewLanding() {
       </section>
 
       {/* Session2: AI-POWERED SECURITY / Trusted By */}
-      <section className="landing-section relative py-20 overflow-hidden bg-[#0b0b0b] sm:py-24 lg:py-32" aria-label="AI-Powered Security - Deepfake Protection">
-        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8">
+      <section className="landing-section relative overflow-hidden" aria-label="AI-Powered Security - Deepfake Protection" style={{
+        backgroundImage: 'url(/session2.svg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 py-20 sm:py-24 lg:py-32">
           <AnimatedSection>
-            <div className="text-center">
+            <div className="text-left">
               <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gray-400 mb-4 sm:text-[10px] lg:mb-6">
                 AI-POWERED SECURITY
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
                 Verify what <span className="text-[#245FFF]">we see</span>
               </h2>
-              <p className="max-w-3xl mx-auto text-base sm:text-lg text-gray-300 leading-relaxed">
+              <p className="max-w-xl text-base sm:text-lg text-gray-300 leading-relaxed">
                 Deepfakes and synthetic fraud cost businesses millions in fraud losses, chargebacks, and reputational damage every year. Our real-time detection platform stops threats instantly — protecting your revenue, brand reputation, and customer trust before costly damage occurs.
               </p>
             </div>
@@ -367,8 +371,19 @@ export default function NewLanding() {
       </section>
 
       {/* Features Section: THE PLATFORM + All-in-One + Lightning Fast */}
-      <section className="landing-section relative py-20 overflow-hidden bg-[#0b0b0b] sm:py-24 lg:py-32" aria-label="Platform Features - Why Teams Choose Us">
-        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl">
+      <section className="landing-section relative overflow-hidden bg-black" aria-label="Platform Features - Why Teams Choose Us">
+        {/* Background image wrapper */}
+        <div className="absolute inset-0 w-full h-full" style={{
+          backgroundImage: 'url(/session3.svg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}></div>
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-20 sm:py-24 lg:py-32">
           {/* Platform Title - no overlay */}
           <AnimatedSection>
             <div className="text-center mb-16 lg:mb-20">
@@ -396,17 +411,18 @@ export default function NewLanding() {
                 </p>
               </div>
               {/* Image Placeholder */}
-              <div className="relative aspect-[4/3] bg-gray-800/40 rounded-2xl border border-gray-700/50 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-800/60 to-gray-900/60" />
-                <div className="relative text-center space-y-4">
-                  <div className="w-20 h-20 mx-auto bg-gray-700/60 rounded-xl flex items-center justify-center">
-                    <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-semibold text-gray-400">All-in-One Platform Visual</p>
-                    <p className="text-xs text-gray-500">Dashboard & Features Preview</p>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 opacity-0">
+                  <div className="relative text-center space-y-4">
+                    <div className="w-20 h-20 mx-auto rounded-xl flex items-center justify-center">
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-sm font-semibold">All-in-One Platform Visual</p>
+                      <p className="text-xs">Dashboard & Features Preview</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -417,17 +433,18 @@ export default function NewLanding() {
           <AnimatedSection delay={0.2}>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image Placeholder */}
-              <div className="order-2 lg:order-1 relative aspect-[4/3] bg-gray-800/40 rounded-2xl border border-gray-700/50 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 to-gray-800/60" />
-                <div className="relative text-center space-y-4">
-                  <div className="w-20 h-20 mx-auto bg-gray-700/60 rounded-xl flex items-center justify-center">
-                    <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-semibold text-gray-400">Real-Time Speed Visual</p>
-                    <p className="text-xs text-gray-500">Performance Metrics Display</p>
+              <div className="order-2 lg:order-1 relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 opacity-0">
+                  <div className="relative text-center space-y-4">
+                    <div className="w-20 h-20 mx-auto rounded-xl flex items-center justify-center">
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-sm font-semibold">Real-Time Speed Visual</p>
+                      <p className="text-xs">Performance Metrics Display</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -447,9 +464,20 @@ export default function NewLanding() {
         </div>
       </section>
 
-      {/* Session4: Transparent Pricing, Global Compliance & Developer-First */}
-      <section className="landing-section relative py-20 overflow-hidden bg-[#0b0b0b] sm:py-24 lg:py-32" aria-label="Pricing, Compliance & Integration">
-        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl">
+      {/* Session4: Transparent Pricing & Global Compliance */}
+      <section className="landing-section relative overflow-hidden bg-black" aria-label="Pricing & Compliance">
+        {/* Background image wrapper */}
+        <div className="absolute inset-0 w-full h-full" style={{
+          backgroundImage: 'url(/session4.svg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}></div>
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-20 sm:py-24 lg:py-32">
           {/* Transparent Pricing */}
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
@@ -467,11 +495,12 @@ export default function NewLanding() {
                   Start with 100 free checks monthly for images and audio. Video detection available on paid plans. Simple pay-as-you-go pricing—no contracts, no setup fees, no commitments. You're only charged for successful checks.
                 </p>
               </div>
-              <div className="relative aspect-[4/3] bg-gray-800/40 rounded-2xl border border-gray-700/50 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-800/60 to-gray-900/60" />
-                <div className="relative text-center space-y-2">
-                  <p className="text-sm text-gray-500">Dashboard & verification flow</p>
-                  <p className="text-xs text-gray-600">Visual placeholder</p>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 opacity-0">
+                  <div className="relative text-center space-y-2">
+                    <p className="text-sm">Dashboard & verification flow</p>
+                    <p className="text-xs">Visual placeholder</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -479,12 +508,13 @@ export default function NewLanding() {
 
           {/* Global Compliance */}
           <AnimatedSection delay={0.2}>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
-              <div className="order-2 lg:order-1 relative aspect-[4/3] bg-gray-800/40 rounded-2xl border border-gray-700/50 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-800/60 to-gray-900/60" />
-                <div className="relative text-center space-y-2">
-                  <p className="text-sm text-gray-500">Compliance & Certifications</p>
-                  <p className="text-xs text-gray-600">Visual placeholder</p>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="order-2 lg:order-1 relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 opacity-0">
+                  <div className="relative text-center space-y-2">
+                    <p className="text-sm">Compliance & Certifications</p>
+                    <p className="text-xs">Visual placeholder</p>
+                  </div>
                 </div>
               </div>
               <div className="order-1 lg:order-2">
@@ -500,9 +530,13 @@ export default function NewLanding() {
               </div>
             </div>
           </AnimatedSection>
+        </div>
+      </section>
 
-          {/* Developer-First */}
-          <AnimatedSection delay={0.3}>
+      {/* Session5: Developer-First */}
+      <section className="landing-section relative overflow-hidden bg-black" aria-label="Developer Integration">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-20 sm:py-24 lg:py-32">
+          <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">

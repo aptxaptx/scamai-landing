@@ -8,6 +8,8 @@ type NavChild = {
   label: string;
   href: string;
   external?: boolean;
+  description?: string;
+  icon?: string;
 };
 
 type NavItem = {
@@ -23,9 +25,21 @@ const navItems: NavItem[] = [
     href: "/products", 
     hasDropdown: true,
     children: [
-      { label: "Vision Detection", href: "/products/vision-detection" },
-      { label: "Audio Detection", href: "/products/audio-detection" },
-      { label: "Scam Database (Coming Soon)", href: "/products/scam-database" },
+      { 
+        label: "Vision Detection", 
+        href: "/products/vision-detection",
+        description: "AI-powered deepfake and synthetic media detection for images and videos with real-time analysis"
+      },
+      { 
+        label: "Audio Detection", 
+        href: "/products/audio-detection",
+        description: "Voice cloning and synthetic audio detection to verify authenticity of audio content"
+      },
+      { 
+        label: "Scam Database", 
+        href: "/products/scam-database",
+        description: "Comprehensive database of known scams, fraud patterns, and synthetic identities—coming soon"
+      },
     ]
   },
   { 
@@ -33,8 +47,17 @@ const navItems: NavItem[] = [
     href: "/resources", 
     hasDropdown: true,
     children: [
-      { label: "Documentation", href: "https://docu.scam.ai", external: true },
-      { label: "Security & Compliance", href: "/resources/security-compliance" },
+      { 
+        label: "Documentation", 
+        href: "https://docu.scam.ai", 
+        external: true,
+        description: "API guides, integration examples, and technical documentation for developers"
+      },
+      { 
+        label: "Security & Compliance", 
+        href: "/resources/security-compliance",
+        description: "Security certifications, compliance standards, and data protection policies"
+      },
     ]
   },
   { label: "Pricing", href: "/pricing" },
@@ -92,7 +115,7 @@ export default function NewNav() {
 
   return (
     <>
-      <div className="w-full bg-[#0021f3] py-2 text-center">
+      <div className="fixed top-0 left-0 right-0 w-full bg-[#0021f3] py-1.5 text-center z-50">
         <p className="text-sm text-white">
           Scam.ai raised $2.5M and joined Berkeley SkyDeck (Batch 20){" "}
           <Link href="/news" className="inline-flex items-center underline hover:opacity-80">
@@ -100,9 +123,9 @@ export default function NewNav() {
           </Link>
         </p>
       </div>
-      <div className="sticky top-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+      <div className="fixed top-[34px] left-0 right-0 z-50">
       <header className="bg-transparent">
-        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6">
         <Link href="/" className="flex items-center">
           <img
             src="/scamai-logo.svg"
@@ -311,7 +334,35 @@ export default function NewNav() {
                         </svg>
                       </button>
                       {isOpen && (
-                        <div className="py-2 pl-4">
+                        <div className="py-3 pl-2 space-y-3">
+                          {/* Talk with Team Card for Mobile */}
+                          {(isProduct || isResources) && (
+                            <a
+                              href="https://cal.com/dennis-yc-ng/30min"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-3 p-4 rounded-lg bg-white/5"
+                              onClick={() => {
+                                setOpen(false);
+                                setIsOpen(false);
+                              }}
+                            >
+                              <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                                </svg>
+                              </div>
+                              <div className="flex-1">
+                                <h3 className="text-sm font-semibold text-white mb-0.5">
+                                  Talk with the Team
+                                </h3>
+                                <p className="text-xs text-gray-500">
+                                  Schedule a call
+                                </p>
+                              </div>
+                            </a>
+                          )}
+
                           {item.children.map((child) => (
                             child.external ? (
                               <a
@@ -319,25 +370,53 @@ export default function NewNav() {
                                 href={child.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block py-3 text-base text-gray-300 hover:text-white"
+                                className="flex gap-3 p-4 rounded-lg hover:bg-white/5"
                                 onClick={() => {
                                   setOpen(false);
                                   setIsOpen(false);
                                 }}
                               >
-                                {child.label}
+                                <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                  </svg>
+                                </div>
+                                <div className="flex-1">
+                                  <h3 className="text-sm font-medium text-white mb-1">
+                                    {child.label}
+                                  </h3>
+                                  {child.description && (
+                                    <p className="text-xs text-gray-500 leading-relaxed">
+                                      {child.description}
+                                    </p>
+                                  )}
+                                </div>
                               </a>
                             ) : (
                               <Link
                                 key={child.href}
                                 href={child.href}
-                                className="block py-3 text-base text-gray-300 hover:text-white"
+                                className="flex gap-3 p-4 rounded-lg hover:bg-white/5"
                                 onClick={() => {
                                   setOpen(false);
                                   setIsOpen(false);
                                 }}
                               >
-                                {child.label}
+                                <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                  </svg>
+                                </div>
+                                <div className="flex-1">
+                                  <h3 className="text-sm font-medium text-white mb-1">
+                                    {child.label}
+                                  </h3>
+                                  {child.description && (
+                                    <p className="text-xs text-gray-500 leading-relaxed">
+                                      {child.description}
+                                    </p>
+                                  )}
+                                </div>
                               </Link>
                             )
                           ))}
@@ -459,53 +538,174 @@ export default function NewNav() {
     </header>
     
     <div 
-      className={`w-full overflow-hidden bg-black transition-all duration-300 ${
+      className={`fixed top-[90px] left-0 right-0 w-full overflow-hidden bg-black/90 backdrop-blur-xl transition-all duration-200 z-40 ${
         (productsOpen || resourcesOpen) ? 'ease-out' : 'ease-in'
       }`}
       style={{ 
         maxHeight: (productsOpen || resourcesOpen) ? '400px' : '0',
-        paddingTop: (productsOpen || resourcesOpen) ? '16px' : '0',
-        paddingBottom: (productsOpen || resourcesOpen) ? '16px' : '0'
+        paddingTop: (productsOpen || resourcesOpen) ? '32px' : '0',
+        paddingBottom: (productsOpen || resourcesOpen) ? '32px' : '0'
       }}
     >
       <div className={`mx-auto max-w-6xl px-4 transition-opacity duration-200 ${
         (productsOpen || resourcesOpen) ? 'opacity-100' : 'opacity-0'
       }`}>
-        <div className="flex flex-col gap-1">
-          {productsOpen && navItems.find(item => item.label === "Product")?.children?.map((child) => (
-            <Link
-              key={child.href}
-              href={child.href}
-              className="block px-4 py-3 text-sm text-white hover:bg-gray-800 rounded-lg transition-colors duration-150"
-              onClick={() => setProductsOpen(false)}
-            >
-              {child.label}
-            </Link>
-          ))}
-          {resourcesOpen && navItems.find(item => item.label === "Resources")?.children?.map((child) => (
-            child.external ? (
+        {/* Products Grid */}
+        {productsOpen && (
+          <div className="flex gap-6">
+            {/* Talk with Team Card */}
+            <div className="flex-shrink-0" style={{ width: '220px' }}>
               <a
-                key={child.href}
-                href={child.href}
+                href="https://cal.com/dennis-yc-ng/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block px-4 py-3 text-sm text-white hover:bg-gray-800 rounded-lg transition-colors duration-150"
-                onClick={() => setResourcesOpen(false)}
+                className="group block h-full p-6 rounded-lg bg-white/5 hover:bg-white/8 transition-all duration-150"
               >
-                {child.label}
+                <div className="flex flex-col h-full justify-between">
+                  <div>
+                    <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
+                      <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-sm font-semibold text-white mb-2">
+                      Talk with the Team
+                    </h3>
+                  </div>
+                  <span className="text-xs text-gray-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Schedule call
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </a>
-            ) : (
-              <Link
-                key={child.href}
-                href={child.href}
-                className="block px-4 py-3 text-sm text-white hover:bg-gray-800 rounded-lg transition-colors duration-150"
-                onClick={() => setResourcesOpen(false)}
+            </div>
+
+            {/* Products List */}
+            <div className="flex-1 grid grid-cols-3 gap-4">
+              {navItems.find(item => item.label === "Product")?.children?.map((child) => (
+                <Link
+                  key={child.href}
+                  href={child.href}
+                  className="group block p-5 rounded-lg hover:bg-white/5 transition-colors duration-150"
+                  onClick={() => setProductsOpen(false)}
+                >
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-white/10 transition-colors">
+                      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-medium text-white mb-1">
+                        {child.label}
+                      </h3>
+                    </div>
+                  </div>
+                  {child.description && (
+                    <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                      {child.description}
+                    </p>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Resources Grid */}
+        {resourcesOpen && (
+          <div className="flex gap-6">
+            {/* Talk with Team Card */}
+            <div className="flex-shrink-0" style={{ width: '220px' }}>
+              <a
+                href="https://cal.com/dennis-yc-ng/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block h-full p-6 rounded-lg bg-white/5 hover:bg-white/8 transition-all duration-150"
               >
-                {child.label}
-              </Link>
-            )
-          ))}
-        </div>
+                <div className="flex flex-col h-full justify-between">
+                  <div>
+                    <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center mb-4">
+                      <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-sm font-semibold text-white mb-2">
+                      Talk with the Team
+                    </h3>
+                  </div>
+                  <span className="text-xs text-gray-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Schedule call
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </div>
+
+            {/* Resources List */}
+            <div className="flex-1 grid grid-cols-2 gap-4">
+              {navItems.find(item => item.label === "Resources")?.children?.map((child) => (
+                child.external ? (
+                  <a
+                    key={child.href}
+                    href={child.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block p-5 rounded-lg hover:bg-white/5 transition-colors duration-150"
+                    onClick={() => setResourcesOpen(false)}
+                  >
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-white/10 transition-colors">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-medium text-white mb-1">
+                          {child.label}
+                        </h3>
+                      </div>
+                    </div>
+                    {child.description && (
+                      <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                        {child.description}
+                      </p>
+                    )}
+                  </a>
+                ) : (
+                  <Link
+                    key={child.href}
+                    href={child.href}
+                    className="group block p-5 rounded-lg hover:bg-white/5 transition-colors duration-150"
+                    onClick={() => setResourcesOpen(false)}
+                  >
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-white/10 transition-colors">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-medium text-white mb-1">
+                          {child.label}
+                        </h3>
+                      </div>
+                    </div>
+                    {child.description && (
+                      <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                        {child.description}
+                      </p>
+                    )}
+                  </Link>
+                )
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
     </div>

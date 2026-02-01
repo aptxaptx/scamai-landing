@@ -1,6 +1,6 @@
 export default function HeroBackground({ className = "" }: { className?: string }) {
   return (
-    <div className={`absolute inset-0 w-full h-full overflow-hidden ${className}`}>
+    <div className={`absolute w-full h-full overflow-hidden ${className}`} style={{ top: 0, left: 0, right: 0, bottom: 0 }}>
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 1468 1052"

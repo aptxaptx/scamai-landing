@@ -20,6 +20,19 @@
   }
 }
 
+@keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+  }
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+  }
+}
+
+.animate-shiny-text {
+  animation: shiny-text 8s ease-in-out infinite;
+}
+
 @keyframes rainbow-glow {
   0%, 100% {
     filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.5));
@@ -288,11 +301,11 @@ header {
 /* GLOBAL BLACK BACKGROUND - ABSOLUTE PRIORITY */
 *, *::before, *::after {
   box-sizing: border-box;
-  border-color: #0b0b0b;
+  border-color: #000000;
 }
 
 html {
-  background: #0b0b0b !important;
+  background: #000000 !important;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -300,7 +313,7 @@ html {
 }
 
 body {
-  background: #0b0b0b !important;
+  background: #000000 !important;
   margin: 0 !important;
   padding: 0 !important;
   min-height: 100vh;
@@ -309,13 +322,13 @@ body {
 }
 
 #__next {
-  background: #0b0b0b !important;
+  background: #000000 !important;
   min-height: 100vh;
   display: block;
 }
 
 main {
-  background: #0b0b0b !important;
+  background: #000000 !important;
   position: relative;
   margin: 0 !important;
   padding: 0 !important;
@@ -331,11 +344,14 @@ main .landing-section {
   position: relative;
   border: none;
   outline: none;
+  margin: 0 !important;
+  padding: 0;
+  background: #000000;
 }
 
 /* Footer styling */
 footer {
-  background: #0b0b0b !important;
+  background: #000000 !important;
   position: relative;
   z-index: 10;
   border: none;
