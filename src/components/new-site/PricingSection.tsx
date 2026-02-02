@@ -350,9 +350,6 @@ export default function PricingSection() {
                 </span>
                 <span className="text-lg text-gray-400">per image</span>
               </div>
-              {volume <= FREE_CHECKS && (
-                <p className="mt-2 text-sm text-green-400">✓ Free for first 200 images with Eva-v1-Fast</p>
-              )}
             </div>
 
             <p className="mb-2 text-sm font-semibold text-[#245FFF]">200 free images/month (Eva-v1-Fast)</p>
@@ -412,7 +409,7 @@ export default function PricingSection() {
             {volume >= VOLUME_DISCOUNT_THRESHOLD ? (
               <div className="mb-8">
                 <div className="mb-4 rounded-xl bg-gradient-to-r from-[#245FFF]/20 to-purple-500/20 border border-[#245FFF]/50 px-4 py-3">
-                  <p className="text-sm font-semibold text-white mb-1">🎯 Perfect for your volume</p>
+                  <p className="text-sm font-semibold text-white mb-1">Perfect for your volume</p>
                   <p className="text-xs text-gray-300">Get volume discounts + enterprise features for 2,000+ images/month</p>
                 </div>
                 <p className="text-sm text-gray-300 leading-relaxed">

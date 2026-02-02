@@ -90,20 +90,22 @@ export default function NewNav() {
   const langDropdownRef = useRef<HTMLDivElement>(null);
   const productsDropdownRef = useRef<HTMLDivElement>(null);
   const resourcesDropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownPanelRef = useRef<HTMLDivElement>(null);
 
   const currentLanguage = languages.find((lang) => lang.code === locale) || languages[0];
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (langDropdownRef.current && !langDropdownRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (langDropdownRef.current && !langDropdownRef.current.contains(target)) {
         setLangOpen(false);
       }
-      if (productsDropdownRef.current && !productsDropdownRef.current.contains(event.target as Node)) {
-        setProductsOpen(false);
-      }
-      if (resourcesDropdownRef.current && !resourcesDropdownRef.current.contains(event.target as Node)) {
-        setResourcesOpen(false);
-      }
+      // Panel is SEPARATE from button ref - only close if click is outside BOTH button and panel
+      const insideProducts = (productsDropdownRef.current?.contains(target)) || (dropdownPanelRef.current?.contains(target));
+      if (!insideProducts) setProductsOpen(false);
+
+      const insideResources = (resourcesDropdownRef.current?.contains(target)) || (dropdownPanelRef.current?.contains(target));
+      if (!insideResources) setResourcesOpen(false);
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -135,7 +137,7 @@ export default function NewNav() {
           </Link>
         </p>
       </div>
-      <div className="fixed top-[34px] left-0 right-0 z-50">
+      <div className="fixed top-[34px] left-0 right-0 z-40">
       <header className={`transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6">
         <Link href="/" className="flex items-center">
@@ -554,8 +556,9 @@ export default function NewNav() {
     </header>
     
     <div 
-      className={`fixed top-[90px] left-0 right-0 w-full overflow-hidden bg-black/90 backdrop-blur-xl transition-all duration-200 z-40 ${
-        (productsOpen || resourcesOpen) ? 'ease-out' : 'ease-in'
+      ref={dropdownPanelRef}
+      className={`fixed top-[90px] left-0 right-0 w-full overflow-hidden bg-black/90 backdrop-blur-xl transition-all duration-200 z-30 ${
+        (productsOpen || resourcesOpen) ? 'ease-out pointer-events-auto' : 'ease-in pointer-events-none'
       }`}
       style={{ 
         maxHeight: (productsOpen || resourcesOpen) ? '400px' : '0',
