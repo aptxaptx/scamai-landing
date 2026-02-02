@@ -124,12 +124,12 @@ export default function NewNav() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 w-full bg-[#0021f3] py-1.5 text-center z-50">
-        <p className="text-sm text-white">
-          Scam.ai raised $2.5M and joined Berkeley SkyDeck (Batch 20)
+      <div className="fixed top-0 left-0 right-0 w-full bg-[#0021f3] py-2 text-center z-50">
+        <p className="text-xs sm:text-sm text-white">
+          Scam.ai raised $2.5M and joined Berkeley SkyDeck
         </p>
       </div>
-      <div className="fixed top-[34px] left-0 right-0 z-40">
+      <div className="fixed top-[42px] left-0 right-0 z-40">
       <header className={`transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6">
         <Link href="/" className="flex items-center">
@@ -287,7 +287,7 @@ export default function NewNav() {
 
       {/* Mobile Full-Screen Menu */}
       <div
-        className={`fixed inset-0 z-[100] bg-[#0b0b0b] transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-[42px] left-0 right-0 bottom-0 z-[100] bg-[#0b0b0b] transition-transform duration-300 ease-in-out md:hidden ${
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -427,23 +427,10 @@ export default function NewNav() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="flex items-center justify-between py-4 text-lg font-medium text-white border-b border-gray-700"
+                    className="block py-4 text-lg font-medium text-white border-b border-gray-700"
                     onClick={() => setOpen(false)}
                   >
                     {item.label}
-                    <svg
-                      className="h-5 w-5 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
                   </Link>
                 );
               })}

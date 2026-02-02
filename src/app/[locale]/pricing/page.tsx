@@ -40,13 +40,46 @@ export default function PricingPage() {
       {/* Pricing Calculator & Plans */}
       <section className="py-12 px-4 sm:px-6 lg:py-16">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-8 lg:grid-cols-[1fr_400px]">
-            {/* Left Side - Calculator */}
-            <div className="space-y-8">
-              {/* Volume Slider */}
+          <div className="flex flex-col lg:grid lg:grid-cols-[1fr_400px] gap-8">
+            {/* Volume Slider - Always First */}
+            <div className="space-y-8 lg:order-1">
               <VolumeSlider volume={volume} onChange={setVolume} />
 
-              {/* Add-on Features */}
+              {/* Add-on Features - Hidden on Mobile, Shown on Desktop */}
+              <div className="hidden lg:block space-y-8">
+                <AddOnFeatures
+                  adaptiveDefense={adaptiveDefense}
+                  setAdaptiveDefense={setAdaptiveDefense}
+                  activeLiveness={activeLiveness}
+                  setActiveLiveness={setActiveLiveness}
+                  expressLane={expressLane}
+                  setExpressLane={setExpressLane}
+                  currencySymbol={currencySymbol}
+                  formatPrice={formatPrice}
+                />
+                <ForensicAddOns currencySymbol={currencySymbol} formatPrice={formatPrice} />
+              </div>
+            </div>
+
+            {/* Price Summary - Second on Mobile, Right Side on Desktop */}
+            <div className="lg:order-2">
+              <PriceSummary
+                volume={volume}
+                pricePerCheck={pricePerCheck}
+                monthlyEstimate={monthlyEstimate}
+                adaptiveDefense={adaptiveDefense}
+                activeLiveness={activeLiveness}
+                expressLane={expressLane}
+                currency={currency}
+                setCurrency={setCurrency}
+                currencySymbol={currencySymbol}
+                decimals={decimals}
+                formatPrice={formatPrice}
+              />
+            </div>
+
+            {/* Add-on Features - Shown on Mobile After Price Summary */}
+            <div className="lg:hidden space-y-8 lg:order-1">
               <AddOnFeatures
                 adaptiveDefense={adaptiveDefense}
                 setAdaptiveDefense={setAdaptiveDefense}
@@ -57,25 +90,8 @@ export default function PricingPage() {
                 currencySymbol={currencySymbol}
                 formatPrice={formatPrice}
               />
-
-              {/* Forensic Add-ons */}
               <ForensicAddOns currencySymbol={currencySymbol} formatPrice={formatPrice} />
             </div>
-
-            {/* Right Side - Price Summary */}
-            <PriceSummary
-              volume={volume}
-              pricePerCheck={pricePerCheck}
-              monthlyEstimate={monthlyEstimate}
-              adaptiveDefense={adaptiveDefense}
-              activeLiveness={activeLiveness}
-              expressLane={expressLane}
-              currency={currency}
-              setCurrency={setCurrency}
-              currencySymbol={currencySymbol}
-              decimals={decimals}
-              formatPrice={formatPrice}
-            />
           </div>
         </div>
       </section>
