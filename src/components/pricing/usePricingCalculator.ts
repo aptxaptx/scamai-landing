@@ -18,7 +18,7 @@ export function usePricingCalculator() {
   const [expressLane, setExpressLane] = useState(false);
   const [currency, setCurrency] = useState<Currency>('USD');
 
-  // Calculate price per check
+  // Calculate price per image
   const pricePerCheck = useMemo(() => {
     let price = BASE_PRICE;
     if (adaptiveDefense) price += ADAPTIVE_DEFENSE_PRICE;

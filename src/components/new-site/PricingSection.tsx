@@ -17,7 +17,7 @@ export default function PricingSection() {
   const [activeLiveness, setActiveLiveness] = useState(false);
   const [expressLane, setExpressLane] = useState(false);
 
-  // Calculate price per check
+  // Calculate price per image
   const calculatePricePerCheck = () => {
     if (volume <= FREE_CHECKS) return 0;
     let price = BASE_PRICE;
@@ -192,7 +192,7 @@ export default function PricingSection() {
                         +${EXPRESS_LANE_PRICE.toFixed(2)}/image
                       </span>
                     </div>
-                    <p className="text-sm text-gray-400">Ultra-low latency processing with &lt;1s response time guarantee</p>
+                    <p className="text-sm text-gray-400">Low latency processing with 3s response time guarantee</p>
                   </div>
                 </label>
               </div>

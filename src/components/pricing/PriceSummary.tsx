@@ -64,7 +64,7 @@ export function PriceSummary({
               {currencySymbol}
               {volume <= FREE_CHECKS ? (decimals === 0 ? '0' : '0.00') : formatPrice(pricePerCheck)}
             </span>
-            <span className="text-lg text-gray-400">/check</span>
+            <span className="text-lg text-gray-400">/image</span>
           </div>
 
           {volume <= FREE_CHECKS ? (
@@ -130,7 +130,7 @@ export function PriceSummary({
           <div className="space-y-2 text-sm">
             {volume <= FREE_CHECKS ? (
               <div className="flex justify-between text-gray-300">
-                <span>{volume.toLocaleString()} checks</span>
+                <span>{volume.toLocaleString()} images</span>
                 <span className="font-semibold text-green-400">FREE</span>
               </div>
             ) : (

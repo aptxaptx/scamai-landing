@@ -22,7 +22,9 @@ export default function ResourcesPage() {
           <div className="grid gap-8 md:grid-cols-2">
             {/* Documentation */}
             <a 
-              href="/resources/documentation"
+              href="https://docu.scam.ai"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group rounded-lg border border-gray-800 bg-gray-900/40 p-8 hover:border-[#66b3ff] transition-colors"
             >
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#66b3ff]/10 group-hover:bg-[#66b3ff]/20 transition-colors">
@@ -41,7 +43,9 @@ export default function ResourcesPage() {
 
             {/* Security & Compliance */}
             <a 
-              href="/resources/security-compliance"
+              href="https://reality-inc.trust.site/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group rounded-lg border border-gray-800 bg-gray-900/40 p-8 hover:border-[#66b3ff] transition-colors"
             >
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#66b3ff]/10 group-hover:bg-[#66b3ff]/20 transition-colors">
@@ -73,7 +77,7 @@ export default function ResourcesPage() {
               <p className="mb-4 text-sm text-gray-300">
                 Get up and running with ScamAI in under 10 minutes.
               </p>
-              <a href="/resources/documentation" className="text-sm text-[#66b3ff] hover:underline">
+              <a href="https://docu.scam.ai" target="_blank" rel="noopener noreferrer" className="text-sm text-[#66b3ff] hover:underline">
                 Read guide →
               </a>
             </div>
@@ -83,7 +87,7 @@ export default function ResourcesPage() {
               <p className="mb-4 text-sm text-gray-300">
                 Complete API endpoint documentation and examples.
               </p>
-              <a href="/resources/documentation" className="text-sm text-[#66b3ff] hover:underline">
+              <a href="https://docu.scam.ai" target="_blank" rel="noopener noreferrer" className="text-sm text-[#66b3ff] hover:underline">
                 View API docs →
               </a>
             </div>
@@ -93,7 +97,7 @@ export default function ResourcesPage() {
               <p className="mb-4 text-sm text-gray-300">
                 Optimize your integration with proven strategies.
               </p>
-              <a href="/resources/documentation" className="text-sm text-[#66b3ff] hover:underline">
+              <a href="https://docu.scam.ai" target="_blank" rel="noopener noreferrer" className="text-sm text-[#66b3ff] hover:underline">
                 Learn more →
               </a>
             </div>
@@ -103,7 +107,7 @@ export default function ResourcesPage() {
               <p className="mb-4 text-sm text-gray-300">
                 Our security certification and compliance details.
               </p>
-              <a href="/resources/security-compliance" className="text-sm text-[#66b3ff] hover:underline">
+              <a href="https://reality-inc.trust.site/" target="_blank" rel="noopener noreferrer" className="text-sm text-[#66b3ff] hover:underline">
                 View details →
               </a>
             </div>
@@ -113,7 +117,7 @@ export default function ResourcesPage() {
               <p className="mb-4 text-sm text-gray-300">
                 How ScamAI helps you meet GDPR requirements.
               </p>
-              <a href="/resources/security-compliance" className="text-sm text-[#66b3ff] hover:underline">
+              <a href="https://reality-inc.trust.site/" target="_blank" rel="noopener noreferrer" className="text-sm text-[#66b3ff] hover:underline">
                 Learn more →
               </a>
             </div>
@@ -171,7 +175,9 @@ export default function ResourcesPage() {
                 Comprehensive guides and API references.
               </p>
               <a
-                href="/resources/documentation"
+                href="https://docu.scam.ai"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[#66b3ff] hover:underline font-semibold"
               >
                 View documentation
@@ -191,7 +197,9 @@ export default function ResourcesPage() {
                 Learn about our security and compliance.
               </p>
               <a
-                href="/resources/security-compliance"
+                href="https://reality-inc.trust.site/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[#66b3ff] hover:underline font-semibold"
               >
                 View security

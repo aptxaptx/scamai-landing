@@ -102,7 +102,7 @@ export default function ProductsPage() {
                 <tr className="border-b border-gray-800/50">
                   <td className="py-4 px-6">Processing Speed</td>
                   <td className="py-4 px-6 text-center">&lt;200ms</td>
-                  <td className="py-4 px-6 text-center">&lt;1s</td>
+                  <td className="py-4 px-6 text-center">3s</td>
                 </tr>
                 <tr className="border-b border-gray-800/50">
                   <td className="py-4 px-6">Supported Formats</td>

@@ -476,7 +476,7 @@ export default function NewLanding() {
                   200 free images / month
                 </p>
                 <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                  Start with 200 free images monthly with our Eva-v1-Fast model. Simple pay-as-you-go pricing—no contracts, no setup fees, no commitments. You're only charged for successful checks.
+                  Start with 200 free images monthly with our Eva-v1-Fast model. Simple pay-as-you-go pricing—no contracts, no setup fees, no commitments. You're only charged for successful analyses.
                 </p>
               </div>
               {/* Bento 28 - Transparent Pricing, right side */}

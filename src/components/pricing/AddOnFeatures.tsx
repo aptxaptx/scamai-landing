@@ -45,7 +45,7 @@ export function AddOnFeatures({
     {
       id: 'express-lane',
       name: 'Express Lane',
-      description: 'Ultra-low latency processing with <1s response time guarantee',
+      description: 'Low latency processing with 3s response time guarantee',
       price: EXPRESS_LANE_PRICE,
       checked: expressLane,
       onChange: setExpressLane,
@@ -75,7 +75,7 @@ export function AddOnFeatures({
                   {feature.name}
                 </span>
                 <span className="text-sm font-semibold text-[#0043FA]">
-                  +{currencySymbol}{formatPrice(feature.price)}/check
+                  +{currencySymbol}{formatPrice(feature.price)}/image
                 </span>
               </div>
               <p className="text-sm text-gray-400">{feature.description}</p>

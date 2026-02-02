@@ -10,7 +10,7 @@ pricing/
 ├── usePricingCalculator.ts   # Custom hook for pricing logic
 ├── PricingHero.tsx           # Hero section component
 ├── VolumeSlider.tsx          # Volume slider with discount badge
-├── AddOnFeatures.tsx         # Per-check add-on features
+├── AddOnFeatures.tsx         # Per-image add-on features
 ├── ForensicAddOns.tsx        # Enterprise forensic features
 ├── PriceSummary.tsx          # Price summary card with currency selector
 ├── PricingCards.tsx          # Self-Serve and Enterprise plan cards
@@ -77,14 +77,14 @@ function PricingPage() {
 - No credit card required
 
 ### Paid Tier
-- Base price: $0.15 per check (after free tier)
+- Base price: $0.15 per image (after free tier)
 - Optional add-ons:
-  - Adaptive Defense: +$0.20/check (Real-time GenAI, deepfake & injection attack detection)
-  - Active Liveness: +$0.10/check (Live face detection to verify real human presence and prevent GenAI-generated deepfakes)
-  - Express Lane: +$0.10/check (Ultra-low latency processing with <1s response time)
+  - Adaptive Defense: +$0.20/image (Real-time GenAI, deepfake & injection attack detection)
+  - Active Liveness: +$0.10/image (Live face detection to verify real human presence and prevent GenAI-generated deepfakes)
+  - Express Lane: +$0.10/image (Low latency processing with 3s response time)
 
 ### Enterprise Tier
-- Recommended for volumes > 5,000 checks/month
+- Recommended for volumes > 5,000 images/month
 - Eva-v1-Pro Model (forensic-grade with lower false positives)
 - Thinking (advanced reasoning capabilities)
 - Custom pricing and volume discounts

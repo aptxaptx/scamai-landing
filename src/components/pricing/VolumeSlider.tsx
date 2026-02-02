@@ -21,7 +21,7 @@ export function VolumeSlider({ volume, onChange }: VolumeSliderProps) {
             transform: 'translateX(-50%)',
           }}
         >
-          {volume.toLocaleString()} checks
+          {volume.toLocaleString()} images
         </div>
         <input
           type="range"
@@ -53,7 +53,7 @@ export function VolumeSlider({ volume, onChange }: VolumeSliderProps) {
               </svg>
             </div>
             <div className="flex-1">
-              <p className="font-bold text-xl text-white mb-2">Need more than {MAX_VOLUME.toLocaleString()} checks?</p>
+              <p className="font-bold text-xl text-white mb-2">Need more than {MAX_VOLUME.toLocaleString()} images?</p>
               <p className="text-sm text-gray-300 mb-4">
                 Unlock enterprise-grade features, volume discounts, and dedicated support for high-volume needs.
               </p>
