@@ -1,9 +1,7 @@
 import styles from "./Bento31.module.sass";
 import Image from "@/components/bento/Image";
 
-type BentoProps = {};
-
-const Bento = ({}: BentoProps) => (
+const Bento = () => (
     <div className={styles.bento}>
         <div className={styles.grid}>
             <Image

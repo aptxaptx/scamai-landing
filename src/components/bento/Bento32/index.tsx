@@ -1,9 +1,7 @@
 import styles from "./Bento32.module.sass";
 import Image from "@/components/bento/Image";
 
-type BentoProps = {};
-
-const Bento = ({}: BentoProps) => (
+const Bento = () => (
     <div className={styles.bento}>
         <div className={styles.image}>
             <Image src="/bento-images/bento-32.svg" width={368} height={368} alt="" />

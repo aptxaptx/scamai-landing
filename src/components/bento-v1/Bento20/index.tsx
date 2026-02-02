@@ -15,7 +15,7 @@ const Bento = ({}: BentoProps) => (
                         alt=""
                     />
                     <div className={styles.format}>
-                        <span>DOC</span>
+                        <span>Raw</span>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@ const Bento = ({}: BentoProps) => (
                         alt=""
                     />
                     <div className={styles.format}>
-                        <span>MP4</span>
+                        <span>Verified</span>
                     </div>
                 </div>
             </div>

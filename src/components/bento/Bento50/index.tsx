@@ -33,10 +33,10 @@ const Bento = ({}: BentoProps) => (
                 </div>
                 <div className={styles.boxes}>
                     <div className={styles.box}>
-                        <div className={styles.letter}>A</div>
+                        <div className={styles.letter}>Real</div>
                     </div>
                     <div className={styles.box}>
-                        <div className={styles.letter}>B</div>
+                        <div className={styles.letter}>Fake</div>
                     </div>
                 </div>
             </div>

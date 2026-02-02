@@ -59,21 +59,6 @@ export default function ProductsPage() {
               </div>
             </a>
 
-            {/* Scam Database - Coming Soon */}
-            <div className="rounded-lg border border-gray-800 bg-gray-900/40 p-8 opacity-60">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#66b3ff]/10">
-                <svg className="h-8 w-8 text-[#66b3ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                </svg>
-              </div>
-              <h3 className="mb-3 text-2xl font-bold text-white">
-                Scam Database
-                <span className="ml-2 text-sm font-normal text-gray-500">(Coming Soon)</span>
-              </h3>
-              <p className="text-gray-300">
-                Access a comprehensive database of known scams, deepfake campaigns, and synthetic media threats.
-              </p>
-            </div>
           </div>
         </div>
       </section>
