@@ -89,7 +89,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" }
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-black.ico", sizes: "any", media: "(prefers-color-scheme: light)" },
+      { url: "/favicon-white.ico", sizes: "any", media: "(prefers-color-scheme: dark)" }
     ],
     shortcut: "/favicon.ico",
     apple: [
