@@ -89,8 +89,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/scamai-logo.svg", type: "image/svg+xml" }
+      { url: "/favicon.ico", sizes: "any" }
     ],
     shortcut: "/favicon.ico",
     apple: [
