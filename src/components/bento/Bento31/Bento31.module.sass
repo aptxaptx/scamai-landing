@@ -1,0 +1,214 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+    height: 336px
+
+.grid
+    position: absolute
+    top: -16px
+    left: 50%
+    transform: translateX(-50%)
+
+.circles
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+
+.circle
+    position: absolute
+    left: 50%
+    width: 462px
+    transform: translateX(-50%)
+    aspect-ratio: 1
+    border-radius: 50%
+    &:after
+        content: ""
+        position: absolute
+        border-radius: 50%
+    &:nth-child(1)
+        bottom: 50%
+        border: 1.5px solid rgba($bento-main, .02)
+        &:after
+            inset: 2.5px
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.00) 68.75%, rgba(18, 18, 18, 0.50) 111.11%)
+            opacity: .5
+    &:nth-child(2)
+        top: 50%
+        mask-image: linear-gradient(to bottom, black 0%, transparent 35%, transparent 100%)
+        &:after
+            inset: 0
+            border: 1.5px solid rgba($bento-main, .08)
+            mask-image: linear-gradient(to bottom, black 0%, transparent 50%, transparent 100%)
+        &:before
+            content: ""
+            position: absolute
+            inset: 0
+            background: conic-gradient(from 180deg at 50% 50%, rgba(255, 255, 255, 0.00) 90deg, rgba(255, 255, 255, 0.15) 180deg, rgba(255, 255, 255, 0.00) 270deg)
+            opacity: .1
+            border-radius: 50%
+        span,
+        span:before
+            position: absolute
+            inset: 40px
+            border-radius: 50%
+            mask-image: linear-gradient(to bottom, black 0%, transparent 20%, transparent 100%)
+        span
+            border: 1.5px solid rgba($bento-main, .03)
+        span:before
+            content: ""
+            border: 1.5px solid rgba($bento-main, .1)
+
+.code
+    position: absolute
+    left: 50%
+    bottom: 46px
+    z-index: 2
+    transform: translateX(-50%)
+    padding: 0 8px
+    font-size: 8px
+    line-height: 2
+    color: rgba($bento-text-secondary, .5)
+    &:before
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 8px
+        background: rgba(248, 248, 248, 0.01)
+        box-shadow: inset 0px 0px 8px 0px rgba(248, 248, 248, 0.25)
+        backdrop-filter: blur(50px)
+    span
+        position: relative
+        z-index: 2
+
+.numbers
+    position: absolute
+    top: 99px
+    left: 50%
+    z-index: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 368px
+    height: 368px
+    transform: translateX(-50%)
+    mask-image: radial-gradient(50% 50% at 50% 50%, black, transparent 50%)
+    span
+        width: 225px
+        text-align: center
+        font-size: 8px
+        line-height: 2
+        color: rgba($bento-text-secondary, .05)
+
+.box
+    position: absolute
+    top: 92px
+    left: 50%
+    width: 100px
+    height: 152px
+    transform: translateX(-50%)
+    border-radius: 16px
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 16px
+    &:before
+        background: linear-gradient(0deg, rgba(18, 18, 18, 0.30) 0%, rgba(18, 18, 18, 0.30) 100%)
+        box-shadow: inset 0px 0px 8px 0px rgba(248, 248, 248, 0.25), 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+        backdrop-filter: blur(6px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(to bottom, black, transparent 100%)
+
+.square
+    position: absolute
+    z-index: 4
+    top: 32px
+    left: 50%
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 48px
+    height: 48px
+    transform: translateX(-50%)
+    font-size: 12px
+    font-weight: 600
+    color: $bento-text-primary
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 12px
+    &:before
+        background: rgba(248, 248, 248, 0.05)
+        backdrop-filter: blur(16px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(170deg, black, transparent 50%)
+    span
+        position: relative
+        z-index: 2
+
+.arrow
+    position: absolute
+    z-index: 5
+    &:nth-child(1)
+        top: 12px
+        right: 12px
+    &:nth-child(2)
+        top: 84px
+        left: 12px
+
+.dots
+    position: absolute
+    top: 12px
+    right: 7px
+    z-index: 3
+
+.inner
+    position: absolute
+    top: 4px
+    left: 4px
+    right: 4px
+    z-index: 2
+    height: 104px
+    border-radius: 12px
+    background: rgba(248, 248, 248, 0.05)
+    backdrop-filter: blur(16px)
+
+.block
+    position: absolute
+    left: 50%
+    bottom: 8px
+    width: 56px
+    height: 28px
+    transform: translateX(-50%)
+    border: 1.5px solid rgba($bento-main, .4)
+    border-radius: 14px
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 2.5px
+        border-radius: 10px
+    &:before
+        background: linear-gradient(0deg,rgba(18, 18, 18, 0.30) 0%, rgba(18, 18, 18, 0.30) 100%)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset, 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+        backdrop-filter: blur(6px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(170deg, black, transparent 50%)
+    span
+        position: absolute
+        top: 50%
+        left: 50%
+        z-index: 2
+        width: 24px
+        height: 4px
+        border-radius: 2px
+        transform: translate(-50%,-50%)
+        background: rgba($bento-text-primary, .5)

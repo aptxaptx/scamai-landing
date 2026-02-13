@@ -1,0 +1,92 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+    width: 100%
+    height: 336px
+
+.dots
+    position: relative
+    z-index: 3
+    display: flex
+    padding: 12px 16px
+    span
+        width: 8px
+        height: 8px
+        background: rgba($bento-main, .1)
+        border-radius: 50%
+        &:not(:last-child)
+            margin-right: 6px
+
+.grid
+    position: absolute
+    top: 0
+    left: 50%
+    z-index: 2
+    pointer-events: none
+    transform: translateX(-50%)
+    mask-image: radial-gradient(50% 50% at 50% 50%, black, transparent 95%)
+
+.box
+    position: absolute
+    top: 106px
+    left: 50%
+    width: 176px
+    height: 124px
+    transform: translateX(-50%)
+    border-radius: 10px
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 10px
+    &:before
+        background: rgba($bento-main, .03)
+        box-shadow: inset 0px 0px 8px 0px rgba(248, 248, 248, 0.25), 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+        backdrop-filter: blur(6px)
+    &:after
+        border: 1.5px solid rgba(248, 248, 248, 0.1)
+        mask-image: linear-gradient(to right, black, transparent 100%)
+
+.format
+    position: absolute
+    z-index: 2
+    top: 8px
+    right: 8px
+    padding: 3.5px 8px 2.5px
+    border-radius: 4px
+    +bento-shadow3
+    +bento-caption-sm
+    color: $bento-text-secondary
+
+.play
+    position: absolute
+    top: 50%
+    left: 50%
+    z-index: 2
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 60px
+    height: 60px
+    transform: translate(-50%,-50%)
+    border-radius: 50%
+    border: 1.5px solid rgba($bento-main, .4)
+    box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.40)
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 2.5px
+        border-radius: 50%
+    &:before
+        box-shadow: inset 0px 0px 8px 0px rgba(248, 248, 248, 0.25), 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+        backdrop-filter: blur(6px)
+    &:after
+        border: 1.5px solid rgba(248, 248, 248, 0.1)
+        mask-image: linear-gradient(170deg, black, transparent 50%)
+    img
+        position: relative
+        z-index: 2
+        

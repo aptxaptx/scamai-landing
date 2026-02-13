@@ -1,0 +1,124 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+    width: 100%
+    max-width: 336px
+    height: 336px
+    margin-left: auto
+    margin-right: auto
+
+.grid
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 336px
+    padding: 42px
+    transform: translate(-50%,-50%)
+    mask-image: radial-gradient(50% 50% at 50% 50%, black, rgba(0, 0, 0, 0))
+
+.cells
+    display: flex
+    flex-wrap: wrap
+    gap: 4px
+
+.cell,
+.avatar,
+.plus
+    width: 60px
+    height: 60px
+    border-radius: 16px
+
+.cell
+    border: 1.5px solid rgba($bento-main, .1)
+    &:nth-child(1)
+        width: 124px
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6)
+        height: 124px
+    &:nth-child(5)
+        width: 124px
+        opacity: 0
+    &:nth-child(9)
+        width: 124px
+
+.avatars
+    position: absolute
+    top: 50%
+    left: 50%
+    display: flex
+    flex-wrap: wrap
+    width: 124px
+    gap: 4px
+    transform: translate(-50%,-50%)
+
+.avatar
+    border: 1.5px solid rgba($bento-main, .4)
+    overflow: hidden
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+.plus
+    position: relative
+    border: 1.5px solid rgba($bento-main, .4)
+    display: flex
+    align-items: center
+    justify-content: center
+    box-shadow: 0px 32px 24px -16px rgba(0, 0, 0, 0.4)
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+    &:before
+        inset: 3px
+        display: flex
+        align-items: center
+        justify-content: center
+        background: linear-gradient(170deg, rgba(18, 18, 18, 0.3), rgba(18, 18, 18, 0.3)), rgba(248, 248, 248, 0.01)
+        box-shadow: 0px 32px 24px -16px rgba(0, 0, 0, 0.4), inset 0px 0px 8px rgba(248, 248, 248, 0.25)
+        backdrop-filter: blur(6px)
+        border-radius: 12px
+    &:after
+        inset: 3px
+        border: 1.5px solid rgba(#F8F8F8, .1)
+        border-radius: 12px
+        mask-image: linear-gradient(to bottom, black, transparent 90%)
+        pointer-events: none
+    img
+        position: relative
+        z-index: 2
+
+.cursor
+    position: absolute
+    z-index: 3
+    &:nth-child(1)
+        top: 80px
+        left: 64px
+    &:nth-child(2)
+        top: 215px
+        left: 200px
+
+.tooltip
+    position: absolute
+    top: 16px
+    left: 16px
+    min-width: 60px
+    padding: 4px 8px 2px
+    border-radius: 8px
+    overflow: hidden
+    background: rgba($bento-main, .05)
+    +bento-shadow3
+    text-align: center
+    +bento-caption-sm
+    color: $bento-text-secondary
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+        border: 1.5px solid rgba(#F8F8F8, .1)
+        border-radius: 8px
+        mask-image: linear-gradient(170deg, black, transparent 90%)
+        pointer-events: none

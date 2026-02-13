@@ -1,0 +1,143 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+    height: 336px
+
+.image,
+.ball,
+.list
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+.image
+    top: -16px
+
+.ball
+    top: 56px
+    width: 12px
+    height: 12px
+
+.ball,
+.item
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+
+.ball
+    &:before,
+    &:after
+        border-radius: 50%
+    &:before
+        background: linear-gradient(0deg, var(--neutral-neutral-430, rgba(18, 18, 18, 0.30)) 0%, var(--neutral-neutral-430, rgba(18, 18, 18, 0.30)) 100%)
+        box-shadow: 0px 0px 5.333px 0px rgba(248, 248, 248, 0.25) inset
+        filter: drop-shadow(0px 21.333px 16px rgba(0, 0, 0, 0.40))
+        backdrop-filter: blur(4px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(-45deg, black, transparent 50%)
+    span
+        position: absolute
+        inset: 3px
+        z-index: 2
+        border-radius: 50%
+        background: $bento-main
+
+.list
+    top: 132px
+    display: flex
+    justify-content: center
+    align-items: center
+
+.item
+    position: relative
+    &:before
+        background: rgba(248, 248, 248, 0.05)
+        box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.30)
+        backdrop-filter: blur(16px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(170deg, black, transparent 50%)
+    &:nth-child(1),
+    &:nth-child(3)
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 60px
+        height: 60px
+        &:before,
+        &:after
+            border-radius: 20px
+        img
+            position: relative
+            z-index: 2
+            filter: drop-shadow(-3px 5px 6px rgba(0, 0, 0, 0.20))
+    &:nth-child(2)
+        width: 80px
+        height: 80px
+        margin: 0 36px
+        border-radius: 50%
+        &:before,
+        &:after
+            border-radius: 50%
+
+.circle
+    position: absolute
+    inset: 8px
+    display: flex
+    flex-wrap: wrap
+    gap: 2px
+    padding: 24px
+    border-radius: 50%
+    overflow: hidden
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        border-radius: 50%
+    &:before
+        inset: 0
+        ackground: rgba(248, 248, 248, 0.01)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset, 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+        backdrop-filter: blur(6px)
+    &:after
+        top: -32px
+        left: 0
+        right: 0
+        bottom: 32px
+        background: rgba(248, 248, 248, 0.20)
+        filter: blur(16px)
+    span
+        position: relative
+        z-index: 2
+        width: 4px
+        height: 4px
+        border-radius: 50%
+        background: rgba($bento-main, .5)
+        &:nth-child(2),
+        &:nth-child(4),
+        &:nth-child(6),
+        &:nth-child(8)
+            background: rgba($bento-main, .1)
+
+.boxes
+    position: relative
+    z-index: 2
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 2px
+    span
+        width: 10px
+        height: 12px
+        border-radius: 5px
+        background: rgba(248, 248, 248, 0.10)
+        backdrop-filter: blur(50px)
+        &:nth-child(2)
+            height: 20px
+            background: linear-gradient(180deg, rgba(248, 248, 248, 0.90) 0%, rgba(248, 248, 248, 0.30) 100%)
+            box-shadow: -1px 2px 3px 0px rgba(0, 0, 0, 0.10), -3px 5px 6px 0px rgba(0, 0, 0, 0.20)
+

@@ -1,0 +1,31 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+    &:after
+        content: ""
+        position: absolute
+        top: 50%
+        left: 50%
+        z-index: 1
+        width: 64px
+        height: 64px
+        transform: translate(-50%,-50%)
+        border-radius: 16px
+        box-shadow: 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+
+.grid
+    position: relative
+    max-width: 336px
+    height: 336px
+    margin-left: auto
+    margin-right: auto
+    overflow: hidden
+    border-radius: 16px
+    mask-image: radial-gradient(50% 50% at 50% 50%, black, rgba(0, 0, 0, 0))
+    img
+        position: absolute
+        top: 0
+        left: 50%
+        width: 336px
+        transform: translateX(-50%)

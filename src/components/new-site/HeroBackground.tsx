@@ -1,0 +1,81 @@
+export default function HeroBackground({ className = "" }: { className?: string }) {
+  return (
+    <div className={`absolute w-full h-full overflow-hidden ${className}`} style={{ top: 0, left: 0, right: 0, bottom: 0 }}>
+      <svg
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 1468 1052"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid slice"
+        style={{
+          minHeight: '100%',
+          minWidth: '100%',
+          objectFit: 'cover',
+        }}
+      >
+      <g filter="url(#filter0_d_2300_2587)">
+        <g clipPath="url(#clip0_2300_2587)">
+          <rect x="14" y="10" width="1440" height="1024" fill="black"/>
+          <g filter="url(#filter1_f_2300_2587)">
+            <path d="M751.737 176L813.392 525.266C837.09 659.509 905.794 781.681 1008.19 871.666L1226.44 1063.46L751.737 902.851L277.031 1063.46L495.282 871.666C597.681 781.681 666.385 659.509 690.082 525.266L751.737 176Z" fill="#045BBF"/>
+          </g>
+          <g opacity="0.4" filter="url(#filter2_f_2300_2587)">
+            <path d="M751.737 15.5L833.655 533.038C855.538 671.29 925.07 797.541 1030.21 889.939L1311.06 1136.73L751.737 947.501L192.418 1136.73L473.261 889.939C578.405 797.541 647.936 671.29 669.82 533.037L751.737 15.5Z" fill="#045BBF"/>
+          </g>
+          <g filter="url(#filter3_f_2300_2587)" style={{ mixBlendMode: 'plus-lighter' }}>
+            <ellipse cx="751.737" cy="999.56" rx="267.912" ry="189.309" fill="#4434F0"/>
+          </g>
+          <g filter="url(#filter4_f_2300_2587)" style={{ mixBlendMode: 'plus-lighter' }}>
+            <path fillRule="evenodd" clipRule="evenodd" d="M751.649 871.644C1027.49 871.644 1266.9 910.419 1386.43 967.232C1259.73 914.051 1022.9 878.27 751.649 878.27C480.395 878.27 243.564 914.051 116.865 967.232C236.399 910.419 475.803 871.644 751.649 871.644Z" fill="#045BBF"/>
+          </g>
+          <g filter="url(#filter5_f_2300_2587)" style={{ mixBlendMode: 'plus-lighter' }}>
+            <path d="M1386.44 967.236C1259.75 914.052 1022.91 878.27 751.649 878.27C480.388 878.27 243.552 914.052 116.855 967.236C236.386 910.42 475.796 855.678 751.649 855.678C1027.5 855.678 1266.91 910.42 1386.44 967.236Z" fill="#4434F0"/>
+          </g>
+          <path d="M1484.45 1056.18C1484.45 1111.08 1604.75 1249.11 1443.76 1281.74C1316.62 1307.51 890.565 1281.74 711.98 1281.74C551.317 1281.74 210.114 1291.66 89.3346 1270.38C-94.1328 1238.04 14.3744 1123.34 18.8495 1056.18C18.8495 957.921 346.935 878.27 751.649 878.27C1156.36 878.27 1484.45 957.921 1484.45 1056.18Z" fill="black"/>
+        </g>
+        <rect x="14.5" y="10.5" width="1439" height="1023" stroke="black" strokeOpacity="0.75"/>
+      </g>
+      <defs>
+        <filter id="filter0_d_2300_2587" x="0" y="0" width="1468" height="1052" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+          <feOffset dy="4"/>
+          <feGaussianBlur stdDeviation="7"/>
+          <feComposite in2="hardAlpha" operator="out"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2300_2587"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2300_2587" result="shape"/>
+        </filter>
+        <filter id="filter1_f_2300_2587" x="77.031" y="-24" width="1349.41" height="1287.46" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+          <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_2300_2587"/>
+        </filter>
+        <filter id="filter2_f_2300_2587" x="-7.58203" y="-184.5" width="1518.64" height="1521.23" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+          <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_2300_2587"/>
+        </filter>
+        <filter id="filter3_f_2300_2587" x="253.125" y="579.55" width="997.224" height="840.018" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+          <feGaussianBlur stdDeviation="115.35" result="effect1_foregroundBlur_2300_2587"/>
+        </filter>
+        <filter id="filter4_f_2300_2587" x="108.565" y="863.344" width="1286.17" height="112.189" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+          <feGaussianBlur stdDeviation="4.15" result="effect1_foregroundBlur_2300_2587"/>
+        </filter>
+        <filter id="filter5_f_2300_2587" x="52.4547" y="791.278" width="1398.39" height="240.358" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+          <feGaussianBlur stdDeviation="32.2" result="effect1_foregroundBlur_2300_2587"/>
+        </filter>
+        <clipPath id="clip0_2300_2587">
+          <rect x="14" y="10" width="1440" height="1024" fill="white"/>
+        </clipPath>
+      </defs>
+      </svg>
+    </div>
+  );
+}

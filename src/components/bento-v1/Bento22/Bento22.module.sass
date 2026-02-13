@@ -1,0 +1,67 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+    height: 360px
+    margin: 0 -16px
+
+.globe
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+
+.tooltip
+    position: absolute
+    &:nth-child(1)
+        top: 201px
+        left: calc(50% - 76px)
+    &:nth-child(2)
+        top: 120px
+        right: calc(50% - 24px)
+    &:nth-child(3)
+        top: 220px
+        right: calc(50% - 98px)
+
+.dot
+    position: relative
+    width: 16px
+    height: 16px
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 50%
+    &:before
+        background-image: linear-gradient(0deg, rgba(18, 18, 18, 0.30) 0%, rgba(18, 18, 18, 0.30) 100%)
+        box-shadow: inset 0px 0px 8px 0px rgba(248, 248, 248, 0.25), 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+        backdrop-filter: blur(6px)
+    &:after
+        border: 1px solid rgba($bento-main, .1)
+    span
+        position: absolute
+        inset: 4px
+        border-radius: 50%
+        background: $bento-main
+
+.title
+    position: absolute
+    left: 50%
+    bottom: calc(100% + 8px)
+    padding: 3px 8px 2px
+    border-radius: 10px
+    overflow: hidden
+    +bento-shadow3
+    transform: translateX(-50%)
+    white-space: nowrap
+    +bento-caption-sm
+    color: $bento-text-primary
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+        border: 1.5px solid rgba(#F8F8F8, .1)
+        border-radius: 10px
+        mask-image: linear-gradient(170deg, black, transparent 90%)
+        pointer-events: none

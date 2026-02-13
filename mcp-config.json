@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "scamai-landing": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dennisng/scamai-landing"],
+      "disabled": false,
+      "alwaysAllow": [
+        "read_file",
+        "list_directory",
+        "search_files"
+      ]
+    }
+  },
+  "resources": {
+    "documentation": {
+      "uri": "file:///Users/dennisng/scamai-landing/README.md",
+      "name": "Project README",
+      "description": "Main project documentation"
+    },
+    "refactoring": {
+      "uri": "file:///Users/dennisng/scamai-landing/REFACTORING.md",
+      "name": "Refactoring Guide",
+      "description": "Refactoring documentation and guidelines"
+    },
+    "components": {
+      "uri": "file:///Users/dennisng/scamai-landing/src/components",
+      "name": "Components Directory",
+      "description": "React components including magicui components"
+    },
+    "translations": {
+      "uri": "file:///Users/dennisng/scamai-landing/src/messages",
+      "name": "Translation Files",
+      "description": "i18n translation JSON files for all supported languages"
+    }
+  },
+  "project": {
+    "name": "ScamAI Landing Page",
+    "description": "Next.js landing page for ScamAI - AI-powered deepfake and synthetic fraud detection platform",
+    "version": "0.1.0",
+    "framework": "Next.js 15",
+    "styling": "Tailwind CSS 4",
+    "features": [
+      "Multi-language support (next-intl)",
+      "Dark/Light theme (next-themes)",
+      "Magic UI components",
+      "Framer Motion animations",
+      "TypeScript"
+    ]
+  }
+}

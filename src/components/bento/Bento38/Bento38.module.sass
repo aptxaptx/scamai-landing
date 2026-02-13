@@ -1,0 +1,42 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+    height: 336px
+
+.main,
+.numbers
+    position: absolute
+    top: -16px
+    left: 50%
+    transform: translateX(-50%)
+
+.title
+    position: absolute
+    top: 136px
+    right: calc(50% - 41px)
+    z-index: 2
+    font-size: 20px
+    line-height: 1.2
+    font-weight: 700
+    color: rgba($bento-text-primary, .8)
+
+.numbers
+    top: -16px
+    z-index: -1
+    display: flex
+    flex-direction: column
+    width: 368px
+    height: 368px
+    padding: 136px 72px
+    mask-image: radial-gradient(50% 50% at 50% 50%, black, transparent 55%)
+    text-align: center
+    font-size: 8px
+    line-height: 2
+    color: rgba($bento-text-secondary, .07)
+    span
+        &:nth-child(1)
+            margin-bottom: auto
+
+
+

@@ -1,0 +1,17 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+    width: 100%
+    max-width: 336px
+    height: 336px
+    margin-left: auto
+    margin-right: auto
+    overflow: hidden
+
+.image
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    mask-image: linear-gradient(to right, transparent 0, black 25%, black 75%, transparent 100%)

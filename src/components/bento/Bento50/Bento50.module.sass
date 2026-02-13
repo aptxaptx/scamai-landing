@@ -1,0 +1,168 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+    height: 336px
+
+.main
+    position: absolute
+    top: -256px
+    left: 50%
+    transform: translateX(-41%)
+    
+.monitor,
+.stand
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+.monitor
+    top: 80px
+    width: 184px
+    height: 128px
+    background: rgba(#121212, .5)
+    border-radius: 32px
+
+.screen,
+.boxes,
+.stand,
+.foot
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+
+.screen
+    position: absolute
+    inset: 4px
+    z-index: 2
+    &:before,
+    &:after
+        border-radius: 28px
+    &:before
+        background: rgba(248, 248, 248, 0.05)
+        box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.30)
+        backdrop-filter: blur(16px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(158deg, black, transparent 50%)
+
+.boxes
+    position: absolute
+    top: 16px
+    right: -37px
+    bottom: 16px
+    width: 128px
+    display: flex
+    padding: 6px
+    gap: 6px
+    &:before,
+    &:after
+        border-radius: 18px
+    &:before
+        background: rgba(40, 40, 40, 0.70)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset
+        backdrop-filter: blur(50px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(170deg, black, transparent 70%)
+
+.box
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    flex: 1
+    &:before
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 12px
+    &:nth-child(1)
+        color: rgba($bento-text-secondary, .5)
+        &:before
+            background: rgba(248, 248, 248, 0.01)
+            box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.30)
+            backdrop-filter: blur(16px)
+    &:nth-child(2)
+        color: rgba($bento-text-primary, .8)
+        &:before
+            border: 1.5px solid rgba(255, 255, 255, 0.40)
+            background: rgba(248, 248, 248, 0.05)
+            box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.30)
+            backdrop-filter: blur(16px)
+
+.letter
+    position: relative
+    z-index: 2
+    font-size: 20px
+    font-weight: 700
+    line-height: 1.2
+
+.stand
+    top: 107px
+    width: 60px
+    height: 74px
+
+.foot
+    position: absolute
+    left: -2px
+    right: -2px
+    bottom: 0
+    height: 9px
+
+.stand,
+.foot
+    &:before,
+    &:after
+        border-radius: 2px
+    &:before
+        background: rgba(40, 40, 40, 0.70)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset
+        backdrop-filter: blur(50px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(165deg, black, transparent 50%)
+
+.check
+    position: absolute
+    top: 36px
+    left: 20px
+    z-index: 2
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 48px
+    height: 48px
+    border-radius: 50%
+    overflow: hidden
+    +bento-shadow2
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        border-radius: 50%
+    &:before
+        inset: 0
+        background: rgba(248, 248, 248, 0.01)
+        box-shadow: 0px 0px 6px 0px rgba(248, 248, 248, 0.25) inset
+        filter: drop-shadow(0px 23px 17px rgba(0, 0, 0, 0.40))
+        backdrop-filter: blur(4px)
+    &:after
+        top: -21px
+        left: -21px
+        width: 56px
+        height: 56px
+        background: rgba(248, 248, 248, 0.20)
+        filter: blur(14px)
+    img
+        position: relative
+        z-index: 2
+        filter: drop-shadow(-3px 5px 6px rgba(0, 0, 0, 0.20))
+
+.lines
+    position: absolute
+    top: 40px
+    right: calc(100% - 24px)
+    z-index: 3

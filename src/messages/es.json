@@ -1,0 +1,1751 @@
+{
+  "nav": {
+    "products": "Productos",
+    "industries": "Industrias",
+    "resources": "Recursos",
+    "company": "Empresa",
+    "pricing": "Precios",
+    "signup": "Registrarse",
+    "demo": "Obtener una Demo"
+  },
+  "products": {
+    "deepfake": "Detección de Deepfake",
+    "voice": "Detección de Clonación de Voz",
+    "aimedia": "Detección de Medios IA"
+  },
+  "industries": {
+    "kyc": "KYC y Verificación de Identidad",
+    "dating": "Apps de Citas y Redes Sociales",
+    "fakenews": "Detección de Noticias Falsas",
+    "impersonation": "Suplantación y Fraude"
+  },
+  "resources": {
+    "publications": "Publicaciones y Conjuntos de Datos",
+    "news": "Noticias",
+    "scams": "Tipos de Estafas"
+  },
+  "hero": {
+    "title": "No te dejes engañar\npor la IA",
+    "subtitle": "Detecta imágenes, audio y video generados por IA.\nCombate estafas impulsadas por IA a escala.",
+    "primary": "Probar Ahora",
+    "secondary": "CTA Secundario"
+  },
+  "content": {
+    "title": "Área de contenido lista para rediseñar",
+    "subtitle": "Fondo blanco limpio en todo el sitio"
+  },
+  "footer": {
+    "tagline": "Combate deepfakes, clonación de voz y fraude de medios sintéticos.",
+    "products": "Productos",
+    "company": "Empresa",
+    "about": "Acerca de",
+    "research": "Investigación",
+    "contact": "Contacto",
+    "copyright": " 2024 Reality Inc. Todos los derechos reservados. ScamAI es un producto de Reality Inc.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  },
+  "Business": {
+    "Page": {
+      "metadata": {
+        "title": "Business Use Case — ScamAI",
+        "description": "Explore ScamAI's AI misuse prevention solutions tailored for businesses."
+      },
+      "hero": {
+        "title": "Business Use Cases",
+        "description": "Protect your business from AI-powered fraud with our comprehensive detection solutions. From identity verification to content authenticity, safeguard your operations across every touchpoint."
+      },
+      "cards": [
+        {
+          "title": "KYC/ID Verification",
+          "description": "Detect forged IDs and deepfakes during onboarding.",
+          "tag": "Deepfake"
+        },
+        {
+          "title": "Dating Apps",
+          "description": "Stop catfishing with image, video, and voice checks.",
+          "tag": "GenAI"
+        },
+        {
+          "title": "Online Meeting",
+          "description": "Block face and voice spoofing in real time.",
+          "tag": "Deepfake & Voiceclone"
+        },
+        {
+          "title": "Fake News & Misinformation",
+          "description": "Flag AI-generated media and misleading narratives quickly.",
+          "tag": "GenAI"
+        },
+        {
+          "title": "IP/Copyright Protection",
+          "description": "Detect unauthorized AI remixes and derivative content.",
+          "tag": "Deepfake & GenAI"
+        },
+        {
+          "title": "Legal & Compliance",
+          "description": "Verify provenance and meet emerging AI regulations.",
+          "tag": "Deepfake"
+        }
+      ]
+    },
+    "Kyc": {
+      "metadata": {
+        "title": "KYC/ID Verification — ScamAI",
+        "description": "Detect forged IDs and deepfakes during onboarding with ScamAI."
+      },
+      "breadcrumb": "KYC/ID Verification",
+      "nextLabel": "Dating Apps",
+      "eyebrow": "Solutions for KYC/ID Verification",
+      "titleLine1": "Deepfake Detection",
+      "titleLine2": "That Actually Works",
+      "subtitleLine1": "OnlyFace model catches over 90% of sota deepfakes.",
+      "subtitleLine2": "Keep your business safe. Keep your trust intact.",
+      "tags": {
+        "genai": "GenAI",
+        "deepfake": "Deepfake",
+        "liveness": "Liveness & ID"
+      },
+      "problemTitleLine1": "Over 90% KYC/ID Verification vendors",
+      "problemTitleLine2": "Failed to Detect Deepfakes",
+      "valueProps": [
+        {
+          "title": "Stop fake signups",
+          "description": "Block deepfake faces and forged IDs at onboarding."
+        },
+        {
+          "title": "Cut fraud losses",
+          "description": "Stop payout fraud and mule accounts early."
+        },
+        {
+          "title": "Pass compliance audits",
+          "description": "Clear, auditable KYC/AML signals."
+        }
+      ],
+      "cta": {
+        "title": "KYC deepfakes, caught live.",
+        "description": "Add an extra layer of security to your KYC/ID Verification process."
+      }
+    },
+    "Dating": {
+      "metadata": {
+        "title": "Dating Apps — ScamAI",
+        "description": "Stop catfishing with image, video, and voice checks. Block face and voice spoofing in real time."
+      },
+      "breadcrumb": "Dating Apps",
+      "nextLabel": "Impersonation",
+      "eyebrow": "Solutions for Dating Apps",
+      "title": "Stop catfishing with image, video, and voice checks.",
+      "subtitle": "Block face and voice spoofing in real time.",
+      "tags": {
+        "genai": "GenAI",
+        "impersonation": "Impersonation",
+        "deepfake": "Deepfake & Voiceclone"
+      },
+      "valueProps": [
+        {
+          "title": "Kill catfishing",
+          "description": "Verify photos, videos, and voice notes at signup."
+        },
+        {
+          "title": "Fewer chargebacks",
+          "description": "Block impersonators before matches and payments."
+        },
+        {
+          "title": "Safer community",
+          "description": "Real users in, bad actors out."
+        }
+      ],
+      "cta": {
+        "title": "Protect your users, in real time.",
+        "description": "Add an extra layer of safety to profile and chat verification."
+      }
+    },
+    "FakeNews": {
+      "metadata": {
+        "title": "Fake News & Misinformation — ScamAI",
+        "description": "Flag AI-generated media and misleading narratives quickly."
+      },
+      "breadcrumb": "Fake News & Misinformation",
+      "nextLabel": "IP/Copyright Protection",
+      "eyebrow": "Solutions for Media Integrity",
+      "title": "Flag AI-generated media and misleading narratives quickly.",
+      "tags": {
+        "genai": "GenAI"
+      },
+      "demo": {
+        "icon": "",
+        "kicker": "Real-time Detection",
+        "title": "See Fake News Detection in Action",
+        "description": "Watch our AI identify manipulated media, deepfakes, and synthetic content in real-time across news feeds, social media, and editorial workflows.",
+        "cta": "Try Detection Demo",
+        "status": "Live detection available"
+      },
+      "valueProps": [
+        {
+          "title": "Spot AI media instantly",
+          "description": "Flag images, audio, and video before they trend."
+        },
+        {
+          "title": "Context that informs",
+          "description": "Clear signals your editors can trust."
+        },
+        {
+          "title": "Moderate at scale",
+          "description": "Automate checks across posts, comments, and streams."
+        }
+      ],
+      "cta": {
+        "title": "Keep misinformation out.",
+        "description": "Add a trusted layer for content authenticity checks."
+      }
+    },
+    "Impersonation": {
+      "metadata": {
+        "title": "Impersonation — ScamAI",
+        "description": "Block face and voice spoofing in real time."
+      },
+      "breadcrumb": "Impersonation",
+      "nextLabel": "Fake News & Misinformation",
+      "eyebrow": "Solutions for Impersonation",
+      "title": "Block face and voice spoofing in real time.",
+      "tags": {
+        "primary": "Deepfake & Voiceclone"
+      },
+      "valueProps": [
+        {
+          "title": "Stop real-time spoofing",
+          "description": "Catch face and voice clones during login and calls."
+        },
+        {
+          "title": "Prevent account takeovers",
+          "description": "Block deepfakes before they reach funds or data."
+        },
+        {
+          "title": "Invisible security",
+          "description": "Millisecond checks, no friction."
+        }
+      ],
+      "cta": {
+        "title": "Stop live impersonation.",
+        "description": "Protect calls, sign-ins, and KYC flows from spoofing attacks."
+      }
+    },
+    "IpCopyright": {
+      "metadata": {
+        "title": "IP/Copyright Protection — ScamAI",
+        "description": "Detect unauthorized AI remixes and derivative content."
+      },
+      "breadcrumb": "IP/Copyright Protection",
+      "nextLabel": "Legal & Compliance",
+      "eyebrow": "Solutions for IP/Copyright Protection",
+      "title": "Detect unauthorized AI remixes and derivative content.",
+      "tags": {
+        "primary": "Deepfake & GenAI"
+      },
+      "valueProps": [
+        {
+          "title": "Find AI remixes",
+          "description": "Detect style clones, voice covers, and derivative edits."
+        },
+        {
+          "title": "Faster takedowns",
+          "description": "Evidence and matches ready for enforcement."
+        },
+        {
+          "title": "Protect royalties",
+          "description": "Keep revenue with clear attribution."
+        }
+      ],
+      "cta": {
+        "title": "Protect your IP, everywhere.",
+        "description": "Add automated detection across uploads, streams, and libraries."
+      }
+    },
+    "LegalCompliance": {
+      "metadata": {
+        "title": "Legal & Compliance — ScamAI",
+        "description": "Verify provenance and meet emerging AI regulations."
+      },
+      "breadcrumb": "Legal & Compliance",
+      "nextLabel": "KYC/ID Verification",
+      "eyebrow": "Solutions for Legal & Compliance",
+      "title": "Verify provenance and meet emerging AI regulations.",
+      "tags": {
+        "genai": "GenAI"
+      },
+      "valueProps": [
+        {
+          "title": "Verify provenance",
+          "description": "Watermarks, artifacts, and model hints."
+        },
+        {
+          "title": "Be regulation-ready",
+          "description": "Explainable signals and audit trails."
+        },
+        {
+          "title": "Automate reviews",
+          "description": "Policy checks across uploads and workflows."
+        }
+      ],
+      "cta": {
+        "title": "Be confident in compliance.",
+        "description": "Add provenance checks across uploads, reviews, and discovery."
+      }
+    },
+    "Common": {
+      "breadcrumb": {
+        "business": "Business"
+      },
+      "videoPlaceholder": "Video placeholder — replace with your .webm or .mp4",
+      "videoFallback": "Your browser does not support the video tag.",
+      "cta": "Schedule a Demo",
+      "next": "Next: {label} →"
+    }
+  },
+  "Models": {
+    "Deepfakes": {
+      "metadata": {
+        "title": "Deepfakes (Faceswap) — ScamAI",
+        "description": "Detect deepfakes and faceswaps with ScamAI's advanced real-time detection."
+      },
+      "hero": {
+        "category": "Deepfake Detection",
+        "headline": "Defending the Truth in Human Face",
+        "subtitle": "Real-Time Deepfake Detection",
+        "tags": [
+          "GenAI",
+          "Deepfake",
+          "Faceswap"
+        ]
+      },
+      "problemSection": {
+        "headline": "The Threat: \"Seeing is Believing\" Is a Thing of the Past",
+        "visualAlt": "Deepfake detection interface showing analysis results"
+      },
+      "cta": {
+        "headline": "Take the Next Step",
+        "description": "Protect your organization with advanced deepfake detection."
+      }
+    },
+    "AiGeneratedMedia": {
+      "metadata": {
+        "title": "AI Image Detection — ScamAI",
+        "description": "Detect AI-generated images and videos with ScamAI's advanced detection technology."
+      },
+      "hero": {
+        "category": "AI-Generated Media Detection",
+        "headline": "Detect AI-Generated Images and Video",
+        "subtitle": "Verifying Reality in a Synthetic World",
+        "tags": [
+          "GenAI",
+          "Synthetic Media",
+          "Detection"
+        ],
+        "visualAlt": "Examples of AI-generated fake news images showing fabricated content"
+      },
+      "problemSection": {
+        "headline": "The Threat: Is Any Image\nReal Anymore?",
+        "visualAlt": "AI detection interface showing AI-generated content identification results"
+      }
+    },
+    "VoiceClones": {
+      "metadata": {
+        "title": "Voice Cloning — ScamAI",
+        "description": "Detect AI voice clones and synthetic audio with ScamAI's real-time detection technology."
+      },
+      "hero": {
+        "category": "AI Voice Clone Detection",
+        "headline": "Real-Time AI Voice Clone Detection",
+        "subtitle": "Secure Every Conversation",
+        "tags": [
+          "Voice AI",
+          "Audio Synthesis",
+          "Detection",
+          "VoiceGuard"
+        ],
+        "visualAlt": "Example synthetic audio file Sale0625.mp3 generated by minimax.io"
+      },
+      "problemSection": {
+        "headline": "The Threat: Can You Trust What You Hear?",
+        "visualAlt": "Voice detection interface showing analysis results for synthetic audio"
+      },
+      "cta": {
+        "headline": "Secure Your Audio Channels",
+        "description": "Protect your users from voice-based fraud and impersonation."
+      }
+    },
+    "ScamTextDetection": {
+      "metadata": {
+        "title": "Scam Text Detection — ScamAI",
+        "description": "Detect scam text messages and fraudulent communications with ScamAI's advanced detection technology."
+      },
+      "hero": {
+        "category": "Scam Text Detection",
+        "headline": "Instantly Identify and Neutralize",
+        "subtitle": "Malicious Texts",
+        "description": "Scam.ai's Text Guardian model analyzes text messages and short-form content in real time to detect and block phishing, smishing, and other text-based scams before a user can click a malicious link or fall for a fraudulent request.",
+        "tags": [
+          "Text Analysis",
+          "Scam Detection",
+          "NLP",
+          "Text Guardian"
+        ],
+        "visualAlt": "Text and Link Analysis"
+      },
+      "problemSection": {
+        "headline": "The Threat: The Evolving Threat\nin Your Pocket",
+        "description": "Traditional spam filters are no longer enough. Scammers now use sophisticated tactics like personalized messages, URL shorteners, and urgent, emotion-driven language to trick even wary users. These attacks are a direct line to your customers and employees, bypassing many conventional security layers.",
+        "visualAlt": "Text-based threat landscape",
+        "valueProps": [
+          {
+            "title": "Smishing (SMS Phishing)",
+            "description": "Fake delivery notifications, bank alerts, or password reset links sent via text message."
+          },
+          {
+            "title": "Impersonation Scams",
+            "description": "Messages pretending to be from a CEO, colleague, or family member asking for gift cards, wire transfers, or sensitive information."
+          },
+          {
+            "title": "Urgency & Scare Tactics",
+            "description": "Fraudulent claims like \"Your account has been compromised\" or \"A warrant has been issued for your arrest\" to provoke an immediate, panicked response."
+          }
+        ]
+      },
+      "threatLandscape": {
+        "headline": "The Challenge of Text-Based Fraud",
+        "description": "Text-based scams have evolved beyond simple spam, using sophisticated psychological manipulation and technical evasion tactics to bypass traditional security measures.",
+        "keyThreats": [
+          "Smishing (SMS Phishing)",
+          "Impersonation Scams",
+          "Malicious Links"
+        ],
+        "dataPoint": "A 2025 report from the Federal Trade Commission (FTC) shows that financial losses from text-based scams have surpassed those from email phishing for the first time, totaling over $350 million last year alone."
+      },
+      "solution": {
+        "productName": "Text Guardian",
+        "headline": "Our Solution: Text Guardian — Proactive Threat Detection",
+        "description": "Text Guardian functions as a sophisticated language analysis engine, understanding the intent and context behind every message to identify malicious behavior with incredible accuracy.",
+        "coreDimensions": [
+          {
+            "title": "LLM-Powered Intent Analysis",
+            "description": "Powered by a proprietary Large Language Model (LLM) fine-tuned on millions of scams from our ScamNet DB, our model goes beyond keywords to understand the true intent, urgency, and manipulative tactics in a message."
+          },
+          {
+            "title": "Real-Time Link & URL Unmasking",
+            "description": "The model automatically analyzes any embedded links, following redirects and checking the final destination against our ScamNet DB for known phishing domains, even if the link is shortened or obfuscated."
+          },
+          {
+            "title": "Threat Actor Pattern Recognition",
+            "description": "Text Guardian identifies and cross-references unique phrases, phone number blocks, and URL patterns associated with known scam campaigns, allowing it to block new attacks that share a common origin."
+          }
+        ],
+        "outputDescription": "The model's output is a clear, actionable JSON response containing a risk score, the specific scam type detected (e.g., 'smishing', 'impersonation'), and any identified malicious entities."
+      },
+      "advantages": {
+        "headline": "Our Advantage: Why Choose Text Guardian?",
+        "items": [
+          {
+            "title": "Millisecond-Level Response",
+            "description": "Optimized for high-throughput messaging platforms, ensuring instant analysis without delaying message delivery."
+          },
+          {
+            "title": "Unparalleled Accuracy",
+            "description": "Our fine-tuned LLM, trained on the world's largest proprietary database of scam texts, dramatically reduces false positives and detects novel threats."
+          },
+          {
+            "title": "Exceptional Robustness",
+            "description": "Effectively understands and analyzes text containing typos, slang, emojis, and multiple languages."
+          },
+          {
+            "title": "Constantly Evolving",
+            "description": "Our model is continuously re-trained with the latest scam data from ScamNet DB, ensuring it stays ahead of evolving scammer tactics."
+          }
+        ]
+      },
+      "useCases": {
+        "headline": "Use Cases & Applications",
+        "items": [
+          "Telecommunications & Messaging Apps",
+          "Enterprise Communications",
+          "Financial Services",
+          "Online Marketplaces"
+        ]
+      },
+      "apiSection": {
+        "headline": "API Integration",
+        "description": "Ready to integrate Text Guardian into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+        "apiDocumentation": {
+          "text": "View Complete API Documentation"
+        }
+      },
+      "cta": {
+        "headline": "Take the Next Step",
+        "description": "Protect your organization with advanced text-based scam detection.",
+        "primary": {
+          "text": "Request a Demo"
+        }
+      }
+    },
+    "LinkQrCode": {
+      "metadata": {
+        "title": "Link & QR Code Detection — ScamAI",
+        "description": "Detect malicious links and QR codes with ScamAI's advanced URL analysis technology."
+      },
+      "hero": {
+        "category": "Link & QR Code Detection",
+        "headline": "Link & QR Code Detection",
+        "subtitle": "Malicious URL Analysis",
+        "description": "Identify dangerous links and malicious QR codes. Protect against URL-based attacks and fraud.",
+        "tags": [
+          "URL Analysis",
+          "QR Code",
+          "Link Detection"
+        ],
+        "visualAlt": "Link and QR Code Analysis"
+      },
+      "problemSection": {
+        "headline": "Malicious Links\nAre Everywhere",
+        "description": "Attackers use shortened URLs, QR codes, and deceptive links to bypass security measures and trick users.",
+        "additionalContent": "Researchers need tools to analyze and detect malicious URLs and QR codes that are used in various attack vectors and fraud schemes.",
+        "visualAlt": "URL and link analysis tools",
+        "valueProps": [
+          {
+            "title": "Detect malicious URLs",
+            "description": "Identify dangerous links and shortened URLs automatically."
+          },
+          {
+            "title": "Analyze QR codes",
+            "description": "Decode and analyze QR codes for malicious content."
+          },
+          {
+            "title": "Research security",
+            "description": "Study URL-based attack patterns and trends."
+          }
+        ]
+      },
+      "solution": {
+        "productName": "LinkGuard",
+        "headline": "Our Solution: LinkGuard",
+        "description": "LinkGuard analyzes URLs, shortened links, and QR codes to detect malicious destinations, phishing attempts, and fraudulent websites using advanced pattern recognition.",
+        "coreDimensions": [
+          {
+            "title": "URL Analysis",
+            "description": "Deep analysis of URL structure, domain reputation, and redirection chains."
+          },
+          {
+            "title": "QR Code Decoding",
+            "description": "Decode QR codes and analyze embedded URLs for malicious content."
+          },
+          {
+            "title": "Reputation Scoring",
+            "description": "Real-time reputation analysis of domains and URL patterns."
+          }
+        ],
+        "outputDescription": "Provides comprehensive analysis with risk scores and detailed threat intelligence for URLs and QR codes."
+      },
+      "advantages": {
+        "headline": "Why Choose LinkGuard?",
+        "items": [
+          {
+            "title": "High Detection Rate",
+            "description": "Advanced algorithms trained on millions of malicious URLs."
+          },
+          {
+            "title": "Real-time Analysis",
+            "description": "Instant URL and QR code analysis for immediate threat detection."
+          },
+          {
+            "title": "Global Coverage",
+            "description": "Monitors threats across all top-level domains and URL shorteners."
+          },
+          {
+            "title": "Adaptive Intelligence",
+            "description": "Continuously updated with new URL-based attack patterns."
+          }
+        ]
+      },
+      "useCases": {
+        "headline": "Research Applications",
+        "items": [
+          "Phishing Research",
+          "URL Security Analysis",
+          "QR Code Security",
+          "Fraud Pattern Studies"
+        ]
+      },
+      "apiSection": {
+        "headline": "API Integration",
+        "description": "Ready to integrate link and QR code analysis into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+        "apiDocumentation": {
+          "text": "View Complete API Documentation"
+        }
+      },
+      "cta": {
+        "headline": "Analyze links with confidence.",
+        "description": "Protect your research with advanced URL and QR code threat detection capabilities.",
+        "primary": {
+          "text": "Schedule a Demo"
+        }
+      }
+    }
+  },
+  "HomePage": {
+    "Hero": {
+      "kicker": "Hacker Chic · Enterprise Grade · Dark Mode",
+      "title": "The AI Firewall Against Deepfakes and Synthetic Fraud.",
+      "subtitle": "Enterprise-grade detection models that protect your KYC flows, identity verification, and platform integrity from generative AI attacks.",
+      "primaryCta": "Try the Demo Now",
+      "secondaryCta": "Get API Key",
+      "stats": [
+        {
+          "title": "99.99% Uptime",
+          "description": "Battle-tested SLAs for regulated flows."
+        },
+        {
+          "title": "<100ms Decisions",
+          "description": "Inline blocks before fraud escalates."
+        },
+        {
+          "title": "Global Coverage",
+          "description": "Optimized for KYC, fintech, and marketplaces."
+        }
+      ]
+    },
+    "Playground": {
+      "kicker": "Product-led",
+      "title": "Test Our Detection Models",
+      "freeTrials": "{count} Free Trials",
+      "demoCount": "Demo count: {count}/{limit}",
+      "tabs": {
+        "image": {
+          "label": "Image Detection",
+          "badge": "Active"
+        },
+        "voice": {
+          "label": "Voice Clone",
+          "badge": "Beta"
+        },
+        "video": {
+          "label": "Video Deepfake",
+          "badge": "Coming Soon"
+        }
+      },
+      "uploadArea": "Upload Area",
+      "uploadHint": "Drag & drop an image or paste URL. JPG, PNG, WEBP (Max 5MB)",
+      "badges": {
+        "image": "High Fidelity",
+        "voice": "Audio Beta",
+        "video": "Video Soon"
+      },
+      "dropzonePrompt": "Drag & drop an image here or paste an image URL",
+      "dropzoneFormats": "Supported formats: JPG, PNG, WEBP (Max 5MB)",
+      "runDetection": "Run Detection",
+      "remaining": "{count} files remaining today",
+      "limit": {
+        "title": "You have hit the limit of {limit} files today.",
+        "description": "Create a free account to continue testing at scale.",
+        "cta": "Sign Up for Free"
+      },
+      "result": {
+        "label": "Result Card",
+        "default": {
+          "verdict": " AI-Generated (99.8%)",
+          "analysis": "High frequency artifacts detected in background texture.",
+          "action": "Integrate API to block this automatically."
+        },
+        "image": {
+          "verdict": " AI-Generated (99.8%)",
+          "analysis": "High-frequency diffusion artifacts and edge halos spotted."
+        },
+        "voice": {
+          "verdict": " Likely Synthetic (93.2%)",
+          "analysis": "Spectral cadence mismatch and cloned prosody detected."
+        },
+        "video": {
+          "verdict": " Suspicious (Awaiting Full Model)",
+          "analysis": "Temporal jitter flagged. Beta model will auto-block on release."
+        },
+        "action": "Integrate API to block this."
+      },
+      "risk": "High Risk",
+      "integrate": "Integrate API →"
+    },
+    "Trust": {
+      "kicker": "Trusted by innovators & backed by the best",
+      "logos": {
+        "skydeck": "SkyDeck Logo",
+        "aws": "AWS Partner",
+        "nvidia": "Nvidia Inception",
+        "google": "GCP"
+      },
+      "featured": {
+        "imageAlt": "Berkeley SkyDeck",
+        "kicker": "Featured Story",
+        "title": "From Berkeley SkyDeck to $2M Seed Round.",
+        "description": "Learn how we are building the definitive defense layer against the next generation of AI fraud.",
+        "cta": "Read Our Story →"
+      }
+    },
+    "Problem": {
+      "video": {
+        "kicker": "Red Team Footage",
+        "title": "Watch: How we bypassed standard KYC in 10 seconds.",
+        "cta": " Play"
+      },
+      "kicker": "The Problem Landscape",
+      "title": "Traditional KYC is Broken.",
+      "description": "Generative AI has made liveness detection obsolete. Attackers are scaling bypasses faster than you can patch them.",
+      "stats": [
+        "3,000% Increase in Deepfake Fraud (2024)",
+        "< 10s Time required to clone a voice",
+        "0% Effectiveness of human review against Diffusion Models"
+      ]
+    },
+    "Solutions": {
+      "kicker": "Complete Defense Suite",
+      "title": "Giga-grade controls for modern fraud.",
+      "tabs": {
+        "vision": {
+          "title": "Deepfake Vision",
+          "description": "Pixel-level analysis for diffusion artifacts and shadow mismatch.",
+          "bullets": [
+            "Detect diffusion fingerprints and GAN residue",
+            "Frame-by-frame heatmaps for investigators",
+            "Auto-block rules for high-risk flows"
+          ]
+        },
+        "audio": {
+          "title": "Audio Sentinel",
+          "description": "Catches synthetic cadence and timbre anomalies in voice calls.",
+          "bullets": [
+            "Real-time scoring during IVR and agent calls",
+            "Voice clone library with continuous updates",
+            "Adaptive thresholds tuned to your risk engine"
+          ]
+        },
+        "firewall": {
+          "title": "Real-time Firewall",
+          "description": "<100ms API response for blocking bots and synthetic traffic.",
+          "bullets": [
+            "Inline decisioning for KYC and onboarding",
+            "Edge-cached models with autoscaling",
+            "Webhook and gRPC streaming for SIEMs"
+          ]
+        }
+      },
+      "analysis": {
+        "kicker": "Threat Analysis",
+        "logTitle": "Live log · Blocked Requests",
+        "realtime": "Realtime",
+        "logs": [
+          "[00:01:12] FACE-SWAP attempt blocked · confidence 95.3%*",
+          "[00:01:15] VOICE-CLONE IVR flagged · fallback to OTP",
+          "[00:01:19] IMPERSONATION API denied · rule: Vision-Strict"
+        ]
+      }
+    },
+    "Developer": {
+      "kicker": "Built for Developers",
+      "title": "Built for Developers, Integrated in Minutes.",
+      "bullets": [
+        "REST & gRPC Support",
+        "< 100ms Latency",
+        "99.99% Uptime SLA",
+        "SOC2 Compliant (Ready)"
+      ],
+      "cta": "Read the Documentation →",
+      "sdk": "Python SDK",
+      "latencyTarget": "Latency target: <100ms",
+      "code": "import scamai\n\nclient = scamai.Client(api_key=\"sk_live_...\")\n\n# Detect deepfake in real-time\ncheck = client.detect.image(\n    url=\"https://user-upload.jpg\",\n    sensitivity=\"high\"\n)\n\nif check.is_fake:\n    print(\"Blocked: %s (%s%%)\" % (check.reason, check.confidence))"
+    },
+    "Pricing": {
+      "kicker": "Transparent Pricing",
+      "title": "Transparent Pricing. Pay as you Grow.",
+      "monthlyLabel": "Monthly Verifications: {count}",
+      "features": {
+        "image": "Image Detection",
+        "voice": "Voice Analysis",
+        "video": "Video Analysis"
+      },
+      "estimateLabel": "Estimated Cost",
+      "includes": "Includes 10,000 API calls",
+      "note": "If slider exceeds 100k checks we route you directly to sales for a volume discount and tailored SLAs.",
+      "list": [
+        "All plans include: API Access",
+        "Community Support",
+        "99.9% Uptime"
+      ],
+      "contactSales": "Contact Sales for Volume Discount",
+      "estimate": "$ {price} / month"
+    },
+    "FinalCta": {
+      "title": "Ready to Secure Your Platform?",
+      "primary": "Contact Sales",
+      "secondary": "Start with Free Developer Tier",
+      "description": "SOC2-ready, audited, and built in Berkeley to stop the next generation of AI fraud."
+    },
+    "LogoBar": {
+      "aws": "AWS",
+      "nvidia": "NVIDIA",
+      "google": "Google",
+      "skydeck": "SkyDeck",
+      "soc": "SOC Compliance",
+      "productHunt": "Product Hunt"
+    }
+  },
+  "Footer": {
+    "logoAlt": "Scam AI",
+    "tagline": "The AI firewall that keeps deepfakes and synthetic fraud out of your KYC, onboarding, and identity flows.",
+    "linkedin": "LinkedIn",
+    "sections": {
+      "product": "Product",
+      "company": "Company",
+      "legal": "Legal"
+    },
+    "links": {
+      "features": "Features",
+      "api": "API",
+      "pricing": "Pricing",
+      "status": "Status",
+      "about": "About (Our Story)",
+      "careers": "Careers",
+      "blog": "Blog",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "reportAbuse": "Report Abuse",
+      "privacyShort": "Privacy",
+      "termsShort": "Terms"
+    },
+    "copyright": " 2026 Scam.ai Inc. All rights reserved. Built in Berkeley."
+  },
+  "Navigation": {
+    "sections": {
+      "business": "Use Cases",
+      "models": "Models",
+      "research": "Research",
+      "stories": "Stories",
+      "company": "Company",
+      "individuals": "For Individuals"
+    },
+    "links": {
+      "kyc": "KYC & Identity Verification",
+      "dating": "Dating & Social Apps",
+      "fakeNews": "Fake News Detection",
+      "impersonation": "Impersonation & Fraud",
+      "ip": "IP & Copyright",
+      "legalCompliance": "Legal & Compliance",
+      "detectionModels": "Detection Models",
+      "deepfakes": "Deepfakes D1.2",
+      "aiImage": "AI Image A1.1",
+      "voiceClone": "Voiceclone V1.0",
+      "research": "Research",
+      "publications": "Publications & Datasets",
+      "news": "News",
+      "scams": "Type of Scams",
+      "about": "About Us",
+      "partnership": "Partnership",
+      "mobileApp": "Mobile App",
+      "browserPlugin": "Browser Plugin",
+      "stories": "Stories",
+      "getDemo": "Get Demo",
+      "manageCookies": "Manage Cookies"
+    },
+    "social": {
+      "linkedin": "LinkedIn"
+    },
+    "mobile": {
+      "getDemo": "Get a Demo",
+      "closeMenu": "Close menu",
+      "signUp": "Sign up"
+    },
+    "next": "Next: {label} →"
+  },
+  "Individuals": {
+    "Page": {
+      "metadata": {
+        "title": "For Individuals — ScamAI"
+      },
+      "hero": {
+        "title": "Scam Protection for Individuals",
+        "subtitle": "Coming Soon.",
+        "cta": "Join Waitlist →"
+      },
+      "mobile": {
+        "title": "Mobile App",
+        "description": "Protect your mobile devices from scams and fraud.",
+        "imageAlt": "Mobile scam protection preview",
+        "items": [
+          "Block scam calls",
+          "Detect Scam messages",
+          "Reported Scam Database"
+        ]
+      },
+      "plugin": {
+        "title": "Browser Plugin",
+        "description": "Secure your web browsing experience.",
+        "imageAlt": "Browser protection preview",
+        "items": [
+          "Block scammy Ads",
+          "Flag Gen-AI content",
+          "Integrate with Meeting Room"
+        ]
+      }
+    }
+  },
+  "Company": {
+    "Partnership": {
+      "metadata": {
+        "title": "Partnership — ScamAI"
+      },
+      "hero": {
+        "title": "Partnership",
+        "lead": "We partner with NGOs, public-interest organizations, and responsible businesses to reduce online harm and protect digital dignity.",
+        "description": "Our work is guided by human impact: keeping people safe from impersonation, financial fraud, and manipulation—especially those most at risk."
+      },
+      "sections": {
+        "ngos": {
+          "title": "NGOs & Education",
+          "description": "We offer NGO and educational pricing—and, where possible, pro-bono support—for initiatives that protect vulnerable communities, strengthen media literacy, or provide victim assistance.",
+          "items": [
+            "Survivor hotlines and reporting tools",
+            "Fact-checking and media verification desks",
+            "Digital safety curriculum and awareness programs"
+          ]
+        },
+        "businesses": {
+          "title": "Businesses & Platforms",
+          "description": "Build safer products with privacy-first detection. Reduce fraud, protect creators and customers, and comply with emerging standards—without compromising user trust.",
+          "items": [
+            "KYC/onboarding protection against deepfakes and synthetic identities",
+            "Verification for messages, media, and voice interactions",
+            "Risk scoring and guidance that respects user consent"
+          ]
+        }
+      },
+      "footer": {
+        "note": "Have a mission-aligned project? We’re honored to help.",
+        "contact": "Contact us",
+        "values": "Our values"
+      }
+    },
+    "People": {
+      "metadata": {
+        "title": "People — ScamAI"
+      },
+      "title": "People",
+      "subtitle": "Coming soon."
+    },
+    "About": {
+      "metadata": {
+        "title": "About Us — ScamAI"
+      },
+      "hero": {
+        "kicker": "Company",
+        "title": "Making the internet safe to trust",
+        "description": "Reality Inc. builds Scam AI Platform that identifies AI-generated deception across media, text, and voice. Our mission is to restore confidence online by verifying what is real—at scale."
+      },
+      "mission": {
+        "kicker": "Mission",
+        "line1": "Build a trustworthy layer for the internet—so people,",
+        "line2": "businesses, and institutions can know what to believe."
+      },
+      "build": {
+        "kicker": "What we build",
+        "line1": "One-stop solution for scam/AI misuse prevention",
+        "line2": "for enterprises and individuals.",
+        "foundation": {
+          "title": "Detection Infrastructure",
+          "label": "Foundation Layer",
+          "cards": [
+            {
+              "title": "Models",
+              "description": "Multimodal detectors across image, video, voice, and text."
+            },
+            {
+              "title": "Database",
+              "description": "Continuously updated ScamDB of signals, hashes, and adversarial patterns."
+            },
+            {
+              "title": "APIs",
+              "description": "Simple, stable APIs that deliver risk scores and guidance."
+            }
+          ]
+        },
+        "applications": {
+          "title": "Use cases",
+          "label": "Application Layer",
+          "description": "Our detection infrastructure generalizes across industries. Our initial focus areas are IDV deepfake and Data; together they represent a small portion of the overall addressable market.",
+          "cards": [
+            {
+              "title": "IDV deepfake",
+              "badge": "Current focus",
+              "description": "Authenticate KYC/IDV by detecting face swaps and synthetic identities."
+            },
+            {
+              "title": "Data",
+              "badge": "Current focus",
+              "description": "Capture and enrich threat signals across platforms and channels."
+            },
+            {
+              "title": "Enterprise cyber-security",
+              "description": "Protect employees and systems from impersonation and phishing."
+            },
+            {
+              "title": "Consumer scam",
+              "badge": "End of 2025",
+              "description": "Safeguard users from fraud across messages, calls, and social."
+            }
+          ]
+        }
+      },
+      "values": {
+        "kicker": "Values",
+        "cards": [
+          {
+            "title": "Integrity & accountability",
+            "description": "Do the right thing—especially when it’s difficult."
+          },
+          {
+            "title": "People first",
+            "description": "Protect individuals and communities from harm. Optimize for long-term trust over short-term wins."
+          },
+          {
+            "title": "Rigor with humility",
+            "description": "Seek truth through evidence, openness, and critique. Change our minds when the data says so."
+          },
+          {
+            "title": "Build for decades",
+            "description": "Think long-term. Favor simplicity, privacy, and durability in what we choose to create."
+          }
+        ]
+      },
+      "cta": {
+        "people": {
+          "title": "People",
+          "subtitle": "Meet the team building ScamAI"
+        },
+        "partnership": {
+          "title": "Partnership",
+          "subtitle": "Work with us to protect your users"
+        }
+      }
+    },
+    "UseCasesMore": {
+      "showLess": "Show less",
+      "showMore": "More…",
+      "title": "Other potential use cases",
+      "items": [
+        {
+          "title": "Voice spoofing authentication",
+          "description": "Verify callers during IVR/agent handoffs; flag cloned voices."
+        },
+        {
+          "title": "Executive impersonation (BEC)",
+          "description": "Detect spoofed emails, invoices, and voice notes in finance workflows."
+        },
+        {
+          "title": "Vendor and procurement fraud",
+          "description": "Validate vendor onboarding and payment-change requests."
+        },
+        {
+          "title": "Customer support impersonation",
+          "description": "Spot fake agents or users across chat, email, and voice."
+        },
+        {
+          "title": "Brand impersonation takedown",
+          "description": "Find cloned sites, ads, and social accounts using your brand."
+        },
+        {
+          "title": "Marketplace seller verification",
+          "description": "Prevent synthetic sellers and doctored product media."
+        },
+        {
+          "title": "Social profile verification",
+          "description": "Detect bots, synthetic personas, and deepfake avatars."
+        },
+        {
+          "title": "Email/SMS phishing scanning",
+          "description": "Score inbound messages and attachments before delivery."
+        }
+      ]
+    }
+  },
+  "Stories": {
+    "News": {
+      "metadata": {
+        "title": "Scam-Related News — ScamAI"
+      },
+      "hero": {
+        "title": "Scam-Related News",
+        "description": "Latest news and updates on AI-powered scams, deepfakes, and fraud prevention."
+      },
+      "filters": {
+        "all": "All",
+        "businessFraud": "Business Fraud",
+        "deepfakeAbuse": "Deepfake Abuse",
+        "celebrityImpersonation": "Celebrity Impersonation",
+        "technologyThreat": "Technology Threat",
+        "policyRegulation": "Policy & Regulation"
+      },
+      "sort": {
+        "label": "Sort by:",
+        "newest": "Newest → Oldest",
+        "oldest": "Oldest → Newest",
+        "az": "Alphabetical (A-Z)",
+        "za": "Alphabetical (Z-A)"
+      },
+      "cta": {
+        "title": "Stay Informed About Scam Trends",
+        "description": "Get the latest updates on emerging scam tactics and protection strategies. Follow our research and news coverage.",
+        "button": "Try Our Detection Tools"
+      },
+      "categories": {
+        "businessFraud": "Business Fraud",
+        "deepfakeAbuse": "Deepfake Abuse",
+        "celebrityImpersonation": "Celebrity Impersonation",
+        "technologyThreat": "Technology Threat",
+        "policyRegulation": "Policy & Regulation"
+      },
+      "items": [
+        {
+          "title": "WARNING: Deepfake CEO Scams",
+          "summary": "Cybersecurity experts warn sophisticated scams are no longer futuristic, but a present-day threat requiring urgent safeguards.",
+          "source": "WSJ",
+          "category": "Business Fraud"
+        },
+        {
+          "title": "AI Deepfake Scandal at HKU",
+          "summary": "A law student at Hong Kong University allegedly used AI to create over 700 non-consensual deepfake pornographic images of classmates and teachers. Legal gap exposed.",
+          "source": "University of Hong Kong",
+          "category": "Deepfake Abuse"
+        },
+        {
+          "title": "Dr. Sanjay Gupta Warns on AI Scam",
+          "summary": "Scammers used AI to create fake videos and images of CNN's Dr. Sanjay Gupta, promoting bogus health products in his name. Gupta responded publicly to warn people against the scam.",
+          "source": "CNN News",
+          "category": "Celebrity Impersonation"
+        },
+        {
+          "title": "AI Fakes Are Easier Than Ever",
+          "summary": "AI is making it easier than ever to fake voices and faces, threatening trust in politics, business, and media. Deepfakes of public figures like Marco Rubio show how real these impersonations can look.",
+          "source": "AP News",
+          "category": "Technology Threat"
+        },
+        {
+          "title": "Why Spotting Dangerous AI Is More Urgent Than Ever",
+          "summary": "A World Economic Forum report warns that AI-powered impersonation marks the shift from disinformation to targeted attacks on business trust. From voice-cloning scams to deepfake fraud, unchecked AI is eroding trust.",
+          "source": "World Economic Forum",
+          "category": "Policy & Regulation"
+        },
+        {
+          "title": "Can You Tell What's Real?",
+          "summary": "AI video tools like Google's Veo 3 are now generating lifelike visuals and audio so realistic they blur the line between fact and fiction. Watch the clips below and see if you can tell which are real and which are AI-generated.",
+          "source": "The New York Times",
+          "category": "Technology Threat"
+        },
+        {
+          "title": "Sexualized AI Images on Facebook",
+          "summary": "CBS News uncovered hundreds of ads across Facebook, Instagram, Threads, and Messenger promoting \"nudify\" AI tools that create sexualized images of real people without consent.",
+          "source": "CBS News",
+          "category": "Deepfake Abuse"
+        }
+      ]
+    },
+    "TypeOfScamsIndex": {
+      "hero": {
+        "title": "Types of Scams",
+        "description": "Understanding the different types of scams and how ScamAI protects against them."
+      },
+      "items": [
+        {
+          "title": "Voice Cloning Scam",
+          "description": "AI voice replicas impersonating trusted individuals to steal information.",
+          "category": "Voice AI"
+        },
+        {
+          "title": "Face Swapping Scam",
+          "description": "Deepfake videos and images used for blackmail and fraud.",
+          "category": "Video AI"
+        },
+        {
+          "title": "AI-Generated Images Scam",
+          "description": "Synthetic media designed to deceive and manipulate victims.",
+          "category": "Image AI"
+        },
+        {
+          "title": "Identity Theft Scam",
+          "description": "Stealing personal information for fraud and unauthorized purchases.",
+          "category": "Data Theft"
+        },
+        {
+          "title": "Financial Investment Scam",
+          "description": "Fake investment opportunities with unrealistic returns.",
+          "category": "Financial"
+        },
+        {
+          "title": "Romance Scam",
+          "description": "Fake online relationships to extract money and gifts.",
+          "category": "Social"
+        }
+      ]
+    },
+    "VoiceCloning": {
+      "hero": {
+        "title": "AI Voice Cloning Scams",
+        "description": "A new wave of sophisticated scams is leveraging artificial intelligence to replicate the voices of people you trust. Here's a breakdown of how these scams work, the warning signs to look for, and the steps you can take to protect yourself.",
+        "imageAlt": "Voice Cloning Scam Illustration"
+      },
+      "whatIs": {
+        "title": "What is Voice Clone Scam?",
+        "description": "Attackers use AI to replicate real voices with high accuracy, making calls that sound nearly identical to trusted colleagues, leaders, or relatives. These synthetic voices are often used to demand money transfers, share confidential data, or override normal processes.",
+        "highlight": "A familiar voice is no longer a guarantee of authenticity. Verifying a caller's identity through a separate channel is now essential."
+      },
+      "warning": {
+        "title": "Warning Signs:",
+        "items": [
+          "Voice sounds right but speech rhythm or emotional tone feels unnatural.",
+          "Caller insists on urgency, secrecy, or skipping normal checks.",
+          "Inconsistencies in background noise, echo, or call quality.",
+          "Refusal to verify through other secure channels."
+        ]
+      },
+      "protect": {
+        "title": "Protect Yourself:",
+        "description": "Stay vigilant and use multiple verification methods to protect yourself from voice cloning scams:",
+        "items": [
+          {
+            "title": "Establish Security Policies",
+            "description": "Establish policies that no sensitive or financial action can be taken based on a single voice request."
+          },
+          {
+            "title": "Train Your Team",
+            "description": "Train employees to recognize voice cloning tactics and unusual caller behavior."
+          },
+          {
+            "title": "Multi-Channel Verification",
+            "description": "Require multi-channel verification. Callback to known number, secure messaging, or in-person confirmation."
+          },
+          {
+            "title": "Layered Approval Process",
+            "description": "Keep layered approval processes in place for financial or sensitive requests."
+          }
+        ]
+      },
+      "cta": {
+        "title": "How Can Our Product Help?",
+        "description": "Our advanced voice cloning detection technology provides real-time protection against AI-generated voice fraud, helping you stay one step ahead of scammers.",
+        "button": "Get Protected Now"
+      },
+      "nav": {
+        "back": "← Back to Types of Scams",
+        "next": "Next: Face Swapping Scam →"
+      }
+    },
+    "FaceSwapping": {
+      "hero": {
+        "title": "AI Face Swapping Scams",
+        "description": "Advanced AI technology is being used to create convincing fake videos and images by swapping faces. These deepfake scams can be incredibly persuasive, making it difficult to distinguish between real and manipulated content.",
+        "imageAlt": "Face Swapping Scam Illustration"
+      },
+      "whatIs": {
+        "title": "What is a Face Swapping Scam?",
+        "description": "Criminals use advanced AI to manipulate or generate video footage, replacing a person's face or simulating real-time video calls. These deepfakes can convincingly impersonate leaders, employees, or public figures to deceive viewers and drive harmful actions.",
+        "highlight": "Seeing is no longer believing. AI-generated face swaps can create convincing fake videos that are nearly impossible to detect with the naked eye."
+      },
+      "warning": {
+        "title": "Warning Signs:",
+        "items": [
+          "Lip movements not perfectly aligned with spoken words.",
+          "Irregular eye blinking, unnatural facial movements, or distortions.",
+          "Lighting, shadows, or reflections inconsistent with the environment.",
+          "Unexpected video call requests from unusual or spoofed accounts."
+        ]
+      },
+      "protect": {
+        "title": "Protect Yourself:",
+        "description": "Stay vigilant and use multiple verification methods to protect yourself from face swapping scams:",
+        "items": [
+          {
+            "title": "Verify Identity Beyond Video",
+            "description": "Do not rely on video presence alone as proof of identity."
+          },
+          {
+            "title": "Implement Secondary Verification",
+            "description": "Implement protocols requiring secondary verification for sensitive instructions given over video."
+          },
+          {
+            "title": "Educate Your Team",
+            "description": "Educate staff that \"seeing is believing\" no longer applies in the AI era."
+          },
+          {
+            "title": "Use Secure Collaboration Tools",
+            "description": "Use secure collaboration tools with stronger authentication methods."
+          }
+        ]
+      },
+      "cta": {
+        "title": "How Can Our Product Help?",
+        "description": "Our advanced face swapping detection technology uses sophisticated AI algorithms to identify manipulated content and protect you from deepfake scams.",
+        "button": "Get Protected Now"
+      },
+      "nav": {
+        "back": "← Back to Types of Scams",
+        "next": "Next: AI-Generated Images Scam →"
+      }
+    },
+    "IdentityTheft": {
+      "hero": {
+        "title": "Identity Theft Scams",
+        "description": "Identity theft is one of the most devastating types of fraud. Scammers steal personal information to open accounts, make purchases, or commit crimes in your name, leaving you to deal with the financial and legal consequences.",
+        "imageAlt": "Identity Theft Scam Illustration"
+      },
+      "whatIs": {
+        "title": "What is Identity Theft?",
+        "description": "Scammers misuse stolen, leaked, or AI-synthesized identity data to impersonate individuals or create synthetic profiles. These stolen identities are used to bypass verification, gain unauthorized access, or open fraudulent accounts.",
+        "highlight": "Identity theft can go undetected for months, allowing scammers to cause extensive damage before you even realize what's happening."
+      },
+      "warning": {
+        "title": "Warning Signs:",
+        "items": [
+          "Multiple accounts sharing the same contact details or credentials.",
+          "Inconsistencies between official documents, financial history, or identity records.",
+          "Requests to skip standard onboarding, due diligence, or background checks.",
+          "Unexpected alerts such as new account activity, login attempts, or verification prompts."
+        ]
+      },
+      "protect": {
+        "title": "Protect Yourself:",
+        "description": "Take proactive steps to protect your identity and personal information:",
+        "items": [
+          {
+            "title": "Strong Onboarding Verification",
+            "description": "Enforce strong onboarding verification, including biometric or multi-factor authentication."
+          },
+          {
+            "title": "Monitor Account Activity",
+            "description": "Monitor accounts for unusual activity or overlapping identity details."
+          },
+          {
+            "title": "Restrict Data Access",
+            "description": "Restrict access to sensitive data and apply least-privilege principles."
+          },
+          {
+            "title": "Regular Security Audits",
+            "description": "Conduct regular audits to identify and remove compromised or fraudulent accounts."
+          }
+        ]
+      },
+      "cta": {
+        "title": "How Can Our Product Help?",
+        "description": "Our identity theft protection technology monitors your personal information across the dark web and alerts you to potential threats before they become serious problems.",
+        "button": "Get Protected Now"
+      },
+      "nav": {
+        "back": "← Back to Types of Scams",
+        "next": "Next: Financial Investment Scams →"
+      }
+    },
+    "FinancialInvestment": {
+      "hero": {
+        "title": "Financial Investment Scams",
+        "description": "Investment scams promise high returns with little risk, but they're designed to steal your money. Scammers use sophisticated tactics to make fraudulent investments appear legitimate and profitable.",
+        "imageAlt": "Financial Investment Scam Illustration"
+      },
+      "whatIs": {
+        "title": "What is a Financial Investment Scam?",
+        "description": "AI-generated voices, videos, and documents are used to create fraudulent payment requests or financial approvals. These scams exploit trust in official-looking communications to redirect funds or authorize unauthorized transactions.",
+        "highlight": "If an investment opportunity sounds too good to be true, it probably is. Legitimate investments rarely promise guaranteed high returns with no risk."
+      },
+      "warning": {
+        "title": "Warning Signs:",
+        "items": [
+          "Requests for urgent wire transfers or payments outside of established workflows.",
+          "Instructions to bypass multi-step approval or compliance checks.",
+          "Slightly altered sender details such as email domains or account numbers.",
+          "Payment requests inconsistent with past vendor history or financial records."
+        ]
+      },
+      "protect": {
+        "title": "Protect Yourself:",
+        "description": "Protect your money by following these essential investment safety guidelines:",
+        "items": [
+          {
+            "title": "Multi-Level Approvals",
+            "description": "Require dual or multi-level approvals for all high-value financial actions."
+          },
+          {
+            "title": "Verify Payment Requests",
+            "description": "Verify payment requests through known contacts and trusted channels."
+          },
+          {
+            "title": "Vendor Validation",
+            "description": "Maintain strict vendor validation and regularly update payment records."
+          },
+          {
+            "title": "Transaction Monitoring",
+            "description": "Monitor for anomalies in transaction amounts, timing, or beneficiary details."
+          }
+        ]
+      },
+      "cta": {
+        "title": "How Can Our Product Help?",
+        "description": "Our investment scam detection technology analyzes investment opportunities and alerts you to potential fraud before you risk your money.",
+        "button": "Get Protected Now"
+      },
+      "nav": {
+        "back": "← Back to Types of Scams",
+        "next": "Next: Romance Scams →"
+      }
+    },
+    "Romance": {
+      "hero": {
+        "title": "Romance Scams",
+        "description": "Romance scams target people looking for love and companionship. Scammers create fake online personas and build emotional connections with victims, only to exploit their trust for financial gain.",
+        "imageAlt": "Romance Scam Illustration"
+      },
+      "whatIs": {
+        "title": "What is a Romance Scam?",
+        "description": "Fraudsters create AI-driven personas on social or dating platforms, using synthetic images, text, and even voices to build trust. Once trust is established, they exploit victims emotionally or financially, often escalating requests over time.",
+        "highlight": "Romance scammers are masters of manipulation, using emotional tactics to exploit victims' desire for love and connection."
+      },
+      "warning": {
+        "title": "Warning Signs:",
+        "items": [
+          "Profiles with flawless images, little personal history, or recently created accounts.",
+          "Rapid emotional escalation, constant flattery, or \"love-bombing.\"",
+          "Consistent avoidance of live meetings or verifiable video calls.",
+          "Repeated or escalating requests for money, crypto, or gift cards."
+        ]
+      },
+      "protect": {
+        "title": "Protect Yourself:",
+        "description": "Protect your heart and your wallet from romance scams with these essential safety tips:",
+        "items": [
+          {
+            "title": "Healthy Skepticism",
+            "description": "Encourage healthy skepticism of online relationships that develop unusually quickly."
+          },
+          {
+            "title": "Avoid Financial Requests",
+            "description": "Avoid sending money or sensitive personal data to individuals met only online."
+          },
+          {
+            "title": "Verify Identities",
+            "description": "Verify identities through independent and trusted methods."
+          },
+          {
+            "title": "Report Suspicious Activity",
+            "description": "Report suspicious accounts to platform administrators and security teams."
+          }
+        ]
+      },
+      "cta": {
+        "title": "How Can Our Product Help?",
+        "description": "Our romance scam detection technology analyzes online profiles and communication patterns to identify potential fraudsters before they can exploit your emotions.",
+        "button": "Get Protected Now"
+      },
+      "nav": {
+        "back": "← Back to Types of Scams",
+        "next": "Next: Voice Cloning Scam →"
+      }
+    },
+    "ScamTrends": {
+      "metadata": {
+        "title": "Scam Trends — ScamAI"
+      },
+      "title": "Scam Trends",
+      "subtitle": "Coming soon."
+    },
+    "ScamType": {
+      "videoFallback": "Your browser does not support the video tag.",
+      "request": "Request",
+      "response": "Response"
+    },
+    "AiGeneratedImages": {
+      "metadata": {
+        "title": "AI-Generated Images Scam Detection | Deepfake Detection & Prevention",
+        "description": "Learn to detect AI-generated images and deepfake scams. Protect yourself from synthetic media fraud with our comprehensive guide to AI scam detection and prevention.",
+        "keywords": "AI scam detection, deepfake detection, AI-generated images, synthetic media scams, fake image detection, AI fraud prevention, deepfake prevention, scam detection tools",
+        "openGraphTitle": "AI-Generated Images Scam Detection | Deepfake Detection & Prevention",
+        "openGraphDescription": "Learn to detect AI-generated images and deepfake scams. Protect yourself from synthetic media fraud with our comprehensive guide to AI scam detection.",
+        "twitterTitle": "AI-Generated Images Scam Detection | Deepfake Detection & Prevention",
+        "twitterDescription": "Learn to detect AI-generated images and deepfake scams. Protect yourself from synthetic media fraud with our comprehensive guide."
+      },
+      "structured": {
+        "headline": "AI-Generated Images Scam Detection: Deepfake Prevention Guide",
+        "description": "Learn to detect AI-generated images and deepfake scams. Protect yourself from synthetic media fraud with our comprehensive guide to AI scam detection and prevention.",
+        "keywords": "AI scam detection, deepfake detection, AI-generated images, synthetic media scams, fake image detection, AI fraud prevention, deepfake prevention, scam detection tools",
+        "articleSection": "Cybersecurity",
+        "about": [
+          "Deepfake Detection",
+          "AI Scam Detection",
+          "Synthetic Media"
+        ]
+      },
+      "hero": {
+        "title": "AI-Generated Images Scam Detection: Deepfake Prevention Guide",
+        "description": "Artificial intelligence can now create incredibly realistic synthetic images that never existed. Learn how to detect AI-generated images, deepfakes, and protect yourself from sophisticated scam detection challenges. Our comprehensive guide covers deepfake detection techniques and AI scam prevention strategies.",
+        "exampleTitle": "AI-Generated Content",
+        "exampleDescription": "Example of sophisticated AI-generated imagery used in scams",
+        "exampleBadge": " FAKE"
+      },
+      "whatIs": {
+        "title": "What is AI Scam Detection for Synthetic Images?",
+        "description": "AI scam detection focuses on identifying deepfakes and synthetic images created by artificial intelligence. These AI-generated images are used in fraud schemes, creating fake profiles, fabricated documents, and misleading media. Advanced scam detection tools help identify these synthetic images before they can deceive victims. Deepfake detection technology analyzes visual artifacts that distinguish real photos from AI-generated content.",
+        "highlight": "Modern deepfake detection and AI scam detection tools are essential because AI-generated images are now so realistic that even experts struggle to distinguish them from authentic photographs without proper scam detection technology."
+      },
+      "warning": {
+        "title": "Deepfake Detection Warning Signs for AI Scam Prevention",
+        "description": "Professional scam detection requires identifying these key indicators that reveal AI-generated content and deepfakes:",
+        "items": [
+          {
+            "label": "Lighting inconsistencies:",
+            "text": "Shadows, reflections, or lighting that don't match the surrounding scene - a key deepfake detection indicator."
+          },
+          {
+            "label": "Facial distortions:",
+            "text": "Asymmetrical features, distorted hands, teeth, or accessories that AI scam detection tools commonly identify."
+          },
+          {
+            "label": "Texture anomalies:",
+            "text": "Overly smooth skin textures or unnatural background blending typical in AI-generated images."
+          },
+          {
+            "label": "Missing metadata:",
+            "text": "Photos lacking verifiable metadata or source information - essential for proper scam detection verification."
+          }
+        ]
+      },
+      "protect": {
+        "title": "AI Scam Detection Best Practices: Deepfake Prevention Strategies",
+        "description": "Implement these proven deepfake detection and AI scam prevention methods to protect against synthetic media fraud:",
+        "items": [
+          {
+            "title": "Advanced Deepfake Detection Analysis",
+            "description": "Implement systematic AI scam detection protocols for all visual evidence. Use professional deepfake detection software to verify image authenticity before making decisions."
+          },
+          {
+            "title": "AI Scam Detection Tools Integration",
+            "description": "Deploy reverse image search, forensic analysis tools, and automated scam detection systems to validate suspicious photos and identify AI-generated content."
+          },
+          {
+            "title": "Multi-Factor Verification for Scam Detection",
+            "description": "Require multiple independent verification sources before trusting visual content. Cross-reference with deepfake detection databases and AI scam reporting systems."
+          },
+          {
+            "title": "Professional Deepfake Detection Training",
+            "description": "Train staff in advanced AI scam detection techniques, visual artifact identification, and proper use of deepfake detection technology for comprehensive fraud prevention."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Professional AI Scam Detection & Deepfake Prevention Solutions",
+        "description": "Our enterprise-grade deepfake detection technology combines advanced AI scam detection algorithms with real-time analysis to identify synthetic images, deepfakes, and AI-generated content. Protect your organization with industry-leading scam detection tools designed for comprehensive fraud prevention.",
+        "button": "Try Our Deepfake Detection Demo",
+        "buttonTitle": "Try our AI scam detection and deepfake prevention demo"
+      },
+      "related": {
+        "title": "Related AI Scam Detection Topics:",
+        "items": [
+          {
+            "title": "Deepfake Detection Technology",
+            "description": "Advanced AI models for detecting facial manipulation",
+            "linkTitle": "Learn about deepfake detection technology"
+          },
+          {
+            "title": "Voice Clone Detection",
+            "description": "Identify synthetic audio and voice cloning scams",
+            "linkTitle": "Voice cloning scam detection methods"
+          }
+        ]
+      },
+      "nav": {
+        "back": "← Back to Types of Scams",
+        "next": "Next: Identity Theft Scams →",
+        "backTitle": "Return to types of scams overview",
+        "nextTitle": "Learn about identity theft scams"
+      }
+    }
+  },
+  "Legal": {
+    "lastUpdated": "Last updated: {date}"
+  },
+  "Research": {
+    "Page": {
+      "metadata": {
+        "title": "Research — ScamAI"
+      },
+      "hero": {
+        "title": "Research",
+        "description": "Publications, datasets, and long-form analysis from the ScamAI team."
+      },
+      "links": {
+        "readSummary": "Read summary",
+        "viewPdf": "View PDF"
+      }
+    },
+    "Publication": {
+      "hero": {
+        "kicker": "Research",
+        "title": "Publications & Datasets",
+        "description": "Our latest research papers and datasets advancing fraud detection and AI security."
+      },
+      "filters": {
+        "all": "All",
+        "publications": "Publications",
+        "datasets": "Datasets"
+      },
+      "sort": {
+        "label": "Sort by:",
+        "newest": "Newest → Oldest",
+        "oldest": "Oldest → Newest",
+        "az": "Alphabetical (A-Z)",
+        "za": "Alphabetical (Z-A)"
+      },
+      "cta": {
+        "title": "Collaborate with Our Research Team",
+        "description": "Interested in research collaboration, dataset access, or discussing our publications? Get in touch with our research team.",
+        "button": "Contact Research Team"
+      }
+    },
+    "Paper": {
+      "readPaper": "Read the paper",
+      "share": "Share",
+      "copied": "Copied!",
+      "copyError": "Failed to copy:",
+      "keepReading": "Keep reading",
+      "authorsLabel": "Authors:"
+    },
+    "Dataset": {
+      "copyError": "Failed to copy:",
+      "stats": {
+        "size": "Dataset Size",
+        "samples": "Samples",
+        "license": "License",
+        "type": "Type"
+      },
+      "buttons": {
+        "contact": "Contact Us",
+        "relatedPaper": "Related Paper",
+        "share": "Share",
+        "copied": "Copied!"
+      },
+      "sections": {
+        "relatedDatasets": "Related Datasets"
+      }
+    },
+    "ScamNetDatabase": {
+      "metadata": {
+        "title": "ScamNet Database — ScamAI",
+        "description": "Access the world's largest database of scam patterns and fraudulent content for research."
+      },
+      "hero": {
+        "category": "Research Database for Scam Analysis",
+        "headline": "The Intelligence Engine Powering",
+        "subtitle": "Next-Generation Fraud Defense",
+        "description": "Welcome to ScamNet DB, the most comprehensive and real-time database of active scams on the planet. This is not just a static blocklist; it's a living ecosystem of threat intelligence that forms the core foundation of the entire Scam.ai platform.",
+        "tags": [
+          "Database",
+          "Scam Intelligence",
+          "Research Data",
+          "ScamNet DB"
+        ],
+        "visualAlt": "ScamNet Database"
+      },
+      "problemSection": {
+        "headline": "The Threat: Outpacing\nthe Speed of Scams",
+        "description": "Scammers launch and discard fraudulent domains, phone numbers, and crypto wallets in minutes. By the time traditional threat intelligence reports are published, the damage is done and the attackers have moved on. Fighting a real-time threat with outdated data is a losing battle.",
+        "visualAlt": "Scam speed threat landscape",
+        "valueProps": [
+          {
+            "title": "Rapid Mutation",
+            "description": "Scammers constantly change their tactics, content, and infrastructure to evade detection."
+          },
+          {
+            "title": "Siloed Information",
+            "description": "Threat data is often scattered across different platforms, making it impossible to see the full picture of a coordinated attack."
+          },
+          {
+            "title": "Data Latency",
+            "description": "Static blocklists are often hours or days old, leaving a critical window of vulnerability open."
+          }
+        ]
+      },
+      "threatLandscape": {
+        "headline": "The Challenge of Real-Time Threat Intelligence",
+        "description": "Traditional threat intelligence cannot keep pace with modern scam operations that evolve and adapt in real-time, requiring a fundamentally different approach to threat detection and prevention.",
+        "keyThreats": [
+          "Rapid Mutation",
+          "Siloed Information",
+          "Lack of Context"
+        ],
+        "dataPoint": "In 2025, the average lifespan of a phishing website is less than 4 hours, making real-time intelligence the only effective defense."
+      },
+      "solution": {
+        "productName": "ScamNet DB",
+        "headline": "Our Solution: ScamNet DB — A Living Intelligence Ecosystem",
+        "description": "ScamNet DB is designed to ingest, process, and act on threat data at machine speed. It provides the crucial context and ground truth needed to power effective, real-time fraud detection.",
+        "coreDimensions": [
+          {
+            "title": "Multi-Source, Global Ingestion Engine",
+            "description": "We collect data from a massive network of reliable sources, including dark web monitoring, a global honeypot network, direct user reports, and proprietary data feeds from our partners."
+          },
+          {
+            "title": "AI-Powered Correlation & Enrichment",
+            "description": "Our AI engine instantly processes and enriches raw data, linking seemingly unrelated entities. It connects a scammer's phone number to the phishing link they sent, the scam content used, the crypto wallet for payment, and the time of the report."
+          },
+          {
+            "title": "Instantaneous Verification & Propagation",
+            "description": "Verified intelligence is propagated across our network in milliseconds. When a new scam is detected, every Scam.ai model is instantly updated and ready to block it."
+          }
+        ],
+        "outputDescription": "The API returns a rich JSON object containing an entity's risk score, history, and all known connections to other malicious infrastructure."
+      },
+      "advantages": {
+        "headline": "The Unbeatable Edge",
+        "items": [
+          {
+            "title": "Massive Scale",
+            "description": "Contains tens of millions of continuously updated, verified entries, including fraudulent phone numbers, domains, email addresses, crypto wallets, and more."
+          },
+          {
+            "title": "Real-Time Speed",
+            "description": "Responds to API queries in milliseconds, providing instant risk assessment for your applications. New threats are added to the database the moment they are detected."
+          },
+          {
+            "title": "Unmatched Richness",
+            "description": "Provides deep context, not just a \"bad/not bad\" label. Understand the history, connections, and risk profile of any entity."
+          },
+          {
+            "title": "Platform Synergy",
+            "description": "This is the single source of truth that trains, validates, and powers all other Scam.ai models. It's why our detection products are always smarter and faster. ️"
+          }
+        ]
+      },
+      "useCases": {
+        "headline": "Use Cases & Applications",
+        "items": [
+          "Threat Intelligence Enrichment",
+          "Proactive Infrastructure Blocking",
+          "Security Research & Forensics",
+          "Transaction & Onboarding Risk Assessment"
+        ]
+      },
+      "apiSection": {
+        "headline": "API Integration",
+        "description": "Ready to integrate ScamNet DB into your platform? Our comprehensive API documentation provides everything you need to get started, including detailed endpoints, authentication, and code examples.",
+        "apiDocumentation": {
+          "text": "View Complete API Documentation"
+        }
+      },
+      "cta": {
+        "headline": "Harness Our Core Intelligence",
+        "description": "Power your fraud detection with the world's most comprehensive real-time scam database.",
+        "primary": {
+          "text": "Request a Demo"
+        }
+      }
+    }
+  }
+}

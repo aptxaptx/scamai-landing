@@ -1,0 +1,27 @@
+<svg width="336" height="336" viewBox="0 0 336 336" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2115_32657)">
+<rect opacity="0.1" x="42.75" y="42.75" width="122.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="170.75" y="42.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="234.75" y="42.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="298.75" y="42.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="42.75" y="106.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="298.75" y="106.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="42.75" y="170.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="42.75" y="234.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="106.75" y="106.75" width="122.5" height="122.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<path opacity="0.1" d="M246 106.75H282C288.213 106.75 293.25 111.787 293.25 118V218C293.25 224.213 288.213 229.25 282 229.25H246C239.787 229.25 234.75 224.213 234.75 218V118C234.75 111.787 239.787 106.75 246 106.75Z" stroke="#F8F8F8" stroke-width="1.5"/>
+<path opacity="0.1" d="M106 234H154C160.627 234 166 239.373 166 246V294" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="170.75" y="234.75" width="122.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="298.75" y="170.75" width="58.5" height="122.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="42.75" y="298.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="106.75" y="298.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="170.75" y="298.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="234.75" y="298.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+<rect opacity="0.1" x="298.75" y="298.75" width="58.5" height="58.5" rx="11.25" stroke="#F8F8F8" stroke-width="1.5"/>
+</g>
+<defs>
+<clipPath id="clip0_2115_32657">
+<rect width="336" height="336" rx="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

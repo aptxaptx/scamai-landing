@@ -1,0 +1,230 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    padding: 16px
+
+.top
+    display: flex
+
+.title
+    margin-bottom: 4px
+    +bento-headline
+    color: $bento-text-primary
+
+.info
+    display: flex
+    align-items: center
+    +bento-caption-r
+    color: $bento-text-secondary
+
+.circle
+    position: relative
+    width: 12px
+    height: 12px
+    margin-right: 8px
+    border-radius: 50%
+    background: rgba(248, 248, 248, .05)
+    &:after
+        content: ""
+        position: absolute
+        z-index: 2
+        inset: 0
+        border: 1px solid rgba(248, 248, 248, 0.25)
+        border-radius: 50%
+        mask-image: linear-gradient(170deg, black, transparent 50%)
+        pointer-events: none
+        opacity: .5
+
+.box
+    position: relative
+    width: 76px
+    height: 28px
+    margin-left: auto
+    border-radius: 8px
+    background: rgba(248, 248, 248, 0.05)
+    +bento-shadow2
+    &:before
+        content: ""
+        position: absolute
+        z-index: 1
+        inset: 0
+        border: 1px solid rgba(248, 248, 248, 0.4)
+        border-radius: 8px
+        mask-image: linear-gradient(170deg, black, transparent 50%)
+        pointer-events: none
+        opacity: .25
+    &:after
+        content: ""
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 44px
+        height: 4px
+        transform: translate(-50%,-50%)
+        border-radius: 1px
+        background: $bento-text-primary
+
+.list
+    position: relative
+    display: flex
+    flex-wrap: wrap
+    margin: 0 -4px -24px
+    padding: 24px 0
+    mask-image: linear-gradient(to bottom, black, transparent 100%)
+
+.item
+    position: relative
+    width: calc(50% - 8px)
+    height: 102px
+    margin: 8px 4px 0
+    border: 1px solid rgba(248, 248, 248, 0.15)
+    border-radius: 12px
+    box-shadow: inset 0px 0px 8px 0px rgba(248, 248, 248, 0.05)
+    &:nth-child(1)
+        border-color: rgba(248, 248, 248, 0.4)
+        .block
+            width: 60%
+            border-color: rgba(248, 248, 248, 0.3)
+        .time
+            color: $bento-text-primary
+            opacity: 1
+        .circles
+            top: 26px
+            left: 15px
+    &:nth-child(2)
+        .block
+            width: 43%
+        .circles
+            top: 32px
+            left: 6px
+    &:nth-child(3)
+        .block
+            width: 80%
+        .circles
+            top: 32px
+            left: 0
+            width: 18%
+            transform: rotate(30deg)
+    &:nth-child(4)
+        .block
+            width: 70%
+        .circles
+            top: 40px
+            left: 0
+            width: 28%
+            transform: rotate(030deg)
+
+.block
+    position: absolute
+    top: -1.5px
+    right: -1.5px
+    bottom: -1.5px
+    z-index: 3
+    border: 1.5px solid rgba(248, 248, 248, 0.1)
+    border-radius: 0 12px 12px 0
+    box-shadow: inset 0px 0px 8px 0px rgba(248, 248, 248, 0.08)
+
+.time
+    position: absolute
+    z-index: 3
+    top: 12px
+    right: 16px
+    +bento-caption-sm
+    color: $bento-text-secondary
+    opacity: .3
+
+.pin
+    position: absolute
+    top: -15px
+    left: -7.5px
+    z-index: 5
+    img
+        width: 14px
+
+.cursor
+    position: absolute
+    top: 33px
+    left: -2px
+    z-index: 5
+    img
+        width: 20px
+
+.tooltip
+    position: absolute
+    top: 16px
+    left: 16px
+    min-width: 58px
+    padding: 3.5px 8px 2px
+    text-align: center
+    border-radius: 8px
+    +bento-shadow3
+    +bento-caption-sm
+    color: $bento-text-secondary
+    &:after
+        content: ""
+        position: absolute
+        z-index: 1
+        inset: 0
+        border: 1px solid rgba(248, 248, 248, 0.25)
+        border-radius: 8px
+        mask-image: linear-gradient(180deg, black, transparent 40%)
+        pointer-events: none
+        opacity: .5
+    span
+        position: relative
+        z-index: 3
+
+.circles
+    position: absolute
+    z-index: 1
+    width: 44px
+    height: 36px
+    span
+        position: absolute
+        border-radius: 50%
+        aspect-ratio: 1
+        width: 2px
+        transform: rotate(-90deg)
+        background: linear-gradient(205deg, rgba(255, 255, 255, 0.30) -17.42%, rgba(255, 255, 255, 0.00) 68.38%)
+        opacity: .5
+        &:nth-child(1)
+            top: 3px
+            left: 0
+            width: 1px
+            transform: rotate(-53deg)
+            background: linear-gradient(205deg, rgba(255, 255, 255, 0.00) 0.56%, rgba(255, 255, 255, 0.30) 86.36%)
+        &:nth-child(2)
+            top: 50%
+            left: 25%
+            transform: rotate(-140deg)
+            background: linear-gradient(205deg, rgba(255, 255, 255, 0.00) 0.56%, rgba(255, 255, 255, 0.30) 86.36%)
+        &:nth-child(3)
+            top: 54%
+            left: 53%
+            opacity: .7
+            background: linear-gradient(205deg, rgba(255, 255, 255, 0.00) 0.56%, rgba(255, 255, 255, 0.30) 86.36%)
+        &:nth-child(4)
+            left: 57%
+            bottom: 22%
+        &:nth-child(5)
+            top: 15%
+            left: 60%
+        &:nth-child(6)
+            right: 18%
+            bottom: 0%
+            transform: rotate(-53deg)
+            width: 1px
+            background: linear-gradient(205deg, rgba(255, 255, 255, 0.00) 0.56%, rgba(255, 255, 255, 0.30) 86.36%)
+        &:nth-child(7)
+            right: 10%
+            bottom: 21%
+            width: 4px
+        &:nth-child(8)
+            top: 0
+            right: 0
+            width: 5px
+        &:nth-child(9)
+            top: 50%
+            right: 0
+            width: 1px
+            background: linear-gradient(205deg, rgba(255, 255, 255, 0.00) 0.56%, rgba(255, 255, 255, 0.30) 86.36%)

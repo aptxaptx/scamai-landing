@@ -1,0 +1,120 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+    height: 336px
+
+.main,
+.block
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+.main
+    top: -16px
+
+.block
+    top: 98px
+
+.block
+    position: relative
+    width: 140px
+    height: 140px
+    &:before
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 32px
+        background: rgba(18, 18, 18, 0.50)
+        backdrop-filter: blur(2px)
+
+.inner
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+
+.inner
+    position: absolute
+    inset: 6px
+    &:before,
+    &:after
+        border-radius: 26px
+    &:before
+        background: rgba(40, 40, 40, 0.70)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset, 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+        backdrop-filter: blur(6px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(165deg, black, transparent 50%)
+
+.wrap
+    position: relative
+    z-index: 2
+    padding: 24px
+
+.title
+    margin-bottom: 12px
+    font-size: 20px
+    line-height: 1.2
+    font-weight: 700
+    color: rgba($bento-text-primary, .8)
+
+.lines
+    display: flex
+    flex-direction: column
+    gap: 2px
+    span
+        width: 28px
+        height: 4px
+        border-radius: 1px
+        background: rgba($bento-main, .1)
+        &:nth-child(1)
+            background: rgba($bento-main, .5)
+        &:nth-child(2)
+            width: 52px
+
+.robot
+    position: absolute
+    top: 30px
+    right: -31px
+    width: 64px
+    height: 46px
+    border-radius: 16px
+    overflow: hidden
+    transform: rotate(12deg)
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+    &:before
+        inset: 0
+        border-radius: 16px
+        background: rgba(248, 248, 248, 0.01)
+        box-shadow: 0px 0px 10px 0px rgba(248, 248, 248, 0.25) inset, 0px 39px 29px -19px rgba(0, 0, 0, 0.40)
+        backdrop-filter: blur(7px)
+    &:after
+        top: -38px
+        left: -28px
+        width: 70px
+        height: 70px
+        background: rgba(248, 248, 248, 0.20)
+        filter: blur(19px)
+
+.eyes
+    position: absolute
+    top: 21px
+    left: 18px
+    z-index: 2
+    display: flex
+    gap: 10px
+
+.eye
+    width: 7.5px
+    height: 12px
+    border-radius: 16px
+    background: linear-gradient(180deg, rgba(248, 248, 248, 0.90) 0%, rgba(248, 248, 248, 0.30) 100%)
+    box-shadow: -1px 2px 3px 0px rgba(0, 0, 0, 0.10), -3px 5px 6px 0px rgba(0, 0, 0, 0.20)
+    backdrop-filter: blur(6px)
+

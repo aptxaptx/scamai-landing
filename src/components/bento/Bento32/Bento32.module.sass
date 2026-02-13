@@ -1,0 +1,64 @@
+@use "../../../styles/bento/bento-variables" as *
+
+.bento
+    position: relative
+
+.image
+    position: absolute
+    top: -16px
+    left: 50%
+    transform: translateX(-50%)
+
+.numbers
+    position: absolute
+    top: -8px
+    left: 50%
+    display: flex
+    flex-direction: column
+    width: 368px
+    height: 368px
+    padding: 88px 72px
+    transform: translateX(-50%)
+    mask-image: radial-gradient(50% 50% at 50% 50%, black, transparent 65%)
+    text-align: center
+    font-size: 8px
+    line-height: 2
+    color: rgba($bento-text-secondary, .03)
+    span
+        &:nth-child(1)
+            margin-bottom: auto
+
+.cursor
+    position: absolute
+    top: 165px
+    right: calc(50% - 38px)
+    z-index: 2
+
+.tooltip
+    position: absolute
+    top: 16px
+    left: 16px
+    padding: 3px 7px
+    white-space: nowrap
+    font-size: 12px
+    font-weight: 700
+    line-height: 16px
+    color: $bento-text-secondary
+    &:before,
+    &:after
+        content: ""
+        position: absolute
+        inset: 0
+        border-radius: 8px
+    &:before
+        background: rgba(248, 248, 248, 0.05)
+        box-shadow: 0px 0px 8px 0px rgba(248, 248, 248, 0.25) inset, 0px 32px 24px -16px rgba(0, 0, 0, 0.40)
+        backdrop-filter: blur(6px)
+    &:after
+        border: 1.5px solid rgba(255, 255, 255, 0.1)
+        mask-image: linear-gradient(170deg, black, transparent 50%)
+    span
+        position: relative
+        z-index: 2
+
+
