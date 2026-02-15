@@ -4,6 +4,7 @@ import { Bento33, Bento45, Bento55 } from "@/components/bento";
 import { BentoV1_8 } from "@/components/bento-v1";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useParams } from "next/navigation";
 
 // Animated Section Component
 function AnimatedSection({ 

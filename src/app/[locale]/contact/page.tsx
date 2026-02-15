@@ -1,3 +1,15 @@
+import { generatePageMetadata, pageMetadata } from '@/lib/seo';
+import type { Locale } from '@/lib/seo';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+  return generatePageMetadata({
+    locale,
+    path: '/contact',
+    ...pageMetadata.contact,
+  });
+}
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-black text-white">

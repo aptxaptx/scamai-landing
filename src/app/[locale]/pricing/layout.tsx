@@ -1,4 +1,3 @@
-import EmptyPage from "@/components/new-site/EmptyPage";
 import { generatePageMetadata, pageMetadata } from '@/lib/seo';
 import type { Locale } from '@/lib/seo';
 
@@ -6,11 +5,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { locale } = await params;
   return generatePageMetadata({
     locale,
-    path: '/products/scam-database',
-    ...pageMetadata.scamDatabase,
+    path: '/pricing',
+    ...pageMetadata.pricing,
   });
 }
 
-export default function ScamDatabasePage() {
-  return <EmptyPage title="Scam Database" />;
+export default function PricingLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
 }
