@@ -46,8 +46,47 @@ export default async function NewsletterDetailPage({ params }: { params: Promise
     );
   }
 
+  const baseUrl = 'https://scam.ai';
+  const articleUrl = `${baseUrl}/${locale}/newsletter/${id}`;
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: newsletter.title,
+    description: newsletter.executiveSummary?.slice(0, 160) || '',
+    datePublished: newsletter.date,
+    dateModified: newsletter.date,
+    url: articleUrl,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+    author: { '@type': 'Organization', name: 'Reality Inc.', url: baseUrl },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ScamAI',
+      url: baseUrl,
+      logo: { '@type': 'ImageObject', url: `${baseUrl}/scamai-logo.svg` },
+    },
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${baseUrl}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: 'News', item: `${baseUrl}/${locale}/newsletter` },
+      { '@type': 'ListItem', position: 3, name: newsletter.title },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-black text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <NewsletterDetail newsletter={newsletter} locale={locale} />
     </main>
   );

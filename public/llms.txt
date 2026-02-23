@@ -1,0 +1,37 @@
+# ScamAI
+
+> All-in-one AI Trust Platform for detecting synthetic media and deepfakes in real-time.
+
+ScamAI (by Reality Inc.) provides API-based deepfake detection and synthetic media verification. The platform achieves 95.3% detection accuracy with processing times under 200ms. SOC 2 Type II and GDPR compliant.
+
+## Products
+
+- [Vision Detection](https://scam.ai/en/products/vision-detection): Detect AI-generated images and deepfake videos. Supports face swap detection, GAN-generated images, and diffusion model outputs.
+- [Audio Detection](https://scam.ai/en/products/audio-detection): Identify synthetic voices, cloned audio, and AI-generated speech. Protects against voice phishing and audio fraud.
+- [Scam Database](https://scam.ai/en/products/scam-database): Comprehensive database of known scams, fraud patterns, and synthetic media examples with real-time threat intelligence.
+
+## Pages
+
+- [Home](https://scam.ai/en)
+- [Products](https://scam.ai/en/products)
+- [Pricing](https://scam.ai/en/pricing)
+- [Documentation](https://scam.ai/en/resources/documentation)
+- [Security & Compliance](https://scam.ai/en/resources/security-compliance)
+- [About](https://scam.ai/en/about)
+- [Contact](https://scam.ai/en/contact)
+- [Newsletter](https://scam.ai/en/newsletter)
+- [Book a Demo](https://scam.ai/en/demo)
+
+## Pricing
+
+- Free tier: 200 images per month
+- Base price: $0.05 per image
+- Add-ons: $0.008 per image each (face attributes, liveness detection, ID document verification)
+
+## API
+
+RESTful API with JSON responses. Integration in under 10 minutes. API documentation available at [scam.ai/en/resources/documentation](https://scam.ai/en/resources/documentation).
+
+## Optional
+
+- [Full details](https://scam.ai/llms-full.txt)

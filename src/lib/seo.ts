@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
+import { locales } from '@/i18n/config';
 
-export const locales = ['en', 'es', 'pt', 'ja', 'ko', 'zh-TW', 'id'] as const;
 export type Locale = (typeof locales)[number];
 
 const baseUrl = 'https://scam.ai';

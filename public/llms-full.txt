@@ -1,0 +1,100 @@
+# ScamAI — Full Details
+
+> All-in-one AI Trust Platform for detecting synthetic media and deepfakes in real-time.
+
+ScamAI is built by Reality Inc. and provides enterprise-grade API-based deepfake detection and synthetic media verification. The platform achieves 95.3% detection accuracy with processing times under 200ms.
+
+## Company
+
+- **Legal Name:** Reality Inc.
+- **Product:** ScamAI
+- **Founded:** 2024
+- **Website:** https://scam.ai
+- **Contact:** contact@scam.ai
+- **Compliance:** SOC 2 Type II, GDPR
+
+## Products
+
+### Vision Detection
+Detect AI-generated images and deepfake videos with 95.3% accuracy. Real-time processing under 200ms.
+
+**Use cases:**
+- KYC (Know Your Customer) verification
+- Content moderation for platforms
+- Fraud prevention in financial services
+- Media authentication for journalism
+- Identity verification
+
+**Capabilities:**
+- Face swap detection
+- GAN-generated image detection
+- Diffusion model output detection (Stable Diffusion, DALL-E, Midjourney)
+- Video deepfake detection
+- Synthetic face detection
+
+### Audio Detection
+Identify synthetic voices, cloned audio, and AI-generated speech with industry-leading accuracy.
+
+**Use cases:**
+- Voice phishing (vishing) prevention
+- Call center fraud detection
+- Audio content verification
+- Synthetic voice identification
+
+**Capabilities:**
+- Voice clone detection
+- Text-to-speech detection
+- Audio deepfake detection
+- Real-time audio analysis
+
+### Scam Database
+Comprehensive database of known scams, fraud patterns, and synthetic media examples.
+
+**Features:**
+- Real-time threat intelligence
+- Known scam pattern matching
+- Fraud trend analysis
+- API access for automated checking
+
+## Pricing
+
+| Tier | Price | Details |
+|------|-------|---------|
+| Free | $0/month | 200 images per month |
+| Pay-as-you-go | $0.05/image | Base detection |
+| Face Attributes Add-on | +$0.008/image | Age, gender, expression analysis |
+| Liveness Detection Add-on | +$0.008/image | Anti-spoofing verification |
+| ID Document Add-on | +$0.008/image | Document authenticity check |
+
+Enterprise pricing available for high-volume users.
+
+## Technology
+
+- **AI Model:** Eva-v1
+- **Accuracy:** 95.3%
+- **Processing Time:** Under 200ms
+- **API Format:** RESTful with JSON responses
+- **Integration Time:** Under 10 minutes
+- **SDKs:** Python, JavaScript, REST API
+
+## Pages
+
+- [Home](https://scam.ai/en): Platform overview and key features
+- [Products](https://scam.ai/en/products): All detection solutions
+- [Vision Detection](https://scam.ai/en/products/vision-detection): Image and video deepfake detection
+- [Audio Detection](https://scam.ai/en/products/audio-detection): Voice clone and synthetic audio detection
+- [Scam Database](https://scam.ai/en/products/scam-database): Fraud intelligence database
+- [Pricing](https://scam.ai/en/pricing): Plans and pricing details
+- [Documentation](https://scam.ai/en/resources/documentation): API reference and integration guides
+- [Security & Compliance](https://scam.ai/en/resources/security-compliance): SOC 2 Type II and GDPR compliance details
+- [About](https://scam.ai/en/about): Company mission and team
+- [Contact](https://scam.ai/en/contact): Sales, support, and partnerships
+- [Newsletter](https://scam.ai/en/newsletter): Weekly deepfake and AI security news
+- [Book a Demo](https://scam.ai/en/demo): Schedule a personalized demo
+- [Privacy Policy](https://scam.ai/en/privacy): Data protection practices
+- [Terms of Service](https://scam.ai/en/terms): Usage terms
+- [MSA](https://scam.ai/en/msa): Master Service Agreement
+
+## Languages
+
+Available in: English, Spanish, Portuguese, Japanese, Korean, Traditional Chinese, Simplified Chinese, French, German, Indonesian, Arabic

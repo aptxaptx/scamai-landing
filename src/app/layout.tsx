@@ -48,7 +48,12 @@ export const metadata: Metadata = {
       "ja": "/ja",
       "ko": "/ko",
       "zh-TW": "/zh-TW",
+      "zh-CN": "/zh-CN",
       "id": "/id",
+      "fr": "/fr",
+      "de": "/de",
+      "ar": "/ar",
+      "x-default": "/en",
     },
   },
   openGraph: {
@@ -113,6 +118,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="bg-[#0b0b0b]">
       <head>
         <StructuredData />
+        <link rel="alternate" type="application/rss+xml" title="ScamAI News" href="/feed.xml" />
       </head>
       <body className={`${inter.variable} antialiased bg-[#0b0b0b]`}>
         {children}
