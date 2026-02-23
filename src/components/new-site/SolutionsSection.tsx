@@ -34,7 +34,7 @@ function AnimatedCard({
 
 const solutions = [
   {
-    title: "Deepfake Detection",
+    title: "Deepfake",
     description: "Detect face swaps, lip-sync attacks, and AI-generated faces across images and video in real time.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -45,7 +45,7 @@ const solutions = [
     ),
   },
   {
-    title: "GenAI Detection",
+    title: "GenAI",
     description: "Identify synthetic content from diffusion models, GANs, and LLMs before it enters your pipeline.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -56,7 +56,7 @@ const solutions = [
     ),
   },
   {
-    title: "Voice Clone Detection",
+    title: "Voice Clone",
     description: "Catch cloned voices and synthetic speech targeting call centers and voice authentication systems.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -68,7 +68,7 @@ const solutions = [
     ),
   },
   {
-    title: "Remote Notary Detection",
+    title: "Remote Notary",
     description: "Verify signer identity during remote notarizations. Stop deepfakes before documents are sealed.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -91,7 +91,7 @@ const solutions = [
     ),
   },
   {
-    title: "Document Forgery Detection",
+    title: "Document Forgery",
     description: "Forensic analysis of AI-generated and manipulated documents, from bank statements to pay stubs.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -137,14 +137,14 @@ function SolutionCard({
 }) {
   return (
     <AnimatedCard delay={delay}>
-      <div className="group relative h-full rounded-2xl border border-gray-800/60 bg-white/[0.02] p-6 transition-all duration-300 hover:border-[#245FFF]/30 hover:bg-white/[0.04]">
-        <div className="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#245FFF]/10 text-[#245FFF]">
+      <div className="group relative h-full rounded-xl sm:rounded-2xl border border-gray-800/60 bg-white/[0.02] p-4 sm:p-6 transition-all duration-300 hover:border-[#245FFF]/30 hover:bg-white/[0.04]">
+        <div className="mb-3 sm:mb-4 inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#245FFF]/10 text-[#245FFF]">
           {solution.icon}
         </div>
-        <h3 className="text-base font-semibold text-white mb-2 leading-tight">
+        <h3 className="text-sm sm:text-base font-semibold text-white mb-1.5 sm:mb-2 leading-tight">
           {solution.title}
         </h3>
-        <p className="text-sm text-gray-500 leading-relaxed">
+        <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
           {solution.description}
         </p>
       </div>
@@ -159,19 +159,19 @@ export default function SolutionsSection() {
       aria-label="Solutions - AI Fraud Prevention"
       id="solutions"
     >
-      <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-16 sm:py-20 lg:py-28">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-8 lg:max-w-7xl py-14 sm:py-20 lg:py-28">
         {/* Section Header */}
         <AnimatedCard>
-          <div className="text-center mb-10 lg:mb-14">
+          <div className="text-center mb-8 sm:mb-10 lg:mb-14">
             <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[#245FFF] mb-3 sm:text-[10px] lg:mb-4">
               SOLUTIONS
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-4 lg:mb-5">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-3 sm:mb-4 lg:mb-5 px-2 sm:px-0">
               The trust infrastructure{" "}
               <br className="hidden sm:block" />
               for the <span className="text-[#245FFF]">AI era</span>
             </h2>
-            <p className="mx-auto max-w-xl text-base text-gray-500 leading-relaxed">
+            <p className="mx-auto max-w-xl text-sm sm:text-base text-gray-500 leading-relaxed px-2 sm:px-0">
               Detect deepfakes, synthetic media, voice clones, and document
               fraud — across people, documents, and AI agents.
             </p>
@@ -179,7 +179,7 @@ export default function SolutionsSection() {
         </AnimatedCard>
 
         {/* Solution Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {solutions.map((solution, index) => (
             <SolutionCard
               key={solution.title}
@@ -193,13 +193,13 @@ export default function SolutionsSection() {
         <AnimatedCard delay={0.8}>
           <div className="text-center mt-8 lg:mt-10">
             <a
-              href="https://cal.com/scamai/30min"
+              href="https://cal.com/scamai/15min?overlayCalendar=true"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#245FFF] hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-[#245FFF] px-7 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-[#1d4acc] hover:shadow-[0_0_24px_-4px_rgba(36,95,255,0.5)]"
             >
-              Book a demo
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              Talk to sales
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14" />
                 <path d="M12 5l7 7-7 7" />
               </svg>
