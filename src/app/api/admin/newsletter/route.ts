@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { validateSession, unauthorizedResponse } from '@/lib/admin-auth';
-import { getAllNewsletters, insertNewsletter, insertArticles } from '@/lib/db/newsletters';
+import { getAllNewsletters, insertNewsletter, insertArticles, deleteNewsletters } from '@/lib/db/newsletters';
 import { NewsFetcher, NewsletterGenerator } from '@/lib/newsletter';
 
 export async function GET() {
@@ -42,5 +42,21 @@ export async function POST() {
   } catch (error) {
     console.error('Error generating newsletter:', error);
     return NextResponse.json({ error: 'Failed to generate newsletter' }, { status: 500 });
+  }
+}
+
+export async function DELETE(req: Request) {
+  if (!(await validateSession())) return unauthorizedResponse();
+
+  try {
+    const { ids } = await req.json();
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return NextResponse.json({ error: 'ids array is required' }, { status: 400 });
+    }
+    const deleted = await deleteNewsletters(ids.map(Number));
+    return NextResponse.json({ success: true, deleted });
+  } catch (error) {
+    console.error('Error batch deleting newsletters:', error);
+    return NextResponse.json({ error: 'Failed to delete newsletters' }, { status: 500 });
   }
 }

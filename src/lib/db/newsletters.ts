@@ -156,6 +156,13 @@ export async function deleteNewsletter(id: number): Promise<void> {
   await sql`DELETE FROM newsletters WHERE id = ${id}`;
 }
 
+export async function deleteNewsletters(ids: number[]): Promise<number> {
+  if (ids.length === 0) return 0;
+  const sql = getDb();
+  const rows = await sql`DELETE FROM newsletters WHERE id = ANY(${ids}) RETURNING id`;
+  return rows.length;
+}
+
 export async function togglePublish(id: number): Promise<boolean> {
   const sql = getDb();
   const rows = await sql`
