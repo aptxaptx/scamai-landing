@@ -4,10 +4,10 @@ import { useState } from "react";
 
 // Pricing constants (from actual pricing page)
 const FREE_CHECKS = 200;
-const BASE_PRICE = 0.15;
-const ADAPTIVE_DEFENSE_PRICE = 0.20;
-const ACTIVE_LIVENESS_PRICE = 0.10;
-const EXPRESS_LANE_PRICE = 0.10;
+const BASE_PRICE = 0.05;
+const ADAPTIVE_DEFENSE_PRICE = 0.008;
+const ACTIVE_LIVENESS_PRICE = 0.008;
+const EXPRESS_LANE_PRICE = 0.008;
 const MAX_VOLUME = 2000;
 const VOLUME_DISCOUNT_THRESHOLD = 2000;
 
@@ -147,7 +147,7 @@ export default function PricingSection() {
                         Adaptive Defense
                       </span>
                       <span className="text-sm font-semibold text-[#245FFF]">
-                        +${ADAPTIVE_DEFENSE_PRICE.toFixed(2)}/image
+                        +${ADAPTIVE_DEFENSE_PRICE.toFixed(3)}/image
                       </span>
                     </div>
                     <p className="text-sm text-gray-400">Real-time GenAI, deepfake & injection attack detection with advanced AI models</p>
@@ -168,7 +168,7 @@ export default function PricingSection() {
                         Active Liveness
                       </span>
                       <span className="text-sm font-semibold text-[#245FFF]">
-                        +${ACTIVE_LIVENESS_PRICE.toFixed(2)}/image
+                        +${ACTIVE_LIVENESS_PRICE.toFixed(3)}/image
                       </span>
                     </div>
                     <p className="text-sm text-gray-400">Live face detection to verify real human presence and prevent GenAI-generated deepfakes</p>
@@ -189,7 +189,7 @@ export default function PricingSection() {
                         Express Lane
                       </span>
                       <span className="text-sm font-semibold text-[#245FFF]">
-                        +${EXPRESS_LANE_PRICE.toFixed(2)}/image
+                        +${EXPRESS_LANE_PRICE.toFixed(3)}/image
                       </span>
                     </div>
                     <p className="text-sm text-gray-400">Low latency processing with 3s response time guarantee</p>
@@ -223,24 +223,24 @@ export default function PricingSection() {
                   <div className="mt-4 space-y-2 text-sm">
                     <div className="flex justify-between text-gray-300">
                       <span>Base Detection</span>
-                      <span className="font-semibold">${BASE_PRICE.toFixed(2)}</span>
+                      <span className="font-semibold">${BASE_PRICE.toFixed(3)}</span>
                     </div>
                     {adaptiveDefense && (
                       <div className="flex justify-between text-gray-300">
                         <span>+ Adaptive Defense</span>
-                        <span className="font-semibold text-[#245FFF]">+${ADAPTIVE_DEFENSE_PRICE.toFixed(2)}</span>
+                        <span className="font-semibold text-[#245FFF]">+${ADAPTIVE_DEFENSE_PRICE.toFixed(3)}</span>
                       </div>
                     )}
                     {activeLiveness && (
                       <div className="flex justify-between text-gray-300">
                         <span>+ Active Liveness</span>
-                        <span className="font-semibold text-[#245FFF]">+${ACTIVE_LIVENESS_PRICE.toFixed(2)}</span>
+                        <span className="font-semibold text-[#245FFF]">+${ACTIVE_LIVENESS_PRICE.toFixed(3)}</span>
                       </div>
                     )}
                     {expressLane && (
                       <div className="flex justify-between text-gray-300">
                         <span>+ Express Lane</span>
-                        <span className="font-semibold text-[#245FFF]">+${EXPRESS_LANE_PRICE.toFixed(2)}</span>
+                        <span className="font-semibold text-[#245FFF]">+${EXPRESS_LANE_PRICE.toFixed(3)}</span>
                       </div>
                     )}
                   </div>
