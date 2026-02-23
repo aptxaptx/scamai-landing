@@ -533,7 +533,7 @@ export default function NewNav() {
                 href="https://app.scam.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full px-6 py-3 text-center text-sm font-semibold text-white bg-transparent border border-gray-600 rounded-lg hover:bg-gray-800 transition"
+                className="block w-full px-6 py-3 text-center text-sm font-semibold text-white bg-transparent border border-gray-600 rounded-full hover:bg-gray-800 transition"
                 onClick={() => setOpen(false)}
               >
                 Log In
