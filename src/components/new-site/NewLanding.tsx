@@ -308,7 +308,7 @@ export default function NewLanding() {
               </AnimatedSection>
 
               <AnimatedSection delay={0.5}>
-                <div className="flex flex-col items-center gap-3 pt-2 sm:flex-row sm:gap-4 sm:pt-3">
+                <div className="pt-2 sm:pt-3">
                   <a
                     href="https://app.scam.ai"
                     target="_blank"
@@ -318,17 +318,6 @@ export default function NewLanding() {
                     <span className="rainbow-button-inner">
                       Try for free
                     </span>
-                  </a>
-                  <a
-                    href="https://cal.com/scamai/15min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10"
-                  >
-                    Book a demo
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
                   </a>
                 </div>
               </AnimatedSection>
