@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { generatePageMetadata } from '@/lib/seo';
 import type { Locale } from '@/lib/seo';
 import NewsletterDetail from '@/components/newsletter/NewsletterDetail';
