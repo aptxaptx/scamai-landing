@@ -50,7 +50,7 @@ export default function PricingSection() {
           </h2>
           <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
             Transparent, predictable pricing for GenAI and deepfake detection.{' '}
-            <span className="font-semibold text-white">200 free images per month with our Eva-v1-Fast model</span>, then $0.15/image + optional
+            <span className="font-semibold text-white">200 free images per month with our Eva-v1-Fast model</span>, then $0.05/image + optional
             add-ons. No hidden fees, no long-term contracts.
           </p>
         </div>
@@ -355,7 +355,7 @@ export default function PricingSection() {
             <p className="mb-2 text-sm font-semibold text-[#245FFF]">200 free images/month (Eva-v1-Fast)</p>
 
             <p className="mb-8 text-sm text-gray-300 leading-relaxed">
-              For businesses ready to scale with flexible pricing. First 200 images free with Eva-v1-Fast model, then $0.15/image + optional
+              For businesses ready to scale with flexible pricing. First 200 images free with Eva-v1-Fast model, then $0.05/image + optional
               add-ons.
             </p>
 

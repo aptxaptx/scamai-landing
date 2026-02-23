@@ -40,7 +40,7 @@ export function PricingCards({ volume, pricePerCheck, currencySymbol, decimals, 
         <p className="mb-2 text-sm font-semibold text-[#0043FA]">200 free images/month (Eva-v1-Fast)</p>
 
         <p className="mb-8 text-sm text-gray-300 leading-relaxed">
-          For businesses ready to scale with flexible pricing. First 200 images free with Eva-v1-Fast model, then $0.15/image + optional
+          For businesses ready to scale with flexible pricing. First 200 images free with Eva-v1-Fast model, then $0.05/image + optional
           add-ons.
         </p>
 

@@ -1,9 +1,9 @@
 // Pricing constants
 export const FREE_CHECKS = 200;
-export const BASE_PRICE = 0.15;
-export const ADAPTIVE_DEFENSE_PRICE = 0.20;
-export const ACTIVE_LIVENESS_PRICE = 0.10;
-export const EXPRESS_LANE_PRICE = 0.10;
+export const BASE_PRICE = 0.05;
+export const ADAPTIVE_DEFENSE_PRICE = 0.008;
+export const ACTIVE_LIVENESS_PRICE = 0.008;
+export const EXPRESS_LANE_PRICE = 0.008;
 export const FORENSIC_REPORT_PRICE = 500;
 export const VOLUME_DISCOUNT_THRESHOLD = 5000;
 export const MAX_VOLUME = 5000;

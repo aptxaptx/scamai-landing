@@ -77,11 +77,11 @@ function PricingPage() {
 - No credit card required
 
 ### Paid Tier
-- Base price: $0.15 per image (after free tier)
+- Base price: $0.05 per image (after free tier)
 - Optional add-ons:
-  - Adaptive Defense: +$0.20/image (Real-time GenAI, deepfake & injection attack detection)
-  - Active Liveness: +$0.10/image (Live face detection to verify real human presence and prevent GenAI-generated deepfakes)
-  - Express Lane: +$0.10/image (Low latency processing with 3s response time)
+  - Adaptive Defense: +$0.008/image (Real-time GenAI, deepfake & injection attack detection)
+  - Active Liveness: +$0.008/image (Live face detection to verify real human presence and prevent GenAI-generated deepfakes)
+  - Express Lane: +$0.008/image (Low latency processing with 3s response time)
 
 ### Enterprise Tier
 - Recommended for volumes > 5,000 images/month

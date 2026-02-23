@@ -10,7 +10,7 @@ export function PricingHero() {
         </h1>
         <p className="mx-auto max-w-3xl text-base text-gray-300 sm:text-lg lg:text-xl leading-relaxed">
           Transparent, predictable pricing for GenAI and deepfake detection.{' '}
-          <span className="font-semibold text-white">200 free images per month with our Eva-v1-Fast model</span>, then $0.15/image + optional
+          <span className="font-semibold text-white">200 free images per month with our Eva-v1-Fast model</span>, then $0.05/image + optional
           add-ons. No hidden fees, no long-term contracts.
         </p>
       </div>

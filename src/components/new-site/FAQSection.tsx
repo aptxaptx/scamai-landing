@@ -18,7 +18,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "How does pricing work after the free tier?",
-    answer: "After your 200 free images per month, you pay $0.15 per image analyzed. You can also add optional features like Adaptive Defense (+$0.20/image), Active Liveness (+$0.10/image), or Express Lane (+$0.10/image) for enhanced capabilities."
+    answer: "After your 200 free images per month, you pay $0.05 per image analyzed. You can also add optional features like Adaptive Defense (+$0.008/image), Active Liveness (+$0.008/image), or Express Lane (+$0.008/image) for enhanced capabilities."
   },
   {
     question: "What types of media can I analyze?",
