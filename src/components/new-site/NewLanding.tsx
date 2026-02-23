@@ -8,6 +8,7 @@ import { BentoV1_3, BentoV1_5, BentoV1_26, BentoV1_28 } from "@/components/bento
 import DeveloperSection from "./DeveloperSection";
 import PricingSection from "./PricingSection";
 import FAQSection from "./FAQSection";
+import SolutionsSection from "./SolutionsSection";
 
 type FileWithPreview = {
   file: File;
@@ -330,7 +331,7 @@ export default function NewLanding() {
       }}>
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/50"></div>
-        
+
         <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 py-20 sm:py-24 lg:py-32">
           <div className="text-center">
             <AnimatedSection delay={0.2}>
@@ -338,7 +339,7 @@ export default function NewLanding() {
                 Fight AI threats<br />with AI defense
               </h2>
             </AnimatedSection>
-            
+
             <div className="mx-auto max-w-3xl text-base sm:text-lg text-gray-300 leading-relaxed space-y-1">
               <p>ScamAI's AI models - <span className="font-bold text-white">Eva-v1</span> adapt as fast as the threats themselves,</p>
               <p>evolving and responding to new attack patterns in real-time.</p>
@@ -373,6 +374,9 @@ export default function NewLanding() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Solutions Section: Product verticals */}
+      <SolutionsSection />
 
       {/* Features Section: THE PLATFORM + All-in-One + Lightning Fast */}
       <section className="landing-section relative overflow-hidden bg-black" aria-label="Platform Features - Why Teams Choose Us">

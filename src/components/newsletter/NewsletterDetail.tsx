@@ -54,177 +54,324 @@ export default function NewsletterDetail({
   locale: string;
 }) {
   return (
-    <article className="relative" style={{ paddingTop: "80px" }}>
-      {/* Hero */}
-      <header className="relative overflow-hidden pb-16 pt-20">
-        <div className="pointer-events-none absolute inset-0" style={{
-          background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(36, 95, 255, 0.12) 0%, transparent 100%)",
-        }} />
-        <div className="relative mx-auto max-w-2xl px-6 text-center">
+    <article className="newsletter-article" style={{ paddingTop: "80px" }}>
+      <style>{`
+        .newsletter-article {
+          --text-primary: rgba(255, 255, 255, 0.92);
+          --text-secondary: rgba(255, 255, 255, 0.68);
+          --text-muted: rgba(255, 255, 255, 0.4);
+          --text-link: rgba(255, 255, 255, 0.92);
+          --border-subtle: rgba(255, 255, 255, 0.08);
+          --serif: Georgia, "Times New Roman", Times, serif;
+          --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .newsletter-article .drop-cap::first-letter {
+          float: left;
+          font-size: 3.4em;
+          line-height: 0.8;
+          padding-right: 0.12em;
+          padding-top: 0.08em;
+          font-weight: 700;
+          color: var(--text-primary);
+          font-family: var(--serif);
+        }
+        .newsletter-article a.article-link {
+          color: var(--text-link);
+          text-decoration: none;
+          background-image: linear-gradient(var(--text-muted), var(--text-muted));
+          background-size: 100% 1px;
+          background-position: 0 100%;
+          background-repeat: no-repeat;
+          transition: background-size 0.25s ease;
+        }
+        .newsletter-article a.article-link:hover {
+          background-image: linear-gradient(var(--text-primary), var(--text-primary));
+        }
+      `}</style>
+
+      {/* Header — clean, minimal, left-aligned */}
+      <header style={{ padding: "80px 0 0" }}>
+        <div style={{ maxWidth: 680, margin: "0 auto", padding: "0 24px" }}>
           <Link
             href="/newsletter"
-            className="mb-8 inline-flex items-center gap-1.5 text-sm text-gray-500 transition hover:text-white"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              fontSize: 14,
+              fontFamily: "var(--sans)",
+              color: "var(--text-muted)",
+              textDecoration: "none",
+              letterSpacing: "0.02em",
+              marginBottom: 48,
+            }}
           >
-            <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            All Newsletters
+            <span style={{ fontSize: 18, lineHeight: 1 }}>&larr;</span>
+            All editions
           </Link>
-          <div className="mb-5 flex items-center justify-center gap-3 text-xs uppercase tracking-widest text-gray-500">
+
+          {/* Meta line */}
+          <div
+            style={{
+              fontFamily: "var(--sans)",
+              fontSize: 13,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "var(--text-muted)",
+              marginBottom: 20,
+            }}
+          >
             <span>Edition {newsletter.edition}</span>
-            <span className="h-1 w-1 rounded-full bg-gray-600" />
-            <span>{newsletter.date}</span>
+            <span style={{ margin: "0 10px", opacity: 0.4 }}>/</span>
+            <span>{formatDate(newsletter.date)}</span>
             {newsletter.reading_time > 0 && (
               <>
-                <span className="h-1 w-1 rounded-full bg-gray-600" />
+                <span style={{ margin: "0 10px", opacity: 0.4 }}>/</span>
                 <span>{newsletter.reading_time} min read</span>
               </>
             )}
           </div>
-          <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+
+          {/* Title */}
+          <h1
+            style={{
+              fontFamily: "var(--serif)",
+              fontSize: "clamp(32px, 5vw, 46px)",
+              fontWeight: 700,
+              lineHeight: 1.18,
+              letterSpacing: "-0.02em",
+              color: "var(--text-primary)",
+              margin: 0,
+            }}
+          >
             {newsletter.title}
           </h1>
         </div>
       </header>
 
-      {/* Content */}
-      <div className="mx-auto max-w-2xl px-6 pb-24">
+      {/* Body */}
+      <div style={{ maxWidth: 680, margin: "0 auto", padding: "0 24px 120px" }}>
 
-        {/* Executive Summary */}
+        {/* Executive Summary — the lede */}
         {newsletter.executiveSummary && (
-          <section className="mb-16">
-            <p className="text-lg leading-8 text-gray-300" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
+          <div style={{ marginTop: 56 }}>
+            <p
+              className="drop-cap"
+              style={{
+                fontFamily: "var(--serif)",
+                fontSize: 21,
+                lineHeight: 1.58,
+                color: "var(--text-secondary)",
+                margin: 0,
+              }}
+            >
               {newsletter.executiveSummary}
             </p>
-          </section>
+          </div>
         )}
 
-        {/* Divider */}
-        <div className="mb-16 flex items-center gap-4">
-          <div className="h-px flex-1 bg-gray-800" />
-          <svg className="h-4 w-4 text-gray-600" fill="currentColor" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2" /></svg>
-          <div className="h-px flex-1 bg-gray-800" />
-        </div>
+        {/* Separator — single quiet line */}
+        <div
+          style={{
+            margin: "56px 0",
+            height: 1,
+            background: "var(--border-subtle)",
+          }}
+        />
 
         {/* Top Stories */}
         {newsletter.top3Articles.length > 0 && (
-          <section className="mb-16">
-            <h2 className="mb-10 text-xs font-semibold uppercase tracking-widest text-gray-500">
-              Top Stories
-            </h2>
+          <section>
+            {newsletter.top3Articles.map((article, index) => (
+              <div
+                key={index}
+                style={{
+                  marginBottom: index < newsletter.top3Articles.length - 1 ? 52 : 0,
+                }}
+              >
+                {/* Source + Date */}
+                <div
+                  style={{
+                    fontFamily: "var(--sans)",
+                    fontSize: 13,
+                    color: "var(--text-muted)",
+                    marginBottom: 10,
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {article.source}
+                  <span style={{ margin: "0 8px", opacity: 0.4 }}>&middot;</span>
+                  {formatDate(article.publishedAt)}
+                </div>
 
-            <div className="space-y-12">
-              {newsletter.top3Articles.map((article, index) => (
-                <div key={index} className="group">
-                  <div className="mb-3 flex items-center gap-3">
-                    <span className="text-3xl font-bold tabular-nums text-gray-700">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div className="flex items-center gap-2 text-xs text-gray-500">
-                      <span className="font-medium text-gray-400">{article.source}</span>
-                      <span className="h-1 w-1 rounded-full bg-gray-600" />
-                      <span>{formatDate(article.publishedAt)}</span>
-                    </div>
-                  </div>
-
-                  <h3 className="mb-3 text-xl font-bold leading-snug text-white sm:text-2xl">
-                    <a
-                      href={article.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="transition hover:text-[#5B8AFF]"
-                    >
-                      {cleanTitle(article.title)}
-                    </a>
-                  </h3>
-
-                  {article.takeaway && (
-                    <p className="mb-4 text-base leading-7 text-gray-400" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
-                      {article.takeaway}
-                    </p>
-                  )}
-
+                {/* Headline */}
+                <h2
+                  style={{
+                    fontFamily: "var(--serif)",
+                    fontSize: "clamp(22px, 3.5vw, 28px)",
+                    fontWeight: 700,
+                    lineHeight: 1.3,
+                    letterSpacing: "-0.01em",
+                    color: "var(--text-primary)",
+                    margin: "0 0 14px",
+                  }}
+                >
                   <a
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[#5B8AFF] transition hover:gap-2.5"
+                    className="article-link"
                   >
-                    Read full article
-                    <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                    {cleanTitle(article.title)}
                   </a>
+                </h2>
 
-                  {index < newsletter.top3Articles.length - 1 && (
-                    <div className="mt-12 h-px bg-gray-800/60" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* More News Sections */}
-        {newsletter.sections.length > 0 && (
-          <section>
-            {newsletter.sections.map((section, sIndex) => (
-              <div key={sIndex} className="mb-14 last:mb-0">
-                <div className="mb-8 flex items-center gap-4">
-                  <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500">
-                    {section.title}
-                  </h2>
-                  <div className="h-px flex-1 bg-gray-800" />
-                </div>
-
-                <div className="space-y-8">
-                  {section.articles.map((article, aIndex) => (
-                    <div key={aIndex} className="group">
-                      <h3 className="mb-1.5 text-base font-semibold leading-snug text-white sm:text-lg">
-                        <a
-                          href={article.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="transition hover:text-[#5B8AFF]"
-                        >
-                          {cleanTitle(article.title)}
-                        </a>
-                      </h3>
-
-                      <div className="mb-2 flex items-center gap-2 text-xs text-gray-500">
-                        <span className="font-medium text-gray-400">{article.source}</span>
-                        <span className="h-1 w-1 rounded-full bg-gray-600" />
-                        <span>{formatDate(article.publishedAt)}</span>
-                      </div>
-
-                      {article.description && (
-                        <p className="text-sm leading-6 text-gray-400">
-                          {article.description}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                {/* Takeaway */}
+                {article.takeaway && (
+                  <p
+                    style={{
+                      fontFamily: "var(--serif)",
+                      fontSize: 18,
+                      lineHeight: 1.6,
+                      color: "var(--text-secondary)",
+                      margin: 0,
+                    }}
+                  >
+                    {article.takeaway}
+                  </p>
+                )}
               </div>
             ))}
           </section>
         )}
 
-        {/* End divider */}
-        <div className="mt-16 mb-12 flex items-center justify-center gap-2">
-          <span className="h-1 w-1 rounded-full bg-gray-600" />
-          <span className="h-1 w-1 rounded-full bg-gray-600" />
-          <span className="h-1 w-1 rounded-full bg-gray-600" />
+        {/* Additional Sections */}
+        {newsletter.sections.length > 0 && newsletter.sections.map((section, sIndex) => (
+          <section key={sIndex}>
+            {/* Section divider */}
+            <div
+              style={{
+                margin: "60px 0 48px",
+                height: 1,
+                background: "var(--border-subtle)",
+              }}
+            />
+
+            {/* Section title */}
+            <h2
+              style={{
+                fontFamily: "var(--sans)",
+                fontSize: 13,
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--text-muted)",
+                margin: "0 0 36px",
+              }}
+            >
+              {section.title}
+            </h2>
+
+            {section.articles.map((article, aIndex) => (
+              <div
+                key={aIndex}
+                style={{
+                  marginBottom: aIndex < section.articles.length - 1 ? 36 : 0,
+                }}
+              >
+                {/* Headline */}
+                <h3
+                  style={{
+                    fontFamily: "var(--serif)",
+                    fontSize: 20,
+                    fontWeight: 700,
+                    lineHeight: 1.35,
+                    color: "var(--text-primary)",
+                    margin: "0 0 6px",
+                  }}
+                >
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="article-link"
+                  >
+                    {cleanTitle(article.title)}
+                  </a>
+                </h3>
+
+                {/* Source + Date */}
+                <div
+                  style={{
+                    fontFamily: "var(--sans)",
+                    fontSize: 13,
+                    color: "var(--text-muted)",
+                    letterSpacing: "0.02em",
+                    marginBottom: article.description ? 10 : 0,
+                  }}
+                >
+                  {article.source}
+                  <span style={{ margin: "0 8px", opacity: 0.4 }}>&middot;</span>
+                  {formatDate(article.publishedAt)}
+                </div>
+
+                {/* Description */}
+                {article.description && (
+                  <p
+                    style={{
+                      fontFamily: "var(--serif)",
+                      fontSize: 17,
+                      lineHeight: 1.55,
+                      color: "var(--text-secondary)",
+                      margin: 0,
+                    }}
+                  >
+                    {article.description}
+                  </p>
+                )}
+              </div>
+            ))}
+          </section>
+        ))}
+
+        {/* End mark */}
+        <div
+          style={{
+            marginTop: 72,
+            marginBottom: 48,
+            textAlign: "center",
+            fontSize: 24,
+            letterSpacing: "0.4em",
+            color: "var(--text-muted)",
+            opacity: 0.5,
+          }}
+        >
+          &#9632;
         </div>
 
-        {/* Footer */}
-        <footer className="text-center">
-          <p className="mb-4 text-sm text-gray-500">
-            Curated by <span className="text-gray-400">ScamAI</span> — tracking deepfake technology, security, and policy.
+        {/* Footer — understated */}
+        <footer style={{ textAlign: "center" }}>
+          <p
+            style={{
+              fontFamily: "var(--sans)",
+              fontSize: 14,
+              color: "var(--text-muted)",
+              lineHeight: 1.6,
+              margin: "0 0 16px",
+            }}
+          >
+            Curated by ScamAI — deepfake intelligence, security, and policy.
           </p>
           <Link
             href="/newsletter"
-            className="text-sm font-medium text-[#5B8AFF] transition hover:text-white"
+            style={{
+              fontFamily: "var(--sans)",
+              fontSize: 14,
+              color: "var(--text-secondary)",
+              textDecoration: "underline",
+              textUnderlineOffset: "3px",
+              textDecorationColor: "var(--text-muted)",
+            }}
           >
             Browse all editions
           </Link>
