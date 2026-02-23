@@ -275,22 +275,23 @@ export default function NewLanding() {
   };
   return (
     <main className="bg-black text-white" role="main">
+      {/* Hero Section */}
       <section className="landing-section relative overflow-hidden bg-black" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '90px', paddingBottom: 0, marginBottom: 0, marginTop: 0 }} aria-label="Hero section - AI Trust Platform">
         <HeroBackground className="" />
-        <div className="relative z-10 w-full max-w-4xl px-8 sm:px-10 lg:px-8">
+        <div className="relative z-10 w-full max-w-5xl px-8 sm:px-10 lg:px-8">
           <div className="flex flex-col items-center text-center space-y-4 sm:space-y-5 lg:space-y-6">
             <AnimatedSection delay={0.2}>
               <p className="text-[10px] font-semibold text-gray-400 tracking-[0.15em] uppercase sm:text-xs">
                 All-in-one
               </p>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={0.3}>
               <h1 className="text-3xl font-bold leading-[1.2] tracking-tight sm:text-5xl lg:text-6xl max-w-3xl px-2 sm:px-0">
                 AI trust platform
               </h1>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={0.4}>
               <div className="max-w-2xl text-sm leading-[1.7] text-gray-300 sm:text-base sm:leading-relaxed lg:text-lg px-4 sm:px-0">
                 <div className="text-center space-y-2">
@@ -303,9 +304,9 @@ export default function NewLanding() {
                 </div>
               </div>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={0.5}>
-              <div className="pt-4 sm:pt-3">
+              <div className="flex flex-col items-center gap-3 pt-4 sm:flex-row sm:gap-4 sm:pt-3">
                 <a
                   href="https://app.scam.ai"
                   target="_blank"
@@ -316,55 +317,123 @@ export default function NewLanding() {
                     Try for free
                   </span>
                 </a>
+                <a
+                  href="https://cal.com/scamai/15min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10"
+                >
+                  Book a demo
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </AnimatedSection>
+
+            {/* Product Visual — detection dashboard preview */}
+            <AnimatedSection delay={0.7}>
+              <div className="relative mx-auto mt-8 w-full max-w-3xl sm:mt-12">
+                {/* Browser frame */}
+                <div className="overflow-hidden rounded-xl border border-white/10 bg-[#0a0a0a] shadow-2xl shadow-black/50">
+                  {/* Title bar */}
+                  <div className="flex items-center gap-2 border-b border-white/5 px-4 py-3">
+                    <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+                    <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
+                    <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+                    <span className="ml-3 text-xs text-gray-500">app.scam.ai</span>
+                  </div>
+                  {/* Dashboard video */}
+                  <div className="relative">
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-auto"
+                    >
+                      <source src="/dashboard.mp4" type="video/mp4" />
+                    </video>
+                    {/* Gradient fade at bottom */}
+                    <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+                  </div>
+                </div>
+                {/* Glow effect behind the frame */}
+                <div className="pointer-events-none absolute -inset-4 -z-10 rounded-2xl bg-[#245FFF]/5 blur-2xl" />
               </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* Session1: Fight AI threats / AI defense */}
-      <section className="landing-section relative overflow-hidden" aria-label="AI Defense - Eva-v1 Model" style={{
+      {/* Social Proof Bar */}
+      <section className="landing-section relative overflow-hidden bg-black border-t border-white/5" aria-label="Trust signals">
+        <div className="mx-auto max-w-6xl px-6 sm:px-8 py-12 sm:py-16">
+          <AnimatedSection>
+            <p className="mb-8 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-500 sm:text-xs">
+              Trusted by security teams worldwide
+            </p>
+            <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8">
+              <div className="flex flex-col items-center gap-2 text-center">
+                <span className="text-2xl font-bold text-white sm:text-3xl">99.2%</span>
+                <span className="text-xs text-gray-500">Detection accuracy</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center">
+                <span className="text-2xl font-bold text-white sm:text-3xl">&lt;500ms</span>
+                <span className="text-xs text-gray-500">Response time</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="flex items-center gap-2">
+                  <img src="/soc2-badge.png" alt="SOC 2" className="h-7 w-7 sm:h-8 sm:w-8" />
+                  <img src="/gdpr-badge.png" alt="GDPR" className="h-7 w-7 sm:h-8 sm:w-8" />
+                </div>
+                <span className="text-xs text-gray-500">SOC 2 &amp; GDPR certified</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center">
+                <span className="text-2xl font-bold text-white sm:text-3xl">
+                  <img src="/scamai-logo.svg" alt="Berkeley SkyDeck" className="inline h-5 sm:h-6" style={{ filter: 'brightness(0.7)' }} />
+                </span>
+                <span className="text-xs text-gray-500">Berkeley SkyDeck backed</span>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* AI-Powered Security — merged section */}
+      <section className="landing-section relative overflow-hidden" aria-label="AI-Powered Security - Deepfake Protection" style={{
         backgroundImage: 'url(/session1.svg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/50"></div>
-
-        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 py-14 sm:py-16 lg:py-20">
-          <div className="text-center">
-            <AnimatedSection delay={0.2}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
-                Fight AI threats<br />with AI defense
-              </h2>
-            </AnimatedSection>
-
-            <div className="mx-auto max-w-3xl text-base sm:text-lg text-gray-300 leading-relaxed space-y-1">
-              <p>ScamAI&apos;s AI models - <span className="font-bold text-white">Eva-v1</span> adapt as fast as the threats themselves,</p>
-              <p>evolving and responding to new attack patterns in real-time.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Session2: AI-POWERED SECURITY / Trusted By */}
-      <section className="landing-section relative overflow-hidden bg-black" aria-label="AI-Powered Security - Deepfake Protection">
-        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 py-14 sm:py-16 lg:py-20">
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 py-20 sm:py-24 lg:py-32">
           <AnimatedSection>
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-              <div className="text-left flex flex-col justify-center" style={{ minHeight: '350px' }}>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="text-left flex flex-col justify-center">
                 <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gray-400 mb-4 sm:text-[10px] lg:mb-6">
                   AI-POWERED SECURITY
                 </p>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
-                  Verify what <span className="text-[#245FFF]">we see</span>
+                  Fight AI threats<br />with <span className="text-[#245FFF]">AI defense</span>
                 </h2>
-                <p className="max-w-xl text-base sm:text-lg text-gray-300 leading-relaxed">
-                  Deepfakes and synthetic fraud cost businesses millions in fraud losses, chargebacks, and reputational damage every year. Our real-time detection platform stops threats instantly — protecting your revenue, brand reputation, and customer trust before costly damage occurs.
+                <p className="max-w-xl text-base sm:text-lg text-gray-300 leading-relaxed mb-6">
+                  Deepfakes and synthetic fraud cost businesses millions every year. Our <span className="font-semibold text-white">Eva-v1</span> models adapt as fast as the threats themselves — detecting deepfakes, stopping fraud, and protecting your revenue in real-time.
                 </p>
+                <a
+                  href="https://app.scam.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#245FFF] transition hover:gap-3"
+                >
+                  Start detecting now
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
               </div>
-              {/* Bento 26 - AI-POWERED SECURITY, right side */}
+              {/* Bento 26 - AI Detection visual */}
               <div className="relative flex items-center justify-center" style={{ minHeight: '400px' }}>
                 <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
                   <BentoV1_26 />
