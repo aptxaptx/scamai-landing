@@ -16,9 +16,9 @@ export default function AdminHeader() {
             </span>
           </a>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {session?.user?.email && (
-            <span className="flex items-center gap-2">
+            <span className="hidden items-center gap-2 sm:flex">
               {session.user.image && (
                 <img
                   src={session.user.image}
@@ -35,9 +35,9 @@ export default function AdminHeader() {
             href="/en/newsletter"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-gray-500 transition hover:text-white"
+            className="hidden text-xs text-gray-500 transition hover:text-white sm:inline"
           >
-            View Public Site
+            View Site
           </a>
           <button
             onClick={() => signOut({ callbackUrl: "/admin/login" })}

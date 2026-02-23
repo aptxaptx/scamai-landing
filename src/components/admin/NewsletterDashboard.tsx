@@ -219,14 +219,14 @@ export default function NewsletterDashboard({
       </div>
 
       {/* Stats Cards */}
-      <div className="mb-8 grid grid-cols-3 gap-4">
+      <div className="mb-8 grid grid-cols-3 gap-2 sm:gap-4">
         {statCards.map((card) => (
           <div
             key={card.label}
-            className={`rounded-xl border ${card.color} bg-gray-900/40 p-5`}
+            className={`rounded-xl border ${card.color} bg-gray-900/40 p-3 sm:p-5`}
           >
             <p className="text-sm text-gray-500">{card.label}</p>
-            <p className="mt-1 text-3xl font-bold text-white">{card.value}</p>
+            <p className="mt-1 text-2xl font-bold text-white sm:text-3xl">{card.value}</p>
           </div>
         ))}
       </div>
@@ -258,8 +258,8 @@ export default function NewsletterDashboard({
           <p className="text-gray-500">No newsletters yet. Click &quot;Generate Newsletter&quot; to create one.</p>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-xl border border-gray-800">
-          <table className="w-full">
+        <div className="overflow-x-auto rounded-xl border border-gray-800">
+          <table className="w-full min-w-[600px]">
             <thead>
               <tr className="border-b border-gray-800 bg-gray-900/60">
                 <th className="w-10 px-4 py-3">
