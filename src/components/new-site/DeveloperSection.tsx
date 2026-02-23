@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export default function DeveloperSection() {
-  const [activeTab, setActiveTab] = useState<'api' | 'nocode'>('nocode');
+  const [activeTab, setActiveTab] = useState<'api' | 'nocode'>('api');
 
   return (
     <section className="landing-section relative overflow-hidden bg-black" aria-label="Developer Integration">

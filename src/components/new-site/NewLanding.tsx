@@ -338,16 +338,7 @@ export default function NewLanding() {
           {/* Product visual — sits in the remaining ~30vh, peeks above fold */}
           <AnimatedSection delay={0.7}>
             <div className="relative mx-auto w-full max-w-4xl px-5 pb-16 sm:px-10 lg:px-8">
-              {/* Browser frame */}
-              <div className="overflow-hidden rounded-xl border border-white/10 bg-[#0a0a0a] shadow-2xl shadow-black/50">
-                {/* Title bar */}
-                <div className="flex items-center gap-2 border-b border-white/5 px-4 py-3">
-                  <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-                  <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-                  <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-                  <span className="ml-3 text-xs text-gray-500">app.scam.ai</span>
-                </div>
-                {/* Dashboard video — starts at 4s, loops from 4s */}
+              <div className="overflow-hidden rounded-xl">
                 <div className="relative">
                   <video
                     ref={(el) => {
@@ -367,12 +358,12 @@ export default function NewLanding() {
                     loop
                     muted
                     playsInline
-                    className="w-full h-auto"
+                    className="w-full h-auto rounded-xl"
                   >
                     <source src="/dashboard.mp4" type="video/mp4" />
                   </video>
                   {/* Gradient fade at bottom */}
-                  <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+                  <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent" />
                 </div>
               </div>
               {/* Glow effect behind the frame */}
