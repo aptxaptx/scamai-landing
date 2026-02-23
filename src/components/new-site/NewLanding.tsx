@@ -332,7 +332,7 @@ export default function NewLanding() {
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/50"></div>
 
-        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 py-20 sm:py-24 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 py-14 sm:py-16 lg:py-20">
           <div className="text-center">
             <AnimatedSection delay={0.2}>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
@@ -341,7 +341,7 @@ export default function NewLanding() {
             </AnimatedSection>
 
             <div className="mx-auto max-w-3xl text-base sm:text-lg text-gray-300 leading-relaxed space-y-1">
-              <p>ScamAI's AI models - <span className="font-bold text-white">Eva-v1</span> adapt as fast as the threats themselves,</p>
+              <p>ScamAI&apos;s AI models - <span className="font-bold text-white">Eva-v1</span> adapt as fast as the threats themselves,</p>
               <p>evolving and responding to new attack patterns in real-time.</p>
             </div>
           </div>
@@ -350,10 +350,10 @@ export default function NewLanding() {
 
       {/* Session2: AI-POWERED SECURITY / Trusted By */}
       <section className="landing-section relative overflow-hidden bg-black" aria-label="AI-Powered Security - Deepfake Protection">
-        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 py-20 sm:py-24 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 py-14 sm:py-16 lg:py-20">
           <AnimatedSection>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div className="text-left flex flex-col justify-center" style={{ minHeight: '400px' }}>
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+              <div className="text-left flex flex-col justify-center" style={{ minHeight: '350px' }}>
                 <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gray-400 mb-4 sm:text-[10px] lg:mb-6">
                   AI-POWERED SECURITY
                 </p>
@@ -391,10 +391,10 @@ export default function NewLanding() {
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/50"></div>
         
-        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-20 sm:py-24 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-14 sm:py-16 lg:py-20">
           {/* Platform Title - no overlay */}
           <AnimatedSection>
-            <div className="text-center mb-16 lg:mb-20">
+            <div className="text-center mb-12 lg:mb-16">
               <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gray-400 mb-4 sm:text-[10px] lg:mb-6">
                 THE PLATFORM
               </p>
@@ -406,8 +406,8 @@ export default function NewLanding() {
 
           {/* Feature 1: All-in-One Platform */}
           <AnimatedSection>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
-              <div className="lg:pl-12 flex flex-col justify-center" style={{ minHeight: '400px' }}>
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center mb-16 lg:mb-20">
+              <div className="lg:pl-12 flex flex-col justify-center" style={{ minHeight: '350px' }}>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   ALL-IN-ONE PLATFORM
                 </p>
@@ -429,9 +429,9 @@ export default function NewLanding() {
 
           {/* Feature 2: Real-Time Detection */}
           <AnimatedSection delay={0.2}>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
               {/* Bento 5 - Lightning Fast, left side */}
-              <div className="order-2 lg:order-1 relative flex items-center justify-center" style={{ minHeight: '400px' }}>
+              <div className="order-2 lg:order-1 relative flex items-center justify-center" style={{ minHeight: '350px' }}>
                 <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
                   <BentoV1_5 />
                 </div>
@@ -465,11 +465,11 @@ export default function NewLanding() {
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/50"></div>
         
-        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-20 sm:py-24 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-14 sm:py-16 lg:py-20">
           {/* Transparent Pricing */}
           <AnimatedSection>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
-              <div className="lg:pl-12 flex flex-col justify-center" style={{ minHeight: '400px' }}>
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center mb-16 lg:mb-20">
+              <div className="lg:pl-12 flex flex-col justify-center" style={{ minHeight: '350px' }}>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   $ TRANSPARENT PRICING
                 </p>
@@ -494,7 +494,7 @@ export default function NewLanding() {
 
           {/* Global Compliance */}
           <AnimatedSection delay={0.2}>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
               <div className="flex items-center justify-center gap-8 flex-wrap order-2 lg:order-1">
                 <img 
                   src="/gdpr-badge.png" 

@@ -19,26 +19,51 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { 
-    label: "Product", 
-    href: "/products", 
+  {
+    label: "Product",
+    href: "/products",
     hasDropdown: true,
     children: [
-      { 
-        label: "Vision Detection", 
+      {
+        label: "Vision",
         href: "/products/vision-detection",
-        description: "AI-powered deepfake and synthetic media detection for images and videos with real-time analysis"
+        description: "Deepfake and synthetic media detection"
       },
-      { 
-        label: "Audio Detection", 
+      {
+        label: "Audio",
         href: "/products/audio-detection",
-        description: "Voice cloning and synthetic audio detection to verify authenticity of audio content"
+        description: "Voice cloning and synthetic audio detection"
       },
-      { 
-        label: "Documentation", 
-        href: "https://docu.scam.ai", 
+      {
+        label: "Remote Notary",
+        href: "/#solutions",
+        description: "Identity verification for notarizations"
+      },
+      {
+        label: "Age Estimation & IDV",
+        href: "/#solutions",
+        description: "Age estimation and ID verification"
+      },
+      {
+        label: "Document Forgery",
+        href: "/#solutions",
+        description: "Detect forged and AI-generated documents"
+      },
+      {
+        label: "AI Agent Scam Prevention",
+        href: "/#solutions",
+        description: "Protect AI workflows from manipulation"
+      },
+      {
+        label: "Remote Interview",
+        href: "/#solutions",
+        description: "Verify candidate identity in video interviews"
+      },
+      {
+        label: "Documentation",
+        href: "https://docu.scam.ai",
         external: true,
-        description: "API guides, integration examples, and technical documentation for developers"
+        description: "API guides and integration examples"
       },
     ]
   },
@@ -377,12 +402,11 @@ export default function NewNav() {
                           )}
 
                           {item.children.map((child) => (
-                            child.external ? (
+                            child.external || child.href.includes('#') ? (
                               <a
                                 key={child.href}
                                 href={child.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                {...(child.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                                 className="block p-4 rounded-lg hover:bg-white/5"
                                 onClick={() => {
                                   setOpen(false);
@@ -535,7 +559,7 @@ export default function NewNav() {
         (productsOpen || companyOpen) ? 'ease-out pointer-events-auto' : 'ease-in pointer-events-none'
       }`}
       style={{ 
-        maxHeight: (productsOpen || companyOpen) ? '400px' : '0',
+        maxHeight: (productsOpen || companyOpen) ? '500px' : '0',
         paddingTop: (productsOpen || companyOpen) ? '32px' : '0',
         paddingBottom: (productsOpen || companyOpen) ? '32px' : '0'
       }}
@@ -576,22 +600,19 @@ export default function NewNav() {
             </div>
 
             {/* Products List */}
-            <div className="flex-1 grid grid-cols-3 gap-4">
+            <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-3">
               {navItems.find(item => item.label === "Product")?.children?.map((child) => (
-                child.external ? (
+                child.external || child.href.includes('#') ? (
                   <a
                     key={child.href}
                     href={child.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block p-5 rounded-lg hover:bg-white/5 transition-colors duration-150"
+                    {...(child.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="group block p-4 rounded-lg hover:bg-white/5 transition-colors duration-150"
                     onClick={() => setProductsOpen(false)}
                   >
-                    <div className="mb-3">
-                      <h3 className="text-sm font-medium text-white mb-1">
-                        {child.label}
-                      </h3>
-                    </div>
+                    <h3 className="text-sm font-medium text-white mb-1">
+                      {child.label}
+                    </h3>
                     {child.description && (
                       <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">
                         {child.description}
@@ -602,14 +623,12 @@ export default function NewNav() {
                   <Link
                     key={child.href}
                     href={child.href}
-                    className="group block p-5 rounded-lg hover:bg-white/5 transition-colors duration-150"
+                    className="group block p-4 rounded-lg hover:bg-white/5 transition-colors duration-150"
                     onClick={() => setProductsOpen(false)}
                   >
-                    <div className="mb-3">
-                      <h3 className="text-sm font-medium text-white mb-1">
-                        {child.label}
-                      </h3>
-                    </div>
+                    <h3 className="text-sm font-medium text-white mb-1">
+                      {child.label}
+                    </h3>
                     {child.description && (
                       <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">
                         {child.description}
