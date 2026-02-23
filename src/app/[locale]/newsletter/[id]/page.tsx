@@ -2,46 +2,10 @@ import { generatePageMetadata } from '@/lib/seo';
 import type { Locale } from '@/lib/seo';
 import NewsletterDetail from '@/components/newsletter/NewsletterDetail';
 import Link from 'next/link';
+import { getPublishedNewsletter } from '@/lib/db/newsletters';
 
-interface Article {
-  title: string;
-  url: string;
-  source: string;
-  publishedAt: string;
-  takeaway?: string;
-  description?: string;
-  imageUrl?: string;
-}
-
-interface Section {
-  title: string;
-  articles: Article[];
-}
-
-interface Newsletter {
-  id: number;
-  edition: number;
-  title: string;
-  date: string;
-  reading_time: number;
-  summary: string;
-  executiveSummary: string;
-  top3Articles: Article[];
-  sections: Section[];
-}
-
-async function getNewsletter(id: string): Promise<Newsletter | null> {
-  const apiUrl = process.env.NEWSLETTER_API_URL || 'http://localhost:3014';
-  try {
-    const res = await fetch(`${apiUrl}/api/newsletters/${id}`, {
-      next: { revalidate: 300 },
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
-    return data.newsletter || null;
-  } catch {
-    return null;
-  }
+async function getNewsletter(id: string) {
+  return getPublishedNewsletter(Number(id));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale; id: string }> }) {

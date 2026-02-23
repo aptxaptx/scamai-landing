@@ -1,18 +1,24 @@
 import { NextResponse } from 'next/server';
 import { validateSession, unauthorizedResponse } from '@/lib/admin-auth';
-
-const BACKEND_URL = process.env.NEWSLETTER_API_URL || 'http://localhost:3014';
+import { getNewsletterContent, updateContent } from '@/lib/db/newsletters';
 
 export async function POST(req: Request, { params }: { params: Promise<{ id: string; index: string }> }) {
   if (!(await validateSession())) return unauthorizedResponse();
 
   const { id, index } = await params;
-  const body = await req.json();
-  const res = await fetch(`${BACKEND_URL}/admin/newsletter/${id}/top3/${index}/takeaway`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-  const data = await res.json();
-  return NextResponse.json(data, { status: res.status });
+  const { takeaway } = await req.json();
+
+  const row = await getNewsletterContent(Number(id));
+  if (!row) return NextResponse.json({ error: 'Newsletter not found' }, { status: 404 });
+
+  const content = typeof row.content === 'string' ? JSON.parse(row.content) : row.content;
+  const articleIndex = parseInt(index);
+
+  if (!content.top3Articles || !content.top3Articles[articleIndex]) {
+    return NextResponse.json({ error: 'Article not found' }, { status: 404 });
+  }
+
+  content.top3Articles[articleIndex].takeaway = takeaway;
+  await updateContent(Number(id), content);
+  return NextResponse.json({ success: true });
 }

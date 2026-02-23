@@ -1,12 +1,10 @@
 import { NextResponse } from 'next/server';
 import { validateSession, unauthorizedResponse } from '@/lib/admin-auth';
-
-const BACKEND_URL = process.env.NEWSLETTER_API_URL || 'http://localhost:3014';
+import { getStats } from '@/lib/db/newsletters';
 
 export async function GET() {
   if (!(await validateSession())) return unauthorizedResponse();
 
-  const res = await fetch(`${BACKEND_URL}/api/admin/stats`, { cache: 'no-store' });
-  const data = await res.json();
-  return NextResponse.json(data);
+  const stats = await getStats();
+  return NextResponse.json(stats);
 }

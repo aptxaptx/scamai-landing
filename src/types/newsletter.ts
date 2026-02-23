@@ -5,7 +5,7 @@ export interface Newsletter {
   date: string;
   reading_time: number;
   summary: string;
-  published: number; // SQLite returns 0 or 1
+  published: boolean;
   created_at: string;
 }
 

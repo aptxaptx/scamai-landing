@@ -1,18 +1,19 @@
 import { NextResponse } from 'next/server';
 import { validateSession, unauthorizedResponse } from '@/lib/admin-auth';
-
-const BACKEND_URL = process.env.NEWSLETTER_API_URL || 'http://localhost:3014';
+import { getNewsletterContent, updateContent } from '@/lib/db/newsletters';
 
 export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
   if (!(await validateSession())) return unauthorizedResponse();
 
   const { id } = await params;
-  const body = await req.json();
-  const res = await fetch(`${BACKEND_URL}/api/admin/newsletters/${id}/summary`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-  const data = await res.json();
-  return NextResponse.json(data, { status: res.status });
+  const { executiveSummary } = await req.json();
+
+  const row = await getNewsletterContent(Number(id));
+  if (!row) return NextResponse.json({ error: 'Newsletter not found' }, { status: 404 });
+
+  const content = typeof row.content === 'string' ? JSON.parse(row.content) : row.content;
+  content.executiveSummary = executiveSummary;
+
+  await updateContent(Number(id), content, executiveSummary);
+  return NextResponse.json({ success: true });
 }

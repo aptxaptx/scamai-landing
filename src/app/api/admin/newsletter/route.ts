@@ -1,23 +1,46 @@
 import { NextResponse } from 'next/server';
 import { validateSession, unauthorizedResponse } from '@/lib/admin-auth';
-
-const BACKEND_URL = process.env.NEWSLETTER_API_URL || 'http://localhost:3014';
+import { getAllNewsletters, insertNewsletter, insertArticles } from '@/lib/db/newsletters';
+import { NewsFetcher, NewsletterGenerator } from '@/lib/newsletter';
 
 export async function GET() {
   if (!(await validateSession())) return unauthorizedResponse();
 
-  const res = await fetch(`${BACKEND_URL}/api/admin/newsletters`, { cache: 'no-store' });
-  const data = await res.json();
-  return NextResponse.json(data);
+  const newsletters = await getAllNewsletters();
+  return NextResponse.json({ newsletters });
 }
 
 export async function POST() {
   if (!(await validateSession())) return unauthorizedResponse();
 
-  const res = await fetch(`${BACKEND_URL}/api/admin/generate`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  const data = await res.json();
-  return NextResponse.json(data, { status: res.status });
+  try {
+    const fetcher = new NewsFetcher();
+    const articles = await fetcher.fetchDeepfakeNews(7);
+
+    if (articles.length === 0) {
+      return NextResponse.json({ error: 'No articles found' }, { status: 400 });
+    }
+
+    const generator = new NewsletterGenerator();
+    const newsletter = await generator.generate(articles);
+
+    const id = await insertNewsletter({
+      edition: newsletter.edition,
+      title: newsletter.title,
+      date: newsletter.date,
+      readingTime: newsletter.readingTime,
+      summary: newsletter.summary,
+      content: newsletter,
+    });
+
+    await insertArticles(id, newsletter.sections);
+
+    return NextResponse.json({
+      success: true,
+      newsletter: { id, edition: newsletter.edition, title: newsletter.title },
+    });
+  } catch (error) {
+    console.error('Error generating newsletter:', error);
+    return NextResponse.json({ error: 'Failed to generate newsletter' }, { status: 500 });
+  }
 }
