@@ -32,6 +32,7 @@ export default function NewFooter() {
           <h3 className="font-semibold text-white">Resources</h3>
           <a href="https://docu.scam.ai" target="_blank" rel="noopener noreferrer" className="block text-[#9ca3af] hover:text-white" aria-label="Documentation">Documentation</a>
           <a href="https://reality-inc.trust.site/" target="_blank" rel="noopener noreferrer" className="block text-[#9ca3af] hover:text-white" aria-label="Security and Compliance">Security & Compliance</a>
+          <Link href="/newsletter" className="block text-[#9ca3af] hover:text-white" aria-label="Newsletter">Newsletter</Link>
         </nav>
 
         <nav className="space-y-2 text-sm" aria-label="Company navigation">

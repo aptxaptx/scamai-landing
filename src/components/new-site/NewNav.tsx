@@ -43,18 +43,23 @@ const navItems: NavItem[] = [
     ]
   },
   { label: "Pricing", href: "/pricing" },
-  { 
-    label: "Company", 
+  {
+    label: "Company",
     href: "/company",
     hasDropdown: true,
     children: [
-      { 
-        label: "About Us", 
+      {
+        label: "About Us",
         href: "/about",
         description: "Learn about our mission and team"
       },
-      { 
-        label: "Security & Compliance", 
+      {
+        label: "Newsletter",
+        href: "/newsletter",
+        description: "Weekly insights on deepfake technology and AI security"
+      },
+      {
+        label: "Security & Compliance",
         href: "https://reality-inc.trust.site/",
         external: true,
         description: "Security certifications, compliance standards, and data protection policies"

@@ -10,5 +10,5 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ["/((?!api|_next|scamai|.*\\..*).*)"],
+  matcher: ["/((?!api|admin|_next|scamai|.*\\..*).*)"],
 };

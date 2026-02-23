@@ -225,4 +225,10 @@ export const pageMetadata = {
       'Learn about how ScamAI uses cookies to improve your experience and our compliance with cookie regulations.',
     keywords: ['cookies', 'cookie policy', 'tracking', 'privacy'],
   },
+  newsletter: {
+    title: 'Deepfake Weekly Newsletter',
+    description:
+      'Stay informed with curated weekly insights on deepfake technology, security breaches, and policy updates from ScamAI.',
+    keywords: ['newsletter', 'deepfake news', 'AI security', 'weekly digest', 'threat intelligence'],
+  },
 };
