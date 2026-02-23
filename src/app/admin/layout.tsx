@@ -1,4 +1,6 @@
 import SessionProvider from '@/components/admin/SessionProvider';
+import { Toaster } from '@/components/ui/sonner';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 export const metadata = {
   title: 'Newsletter Admin',
@@ -8,9 +10,12 @@ export const metadata = {
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <SessionProvider>
-      <div className="min-h-screen bg-black text-white">
-        {children}
-      </div>
+      <TooltipProvider>
+        <div className="min-h-screen bg-black text-white">
+          {children}
+          <Toaster theme="dark" />
+        </div>
+      </TooltipProvider>
     </SessionProvider>
   );
 }

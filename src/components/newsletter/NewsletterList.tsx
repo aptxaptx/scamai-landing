@@ -7,6 +7,7 @@ interface Newsletter {
   id: number;
   edition: number;
   title: string;
+  slug?: string;
   date: string;
   reading_time: number;
   summary: string;
@@ -89,7 +90,7 @@ export default function NewsletterList({ newsletters }: { newsletters: Newslette
             {newsletters.map((newsletter, index) => (
               <Link
                 key={newsletter.id}
-                href={`/newsletter/${newsletter.id}`}
+                href={`/newsletter/${newsletter.slug || newsletter.id}`}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-gray-800 bg-gray-900/30 transition-all duration-300 hover:border-gray-700 hover:bg-gray-900/50 hover:shadow-lg hover:shadow-black/20"
               >
                 {/* Thumbnail Area */}

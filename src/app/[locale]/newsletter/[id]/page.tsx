@@ -4,10 +4,15 @@ import { generatePageMetadata } from '@/lib/seo';
 import type { Locale } from '@/lib/seo';
 import NewsletterDetail from '@/components/newsletter/NewsletterDetail';
 import Link from 'next/link';
-import { getPublishedNewsletter } from '@/lib/db/newsletters';
+import { getPublishedNewsletter, getPublishedNewsletterBySlug } from '@/lib/db/newsletters';
 
-async function getNewsletter(id: string) {
-  return getPublishedNewsletter(Number(id));
+async function getNewsletter(idOrSlug: string) {
+  // Try slug first, then numeric ID for backwards compatibility
+  const bySlug = await getPublishedNewsletterBySlug(idOrSlug);
+  if (bySlug) return bySlug;
+  const num = Number(idOrSlug);
+  if (!isNaN(num)) return getPublishedNewsletter(num);
+  return null;
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale; id: string }> }) {
@@ -49,7 +54,7 @@ export default async function NewsletterDetailPage({ params }: { params: Promise
   }
 
   const baseUrl = 'https://scam.ai';
-  const articleUrl = `${baseUrl}/${locale}/newsletter/${id}`;
+  const articleUrl = `${baseUrl}/${locale}/newsletter/${newsletter.slug || id}`;
 
   const articleSchema = {
     '@context': 'https://schema.org',

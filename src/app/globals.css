@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
 :root {
@@ -9,6 +10,28 @@
   --text-soft: #cbd5f5;
   --border: #1f1f1f;
   --accent: #6d5dfb;
+
+  /* shadcn/ui color tokens (dark-only) */
+  --radius: 0.625rem;
+  --background: oklch(0 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.065 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.065 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.546 0.245 264);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.17 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted-shadcn: oklch(0.17 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent-shadcn: oklch(0.17 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border-shadcn: oklch(0.2 0 0);
+  --input: oklch(0.2 0 0);
+  --ring: oklch(0.546 0.245 264);
 }
 
 @keyframes rainbow-border {
@@ -92,8 +115,29 @@
 }
 
 @theme inline {
-  --color-background: var(--bg);
-  --color-foreground: var(--text);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted-shadcn);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent-shadcn);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border-shadcn);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
@@ -301,6 +345,8 @@ header {
 /* GLOBAL BLACK BACKGROUND - ABSOLUTE PRIORITY */
 *, *::before, *::after {
   box-sizing: border-box;
+}
+.landing-section *, .landing-section *::before, .landing-section *::after {
   border-color: #000000;
 }
 

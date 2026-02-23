@@ -1,5 +1,6 @@
-export function cn(
-  ...inputs: Array<string | number | false | null | undefined>
-): string {
-  return inputs.filter(Boolean).join(" ");
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }

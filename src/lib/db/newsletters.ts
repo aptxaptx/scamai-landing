@@ -6,10 +6,19 @@ import type {
   Stats,
 } from '@/types/newsletter';
 
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 120);
+}
+
 interface NewsletterRow {
   id: number;
   edition: number;
   title: string;
+  slug: string | null;
   date: string;
   reading_time: number | null;
   summary: string | null;
@@ -25,6 +34,7 @@ function parseNewsletterRow(row: NewsletterRow): NewsletterDetail {
     id: row.id,
     edition: row.edition,
     title: row.title,
+    slug: row.slug || slugify(row.title),
     date: row.date,
     reading_time: row.reading_time ?? 0,
     summary: row.summary ?? '',
@@ -42,12 +52,15 @@ function parseNewsletterRow(row: NewsletterRow): NewsletterDetail {
 export async function getPublishedNewsletters(): Promise<Newsletter[]> {
   const sql = getDb();
   const rows = await sql`
-    SELECT id, edition, title, date, reading_time, summary, created_at, published
+    SELECT id, edition, title, slug, date, reading_time, summary, created_at, published
     FROM newsletters
     WHERE published = TRUE
     ORDER BY edition DESC
   `;
-  return rows as Newsletter[];
+  return (rows as Array<Newsletter & { slug: string | null }>).map(r => ({
+    ...r,
+    slug: r.slug || slugify(r.title),
+  }));
 }
 
 export async function getPublishedNewsletter(
@@ -61,16 +74,30 @@ export async function getPublishedNewsletter(
   return parseNewsletterRow(rows[0] as NewsletterRow);
 }
 
+export async function getPublishedNewsletterBySlug(
+  slug: string
+): Promise<NewsletterDetail | null> {
+  const sql = getDb();
+  const rows = await sql`
+    SELECT * FROM newsletters WHERE slug = ${slug} AND published = TRUE
+  `;
+  if (rows.length === 0) return null;
+  return parseNewsletterRow(rows[0] as NewsletterRow);
+}
+
 // --- Admin queries ---
 
 export async function getAllNewsletters(): Promise<Newsletter[]> {
   const sql = getDb();
   const rows = await sql`
-    SELECT id, edition, title, date, reading_time, summary, published, created_at
+    SELECT id, edition, title, slug, date, reading_time, summary, published, created_at
     FROM newsletters
     ORDER BY edition DESC
   `;
-  return rows as Newsletter[];
+  return (rows as Array<Newsletter & { slug: string | null }>).map(r => ({
+    ...r,
+    slug: r.slug || slugify(r.title),
+  }));
 }
 
 export async function getNewsletterById(
@@ -119,9 +146,10 @@ export async function insertNewsletter(data: {
   content: object;
 }): Promise<number> {
   const sql = getDb();
+  const slug = slugify(data.title);
   const rows = await sql`
-    INSERT INTO newsletters (edition, title, date, reading_time, summary, content, published)
-    VALUES (${data.edition}, ${data.title}, ${data.date}, ${data.readingTime}, ${data.summary}, ${JSON.stringify(data.content)}, FALSE)
+    INSERT INTO newsletters (edition, title, slug, date, reading_time, summary, content, published)
+    VALUES (${data.edition}, ${data.title}, ${slug}, ${data.date}, ${data.readingTime}, ${data.summary}, ${JSON.stringify(data.content)}, FALSE)
     RETURNING id
   `;
   return rows[0].id as number;
@@ -186,6 +214,22 @@ export async function updateContent(
     await sql`
       UPDATE newsletters SET content = ${JSON.stringify(content)} WHERE id = ${id}
     `;
+  }
+}
+
+export async function updateMeta(
+  id: number,
+  data: { title?: string; date?: string }
+): Promise<void> {
+  const sql = getDb();
+  if (data.title !== undefined && data.date !== undefined) {
+    const slug = slugify(data.title);
+    await sql`UPDATE newsletters SET title = ${data.title}, slug = ${slug}, date = ${data.date} WHERE id = ${id}`;
+  } else if (data.title !== undefined) {
+    const slug = slugify(data.title);
+    await sql`UPDATE newsletters SET title = ${data.title}, slug = ${slug} WHERE id = ${id}`;
+  } else if (data.date !== undefined) {
+    await sql`UPDATE newsletters SET date = ${data.date} WHERE id = ${id}`;
   }
 }
 

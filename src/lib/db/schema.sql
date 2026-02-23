@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS newsletters (
   id SERIAL PRIMARY KEY,
   edition INTEGER NOT NULL,
   title TEXT NOT NULL,
+  slug TEXT,
   date TEXT NOT NULL,
   reading_time INTEGER,
   summary TEXT,
@@ -23,4 +24,10 @@ CREATE TABLE IF NOT EXISTS newsletter_articles (
 
 CREATE INDEX IF NOT EXISTS idx_newsletters_published ON newsletters(published);
 CREATE INDEX IF NOT EXISTS idx_newsletters_edition ON newsletters(edition DESC);
+CREATE INDEX IF NOT EXISTS idx_newsletters_slug ON newsletters(slug);
 CREATE INDEX IF NOT EXISTS idx_newsletter_articles_newsletter_id ON newsletter_articles(newsletter_id);
+
+-- Migration: Add slug column to existing tables
+-- ALTER TABLE newsletters ADD COLUMN IF NOT EXISTS slug TEXT;
+-- CREATE INDEX IF NOT EXISTS idx_newsletters_slug ON newsletters(slug);
+-- UPDATE newsletters SET slug = LOWER(REGEXP_REPLACE(REGEXP_REPLACE(title, '[^a-zA-Z0-9]+', '-', 'g'), '^-+|-+$', '', 'g')) WHERE slug IS NULL;

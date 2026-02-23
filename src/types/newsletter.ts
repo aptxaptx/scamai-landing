@@ -2,6 +2,7 @@ export interface Newsletter {
   id: number;
   edition: number;
   title: string;
+  slug: string;
   date: string;
   reading_time: number;
   summary: string;
