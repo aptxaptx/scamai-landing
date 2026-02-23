@@ -19,6 +19,7 @@ function blankArticle(): Article {
     publishedAt: new Date().toISOString(),
     takeaway: "",
     description: "",
+    imageUrl: "",
   };
 }
 
