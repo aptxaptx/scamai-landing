@@ -15,7 +15,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 }
 
 export default async function NewsletterPage() {
-  const newsletters = await getPublishedNewsletters();
+  let newsletters: Awaited<ReturnType<typeof getPublishedNewsletters>> = [];
+  try {
+    newsletters = await getPublishedNewsletters();
+  } catch (error) {
+    console.error('Failed to fetch newsletters:', error);
+  }
 
   return (
     <main className="min-h-screen bg-black text-white">
