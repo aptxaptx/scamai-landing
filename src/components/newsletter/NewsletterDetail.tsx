@@ -107,7 +107,7 @@ export default function NewsletterDetail({
             }}
           >
             <span style={{ fontSize: 18, lineHeight: 1 }}>&larr;</span>
-            All editions
+            All news
           </Link>
 
           {/* Meta line */}
@@ -349,33 +349,6 @@ export default function NewsletterDetail({
           &#9632;
         </div>
 
-        {/* Footer — understated */}
-        <footer style={{ textAlign: "center" }}>
-          <p
-            style={{
-              fontFamily: "var(--sans)",
-              fontSize: 14,
-              color: "var(--text-muted)",
-              lineHeight: 1.6,
-              margin: "0 0 16px",
-            }}
-          >
-            Curated by ScamAI — deepfake intelligence, security, and policy.
-          </p>
-          <Link
-            href="/newsletter"
-            style={{
-              fontFamily: "var(--sans)",
-              fontSize: 14,
-              color: "var(--text-secondary)",
-              textDecoration: "underline",
-              textUnderlineOffset: "3px",
-              textDecorationColor: "var(--text-muted)",
-            }}
-          >
-            Browse all editions
-          </Link>
-        </footer>
       </div>
     </article>
   );

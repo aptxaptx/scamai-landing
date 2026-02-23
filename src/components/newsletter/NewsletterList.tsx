@@ -12,6 +12,7 @@ interface Newsletter {
   reading_time: number;
   summary: string;
   created_at: string;
+  thumbnail?: string;
 }
 
 // Generate a consistent gradient based on edition number
@@ -95,19 +96,21 @@ export default function NewsletterList({ newsletters }: { newsletters: Newslette
               >
                 {/* Thumbnail Area */}
                 <div className={`relative h-48 overflow-hidden bg-gradient-to-br ${gradients[index % gradients.length]}`}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm">
-                      <svg className="h-8 w-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                      </svg>
+                  {newsletter.thumbnail ? (
+                    <img
+                      src={newsletter.thumbnail}
+                      alt={newsletter.title}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm">
+                        <svg className="h-8 w-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                  {/* Edition Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center rounded-full bg-black/40 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                      Edition {newsletter.edition}
-                    </span>
-                  </div>
+                  )}
                 </div>
 
                 {/* Content */}

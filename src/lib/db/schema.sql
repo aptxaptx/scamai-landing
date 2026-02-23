@@ -27,6 +27,15 @@ CREATE INDEX IF NOT EXISTS idx_newsletters_edition ON newsletters(edition DESC);
 CREATE INDEX IF NOT EXISTS idx_newsletters_slug ON newsletters(slug);
 CREATE INDEX IF NOT EXISTS idx_newsletter_articles_newsletter_id ON newsletter_articles(newsletter_id);
 
+CREATE TABLE IF NOT EXISTS news_sources (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  url TEXT NOT NULL UNIQUE,
+  type TEXT NOT NULL DEFAULT 'rss',
+  active BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- Migration: Add slug column to existing tables
 -- ALTER TABLE newsletters ADD COLUMN IF NOT EXISTS slug TEXT;
 -- CREATE INDEX IF NOT EXISTS idx_newsletters_slug ON newsletters(slug);

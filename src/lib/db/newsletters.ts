@@ -49,17 +49,23 @@ function parseNewsletterRow(row: NewsletterRow): NewsletterDetail {
 
 // --- Public queries ---
 
-export async function getPublishedNewsletters(): Promise<Newsletter[]> {
+export async function getPublishedNewsletters(): Promise<(Newsletter & { thumbnail?: string })[]> {
   const sql = getDb();
   const rows = await sql`
-    SELECT id, edition, title, slug, date, reading_time, summary, created_at, published
+    SELECT id, edition, title, slug, date, reading_time, summary, created_at, published,
+      COALESCE(
+        content->'top3Articles'->0->>'imageUrl',
+        content->'top3Articles'->1->>'imageUrl',
+        content->'top3Articles'->2->>'imageUrl'
+      ) AS thumbnail
     FROM newsletters
     WHERE published = TRUE
     ORDER BY edition DESC
   `;
-  return (rows as Array<Newsletter & { slug: string | null }>).map(r => ({
+  return (rows as Array<Newsletter & { slug: string | null; thumbnail: string | null }>).map(r => ({
     ...r,
     slug: r.slug || slugify(r.title),
+    thumbnail: r.thumbnail || undefined,
   }));
 }
 
@@ -231,6 +237,49 @@ export async function updateMeta(
   } else if (data.date !== undefined) {
     await sql`UPDATE newsletters SET date = ${data.date} WHERE id = ${id}`;
   }
+}
+
+// --- News Sources ---
+
+export interface NewsSource {
+  id: number;
+  name: string;
+  url: string;
+  type: string;
+  active: boolean;
+  created_at: string;
+}
+
+export async function getActiveNewsSources(): Promise<NewsSource[]> {
+  const sql = getDb();
+  const rows = await sql`
+    SELECT * FROM news_sources WHERE active = TRUE ORDER BY name
+  `;
+  return rows as unknown as NewsSource[];
+}
+
+export async function getAllNewsSources(): Promise<NewsSource[]> {
+  const sql = getDb();
+  const rows = await sql`
+    SELECT * FROM news_sources ORDER BY name
+  `;
+  return rows as unknown as NewsSource[];
+}
+
+export async function insertNewsSource(name: string, url: string, type = 'rss'): Promise<number> {
+  const sql = getDb();
+  const rows = await sql`
+    INSERT INTO news_sources (name, url, type)
+    VALUES (${name}, ${url}, ${type})
+    ON CONFLICT (url) DO UPDATE SET name = ${name}, active = TRUE
+    RETURNING id
+  `;
+  return rows[0].id as number;
+}
+
+export async function deleteNewsSource(id: number): Promise<void> {
+  const sql = getDb();
+  await sql`DELETE FROM news_sources WHERE id = ${id}`;
 }
 
 export async function getNewsletterContent(
