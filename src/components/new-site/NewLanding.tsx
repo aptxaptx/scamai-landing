@@ -366,40 +366,6 @@ export default function NewLanding() {
         </div>
       </section>
 
-      {/* Social Proof Bar */}
-      <section className="landing-section relative overflow-hidden bg-black border-t border-white/5" aria-label="Trust signals">
-        <div className="mx-auto max-w-6xl px-6 sm:px-8 py-12 sm:py-16">
-          <AnimatedSection>
-            <p className="mb-8 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-500 sm:text-xs">
-              Trusted by security teams worldwide
-            </p>
-            <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8">
-              <div className="flex flex-col items-center gap-2 text-center">
-                <span className="text-2xl font-bold text-white sm:text-3xl">99.2%</span>
-                <span className="text-xs text-gray-500">Detection accuracy</span>
-              </div>
-              <div className="flex flex-col items-center gap-2 text-center">
-                <span className="text-2xl font-bold text-white sm:text-3xl">&lt;500ms</span>
-                <span className="text-xs text-gray-500">Response time</span>
-              </div>
-              <div className="flex flex-col items-center gap-2 text-center">
-                <div className="flex items-center gap-2">
-                  <img src="/soc2-badge.png" alt="SOC 2" className="h-7 w-7 sm:h-8 sm:w-8" />
-                  <img src="/gdpr-badge.png" alt="GDPR" className="h-7 w-7 sm:h-8 sm:w-8" />
-                </div>
-                <span className="text-xs text-gray-500">SOC 2 &amp; GDPR certified</span>
-              </div>
-              <div className="flex flex-col items-center gap-2 text-center">
-                <span className="text-2xl font-bold text-white sm:text-3xl">
-                  <img src="/scamai-logo.svg" alt="Berkeley SkyDeck" className="inline h-5 sm:h-6" style={{ filter: 'brightness(0.7)' }} />
-                </span>
-                <span className="text-xs text-gray-500">Berkeley SkyDeck backed</span>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
       {/* AI-Powered Security — merged section */}
       <section className="landing-section relative overflow-hidden" aria-label="AI-Powered Security - Deepfake Protection" style={{
         backgroundImage: 'url(/session1.svg)',
