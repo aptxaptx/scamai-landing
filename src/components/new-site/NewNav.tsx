@@ -36,27 +36,27 @@ const navItems: NavItem[] = [
       },
       {
         label: "Remote Notary",
-        href: "/#solutions",
+        href: "/#solutions-remote-notary",
         description: "Identity verification for notarizations"
       },
       {
         label: "Age Estimation & IDV",
-        href: "/#solutions",
+        href: "/#solutions-age-estimation",
         description: "Age estimation and ID verification"
       },
       {
         label: "Document Forgery",
-        href: "/#solutions",
+        href: "/#solutions-document-forgery",
         description: "Detect forged and AI-generated documents"
       },
       {
         label: "AI Agent Scam Prevention",
-        href: "/#solutions",
+        href: "/#solutions-ai-agent",
         description: "Protect AI workflows from manipulation"
       },
       {
         label: "Remote Interview",
-        href: "/#solutions",
+        href: "/#solutions-remote-interview",
         description: "Verify candidate identity in video interviews"
       },
       {
@@ -404,7 +404,7 @@ export default function NewNav() {
                           {item.children.map((child) => (
                             child.external || child.href.includes('#') ? (
                               <a
-                                key={child.href}
+                                key={child.label}
                                 href={child.href}
                                 {...(child.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                                 className="block p-4 rounded-lg hover:bg-white/5"
@@ -426,7 +426,7 @@ export default function NewNav() {
                               </a>
                             ) : (
                               <Link
-                                key={child.href}
+                                key={child.label}
                                 href={child.href}
                                 className="block p-4 rounded-lg hover:bg-white/5"
                                 onClick={() => {
@@ -604,7 +604,7 @@ export default function NewNav() {
               {navItems.find(item => item.label === "Product")?.children?.map((child) => (
                 child.external || child.href.includes('#') ? (
                   <a
-                    key={child.href}
+                    key={child.label}
                     href={child.href}
                     {...(child.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="group block p-4 rounded-lg hover:bg-white/5 transition-colors duration-150"
@@ -621,7 +621,7 @@ export default function NewNav() {
                   </a>
                 ) : (
                   <Link
-                    key={child.href}
+                    key={child.label}
                     href={child.href}
                     className="group block p-4 rounded-lg hover:bg-white/5 transition-colors duration-150"
                     onClick={() => setProductsOpen(false)}
@@ -649,7 +649,7 @@ export default function NewNav() {
               {navItems.find(item => item.label === "Company")?.children?.map((child) => (
                 child.external ? (
                   <a
-                    key={child.href}
+                    key={child.label}
                     href={child.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -669,7 +669,7 @@ export default function NewNav() {
                   </a>
                 ) : (
                   <Link
-                    key={child.href}
+                    key={child.label}
                     href={child.href}
                     className="group block p-5 rounded-lg hover:bg-white/5 transition-colors duration-150"
                     onClick={() => setCompanyOpen(false)}
