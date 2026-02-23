@@ -160,9 +160,9 @@ export default function NewNav() {
         </p>
       </div>
       <div className="fixed top-[42px] left-0 right-0 z-40">
-      <header className={`transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
+      <header className={`transition-all duration-300 ${open ? 'bg-[#0b0b0b]' : scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className={`flex items-center ${open ? 'invisible' : ''}`}>
           <img
             src="/scamai-logo.svg"
             alt="ScamAI"
