@@ -275,107 +275,110 @@ export default function NewLanding() {
   };
   return (
     <main className="bg-black text-white" role="main">
-      {/* Hero Section */}
-      <section className="landing-section relative overflow-hidden bg-black" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '90px', paddingBottom: 0, marginBottom: 0, marginTop: 0 }} aria-label="Hero section - AI Trust Platform">
+      {/* Hero Section — text takes ~70vh, video peeks below */}
+      <section className="landing-section relative overflow-hidden bg-black" style={{ marginBottom: 0, marginTop: 0 }} aria-label="Hero section - AI Trust Platform">
         <HeroBackground className="" />
-        <div className="relative z-10 w-full max-w-5xl px-8 sm:px-10 lg:px-8">
-          <div className="flex flex-col items-center text-center space-y-4 sm:space-y-5 lg:space-y-6">
-            <AnimatedSection delay={0.2}>
-              <p className="text-[10px] font-semibold text-gray-400 tracking-[0.15em] uppercase sm:text-xs">
-                All-in-one
-              </p>
-            </AnimatedSection>
+        <div className="relative z-10 w-full">
+          {/* Text area — centered in ~70vh */}
+          <div className="flex min-h-[70vh] flex-col items-center justify-center px-5 pt-[120px] text-center sm:px-10 lg:px-8">
+            <div className="mx-auto flex max-w-4xl flex-col items-center space-y-4 sm:space-y-5">
+              <AnimatedSection delay={0.2}>
+                <p className="text-[10px] font-semibold text-gray-400 tracking-[0.15em] uppercase sm:text-xs">
+                  All-in-one
+                </p>
+              </AnimatedSection>
 
-            <AnimatedSection delay={0.3}>
-              <h1 className="text-3xl font-bold leading-[1.2] tracking-tight sm:text-5xl lg:text-6xl max-w-3xl px-2 sm:px-0">
-                AI trust platform
-              </h1>
-            </AnimatedSection>
+              <AnimatedSection delay={0.3}>
+                <h1 className="text-3xl font-bold leading-[1.2] tracking-tight sm:text-5xl lg:text-6xl max-w-3xl px-2 sm:px-0">
+                  AI trust platform
+                </h1>
+              </AnimatedSection>
 
-            <AnimatedSection delay={0.4}>
-              <div className="max-w-2xl text-sm leading-[1.7] text-gray-300 sm:text-base sm:leading-relaxed lg:text-lg px-4 sm:px-0">
-                <div className="text-center space-y-2">
-                  <p>
-                    <span className="font-semibold text-white">Detect synthetic media and deepfakes in real time</span>.
-                  </p>
-                  <p>
-                    <span className="font-semibold text-white">Industry-leading accuracy</span> that fights fraud and unifies trust signals.
-                  </p>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.5}>
-              <div className="flex flex-col items-center gap-3 pt-4 sm:flex-row sm:gap-4 sm:pt-3">
-                <a
-                  href="https://app.scam.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rainbow-button inline-block"
-                >
-                  <span className="rainbow-button-inner">
-                    Try for free
-                  </span>
-                </a>
-                <a
-                  href="https://cal.com/scamai/15min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10"
-                >
-                  Book a demo
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </AnimatedSection>
-
-            {/* Product Visual — detection dashboard preview */}
-            <AnimatedSection delay={0.7}>
-              <div className="relative mx-auto mt-8 w-full max-w-3xl sm:mt-12">
-                {/* Browser frame */}
-                <div className="overflow-hidden rounded-xl border border-white/10 bg-[#0a0a0a] shadow-2xl shadow-black/50">
-                  {/* Title bar */}
-                  <div className="flex items-center gap-2 border-b border-white/5 px-4 py-3">
-                    <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-                    <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-                    <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-                    <span className="ml-3 text-xs text-gray-500">app.scam.ai</span>
-                  </div>
-                  {/* Dashboard video — starts at 4s, loops from 4s */}
-                  <div className="relative">
-                    <video
-                      ref={(el) => {
-                        if (el) {
-                          el.currentTime = 4;
-                          const handleTimeUpdate = () => {
-                            if (el.ended || el.currentTime < 4) {
-                              el.currentTime = 4;
-                              el.play();
-                            }
-                          };
-                          el.addEventListener('ended', handleTimeUpdate);
-                          el.addEventListener('loadedmetadata', () => { el.currentTime = 4; });
-                        }
-                      }}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-auto"
-                    >
-                      <source src="/dashboard.mp4" type="video/mp4" />
-                    </video>
-                    {/* Gradient fade at bottom */}
-                    <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+              <AnimatedSection delay={0.4}>
+                <div className="max-w-2xl text-sm leading-[1.7] text-gray-300 sm:text-base sm:leading-relaxed lg:text-lg px-4 sm:px-0">
+                  <div className="text-center space-y-2">
+                    <p>
+                      <span className="font-semibold text-white">Detect synthetic media and deepfakes in real time</span>.
+                    </p>
+                    <p>
+                      <span className="font-semibold text-white">Industry-leading accuracy</span> that fights fraud and unifies trust signals.
+                    </p>
                   </div>
                 </div>
-                {/* Glow effect behind the frame */}
-                <div className="pointer-events-none absolute -inset-4 -z-10 rounded-2xl bg-[#245FFF]/5 blur-2xl" />
-              </div>
-            </AnimatedSection>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.5}>
+                <div className="flex flex-col items-center gap-3 pt-2 sm:flex-row sm:gap-4 sm:pt-3">
+                  <a
+                    href="https://app.scam.ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rainbow-button inline-block"
+                  >
+                    <span className="rainbow-button-inner">
+                      Try for free
+                    </span>
+                  </a>
+                  <a
+                    href="https://cal.com/scamai/15min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10"
+                  >
+                    Book a demo
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </AnimatedSection>
+            </div>
           </div>
+
+          {/* Product visual — sits in the remaining ~30vh, peeks above fold */}
+          <AnimatedSection delay={0.7}>
+            <div className="relative mx-auto w-full max-w-4xl px-5 pb-16 sm:px-10 lg:px-8">
+              {/* Browser frame */}
+              <div className="overflow-hidden rounded-xl border border-white/10 bg-[#0a0a0a] shadow-2xl shadow-black/50">
+                {/* Title bar */}
+                <div className="flex items-center gap-2 border-b border-white/5 px-4 py-3">
+                  <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+                  <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
+                  <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+                  <span className="ml-3 text-xs text-gray-500">app.scam.ai</span>
+                </div>
+                {/* Dashboard video — starts at 4s, loops from 4s */}
+                <div className="relative">
+                  <video
+                    ref={(el) => {
+                      if (el) {
+                        el.currentTime = 4;
+                        const handleTimeUpdate = () => {
+                          if (el.ended || el.currentTime < 4) {
+                            el.currentTime = 4;
+                            el.play();
+                          }
+                        };
+                        el.addEventListener('ended', handleTimeUpdate);
+                        el.addEventListener('loadedmetadata', () => { el.currentTime = 4; });
+                      }
+                    }}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto"
+                  >
+                    <source src="/dashboard.mp4" type="video/mp4" />
+                  </video>
+                  {/* Gradient fade at bottom */}
+                  <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+                </div>
+              </div>
+              {/* Glow effect behind the frame */}
+              <div className="pointer-events-none absolute -inset-4 -z-10 rounded-2xl bg-[#245FFF]/5 blur-2xl" />
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -387,7 +390,7 @@ export default function NewLanding() {
         backgroundRepeat: 'no-repeat'
       }}>
         <div className="absolute inset-0 bg-black/60"></div>
-        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 py-20 sm:py-24 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-8 py-14 sm:py-24 lg:py-32">
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="text-left flex flex-col justify-center">
