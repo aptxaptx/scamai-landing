@@ -343,9 +343,22 @@ export default function NewLanding() {
                     <span className="h-3 w-3 rounded-full bg-[#28c840]" />
                     <span className="ml-3 text-xs text-gray-500">app.scam.ai</span>
                   </div>
-                  {/* Dashboard video */}
+                  {/* Dashboard video — starts at 4s, loops from 4s */}
                   <div className="relative">
                     <video
+                      ref={(el) => {
+                        if (el) {
+                          el.currentTime = 4;
+                          const handleTimeUpdate = () => {
+                            if (el.ended || el.currentTime < 4) {
+                              el.currentTime = 4;
+                              el.play();
+                            }
+                          };
+                          el.addEventListener('ended', handleTimeUpdate);
+                          el.addEventListener('loadedmetadata', () => { el.currentTime = 4; });
+                        }
+                      }}
                       autoPlay
                       loop
                       muted
