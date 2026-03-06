@@ -36,6 +36,19 @@ export default function StructuredData() {
         "email": "ceo@scam.ai"
       }
     ],
+    "knowsAbout": [
+      "deepfake detection",
+      "synthetic media verification",
+      "AI trust",
+      "computer vision",
+      "audio forensics",
+      "KYC verification",
+      "fraud prevention"
+    ],
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Berkeley SkyDeck"
+    },
     "funding": {
       "@type": "MonetaryAmount",
       "currency": "USD",
@@ -127,7 +140,23 @@ export default function StructuredData() {
         "name": "How much does ScamAI cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ScamAI offers 200 free images per month. For higher volumes and enterprise needs, custom pricing is available based on your usage."
+          "text": "ScamAI offers 200 free images per month for free. Pay-as-you-go pricing starts at $0.05 per image. Optional add-ons (face attributes, liveness detection, ID document verification) are $0.008 per image each. Enterprise pricing is available for high-volume users."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does ScamAI compare to other deepfake detection tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ScamAI achieves 95.3% detection accuracy with sub-200ms processing, offers both vision and audio detection in a single platform, and provides a developer-friendly API with integration in under 10 minutes. Unlike many competitors, ScamAI offers a free tier, transparent per-image pricing, and is SOC 2 Type II and GDPR compliant."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What industries use ScamAI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ScamAI is used across financial services for KYC verification, content platforms for moderation, call centers for voice authentication, media organizations for content verification, HR departments for remote interview verification, insurance for claims validation, and government agencies for public sector security."
         }
       }
     ]

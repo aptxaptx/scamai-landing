@@ -8,6 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     locale,
     path: '/products/scam-database',
     ...pageMetadata.scamDatabase,
+    noindex: true,
   });
 }
 
