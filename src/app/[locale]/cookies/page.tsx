@@ -234,7 +234,7 @@ export default function CookiesPage() {
                   Email: <a href="mailto:privacy@scam.ai" className="text-[#245FFF] hover:underline">privacy@scam.ai</a>
                 </p>
                 <p className="text-gray-300">
-                  Address: Berkeley SkyDeck, University of California, Berkeley, CA 94720
+                  Address: 2150 Shattuck Ave., Penthouse Suite #1300, Berkeley, CA 94704
                 </p>
               </div>
             </div>

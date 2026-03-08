@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { trackCTA } from "@/lib/analytics";
 
 function AnimatedCard({
   children,
@@ -197,6 +198,7 @@ export default function SolutionsSection() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#245FFF] px-7 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-[#1d4acc] hover:shadow-[0_0_24px_-4px_rgba(36,95,255,0.5)]"
+              onClick={() => trackCTA("talk_to_sales", "solutions")}
             >
               Talk to sales
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -151,9 +151,9 @@ export default function ContactPage() {
           </h2>
           <div className="mx-auto max-w-2xl rounded-lg border border-gray-800 bg-gray-900/40 p-8 text-center">
             <h3 className="mb-4 text-2xl font-bold text-white">Reality Inc.</h3>
-            <p className="mb-2 text-gray-300">Berkeley SkyDeck</p>
-            <p className="mb-2 text-gray-300">University of California, Berkeley</p>
-            <p className="text-gray-300">Berkeley, CA 94720</p>
+            <p className="mb-2 text-gray-300">2150 Shattuck Ave.</p>
+            <p className="mb-2 text-gray-300">Penthouse Suite #1300</p>
+            <p className="text-gray-300">Berkeley, CA 94704</p>
           </div>
         </div>
       </section>

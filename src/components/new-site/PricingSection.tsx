@@ -1,494 +1,432 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { trackPricing, trackCTA } from "@/lib/analytics";
 
-// Toggle switch component
+// Animated wrapper consistent with other sections
+function AnimatedBlock({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      transition={{ duration: 0.7, delay, ease: [0.25, 0.1, 0.25, 1.0] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// Toggle switch
 function ToggleSwitch({ checked, onChange }: { checked: boolean; onChange: (v: boolean) => void }) {
   return (
     <button
       type="button"
       role="switch"
       aria-checked={checked}
-      onClick={() => onChange(!checked)}
+      onClick={(e) => { e.stopPropagation(); onChange(!checked); }}
       className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ${
-        checked ? 'bg-[#245FFF]' : 'bg-gray-700'
+        checked ? "bg-[#245FFF]" : "bg-gray-700"
       }`}
     >
       <span
         className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-lg ring-0 transition-transform duration-200 ${
-          checked ? 'translate-x-5' : 'translate-x-0'
+          checked ? "translate-x-5" : "translate-x-0"
         }`}
       />
     </button>
   );
 }
 
-// Pricing constants (from actual pricing page)
+// Checkmark icon reused across lists
+const Check = ({ muted = false }: { muted?: boolean }) => (
+  <svg
+    className={`mr-2 h-5 w-5 flex-shrink-0 ${muted ? "text-gray-700" : "text-[#245FFF]"}`}
+    fill="currentColor"
+    viewBox="0 0 20 20"
+  >
+    <path
+      fillRule="evenodd"
+      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+
+// Constants
 const FREE_CHECKS = 200;
 const BASE_PRICE = 0.05;
-const ADAPTIVE_DEFENSE_PRICE = 0.008;
-const ACTIVE_LIVENESS_PRICE = 0.008;
-const EXPRESS_LANE_PRICE = 0.008;
+const ADDON = { adaptive: 0.008, liveness: 0.008, express: 0.008 };
 const MAX_VOLUME = 2000;
-const VOLUME_DISCOUNT_THRESHOLD = 2000;
 
 export default function PricingSection() {
   const [volume, setVolume] = useState(200);
-  const [adaptiveDefense, setAdaptiveDefense] = useState(false);
-  const [activeLiveness, setActiveLiveness] = useState(false);
-  const [expressLane, setExpressLane] = useState(false);
+  const [addons, setAddons] = useState({ adaptive: false, liveness: false, express: false });
 
-  // Calculate price per image
-  const calculatePricePerCheck = () => {
-    if (volume <= FREE_CHECKS) return 0;
-    let price = BASE_PRICE;
-    if (adaptiveDefense) price += ADAPTIVE_DEFENSE_PRICE;
-    if (activeLiveness) price += ACTIVE_LIVENESS_PRICE;
-    if (expressLane) price += EXPRESS_LANE_PRICE;
-    return price;
+  const toggle = (key: keyof typeof addons) => {
+    const next = !addons[key];
+    setAddons((prev) => ({ ...prev, [key]: next }));
+    trackPricing(next ? "addon_enable" : "addon_disable", key);
   };
 
-  const pricePerCheck = calculatePricePerCheck();
-  const sliderPosition = (volume / MAX_VOLUME) * 100;
+  const pricePerCheck = volume <= FREE_CHECKS
+    ? 0
+    : BASE_PRICE
+      + (addons.adaptive ? ADDON.adaptive : 0)
+      + (addons.liveness ? ADDON.liveness : 0)
+      + (addons.express ? ADDON.express : 0);
+
+  const monthlyTotal = volume <= FREE_CHECKS ? 0 : (volume - FREE_CHECKS) * pricePerCheck;
+  const sliderPos = (volume / MAX_VOLUME) * 100;
+  const isEnterprise = volume >= MAX_VOLUME;
 
   return (
-    <section 
-      className="landing-section relative overflow-hidden bg-black" 
-      aria-label="Pricing Configuration"
-      style={{ paddingTop: '80px', paddingBottom: '80px' }}
+    <section
+      className="landing-section relative overflow-hidden bg-black"
+      aria-label="Pricing"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black"></div>
-      
-      <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 lg:mb-20">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs">
-            USAGE-BASED PRICING
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1]">
-            Pay only for <span className="text-[#245FFF]">what you use</span>
-          </h2>
-          <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
-            Transparent, predictable pricing for GenAI and deepfake detection.{' '}
-            <span className="font-semibold text-white">200 free images per month with our Eva-v1-Fast model</span>, then $0.05/image + optional
-            add-ons. No hidden fees, no long-term contracts.
-          </p>
-        </div>
-
-        {/* Pricing Grid */}
-        <div className="grid lg:grid-cols-[1fr_400px] gap-8 mb-12">
-          {/* Left Side - Calculator */}
-          <div className="space-y-8">
-            {/* Volume Slider */}
-            <div className="rounded-3xl bg-gray-900/60 border border-gray-700 p-8">
-              <label className="mb-6 block text-xl font-bold text-white">Monthly Volume</label>
-              <div className="relative pt-10 pb-2">
-                {/* Current value above slider */}
-                <div
-                  className="absolute top-0 bg-[#245FFF] text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-lg whitespace-nowrap z-10"
-                  style={{
-                    left: `${Math.max(5, Math.min(95, sliderPosition))}%`,
-                    transform: 'translateX(-50%)',
-                  }}
-                >
-                  {volume.toLocaleString()} images
-                </div>
-                <input
-                  type="range"
-                  min="0"
-                  max={MAX_VOLUME}
-                  step="50"
-                  value={volume}
-                  onChange={(e) => setVolume(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-700 rounded-full appearance-none cursor-pointer accent-[#245FFF]"
-                  style={{
-                    background: `linear-gradient(to right, #245FFF 0%, #245FFF ${sliderPosition}%, #374151 ${sliderPosition}%, #374151 100%)`
-                  }}
-                />
-                <div className="mt-3 flex items-center justify-between text-sm text-gray-400">
-                  <span>0</span>
-                  <span>{MAX_VOLUME.toLocaleString()}</span>
-                </div>
-              </div>
-
-              {/* Volume Discount Badge - shown when at max */}
-              {volume === MAX_VOLUME && (
-                <div className="mt-6 rounded-2xl border-2 border-[#245FFF] bg-gradient-to-r from-[#245FFF]/20 to-purple-500/20 p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#245FFF] flex items-center justify-center">
-                      <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <p className="font-bold text-xl text-white mb-2">Need more than {MAX_VOLUME.toLocaleString()} images?</p>
-                      <p className="text-sm text-gray-300 mb-4">
-                        Unlock enterprise-grade features, volume discounts, and dedicated support for high-volume needs.
-                      </p>
-                      <a
-                        href="https://cal.com/scamai/15min"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#245FFF] text-white font-semibold hover:bg-[#1d4acc] transition-colors"
-                      >
-                        Talk to Sales
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Add-on Features */}
-            <div className="rounded-3xl bg-gray-900/60 border border-gray-700 p-8">
-              <h3 className="mb-6 text-xl font-bold text-white">Add-on Features</h3>
-              <p className="mb-6 text-sm text-gray-400">Enhance your detection capabilities with optional features</p>
-
-              <div className="space-y-4">
-                {/* Adaptive Defense */}
-                <div
-                  className={`flex items-start gap-4 cursor-pointer group p-4 rounded-xl transition-colors ${adaptiveDefense ? 'bg-[#245FFF]/5 border border-[#245FFF]/20' : 'hover:bg-gray-800/50 border border-transparent'}`}
-                  onClick={() => setAdaptiveDefense(!adaptiveDefense)}
-                >
-                  <div className="mt-0.5">
-                    <ToggleSwitch checked={adaptiveDefense} onChange={setAdaptiveDefense} />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className={`font-semibold transition-colors ${adaptiveDefense ? 'text-[#245FFF]' : 'text-white group-hover:text-[#245FFF]'}`}>
-                        Adaptive Defense
-                      </span>
-                      <span className="text-sm font-semibold text-[#245FFF]">
-                        +${ADAPTIVE_DEFENSE_PRICE.toFixed(3)}/image
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-400">Real-time GenAI, deepfake & injection attack detection with advanced AI models</p>
-                  </div>
-                </div>
-
-                {/* Active Liveness */}
-                <div
-                  className={`flex items-start gap-4 cursor-pointer group p-4 rounded-xl transition-colors ${activeLiveness ? 'bg-[#245FFF]/5 border border-[#245FFF]/20' : 'hover:bg-gray-800/50 border border-transparent'}`}
-                  onClick={() => setActiveLiveness(!activeLiveness)}
-                >
-                  <div className="mt-0.5">
-                    <ToggleSwitch checked={activeLiveness} onChange={setActiveLiveness} />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className={`font-semibold transition-colors ${activeLiveness ? 'text-[#245FFF]' : 'text-white group-hover:text-[#245FFF]'}`}>
-                        Active Liveness
-                      </span>
-                      <span className="text-sm font-semibold text-[#245FFF]">
-                        +${ACTIVE_LIVENESS_PRICE.toFixed(3)}/image
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-400">Live face detection to verify real human presence and prevent GenAI-generated deepfakes</p>
-                  </div>
-                </div>
-
-                {/* Express Lane */}
-                <div
-                  className={`flex items-start gap-4 cursor-pointer group p-4 rounded-xl transition-colors ${expressLane ? 'bg-[#245FFF]/5 border border-[#245FFF]/20' : 'hover:bg-gray-800/50 border border-transparent'}`}
-                  onClick={() => setExpressLane(!expressLane)}
-                >
-                  <div className="mt-0.5">
-                    <ToggleSwitch checked={expressLane} onChange={setExpressLane} />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className={`font-semibold transition-colors ${expressLane ? 'text-[#245FFF]' : 'text-white group-hover:text-[#245FFF]'}`}>
-                        Express Lane
-                      </span>
-                      <span className="text-sm font-semibold text-[#245FFF]">
-                        +${EXPRESS_LANE_PRICE.toFixed(3)}/image
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-400">Low latency processing with 3s response time guarantee</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-8 py-14 sm:py-20 lg:py-28">
+        {/* Header — matches other sections */}
+        <AnimatedBlock>
+          <div className="text-center mb-10 lg:mb-14">
+            <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[#245FFF] mb-3 sm:text-[10px] lg:mb-4">
+              USAGE-BASED PRICING
+            </p>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-3 sm:mb-4 lg:mb-5">
+              Pay only for <span className="text-[#245FFF]">what you use</span>
+            </h2>
+            <p className="mx-auto max-w-xl text-sm sm:text-base text-gray-500 leading-relaxed">
+              <span className="font-semibold text-white">200 free images/month</span> with Eva-v1-Fast,
+              then $0.05/image. No hidden fees, no contracts.
+            </p>
           </div>
+        </AnimatedBlock>
 
-          {/* Right Side - Price Summary (Sticky) */}
-          <div className="lg:sticky lg:top-24 h-fit">
-            <div className="rounded-3xl bg-gradient-to-br from-[#245FFF]/20 to-gray-900/60 border-2 border-[#245FFF] p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">Price Summary</h3>
-              
-              {/* Price Per Image */}
-              <div className="mb-8 pb-8 border-b border-gray-700">
-                <p className="mb-2 text-sm text-gray-400 uppercase tracking-wider">Price Per Image</p>
-                <div className="flex items-baseline gap-2">
-                  <motion.span
-                    key={volume <= FREE_CHECKS ? '0.00' : pricePerCheck.toFixed(3)}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="text-5xl font-bold text-white"
+        {/* Calculator + Summary */}
+        <AnimatedBlock delay={0.15}>
+          <div className="grid lg:grid-cols-[1fr_360px] gap-4 sm:gap-6 mb-10 lg:mb-14">
+            {/* Left — Calculator */}
+            <div className="space-y-4 sm:space-y-6">
+              {/* Volume slider card */}
+              <div className="rounded-xl sm:rounded-2xl border border-gray-800/60 bg-white/[0.02] p-5 sm:p-7">
+                <label className="mb-5 block text-base sm:text-lg font-semibold text-white">Monthly Volume</label>
+                <div className="relative pt-9 pb-1">
+                  <div
+                    className="absolute top-0 rounded-full bg-[#245FFF]/10 border border-[#245FFF]/30 px-3 py-1 text-xs font-semibold text-[#245FFF] whitespace-nowrap z-10"
+                    style={{
+                      left: `${Math.max(5, Math.min(95, sliderPos))}%`,
+                      transform: "translateX(-50%)",
+                    }}
                   >
-                    ${volume <= FREE_CHECKS ? '0.00' : pricePerCheck.toFixed(3)}
-                  </motion.span>
-                  <span className="text-lg text-gray-400">/image</span>
+                    {volume.toLocaleString()} images
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max={MAX_VOLUME}
+                    step="50"
+                    value={volume}
+                    onChange={(e) => {
+                      const v = Number(e.target.value);
+                      setVolume(v);
+                      trackPricing("volume_change", `${v} images`);
+                    }}
+                    className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
+                    style={{
+                      background: `linear-gradient(to right, #245FFF 0%, #245FFF ${sliderPos}%, #1f2937 ${sliderPos}%, #1f2937 100%)`,
+                    }}
+                  />
+                  <div className="mt-2 flex justify-between text-xs text-gray-600">
+                    <span>0</span>
+                    <span>{MAX_VOLUME.toLocaleString()}+</span>
+                  </div>
                 </div>
 
-                {volume <= FREE_CHECKS ? (
-                  <div className="mt-4 rounded-xl bg-green-500/10 border border-green-500/30 px-4 py-3">
-                    <p className="text-sm font-semibold text-green-400">✓ Within free tier (first 200 images with Eva-v1-Fast)</p>
-                  </div>
-                ) : (
-                  /* Breakdown */
-                  <div className="mt-4 space-y-2 text-sm">
-                    <div className="flex justify-between text-gray-300">
-                      <span>Base Detection</span>
-                      <span className="font-semibold">${BASE_PRICE.toFixed(3)}</span>
+                {/* Enterprise nudge */}
+                {isEnterprise && (
+                  <div className="mt-5 flex items-center gap-3 rounded-xl border border-[#245FFF]/20 bg-[#245FFF]/5 p-4">
+                    <svg className="h-5 w-5 text-[#245FFF] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-white">Need more?</p>
+                      <p className="text-xs text-gray-400">Enterprise plans include volume discounts and dedicated support.</p>
                     </div>
-                    {adaptiveDefense && (
-                      <div className="flex justify-between text-gray-300">
-                        <span>+ Adaptive Defense</span>
-                        <span className="font-semibold text-[#245FFF]">+${ADAPTIVE_DEFENSE_PRICE.toFixed(3)}</span>
-                      </div>
-                    )}
-                    {activeLiveness && (
-                      <div className="flex justify-between text-gray-300">
-                        <span>+ Active Liveness</span>
-                        <span className="font-semibold text-[#245FFF]">+${ACTIVE_LIVENESS_PRICE.toFixed(3)}</span>
-                      </div>
-                    )}
-                    {expressLane && (
-                      <div className="flex justify-between text-gray-300">
-                        <span>+ Express Lane</span>
-                        <span className="font-semibold text-[#245FFF]">+${EXPRESS_LANE_PRICE.toFixed(3)}</span>
-                      </div>
-                    )}
+                    <a
+                      href="https://cal.com/scamai/15min"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0 rounded-full bg-[#245FFF] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#1d4acc] transition-colors"
+                      onClick={() => trackCTA("enterprise_contact", "pricing_slider")}
+                    >
+                      Contact
+                    </a>
                   </div>
                 )}
               </div>
 
-              {/* Monthly Estimate */}
-              <div className="mb-8">
-                <p className="mb-2 text-sm text-gray-400 uppercase tracking-wider">Total Monthly Estimate</p>
-                <div className="flex items-baseline gap-2 mb-4">
-                  <motion.span
-                    key={volume <= FREE_CHECKS ? '0.00' : ((volume - FREE_CHECKS) * pricePerCheck).toFixed(2)}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="text-4xl font-bold text-[#245FFF]"
-                  >
-                    ${volume <= FREE_CHECKS ? '0.00' : ((volume - FREE_CHECKS) * pricePerCheck).toFixed(2)}
-                  </motion.span>
-                  <span className="text-lg text-gray-400">/month</span>
-                </div>
+              {/* Add-ons card */}
+              <div className="rounded-xl sm:rounded-2xl border border-gray-800/60 bg-white/[0.02] p-5 sm:p-7">
+                <h3 className="mb-1 text-base sm:text-lg font-semibold text-white">Add-ons</h3>
+                <p className="mb-5 text-xs text-gray-500">Optional features to enhance detection</p>
 
-                {/* Monthly Breakdown */}
-                <div className="space-y-2 text-sm">
-                  {volume <= FREE_CHECKS ? (
-                    <div className="flex justify-between text-gray-300">
-                      <span>{volume.toLocaleString()} images</span>
-                      <span className="font-semibold text-green-400">FREE</span>
+                <div className="space-y-3">
+                  {([
+                    { key: "adaptive" as const, label: "Adaptive Defense", desc: "Real-time GenAI, deepfake & injection attack detection", price: ADDON.adaptive },
+                    { key: "liveness" as const, label: "Active Liveness", desc: "Verify real human presence and prevent deepfake spoofing", price: ADDON.liveness },
+                    { key: "express" as const, label: "Express Lane", desc: "Low latency processing with 3s response guarantee", price: ADDON.express },
+                  ]).map((addon) => (
+                    <div
+                      key={addon.key}
+                      onClick={() => toggle(addon.key)}
+                      className={`flex items-start gap-4 cursor-pointer p-3 sm:p-4 rounded-xl transition-all duration-200 ${
+                        addons[addon.key]
+                          ? "bg-[#245FFF]/5 border border-[#245FFF]/20"
+                          : "border border-transparent hover:bg-white/[0.03]"
+                      }`}
+                    >
+                      <div className="mt-0.5">
+                        <ToggleSwitch checked={addons[addon.key]} onChange={() => toggle(addon.key)} />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2 mb-0.5">
+                          <span className={`text-sm font-medium transition-colors ${addons[addon.key] ? "text-[#245FFF]" : "text-white"}`}>
+                            {addon.label}
+                          </span>
+                          <span className="text-xs font-semibold text-gray-500 whitespace-nowrap">
+                            +${addon.price.toFixed(3)}
+                          </span>
+                        </div>
+                        <p className="text-xs text-gray-500 leading-relaxed">{addon.desc}</p>
+                      </div>
                     </div>
-                  ) : (
-                    <>
-                      <div className="flex justify-between text-gray-300">
-                        <span>Free images</span>
-                        <span className="font-semibold text-green-400">{FREE_CHECKS.toLocaleString()}</span>
-                      </div>
-                      <div className="flex justify-between text-gray-300">
-                        <span>
-                          {(volume - FREE_CHECKS).toLocaleString()} paid images × ${pricePerCheck.toFixed(3)}
-                        </span>
-                        <span className="font-semibold">
-                          ${((volume - FREE_CHECKS) * pricePerCheck).toFixed(2)}
-                        </span>
-                      </div>
-                    </>
-                  )}
+                  ))}
                 </div>
               </div>
+            </div>
 
-              {/* CTA Button */}
+            {/* Right — Price Summary */}
+            <div className="lg:sticky lg:top-28 h-fit space-y-4">
+              <div className="rounded-xl sm:rounded-2xl border border-gray-800/60 bg-white/[0.02] p-5 sm:p-7">
+                <h3 className="text-base sm:text-lg font-semibold text-white mb-5">Summary</h3>
+
+                {/* Price per image */}
+                <div className="mb-6 pb-6 border-b border-gray-800/60">
+                  <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-500">Per Image</p>
+                  <div className="flex items-baseline gap-1.5">
+                    <motion.span
+                      key={pricePerCheck.toFixed(3)}
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-3xl sm:text-4xl font-bold text-white"
+                    >
+                      ${pricePerCheck.toFixed(3)}
+                    </motion.span>
+                    <span className="text-sm text-gray-500">/image</span>
+                  </div>
+
+                  {volume <= FREE_CHECKS ? (
+                    <div className="mt-3 rounded-lg bg-green-500/5 border border-green-500/20 px-3 py-2">
+                      <p className="text-xs font-medium text-green-400">Within free tier (200 images/mo)</p>
+                    </div>
+                  ) : (
+                    <div className="mt-3 space-y-1.5 text-xs text-gray-400">
+                      <div className="flex justify-between">
+                        <span>Base</span>
+                        <span className="text-gray-300">${BASE_PRICE.toFixed(3)}</span>
+                      </div>
+                      {addons.adaptive && (
+                        <div className="flex justify-between">
+                          <span>Adaptive Defense</span>
+                          <span className="text-[#245FFF]">+${ADDON.adaptive.toFixed(3)}</span>
+                        </div>
+                      )}
+                      {addons.liveness && (
+                        <div className="flex justify-between">
+                          <span>Active Liveness</span>
+                          <span className="text-[#245FFF]">+${ADDON.liveness.toFixed(3)}</span>
+                        </div>
+                      )}
+                      {addons.express && (
+                        <div className="flex justify-between">
+                          <span>Express Lane</span>
+                          <span className="text-[#245FFF]">+${ADDON.express.toFixed(3)}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Monthly estimate */}
+                <div className="mb-6">
+                  <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-500">Monthly Estimate</p>
+                  <div className="flex items-baseline gap-1.5">
+                    <motion.span
+                      key={monthlyTotal.toFixed(2)}
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-2xl sm:text-3xl font-bold text-[#245FFF]"
+                    >
+                      ${monthlyTotal.toFixed(2)}
+                    </motion.span>
+                    <span className="text-sm text-gray-500">/mo</span>
+                  </div>
+                  {volume > FREE_CHECKS && (
+                    <p className="mt-1 text-[11px] text-gray-600">
+                      {FREE_CHECKS} free + {(volume - FREE_CHECKS).toLocaleString()} paid
+                    </p>
+                  )}
+                </div>
+
+                {/* CTA */}
+                <a
+                  href="https://app.scam.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full rounded-full bg-[#245FFF] py-3 text-center text-sm font-semibold text-white hover:bg-[#1d4acc] transition-colors"
+                  onClick={() => trackCTA("get_started", "pricing_summary")}
+                >
+                  Get Started
+                </a>
+                <p className="mt-3 text-center text-[11px] text-gray-600">No setup fees &middot; Cancel anytime</p>
+              </div>
+
+              {/* Base includes */}
+              <div className="rounded-xl sm:rounded-2xl border border-gray-800/60 bg-white/[0.02] p-5">
+                <p className="mb-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Includes</p>
+                <ul className="space-y-2 text-xs text-gray-400">
+                  {["GenAI & deepfake detection", "Eva-v1-Fast model", "REST API access", "Dashboard analytics"].map((f) => (
+                    <li key={f} className="flex items-center gap-2">
+                      <Check />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        {/* Plan cards */}
+        <AnimatedBlock delay={0.3}>
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+            {/* Self-Serve */}
+            <div className={`relative rounded-xl sm:rounded-2xl p-6 sm:p-8 transition-all duration-300 ${
+              !isEnterprise
+                ? "border border-[#245FFF]/30 bg-[#245FFF]/[0.03]"
+                : "border border-gray-800/60 bg-white/[0.02]"
+            }`}>
+              {!isEnterprise && (
+                <div className="absolute -top-2.5 left-6">
+                  <span className="rounded-full bg-[#245FFF] px-3 py-0.5 text-[10px] font-semibold text-white">
+                    Recommended
+                  </span>
+                </div>
+              )}
+
+              <h3 className="mb-4 text-lg sm:text-xl font-bold text-white">Self-Serve</h3>
+
+              <div className="mb-4 flex items-baseline gap-1.5">
+                <span className="text-3xl sm:text-4xl font-bold text-white">
+                  ${volume <= FREE_CHECKS ? "0" : pricePerCheck.toFixed(3)}
+                </span>
+                <span className="text-sm text-gray-500">per image</span>
+              </div>
+
+              <p className="mb-1 text-xs font-semibold text-[#245FFF]">200 free images/month</p>
+              <p className="mb-6 text-xs text-gray-500 leading-relaxed">
+                Flexible pay-as-you-go for teams of all sizes. Start free, scale when ready.
+              </p>
+
               <a
                 href="https://app.scam.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full rounded-full bg-[#245FFF] py-4 text-center text-lg font-semibold text-white hover:bg-[#1d4acc] transition-colors shadow-lg shadow-[#245FFF]/20"
+                className="mb-6 block w-full rounded-full bg-[#245FFF] py-3 text-center text-sm font-semibold text-white hover:bg-[#1d4acc] transition-colors"
+                onClick={() => trackCTA("get_started_self_serve", "pricing_card")}
               >
-                Get Started →
+                Get Started
               </a>
 
-              <p className="mt-4 text-center text-xs text-gray-400">No setup fees • Cancel anytime • Pay as you go</p>
+              <ul className="space-y-2.5 text-xs text-gray-400">
+                {["GenAI Detection", "Deepfake Analysis", "Eva-v1-Fast Model", "API Access", "All optional add-ons"].map((f, i) => (
+                  <li key={f} className="flex items-center">
+                    <Check muted={i === 4} />
+                    <span className={i === 4 ? "text-gray-600" : ""}>{f}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Base Features */}
-            <div className="mt-6 rounded-3xl bg-gray-900/40 border border-gray-700 p-6">
-              <p className="mb-4 text-sm font-semibold text-white">Base Detection Includes:</p>
-              <ul className="space-y-2 text-sm text-gray-300">
-                {['GenAI & deepfake detection', 'Eva-v1-Fast model', 'RESTful API access', 'Dashboard analytics'].map(
-                  (feature, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <svg className="h-5 w-5 flex-shrink-0 text-[#245FFF]" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span>{feature}</span>
-                    </li>
-                  )
-                )}
+            {/* Enterprise */}
+            <div className={`relative rounded-xl sm:rounded-2xl p-6 sm:p-8 transition-all duration-300 ${
+              isEnterprise
+                ? "border border-[#245FFF]/30 bg-[#245FFF]/[0.03]"
+                : "border border-gray-800/60 bg-white/[0.02]"
+            }`}>
+              {isEnterprise && (
+                <div className="absolute -top-2.5 left-6">
+                  <span className="rounded-full bg-[#245FFF] px-3 py-0.5 text-[10px] font-semibold text-white">
+                    Recommended
+                  </span>
+                </div>
+              )}
+
+              <h3 className="mb-4 text-lg sm:text-xl font-bold text-white">Enterprise</h3>
+
+              <div className="mb-4">
+                <span className="text-3xl sm:text-4xl font-bold text-white">Custom</span>
+              </div>
+
+              <p className="mb-6 text-xs text-gray-500 leading-relaxed">
+                Forensic-grade accuracy with Eva-v1-Pro, lower false positives, advanced Thinking,
+                and dedicated support for high-volume operations.
+              </p>
+
+              <a
+                href="https://cal.com/scamai/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-6 block w-full rounded-full border border-white/10 bg-white/[0.04] py-3 text-center text-sm font-semibold text-white hover:bg-white/[0.08] transition-colors"
+                onClick={() => trackCTA("talk_to_sales", "pricing_card")}
+              >
+                Talk to sales
+              </a>
+
+              <ul className="space-y-2.5 text-xs text-gray-400">
+                {[
+                  "Everything in Self-Serve",
+                  "Eva-v1-Pro Model",
+                  "Thinking (Advanced Reasoning)",
+                  "Volume Discounts",
+                  "Priority Support & SLA",
+                  "Dedicated Account Manager",
+                  "Custom Integration",
+                ].map((f) => (
+                  <li key={f} className="flex items-center">
+                    <Check />
+                    <span>{f}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
-        </div>
-
-        {/* Bottom Banner & Pricing Cards */}
-        <div className="text-center mb-16">
-          <p className="text-lg text-gray-300 sm:text-xl">
-            Transparent pricing with no hidden fees.{' '}
-            <span className="font-bold text-white">Scale confidently as your business grows.</span>
-          </p>
-        </div>
-
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Self-Serve Plan */}
-          <div className={`relative rounded-3xl bg-gray-900/60 p-8 ${
-            volume < VOLUME_DISCOUNT_THRESHOLD ? 'border-2 border-[#245FFF]' : 'border border-gray-700'
-          }`}>
-            {volume < VOLUME_DISCOUNT_THRESHOLD && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="rounded-full border-2 border-[#245FFF] bg-[#245FFF] px-4 py-1 text-xs font-semibold text-white">
-                  Recommended
-                </span>
-              </div>
-            )}
-
-            <h3 className="mb-6 text-2xl font-bold text-white">Self-Serve</h3>
-
-            <div className="mb-6">
-              <div className="flex items-baseline gap-2">
-                <span className="text-5xl font-bold text-white">
-                  ${volume <= FREE_CHECKS ? '0' : pricePerCheck.toFixed(3)}
-                </span>
-                <span className="text-lg text-gray-400">per image</span>
-              </div>
-            </div>
-
-            <p className="mb-2 text-sm font-semibold text-[#245FFF]">200 free images/month (Eva-v1-Fast)</p>
-
-            <p className="mb-8 text-sm text-gray-300 leading-relaxed">
-              For businesses ready to scale with flexible pricing. First 200 images free with Eva-v1-Fast model, then $0.05/image + optional
-              add-ons.
-            </p>
-
-            <a
-              href="https://app.scam.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mb-8 block w-full rounded-full bg-[#245FFF] py-3.5 text-center font-semibold text-white hover:bg-[#1d4acc] transition-colors"
-            >
-              Get Started →
-            </a>
-
-            <ul className="space-y-3 text-sm text-gray-300">
-              {['GenAI Detection', 'Deepfake Analysis', 'Eva-v1-Fast Model', 'API Access', 'All optional add-ons'].map((feature, index) => (
-                <li key={index} className="flex items-start">
-                  <svg
-                    className={`mr-2 h-5 w-5 flex-shrink-0 ${index === 4 ? 'text-gray-600' : 'text-[#245FFF]'}`}
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className={index === 4 ? 'text-gray-500' : ''}>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Enterprise Plan */}
-          <div className={`relative rounded-3xl bg-gray-900/40 p-8 ${
-            volume >= VOLUME_DISCOUNT_THRESHOLD ? 'border-2 border-[#245FFF]' : 'border border-gray-700'
-          }`}>
-            {volume >= VOLUME_DISCOUNT_THRESHOLD && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="rounded-full border-2 border-[#245FFF] bg-[#245FFF] px-4 py-1 text-xs font-semibold text-white">
-                  Recommended
-                </span>
-              </div>
-            )}
-            
-            <h3 className="mb-6 text-2xl font-bold text-white">Enterprise</h3>
-
-            <div className="mb-6">
-              <span className="text-5xl font-bold text-white">Custom</span>
-            </div>
-
-            {volume >= VOLUME_DISCOUNT_THRESHOLD ? (
-              <div className="mb-8">
-                <div className="mb-4 rounded-xl bg-gradient-to-r from-[#245FFF]/20 to-purple-500/20 border border-[#245FFF]/50 px-4 py-3">
-                  <p className="text-sm font-semibold text-white mb-1">Perfect for your volume</p>
-                  <p className="text-xs text-gray-300">Get volume discounts + enterprise features for 2,000+ images/month</p>
-                </div>
-                <p className="text-sm text-gray-300 leading-relaxed">
-                  Unlock custom pricing, Eva-v1-Pro forensic-grade model with lower false positives, advanced Thinking capabilities, and dedicated support for high-volume operations
-                </p>
-              </div>
-            ) : (
-              <p className="mb-8 text-sm text-gray-300 leading-relaxed">
-                For large organizations requiring forensic-grade accuracy, lower false positives, and dedicated support. Includes Eva-v1-Pro model and advanced Thinking capabilities.
-              </p>
-            )}
-
-            <a
-              href="https://cal.com/scamai/15min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mb-8 block w-full rounded-full border-2 border-[#245FFF] bg-gray-800/50 py-3.5 text-center font-semibold text-white hover:bg-[#245FFF] transition-colors"
-            >
-              Talk to sales →
-            </a>
-
-            <ul className="space-y-3 text-sm text-gray-300">
-              {[
-                'Everything in Self-Serve',
-                'Eva-v1-Pro Model',
-                'Thinking (Advanced Reasoning)',
-                'Volume Discounts',
-                'Priority Support & SLA',
-                'Dedicated Account Manager',
-                'Custom Integration & Training',
-              ].map((feature, index) => (
-                <li key={index} className="flex items-start">
-                  <svg className="mr-2 h-5 w-5 flex-shrink-0 text-[#245FFF]" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        </AnimatedBlock>
       </div>
     </section>
   );

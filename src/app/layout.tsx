@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import StructuredData from "@/components/seo/StructuredData";
 import { Analytics } from "@vercel/analytics/next";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -124,7 +124,7 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased bg-[#0b0b0b]`}>
         {children}
         <Analytics />
-        <GoogleAnalytics gaId="G-NNX4SFN50V" />
+        <CookieConsent />
       </body>
     </html>
   );

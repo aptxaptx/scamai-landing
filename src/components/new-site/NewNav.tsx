@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import CommandPalette from "./CommandPalette";
+import { trackCTA, trackNav, trackOutbound } from "@/lib/analytics";
 
 type NavChild = {
   label: string;
@@ -99,6 +100,11 @@ const navItems: NavItem[] = [
         label: "About Us",
         href: "/about",
         description: "Learn about our mission and team"
+      },
+      {
+        label: "Research",
+        href: "/research",
+        description: "Publications, benchmarks, and technical deep-dives"
       },
       {
         label: "Newsletter",
@@ -283,6 +289,7 @@ export default function NewNav() {
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full border border-white/80 bg-transparent px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+            onClick={() => trackCTA("log_in", "nav")}
           >
             Log In
           </a>
@@ -291,6 +298,7 @@ export default function NewNav() {
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-100"
+            onClick={() => trackCTA("book_demo", "nav")}
           >
             Book a demo
           </a>

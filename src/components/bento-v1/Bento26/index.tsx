@@ -27,7 +27,6 @@ const Bento = ({}: BentoProps) => (
                     <div className={styles.tooltip}>
                         <span>FAKE</span>
                     </div>
-                    <div className={styles.time}>98%</div>
                 </div>
                 <div className={styles.circles}>
                     <span> </span>

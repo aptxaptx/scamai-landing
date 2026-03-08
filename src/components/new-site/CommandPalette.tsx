@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "@/i18n/navigation";
+import { trackSearch } from "@/lib/analytics";
 
 type SearchItem = {
   label: string;
@@ -25,6 +26,7 @@ const searchItems: SearchItem[] = [
   { label: "Home", href: "/", category: "Pages" },
   { label: "Pricing", href: "/pricing", category: "Pages", description: "Plans and pricing details" },
   { label: "About Us", href: "/about", category: "Pages", description: "Our mission and milestones" },
+  { label: "Research", href: "/research", category: "Pages", description: "Publications, benchmarks, and technical reports" },
   { label: "Newsletter", href: "/newsletter", category: "Pages", description: "Weekly deepfake and AI security news" },
   { label: "Contact", href: "/contact", category: "Pages", description: "Get in touch with our team" },
   { label: "Book a Demo", href: "/demo", category: "Pages", description: "Schedule a personalized demo" },
@@ -67,6 +69,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
 
   const navigate = useCallback(
     (item: SearchItem) => {
+      trackSearch(query, item.label);
       close();
       if (item.external) {
         window.open(item.href, "_blank", "noopener,noreferrer");
@@ -74,7 +77,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
         router.push(item.href);
       }
     },
-    [close, router]
+    [close, router, query]
   );
 
   // Escape to close

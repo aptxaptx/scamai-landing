@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import HeroBackground from "./HeroBackground";
 import { BentoV1_3, BentoV1_5, BentoV1_26, BentoV1_28 } from "@/components/bento-v1";
 import { Suspense } from "react";
+import { trackCTA, trackOutbound } from "@/lib/analytics";
 import DeveloperSection from "./DeveloperSection";
 
 // Skeleton loader for bento visual components
@@ -324,6 +325,7 @@ export default function NewLanding() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rainbow-button inline-block"
+                    onClick={() => trackCTA("start_free", "hero")}
                   >
                     <span className="rainbow-button-inner">
                       Start Free &mdash; 200 Images/mo
@@ -334,6 +336,7 @@ export default function NewLanding() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 transition hover:text-white"
+                    onClick={() => trackCTA("see_platform", "hero")}
                   >
                     <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"/>
@@ -409,6 +412,7 @@ export default function NewLanding() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-[#245FFF] transition hover:gap-3"
+                  onClick={() => trackCTA("start_detecting", "ai_security")}
                 >
                   Start detecting now
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

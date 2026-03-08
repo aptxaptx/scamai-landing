@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackFAQ } from "@/lib/analytics";
 
 interface FAQItem {
   question: string;
@@ -55,6 +56,9 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleQuestion = (index: number) => {
+    if (openIndex !== index) {
+      trackFAQ(faqData[index].question);
+    }
     setOpenIndex(openIndex === index ? null : index);
   };
 
