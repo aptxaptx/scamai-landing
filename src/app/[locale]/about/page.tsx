@@ -21,7 +21,7 @@ const changelogData: ChangelogEntry[] = [
     version: "2.1",
     title: "Enhanced Detection Accuracy",
     tags: ["AI", "Performance"],
-    description: "Improved deepfake detection accuracy to 95.3% with reduced processing time to under 200ms. Added support for 4K video analysis and enhanced audio deepfake detection algorithms."
+    description: "Improved deepfake detection accuracy to 95.3% with reduced processing time to under 4 seconds. Added support for 4K video analysis and enhanced audio deepfake detection algorithms."
   },
   {
     date: "December 15, 2025",

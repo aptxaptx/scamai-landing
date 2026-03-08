@@ -71,7 +71,7 @@ export default function FAQSection() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black"></div>
       
-      <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8">
+      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
           <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs">
@@ -95,7 +95,7 @@ export default function FAQSection() {
             >
               <button
                 onClick={() => toggleQuestion(index)}
-                className="w-full px-6 py-5 sm:px-8 sm:py-6 flex items-start justify-between text-left transition-colors hover:bg-gray-800/30"
+                className="w-full px-4 py-4 sm:px-8 sm:py-6 flex items-start justify-between text-left transition-colors hover:bg-gray-800/30"
                 aria-expanded={openIndex === index}
               >
                 <span className="text-base sm:text-lg font-semibold text-white pr-8 leading-relaxed">
@@ -127,7 +127,7 @@ export default function FAQSection() {
                     transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 sm:px-8 sm:pb-8">
+                    <div className="px-4 pb-4 sm:px-8 sm:pb-8">
                       <p className="text-gray-300 leading-relaxed">
                         {faq.answer}
                       </p>

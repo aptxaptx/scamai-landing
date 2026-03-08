@@ -116,7 +116,7 @@ export const pageMetadata = {
   aiDetection: {
     title: 'AI Detection - Image & Video Deepfake Detection',
     description:
-      'Detect AI-generated images and deepfake videos with 95.3% accuracy. Real-time processing under 200ms. Perfect for KYC, content moderation, and fraud prevention.',
+      'Detect AI-generated images and deepfake videos with 95.3% accuracy. Real-time processing under 4 seconds. Perfect for KYC, content moderation, and fraud prevention.',
     keywords: [
       'AI detection',
       'image detection',

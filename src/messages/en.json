@@ -202,7 +202,7 @@
       ],
       "cta": "Read the Documentation →",
       "sdk": "Python SDK",
-      "latencyTarget": "Latency target: <100ms",
+      "latencyTarget": "Latency target: <4s",
       "code": "import scamai\n\nclient = scamai.Client(api_key=\"sk_live_...\")\n\n# Detect deepfake in real-time\ncheck = client.detect.image(\n    url=\"https://user-upload.jpg\",\n    sensitivity=\"high\"\n)\n\nif check.is_fake:\n    print(\"Blocked: %s (%s%%)\" % (check.reason, check.confidence))"
     },
     "Pricing": {

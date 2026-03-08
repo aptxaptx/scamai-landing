@@ -80,7 +80,7 @@ export default function DocumentationPage() {
               <div>{'{'}</div>
               <div className="ml-4">"is_synthetic": false,</div>
               <div className="ml-4">"confidence": 0.98,</div>
-              <div className="ml-4">"processing_time_ms": 145,</div>
+              <div className="ml-4">"processing_time_ms": 3200,</div>
               <div className="ml-4">"model": "Eva-v1"</div>
               <div>{'}'}</div>
             </div>

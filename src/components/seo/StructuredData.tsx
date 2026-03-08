@@ -93,7 +93,7 @@ export default function StructuredData() {
       "API integration in under 10 minutes",
       "SOC 2 Type II compliant",
       "GDPR compliant",
-      "Processing time under 200ms"
+      "Processing time under 4 seconds"
     ],
     "creator": {
       "@type": "Organization",
@@ -118,7 +118,7 @@ export default function StructuredData() {
         "name": "How accurate is ScamAI's deepfake detection?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ScamAI's Eva-v1 models are continuously trained on the latest synthetic media techniques with processing times under 200ms. Accuracy varies by media type and attack technique — contact us for benchmark details relevant to your use case."
+          "text": "ScamAI's Eva-v1 models are continuously trained on the latest synthetic media techniques with processing times under 4 seconds. Accuracy varies by media type and attack technique — contact us for benchmark details relevant to your use case."
         }
       },
       {
@@ -142,7 +142,7 @@ export default function StructuredData() {
         "name": "How does ScamAI compare to other deepfake detection tools?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ScamAI offers both vision and audio detection in a single platform with sub-200ms processing, and provides a developer-friendly API with integration in under 10 minutes. Unlike many competitors, ScamAI offers a free tier of 200 images per month, transparent per-image pricing, and is SOC 2 Type II and GDPR compliant."
+          "text": "ScamAI offers both vision and audio detection in a single platform with sub-4-second processing, and provides a developer-friendly API with integration in under 10 minutes. Unlike many competitors, ScamAI offers a free tier of 200 images per month, transparent per-image pricing, and is SOC 2 Type II and GDPR compliant."
         }
       },
       {

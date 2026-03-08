@@ -25,7 +25,7 @@ export default function NewFooter() {
 
       <div className="mx-auto max-w-6xl px-4 pt-16 pb-8 sm:px-6">
         {/* Newsletter CTA */}
-        <div className="mb-14 rounded-2xl border border-white/10 bg-white/[0.02] p-8 sm:p-10 text-center">
+        <div className="mb-14 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-8 lg:p-10 text-center">
           <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Stay ahead of AI threats</h3>
           <p className="text-sm text-gray-400 mb-6 max-w-md mx-auto">
             Weekly insights on deepfakes, synthetic media, and AI security — straight to your inbox.

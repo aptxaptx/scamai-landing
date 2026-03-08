@@ -52,36 +52,6 @@ const navItems: NavItem[] = [
         icon: navIcons.audio,
       },
       {
-        label: "Remote Notary",
-        href: "/#solutions-remote-notary",
-        description: "Identity verification for notarizations",
-        icon: navIcons.shield,
-      },
-      {
-        label: "Age Estimation & IDV",
-        href: "/#solutions-age-estimation",
-        description: "Age estimation and ID verification",
-        icon: navIcons.idCard,
-      },
-      {
-        label: "Document Forgery",
-        href: "/#solutions-document-forgery",
-        description: "Detect forged and AI-generated documents",
-        icon: navIcons.doc,
-      },
-      {
-        label: "AI Agent Scam Prevention",
-        href: "/#solutions-ai-agent",
-        description: "Protect AI workflows from manipulation",
-        icon: navIcons.agent,
-      },
-      {
-        label: "Remote Interview",
-        href: "/#solutions-remote-interview",
-        description: "Verify candidate identity in video interviews",
-        icon: navIcons.video,
-      },
-      {
         label: "Documentation",
         href: "https://docu.scam.ai",
         external: true,
@@ -141,6 +111,7 @@ export default function NewNav() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const isLandingPage = pathname === "/" || pathname === "";
   const langDropdownRef = useRef<HTMLDivElement>(null);
   const productsDropdownRef = useRef<HTMLDivElement>(null);
   const companyDropdownRef = useRef<HTMLDivElement>(null);
@@ -192,14 +163,18 @@ export default function NewNav() {
     setLangOpen(false);
   };
 
+  const announcementHeight = isLandingPage ? 36 : 0;
+
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 w-full bg-[#0021f3] py-2 text-center z-50" style={{ height: '36px' }}>
-        <p className="text-xs sm:text-sm text-white leading-tight">
-          Scam.ai raised $2.5M and joined Berkeley SkyDeck
-        </p>
-      </div>
-      <div className="fixed top-[36px] left-0 right-0 z-40">
+      {isLandingPage && (
+        <div className="fixed top-0 left-0 right-0 w-full bg-[#0021f3] py-2 text-center z-50" style={{ height: '36px' }}>
+          <p className="text-xs sm:text-sm text-white leading-tight">
+            Scam.ai raised $2.5M and joined Berkeley SkyDeck
+          </p>
+        </div>
+      )}
+      <div className="fixed left-0 right-0 z-40" style={{ top: `${announcementHeight}px` }}>
       <header className={`transition-all duration-300 ${open ? 'bg-[#0b0b0b]' : scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6">
         <Link href="/" className={`flex items-center ${open ? 'invisible' : ''}`}>
@@ -307,7 +282,7 @@ export default function NewNav() {
         <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex h-10 w-10 items-center justify-center text-white"
+            className="flex h-11 w-11 items-center justify-center text-white"
             aria-label="Search"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -315,7 +290,7 @@ export default function NewNav() {
             </svg>
           </button>
           <button
-            className="flex h-10 w-10 items-center justify-center text-white"
+            className="flex h-11 w-11 items-center justify-center text-white"
             onClick={() => setOpen((prev) => !prev)}
             aria-label="Open menu"
           >
@@ -326,9 +301,10 @@ export default function NewNav() {
 
       {/* Mobile Full-Screen Menu */}
       <div
-        className={`fixed top-[36px] left-0 right-0 bottom-0 z-[100] bg-[#0b0b0b] transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed left-0 right-0 bottom-0 z-[100] bg-[#0b0b0b] transition-transform duration-300 ease-in-out md:hidden ${
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
+        style={{ top: `${announcementHeight}px` }}
       >
         <div className="flex h-full flex-col">
           {/* Header */}
@@ -342,7 +318,7 @@ export default function NewNav() {
             </Link>
             <button
               onClick={() => setOpen(false)}
-              className="text-white text-3xl leading-none"
+              className="flex h-11 w-11 items-center justify-center text-white text-3xl leading-none"
               aria-label="Close menu"
             >
               ×
@@ -350,7 +326,7 @@ export default function NewNav() {
           </div>
 
           {/* Menu Items */}
-          <div className="flex-1 overflow-y-auto px-6 py-4">
+          <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4">
             <div className="flex flex-col gap-1">
               {navItems.map((item) => {
                 if (item.children) {
@@ -563,10 +539,11 @@ export default function NewNav() {
     
     <div 
       ref={dropdownPanelRef}
-      className={`fixed top-[84px] left-0 right-0 w-full overflow-hidden bg-black/90 backdrop-blur-xl transition-all duration-200 z-30 ${
+      className={`fixed left-0 right-0 w-full overflow-hidden bg-black/90 backdrop-blur-xl transition-all duration-200 z-30 ${
         (productsOpen || companyOpen) ? 'ease-out pointer-events-auto' : 'ease-in pointer-events-none'
       }`}
-      style={{ 
+      style={{
+        top: `${announcementHeight + 48}px`,
         maxHeight: (productsOpen || companyOpen) ? '500px' : '0',
         paddingTop: (productsOpen || companyOpen) ? '32px' : '0',
         paddingBottom: (productsOpen || companyOpen) ? '32px' : '0'

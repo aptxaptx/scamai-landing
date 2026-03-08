@@ -16,11 +16,6 @@ const searchItems: SearchItem[] = [
   // Products
   { label: "AI Detection", href: "/products/ai-detection", category: "Products", description: "Deepfake and AI-generated content detection" },
   { label: "Audio Detection", href: "/products/audio-detection", category: "Products", description: "Voice cloning and AI-generated audio detection" },
-  { label: "Remote Notary", href: "/#solutions-remote-notary", category: "Products", description: "Identity verification for notarizations" },
-  { label: "Age Estimation & IDV", href: "/#solutions-age-estimation", category: "Products", description: "Age estimation and ID verification" },
-  { label: "Document Forgery", href: "/#solutions-document-forgery", category: "Products", description: "Detect forged and AI-generated documents" },
-  { label: "AI Agent Scam Prevention", href: "/#solutions-ai-agent", category: "Products", description: "Protect AI workflows from manipulation" },
-  { label: "Remote Interview", href: "/#solutions-remote-interview", category: "Products", description: "Verify candidate identity in video interviews" },
 
   // Pages
   { label: "Home", href: "/", category: "Pages" },
@@ -164,7 +159,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
       />
 
       {/* Dialog */}
-      <div className="relative z-10 mx-auto mt-[min(20vh,120px)] w-full max-w-xl px-4">
+      <div className="relative z-10 mx-auto mt-[min(12vh,120px)] sm:mt-[min(20vh,120px)] w-full max-w-xl px-3 sm:px-4">
         <div className="overflow-hidden rounded-xl border border-white/10 bg-[#111111] shadow-2xl" onClick={(e) => e.stopPropagation()}>
           {/* Search input */}
           <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">
@@ -255,8 +250,8 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
             )}
           </div>
 
-          {/* Footer */}
-          <div className="flex items-center gap-4 border-t border-white/10 px-4 py-2.5 text-[11px] text-gray-600">
+          {/* Footer — hidden on mobile where keyboard shortcuts don't apply */}
+          <div className="hidden sm:flex items-center gap-4 border-t border-white/10 px-4 py-2.5 text-[11px] text-gray-600">
             <span className="flex items-center gap-1">
               <kbd className="rounded border border-white/10 bg-white/5 px-1 py-0.5">↑</kbd>
               <kbd className="rounded border border-white/10 bg-white/5 px-1 py-0.5">↓</kbd>

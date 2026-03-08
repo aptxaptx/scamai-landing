@@ -157,22 +157,24 @@ export default function PricingSection() {
 
                 {/* Enterprise nudge */}
                 {isEnterprise && (
-                  <div className="mt-5 flex items-center gap-3 rounded-xl border border-[#245FFF]/20 bg-[#245FFF]/5 p-4">
-                    <svg className="h-5 w-5 text-[#245FFF] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-white">Need more?</p>
-                      <p className="text-xs text-gray-400">Enterprise plans include volume discounts and dedicated support.</p>
+                  <div className="mt-5 rounded-xl border border-[#245FFF]/20 bg-[#245FFF]/5 p-4">
+                    <div className="flex items-start gap-3">
+                      <svg className="h-5 w-5 text-[#245FFF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold text-white">Need more?</p>
+                        <p className="text-xs text-gray-400">Enterprise plans include volume discounts and dedicated support.</p>
+                      </div>
                     </div>
                     <a
                       href="https://cal.com/scamai/15min"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-shrink-0 rounded-full bg-[#245FFF] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#1d4acc] transition-colors"
+                      className="mt-3 block w-full sm:w-auto sm:inline-block rounded-full bg-[#245FFF] px-4 py-2 text-center text-xs font-semibold text-white hover:bg-[#1d4acc] transition-colors"
                       onClick={() => trackCTA("enterprise_contact", "pricing_slider")}
                     >
-                      Contact
+                      Contact Sales
                     </a>
                   </div>
                 )}

@@ -421,8 +421,8 @@ export default function NewLanding() {
                 </a>
               </div>
               {/* Bento 26 - AI Detection visual */}
-              <div className="relative flex items-center justify-center" style={{ minHeight: '400px' }}>
-                <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
+              <div className="relative flex items-center justify-center min-h-[280px] sm:min-h-[400px]">
+                <div className="w-full max-w-[300px] sm:max-w-[400px] h-[280px] sm:h-[400px] scale-100 sm:scale-[1.2]">
                   <Suspense fallback={<BentoSkeleton />}>
                     <BentoV1_26 />
                   </Suspense>
@@ -469,7 +469,7 @@ export default function NewLanding() {
           {/* Feature 1: All-in-One Platform */}
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center mb-16 lg:mb-20">
-              <div className="lg:pl-12 flex flex-col justify-center" style={{ minHeight: '350px' }}>
+              <div className="lg:pl-12 flex flex-col justify-center min-h-0 sm:min-h-[350px]">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   ALL-IN-ONE PLATFORM
                 </p>
@@ -481,8 +481,8 @@ export default function NewLanding() {
                 </p>
               </div>
               {/* Bento 3 - All-in-One, right side */}
-              <div className="relative flex items-center justify-center" style={{ minHeight: '400px' }}>
-                <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
+              <div className="relative flex items-center justify-center min-h-[280px] sm:min-h-[400px]">
+                <div className="w-full max-w-[300px] sm:max-w-[400px] h-[280px] sm:h-[400px] scale-100 sm:scale-[1.2]">
                   <Suspense fallback={<BentoSkeleton />}>
                     <BentoV1_3 />
                   </Suspense>
@@ -495,14 +495,14 @@ export default function NewLanding() {
           <AnimatedSection delay={0.2}>
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
               {/* Bento 5 - Lightning Fast, left side */}
-              <div className="order-2 lg:order-1 relative flex items-center justify-center" style={{ minHeight: '350px' }}>
-                <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
+              <div className="order-2 lg:order-1 relative flex items-center justify-center min-h-[280px] sm:min-h-[350px]">
+                <div className="w-full max-w-[300px] sm:max-w-[400px] h-[280px] sm:h-[400px] scale-100 sm:scale-[1.2]">
                   <Suspense fallback={<BentoSkeleton />}>
                     <BentoV1_5 />
                   </Suspense>
                 </div>
               </div>
-              <div className="order-1 lg:order-2 flex flex-col justify-center" style={{ minHeight: '400px' }}>
+              <div className="order-1 lg:order-2 flex flex-col justify-center min-h-0 sm:min-h-[400px]">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   LIGHTNING FAST
                 </p>
@@ -537,7 +537,7 @@ export default function NewLanding() {
           {/* Transparent Pricing */}
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center mb-16 lg:mb-20">
-              <div className="lg:pl-12 flex flex-col justify-center" style={{ minHeight: '350px' }}>
+              <div className="lg:pl-12 flex flex-col justify-center min-h-0 sm:min-h-[350px]">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
                   $ TRANSPARENT PRICING
                 </p>
@@ -552,8 +552,8 @@ export default function NewLanding() {
                 </p>
               </div>
               {/* Bento 28 - Transparent Pricing, right side */}
-              <div className="relative flex items-center justify-center" style={{ minHeight: '400px' }}>
-                <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
+              <div className="relative flex items-center justify-center min-h-[280px] sm:min-h-[400px]">
+                <div className="w-full max-w-[300px] sm:max-w-[400px] h-[280px] sm:h-[400px] scale-100 sm:scale-[1.2]">
                   <Suspense fallback={<BentoSkeleton />}>
                     <BentoV1_28 />
                   </Suspense>
@@ -569,12 +569,12 @@ export default function NewLanding() {
                 <img 
                   src="/gdpr-badge.png" 
                   alt="GDPR Compliant Badge" 
-                  className="h-32 w-32 object-contain"
+                  className="h-20 w-20 sm:h-32 sm:w-32 object-contain"
                 />
-                <img 
-                  src="/soc2-badge.png" 
-                  alt="SOC 2 Type II Certified Badge" 
-                  className="h-32 w-32 object-contain"
+                <img
+                  src="/soc2-badge.png"
+                  alt="SOC 2 Type II Certified Badge"
+                  className="h-20 w-20 sm:h-32 sm:w-32 object-contain"
                 />
               </div>
               <div className="order-1 lg:order-2">

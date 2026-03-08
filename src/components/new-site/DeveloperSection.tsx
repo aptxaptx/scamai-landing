@@ -230,7 +230,7 @@ export default function DeveloperSection() {
                 </div>
                 
                   {/* Code Content */}
-                  <div className="p-6 font-mono text-sm leading-relaxed">
+                  <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
                     <div className="text-gray-500 mb-3"># Detect deepfake in image</div>
                     <div className="space-y-1">
                       <div>
