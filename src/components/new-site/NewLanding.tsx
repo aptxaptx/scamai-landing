@@ -5,7 +5,17 @@ import { useState, useRef, DragEvent, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import HeroBackground from "./HeroBackground";
 import { BentoV1_3, BentoV1_5, BentoV1_26, BentoV1_28 } from "@/components/bento-v1";
+import { Suspense } from "react";
 import DeveloperSection from "./DeveloperSection";
+
+// Skeleton loader for bento visual components
+function BentoSkeleton() {
+  return (
+    <div className="w-full h-full rounded-xl bg-white/[0.02] border border-gray-800/40 flex items-center justify-center animate-pulse">
+      <div className="w-16 h-16 rounded-full bg-white/[0.03]" />
+    </div>
+  );
+}
 import PricingSection from "./PricingSection";
 import FAQSection from "./FAQSection";
 import SolutionsSection from "./SolutionsSection";
@@ -308,7 +318,7 @@ export default function NewLanding() {
               </AnimatedSection>
 
               <AnimatedSection delay={0.5}>
-                <div className="pt-2 sm:pt-3">
+                <div className="pt-2 sm:pt-3 flex flex-col sm:flex-row items-center gap-4">
                   <a
                     href="https://app.scam.ai"
                     target="_blank"
@@ -316,8 +326,19 @@ export default function NewLanding() {
                     className="rainbow-button inline-block"
                   >
                     <span className="rainbow-button-inner">
-                      Try for free
+                      Start Free &mdash; 200 Images/mo
                     </span>
+                  </a>
+                  <a
+                    href="https://cal.com/scamai/15min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 transition hover:text-white"
+                  >
+                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"/>
+                    </svg>
+                    See the platform
                   </a>
                 </div>
               </AnimatedSection>
@@ -398,7 +419,9 @@ export default function NewLanding() {
               {/* Bento 26 - AI Detection visual */}
               <div className="relative flex items-center justify-center" style={{ minHeight: '400px' }}>
                 <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
-                  <BentoV1_26 />
+                  <Suspense fallback={<BentoSkeleton />}>
+                    <BentoV1_26 />
+                  </Suspense>
                 </div>
               </div>
             </div>
@@ -406,8 +429,12 @@ export default function NewLanding() {
         </div>
       </section>
 
+      <div className="section-divider" />
+
       {/* Solutions Section: Product verticals */}
       <SolutionsSection />
+
+      <div className="section-divider" />
 
       {/* Features Section: THE PLATFORM + All-in-One + Lightning Fast */}
       <section className="landing-section relative overflow-hidden bg-black" aria-label="Platform Features - Why Teams Choose Us">
@@ -452,7 +479,9 @@ export default function NewLanding() {
               {/* Bento 3 - All-in-One, right side */}
               <div className="relative flex items-center justify-center" style={{ minHeight: '400px' }}>
                 <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
-                  <BentoV1_3 />
+                  <Suspense fallback={<BentoSkeleton />}>
+                    <BentoV1_3 />
+                  </Suspense>
                 </div>
               </div>
             </div>
@@ -464,7 +493,9 @@ export default function NewLanding() {
               {/* Bento 5 - Lightning Fast, left side */}
               <div className="order-2 lg:order-1 relative flex items-center justify-center" style={{ minHeight: '350px' }}>
                 <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
-                  <BentoV1_5 />
+                  <Suspense fallback={<BentoSkeleton />}>
+                    <BentoV1_5 />
+                  </Suspense>
                 </div>
               </div>
               <div className="order-1 lg:order-2 flex flex-col justify-center" style={{ minHeight: '400px' }}>
@@ -482,6 +513,8 @@ export default function NewLanding() {
           </AnimatedSection>
         </div>
       </section>
+
+      <div className="section-divider" />
 
       {/* Session4: Transparent Pricing & Global Compliance */}
       <section className="landing-section relative overflow-hidden bg-black" aria-label="Pricing & Compliance">
@@ -517,7 +550,9 @@ export default function NewLanding() {
               {/* Bento 28 - Transparent Pricing, right side */}
               <div className="relative flex items-center justify-center" style={{ minHeight: '400px' }}>
                 <div className="w-full max-w-[400px]" style={{ height: '400px', transform: 'scale(1.2)' }}>
-                  <BentoV1_28 />
+                  <Suspense fallback={<BentoSkeleton />}>
+                    <BentoV1_28 />
+                  </Suspense>
                 </div>
               </div>
             </div>
@@ -562,11 +597,17 @@ export default function NewLanding() {
         </div>
       </section>
 
+      <div className="section-divider" />
+
       {/* Session5: Developer-First */}
       <DeveloperSection />
 
+      <div className="section-divider" />
+
       {/* Session6: Pricing */}
       <PricingSection />
+
+      <div className="section-divider" />
 
       {/* Session7: FAQ */}
       <FAQSection />

@@ -1,6 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Toggle switch component
+function ToggleSwitch({ checked, onChange }: { checked: boolean; onChange: (v: boolean) => void }) {
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={checked}
+      onClick={() => onChange(!checked)}
+      className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ${
+        checked ? 'bg-[#245FFF]' : 'bg-gray-700'
+      }`}
+    >
+      <span
+        className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-lg ring-0 transition-transform duration-200 ${
+          checked ? 'translate-x-5' : 'translate-x-0'
+        }`}
+      />
+    </button>
+  );
+}
 
 // Pricing constants (from actual pricing page)
 const FREE_CHECKS = 200;
@@ -134,16 +156,16 @@ export default function PricingSection() {
 
               <div className="space-y-4">
                 {/* Adaptive Defense */}
-                <label className="flex items-start gap-4 cursor-pointer group p-4 rounded-xl hover:bg-gray-800/50 transition-colors">
-                  <input
-                    type="checkbox"
-                    checked={adaptiveDefense}
-                    onChange={(e) => setAdaptiveDefense(e.target.checked)}
-                    className="mt-1 h-5 w-5 rounded-md border-gray-700 bg-gray-900 text-[#245FFF] focus:ring-2 focus:ring-[#245FFF]/20"
-                  />
+                <div
+                  className={`flex items-start gap-4 cursor-pointer group p-4 rounded-xl transition-colors ${adaptiveDefense ? 'bg-[#245FFF]/5 border border-[#245FFF]/20' : 'hover:bg-gray-800/50 border border-transparent'}`}
+                  onClick={() => setAdaptiveDefense(!adaptiveDefense)}
+                >
+                  <div className="mt-0.5">
+                    <ToggleSwitch checked={adaptiveDefense} onChange={setAdaptiveDefense} />
+                  </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="font-semibold text-white group-hover:text-[#245FFF] transition-colors">
+                      <span className={`font-semibold transition-colors ${adaptiveDefense ? 'text-[#245FFF]' : 'text-white group-hover:text-[#245FFF]'}`}>
                         Adaptive Defense
                       </span>
                       <span className="text-sm font-semibold text-[#245FFF]">
@@ -152,19 +174,19 @@ export default function PricingSection() {
                     </div>
                     <p className="text-sm text-gray-400">Real-time GenAI, deepfake & injection attack detection with advanced AI models</p>
                   </div>
-                </label>
+                </div>
 
                 {/* Active Liveness */}
-                <label className="flex items-start gap-4 cursor-pointer group p-4 rounded-xl hover:bg-gray-800/50 transition-colors">
-                  <input
-                    type="checkbox"
-                    checked={activeLiveness}
-                    onChange={(e) => setActiveLiveness(e.target.checked)}
-                    className="mt-1 h-5 w-5 rounded-md border-gray-700 bg-gray-900 text-[#245FFF] focus:ring-2 focus:ring-[#245FFF]/20"
-                  />
+                <div
+                  className={`flex items-start gap-4 cursor-pointer group p-4 rounded-xl transition-colors ${activeLiveness ? 'bg-[#245FFF]/5 border border-[#245FFF]/20' : 'hover:bg-gray-800/50 border border-transparent'}`}
+                  onClick={() => setActiveLiveness(!activeLiveness)}
+                >
+                  <div className="mt-0.5">
+                    <ToggleSwitch checked={activeLiveness} onChange={setActiveLiveness} />
+                  </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="font-semibold text-white group-hover:text-[#245FFF] transition-colors">
+                      <span className={`font-semibold transition-colors ${activeLiveness ? 'text-[#245FFF]' : 'text-white group-hover:text-[#245FFF]'}`}>
                         Active Liveness
                       </span>
                       <span className="text-sm font-semibold text-[#245FFF]">
@@ -173,19 +195,19 @@ export default function PricingSection() {
                     </div>
                     <p className="text-sm text-gray-400">Live face detection to verify real human presence and prevent GenAI-generated deepfakes</p>
                   </div>
-                </label>
+                </div>
 
                 {/* Express Lane */}
-                <label className="flex items-start gap-4 cursor-pointer group p-4 rounded-xl hover:bg-gray-800/50 transition-colors">
-                  <input
-                    type="checkbox"
-                    checked={expressLane}
-                    onChange={(e) => setExpressLane(e.target.checked)}
-                    className="mt-1 h-5 w-5 rounded-md border-gray-700 bg-gray-900 text-[#245FFF] focus:ring-2 focus:ring-[#245FFF]/20"
-                  />
+                <div
+                  className={`flex items-start gap-4 cursor-pointer group p-4 rounded-xl transition-colors ${expressLane ? 'bg-[#245FFF]/5 border border-[#245FFF]/20' : 'hover:bg-gray-800/50 border border-transparent'}`}
+                  onClick={() => setExpressLane(!expressLane)}
+                >
+                  <div className="mt-0.5">
+                    <ToggleSwitch checked={expressLane} onChange={setExpressLane} />
+                  </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="font-semibold text-white group-hover:text-[#245FFF] transition-colors">
+                      <span className={`font-semibold transition-colors ${expressLane ? 'text-[#245FFF]' : 'text-white group-hover:text-[#245FFF]'}`}>
                         Express Lane
                       </span>
                       <span className="text-sm font-semibold text-[#245FFF]">
@@ -194,7 +216,7 @@ export default function PricingSection() {
                     </div>
                     <p className="text-sm text-gray-400">Low latency processing with 3s response time guarantee</p>
                   </div>
-                </label>
+                </div>
               </div>
             </div>
           </div>
@@ -208,9 +230,15 @@ export default function PricingSection() {
               <div className="mb-8 pb-8 border-b border-gray-700">
                 <p className="mb-2 text-sm text-gray-400 uppercase tracking-wider">Price Per Image</p>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-white">
+                  <motion.span
+                    key={volume <= FREE_CHECKS ? '0.00' : pricePerCheck.toFixed(3)}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="text-5xl font-bold text-white"
+                  >
                     ${volume <= FREE_CHECKS ? '0.00' : pricePerCheck.toFixed(3)}
-                  </span>
+                  </motion.span>
                   <span className="text-lg text-gray-400">/image</span>
                 </div>
 
@@ -251,9 +279,15 @@ export default function PricingSection() {
               <div className="mb-8">
                 <p className="mb-2 text-sm text-gray-400 uppercase tracking-wider">Total Monthly Estimate</p>
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-4xl font-bold text-[#245FFF]">
+                  <motion.span
+                    key={volume <= FREE_CHECKS ? '0.00' : ((volume - FREE_CHECKS) * pricePerCheck).toFixed(2)}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="text-4xl font-bold text-[#245FFF]"
+                  >
                     ${volume <= FREE_CHECKS ? '0.00' : ((volume - FREE_CHECKS) * pricePerCheck).toFixed(2)}
-                  </span>
+                  </motion.span>
                   <span className="text-lg text-gray-400">/month</span>
                 </div>
 

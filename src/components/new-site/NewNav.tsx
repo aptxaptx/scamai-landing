@@ -3,12 +3,14 @@
 import { useState, useRef, useEffect } from "react";
 import { useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import CommandPalette from "./CommandPalette";
 
 type NavChild = {
   label: string;
   href: string;
   external?: boolean;
   description?: string;
+  icon?: React.ReactNode;
 };
 
 type NavItem = {
@@ -16,6 +18,18 @@ type NavItem = {
   href: string;
   hasDropdown?: boolean;
   children?: NavChild[];
+};
+
+// Shared icon components for nav dropdown
+const navIcons = {
+  vision: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>,
+  audio: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg>,
+  shield: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
+  idCard: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="11" r="2.5"/><path d="M14 10h4"/><path d="M14 14h4"/></svg>,
+  doc: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>,
+  agent: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10"/><path d="M12 16v4"/></svg>,
+  video: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>,
+  book: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>,
 };
 
 const navItems: NavItem[] = [
@@ -27,43 +41,51 @@ const navItems: NavItem[] = [
       {
         label: "Vision",
         href: "/products/vision-detection",
-        description: "Deepfake and synthetic media detection"
+        description: "Deepfake and synthetic media detection",
+        icon: navIcons.vision,
       },
       {
         label: "Audio",
         href: "/products/audio-detection",
-        description: "Voice cloning and synthetic audio detection"
+        description: "Voice cloning and synthetic audio detection",
+        icon: navIcons.audio,
       },
       {
         label: "Remote Notary",
         href: "/#solutions-remote-notary",
-        description: "Identity verification for notarizations"
+        description: "Identity verification for notarizations",
+        icon: navIcons.shield,
       },
       {
         label: "Age Estimation & IDV",
         href: "/#solutions-age-estimation",
-        description: "Age estimation and ID verification"
+        description: "Age estimation and ID verification",
+        icon: navIcons.idCard,
       },
       {
         label: "Document Forgery",
         href: "/#solutions-document-forgery",
-        description: "Detect forged and AI-generated documents"
+        description: "Detect forged and AI-generated documents",
+        icon: navIcons.doc,
       },
       {
         label: "AI Agent Scam Prevention",
         href: "/#solutions-ai-agent",
-        description: "Protect AI workflows from manipulation"
+        description: "Protect AI workflows from manipulation",
+        icon: navIcons.agent,
       },
       {
         label: "Remote Interview",
         href: "/#solutions-remote-interview",
-        description: "Verify candidate identity in video interviews"
+        description: "Verify candidate identity in video interviews",
+        icon: navIcons.video,
       },
       {
         label: "Documentation",
         href: "https://docu.scam.ai",
         external: true,
-        description: "API guides and integration examples"
+        description: "API guides and integration examples",
+        icon: navIcons.book,
       },
     ]
   },
@@ -109,6 +131,7 @@ export default function NewNav() {
   const [productsOpen, setProductsOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -135,6 +158,17 @@ export default function NewNav() {
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   useEffect(() => {
@@ -231,63 +265,19 @@ export default function NewNav() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          {/* <div className="relative" ref={langDropdownRef}>
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 bg-transparent px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </button>
-            {langOpen && (
-              <div className="absolute right-0 top-full z-50 mt-2 w-48 rounded-lg bg-black shadow-lg">
-                <div className="max-h-64 overflow-y-auto scrollbar-hide">
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => switchLocale(lang.code)}
-                      className={`w-full px-4 py-2 text-left text-sm transition ${
-                        locale === lang.code
-                          ? "bg-[#235BF3] text-white"
-                          : "text-white hover:bg-gray-800"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span>{lang.name}</span>
-                        {locale === lang.code && (
-                          <svg
-                            className="h-4 w-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                        )}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          */}
+          <button
+            onClick={() => setSearchOpen(true)}
+            className="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3 py-1.5 text-xs text-gray-400 transition hover:bg-white/10 hover:text-white"
+            aria-label="Search"
+          >
+            <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <span className="hidden lg:inline">Search</span>
+            <kbd className="hidden lg:inline rounded border border-white/10 bg-white/5 px-1 py-0.5 text-[10px] text-gray-500">
+              ⌘K
+            </kbd>
+          </button>
           <a
             href="https://app.scam.ai"
             target="_blank"
@@ -306,13 +296,24 @@ export default function NewNav() {
           </a>
         </div>
 
-        <button
-          className="flex h-10 w-10 items-center justify-center text-white md:hidden"
-          onClick={() => setOpen((prev) => !prev)}
-          aria-label="Open menu"
-        >
-          <span className="text-2xl">{open ? "" : "☰"}</span>
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={() => setSearchOpen(true)}
+            className="flex h-10 w-10 items-center justify-center text-white"
+            aria-label="Search"
+          >
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
+          <button
+            className="flex h-10 w-10 items-center justify-center text-white"
+            onClick={() => setOpen((prev) => !prev)}
+            aria-label="Open menu"
+          >
+            <span className="text-2xl">{open ? "" : "☰"}</span>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Full-Screen Menu */}
@@ -401,18 +402,12 @@ export default function NewNav() {
                             </a>
                           )}
 
-                          {item.children.map((child) => (
-                            child.external || child.href.includes('#') ? (
-                              <a
-                                key={child.label}
-                                href={child.href}
-                                {...(child.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                                className="block p-4 rounded-lg hover:bg-white/5"
-                                onClick={() => {
-                                  setOpen(false);
-                                  setIsOpen(false);
-                                }}
-                              >
+                          {item.children.map((child) => {
+                            const mobileContent = (
+                              <div className="flex items-start gap-3">
+                                {child.icon && (
+                                  <span className="text-[#245FFF] mt-0.5 flex-shrink-0">{child.icon}</span>
+                                )}
                                 <div>
                                   <h3 className="text-sm font-medium text-white mb-1">
                                     {child.label}
@@ -423,6 +418,20 @@ export default function NewNav() {
                                     </p>
                                   )}
                                 </div>
+                              </div>
+                            );
+                            return child.external || child.href.includes('#') ? (
+                              <a
+                                key={child.label}
+                                href={child.href}
+                                {...(child.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                                className="block p-4 rounded-lg hover:bg-white/5"
+                                onClick={() => {
+                                  setOpen(false);
+                                  setIsOpen(false);
+                                }}
+                              >
+                                {mobileContent}
                               </a>
                             ) : (
                               <Link
@@ -434,19 +443,10 @@ export default function NewNav() {
                                   setIsOpen(false);
                                 }}
                               >
-                                <div>
-                                  <h3 className="text-sm font-medium text-white mb-1">
-                                    {child.label}
-                                  </h3>
-                                  {child.description && (
-                                    <p className="text-xs text-gray-500 leading-relaxed">
-                                      {child.description}
-                                    </p>
-                                  )}
-                                </div>
+                                {mobileContent}
                               </Link>
-                            )
-                          ))}
+                            );
+                          })}
                         </div>
                       )}
                     </div>
@@ -601,8 +601,25 @@ export default function NewNav() {
 
             {/* Products List */}
             <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-3">
-              {navItems.find(item => item.label === "Product")?.children?.map((child) => (
-                child.external || child.href.includes('#') ? (
+              {navItems.find(item => item.label === "Product")?.children?.map((child) => {
+                const content = (
+                  <>
+                    <div className="flex items-center gap-2 mb-1">
+                      {child.icon && (
+                        <span className="text-[#245FFF] flex-shrink-0">{child.icon}</span>
+                      )}
+                      <h3 className="text-sm font-medium text-white">
+                        {child.label}
+                      </h3>
+                    </div>
+                    {child.description && (
+                      <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 pl-6">
+                        {child.description}
+                      </p>
+                    )}
+                  </>
+                );
+                return child.external || child.href.includes('#') ? (
                   <a
                     key={child.label}
                     href={child.href}
@@ -610,14 +627,7 @@ export default function NewNav() {
                     className="group block p-4 rounded-lg hover:bg-white/5 transition-colors duration-150"
                     onClick={() => setProductsOpen(false)}
                   >
-                    <h3 className="text-sm font-medium text-white mb-1">
-                      {child.label}
-                    </h3>
-                    {child.description && (
-                      <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">
-                        {child.description}
-                      </p>
-                    )}
+                    {content}
                   </a>
                 ) : (
                   <Link
@@ -626,17 +636,10 @@ export default function NewNav() {
                     className="group block p-4 rounded-lg hover:bg-white/5 transition-colors duration-150"
                     onClick={() => setProductsOpen(false)}
                   >
-                    <h3 className="text-sm font-medium text-white mb-1">
-                      {child.label}
-                    </h3>
-                    {child.description && (
-                      <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">
-                        {child.description}
-                      </p>
-                    )}
+                    {content}
                   </Link>
-                )
-              ))}
+                );
+              })}
             </div>
           </div>
         )}

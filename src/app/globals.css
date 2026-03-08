@@ -166,38 +166,47 @@ html {
   transform: translateZ(0);
 }
 
-/* Rounded corners - explicitly define all sizes */
-.rounded,
-*.rounded {
-  border-radius: 0.25rem !important;
+/* Border-radius overrides for Tailwind v4 + shadcn compatibility */
+.rounded { border-radius: 0.25rem !important; }
+.rounded-sm { border-radius: 0.125rem !important; }
+.rounded-md { border-radius: 0.375rem !important; }
+.rounded-lg { border-radius: 0.5rem !important; }
+.rounded-xl { border-radius: 0.75rem !important; }
+.rounded-2xl { border-radius: 1rem !important; }
+.rounded-3xl { border-radius: 1.5rem !important; }
+.rounded-full { border-radius: 9999px !important; }
+
+/* Custom range slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #245FFF;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px rgba(36, 95, 255, 0.5);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.rounded-sm,
-*.rounded-sm {
-  border-radius: 0.125rem !important;
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 16px rgba(36, 95, 255, 0.7);
 }
-.rounded-md,
-*.rounded-md {
-  border-radius: 0.375rem !important;
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #245FFF;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px rgba(36, 95, 255, 0.5);
+  cursor: pointer;
 }
-.rounded-lg,
-*.rounded-lg {
-  border-radius: 0.5rem !important;
-}
-.rounded-xl,
-*.rounded-xl {
-  border-radius: 0.75rem !important;
-}
-.rounded-2xl,
-*.rounded-2xl {
-  border-radius: 1rem !important;
-}
-.rounded-3xl,
-*.rounded-3xl {
-  border-radius: 1.5rem !important;
-}
-.rounded-full,
-*.rounded-full {
-  border-radius: 9999px !important;
+
+/* Section gradient divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(36, 95, 255, 0.3) 50%, transparent);
 }
 
 /* Special elements that should always be round */
