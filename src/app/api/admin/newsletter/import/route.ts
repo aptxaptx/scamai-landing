@@ -67,10 +67,20 @@ function parseMarkdownBody(body: string): { executiveSummary: string; sections: 
     // Article line: - [Title](url) - Source
     const articleMatch = line.match(/^-\s+\[(.+?)\]\((.+?)\)\s*(?:-\s*(.+))?$/);
     if (articleMatch && currentSection) {
+      // Validate URL format
+      const articleUrl = articleMatch[2];
+      let isValidUrl = false;
+      try {
+        const parsed = new URL(articleUrl);
+        isValidUrl = ['http:', 'https:'].includes(parsed.protocol);
+      } catch { /* invalid URL, skip */ }
+
+      if (!isValidUrl) continue;
+
       lastArticle = {
-        title: articleMatch[1],
-        url: articleMatch[2],
-        source: articleMatch[3]?.trim() || '',
+        title: articleMatch[1].slice(0, 500),
+        url: articleUrl.slice(0, 2000),
+        source: (articleMatch[3]?.trim() || '').slice(0, 200),
         description: '',
         publishedAt: new Date().toISOString(),
       };
@@ -95,9 +105,20 @@ export async function POST(req: Request) {
   if (!(await validateSession())) return unauthorizedResponse();
 
   try {
-    const { markdown } = await req.json();
+    let reqBody;
+    try {
+      reqBody = await req.json();
+    } catch {
+      return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+
+    const { markdown } = reqBody;
     if (!markdown || typeof markdown !== 'string') {
       return NextResponse.json({ error: 'markdown string is required' }, { status: 400 });
+    }
+    // Limit markdown size to 5MB
+    if (markdown.length > 5 * 1024 * 1024) {
+      return NextResponse.json({ error: 'Markdown content too large (max 5MB)' }, { status: 413 });
     }
 
     const { meta, body } = parseFrontmatter(markdown);

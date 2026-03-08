@@ -84,16 +84,10 @@ export default function StructuredData() {
       "description": "200 free images per month",
       "availability": "https://schema.org/InStock"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "150",
-      "bestRating": "5"
-    },
     "description": "AI-powered deepfake detection and synthetic media verification platform with real-time analysis.",
     "featureList": [
       "Real-time deepfake detection with 95.3% accuracy",
-      "Vision detection for images and videos",
+      "AI detection for images and videos",
       "Audio detection for synthetic voices",
       "GenAI content detection",
       "API integration in under 10 minutes",
@@ -116,7 +110,7 @@ export default function StructuredData() {
         "name": "What is ScamAI?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ScamAI is an AI-powered platform for detecting deepfakes and synthetic media in real-time. We provide vision detection, audio detection, and GenAI content verification with industry-leading accuracy."
+          "text": "ScamAI is an AI-powered platform for detecting deepfakes and synthetic media in real-time. We provide AI detection, audio detection, and GenAI content verification with industry-leading accuracy."
         }
       },
       {
@@ -124,7 +118,7 @@ export default function StructuredData() {
         "name": "How accurate is ScamAI's deepfake detection?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ScamAI achieves 95.3% detection accuracy with processing times under 200ms. Our platform is continuously trained on the latest synthetic media techniques."
+          "text": "ScamAI's Eva-v1 models are continuously trained on the latest synthetic media techniques with processing times under 200ms. Accuracy varies by media type and attack technique — contact us for benchmark details relevant to your use case."
         }
       },
       {
@@ -148,7 +142,7 @@ export default function StructuredData() {
         "name": "How does ScamAI compare to other deepfake detection tools?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ScamAI achieves 95.3% detection accuracy with sub-200ms processing, offers both vision and audio detection in a single platform, and provides a developer-friendly API with integration in under 10 minutes. Unlike many competitors, ScamAI offers a free tier, transparent per-image pricing, and is SOC 2 Type II and GDPR compliant."
+          "text": "ScamAI offers both vision and audio detection in a single platform with sub-200ms processing, and provides a developer-friendly API with integration in under 10 minutes. Unlike many competitors, ScamAI offers a free tier of 200 images per month, transparent per-image pricing, and is SOC 2 Type II and GDPR compliant."
         }
       },
       {

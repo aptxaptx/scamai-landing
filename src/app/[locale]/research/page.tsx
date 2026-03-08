@@ -2,8 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import NewNav from "@/components/new-site/NewNav";
-import NewFooter from "@/components/new-site/NewFooter";
 import { trackCTA, trackOutbound } from "@/lib/analytics";
 
 function AnimatedSection({
@@ -99,9 +97,7 @@ const stats = [
 export default function ResearchPage() {
   return (
     <div className="min-h-screen bg-black text-white">
-      <NewNav />
-
-      <main className="pt-[140px] sm:pt-[160px]">
+      <main className="pt-[120px] sm:pt-[140px]">
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-4 sm:px-8 pb-14 sm:pb-20">
           <AnimatedSection>
@@ -362,8 +358,6 @@ export default function ResearchPage() {
           </AnimatedSection>
         </section>
       </main>
-
-      <NewFooter />
     </div>
   );
 }

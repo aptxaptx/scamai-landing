@@ -71,11 +71,29 @@ export async function DELETE(req: Request) {
   if (!(await validateSession())) return unauthorizedResponse();
 
   try {
-    const { ids } = await req.json();
+    let body;
+    try {
+      body = await req.json();
+    } catch {
+      return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+
+    const { ids } = body;
     if (!Array.isArray(ids) || ids.length === 0) {
       return NextResponse.json({ error: 'ids array is required' }, { status: 400 });
     }
-    const deleted = await deleteNewsletters(ids.map(Number));
+
+    // Validate all IDs are positive integers
+    const numIds = ids.map((id: unknown) => {
+      const num = Number(id);
+      if (!Number.isInteger(num) || num <= 0) return null;
+      return num;
+    });
+    if (numIds.some((id: number | null) => id === null)) {
+      return NextResponse.json({ error: 'All ids must be positive integers' }, { status: 400 });
+    }
+
+    const deleted = await deleteNewsletters(numIds as number[]);
     return NextResponse.json({ success: true, deleted });
   } catch (error) {
     console.error('Error batch deleting newsletters:', error);

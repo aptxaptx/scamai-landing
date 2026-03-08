@@ -47,7 +47,7 @@ Both models detect: face swaps, GAN-generated images, diffusion model outputs (S
 
 ## Products
 
-### Vision Detection
+### AI Detection
 Detect AI-generated images and deepfake videos with 95.3% accuracy. Real-time processing under 200ms.
 
 **Capabilities:**
@@ -176,7 +176,7 @@ curl -X POST https://api.scam.ai/v1/detect \
 
 - [Home](https://scam.ai/en): Platform overview and key features
 - [Products](https://scam.ai/en/products): All detection solutions
-- [Vision Detection](https://scam.ai/en/products/vision-detection): Image and video deepfake detection
+- [AI Detection](https://scam.ai/en/products/ai-detection): Image and video deepfake detection
 - [Audio Detection](https://scam.ai/en/products/audio-detection): Voice clone and synthetic audio detection
 - [Pricing](https://scam.ai/en/pricing): Plans and pricing details
 - [Documentation](https://scam.ai/en/resources/documentation): API reference and integration guides

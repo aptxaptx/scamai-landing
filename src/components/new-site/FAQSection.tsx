@@ -16,7 +16,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "What's the difference between Eva-v1-Fast and Eva-v1-Pro?",
-    answer: "Eva-v1-Fast is our standard model optimized for speed and efficiency, perfect for most use cases. Eva-v1-Pro is our forensic-grade model with significantly lower false positives and enhanced detection capabilities, available exclusively for Enterprise customers. Pro provides court-admissible evidence-level accuracy and more sophisticated analysis for high-stakes applications."
+    answer: "Eva-v1-Fast is our standard model optimized for speed and efficiency, perfect for most use cases. Eva-v1-Pro is our advanced model with significantly lower false positives and enhanced detection capabilities, available exclusively for Enterprise customers. Pro provides deeper analysis and more sophisticated detection for high-stakes applications like KYC verification and fraud prevention."
   },
   {
     question: "How does pricing work after the free tier?",
@@ -36,7 +36,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "How accurate is your detection?",
-    answer: "Our Eva models are continuously trained on the latest GenAI and deepfake techniques, maintaining industry-leading accuracy. Eva-v1-Fast provides excellent accuracy for most use cases, while Eva-v1-Pro delivers forensic-grade precision with significantly lower false positives, suitable for legal and high-stakes applications. Detection confidence scores are provided with each analysis, and our Adaptive Defense add-on provides real-time protection against emerging threats."
+    answer: "Our Eva models are continuously trained on the latest GenAI and deepfake techniques. Eva-v1-Fast provides strong accuracy for most use cases, while Eva-v1-Pro delivers higher precision with significantly lower false positives for enterprise applications. Detection confidence scores are provided with each analysis, and our Adaptive Defense add-on provides real-time protection against emerging threats. Accuracy varies by media type and attack technique — contact us for benchmark details relevant to your use case."
   },
   {
     question: "Can I integrate this into my existing application?",

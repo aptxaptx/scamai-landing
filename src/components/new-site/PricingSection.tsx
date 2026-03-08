@@ -203,7 +203,7 @@ export default function PricingSection() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2 mb-0.5">
-                          <span className={`text-sm font-medium transition-colors ${addons[addon.key] ? "text-[#245FFF]" : "text-white"}`}>
+                          <span className="text-sm font-medium text-white">
                             {addon.label}
                           </span>
                           <span className="text-xs font-semibold text-gray-500 whitespace-nowrap">
@@ -240,8 +240,8 @@ export default function PricingSection() {
                   </div>
 
                   {volume <= FREE_CHECKS ? (
-                    <div className="mt-3 rounded-lg bg-green-500/5 border border-green-500/20 px-3 py-2">
-                      <p className="text-xs font-medium text-green-400">Within free tier (200 images/mo)</p>
+                    <div className="mt-3 rounded-lg bg-white/[0.04] border border-white/10 px-3 py-2">
+                      <p className="text-xs font-medium text-gray-300">Within free tier (200 images/mo)</p>
                     </div>
                   ) : (
                     <div className="mt-3 space-y-1.5 text-xs text-gray-400">
@@ -252,19 +252,19 @@ export default function PricingSection() {
                       {addons.adaptive && (
                         <div className="flex justify-between">
                           <span>Adaptive Defense</span>
-                          <span className="text-[#245FFF]">+${ADDON.adaptive.toFixed(3)}</span>
+                          <span className="text-gray-300">+${ADDON.adaptive.toFixed(3)}</span>
                         </div>
                       )}
                       {addons.liveness && (
                         <div className="flex justify-between">
                           <span>Active Liveness</span>
-                          <span className="text-[#245FFF]">+${ADDON.liveness.toFixed(3)}</span>
+                          <span className="text-gray-300">+${ADDON.liveness.toFixed(3)}</span>
                         </div>
                       )}
                       {addons.express && (
                         <div className="flex justify-between">
                           <span>Express Lane</span>
-                          <span className="text-[#245FFF]">+${ADDON.express.toFixed(3)}</span>
+                          <span className="text-gray-300">+${ADDON.express.toFixed(3)}</span>
                         </div>
                       )}
                     </div>
@@ -280,7 +280,7 @@ export default function PricingSection() {
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="text-2xl sm:text-3xl font-bold text-[#245FFF]"
+                      className="text-2xl sm:text-3xl font-bold text-white"
                     >
                       ${monthlyTotal.toFixed(2)}
                     </motion.span>
@@ -348,7 +348,7 @@ export default function PricingSection() {
                 <span className="text-sm text-gray-500">per image</span>
               </div>
 
-              <p className="mb-1 text-xs font-semibold text-[#245FFF]">200 free images/month</p>
+              <p className="mb-1 text-xs font-semibold text-gray-300">200 free images/month</p>
               <p className="mb-6 text-xs text-gray-500 leading-relaxed">
                 Flexible pay-as-you-go for teams of all sizes. Start free, scale when ready.
               </p>

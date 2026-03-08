@@ -32,9 +32,9 @@ export default function ProductsPage() {
       <section className="py-12 px-4 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-8 md:grid-cols-2">
-            {/* Vision Detection */}
-            <a 
-              href="/products/vision-detection"
+            {/* AI Detection */}
+            <a
+              href="/products/ai-detection"
               className="group rounded-lg border border-gray-800 bg-gray-900/40 p-8 hover:border-[#66b3ff] transition-colors"
             >
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#66b3ff]/10 group-hover:bg-[#66b3ff]/20 transition-colors">
@@ -43,7 +43,7 @@ export default function ProductsPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
-              <h3 className="mb-3 text-2xl font-bold text-white">Vision Detection</h3>
+              <h3 className="mb-3 text-2xl font-bold text-white">AI Detection</h3>
               <p className="mb-4 text-gray-300">
                 Detect deepfakes in images and videos with 95.3%* accuracy. Identify face swaps, manipulated faces, and synthetic generation.
               </p>

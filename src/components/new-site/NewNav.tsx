@@ -40,8 +40,8 @@ const navItems: NavItem[] = [
     hasDropdown: true,
     children: [
       {
-        label: "Vision",
-        href: "/products/vision-detection",
+        label: "AI Detection",
+        href: "/products/ai-detection",
         description: "Deepfake and synthetic media detection",
         icon: navIcons.vision,
       },
@@ -273,14 +273,14 @@ export default function NewNav() {
         <div className="hidden items-center gap-3 md:flex">
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3 py-1.5 text-xs text-gray-400 transition hover:bg-white/10 hover:text-white"
+            className="flex items-center gap-2 rounded-lg bg-white/[0.04] border border-white/10 px-3 py-2 text-sm text-gray-500 transition-colors duration-150 hover:bg-white/[0.08] hover:border-white/20 hover:text-gray-300 cursor-text min-w-[180px] lg:min-w-[220px]"
             aria-label="Search"
           >
-            <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="h-4 w-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <span className="hidden lg:inline">Search</span>
-            <kbd className="hidden lg:inline rounded border border-white/10 bg-white/5 px-1 py-0.5 text-[10px] text-gray-500">
+            <span className="flex-1 text-left">Search...</span>
+            <kbd className="hidden lg:inline-flex items-center rounded border border-white/10 bg-white/5 px-1.5 py-0.5 text-[10px] text-gray-600 font-medium">
               ⌘K
             </kbd>
           </button>
@@ -704,6 +704,7 @@ export default function NewNav() {
       </div>
     </div>
     </div>
+    <CommandPalette isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }

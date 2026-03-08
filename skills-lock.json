@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "skills": {
+    "Agentic UX Design - Relationship-Centric Interfaces": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "abfc172573cc91ee0faee6066ae15b0e46598e9029de8400e202d606e45d6d69"
+    },
+    "adaptive-communication": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "19a5c484361952d98eedd31b2e82e043b7d44408d64077e5030956a810df14dc"
+    },
+    "bencium-aeo": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "4a0055b399ed7e8b728b377182348d99d4ccaa51821fd3930dfe16c84853d4ab"
+    },
+    "bencium-code-conventions": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "1563a42361dd86385ac940f464abf6463e35575a8fd70d8d65e6d6d0bdd490fc"
+    },
+    "bencium-controlled-ux-designer": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "4aacbb29e05d9e45600105fbdcb24b38fa7de40d29db025f05a1b121308afc5c"
+    },
+    "bencium-impact-designer": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "a1811508c23426aebfdac4fc449c3985a505c3cd0edf00582a7b7aac664f0bb7"
+    },
+    "bencium-innovative-ux-designer": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "a535e501e9f72e0de2d43546104f98b596119f8bbea1df915579b26da08d792d"
+    },
+    "contrast-checker": {
+      "source": "accesslint/claude-marketplace",
+      "sourceType": "github",
+      "computedHash": "f5ba48ad7a240bac904a6e680876250ef796f442c1111346896cab5420e131c6"
+    },
+    "design-audit": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "18044a5dfff442f951c5fcead39da4ebd84096cca39e3cb848e677d84938faef"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "computedHash": "063a0e6448123cd359ad0044cc46b0e490cc7964d45ef4bb9fd842bd2ffbca67"
+    },
+    "human-architect-mindset": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "139adb3502314490b7b2d191b4c97c7c568c1f64fb60ec25d7005a1568e38319"
+    },
+    "link-purpose": {
+      "source": "accesslint/claude-marketplace",
+      "sourceType": "github",
+      "computedHash": "105accd30c48d294acdc5f6878e02d9f1306fee6363a59ada62d56af0dec7ead"
+    },
+    "negentropy-lens": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "d8ebf7e1428cb3e8357d75500bfe412ab09eaeb964da4990b2666590b62e0671"
+    },
+    "refactor": {
+      "source": "accesslint/claude-marketplace",
+      "sourceType": "github",
+      "computedHash": "81eeca3468db825682b9f9e1f110483b3486b5c0a134c110fd5c10c6c8ebcde0"
+    },
+    "renaissance-architecture": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "e0027fbb08b5b8f7698851c5dccf21998539bd65ae85e1c870dca585cbe34289"
+    },
+    "ui-typography": {
+      "source": "bencium/bencium-claude-code-design-skill",
+      "sourceType": "github",
+      "computedHash": "1e2ca6a20a9180dedd9ae9039e743bf2609fb4ad0608ee5cafe739fcef04e7ec"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "computedHash": "e688fcd4c5693e14ebd00d48e982dbd2be060fbea89f5f60531e79c704a1bc28"
+    },
+    "use-of-color": {
+      "source": "accesslint/claude-marketplace",
+      "sourceType": "github",
+      "computedHash": "f1709d5b9634e993b528580325b3beeab2626cd8d2054d9d27986370d5cacce7"
+    },
+    "vercel-composition-patterns": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "f98931159fa9c7fed043bcd18a891a46dcf89ababa38df13a4c5b7b30dc0ce07"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "3462ec83f862abb2d532953df33a4dbf87f4616849da5d4b5cc7c13601aaf997"
+    },
+    "vercel-react-native-skills": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "2e9088a7333666d8c2833b8ff58bd51b955501c42b4c7244f72b4cbf22dafcc4"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+    }
+  }
+}

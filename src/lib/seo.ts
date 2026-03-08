@@ -113,11 +113,12 @@ export const pageMetadata = {
       'Comprehensive suite of AI-powered detection tools for synthetic media, deepfakes, and fraud prevention. Vision, audio, and database solutions.',
     keywords: ['AI products', 'detection solutions', 'API integration'],
   },
-  visionDetection: {
-    title: 'Vision Detection - Image & Video Deepfake Detection',
+  aiDetection: {
+    title: 'AI Detection - Image & Video Deepfake Detection',
     description:
       'Detect AI-generated images and deepfake videos with 95.3% accuracy. Real-time processing under 200ms. Perfect for KYC, content moderation, and fraud prevention.',
     keywords: [
+      'AI detection',
       'image detection',
       'video detection',
       'face swap detection',

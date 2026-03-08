@@ -79,7 +79,7 @@ export default function NewFooter() {
 
           <nav className="space-y-3 text-sm" aria-label="Product navigation">
             <h3 className="font-semibold text-white">Product</h3>
-            <Link href="/products/vision-detection" className="block text-gray-500 hover:text-white transition-colors">Vision Detection</Link>
+            <Link href="/products/ai-detection" className="block text-gray-500 hover:text-white transition-colors">AI Detection</Link>
             <Link href="/products/audio-detection" className="block text-gray-500 hover:text-white transition-colors">Audio Detection</Link>
             <Link href="/pricing" className="block text-gray-500 hover:text-white transition-colors">Pricing</Link>
           </nav>

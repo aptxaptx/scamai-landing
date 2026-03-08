@@ -6,6 +6,11 @@ export async function POST(_req: Request, { params }: { params: Promise<{ id: st
   if (!(await validateSession())) return unauthorizedResponse();
 
   const { id } = await params;
-  const published = await togglePublish(Number(id));
+  const newsletterId = Number(id);
+  if (!Number.isInteger(newsletterId) || newsletterId <= 0) {
+    return NextResponse.json({ error: 'Invalid newsletter id' }, { status: 400 });
+  }
+
+  const published = await togglePublish(newsletterId);
   return NextResponse.json({ success: true, published });
 }

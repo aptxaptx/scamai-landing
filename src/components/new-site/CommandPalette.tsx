@@ -14,8 +14,8 @@ type SearchItem = {
 
 const searchItems: SearchItem[] = [
   // Products
-  { label: "Vision Detection", href: "/products/vision-detection", category: "Products", description: "Deepfake and synthetic media detection" },
-  { label: "Audio Detection", href: "/products/audio-detection", category: "Products", description: "Voice cloning and synthetic audio detection" },
+  { label: "AI Detection", href: "/products/ai-detection", category: "Products", description: "Deepfake and AI-generated content detection" },
+  { label: "Audio Detection", href: "/products/audio-detection", category: "Products", description: "Voice cloning and AI-generated audio detection" },
   { label: "Remote Notary", href: "/#solutions-remote-notary", category: "Products", description: "Identity verification for notarizations" },
   { label: "Age Estimation & IDV", href: "/#solutions-age-estimation", category: "Products", description: "Age estimation and ID verification" },
   { label: "Document Forgery", href: "/#solutions-document-forgery", category: "Products", description: "Detect forged and AI-generated documents" },
@@ -73,6 +73,21 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
       close();
       if (item.external) {
         window.open(item.href, "_blank", "noopener,noreferrer");
+      } else if (item.href.includes("#")) {
+        // Hash links need native navigation to trigger scroll-to-anchor
+        const [path, hash] = item.href.split("#");
+        const currentPath = window.location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/, "");
+        if (!path || path === "/" || currentPath === path) {
+          // Same page — just scroll to the element
+          const el = document.getElementById(hash);
+          el?.scrollIntoView({ behavior: "smooth" });
+        } else {
+          router.push(path);
+          setTimeout(() => {
+            const el = document.getElementById(hash);
+            el?.scrollIntoView({ behavior: "smooth" });
+          }, 500);
+        }
       } else {
         router.push(item.href);
       }
@@ -95,7 +110,10 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
   // Focus input when opened
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 10);
+      // Use requestAnimationFrame for more reliable focus timing across browsers
+      requestAnimationFrame(() => {
+        inputRef.current?.focus();
+      });
     }
   }, [isOpen]);
 
@@ -141,13 +159,13 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
     <div className="fixed inset-0 z-[200]">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        className="absolute inset-0 z-0 bg-black/60 backdrop-blur-sm"
         onClick={close}
       />
 
       {/* Dialog */}
-      <div className="relative mx-auto mt-[min(20vh,120px)] w-full max-w-xl px-4">
-        <div className="overflow-hidden rounded-xl border border-white/10 bg-[#111111] shadow-2xl">
+      <div className="relative z-10 mx-auto mt-[min(20vh,120px)] w-full max-w-xl px-4">
+        <div className="overflow-hidden rounded-xl border border-white/10 bg-[#111111] shadow-2xl" onClick={(e) => e.stopPropagation()}>
           {/* Search input */}
           <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">
             <svg
@@ -166,6 +184,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
             <input
               ref={inputRef}
               type="text"
+              autoFocus
               placeholder="Search products, pages, and features..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
