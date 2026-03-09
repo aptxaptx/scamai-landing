@@ -328,11 +328,11 @@ export default function NewLanding() {
                     onClick={() => trackCTA("start_free", "hero")}
                   >
                     <span className="rainbow-button-inner">
-                      Start Free &mdash; 200 Images/mo
+                      Start for Free
                     </span>
                   </a>
                   <a
-                    href="https://cal.com/scamai/15min"
+                    href="https://app.scam.ai"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 transition hover:text-white"
