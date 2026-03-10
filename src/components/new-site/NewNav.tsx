@@ -45,7 +45,7 @@ const navIcons = {
   // USE CASES
   interview: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><circle cx="12" cy="10" r="2"/></svg>,
   notary: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3v4a1 1 0 001 1h4"/><path d="M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/><path d="M9 17l2-5 2 5"/><path d="M9.5 15.5h3"/></svg>,
-  onboarding: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8l2 2 4-4"/></svg>,
+  onboarding: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 11l2 2 3-3"/></svg>,
   contactCenter: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>,
   agentWorkflow: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>,
 
@@ -195,12 +195,41 @@ export default function NewNav() {
     return () => document.removeEventListener("keydown", handler);
   }, []);
 
+  // Escape key — close dropdown or mobile menu
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (activeDropdown) setActiveDropdown(null);
+        if (mobileOpen) { setMobileOpen(false); setMobileExpanded(null); }
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [activeDropdown, mobileOpen]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   // Scroll
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+    setMobileExpanded(null);
+    setActiveDropdown(null);
+  }, [pathname]);
 
   const showAnnouncement = isLandingPage && !announcementDismissed;
   const announcementHeight = showAnnouncement && !scrolled ? 36 : 0;
@@ -260,7 +289,7 @@ export default function NewNav() {
   const renderChild = (child: NavChild, onClose: () => void) => {
     const content = (
       <div className="flex items-start gap-3">
-        {child.icon && <span className="text-[#245FFF] mt-0.5 flex-shrink-0">{child.icon}</span>}
+        {child.icon && <span className="text-white mt-0.5 flex-shrink-0">{child.icon}</span>}
         <div>
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-medium text-white mb-0.5">{child.label}</h3>
@@ -437,27 +466,35 @@ export default function NewNav() {
           {/* Mobile nav */}
           <nav className="flex md:hidden items-center justify-between px-4 py-3">
             <Link href="/" className="flex-shrink-0">
-              <img src="/scamai-logo.svg" alt="ScamAI" className="h-9 w-auto" />
+              <img src="/logo.svg" alt="ScamAI" className="h-7 w-auto" />
             </Link>
-            <div className="flex items-center gap-2">
+            {/* Unified rounded pill — Log in + CTA + Hamburger */}
+            <div
+              className="flex items-center gap-0.5 rounded-full px-1 py-1"
+              style={{
+                background: 'rgba(23, 24, 37, 0.75)',
+                backdropFilter: 'blur(12px)',
+                boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.08)',
+              }}
+            >
               <a
                 href="https://app.scam.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[13px] font-medium text-white px-2 py-1.5"
+                className="rounded-full px-3 py-1.5 text-[12px] font-medium text-white transition hover:bg-white/[0.06]"
                 onClick={() => trackCTA("log_in", "nav_mobile")}
               >
                 Log in
               </a>
               <Link
                 href="/demo"
-                className="rounded-full bg-white px-3.5 py-1.5 text-[13px] font-semibold text-black transition hover:bg-gray-200"
+                className="rounded-full bg-white px-3 py-1.5 text-[12px] font-semibold text-black transition hover:bg-gray-200"
                 onClick={() => trackCTA("book_demo", "nav_mobile")}
               >
                 Get a demo
               </Link>
               <button
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white"
+                className="flex h-7 w-7 items-center justify-center rounded-full text-white transition hover:bg-white/[0.06]"
                 onClick={() => setMobileOpen((p) => !p)}
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
               >
@@ -476,7 +513,7 @@ export default function NewNav() {
             <div className="flex h-full flex-col">
               <div className="flex items-center justify-between px-6 py-4 border-b border-gray-800">
                 <Link href="/" onClick={() => setMobileOpen(false)}>
-                  <img src="/scamai-logo.svg" alt="ScamAI" className="h-9 w-auto" />
+                  <img src="/logo.svg" alt="ScamAI" className="h-7 w-auto" />
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}
@@ -552,7 +589,25 @@ export default function NewNav() {
                 </div>
               </div>
 
-              <div className="border-t border-gray-800 px-6 py-4">
+              <div className="border-t border-gray-800 px-6 py-4 space-y-3">
+                <div className="flex flex-col gap-3">
+                  <Link
+                    href="/demo"
+                    className="block w-full px-6 py-3 text-center text-sm font-semibold text-black bg-white rounded-full hover:bg-gray-200 transition"
+                    onClick={() => { setMobileOpen(false); trackCTA("book_demo", "nav_mobile_menu"); }}
+                  >
+                    Get a demo
+                  </Link>
+                  <a
+                    href="https://app.scam.ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full px-6 py-3 text-center text-sm font-semibold text-white bg-transparent border border-gray-700 rounded-full hover:bg-gray-800 transition"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Log in
+                  </a>
+                </div>
                 <button
                   onClick={() => { setMobileOpen(false); setSearchOpen(true); }}
                   className="flex w-full items-center gap-3 rounded-xl border border-gray-800 bg-white/[0.03] px-4 py-3 text-sm text-gray-500"
@@ -602,7 +657,7 @@ export default function NewNav() {
               if (!activeItem?.productCategories) return null;
               const catCount = activeItem.productCategories.length;
               return (
-                <div className={`grid grid-cols-${catCount} gap-0 divide-x divide-white/[0.06]`}>
+                <div className={`grid gap-0 divide-x divide-white/[0.06] ${catCount === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
                   {activeItem.productCategories.map((cat) => (
                     <div key={cat.title} className="px-4 first:pl-0 last:pr-0">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-500 px-3 mb-2">
@@ -613,14 +668,14 @@ export default function NewNav() {
                           const content = (
                             <div className="flex items-center gap-2.5 group">
                               {child.icon && (
-                                <span className="text-gray-500 group-hover:text-white transition-colors flex-shrink-0">
+                                <span className="text-white flex-shrink-0">
                                   {child.icon}
                                 </span>
                               )}
                               <span className="text-[13px] font-medium text-gray-300 group-hover:text-white transition-colors truncate">{child.label}</span>
                               {child.coming && (
                                 <span className="flex-shrink-0 rounded bg-white/[0.06] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-gray-500">
-                                  Soon
+                                  Coming Soon
                                 </span>
                               )}
                             </div>
@@ -670,17 +725,17 @@ export default function NewNav() {
                       className="block group"
                       onClick={() => setActiveDropdown(null)}
                     >
-                      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#1a1a2e] to-[#0d0d1a] border border-white/[0.08] p-5 h-full transition-all duration-200 group-hover:border-[#245FFF]/30">
-                        <span className="inline-block rounded bg-[#245FFF]/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#245FFF] mb-4">
+                      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/[0.12] p-5 h-full transition-all duration-200 group-hover:border-white/[0.25]">
+                        <span className="inline-block rounded bg-white/[0.1] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/70 mb-4">
                           Newsletter
                         </span>
-                        <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/[0.06] border border-white/[0.08] mb-4">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/[0.08] border border-white/[0.12] text-white mb-4">
                           {navIcons.newsletter}
                         </div>
                         <h3 className="text-sm font-semibold text-white leading-snug">
                           Weekly AI security & deepfake insights
                         </h3>
-                        <p className="text-[11px] text-gray-500 mt-1.5 leading-relaxed">
+                        <p className="text-[11px] text-gray-400 mt-1.5 leading-relaxed">
                           Stay ahead of emerging threats and detection breakthroughs.
                         </p>
                       </div>
@@ -697,7 +752,7 @@ export default function NewNav() {
                         const content = (
                           <div className="flex items-center gap-2.5 group">
                             {child.icon && (
-                              <span className="text-gray-500 group-hover:text-white transition-colors flex-shrink-0">
+                              <span className="text-white flex-shrink-0">
                                 {child.icon}
                               </span>
                             )}
