@@ -4,6 +4,7 @@ import "./globals.css";
 import StructuredData from "@/components/seo/StructuredData";
 import { Analytics } from "@vercel/analytics/next";
 import CookieConsent from "@/components/CookieConsent";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -106,7 +107,7 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   verification: {
-    google: "ZPzA6gMNEygDaZMIRMH-Gijcpx_I5TL5FaKhlvmQrw8",
+    google: ["ZPzA6gMNEygDaZMIRMH-Gijcpx_I5TL5FaKhlvmQrw8", "dx91shHxJZ5NpnCjFsNlOqQ-oBzwy0WlHSetQzzL9ns"],
   },
 };
 
@@ -118,10 +119,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="bg-[#0b0b0b]">
       <head>
+        <Script id="gtm" strategy="afterInteractive">{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K2WNMJV8');`}</Script>
         <StructuredData />
         <link rel="alternate" type="application/rss+xml" title="ScamAI News" href="/feed.xml" />
       </head>
       <body className={`${inter.variable} antialiased bg-[#0b0b0b]`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-K2WNMJV8"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         {children}
         <Analytics />
         <CookieConsent />
