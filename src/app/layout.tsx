@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import StructuredData from "@/components/seo/StructuredData";
 import { Analytics } from "@vercel/analytics/next";
@@ -11,10 +11,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
+const dmSerif = DM_Serif_Display({
   variable: "--font-serif",
   weight: "400",
-  style: "normal",
+  style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -119,7 +119,7 @@ export default function RootLayout({
         <StructuredData />
         <link rel="alternate" type="application/rss+xml" title="ScamAI News" href="/feed.xml" />
       </head>
-      <body className={`${inter.variable} ${instrumentSerif.variable} antialiased bg-[#0b0b0b]`}>
+      <body className={`${inter.variable} ${dmSerif.variable} antialiased bg-[#0b0b0b]`}>
         {children}
         <Analytics />
         <CookieConsent />
