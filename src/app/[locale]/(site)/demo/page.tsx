@@ -40,26 +40,26 @@ export default function DemoPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0b0b0b] text-white relative overflow-hidden">
-      {/* Purple gradient glow */}
+    <main className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Subtle gradient glow */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background: "radial-gradient(ellipse 80% 50% at 50% 60%, rgba(88, 28, 180, 0.18) 0%, rgba(56, 20, 140, 0.08) 40%, transparent 70%)",
+          background: "radial-gradient(ellipse 80% 50% at 50% 60%, rgba(88, 28, 180, 0.15) 0%, rgba(56, 20, 140, 0.06) 40%, transparent 70%)",
         }}
       />
 
-      <section className="relative px-6" style={{ paddingTop: "180px", paddingBottom: "120px" }}>
+      <section className="relative px-6 pt-44 pb-28 sm:pt-48 sm:pb-32">
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <div className="text-center mb-20">
             {/* Pill label */}
-            <span className="inline-block rounded-full border border-white/[0.12] bg-white/[0.04] px-4 py-1.5 text-xs font-medium text-gray-300 mb-8">
+            <span className="inline-block rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs font-medium text-gray-400 mb-8">
               Contact Us
             </span>
 
-            {/* Mixed-weight heading */}
-            <h1 className="text-5xl sm:text-7xl tracking-tight mb-6 leading-[1.1] font-light text-white">
+            {/* Heading */}
+            <h1 className="text-5xl sm:text-7xl tracking-tight mb-6 leading-[1.1] font-bold text-white">
               We&apos;re here to help
             </h1>
 
@@ -72,7 +72,6 @@ export default function DemoPage() {
             <div className="grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
               {/* Card 1 — Schedule a Demo */}
               <div className="group relative rounded-2xl border border-white/[0.08] overflow-hidden">
-                {/* Card gradient bg */}
                 <div
                   className="absolute inset-0"
                   style={{
@@ -80,7 +79,6 @@ export default function DemoPage() {
                   }}
                 />
                 <div className="relative p-8 flex flex-col h-full">
-                  {/* Icon */}
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/[0.08] border border-white/[0.1] mb-8">
                     <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -90,17 +88,16 @@ export default function DemoPage() {
                     </svg>
                   </div>
 
-                  <h2 className="text-xl font-semibold mb-3">Schedule a Demo</h2>
+                  <h2 className="text-xl font-bold mb-3">Schedule a Demo</h2>
                   <p className="text-sm text-gray-400 leading-relaxed mb-8 flex-1">
                     Talk to an expert about your deepfake detection needs. Discuss your requirements, learn about custom pricing, or request a product demo.
                   </p>
 
-                  {/* Book button */}
                   <a
                     href="https://cal.com/scamai/15min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] border border-white/[0.1] px-5 py-3 text-sm font-medium text-white transition-colors w-fit"
+                    className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-gray-200 w-fit"
                     onClick={() => trackCTA("book_demo_cal", "demo_page")}
                   >
                     Book
@@ -120,7 +117,6 @@ export default function DemoPage() {
                   }}
                 />
                 <div className="relative p-8 flex flex-col h-full">
-                  {/* Icon */}
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/[0.08] border border-white/[0.1] mb-8">
                     <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -128,15 +124,14 @@ export default function DemoPage() {
                     </svg>
                   </div>
 
-                  <h2 className="text-xl font-semibold mb-3">Send us a message</h2>
+                  <h2 className="text-xl font-bold mb-3">Send us a message</h2>
                   <p className="text-sm text-gray-400 leading-relaxed mb-8 flex-1">
                     Have a question? Get hands on support directly from our engineers by sending us a message. We&apos;ll respond to you in &lt;12 hours.
                   </p>
 
-                  {/* Get in touch button */}
                   <button
                     onClick={() => setView("form")}
-                    className="inline-flex items-center gap-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] border border-white/[0.1] px-5 py-3 text-sm font-medium text-white transition-colors w-fit"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] hover:bg-white/[0.12] px-5 py-3 text-sm font-semibold text-white transition-colors w-fit"
                   >
                     Get in touch
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
@@ -172,7 +167,7 @@ export default function DemoPage() {
                       id="name"
                       name="name"
                       required
-                      className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-white placeholder-gray-600 outline-none focus:border-white/20 transition"
+                      className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-white placeholder-gray-600 outline-none focus:border-[#245FFF] transition"
                       placeholder="Jane Smith"
                     />
                   </div>
@@ -185,7 +180,7 @@ export default function DemoPage() {
                       id="email"
                       name="email"
                       required
-                      className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-white placeholder-gray-600 outline-none focus:border-white/20 transition"
+                      className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-white placeholder-gray-600 outline-none focus:border-[#245FFF] transition"
                       placeholder="jane@company.com"
                     />
                   </div>
@@ -199,7 +194,7 @@ export default function DemoPage() {
                     type="text"
                     id="company"
                     name="company"
-                    className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-white placeholder-gray-600 outline-none focus:border-white/20 transition"
+                    className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-white placeholder-gray-600 outline-none focus:border-[#245FFF] transition"
                     placeholder="Acme Corp"
                   />
                 </div>
@@ -212,7 +207,7 @@ export default function DemoPage() {
                     id="useCase"
                     name="useCase"
                     required
-                    className="w-full appearance-none rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 pr-10 text-white outline-none focus:border-white/20 transition bg-[length:16px_16px] bg-[position:right_12px_center] bg-no-repeat"
+                    className="w-full appearance-none rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 pr-10 text-white outline-none focus:border-[#245FFF] transition bg-[length:16px_16px] bg-[position:right_12px_center] bg-no-repeat"
                     style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234b5563'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")` }}
                   >
                     <option value="">Select a use case</option>
@@ -234,7 +229,7 @@ export default function DemoPage() {
                   <select
                     id="volume"
                     name="volume"
-                    className="w-full appearance-none rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 pr-10 text-white outline-none focus:border-white/20 transition bg-[length:16px_16px] bg-[position:right_12px_center] bg-no-repeat"
+                    className="w-full appearance-none rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 pr-10 text-white outline-none focus:border-[#245FFF] transition bg-[length:16px_16px] bg-[position:right_12px_center] bg-no-repeat"
                     style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234b5563'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")` }}
                   >
                     <option value="">Select volume</option>
@@ -254,7 +249,7 @@ export default function DemoPage() {
                     id="notes"
                     name="notes"
                     rows={3}
-                    className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-white placeholder-gray-600 outline-none focus:border-white/20 transition resize-none"
+                    className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-white placeholder-gray-600 outline-none focus:border-[#245FFF] transition resize-none"
                     placeholder="Tell us about your requirements..."
                   />
                 </div>
@@ -262,7 +257,7 @@ export default function DemoPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-black hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-black hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Submitting..." : "Send message"}
                 </button>
@@ -272,17 +267,13 @@ export default function DemoPage() {
 
           {view === "submitted" && (
             <div className="text-center max-w-md mx-auto">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/[0.06] border border-white/[0.08] mx-auto mb-8">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-500/10 border border-green-500/20 mx-auto mb-8">
                 <svg className="w-7 h-7 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20 6L9 17l-5-5" />
                 </svg>
               </div>
-              <h2
-                className="text-3xl sm:text-4xl mb-4 leading-[1.1]"
-                style={{ fontFamily: "var(--font-serif), Georgia, serif" }}
-              >
-                <span className="font-light text-white/90">Message </span>
-                <span className="font-normal text-white">received</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-[1.1]">
+                Message received
               </h2>
               <p className="text-gray-400 leading-relaxed">
                 We&apos;ll be in touch within one business day. In the meantime, you can also{" "}
@@ -290,7 +281,7 @@ export default function DemoPage() {
                   href="https://cal.com/scamai/15min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition"
+                  className="text-[#245FFF] hover:underline"
                 >
                   book a call directly
                 </a>

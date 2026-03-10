@@ -30,25 +30,38 @@ type NavItem = {
 
 type DropdownKey = "product" | "solutions" | "resources" | null;
 
+const s = "w-4 h-4"; // shared icon size
 const navIcons = {
-  vision: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>,
-  audio: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg>,
-  book: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>,
-  shield: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
-  idCard: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="11" r="2.5"/><path d="M14 10h4"/><path d="M14 14h4"/></svg>,
-  doc: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>,
-  video: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>,
-  agent: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10"/><path d="M12 16v4"/></svg>,
-  users: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>,
-  flask: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6"/><path d="M10 3v6.5L3.3 18.1a1 1 0 00.8 1.9h15.8a1 1 0 00.8-1.9L14 9.5V3"/></svg>,
-  mail: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>,
-  briefcase: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>,
-  bank: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M12 3l9 7H3l9-7z"/><path d="M6 10v8"/><path d="M10 10v8"/><path d="M14 10v8"/><path d="M18 10v8"/></svg>,
-  headset: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>,
-  clipboard: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>,
-  play: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>,
-  heart: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>,
-  film: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20"/><path d="M17 2v20"/><path d="M2 12h20"/><path d="M2 7h5"/><path d="M2 17h5"/><path d="M17 17h5"/><path d="M17 7h5"/></svg>,
+  // CORE — each product gets a distinct icon
+  aiGen: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l1.09 3.26L16.36 6l-3.27 1.09L12 10.36l-1.09-3.27L7.64 6l3.27-1.09L12 2z"/><path d="M5 15l.7 2.1L7.8 17.8l-2.1.7L5 20.6l-.7-2.1-2.1-.7 2.1-.7L5 15z"/><path d="M19 11l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7L19 11z"/></svg>,
+  deepfake: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="5"/><path d="M3 21v-2a7 7 0 017-7h4a7 7 0 017 7v2"/><path d="M15 5l2-2"/><path d="M9 5L7 3"/></svg>,
+  voiceClone: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><path d="M12 19v4"/><path d="M8 23h8"/></svg>,
+
+  // COMPLIANCE
+  age: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="10" r="4"/><path d="M6 20v-1a6 6 0 0112 0v1"/><path d="M17 4l1.5 1.5"/><path d="M17 7h2"/></svg>,
+  liveness: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>,
+  docForgery: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>,
+
+  // USE CASES
+  interview: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><circle cx="12" cy="10" r="2"/></svg>,
+  notary: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3v4a1 1 0 001 1h4"/><path d="M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/><path d="M9 17l2-5 2 5"/><path d="M9.5 15.5h3"/></svg>,
+  onboarding: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8l2 2 4-4"/></svg>,
+  contactCenter: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>,
+  agentWorkflow: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>,
+
+  // BY INDUSTRY
+  finance: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>,
+  hr: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>,
+  government: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M12 3l9 7H3l9-7z"/><path d="M7 10v8"/><path d="M12 10v8"/><path d="M17 10v8"/></svg>,
+  healthcare: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/><circle cx="12" cy="12" r="10"/></svg>,
+  media: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/><circle cx="8" cy="12" r="2"/></svg>,
+
+  // RESOURCES
+  research: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6"/><path d="M10 3v6.5L3.3 18.1a1 1 0 00.8 1.9h15.8a1 1 0 00.8-1.9L14 9.5V3"/></svg>,
+  newsletter: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>,
+  about: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>,
+  security: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg>,
+  contact: <svg className={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>,
 };
 
 const navItems: NavItem[] = [
@@ -60,17 +73,17 @@ const navItems: NavItem[] = [
       {
         title: "CORE",
         items: [
-          { label: "AI-Generated Detection", href: "/products/ai-detection", description: "Synthetic image and video detection", icon: navIcons.vision },
-          { label: "Deepfake Detection", href: "/products/ai-detection", description: "Face swap and reenactment detection", icon: navIcons.vision },
-          { label: "Voice Clone Detection", href: "/products/audio-detection", description: "Synthetic audio and voice cloning", icon: navIcons.audio },
+          { label: "AI-Generated", href: "/products/ai-detection", description: "Synthetic image and video detection", icon: navIcons.aiGen },
+          { label: "Deepfake", href: "/products/ai-detection", description: "Face swap and reenactment detection", icon: navIcons.deepfake },
+          { label: "Voice Clone", href: "/products/audio-detection", description: "Synthetic audio and voice cloning", icon: navIcons.voiceClone },
         ],
       },
       {
         title: "COMPLIANCE",
         items: [
-          { label: "Age Estimation", href: "/#solutions-age-estimation", description: "Facial age verification", icon: navIcons.idCard },
-          { label: "Liveness Test", href: "/products", description: "Anti-spoofing presentation attacks", icon: navIcons.shield, coming: true },
-          { label: "Document Forgery", href: "/#solutions-document-forgery", description: "Detect forged and AI-generated docs", icon: navIcons.doc, coming: true },
+          { label: "Age Estimation", href: "/#solutions-age-estimation", description: "Facial age verification", icon: navIcons.age },
+          { label: "Liveness Test", href: "/products", description: "Anti-spoofing presentation attacks", icon: navIcons.liveness, coming: true },
+          { label: "Document Forgery", href: "/#solutions-document-forgery", description: "Detect forged and AI-generated docs", icon: navIcons.docForgery, coming: true },
         ],
       },
     ],
@@ -82,21 +95,21 @@ const navItems: NavItem[] = [
       {
         title: "USE CASES",
         items: [
-          { label: "Remote Interviews", href: "/#solutions-remote-interview", description: "Verify candidate identity in live hiring calls", icon: navIcons.video },
-          { label: "Remote Notary", href: "/#solutions-remote-notary", description: "Identity verification for notarizations", icon: navIcons.clipboard },
-          { label: "Customer Onboarding", href: "/#solutions-customer-onboarding", description: "KYC identity checks during sign-up", icon: navIcons.idCard },
-          { label: "Contact Centers", href: "/#solutions-contact-centers", description: "Detect voice cloning in real-time calls", icon: navIcons.headset },
-          { label: "Agentic Workflows", href: "/#solutions-ai-agent", description: "Protect AI agents from manipulation", icon: navIcons.agent },
+          { label: "Remote Interviews", href: "/#solutions-remote-interview", description: "Verify candidate identity in live hiring calls", icon: navIcons.interview },
+          { label: "Remote Notary", href: "/#solutions-remote-notary", description: "Identity verification for notarizations", icon: navIcons.notary },
+          { label: "Customer Onboarding", href: "/#solutions-customer-onboarding", description: "KYC identity checks during sign-up", icon: navIcons.onboarding },
+          { label: "Contact Centers", href: "/#solutions-contact-centers", description: "Detect voice cloning in real-time calls", icon: navIcons.contactCenter },
+          { label: "Agentic Workflows", href: "/#solutions-ai-agent", description: "Protect AI agents from manipulation", icon: navIcons.agentWorkflow },
         ],
       },
       {
         title: "BY INDUSTRY",
         items: [
-          { label: "Financial Services", href: "/#industry-financial", description: "Banks, insurance & fintech", icon: navIcons.bank },
-          { label: "Human Resources", href: "/#industry-hr", description: "Recruiting & hiring platforms", icon: navIcons.briefcase },
-          { label: "Government & Legal", href: "/#industry-government", description: "Compliance & public sector", icon: navIcons.shield },
-          { label: "Healthcare", href: "/#industry-healthcare", description: "Telehealth identity verification", icon: navIcons.heart },
-          { label: "Media & Entertainment", href: "/#industry-media", description: "Content authenticity verification", icon: navIcons.film },
+          { label: "Financial Services", href: "/#industry-financial", description: "Banks, insurance & fintech", icon: navIcons.finance },
+          { label: "Human Resources", href: "/#industry-hr", description: "Recruiting & hiring platforms", icon: navIcons.hr },
+          { label: "Government & Legal", href: "/#industry-government", description: "Compliance & public sector", icon: navIcons.government },
+          { label: "Healthcare", href: "/#industry-healthcare", description: "Telehealth identity verification", icon: navIcons.healthcare },
+          { label: "Media & Entertainment", href: "/#industry-media", description: "Content authenticity verification", icon: navIcons.media },
         ],
       },
     ],
@@ -107,11 +120,11 @@ const navItems: NavItem[] = [
     label: "Resources",
     dropdownKey: "resources",
     children: [
-      { label: "Research", href: "/research", description: "Publications, benchmarks, and technical reports", icon: navIcons.flask },
-      { label: "Newsletter", href: "/newsletter", description: "Weekly AI security insights", icon: navIcons.mail },
-      { label: "About Us", href: "/about", description: "Our mission and milestones", icon: navIcons.users },
-      { label: "Security & Compliance", href: "https://reality-inc.trust.site/", external: true, description: "SOC 2 Type II and GDPR", icon: navIcons.shield },
-      { label: "Contact", href: "/contact", description: "Get in touch with our team", icon: navIcons.mail },
+      { label: "Research", href: "/research", description: "Publications, benchmarks, and technical reports", icon: navIcons.research },
+      { label: "Newsletter", href: "/newsletter", description: "Weekly AI security insights", icon: navIcons.newsletter },
+      { label: "About Us", href: "/about", description: "Our mission and milestones", icon: navIcons.about },
+      { label: "Security & Compliance", href: "https://reality-inc.trust.site/", external: true, description: "SOC 2 Type II and GDPR", icon: navIcons.security },
+      { label: "Contact", href: "/contact", description: "Get in touch with our team", icon: navIcons.contact },
     ],
   },
   { label: "Careers", href: "/careers" },
@@ -190,7 +203,7 @@ export default function NewNav() {
   }, []);
 
   const showAnnouncement = isLandingPage && !announcementDismissed;
-  const announcementHeight = showAnnouncement ? 36 : 0;
+  const announcementHeight = showAnnouncement && !scrolled ? 36 : 0;
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/" || pathname === "";
@@ -294,7 +307,7 @@ export default function NewNav() {
     <>
       {/* Announcement bar */}
       {showAnnouncement && (
-        <div className="fixed top-0 left-0 right-0 w-full bg-[#0021f3] text-center z-50 flex items-center justify-center" style={{ height: "36px" }}>
+        <div className={`fixed top-0 left-0 right-0 w-full bg-[#0021f3] text-center z-50 flex items-center justify-center transition-all duration-300 ${scrolled ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"}`} style={{ height: "36px" }}>
           <p className="text-xs sm:text-sm text-white leading-tight">
             Scam.ai raised $2.5M and joined Berkeley SkyDeck
           </p>
@@ -380,8 +393,8 @@ export default function NewNav() {
               {/* CTA inside pill — only visible when scrolled */}
               <Link
                 href="/demo"
-                className={`rounded-full border border-white/20 px-3 py-1 text-[12px] font-semibold text-white transition-all duration-300 hover:bg-white/10 whitespace-nowrap ${
-                  scrolled ? "w-auto opacity-100 ml-1" : "w-0 opacity-0 overflow-hidden px-0 ml-0 border-transparent"
+                className={`rounded-full bg-white px-3 py-1.5 text-[12px] font-semibold text-black transition-all duration-300 hover:bg-gray-200 whitespace-nowrap ${
+                  scrolled ? "w-auto opacity-100 ml-1" : "w-0 opacity-0 overflow-hidden px-0 ml-0 bg-transparent"
                 }`}
                 onClick={() => trackCTA("book_demo", "nav")}
               >
@@ -413,7 +426,7 @@ export default function NewNav() {
               </a>
               <Link
                 href="/demo"
-                className="rounded-full border border-white/20 px-4 py-2 text-[13px] font-semibold text-white transition hover:bg-white/10"
+                className="rounded-full bg-white px-4 py-2 text-[13px] font-semibold text-black transition hover:bg-gray-200"
                 onClick={() => trackCTA("book_demo", "nav")}
               >
                 Get a demo
@@ -426,18 +439,25 @@ export default function NewNav() {
             <Link href="/" className="flex-shrink-0">
               <img src="/scamai-logo.svg" alt="ScamAI" className="h-9 w-auto" />
             </Link>
-            <div className="flex items-center gap-1">
-              <button
-                onClick={() => setSearchOpen(true)}
-                className="flex h-10 w-10 items-center justify-center text-white"
-                aria-label="Search"
+            <div className="flex items-center gap-2">
+              <a
+                href="https://app.scam.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] font-medium text-white px-2 py-1.5"
+                onClick={() => trackCTA("log_in", "nav_mobile")}
               >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
+                Log in
+              </a>
+              <Link
+                href="/demo"
+                className="rounded-full bg-white px-3.5 py-1.5 text-[13px] font-semibold text-black transition hover:bg-gray-200"
+                onClick={() => trackCTA("book_demo", "nav_mobile")}
+              >
+                Get a demo
+              </Link>
               <button
-                className="flex h-10 w-10 items-center justify-center text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white"
                 onClick={() => setMobileOpen((p) => !p)}
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
               >
@@ -533,87 +553,76 @@ export default function NewNav() {
               </div>
 
               <div className="border-t border-gray-800 px-6 py-4">
-                <div className="flex flex-col gap-3">
-                  <a
-                    href="https://app.scam.ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full px-6 py-3 text-center text-sm font-semibold text-white bg-transparent border border-gray-700 rounded-full hover:bg-gray-800 transition"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    Log in
-                  </a>
-                  <Link
-                    href="/demo"
-                    className="block w-full px-6 py-3 text-center text-sm font-semibold text-black bg-white rounded-full hover:bg-gray-100 transition"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    Get a demo
-                  </Link>
-                </div>
+                <button
+                  onClick={() => { setMobileOpen(false); setSearchOpen(true); }}
+                  className="flex w-full items-center gap-3 rounded-xl border border-gray-800 bg-white/[0.03] px-4 py-3 text-sm text-gray-500"
+                >
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                  Search...
+                </button>
               </div>
             </div>
           </div>
         </header>
 
-        {/* Desktop dropdown panel */}
+        {/* Desktop dropdown panel — contained card */}
         <div
-          ref={dropdownPanelRef}
-          className={`fixed left-0 right-0 w-full overflow-hidden bg-black/90 backdrop-blur-xl transition-all duration-200 z-30 ${
-            activeDropdown ? "ease-out pointer-events-auto" : "ease-in pointer-events-none"
-          }`}
-          style={{
-            top: `${announcementHeight + 56}px`,
-            maxHeight: activeDropdown ? "500px" : "0",
-            paddingTop: activeDropdown ? "24px" : "0",
-            paddingBottom: activeDropdown ? "24px" : "0",
-          }}
-          onMouseEnter={() => { if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current); }}
-          onMouseLeave={closeDropdown}
+          className="hidden md:flex justify-center"
+          style={{ position: "fixed", left: 0, right: 0, top: `${announcementHeight + 56}px`, zIndex: 30, pointerEvents: "none" }}
         >
-          <div className={`mx-auto max-w-5xl px-6 transition-opacity duration-200 ${
-            activeDropdown ? "opacity-100" : "opacity-0"
-          }`}>
+          <div
+            ref={dropdownPanelRef}
+            className={`overflow-hidden rounded-2xl border transition-all duration-200 ${
+              activeDropdown
+                ? "ease-out pointer-events-auto border-white/[0.08] opacity-100 scale-100"
+                : "ease-in pointer-events-none border-transparent opacity-0 scale-[0.97]"
+            }`}
+            style={{
+              background: "#151518f2",
+              backdropFilter: "blur(20px)",
+              boxShadow: activeDropdown
+                ? "0 8px 32px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.06)"
+                : "none",
+              maxHeight: activeDropdown ? "500px" : "0",
+              paddingTop: activeDropdown ? "24px" : "0",
+              paddingBottom: activeDropdown ? "24px" : "0",
+              marginTop: "8px",
+            }}
+            onMouseEnter={() => { if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current); }}
+            onMouseLeave={closeDropdown}
+          >
+            <div className={`px-6 transition-opacity duration-200 ${
+              activeDropdown ? "opacity-100" : "opacity-0"
+            }`}>
             {/* Categorized dropdowns (Product, Solutions) */}
             {activeDropdown && (() => {
               const activeItem = navItems.find((item) => item.dropdownKey === activeDropdown);
               if (!activeItem?.productCategories) return null;
               const catCount = activeItem.productCategories.length;
-              // Product has 2 categories + featured card = 3 cols; Solutions has 2 categories = 2 cols
-              const hasFeature = activeDropdown === "product";
-              const gridCols = hasFeature ? "grid-cols-3" : catCount === 2 ? "grid-cols-2" : `grid-cols-${catCount}`;
               return (
-                <div className={`grid ${gridCols} gap-0 divide-x divide-white/[0.06]`}>
+                <div className={`grid grid-cols-${catCount} gap-0 divide-x divide-white/[0.06]`}>
                   {activeItem.productCategories.map((cat) => (
-                    <div key={cat.title} className="px-5 first:pl-0 last:pr-0">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-500 mb-3 px-3">
+                    <div key={cat.title} className="px-4 first:pl-0 last:pr-0">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-500 px-3 mb-2">
                         {cat.title}
                       </p>
-                      <div className="space-y-0.5">
+                      <div className="space-y-0">
                         {cat.items.map((child) => {
                           const content = (
-                            <div className="flex items-center gap-3 group">
+                            <div className="flex items-center gap-2.5 group">
                               {child.icon && (
-                                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/[0.04] border border-white/[0.06] text-gray-400 group-hover:bg-white/[0.12] group-hover:border-white/[0.15] group-hover:text-white transition-all duration-200 flex-shrink-0">
+                                <span className="text-gray-500 group-hover:text-white transition-colors flex-shrink-0">
                                   {child.icon}
                                 </span>
                               )}
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-2">
-                                  <h3 className="text-sm font-medium text-white truncate">{child.label}</h3>
-                                  {child.coming && (
-                                    <span className="flex-shrink-0 rounded bg-white/[0.06] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-gray-500">
-                                      Coming Soon
-                                    </span>
-                                  )}
-                                </div>
-                                {child.description && (
-                                  <p className="text-[11px] text-gray-500 truncate">{child.description}</p>
-                                )}
-                              </div>
-                              <svg className="w-3.5 h-3.5 text-gray-600 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
+                              <span className="text-[13px] font-medium text-gray-300 group-hover:text-white transition-colors truncate">{child.label}</span>
+                              {child.coming && (
+                                <span className="flex-shrink-0 rounded bg-white/[0.06] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-gray-500">
+                                  Soon
+                                </span>
+                              )}
                             </div>
                           );
 
@@ -623,7 +632,7 @@ export default function NewNav() {
                                 key={child.label}
                                 href={child.href}
                                 {...(child.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                                className="block rounded-lg p-3 hover:bg-white/[0.04] transition-colors duration-150"
+                                className="block rounded-md px-3 py-2 hover:bg-white/[0.04] transition-colors duration-150"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 {content}
@@ -634,7 +643,7 @@ export default function NewNav() {
                             <Link
                               key={child.label}
                               href={child.href}
-                              className="block rounded-lg p-3 hover:bg-white/[0.04] transition-colors duration-150"
+                              className="block rounded-md px-3 py-2 hover:bg-white/[0.04] transition-colors duration-150"
                               onClick={() => setActiveDropdown(null)}
                             >
                               {content}
@@ -644,50 +653,92 @@ export default function NewNav() {
                       </div>
                     </div>
                   ))}
+                </div>
+              );
+            })()}
 
-                  {/* Featured card — only for Product */}
-                  {hasFeature && (
-                    <div className="px-5">
-                      <Link
-                        href="/research"
-                        className="block group"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#1a1a2e] to-[#0d0d1a] border border-white/[0.08] p-5 h-full transition-all duration-200 group-hover:border-[#245FFF]/30">
-                          <span className="inline-block rounded bg-[#245FFF]/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#245FFF] mb-4">
-                            Research
-                          </span>
-                          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/[0.06] border border-white/[0.08] mb-4">
-                            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M9 3h6"/><path d="M10 3v6.5L3.3 18.1a1 1 0 00.8 1.9h15.8a1 1 0 00.8-1.9L14 9.5V3"/>
+            {/* Resources dropdown — featured card + link list */}
+            {activeDropdown === "resources" && (() => {
+              const resourceItem = navItems.find((item) => item.dropdownKey === "resources");
+              if (!resourceItem?.children) return null;
+              return (
+                <div className="grid grid-cols-[240px_1fr] gap-0 divide-x divide-white/[0.06]">
+                  {/* Featured card */}
+                  <div className="pr-5">
+                    <Link
+                      href="/newsletter"
+                      className="block group"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#1a1a2e] to-[#0d0d1a] border border-white/[0.08] p-5 h-full transition-all duration-200 group-hover:border-[#245FFF]/30">
+                        <span className="inline-block rounded bg-[#245FFF]/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#245FFF] mb-4">
+                          Newsletter
+                        </span>
+                        <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/[0.06] border border-white/[0.08] mb-4">
+                          {navIcons.newsletter}
+                        </div>
+                        <h3 className="text-sm font-semibold text-white leading-snug">
+                          Weekly AI security & deepfake insights
+                        </h3>
+                        <p className="text-[11px] text-gray-500 mt-1.5 leading-relaxed">
+                          Stay ahead of emerging threats and detection breakthroughs.
+                        </p>
+                      </div>
+                    </Link>
+                  </div>
+
+                  {/* Link list */}
+                  <div className="pl-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-500 px-3 mb-2">
+                      Resources
+                    </p>
+                    <div className="space-y-0">
+                      {resourceItem.children.map((child) => {
+                        const content = (
+                          <div className="flex items-center gap-2.5 group">
+                            {child.icon && (
+                              <span className="text-gray-500 group-hover:text-white transition-colors flex-shrink-0">
+                                {child.icon}
+                              </span>
+                            )}
+                            <span className="text-[13px] font-medium text-gray-300 group-hover:text-white transition-colors flex-1">{child.label}</span>
+                            <svg className="w-3.5 h-3.5 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                           </div>
-                          <h3 className="text-sm font-semibold text-white leading-snug">
-                            How to detect deepfakes with 99.7% accuracy
-                          </h3>
-                          <p className="text-[11px] text-gray-500 mt-1.5 leading-relaxed">
-                            Read our latest benchmark results and methodology.
-                          </p>
-                        </div>
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              );
-            })()}
+                        );
 
-            {/* Simple dropdowns (Resources, etc.) */}
-            {activeDropdown && (() => {
-              const activeItem = navItems.find((item) => item.dropdownKey === activeDropdown);
-              if (!activeItem?.children || activeItem.productCategories) return null;
-              return (
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
-                  {activeItem.children.map((child) =>
-                    renderChild(child, () => setActiveDropdown(null))
-                  )}
+                        if (child.external) {
+                          return (
+                            <a
+                              key={child.label}
+                              href={child.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block rounded-md px-3 py-2 hover:bg-white/[0.04] transition-colors duration-150"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              {content}
+                            </a>
+                          );
+                        }
+                        return (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            className="block rounded-md px-3 py-2 hover:bg-white/[0.04] transition-colors duration-150"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {content}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
               );
             })()}
+            </div>
           </div>
         </div>
       </div>

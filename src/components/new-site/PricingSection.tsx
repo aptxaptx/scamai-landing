@@ -149,7 +149,7 @@ export default function PricingSection() {
                       background: `linear-gradient(to right, #245FFF 0%, #245FFF ${sliderPos}%, #1f2937 ${sliderPos}%, #1f2937 100%)`,
                     }}
                   />
-                  <div className="mt-2 flex justify-between text-xs text-gray-600">
+                  <div className="mt-2 flex justify-between text-xs text-gray-500">
                     <span>0</span>
                     <span>{MAX_VOLUME.toLocaleString()}+</span>
                   </div>
@@ -289,7 +289,7 @@ export default function PricingSection() {
                     <span className="text-sm text-gray-500">/mo</span>
                   </div>
                   {volume > FREE_CHECKS && (
-                    <p className="mt-1 text-[11px] text-gray-600">
+                    <p className="mt-1 text-xs text-gray-500">
                       {FREE_CHECKS} free + {(volume - FREE_CHECKS).toLocaleString()} paid
                     </p>
                   )}
@@ -305,7 +305,7 @@ export default function PricingSection() {
                 >
                   Get Started
                 </a>
-                <p className="mt-3 text-center text-[11px] text-gray-600">No setup fees &middot; Cancel anytime</p>
+                <p className="mt-3 text-center text-xs text-gray-500">No setup fees &middot; Cancel anytime</p>
               </div>
 
               {/* Base includes */}
@@ -369,7 +369,7 @@ export default function PricingSection() {
                 {["GenAI Detection", "Deepfake Analysis", "Eva-v1-Fast Model", "API Access", "All optional add-ons"].map((f, i) => (
                   <li key={f} className="flex items-center">
                     <Check muted={i === 4} />
-                    <span className={i === 4 ? "text-gray-600" : ""}>{f}</span>
+                    <span className={i === 4 ? "text-gray-500" : ""}>{f}</span>
                   </li>
                 ))}
               </ul>

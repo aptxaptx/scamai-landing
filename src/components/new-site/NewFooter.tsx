@@ -80,7 +80,7 @@ export default function NewFooter() {
       </div>
 
       <div className="border-t border-white/5">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-4 py-6 text-xs text-gray-600 sm:flex-row sm:items-center sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-4 py-6 text-xs text-gray-500 sm:flex-row sm:items-center sm:px-6">
           <span>&copy; 2026 Reality Inc. All rights reserved.</span>
           <span>Built for trust in the AI era</span>
         </div>

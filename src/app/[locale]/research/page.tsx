@@ -240,7 +240,7 @@ export default function ResearchPage() {
                                 </svg>
                               </a>
                               {paper.authors && (
-                                <p className="text-[11px] text-gray-600 mt-1 leading-relaxed">{paper.authors}</p>
+                                <p className="text-xs text-gray-500 mt-1 leading-relaxed">{paper.authors}</p>
                               )}
                             </>
                           ) : (

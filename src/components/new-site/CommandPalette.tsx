@@ -251,7 +251,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
           </div>
 
           {/* Footer — hidden on mobile where keyboard shortcuts don't apply */}
-          <div className="hidden sm:flex items-center gap-4 border-t border-white/10 px-4 py-2.5 text-[11px] text-gray-600">
+          <div className="hidden sm:flex items-center gap-4 border-t border-white/10 px-4 py-2.5 text-[11px] text-gray-500">
             <span className="flex items-center gap-1">
               <kbd className="rounded border border-white/10 bg-white/5 px-1 py-0.5">↑</kbd>
               <kbd className="rounded border border-white/10 bg-white/5 px-1 py-0.5">↓</kbd>
