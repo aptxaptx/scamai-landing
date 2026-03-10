@@ -36,7 +36,7 @@ export default function NewFooter() {
                 height="32"
               />
             </div>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500" style={{ letterSpacing: '-.015em' }}>
               All-in-one AI Trust Platform
             </p>
             {/* Social links */}

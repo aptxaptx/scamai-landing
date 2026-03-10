@@ -74,7 +74,7 @@ export default function FAQSection() {
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white mb-4 sm:text-xs">
             SUPPORT
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1]">
@@ -104,7 +104,7 @@ export default function FAQSection() {
                 <motion.svg
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="w-6 h-6 text-[#245FFF] flex-shrink-0"
+                  className="w-6 h-6 text-white flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

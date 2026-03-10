@@ -4,7 +4,7 @@ export default function MSAPage() {
       {/* Hero Section */}
       <section className="relative py-24 px-4 sm:px-6" style={{ paddingTop: '140px' }}>
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#245FFF]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
             LEGAL
           </p>
           <h1 className="mb-6 text-4xl font-bold sm:text-5xl lg:text-6xl">

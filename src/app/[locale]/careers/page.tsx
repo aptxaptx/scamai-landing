@@ -7,7 +7,7 @@ export default function CareersPage() {
     <main className="min-h-screen bg-black text-white">
       <section className="relative px-4 sm:px-6" style={{ paddingTop: "180px", paddingBottom: "100px" }}>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#245FFF] mb-3">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white mb-3">
             CAREERS
           </p>
           <h1 className="text-4xl font-bold sm:text-5xl mb-4">

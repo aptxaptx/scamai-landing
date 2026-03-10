@@ -12,6 +12,7 @@ type NavChild = {
   description?: string;
   icon?: React.ReactNode;
   coming?: boolean;
+  beta?: boolean;
 };
 
 type ProductCategory = {
@@ -71,7 +72,7 @@ const navItems: NavItem[] = [
     dropdownKey: "product",
     productCategories: [
       {
-        title: "CORE",
+        title: "CORE DETECTION",
         items: [
           { label: "AI-Generated", href: "/products/ai-detection", description: "Synthetic image and video detection", icon: navIcons.aiGen },
           { label: "Deepfake", href: "/products/ai-detection", description: "Face swap and reenactment detection", icon: navIcons.deepfake },
@@ -81,9 +82,9 @@ const navItems: NavItem[] = [
       {
         title: "COMPLIANCE",
         items: [
-          { label: "Age Estimation", href: "/#solutions-age-estimation", description: "Facial age verification", icon: navIcons.age },
-          { label: "Liveness Test", href: "/products", description: "Anti-spoofing presentation attacks", icon: navIcons.liveness, coming: true },
-          { label: "Document Forgery", href: "/#solutions-document-forgery", description: "Detect forged and AI-generated docs", icon: navIcons.docForgery, coming: true },
+          { label: "Age Estimation", href: "/products/age-estimation", description: "Facial age verification", icon: navIcons.age, beta: true },
+          { label: "Liveness Test", href: "/products/liveness-test", description: "Anti-spoofing presentation attacks", icon: navIcons.liveness, coming: true },
+          { label: "Document Forgery", href: "/products/document-forgery", description: "Detect forged and AI-generated docs", icon: navIcons.docForgery, coming: true },
         ],
       },
     ],
@@ -95,21 +96,21 @@ const navItems: NavItem[] = [
       {
         title: "USE CASES",
         items: [
-          { label: "Remote Interviews", href: "/#solutions-remote-interview", description: "Verify candidate identity in live hiring calls", icon: navIcons.interview },
-          { label: "Remote Notary", href: "/#solutions-remote-notary", description: "Identity verification for notarizations", icon: navIcons.notary },
-          { label: "Customer Onboarding", href: "/#solutions-customer-onboarding", description: "KYC identity checks during sign-up", icon: navIcons.onboarding },
-          { label: "Contact Centers", href: "/#solutions-contact-centers", description: "Detect voice cloning in real-time calls", icon: navIcons.contactCenter },
-          { label: "Agentic Workflows", href: "/#solutions-ai-agent", description: "Protect AI agents from manipulation", icon: navIcons.agentWorkflow },
+          { label: "Remote Interviews", href: "/solutions/remote-interviews", description: "Verify candidate identity in live hiring calls", icon: navIcons.interview },
+          { label: "Remote Notary", href: "/solutions/remote-notary", description: "Identity verification for notarizations", icon: navIcons.notary },
+          { label: "Customer Onboarding", href: "/solutions/customer-onboarding", description: "KYC identity checks during sign-up", icon: navIcons.onboarding },
+          { label: "Contact Centers", href: "/solutions/contact-centers", description: "Detect voice cloning in real-time calls", icon: navIcons.contactCenter },
+          { label: "Agentic Workflows", href: "/solutions/agentic-workflows", description: "Protect AI agents from manipulation", icon: navIcons.agentWorkflow },
         ],
       },
       {
         title: "BY INDUSTRY",
         items: [
-          { label: "Financial Services", href: "/#industry-financial", description: "Banks, insurance & fintech", icon: navIcons.finance },
-          { label: "Human Resources", href: "/#industry-hr", description: "Recruiting & hiring platforms", icon: navIcons.hr },
-          { label: "Government & Legal", href: "/#industry-government", description: "Compliance & public sector", icon: navIcons.government },
-          { label: "Healthcare", href: "/#industry-healthcare", description: "Telehealth identity verification", icon: navIcons.healthcare },
-          { label: "Media & Entertainment", href: "/#industry-media", description: "Content authenticity verification", icon: navIcons.media },
+          { label: "Financial Services", href: "/solutions/financial-services", description: "Banks, insurance & fintech", icon: navIcons.finance },
+          { label: "Human Resources", href: "/solutions/human-resources", description: "Recruiting & hiring platforms", icon: navIcons.hr },
+          { label: "Government & Legal", href: "/solutions/government-legal", description: "Compliance & public sector", icon: navIcons.government },
+          { label: "Healthcare", href: "/solutions/healthcare", description: "Telehealth identity verification", icon: navIcons.healthcare },
+          { label: "Media & Entertainment", href: "/solutions/media-entertainment", description: "Content authenticity verification", icon: navIcons.media },
         ],
       },
     ],
@@ -298,6 +299,11 @@ export default function NewNav() {
                 Coming Soon
               </span>
             )}
+            {child.beta && (
+              <span className="rounded bg-white/[0.1] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/60">
+                Beta
+              </span>
+            )}
           </div>
           {child.description && (
             <p className="text-xs text-gray-500 leading-relaxed">{child.description}</p>
@@ -336,13 +342,13 @@ export default function NewNav() {
     <>
       {/* Announcement bar */}
       {showAnnouncement && (
-        <div className={`fixed top-0 left-0 right-0 w-full bg-[#0021f3] text-center z-50 flex items-center justify-center transition-all duration-300 ${scrolled ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"}`} style={{ height: "36px" }}>
-          <p className="text-xs sm:text-sm text-white leading-tight">
+        <div className={`fixed top-0 left-0 right-0 w-full bg-black border-b border-white/[0.06] text-center z-50 flex items-center justify-center transition-all duration-300 ${scrolled ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"}`} style={{ height: "36px" }}>
+          <p className="text-[11px] sm:text-xs text-white leading-tight tracking-wide">
             Scam.ai raised $2.5M and joined Berkeley SkyDeck
           </p>
           <button
             onClick={() => setAnnouncementDismissed(true)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-400 transition-colors"
             aria-label="Dismiss"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -652,32 +658,46 @@ export default function NewNav() {
               activeDropdown ? "opacity-100" : "opacity-0"
             }`}>
             {/* Categorized dropdowns (Product, Solutions) */}
-            {activeDropdown && (() => {
+            {activeDropdown && activeDropdown !== "resources" && (() => {
               const activeItem = navItems.find((item) => item.dropdownKey === activeDropdown);
               if (!activeItem?.productCategories) return null;
+              const isProduct = activeDropdown === "product";
               const catCount = activeItem.productCategories.length;
               return (
-                <div className={`grid gap-0 divide-x divide-white/[0.06] ${catCount === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
+                <div className={`grid gap-0 divide-x divide-white/[0.06] ${isProduct ? "grid-cols-[1fr_1fr_240px]" : catCount === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
                   {activeItem.productCategories.map((cat) => (
                     <div key={cat.title} className="px-4 first:pl-0 last:pr-0">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-500 px-3 mb-2">
                         {cat.title}
                       </p>
-                      <div className="space-y-0">
+                      <div className="space-y-1">
                         {cat.items.map((child) => {
                           const content = (
-                            <div className="flex items-center gap-2.5 group">
+                            <div className="flex items-center gap-3.5 group">
                               {child.icon && (
-                                <span className="text-white flex-shrink-0">
+                                <span className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-white/[0.06] border border-white/[0.08] text-gray-300 group-hover:text-white group-hover:bg-white/[0.1] group-hover:border-white/[0.14] transition-all duration-150">
                                   {child.icon}
                                 </span>
                               )}
-                              <span className="text-[13px] font-medium text-gray-300 group-hover:text-white transition-colors truncate">{child.label}</span>
-                              {child.coming && (
-                                <span className="flex-shrink-0 rounded bg-white/[0.06] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-gray-500">
-                                  Coming Soon
-                                </span>
-                              )}
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-2">
+                                  <span className="text-[13px] font-medium text-gray-200 group-hover:text-white transition-colors">{child.label}</span>
+                                  {child.coming && (
+                                    <span className="flex-shrink-0 rounded bg-white/[0.06] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-gray-500">
+                                      Coming Soon
+                                    </span>
+                                  )}
+                                  {child.beta && (
+                                    <span className="flex-shrink-0 rounded bg-white/[0.1] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/60">
+                                      Beta
+                                    </span>
+                                  )}
+                                </div>
+                                {child.description && (
+                                  <p className="text-[11px] text-gray-500 mt-0.5 truncate">{child.description}</p>
+                                )}
+                              </div>
+                              <svg className="w-3.5 h-3.5 text-gray-600 group-hover:text-gray-400 flex-shrink-0 transition-colors duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
                             </div>
                           );
 
@@ -687,7 +707,7 @@ export default function NewNav() {
                                 key={child.label}
                                 href={child.href}
                                 {...(child.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                                className="block rounded-md px-3 py-2 hover:bg-white/[0.04] transition-colors duration-150"
+                                className="block rounded-lg px-3 py-2.5 hover:bg-white/[0.04] transition-colors duration-150"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 {content}
@@ -698,7 +718,7 @@ export default function NewNav() {
                             <Link
                               key={child.label}
                               href={child.href}
-                              className="block rounded-md px-3 py-2 hover:bg-white/[0.04] transition-colors duration-150"
+                              className="block rounded-lg px-3 py-2.5 hover:bg-white/[0.04] transition-colors duration-150"
                               onClick={() => setActiveDropdown(null)}
                             >
                               {content}
@@ -708,6 +728,32 @@ export default function NewNav() {
                       </div>
                     </div>
                   ))}
+
+                  {/* Featured card — only for Product */}
+                  {isProduct && (
+                    <div className="pl-4">
+                      <Link
+                        href="/models/eva-v1-3"
+                        className="block group"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/[0.12] p-5 h-full transition-all duration-200 group-hover:border-white/[0.25]">
+                          <span className="inline-block rounded bg-white/[0.1] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/70 mb-4">
+                            New
+                          </span>
+                          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/[0.08] border border-white/[0.12] text-white mb-4">
+                            {navIcons.aiGen}
+                          </div>
+                          <h3 className="text-sm font-semibold text-white leading-snug">
+                            Introducing Eva-v1.3 Models
+                          </h3>
+                          <p className="text-[11px] text-gray-400 mt-1.5 leading-relaxed">
+                            Our most accurate detection model yet — 99.7% precision across all media types.
+                          </p>
+                        </div>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               );
             })()}

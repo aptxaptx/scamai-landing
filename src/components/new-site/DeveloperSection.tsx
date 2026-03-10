@@ -10,7 +10,7 @@ export default function DeveloperSection() {
       <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 lg:max-w-7xl py-20 sm:py-24 lg:py-32">
         {/* Header Section */}
         <div className="text-center mb-12 lg:mb-16">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#245FFF] mb-4 sm:text-xs">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white mb-4 sm:text-xs">
             THE EASIEST TO INTEGRATE
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-[1.1]">
@@ -76,30 +76,30 @@ export default function DeveloperSection() {
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-[#245FFF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                     <span className="text-gray-300">Visual deepfake detection dashboard</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-[#245FFF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                     <span className="text-gray-300">Drag-and-drop media upload</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-[#245FFF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                     <span className="text-gray-300">Real-time confidence scoring</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-[#245FFF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                     <span className="text-gray-300">
                       Export detection reports & analytics 
-                      <span className="ml-2 text-xs text-[#245FFF] font-semibold">(Enterprise)</span>
+                      <span className="ml-2 text-xs text-white font-semibold">(Enterprise)</span>
                     </span>
                   </div>
                 </div>
@@ -162,25 +162,25 @@ export default function DeveloperSection() {
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-[#245FFF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                     <span className="text-gray-300">Detect deepfakes, synthetic media, and voice clones</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-[#245FFF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                     <span className="text-gray-300">Real-time confidence scoring & analysis</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-[#245FFF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                     <span className="text-gray-300">Support for images, audio, and video</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-[#245FFF] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                     <span className="text-gray-300">Webhooks for asynchronous processing</span>

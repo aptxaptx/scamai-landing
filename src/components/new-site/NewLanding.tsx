@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
+
 import { useState, useRef, DragEvent, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import HeroBackground from "./HeroBackground";
@@ -292,97 +292,64 @@ export default function NewLanding() {
         <div className="relative z-10 w-full">
           {/* Text area — centered in ~70vh */}
           <div className="flex min-h-[70vh] flex-col items-center justify-center px-5 pt-[120px] text-center sm:px-10 lg:px-8">
-            <div className="mx-auto flex max-w-4xl flex-col items-center space-y-4 sm:space-y-5">
-              <AnimatedSection delay={0.2}>
-                <p className="text-[10px] font-semibold text-gray-400 tracking-[0.15em] uppercase sm:text-xs">
-                  All-in-one
-                </p>
-              </AnimatedSection>
+            <div className="mx-auto flex max-w-4xl flex-col items-center space-y-5 sm:space-y-6">
+              {/* Animation slot */}
+              <div className="w-full h-[240px] sm:h-[340px]" />
 
               <AnimatedSection delay={0.3}>
-                <h1 className="text-3xl font-bold leading-[1.2] tracking-tight sm:text-5xl lg:text-6xl max-w-3xl px-2 sm:px-0">
-                  AI trust platform
+                <h1
+                  className="text-[2.5rem] font-semibold sm:text-[3.5rem] max-w-4xl px-2 sm:px-0 text-white"
+                  style={{ lineHeight: '1em', letterSpacing: '-.015em', fontFeatureSettings: '"kern" 1, "liga" 1, "salt" 1' }}
+                >
+                  Fight AI with AI
                 </h1>
               </AnimatedSection>
 
+              <AnimatedSection delay={0.35}>
+                <p
+                  className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-[-0.01em] leading-[1.25]"
+                  style={{
+                    background: "radial-gradient(50% 150% at 50% 0%, #fff 60%, rgba(255,255,255,0.6) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  Stop scams. Detect fraud. Verify trust.
+                </p>
+              </AnimatedSection>
+
               <AnimatedSection delay={0.4}>
-                <div className="max-w-2xl text-sm leading-[1.7] text-gray-300 sm:text-base sm:leading-relaxed lg:text-lg px-4 sm:px-0">
-                  <div className="text-center space-y-2">
-                    <p>
-                      <span className="font-semibold text-white">Detect synthetic media and deepfakes in real time</span>.
-                    </p>
-                    <p>
-                      <span className="font-semibold text-white">Industry-leading accuracy</span> that fights fraud and unifies trust signals.
-                    </p>
-                  </div>
-                </div>
+                <p className="max-w-[600px] text-sm sm:text-base font-normal text-white leading-[1.75] px-4 sm:px-0">
+                  AI makes fraudsters faster than ever. We make sure they fail. One platform that covers every AI-powered threat — real time, every channel, one API.
+                </p>
               </AnimatedSection>
 
               <AnimatedSection delay={0.5}>
-                <div className="pt-2 sm:pt-3 flex flex-col sm:flex-row items-center gap-4">
+                <div className="pt-2 sm:pt-3 flex flex-row items-center gap-4">
                   <a
-                    href="https://app.scam.ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/demo"
                     className="rainbow-button inline-block"
-                    onClick={() => trackCTA("start_free", "hero")}
+                    onClick={() => trackCTA("get_demo", "hero")}
                   >
                     <span className="rainbow-button-inner">
-                      Start for Free
+                      Get a Demo
                     </span>
                   </a>
                   <a
                     href="https://app.scam.ai"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 transition hover:text-white"
-                    onClick={() => trackCTA("see_platform", "hero")}
+                    className="text-sm font-medium text-white transition hover:text-white/80"
+                    onClick={() => trackCTA("get_started", "hero")}
                   >
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"/>
-                    </svg>
-                    See the platform
+                    Get Started
                   </a>
                 </div>
               </AnimatedSection>
             </div>
           </div>
 
-          {/* Product visual — sits in the remaining ~30vh, peeks above fold */}
-          <AnimatedSection delay={0.7}>
-            <div className="relative mx-auto w-full max-w-4xl px-5 pb-16 sm:px-10 lg:px-8">
-              <div className="overflow-hidden rounded-xl">
-                <div className="relative">
-                  <video
-                    ref={(el) => {
-                      if (el) {
-                        el.currentTime = 4;
-                        const handleTimeUpdate = () => {
-                          if (el.ended || el.currentTime < 4) {
-                            el.currentTime = 4;
-                            el.play();
-                          }
-                        };
-                        el.addEventListener('ended', handleTimeUpdate);
-                        el.addEventListener('loadedmetadata', () => { el.currentTime = 4; });
-                      }
-                    }}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto rounded-xl"
-                  >
-                    <source src="/dashboard.mp4" type="video/mp4" />
-                  </video>
-                  {/* Gradient fade at bottom */}
-                  <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent" />
-                </div>
-              </div>
-              {/* Glow effect behind the frame */}
-              <div className="pointer-events-none absolute -inset-4 -z-10 rounded-2xl bg-[#245FFF]/5 blur-2xl" />
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 
@@ -402,7 +369,7 @@ export default function NewLanding() {
                   AI-POWERED SECURITY
                 </p>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] lg:mb-8">
-                  Fight AI threats<br />with <span className="text-[#245FFF]">AI defense</span>
+                  Fight AI threats<br />with <span className="text-white">AI defense</span>
                 </h2>
                 <p className="max-w-xl text-base sm:text-lg text-gray-300 leading-relaxed mb-6">
                   Deepfakes and synthetic fraud cost businesses millions every year. Our <span className="font-semibold text-white">Eva-v1</span> models adapt as fast as the threats themselves — detecting deepfakes, stopping fraud, and protecting your revenue in real-time.
@@ -411,7 +378,7 @@ export default function NewLanding() {
                   href="https://app.scam.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#245FFF] transition hover:gap-3"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:gap-3"
                   onClick={() => trackCTA("start_detecting", "ai_security")}
                 >
                   Start detecting now
@@ -431,6 +398,42 @@ export default function NewLanding() {
             </div>
           </AnimatedSection>
         </div>
+      </section>
+
+      {/* Product video */}
+      <section className="relative overflow-hidden bg-black py-16 sm:py-24">
+        <AnimatedSection>
+          <div className="relative mx-auto w-full max-w-4xl px-5 sm:px-10 lg:px-8">
+            <div className="overflow-hidden rounded-xl">
+              <div className="relative">
+                <video
+                  ref={(el) => {
+                    if (el) {
+                      el.currentTime = 4;
+                      const handleTimeUpdate = () => {
+                        if (el.ended || el.currentTime < 4) {
+                          el.currentTime = 4;
+                          el.play();
+                        }
+                      };
+                      el.addEventListener('ended', handleTimeUpdate);
+                      el.addEventListener('loadedmetadata', () => { el.currentTime = 4; });
+                    }
+                  }}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto rounded-xl"
+                >
+                  <source src="/dashboard.mp4" type="video/mp4" />
+                </video>
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent" />
+              </div>
+            </div>
+            <div className="pointer-events-none absolute -inset-4 -z-10 rounded-2xl bg-[#245FFF]/5 blur-2xl" />
+          </div>
+        </AnimatedSection>
       </section>
 
       <div className="section-divider" />
@@ -461,7 +464,7 @@ export default function NewLanding() {
                 THE PLATFORM
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1]">
-                Why teams choose <span className="text-[#245FFF]">us</span>
+                Why teams choose <span className="text-white">us</span>
               </h2>
             </div>
           </AnimatedSection>
@@ -470,7 +473,7 @@ export default function NewLanding() {
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center mb-16 lg:mb-20">
               <div className="lg:pl-12 flex flex-col justify-center min-h-0 sm:min-h-[350px]">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white mb-4 sm:text-xs lg:mb-6">
                   ALL-IN-ONE PLATFORM
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -503,7 +506,7 @@ export default function NewLanding() {
                 </div>
               </div>
               <div className="order-1 lg:order-2 flex flex-col justify-center min-h-0 sm:min-h-[400px]">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white mb-4 sm:text-xs lg:mb-6">
                   LIGHTNING FAST
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -538,7 +541,7 @@ export default function NewLanding() {
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center mb-16 lg:mb-20">
               <div className="lg:pl-12 flex flex-col justify-center min-h-0 sm:min-h-[350px]">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white mb-4 sm:text-xs lg:mb-6">
                   $ TRANSPARENT PRICING
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -578,7 +581,7 @@ export default function NewLanding() {
                 />
               </div>
               <div className="order-1 lg:order-2">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white mb-4 sm:text-xs lg:mb-6">
                   ☑ GLOBAL COMPLIANCE
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -591,7 +594,7 @@ export default function NewLanding() {
                   href="https://reality-inc.trust.site/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-[#245FFF] hover:text-[#1d4acc] font-semibold transition-colors"
+                  className="inline-flex items-center text-white hover:text-[#1d4acc] font-semibold transition-colors"
                 >
                   View our Trust Center →
                 </a>

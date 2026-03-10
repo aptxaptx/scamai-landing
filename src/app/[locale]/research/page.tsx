@@ -146,14 +146,24 @@ export default function ResearchPage() {
         <section className="mx-auto max-w-6xl px-4 sm:px-8 pb-14 sm:pb-20" style={{ paddingTop: '180px' }}>
           <AnimatedSection>
             <div className="max-w-3xl">
-              <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[#245FFF] mb-3 sm:text-[10px] lg:mb-4">
-                RESEARCH
-              </p>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-4 lg:mb-6">
-                Advancing the science of{" "}
-                <span className="text-[#245FFF]">AI trust</span>
+              <h1
+                className="text-[2.5rem] font-semibold sm:text-[3.5rem] text-white mb-4 lg:mb-6"
+                style={{ lineHeight: '1em', letterSpacing: '-.015em', fontFeatureSettings: '"kern" 1, "liga" 1, "salt" 1' }}
+              >
+                Research
               </h1>
-              <p className="text-sm sm:text-base text-gray-500 leading-relaxed max-w-xl">
+              <p
+                className="text-xl sm:text-2xl font-medium tracking-[-0.01em] leading-[1.25] mb-4 lg:mb-6"
+                style={{
+                  background: "radial-gradient(50% 150% at 50% 0%, #fff 60%, rgba(255,255,255,0.6) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Advancing the science of AI trust
+              </p>
+              <p className="text-sm sm:text-base text-white leading-[1.75] max-w-[600px]">
                 Our research focuses on deepfake detection, synthetic media forensics, and adversarial
                 robustness. We publish our findings to advance the field and keep our customers ahead of
                 emerging threats.
@@ -201,7 +211,7 @@ export default function ResearchPage() {
                     {cat.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-[#245FFF]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[#245FFF]"
+                        className="rounded-full bg-[#245FFF]/10 px-2.5 py-0.5 text-[10px] font-semibold text-white"
                       >
                         {tag}
                       </span>
@@ -232,7 +242,7 @@ export default function ResearchPage() {
                                 href={paper.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-sm leading-snug text-gray-300 hover:text-[#245FFF] transition-colors"
+                                className="text-sm leading-snug text-gray-300 hover:text-white transition-colors"
                               >
                                 {paper.title}
                                 <svg className="inline-block w-3 h-3 ml-1.5 -mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -281,7 +291,7 @@ export default function ResearchPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
                     </svg>
                     <div>
-                      <h3 className="text-sm font-semibold text-white mb-1 group-hover:text-[#245FFF] transition-colors">
+                      <h3 className="text-sm font-semibold text-white mb-1 group-hover:text-white transition-colors">
                         {dataset.name}
                       </h3>
                       {dataset.coming && (
@@ -298,7 +308,7 @@ export default function ResearchPage() {
                         trackCTA(`dataset:${dataset.name}`, "dataset_access");
                         window.open("https://cal.com/scamai/15min", "_blank", "noopener,noreferrer");
                       }}
-                      className="mt-4 w-full flex items-center justify-center gap-2 rounded-lg border border-gray-800/60 bg-white/[0.03] px-4 py-2.5 text-xs font-semibold text-white transition-all hover:border-[#245FFF]/30 hover:bg-[#245FFF]/5 hover:text-[#245FFF]"
+                      className="mt-4 w-full flex items-center justify-center gap-2 rounded-lg border border-gray-800/60 bg-white/[0.03] px-4 py-2.5 text-xs font-semibold text-white transition-all hover:border-[#245FFF]/30 hover:bg-[#245FFF]/5 hover:text-white"
                     >
                       Request Access
                     </button>

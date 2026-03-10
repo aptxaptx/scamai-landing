@@ -115,7 +115,7 @@ export default function NewsletterList({ newsletters }: { newsletters: Newslette
 
                 {/* Content */}
                 <div className="flex flex-1 flex-col p-5">
-                  <h2 className="mb-2 text-lg font-bold text-white transition-colors group-hover:text-[#245FFF]">
+                  <h2 className="mb-2 text-lg font-bold text-white transition-colors group-hover:text-white">
                     {newsletter.title}
                   </h2>
                   {newsletter.summary && (

@@ -28,7 +28,7 @@ export default function HeroCards() {
         </p>
 
         {/* Static line */}
-        <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl text-white mb-2">
+        <h1 className="text-4xl font-semibold sm:text-6xl lg:text-7xl text-white mb-2" style={{ lineHeight: 1.1, letterSpacing: '-.015em', fontFeatureSettings: '"kern" 1, "liga" 1, "salt" 1' }}>
           Detect
         </h1>
 
@@ -48,13 +48,12 @@ export default function HeroCards() {
         <div className="flex flex-col sm:flex-row items-center gap-5">
           <Link
             href="/demo"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-gray-200"
+            className="rainbow-button inline-block"
             onClick={() => trackCTA("talk_to_expert", "hero")}
           >
-            Talk to an Expert
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 5l7 7-7 7" />
-            </svg>
+            <span className="rainbow-button-inner">
+              Talk to an Expert
+            </span>
           </Link>
           <a
             href="https://app.scam.ai"

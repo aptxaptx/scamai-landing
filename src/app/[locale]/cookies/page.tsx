@@ -4,7 +4,7 @@ export default function CookiesPage() {
       {/* Hero Section */}
       <section className="relative py-24 px-4 sm:px-6" style={{ paddingTop: '140px' }}>
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#245FFF]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
             COOKIE POLICY
           </p>
           <h1 className="mb-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
@@ -34,7 +34,7 @@ export default function CookiesPage() {
               <div className="space-y-6">
                 {/* Essential Cookies */}
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">1. Essential Cookies</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">1. Essential Cookies</h3>
                   <p className="text-gray-300 leading-relaxed mb-3">
                     These cookies are necessary for the website to function properly. They enable core functionality such as security, authentication, and session management.
                   </p>
@@ -70,7 +70,7 @@ export default function CookiesPage() {
 
                 {/* Functional Cookies */}
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">2. Functional Cookies</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">2. Functional Cookies</h3>
                   <p className="text-gray-300 leading-relaxed mb-3">
                     These cookies remember your preferences and choices to provide a personalized experience.
                   </p>
@@ -106,7 +106,7 @@ export default function CookiesPage() {
 
                 {/* Analytics Cookies */}
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">3. Analytics Cookies</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">3. Analytics Cookies</h3>
                   <p className="text-gray-300 leading-relaxed mb-3">
                     These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.
                   </p>
@@ -142,7 +142,7 @@ export default function CookiesPage() {
 
                 {/* Marketing Cookies */}
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">4. Marketing Cookies</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">4. Marketing Cookies</h3>
                   <p className="text-gray-300 leading-relaxed mb-3">
                     These cookies track your visit across websites to deliver targeted advertising that is relevant to you.
                   </p>
@@ -192,16 +192,16 @@ export default function CookiesPage() {
               <h2 className="mb-4 text-2xl font-bold text-white">Managing Your Cookie Preferences</h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">Browser Settings</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">Browser Settings</h3>
                   <p className="text-gray-300 leading-relaxed">
                     Most web browsers allow you to control cookies through their settings. You can set your browser to refuse cookies or delete certain cookies. However, blocking essential cookies may prevent you from using our Services.
                   </p>
                 </div>
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">Opt-Out Links</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">Opt-Out Links</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside">
-                    <li><a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-[#245FFF] hover:underline">Google Analytics Opt-out</a></li>
-                    <li><a href="https://www.facebook.com/help/568137493302217" target="_blank" rel="noopener noreferrer" className="text-[#245FFF] hover:underline">Facebook Pixel Opt-out</a></li>
+                    <li><a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-white hover:underline">Google Analytics Opt-out</a></li>
+                    <li><a href="https://www.facebook.com/help/568137493302217" target="_blank" rel="noopener noreferrer" className="text-white hover:underline">Facebook Pixel Opt-out</a></li>
                   </ul>
                 </div>
               </div>
@@ -231,7 +231,7 @@ export default function CookiesPage() {
               </p>
               <div className="mt-4 space-y-2">
                 <p className="text-gray-300">
-                  Email: <a href="mailto:privacy@scam.ai" className="text-[#245FFF] hover:underline">privacy@scam.ai</a>
+                  Email: <a href="mailto:privacy@scam.ai" className="text-white hover:underline">privacy@scam.ai</a>
                 </p>
                 <p className="text-gray-300">
                   Address: 2150 Shattuck Ave., Penthouse Suite #1300, Berkeley, CA 94704

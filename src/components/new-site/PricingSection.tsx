@@ -54,7 +54,7 @@ function ToggleSwitch({ checked, onChange }: { checked: boolean; onChange: (v: b
 // Checkmark icon reused across lists
 const Check = ({ muted = false }: { muted?: boolean }) => (
   <svg
-    className={`mr-2 h-5 w-5 flex-shrink-0 ${muted ? "text-gray-700" : "text-[#245FFF]"}`}
+    className={`mr-2 h-5 w-5 flex-shrink-0 ${muted ? "text-gray-700" : "text-white"}`}
     fill="currentColor"
     viewBox="0 0 20 20"
   >
@@ -102,11 +102,11 @@ export default function PricingSection() {
         {/* Header — matches other sections */}
         <AnimatedBlock>
           <div className="text-center mb-10 lg:mb-14">
-            <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[#245FFF] mb-3 sm:text-[10px] lg:mb-4">
+            <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white mb-3 sm:text-[10px] lg:mb-4">
               USAGE-BASED PRICING
             </p>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-3 sm:mb-4 lg:mb-5">
-              Pay only for <span className="text-[#245FFF]">what you use</span>
+              Pay only for <span className="text-white">what you use</span>
             </h2>
             <p className="mx-auto max-w-xl text-sm sm:text-base text-gray-500 leading-relaxed">
               <span className="font-semibold text-white">200 free images/month</span> with Eva-v1-Fast,
@@ -125,7 +125,7 @@ export default function PricingSection() {
                 <label className="mb-5 block text-base sm:text-lg font-semibold text-white">Monthly Volume</label>
                 <div className="relative pt-9 pb-1">
                   <div
-                    className="absolute top-0 rounded-full bg-[#245FFF]/10 border border-[#245FFF]/30 px-3 py-1 text-xs font-semibold text-[#245FFF] whitespace-nowrap z-10"
+                    className="absolute top-0 rounded-full bg-[#245FFF]/10 border border-[#245FFF]/30 px-3 py-1 text-xs font-semibold text-white whitespace-nowrap z-10"
                     style={{
                       left: `${Math.max(5, Math.min(95, sliderPos))}%`,
                       transform: "translateX(-50%)",
@@ -159,7 +159,7 @@ export default function PricingSection() {
                 {isEnterprise && (
                   <div className="mt-5 rounded-xl border border-[#245FFF]/20 bg-[#245FFF]/5 p-4">
                     <div className="flex items-start gap-3">
-                      <svg className="h-5 w-5 text-[#245FFF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-5 w-5 text-white flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                       <div className="flex-1 min-w-0">

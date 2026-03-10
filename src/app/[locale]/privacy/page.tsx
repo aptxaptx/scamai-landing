@@ -4,7 +4,7 @@ export default function PrivacyPage() {
       {/* Hero Section */}
       <section className="relative py-24 px-4 sm:px-6" style={{ paddingTop: '140px' }}>
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#245FFF]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
             PRIVACY POLICY
           </p>
           <h1 className="mb-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">2.1 Information You Provide</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">2.1 Information You Provide</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>Account registration information (name, email address, company details, job title, phone number)</li>
                     <li>Contact information when you reach out to us (support tickets, sales inquiries)</li>
@@ -47,7 +47,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">2.2 Information We Collect Automatically</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">2.2 Information We Collect Automatically</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>Usage data and analytics (features used, session duration, error logs)</li>
                     <li>Device information and browser data (device type, operating system, browser type and version)</li>
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">2.3 Information from Third Parties</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">2.3 Information from Third Parties</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>Data from payment processors and billing systems</li>
                     <li>Information from identity verification services</li>
@@ -78,7 +78,7 @@ export default function PrivacyPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">3.1 Service Provision</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">3.1 Service Provision</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>To provide and improve our AI detection services and algorithms</li>
                     <li>To process and analyze submitted content for deepfake and synthetic media detection</li>
@@ -89,7 +89,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">3.2 Communications</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">3.2 Communications</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>To send service-related notifications and updates</li>
                     <li>To respond to inquiries and support requests</li>
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">3.3 Business Operations</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">3.3 Business Operations</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>To process payments and manage billing</li>
                     <li>To prevent fraud and ensure platform security</li>
@@ -119,7 +119,7 @@ export default function PrivacyPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">4.1 Data Retention Periods</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">4.1 Data Retention Periods</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li><strong>Account Information:</strong> Retained while your account is active and for 2 years after account closure</li>
                     <li><strong>Submitted Content:</strong> Processed immediately and deleted within 30 days unless longer retention is requested</li>
@@ -131,7 +131,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">4.2 Security Measures</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">4.2 Security Measures</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>End-to-end encryption for data transmission (TLS 1.3)</li>
                     <li>Encryption at rest for all stored data (AES-256)</li>
@@ -145,7 +145,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">4.3 Data Backup and Recovery</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">4.3 Data Backup and Recovery</h3>
                   <p className="text-gray-300 leading-relaxed">
                     We maintain secure backups of your data to ensure service continuity and data recovery capabilities. Backups are encrypted, geographically distributed, and subject to the same security controls as production data.
                   </p>
@@ -203,7 +203,7 @@ export default function PrivacyPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">9.1 Types of Cookies</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">9.1 Types of Cookies</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li><strong>Essential Cookies:</strong> Required for basic site functionality and security</li>
                     <li><strong>Performance Cookies:</strong> Help us analyze site usage and improve performance</li>
@@ -235,7 +235,7 @@ export default function PrivacyPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">11.1 Your Rights</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">11.1 Your Rights</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>Right to know what personal information we collect and how it's used</li>
                     <li>Right to delete personal information (subject to certain exceptions)</li>
@@ -247,9 +247,9 @@ export default function PrivacyPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">11.2 How to Exercise Rights</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">11.2 How to Exercise Rights</h3>
                   <p className="text-gray-300 leading-relaxed">
-                    To exercise your California privacy rights, contact us at <a href="mailto:privacy@scam.ai" className="text-[#245FFF] hover:underline">privacy@scam.ai</a> or through our customer portal. We will verify your identity and respond within the timeframes required by law.
+                    To exercise your California privacy rights, contact us at <a href="mailto:privacy@scam.ai" className="text-white hover:underline">privacy@scam.ai</a> or through our customer portal. We will verify your identity and respond within the timeframes required by law.
                   </p>
                 </div>
               </div>
@@ -277,27 +277,27 @@ export default function PrivacyPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">14.1 General Inquiries</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">14.1 General Inquiries</h3>
                   <div className="space-y-2">
                     <p className="text-gray-300">Reality Inc.</p>
                     <p className="text-gray-300">
-                      Email: <a href="mailto:privacy@scam.ai" className="text-[#245FFF] hover:underline">privacy@scam.ai</a>
+                      Email: <a href="mailto:privacy@scam.ai" className="text-white hover:underline">privacy@scam.ai</a>
                     </p>
                     <p className="text-gray-300">
-                      Website: <a href="https://scam.ai" className="text-[#245FFF] hover:underline">https://scam.ai</a>
+                      Website: <a href="https://scam.ai" className="text-white hover:underline">https://scam.ai</a>
                     </p>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">14.2 Data Protection Officer</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">14.2 Data Protection Officer</h3>
                   <p className="text-gray-300 leading-relaxed">
-                    For GDPR-related inquiries, you can contact our Data Protection Officer at: <a href="mailto:dpo@scam.ai" className="text-[#245FFF] hover:underline">dpo@scam.ai</a>
+                    For GDPR-related inquiries, you can contact our Data Protection Officer at: <a href="mailto:dpo@scam.ai" className="text-white hover:underline">dpo@scam.ai</a>
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">14.3 Supervisory Authority</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">14.3 Supervisory Authority</h3>
                   <p className="text-gray-300 leading-relaxed">
                     If you believe we have not adequately addressed your privacy concerns, you have the right to lodge a complaint with your local data protection authority.
                   </p>

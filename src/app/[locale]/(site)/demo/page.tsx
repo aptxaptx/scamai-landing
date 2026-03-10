@@ -281,7 +281,7 @@ export default function DemoPage() {
                   href="https://cal.com/scamai/15min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#245FFF] hover:underline"
+                  className="text-white hover:underline"
                 >
                   book a call directly
                 </a>

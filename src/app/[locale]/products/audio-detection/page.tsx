@@ -99,7 +99,7 @@ export default function AudioDetectionPage() {
                 ADVANCED CAPABILITIES
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1]">
-                Advanced Audio <span className="text-[#245FFF]">Analysis</span>
+                Advanced Audio <span className="text-white">Analysis</span>
               </h2>
             </div>
           </AnimatedSection>
@@ -108,7 +108,7 @@ export default function AudioDetectionPage() {
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
               <div className="lg:pl-12 flex flex-col justify-center" style={{ minHeight: '400px' }}>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white mb-4 sm:text-xs lg:mb-6">
                   VOICE CLONING DETECTION
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -138,7 +138,7 @@ export default function AudioDetectionPage() {
                 </div>
               </div>
               <div className="order-1 lg:order-2 flex flex-col justify-center" style={{ minHeight: '400px' }}>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white mb-4 sm:text-xs lg:mb-6">
                   TTS DETECTION
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -158,7 +158,7 @@ export default function AudioDetectionPage() {
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 lg:mb-28">
               <div className="lg:pl-12 flex flex-col justify-center" style={{ minHeight: '400px' }}>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white mb-4 sm:text-xs lg:mb-6">
                   MANIPULATION DETECTION
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -185,7 +185,7 @@ export default function AudioDetectionPage() {
                 </div>
               </div>
               <div className="order-1 lg:order-2 flex flex-col justify-center" style={{ minHeight: '400px' }}>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#245FFF] mb-4 sm:text-xs lg:mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white mb-4 sm:text-xs lg:mb-6">
                   EASY INTEGRATION
                 </p>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-[1.15] lg:mb-6">
@@ -216,7 +216,7 @@ export default function AudioDetectionPage() {
                 REAL-WORLD APPLICATIONS
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1]">
-                Trusted across <span className="text-[#245FFF]">industries</span>
+                Trusted across <span className="text-white">industries</span>
               </h2>
             </div>
           </AnimatedSection>
@@ -230,19 +230,19 @@ export default function AudioDetectionPage() {
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Caller authentication verification</span>
                   </li>
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Voice biometric security enhancement</span>
                   </li>
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Fraud prevention and detection</span>
@@ -259,19 +259,19 @@ export default function AudioDetectionPage() {
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Voice banking security verification</span>
                   </li>
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Phone authentication protection</span>
                   </li>
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Vishing attack detection</span>
@@ -288,19 +288,19 @@ export default function AudioDetectionPage() {
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Audio source verification</span>
                   </li>
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Interview authenticity validation</span>
                   </li>
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Content integrity protection</span>
@@ -317,19 +317,19 @@ export default function AudioDetectionPage() {
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Evidence authentication services</span>
                   </li>
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Forensic audio analysis</span>
                   </li>
                   <li className="flex items-start text-base sm:text-lg">
-                    <svg className="w-5 h-5 text-[#245FFF] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Chain of custody verification</span>

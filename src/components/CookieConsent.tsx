@@ -110,7 +110,7 @@ export default function CookieConsent() {
             <p className="text-xs text-gray-400 leading-relaxed">
               We use cookies and analytics to understand how you use our site and improve your experience.
               You can accept or decline non-essential cookies.{" "}
-              <Link href="/cookies" className="text-[#245FFF] hover:underline">
+              <Link href="/cookies" className="text-white hover:underline">
                 Cookie Policy
               </Link>
             </p>

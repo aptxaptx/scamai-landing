@@ -139,7 +139,7 @@ function SolutionCard({
   return (
     <AnimatedCard delay={delay}>
       <div className="group relative h-full rounded-xl sm:rounded-2xl border border-gray-800/60 bg-white/[0.02] p-4 sm:p-6 transition-all duration-300 hover:border-[#245FFF]/30 hover:bg-white/[0.04]">
-        <div className="mb-3 sm:mb-4 inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#245FFF]/10 text-[#245FFF]">
+        <div className="mb-3 sm:mb-4 inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#245FFF]/10 text-white">
           {solution.icon}
         </div>
         <h3 className="text-sm sm:text-base font-semibold text-white mb-1.5 sm:mb-2 leading-tight">
@@ -164,13 +164,13 @@ export default function SolutionsSection() {
         {/* Section Header */}
         <AnimatedCard>
           <div className="text-center mb-8 sm:mb-10 lg:mb-14">
-            <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[#245FFF] mb-3 sm:text-[10px] lg:mb-4">
+            <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white mb-3 sm:text-[10px] lg:mb-4">
               SOLUTIONS
             </p>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-3 sm:mb-4 lg:mb-5 px-2 sm:px-0">
               The trust infrastructure{" "}
               <br className="hidden sm:block" />
-              for the <span className="text-[#245FFF]">AI era</span>
+              for the <span className="text-white">AI era</span>
             </h2>
             <p className="mx-auto max-w-xl text-sm sm:text-base text-gray-500 leading-relaxed px-2 sm:px-0">
               Detect deepfakes, synthetic media, voice clones, and document

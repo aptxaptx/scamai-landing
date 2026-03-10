@@ -4,7 +4,7 @@ export default function TermsPage() {
       {/* Hero Section */}
       <section className="relative py-24 px-4 sm:px-6" style={{ paddingTop: '140px' }}>
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#245FFF]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
             TERMS OF SERVICE
           </p>
           <h1 className="mb-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
@@ -53,7 +53,7 @@ export default function TermsPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">4.1 Permitted Uses</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">4.1 Permitted Uses</h3>
                   <p className="text-gray-300 leading-relaxed mb-2">
                     You may use ScamAI for legitimate business purposes including:
                   </p>
@@ -65,7 +65,7 @@ export default function TermsPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">4.2 Prohibited Uses</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">4.2 Prohibited Uses</h3>
                   <p className="text-gray-300 leading-relaxed mb-2">
                     You may not use our service to:
                   </p>
@@ -87,14 +87,14 @@ export default function TermsPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">5.1 Your Content</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">5.1 Your Content</h3>
                   <p className="text-gray-300 leading-relaxed">
                     You retain ownership of content you submit to our service. By submitting content, you grant us a limited license to process and analyze it for the purpose of providing our detection services.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">5.2 Content Responsibility</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">5.2 Content Responsibility</h3>
                   <p className="text-gray-300 leading-relaxed">
                     You are solely responsible for ensuring you have the right to submit content for analysis and that such submission complies with applicable laws and regulations.
                   </p>
@@ -108,7 +108,7 @@ export default function TermsPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">6.1 Billing and Payments</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">6.1 Billing and Payments</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>Fees are due according to your selected billing cycle (monthly, quarterly, or annually)</li>
                     <li>Payment is due in advance for each billing period</li>
@@ -119,7 +119,7 @@ export default function TermsPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">6.2 Refunds and Cancellations</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">6.2 Refunds and Cancellations</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>All fees are non-refundable except as required by applicable law</li>
                     <li>You may cancel your subscription at any time, effective at the end of your current billing period</li>
@@ -129,7 +129,7 @@ export default function TermsPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">6.3 Suspension and Termination for Non-Payment</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">6.3 Suspension and Termination for Non-Payment</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>We may suspend service immediately for non-payment</li>
                     <li>Accounts suspended for 30 days may be terminated and data deleted</li>
@@ -138,7 +138,7 @@ export default function TermsPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">6.4 Price Changes</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">6.4 Price Changes</h3>
                   <p className="text-gray-300 leading-relaxed">
                     We may change our pricing with 30 days' advance notice for monthly plans and 90 days' advance notice for annual plans. Price increases will not affect your current billing period but will apply to subsequent renewals.
                   </p>
@@ -168,14 +168,14 @@ export default function TermsPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">9.1 Service Accuracy</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">9.1 Service Accuracy</h3>
                   <p className="text-gray-300 leading-relaxed">
                     While our AI detection technology is highly advanced, no detection system is 100% accurate. Results should be used as part of a comprehensive security strategy.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">9.2 Limitation of Liability</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">9.2 Limitation of Liability</h3>
                   <p className="text-gray-300 leading-relaxed">
                     Reality Inc. shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of ScamAI.
                   </p>
@@ -213,7 +213,7 @@ export default function TermsPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">13.1 API Access</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">13.1 API Access</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>API access is provided subject to rate limits based on your subscription tier</li>
                     <li>You must use valid API keys and follow our authentication protocols</li>
@@ -223,7 +223,7 @@ export default function TermsPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">13.2 Rate Limits</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">13.2 Rate Limits</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>Rate limits vary by subscription plan and may be adjusted with notice</li>
                     <li>Exceeding rate limits will result in HTTP 429 responses</li>
@@ -239,7 +239,7 @@ export default function TermsPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">14.1 Uptime Commitment</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">14.1 Uptime Commitment</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>We target 99.9% uptime for our production APIs</li>
                     <li>Scheduled maintenance windows are announced 48 hours in advance</li>
@@ -248,7 +248,7 @@ export default function TermsPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">14.2 Support Response Times</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">14.2 Support Response Times</h3>
                   <ul className="space-y-2 text-gray-300 list-disc list-inside ml-4">
                     <li>Critical Issues: 2 hours during business hours</li>
                     <li>High Priority: 8 hours during business hours</li>
@@ -297,22 +297,22 @@ export default function TermsPage() {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">19.1 Legal Matters</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">19.1 Legal Matters</h3>
                   <div className="space-y-2">
                     <p className="text-gray-300">Reality Inc.</p>
                     <p className="text-gray-300">
-                      Email: <a href="mailto:legal@scam.ai" className="text-[#245FFF] hover:underline">legal@scam.ai</a>
+                      Email: <a href="mailto:legal@scam.ai" className="text-white hover:underline">legal@scam.ai</a>
                     </p>
                     <p className="text-gray-300">
-                      Website: <a href="https://scam.ai" className="text-[#245FFF] hover:underline">https://scam.ai</a>
+                      Website: <a href="https://scam.ai" className="text-white hover:underline">https://scam.ai</a>
                     </p>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold text-[#245FFF]">19.2 General Support</h3>
+                  <h3 className="mb-2 text-xl font-semibold text-white">19.2 General Support</h3>
                   <p className="text-gray-300 leading-relaxed">
-                    For technical support or general inquiries, please contact <a href="mailto:support@scam.ai" className="text-[#245FFF] hover:underline">support@scam.ai</a> or visit our customer portal.
+                    For technical support or general inquiries, please contact <a href="mailto:support@scam.ai" className="text-white hover:underline">support@scam.ai</a> or visit our customer portal.
                   </p>
                 </div>
               </div>
