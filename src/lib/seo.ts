@@ -21,7 +21,7 @@ export function generatePageMetadata({
   title,
   description,
   keywords = [],
-  ogImage = `${baseUrl}/scamai-logo.svg`,
+  ogImage,
   noindex = false,
 }: GenerateMetadataParams): Metadata {
   const fullUrl = `${baseUrl}/${locale}${path}`;
@@ -58,20 +58,22 @@ export function generatePageMetadata({
       title: fullTitle,
       description,
       siteName: 'ScamAI',
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      ...(ogImage && {
+        images: [
+          {
+            url: ogImage,
+            width: 1200,
+            height: 630,
+            alt: title,
+          },
+        ],
+      }),
     },
     twitter: {
       card: 'summary_large_image',
       title: fullTitle,
       description,
-      images: [ogImage],
+      ...(ogImage && { images: [ogImage] }),
       creator: '@scamai',
       site: '@scamai',
     },

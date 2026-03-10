@@ -28,72 +28,158 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Options */}
-      <section className="py-12 px-4 sm:px-6">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 md:grid-cols-3">
-            {/* Sales */}
-            <div className="rounded-lg border border-gray-800 bg-gray-900/40 p-8 text-center">
-              <div className="mb-4 flex justify-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#245FFF]/10">
-                  <svg className="h-8 w-8 text-[#245FFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
+      {/* Action Cards — Evervault style */}
+      <section className="relative px-4 sm:px-6 pb-16">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Schedule a Demo */}
+            <div
+              className="relative overflow-hidden rounded-[16px] p-8 sm:p-10 no-underline"
+              style={{
+                background: 'linear-gradient(to bottom right, rgba(14, 37, 88, 0.8), rgba(10, 6, 34, 0.4))',
+                boxShadow: '0 8px 16px -4px rgba(0,0,0,0.15), 0 4px 8px -2px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.1), inset 0 0 0 1px rgba(74, 127, 255, 0.24)',
+              }}
+            >
+              <div
+                className="flex h-12 w-12 items-center justify-center rounded-xl mb-8"
+                style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.1), 0 0 0 1px rgba(0,0,0,0.05)',
+                }}
+              >
+                <svg className="h-6 w-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4" /><path d="M8 2v4" /><path d="M3 10h18" />
+                </svg>
               </div>
-              <h3 className="mb-3 text-xl font-bold text-white">Sales</h3>
-              <p className="mb-4 text-gray-300">
-                Interested in enterprise plans or volume pricing?
+              <h3 className="text-2xl font-medium text-white mb-3">Schedule a Demo</h3>
+              <p className="text-[15px] text-gray-400 mb-8 leading-relaxed">
+                Talk to an expert about your security needs. Discuss your requirements, learn about custom pricing, or request a product demo.
               </p>
               <a
-                href="mailto:sales@scam.ai"
-                className="text-[#245FFF] hover:underline font-semibold"
+                href="https://cal.com/scamai/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition hover:brightness-125"
+                style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1), 0 1px 0 rgba(0,0,0,0.05), inset 0 0 0 1px rgba(255,255,255,0.08)',
+                }}
               >
-                sales@scam.ai
+                Book
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M9 5l7 7-7 7" /></svg>
               </a>
             </div>
 
-            {/* Support */}
-            <div className="rounded-lg border border-gray-800 bg-gray-900/40 p-8 text-center">
-              <div className="mb-4 flex justify-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#245FFF]/10">
-                  <svg className="h-8 w-8 text-[#245FFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="mb-3 text-xl font-bold text-white">Technical Support</h3>
-              <p className="mb-4 text-gray-300">
-                Need help integrating or troubleshooting?
-              </p>
-              <a
-                href="mailto:support@scam.ai"
-                className="text-[#245FFF] hover:underline font-semibold"
+            {/* Send us a message */}
+            <div
+              className="relative overflow-hidden rounded-[16px] p-8 sm:p-10 no-underline"
+              style={{
+                background: 'linear-gradient(to bottom right, rgba(14, 37, 88, 0.6), rgba(10, 6, 34, 0.3))',
+                boxShadow: '0 8px 16px -4px rgba(0,0,0,0.15), 0 4px 8px -2px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.1), inset 0 0 0 1px rgba(74, 127, 255, 0.24)',
+              }}
+            >
+              <div
+                className="flex h-12 w-12 items-center justify-center rounded-xl mb-8"
+                style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.1), 0 0 0 1px rgba(0,0,0,0.05)',
+                }}
               >
-                support@scam.ai
-              </a>
-            </div>
-
-            {/* General */}
-            <div className="rounded-lg border border-gray-800 bg-gray-900/40 p-8 text-center">
-              <div className="mb-4 flex justify-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#245FFF]/10">
-                  <svg className="h-8 w-8 text-[#245FFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
+                <svg className="h-6 w-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" />
+                </svg>
               </div>
-              <h3 className="mb-3 text-xl font-bold text-white">General Inquiries</h3>
-              <p className="mb-4 text-gray-300">
-                Any other questions or feedback?
+              <h3 className="text-2xl font-medium text-white mb-3">Send us a message</h3>
+              <p className="text-[15px] text-gray-400 mb-8 leading-relaxed">
+                Have a question? Get hands on support directly from our engineers by sending us an email. We&apos;ll respond to you in &lt;12 hours.
               </p>
               <a
                 href="mailto:hello@scam.ai"
-                className="text-[#245FFF] hover:underline font-semibold"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition hover:brightness-125"
+                style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1), 0 1px 0 rgba(0,0,0,0.05), inset 0 0 0 1px rgba(255,255,255,0.08)',
+                }}
               >
-                hello@scam.ai
+                Get in touch
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M9 5l7 7-7 7" /></svg>
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Resource Cards — 3-column grid */}
+      <section className="py-20 px-4 sm:px-6 bg-black">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-6 md:grid-cols-3">
+            {/* Documentation */}
+            <a
+              href="https://docu.scam.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-[16px] p-8 text-center transition no-underline"
+              style={{
+                background: 'rgba(255,255,255,0.02)',
+                boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06)',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(255,255,255,0.12)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(255,255,255,0.06)'; e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
+            >
+              <div className="mb-5 flex justify-center">
+                <svg className="h-7 w-7 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="12" rx="2" /><path d="M7 20h10" /><path d="M12 16v4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Documentation</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Find detailed guides, API references, and more in our documentation.
+              </p>
+            </a>
+
+            {/* Partnerships */}
+            <a
+              href="mailto:partnerships@scam.ai"
+              className="group rounded-[16px] p-8 text-center transition no-underline"
+              style={{
+                background: 'rgba(255,255,255,0.02)',
+                boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06)',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(255,255,255,0.12)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(255,255,255,0.06)'; e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
+            >
+              <div className="mb-5 flex justify-center">
+                <svg className="h-7 w-7 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Partnerships</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Become a partner and offer your customers the best in AI security and deepfake detection.
+              </p>
+            </a>
+
+            {/* Newsletter */}
+            <a
+              href="/newsletter"
+              className="group rounded-[16px] p-8 text-center transition no-underline"
+              style={{
+                background: 'rgba(255,255,255,0.02)',
+                boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06)',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(255,255,255,0.12)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(255,255,255,0.06)'; e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
+            >
+              <div className="mb-5 flex justify-center">
+                <svg className="h-7 w-7 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 11a9 9 0 019-9" /><path d="M4 4a16 16 0 0116 16" /><circle cx="5" cy="19" r="1" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Newsletter</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Stay up to date with the latest news, updates, and insights from ScamAI.
+              </p>
+            </a>
           </div>
         </div>
       </section>

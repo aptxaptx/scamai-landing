@@ -359,7 +359,7 @@ export default function MSAPage() {
 
             {/* Footer */}
             <div className="mt-16 pt-8 border-t border-gray-800">
-              <p className="text-sm text-gray-500 italic text-center">
+              <p className="text-sm text-gray-500 text-center">
                 This Master Subscription Agreement governs the provision of ScamAI platform services by Reality Inc.
               </p>
             </div>

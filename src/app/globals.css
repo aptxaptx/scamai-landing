@@ -386,7 +386,6 @@ main {
   background: #000000 !important;
   position: relative;
   margin: 0 !important;
-  padding: 0 !important;
   min-height: 100vh;
   display: block;
 }
@@ -417,4 +416,34 @@ footer {
   body {
     overflow-x: hidden;
   }
+}
+
+/* ── Encryption Hero (Evervault-style) ── */
+@keyframes scan-line {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.scan-line {
+  animation: scan-line 3s ease-in-out infinite;
+}
+
+@keyframes detection-bar {
+  0% { width: 0; }
+  100% { width: 99.4%; }
+}
+
+.detection-bar {
+  animation: detection-bar 2s ease-out forwards;
+}
+
+.matrix-char {
+  animation: matrix-fade 0.5s ease-out forwards;
+}
+
+@keyframes matrix-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

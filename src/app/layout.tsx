@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import StructuredData from "@/components/seo/StructuredData";
 import { Analytics } from "@vercel/analytics/next";
@@ -7,6 +7,14 @@ import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  weight: "400",
+  style: "normal",
   subsets: ["latin"],
   display: "swap",
 });
@@ -64,21 +72,11 @@ export const metadata: Metadata = {
     title: "ScamAI - AI Trust Platform | Deepfake Detection",
     description: "Detect synthetic media and deepfakes in real-time with industry-leading accuracy. SOC 2 Type II compliant. 200 free images per month.",
     siteName: "ScamAI",
-    images: [
-      {
-        url: "https://scam.ai/scamai-logo.svg",
-        width: 1200,
-        height: 630,
-        alt: "ScamAI - AI Trust Platform for Deepfake Detection",
-        type: "image/svg+xml",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "ScamAI - AI Trust Platform | Deepfake Detection",
     description: "Detect synthetic media and deepfakes in real-time with industry-leading accuracy. SOC 2 Type II compliant.",
-    images: ["https://scam.ai/scamai-logo.svg"],
     creator: "@scamai",
     site: "@scamai",
   },
@@ -121,7 +119,7 @@ export default function RootLayout({
         <StructuredData />
         <link rel="alternate" type="application/rss+xml" title="ScamAI News" href="/feed.xml" />
       </head>
-      <body className={`${inter.variable} antialiased bg-[#0b0b0b]`}>
+      <body className={`${inter.variable} ${instrumentSerif.variable} antialiased bg-[#0b0b0b]`}>
         {children}
         <Analytics />
         <CookieConsent />
