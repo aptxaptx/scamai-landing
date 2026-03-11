@@ -452,3 +452,28 @@ footer {
   0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: .75; }
   50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
 }
+
+/* Check section — scan sweep on thumbnail during upload */
+@keyframes scan-sweep {
+  0% { top: 0%; }
+  50% { top: 100%; }
+  100% { top: 0%; }
+}
+
+/* Indeterminate progress bar */
+@keyframes progress-indeterminate {
+  0% { width: 0%; margin-left: 0%; }
+  50% { width: 60%; margin-left: 20%; }
+  100% { width: 0%; margin-left: 100%; }
+}
+
+/* Rotating conic gradient border */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-border {
+  to { --border-angle: 360deg; }
+}

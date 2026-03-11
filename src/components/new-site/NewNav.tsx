@@ -4,6 +4,12 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import CommandPalette from "./CommandPalette";
 import { trackCTA } from "@/lib/analytics";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 
 type NavChild = {
   label: string;
@@ -131,19 +137,57 @@ const navItems: NavItem[] = [
   { label: "Careers", href: "/careers" },
 ];
 
-function HamburgerIcon() {
+/** Animated hamburger ↔ X icon with smooth line morphing */
+function AnimatedMenuIcon({ isOpen }: { isOpen: boolean }) {
   return (
-    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 6h16M4 12h16M4 18h16" />
+    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <motion.line
+        x1="4" x2="20"
+        animate={isOpen ? { y1: 12, y2: 12, rotate: 45 } : { y1: 6, y2: 6, rotate: 0 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        style={{ transformOrigin: "center" }}
+      />
+      <motion.line
+        x1="4" y1="12" x2="20" y2="12"
+        animate={isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+        style={{ transformOrigin: "center" }}
+      />
+      <motion.line
+        x1="4" x2="20"
+        animate={isOpen ? { y1: 12, y2: 12, rotate: -45 } : { y1: 18, y2: 18, rotate: 0 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        style={{ transformOrigin: "center" }}
+      />
     </svg>
   );
 }
 
-function CloseIcon() {
+/** Dock-style magnification item — scales based on mouse proximity */
+function DockItem({
+  mouseX,
+  children,
+}: {
+  mouseX: ReturnType<typeof useMotionValue<number>>;
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const distance = useTransform(mouseX, (val) => {
+    const el = ref.current;
+    if (!el || val === -1) return 150; // far away = no magnification
+    const rect = el.getBoundingClientRect();
+    const center = rect.left + rect.width / 2;
+    return Math.abs(val - center);
+  });
+
+  const scale = useTransform(distance, [0, 80, 150], [1.15, 1.05, 1]);
+  const smoothScale = useSpring(scale, { mass: 0.1, stiffness: 200, damping: 15 });
+
   return (
-    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M18 6L6 18M6 6l12 12" />
-    </svg>
+    <motion.div ref={ref} style={{ scale: smoothScale }} className="relative flex items-center">
+      {children}
+    </motion.div>
   );
 }
 
@@ -161,6 +205,9 @@ export default function NewNav() {
   const navRef = useRef<HTMLElement>(null);
   const dropdownPanelRef = useRef<HTMLDivElement>(null);
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
+
+  // Dock magnification — track mouse X across the pill
+  const mouseX = useMotionValue(-1);
 
   const closeDropdown = useCallback(() => {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
@@ -371,7 +418,7 @@ export default function NewNav() {
               <img src="/scamai-logo.svg" alt="ScamAI" className="h-9 w-auto" />
             </Link>
 
-            {/* Centered pill */}
+            {/* Centered pill with dock magnification */}
             <div
               className="flex items-center gap-1 rounded-[20px] px-2 py-2 transition-all duration-300"
               style={{
@@ -384,9 +431,11 @@ export default function NewNav() {
                   ? "inset 0 0 0 1px rgba(255,255,255,0.1), 0 2px 8px rgba(0,0,0,0.3)"
                   : "none",
               }}
+              onMouseMove={(e) => mouseX.set(e.clientX)}
+              onMouseLeave={() => mouseX.set(-1)}
             >
               {navItems.map((item) => (
-                <div key={item.label} className="relative">
+                <DockItem key={item.label} mouseX={mouseX}>
                   {item.dropdownKey ? (
                     <div
                       onMouseEnter={() => openDropdown(item.dropdownKey!)}
@@ -422,20 +471,21 @@ export default function NewNav() {
                       {item.label}
                     </Link>
                   )}
-                </div>
+                </DockItem>
               ))}
 
-
               {/* CTA inside pill — only visible when scrolled */}
-              <Link
-                href="/demo"
-                className={`rounded-full bg-white px-3 py-1.5 text-[12px] font-semibold text-black transition-all duration-300 hover:bg-gray-200 whitespace-nowrap ${
-                  scrolled ? "w-auto opacity-100 ml-1" : "w-0 opacity-0 overflow-hidden px-0 ml-0 bg-transparent"
-                }`}
-                onClick={() => trackCTA("book_demo", "nav")}
-              >
-                Get a demo &rsaquo;
-              </Link>
+              <DockItem mouseX={mouseX}>
+                <Link
+                  href="/demo"
+                  className={`rounded-full bg-white px-3 py-1.5 text-[12px] font-semibold text-black transition-all duration-300 hover:bg-gray-200 whitespace-nowrap ${
+                    scrolled ? "w-auto opacity-100 ml-1" : "w-0 opacity-0 overflow-hidden px-0 ml-0 bg-transparent"
+                  }`}
+                  onClick={() => trackCTA("book_demo", "nav")}
+                >
+                  Get a demo &rsaquo;
+                </Link>
+              </DockItem>
             </div>
 
             {/* Right actions — hidden when scrolled */}
@@ -505,7 +555,7 @@ export default function NewNav() {
                 onClick={() => setMobileOpen((p) => !p)}
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
               >
-                {mobileOpen ? <CloseIcon /> : <HamburgerIcon />}
+                <AnimatedMenuIcon isOpen={mobileOpen} />
               </button>
             </div>
           </nav>
@@ -527,7 +577,7 @@ export default function NewNav() {
                   className="flex h-10 w-10 items-center justify-center text-white"
                   aria-label="Close menu"
                 >
-                  <CloseIcon />
+                  <AnimatedMenuIcon isOpen={true} />
                 </button>
               </div>
 

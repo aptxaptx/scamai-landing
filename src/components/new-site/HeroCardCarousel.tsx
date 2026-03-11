@@ -252,12 +252,18 @@ export default function HeroCardCarousel() {
         slot.style.cssText = `flex-shrink:0;width:${CARD_W}px;margin:0 ${GAP / 2}px;position:relative;`;
 
         const det = d.detection;
+        // Tags use fixed sizes — never scale down on mobile so they stay readable
+        const mobile = CARD_W < 400;
         const tagHtml = det
-          ? `<div data-tag style="position:absolute;top:10px;right:10px;z-index:5;display:none">
-              <div style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border:1px solid ${det.verdictColor}44">
-                <div style="width:8px;height:8px;border-radius:50%;background:${det.verdictColor};box-shadow:0 0 8px ${det.verdictColor}"></div>
-                <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:${det.verdictColor};letter-spacing:.5px">${det.label}</span>
-                <span style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.6)">${det.confidence}</span>
+          ? `<div data-tag style="position:absolute;inset:0;z-index:5;display:none;pointer-events:none">
+              <div style="position:absolute;top:${mobile ? 6 : 12}px;right:${mobile ? 6 : 12}px;display:inline-flex;align-items:center;gap:${mobile ? 5 : 6}px;padding:${mobile ? '4px 8px' : '6px 12px'};border-radius:8px;background:rgba(0,0,0,.88);backdrop-filter:blur(12px);border:1px solid ${det.verdictColor}99">
+                <div style="width:${mobile ? 7 : 8}px;height:${mobile ? 7 : 8}px;border-radius:50%;background:${det.verdictColor};box-shadow:0 0 10px ${det.verdictColor}"></div>
+                <span style="font-family:'Space Mono',monospace;font-size:${mobile ? 11 : 13}px;font-weight:700;color:${det.verdictColor};letter-spacing:.5px;white-space:nowrap">${det.label}</span>
+                <span style="font-family:'Space Mono',monospace;font-size:${mobile ? 10 : 12}px;color:rgba(255,255,255,.8);white-space:nowrap">${det.confidence}</span>
+              </div>
+              <div style="position:absolute;bottom:${mobile ? 6 : 12}px;right:${mobile ? 6 : 12}px;display:inline-flex;align-items:center;gap:${mobile ? 4 : 6}px;padding:${mobile ? '3px 7px' : '5px 10px'};border-radius:6px;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18)">
+                <span style="font-family:sans-serif;font-size:${mobile ? 11 : 13}px;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.3px;white-space:nowrap">Checked by</span>
+                <img src="/scamai-logo.svg" alt="Scam.ai" style="height:${mobile ? 20 : 25}px;width:auto;opacity:.8" />
               </div>
             </div>`
           : "";
