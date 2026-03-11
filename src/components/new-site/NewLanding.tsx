@@ -1,14 +1,15 @@
 "use client";
 
 
-import { useState, useRef, DragEvent, useEffect } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import HeroBackground from "./HeroBackground";
 import { BentoV1_3, BentoV1_5, BentoV1_26, BentoV1_28 } from "@/components/bento-v1";
 import { Suspense } from "react";
-import { trackCTA, trackOutbound } from "@/lib/analytics";
+import { trackCTA } from "@/lib/analytics";
 import DeveloperSection from "./DeveloperSection";
 import HeroCardCarousel from "./HeroCardCarousel";
+import CheckSection from "./CheckSection";
 
 // Skeleton loader for bento visual components
 function BentoSkeleton() {
@@ -21,19 +22,6 @@ function BentoSkeleton() {
 import PricingSection from "./PricingSection";
 import FAQSection from "./FAQSection";
 import SolutionsSection from "./SolutionsSection";
-
-type FileWithPreview = {
-  file: File;
-  preview: string;
-  watermarkedImage?: string;
-  status: 'pending' | 'analyzing' | 'completed';
-  result?: {
-    isAI: boolean;
-    confidence: number;
-    type: 'likely_ai_manipulated' | 'likely_real';
-    details?: string;
-  };
-};
 
 // Animated Section Component
 function AnimatedSection({ 
@@ -66,225 +54,6 @@ function AnimatedSection({
 }
 
 export default function NewLanding() {
-  const [uploadedFiles, setUploadedFiles] = useState<FileWithPreview[]>([]);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-  };
-
-  const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-  };
-
-  const handleDrop = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    
-    const files = Array.from(e.dataTransfer.files);
-    processFiles(files);
-  };
-
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const files = Array.from(e.target.files);
-      processFiles(files);
-    }
-  };
-
-  const processFiles = (files: File[]) => {
-    const validFiles = files.filter(file => {
-      const type = file.type;
-      return type.startsWith('image/') || type.startsWith('video/') || type.startsWith('audio/');
-    });
-
-    const newFiles: FileWithPreview[] = validFiles.map(file => ({
-      file,
-      preview: URL.createObjectURL(file),
-      status: 'pending'
-    }));
-
-    setUploadedFiles(prev => [...prev, ...newFiles]);
-  };
-
-  const addWatermark = async (file: File, result: any): Promise<string> => {
-    // Only watermark images
-    if (!file.type.startsWith('image/')) {
-      return URL.createObjectURL(file);
-    }
-
-    try {
-      if (typeof window === "undefined") {
-        return URL.createObjectURL(file);
-      }
-
-      const { default: watermark } = await import("watermarkjs");
-      const options = {
-        init(img: any) {
-          img.crossOrigin = 'anonymous';
-        }
-      };
-
-      const watermarkText = (text: string, offsetFromBottom: number, fontSize: number = 20) => {
-        return (target: any) => {
-          const ctx = target.getContext('2d');
-          if (!ctx) return target;
-
-          const width = target.width;
-          const height = target.height;
-          
-          ctx.save();
-          ctx.globalAlpha = 0.6;
-          ctx.fillStyle = 'white';
-          ctx.font = `bold ${fontSize}px Inter, sans-serif`;
-          ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-          ctx.shadowBlur = 4;
-          ctx.shadowOffsetX = 2;
-          ctx.shadowOffsetY = 2;
-          
-          // Measure text width to align right
-          const textWidth = ctx.measureText(text).width;
-          const x = width - textWidth - 20; // 20px padding from right
-          const y = height - offsetFromBottom; // offset from bottom
-          
-          ctx.fillText(text, x, y);
-          ctx.restore();
-
-          return target;
-        };
-      };
-
-      // @ts-ignore - watermarkjs types
-      const result_watermarked = await watermark([file], options)
-        .image(watermarkText('Scam.ai', 100, 24))
-        .then((img: any) => {
-          // @ts-ignore
-          return watermark([img])
-            .image(watermarkText(
-              result.type === 'likely_ai_manipulated' ? 'AI-Manipulated' : 'Verified',
-              70,
-              16
-            ));
-        })
-        .then((img: any) => {
-          // @ts-ignore
-          return watermark([img])
-            .image(watermarkText(`${result.confidence.toFixed(1)}% Confidence`, 40, 14));
-        })
-        .then((img: any) => img.src);
-
-      return result_watermarked;
-    } catch (error) {
-      console.error('Watermark error:', error);
-      return URL.createObjectURL(file);
-    }
-  };
-
-  const analyzeFile = async (index: number) => {
-    setUploadedFiles(prev => prev.map((f, i) => 
-      i === index ? { ...f, status: 'analyzing' as const } : f
-    ));
-
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    // Mock result
-    const isAI = Math.random() > 0.5;
-    const mockResult = {
-      isAI,
-      confidence: Math.random() * 100,
-      type: (isAI ? 'likely_ai_manipulated' : 'likely_real') as 'likely_ai_manipulated' | 'likely_real',
-      details: 'Analysis completed using AI detection models'
-    };
-
-    const fileData = uploadedFiles[index];
-    const watermarkedImage = await addWatermark(fileData.file, mockResult);
-
-    setUploadedFiles(prev => prev.map((f, i) => 
-      i === index ? { 
-        ...f, 
-        status: 'completed' as const, 
-        result: mockResult,
-        watermarkedImage 
-      } : f
-    ));
-  };
-
-  const removeFile = (index: number) => {
-    setUploadedFiles(prev => {
-      const newFiles = prev.filter((_, i) => i !== index);
-      URL.revokeObjectURL(prev[index].preview);
-      if (prev[index].watermarkedImage) {
-        URL.revokeObjectURL(prev[index].watermarkedImage!);
-      }
-      return newFiles;
-    });
-  };
-
-  const downloadWatermarkedImage = (fileData: FileWithPreview) => {
-    if (!fileData.watermarkedImage) return;
-
-    const link = document.createElement('a');
-    link.href = fileData.watermarkedImage;
-    link.download = `scamai_verified_${fileData.file.name}`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const shareToSocialMedia = async (fileData: FileWithPreview, platform: string) => {
-    const text = `I verified this image with Scam.ai - ${fileData.result?.type === 'likely_ai_manipulated' ? 'AI-Manipulated' : 'Likely Real'} (${fileData.result?.confidence.toFixed(1)}% confidence)`;
-    const url = 'https://scam.ai';
-
-    // Check if Web Share API is supported and we have a watermarked image
-    if (platform === 'native' && navigator.share && fileData.watermarkedImage) {
-      try {
-        // Convert data URL to Blob
-        const response = await fetch(fileData.watermarkedImage);
-        const blob = await response.blob();
-        const file = new File([blob], `scamai_verified_${fileData.file.name}`, { type: blob.type });
-
-        // Check if we can share files
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            title: 'Scam.ai Verification',
-            text: text,
-            files: [file]
-          });
-          return;
-        } else {
-          // Fallback to sharing just text if files aren't supported
-          await navigator.share({
-            title: 'Scam.ai Verification',
-            text: text,
-            url: url
-          });
-          return;
-        }
-      } catch (error) {
-        console.log('Share cancelled or failed:', error);
-        return;
-      }
-    }
-
-    // Fallback to platform-specific URLs for desktop or when Web Share API isn't available
-    const shareUrls: Record<string, string> = {
-      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`,
-      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
-      whatsapp: `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`,
-    };
-
-    if (platform in shareUrls) {
-      window.open(shareUrls[platform], '_blank', 'width=600,height=400');
-    }
-  };
-
-  const getFileType = (file: File) => {
-    if (file.type.startsWith('image/')) return 'Image';
-    if (file.type.startsWith('video/')) return 'Video';
-    if (file.type.startsWith('audio/')) return 'Audio';
-    return 'File';
-  };
   return (
     <main className="bg-black text-white" role="main">
       {/* Hero Section — text takes ~70vh, video peeks below */}
@@ -330,9 +99,13 @@ export default function NewLanding() {
 
                 <div className="pt-2 sm:pt-3 flex flex-row items-center gap-4">
                   <a
-                    href="/check"
+                    href="#check"
                     className="rainbow-button inline-block"
-                    onClick={() => trackCTA("check_files", "hero")}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById("check")?.scrollIntoView({ behavior: "smooth" });
+                      trackCTA("check_files", "hero");
+                    }}
                   >
                     <span className="rainbow-button-inner">
                       Check files
@@ -353,6 +126,9 @@ export default function NewLanding() {
 
         </div>
       </section>
+
+      {/* Try It Now — inline detection */}
+      <CheckSection />
 
       {/* AI-Powered Security — merged section */}
       <section className="landing-section relative overflow-hidden" aria-label="AI-Powered Security - Deepfake Protection" style={{
