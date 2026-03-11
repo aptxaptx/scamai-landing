@@ -153,6 +153,8 @@ function drawSparks(ctx: CanvasRenderingContext2D, sparks: Spark[], w: number, h
 export default function HeroCardCarousel() {
   const sceneRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const beamRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
   const sparkCvsRef = useRef<HTMLCanvasElement>(null);
   const sparksRef = useRef<Spark[]>([]);
   const cardElsRef = useRef<CardEl[]>([]);
@@ -246,6 +248,16 @@ export default function HeroCardCarousel() {
       const sb = scene.getBoundingClientRect();
       const beamVX = sb.left + sb.width / 2;
 
+      // Show particle beam only when a card is passing through
+      let beamHitsCard = false;
+      for (const el of cardElsRef.current) {
+        const cb = el.slot.getBoundingClientRect();
+        const bx = beamVX - cb.left;
+        if (bx > 0 && bx < CARD_W) { beamHitsCard = true; break; }
+      }
+      if (beamRef.current) beamRef.current.style.opacity = beamHitsCard ? "1" : "0";
+      if (lineRef.current) lineRef.current.style.opacity = beamHitsCard ? "0" : "1";
+
       for (const el of cardElsRef.current) {
         const cb = el.slot.getBoundingClientRect();
         if (cb.right < sb.left - 10 || cb.left > sb.right + 10) {
@@ -281,8 +293,18 @@ export default function HeroCardCarousel() {
       <div className="pointer-events-none absolute top-0 bottom-0 left-0 w-[200px] z-[15]" style={{ background: "linear-gradient(to right, #000, transparent)" }} />
       <div className="pointer-events-none absolute top-0 bottom-0 right-0 w-[200px] z-[15]" style={{ background: "linear-gradient(to left, #000, transparent)" }} />
 
-      {/* Center beam — same height as cards */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] z-20 flex items-stretch justify-center" style={{ height: `${CARD_H}px` }}>
+      {/* Line 1: Clean line — visible when no card is passing */}
+      <div ref={lineRef} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 transition-opacity duration-200" style={{ height: `${CARD_H}px` }}>
+        <div
+          className="w-[2px] h-full rounded-sm"
+          style={{
+            background: "linear-gradient(to bottom, rgba(180,150,255,.08) 0%, rgba(210,190,255,.25) 15%, rgba(230,215,255,.35) 50%, rgba(210,190,255,.25) 85%, rgba(180,150,255,.08) 100%)",
+          }}
+        />
+      </div>
+
+      {/* Line 2: Particle beam — only visible when a card passes through */}
+      <div ref={beamRef} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] z-20 flex items-stretch justify-center transition-opacity duration-200" style={{ height: `${CARD_H}px`, opacity: 0 }}>
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 72px 100% at 50% 50%, rgba(120,65,245,.15) 0%, transparent 100%)", filter: "blur(3px)" }} />
         <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[32px]" style={{ background: "radial-gradient(ellipse 32px 100% at 50% 50%, rgba(155,100,255,.32) 0%, transparent 100%)", filter: "blur(2px)" }} />
         <div
