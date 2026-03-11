@@ -236,8 +236,14 @@ export async function POST(req: Request) {
   // 3. Extract fingerprint from request (optional, sent by client)
   const fingerprint = req.headers.get("x-client-fp") || undefined;
 
-  // 4. Rate limit check (DB-backed, atomic)
-  const rateLimit = await getRateLimit(ip, fingerprint);
+  // 4. Dev bypass — skip rate limit with secret key (dev only)
+  const devBypass = process.env.DEV_CHECK_BYPASS_KEY
+    && req.headers.get("x-dev-bypass") === process.env.DEV_CHECK_BYPASS_KEY;
+
+  // 5. Rate limit check (DB-backed, atomic)
+  const rateLimit = devBypass
+    ? { allowed: true, remaining: 999, resetTime: Date.now() + RATE_LIMIT_WINDOW_MS }
+    : await getRateLimit(ip, fingerprint);
 
   if (!rateLimit.allowed) {
     return NextResponse.json(
@@ -392,7 +398,7 @@ export async function POST(req: Request) {
     verdict: isSuspicious ? "ai_generated" : "likely_real",
     confidence: aiData ? aiConfidence : dfFakenessPercent,
     label: isSuspicious
-      ? isDeepfake && !isAIGenerated ? "Deepfake Detected" : "AI Generated"
+      ? isDeepfake && !isAIGenerated ? "Likely Deepfake" : "AI Generated"
       : "Likely Real",
     details: detailParts.join(". ") + ".",
     checks,

@@ -78,7 +78,7 @@ async function createWatermarked(
       const s = w / 800;
 
       // ── Bottom bar: gradient fade ──
-      const barH = Math.round(72 * s);
+      const barH = Math.round(84 * s);
       const grad = ctx.createLinearGradient(0, h - barH * 1.6, 0, h);
       grad.addColorStop(0, "rgba(0,0,0,0)");
       grad.addColorStop(0.45, "rgba(0,0,0,0.55)");
@@ -86,50 +86,70 @@ async function createWatermarked(
       ctx.fillStyle = grad;
       ctx.fillRect(0, h - barH * 1.6, w, barH * 1.6);
 
-      // ── Verdict pill (bottom-left) ──
-      const pillFS = Math.round(13 * s);
-      const pillH = Math.round(26 * s);
-      const pillPadX = Math.round(12 * s);
-      const pillR = pillH / 2;
-      const pillY = h - barH / 2 - pillH / 2;
-      const pillX = Math.round(16 * s);
+      // ── Verdict tag (bottom-left) — square, two lines ──
+      // Two-line tag: key word big on top, qualifier small below
+      // "AI Generated" → "AI" / "Generated"
+      // "Likely Real" → "Real" / "Likely"
+      // "Likely Deepfake" → "Deepfake" / "Likely"
+      const labelParts = label.split(" ");
+      let line1: string, line2: string;
+      if (labelParts[0] === "Likely") {
+        line1 = labelParts.slice(1).join(" ");
+        line2 = "Likely";
+      } else {
+        line1 = labelParts[0];
+        line2 = labelParts.slice(1).join(" ") || "";
+      }
 
-      ctx.font = `700 ${pillFS}px -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif`;
-      const dotSize = Math.round(6 * s);
-      const dotGap = Math.round(6 * s);
-      const pillTW = ctx.measureText(label).width;
-      const pillW = pillPadX + dotSize + dotGap + pillTW + pillPadX;
+      const line1FS = Math.round(20 * s);
+      const line2FS = Math.round(11 * s);
+      const tagPadX = Math.round(14 * s);
+      const tagPadY = Math.round(10 * s);
+      const tagR = Math.round(8 * s);
+      const lineGap = Math.round(3 * s);
 
-      const pillBg = isAI ? "rgba(239,68,68,0.2)" : "rgba(34,197,94,0.2)";
-      const pillBorder = isAI ? "rgba(239,68,68,0.45)" : "rgba(34,197,94,0.45)";
+      // Measure widths
+      ctx.font = `800 ${line1FS}px -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif`;
+      const line1W = ctx.measureText(line1).width;
+      ctx.font = `600 ${line2FS}px -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif`;
+      const line2W = line2 ? ctx.measureText(line2).width : 0;
+
+      const tagW = tagPadX * 2 + Math.max(line1W, line2W);
+      const tagH = tagPadY + line1FS + (line2 ? lineGap + line2FS : 0) + tagPadY;
+      const tagX = Math.round(20 * s);
+      const tagY = h - barH / 2 - tagH / 2;
+
+      // tag background
+      const tagBg = isAI ? "rgba(239,68,68,0.2)" : "rgba(34,197,94,0.2)";
+      const tagBorder = isAI ? "rgba(239,68,68,0.45)" : "rgba(34,197,94,0.45)";
       ctx.save();
-      roundRect(ctx, pillX, pillY, pillW, pillH, pillR);
-      ctx.fillStyle = pillBg;
+      roundRect(ctx, tagX, tagY, tagW, tagH, tagR);
+      ctx.fillStyle = tagBg;
       ctx.fill();
-      ctx.strokeStyle = pillBorder;
-      ctx.lineWidth = Math.max(1, s);
+      ctx.strokeStyle = tagBorder;
+      ctx.lineWidth = Math.max(1, s * 1.2);
       ctx.stroke();
       ctx.restore();
 
-      // dot
-      const dotCX = pillX + pillPadX + dotSize / 2;
-      const dotCY = pillY + pillH / 2;
-      ctx.beginPath();
-      ctx.arc(dotCX, dotCY, dotSize / 2, 0, Math.PI * 2);
-      ctx.fillStyle = isAI ? "#f87171" : "#4ade80";
-      ctx.fill();
-
-      // label text
+      // line 1 — big bold
+      ctx.font = `800 ${line1FS}px -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif`;
       ctx.fillStyle = isAI ? "#fca5a5" : "#86efac";
-      ctx.fillText(label, dotCX + dotSize / 2 + dotGap, pillY + pillH / 2 + pillFS * 0.36);
+      ctx.fillText(line1, tagX + tagPadX, tagY + tagPadY + line1FS * 0.85);
 
-      // ── Bottom-right: logo + "Checked by Scam.ai" ──
-      const brandFS = Math.round(13 * s);
-      const logoSize = Math.round(18 * s);
-      const logoGap = Math.round(6 * s);
-      const brandCY = pillY + pillH / 2;
+      // line 2 — smaller
+      if (line2) {
+        ctx.font = `600 ${line2FS}px -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif`;
+        ctx.fillStyle = isAI ? "rgba(252,165,165,0.7)" : "rgba(134,239,172,0.7)";
+        ctx.fillText(line2, tagX + tagPadX, tagY + tagPadY + line1FS + lineGap + line2FS * 0.85);
+      }
 
-      // Measure "Checked by " and "Scam.ai" separately for bold emphasis
+      // ── Bottom-right: logo + "Checked by Scam.ai" (larger) ──
+      const brandFS = Math.round(15 * s);
+      const logoSize = Math.round(24 * s);
+      const logoGap = Math.round(8 * s);
+      const brandCY = tagY + tagH / 2;
+
+      // Measure text parts
       ctx.font = `500 ${brandFS}px -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif`;
       const prefixText = "Checked by ";
       const prefixW = ctx.measureText(prefixText).width;
@@ -137,63 +157,26 @@ async function createWatermarked(
       const brandName = "Scam.ai";
       const brandNameW = ctx.measureText(brandName).width;
       const brandBlockW = logoSize + logoGap + prefixW + brandNameW;
-      const brandX = w - brandBlockW - Math.round(16 * s);
+      const brandX = w - brandBlockW - Math.round(20 * s);
 
-      // draw logo icon
+      // draw logo
       if (_logoCache) {
-        ctx.globalAlpha = 0.85;
+        ctx.globalAlpha = 0.9;
         ctx.drawImage(logo, brandX, brandCY - logoSize / 2, logoSize, logoSize);
         ctx.globalAlpha = 1;
       }
 
-      // draw "Checked by " in lighter weight
+      // "Checked by "
       const textX = brandX + logoSize + logoGap;
       const textY = brandCY + brandFS * 0.36;
       ctx.font = `500 ${brandFS}px -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif`;
       ctx.fillStyle = "rgba(255,255,255,0.55)";
       ctx.fillText(prefixText, textX, textY);
 
-      // draw "Scam.ai" in bold white
+      // "Scam.ai" — bold, bright
       ctx.font = `800 ${brandFS}px -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif`;
-      ctx.fillStyle = "rgba(255,255,255,0.9)";
+      ctx.fillStyle = "rgba(255,255,255,0.95)";
       ctx.fillText(brandName, textX + prefixW, textY);
-
-      // ── Top-right badge: logo + "Scam.ai" ──
-      const badgeFS = Math.round(11 * s);
-      const badgeH = Math.round(26 * s);
-      const badgePadX = Math.round(10 * s);
-      const badgeR = Math.round(8 * s);
-      const badgeLogoSize = Math.round(16 * s);
-      const badgeLogoGap = Math.round(5 * s);
-      ctx.font = `700 ${badgeFS}px -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif`;
-      const badgeLabel = "Scam.ai";
-      const badgeTW = ctx.measureText(badgeLabel).width;
-      const badgeW = badgePadX + badgeLogoSize + badgeLogoGap + badgeTW + badgePadX;
-      const badgeX = w - badgeW - Math.round(12 * s);
-      const badgeY = Math.round(12 * s);
-
-      // badge background with subtle blur effect
-      ctx.save();
-      roundRect(ctx, badgeX, badgeY, badgeW, badgeH, badgeR);
-      ctx.fillStyle = "rgba(0,0,0,0.6)";
-      ctx.fill();
-      ctx.strokeStyle = "rgba(255,255,255,0.15)";
-      ctx.lineWidth = Math.max(1, s * 0.7);
-      ctx.stroke();
-      ctx.restore();
-
-      // badge logo
-      if (_logoCache) {
-        ctx.globalAlpha = 0.9;
-        const blx = badgeX + badgePadX;
-        const bly = badgeY + badgeH / 2 - badgeLogoSize / 2;
-        ctx.drawImage(logo, blx, bly, badgeLogoSize, badgeLogoSize);
-        ctx.globalAlpha = 1;
-
-        // badge text — bold white
-        ctx.fillStyle = "rgba(255,255,255,0.9)";
-        ctx.fillText(badgeLabel, blx + badgeLogoSize + badgeLogoGap, badgeY + badgeH / 2 + badgeFS * 0.36);
-      }
 
       resolve(canvas.toDataURL("image/png"));
     };
@@ -210,10 +193,18 @@ export default function CheckSection() {
   const [canNativeShare, setCanNativeShare] = useState(false);
   const [limitReached, setLimitReached] = useState(false);
   const [remaining, setRemaining] = useState<number | null>(null);
+  const [previewLimit, setPreviewLimit] = useState(false);
+  const previewLimitRef = useRef(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setCanNativeShare(!!navigator.share);
+    // ?preview-limit forces locked UI for testing
+    if (new URLSearchParams(window.location.search).has("preview-limit")) {
+      setPreviewLimit(true);
+      previewLimitRef.current = true;
+      setLimitReached(true);
+    }
   }, []);
 
   const addFiles = useCallback((newFiles: FileList | File[]) => {
@@ -231,6 +222,32 @@ export default function CheckSection() {
   }, []);
 
   const analyzeFile = async (entry: FileState) => {
+    // Preview mode: skip API, simulate locked result
+    if (previewLimitRef.current) {
+      setFiles((prev) =>
+        prev.map((f) => (f.file === entry.file ? { ...f, status: "uploading" as const } : f))
+      );
+      await new Promise((r) => setTimeout(r, 800));
+      const fakeLabel = Math.random() > 0.5 ? "AI Generated" : "Likely Real";
+      const fakeAI = fakeLabel === "AI Generated";
+      const watermarked = await createWatermarked(
+        URL.createObjectURL(entry.file), fakeLabel, fakeAI
+      );
+      const fakeResult: CheckResult = {
+        verdict: fakeAI ? "ai_generated" : "likely_real",
+        confidence: Math.round(70 + Math.random() * 25),
+        label: fakeLabel, details: "", checks: [], remaining: 0,
+      };
+      setFiles((prev) =>
+        prev.map((f) =>
+          f.file === entry.file
+            ? { ...f, status: "locked" as const, result: fakeResult, watermarked }
+            : f
+        )
+      );
+      return;
+    }
+
     setFiles((prev) =>
       prev.map((f) => (f.file === entry.file ? { ...f, status: "uploading" as const } : f))
     );
@@ -239,7 +256,11 @@ export default function CheckSection() {
     formData.append("file", entry.file);
 
     try {
-      const res = await fetch("/api/check", { method: "POST", body: formData });
+      const headers: Record<string, string> = {};
+      if (process.env.NEXT_PUBLIC_DEV_CHECK_BYPASS_KEY) {
+        headers["x-dev-bypass"] = process.env.NEXT_PUBLIC_DEV_CHECK_BYPASS_KEY;
+      }
+      const res = await fetch("/api/check", { method: "POST", body: formData, headers });
       const data = await res.json();
 
       if (!res.ok) {
@@ -313,7 +334,7 @@ export default function CheckSection() {
     if (!f.watermarked) return;
     const a = document.createElement("a");
     a.href = f.watermarked;
-    a.download = `scamai_${f.file.name}`;
+    a.download = `${f.file.name.replace(/\.[^.]+$/, "")}_checkedbyscamai.png`;
     a.click();
   };
 
@@ -322,7 +343,7 @@ export default function CheckSection() {
     const text = `${f.result.label} — Checked by Scam.ai`;
     try {
       const blob = await (await fetch(f.watermarked)).blob();
-      const shareFile = new File([blob], `scamai_${f.file.name}`, { type: "image/png" });
+      const shareFile = new File([blob], `${f.file.name.replace(/\.[^.]+$/, "")}_checkedbyscamai.png`, { type: "image/png" });
       if (navigator.canShare?.({ files: [shareFile] })) {
         await navigator.share({ text, files: [shareFile] });
       } else {
@@ -349,7 +370,7 @@ export default function CheckSection() {
   const isAI = (result: CheckResult) => result.verdict === "ai_generated";
 
   return (
-    <section id="check" className="relative bg-black py-12 sm:py-20" aria-label="Try AI Detection">
+    <section id="check" className="relative bg-black py-12 sm:py-20 scroll-mt-20" aria-label="Try AI Detection">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10">

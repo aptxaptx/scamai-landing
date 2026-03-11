@@ -79,6 +79,15 @@ export const metadata: Metadata = {
     title: "ScamAI - AI Trust Platform | Deepfake Detection",
     description: "Detect synthetic media and deepfakes in real-time with industry-leading accuracy. SOC 2 Type II compliant. 200 free images per month.",
     siteName: "ScamAI",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "ScamAI - AI Trust Platform for Deepfake Detection",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -86,6 +95,7 @@ export const metadata: Metadata = {
     description: "Detect synthetic media and deepfakes in real-time with industry-leading accuracy. SOC 2 Type II compliant.",
     creator: "@scamai",
     site: "@scamai",
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,

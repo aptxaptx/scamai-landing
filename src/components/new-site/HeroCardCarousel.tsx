@@ -37,7 +37,7 @@ const CARDS: CardData[] = [
   {
     num: "", name: "", exp: "", color: "rgba(20,10,70,.55)",
     image: "/man.png",
-    detection: { verdictColor: "#ef4444", confidence: "97.4%", label: "Deepfake Detected" },
+    detection: { verdictColor: "#ef4444", confidence: "97.4%", label: "Likely Deepfake" },
   },
   {
     num: "", name: "", exp: "", color: "rgba(12,18,60,.55)",
@@ -52,7 +52,7 @@ const CARDS: CardData[] = [
   {
     num: "", name: "", exp: "", color: "rgba(8,16,65,.55)",
     image: "/man.png",
-    detection: { verdictColor: "#ef4444", confidence: "98.3%", label: "Deepfake Detected" },
+    detection: { verdictColor: "#ef4444", confidence: "98.3%", label: "Likely Deepfake" },
   },
   {
     num: "", name: "", exp: "", color: "rgba(18,10,68,.55)",
