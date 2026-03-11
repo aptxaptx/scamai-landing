@@ -292,13 +292,13 @@ export default function NewLanding() {
         <HeroBackground className="" />
         <div className="relative z-10 w-full">
           {/* Text area — centered in ~70vh */}
-          <div className="flex min-h-[70vh] flex-col items-center justify-center px-5 pt-[180px] text-center sm:px-10 lg:px-8">
-            <div className="mx-auto flex max-w-4xl flex-col items-center space-y-5 sm:space-y-6">
-              {/* Card carousel animation */}
-              <div className="w-full h-[240px] sm:h-[300px]">
-                <HeroCardCarousel />
-              </div>
+          {/* Card carousel — full viewport width */}
+          <div className="w-screen relative left-1/2 -translate-x-1/2 h-[240px] sm:h-[300px] mt-[180px]">
+            <HeroCardCarousel />
+          </div>
 
+          <div className="flex flex-col items-center justify-center px-5 pt-16 sm:pt-20 text-center sm:px-10 lg:px-8">
+            <div className="mx-auto flex max-w-4xl flex-col items-center space-y-5 sm:space-y-6">
               <AnimatedSection delay={0.3}>
                 <h1
                   className="text-[2.5rem] font-semibold sm:text-[3.5rem] max-w-4xl px-2 sm:px-0 text-white"
