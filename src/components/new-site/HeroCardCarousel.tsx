@@ -86,9 +86,75 @@ function maskReal(realEl: HTMLDivElement, beamX: number) {
   realEl.style.webkitMaskImage = m;
 }
 
+// Beam spark particles
+interface Spark {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  maxLife: number;
+  size: number;
+}
+
+const MAX_SPARKS = 150;
+
+function spawnSparks(sparks: Spark[], h: number) {
+  // Spawn several new sparks per frame from the beam center
+  for (let i = 0; i < 4; i++) {
+    if (sparks.length >= MAX_SPARKS) {
+      // Recycle oldest
+      const oldest = sparks.reduce((a, b) => (a.life < b.life ? a : b));
+      oldest.x = 0;
+      oldest.y = Math.random() * h;
+      oldest.vx = Math.random() * 2.5 + 0.5;
+      oldest.vy = (Math.random() - 0.5) * 1.5;
+      oldest.life = oldest.maxLife = Math.random() * 40 + 20;
+      oldest.size = Math.random() * 3 + 1;
+    } else {
+      sparks.push({
+        x: 0,
+        y: Math.random() * h,
+        vx: Math.random() * 2.5 + 0.5,
+        vy: (Math.random() - 0.5) * 1.5,
+        life: Math.random() * 40 + 20,
+        maxLife: Math.random() * 40 + 20,
+        size: Math.random() * 3 + 1,
+      });
+    }
+  }
+}
+
+function drawSparks(ctx: CanvasRenderingContext2D, sparks: Spark[], w: number, h: number) {
+  ctx.clearRect(0, 0, w, h);
+  for (let i = sparks.length - 1; i >= 0; i--) {
+    const s = sparks[i];
+    s.x += s.vx;
+    s.y += s.vy;
+    s.life--;
+    if (s.life <= 0 || s.x > w) {
+      sparks.splice(i, 1);
+      continue;
+    }
+    const alpha = (s.life / s.maxLife);
+    // Bright purple-white core
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(200, 170, 255, ${alpha * 0.9})`;
+    ctx.fill();
+    // Glow
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.size * 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(130, 80, 255, ${alpha * 0.3})`;
+    ctx.fill();
+  }
+}
+
 export default function HeroCardCarousel() {
   const sceneRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const sparkCvsRef = useRef<HTMLCanvasElement>(null);
+  const sparksRef = useRef<Spark[]>([]);
   const cardElsRef = useRef<CardEl[]>([]);
   const trackXRef = useRef(-ONE_SET);
   const prevTRef = useRef<number | null>(null);
@@ -156,12 +222,22 @@ export default function HeroCardCarousel() {
 
     const scene = sceneRef.current;
     const track = trackRef.current;
-    if (!scene || !track) return;
+    const sparkCvs = sparkCvsRef.current;
+    if (!scene || !track || !sparkCvs) return;
+
+    const sparkCtx = sparkCvs.getContext("2d")!;
+    const SPARK_W = 140;
+    sparkCvs.width = SPARK_W;
+    sparkCvs.height = CARD_H;
 
     const loop = (ts: number) => {
       if (prevTRef.current === null) prevTRef.current = ts;
       const dt = ts - prevTRef.current;
       prevTRef.current = ts;
+
+      // Animate beam sparks
+      spawnSparks(sparksRef.current, CARD_H);
+      drawSparks(sparkCtx, sparksRef.current, SPARK_W, CARD_H);
 
       trackXRef.current += SPEED * dt;
       if (trackXRef.current >= 0) trackXRef.current -= ONE_SET;
@@ -214,6 +290,12 @@ export default function HeroCardCarousel() {
           style={{
             background: "linear-gradient(to bottom, rgba(180,150,255,.3) 0%, rgba(225,210,255,1) 15%, rgba(248,242,255,1) 50%, rgba(225,210,255,1) 85%, rgba(180,150,255,.3) 100%)",
           }}
+        />
+        {/* Animated spark particles — canvas */}
+        <canvas
+          ref={sparkCvsRef}
+          className="absolute top-0"
+          style={{ left: "50%", width: "140px", height: `${CARD_H}px` }}
         />
       </div>
 
