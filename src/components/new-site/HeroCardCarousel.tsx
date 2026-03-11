@@ -7,15 +7,26 @@ const EV = B64 + ":$#!%&";
 const pick = (a: string) => a[Math.floor(Math.random() * a.length)];
 const rndI = (a: number, b: number) => Math.floor(Math.random() * (b - a) + a);
 
+interface Detection {
+  verdictColor: string;
+  confidence: string;
+}
+
 interface CardData {
   num: string;
   name: string;
   exp: string;
   color: string;
+  image?: string;
+  detection?: Detection;
 }
 
 const CARDS: CardData[] = [
-  { num: "4242 4242 4242 4242", name: "Martha Jones", exp: "12 / 29", color: "rgba(30,14,80,.55)" },
+  {
+    num: "", name: "", exp: "", color: "rgba(30,14,80,.55)",
+    image: "/genai.png",
+    detection: { verdictColor: "#ef4444", confidence: "99.2%" },
+  },
   { num: "5319 7501 0000 0000", name: "Jeremy Wagemans", exp: "", color: "rgba(10,20,70,.55)" },
   { num: "5577 0000 5577 0004", name: "Chris Smith", exp: "04 / 28", color: "rgba(20,10,70,.55)" },
   { num: "4311 1111 1111 1111", name: "Frank Peters", exp: "12 / 29", color: "rgba(12,18,60,.55)" },
@@ -43,6 +54,8 @@ interface CardEl {
   ctx: CanvasRenderingContext2D;
   grid: GridCell[][];
   realEl: HTMLDivElement;
+  tagEl: HTMLDivElement | null;
+  detection: Detection | null;
   GR: number;
   GC: number;
 }
@@ -66,6 +79,7 @@ function drawCipher(el: CardEl, beamX: number) {
       ctx.fillText(cell.ch, c * 7.1, r * 13.5);
     }
   }
+
   const g = ctx.createLinearGradient(beamX - 16, 0, beamX + 16, 0);
   g.addColorStop(0, "rgba(0,0,0,0)");
   g.addColorStop(0.45, "rgba(0,0,0,.5)");
@@ -85,6 +99,7 @@ function maskReal(realEl: HTMLDivElement, beamX: number) {
   realEl.style.maskImage = m;
   realEl.style.webkitMaskImage = m;
 }
+
 
 // Beam spark particles
 interface Spark {
@@ -174,10 +189,22 @@ export default function HeroCardCarousel() {
         slot.className = "hero-card-slot";
         slot.style.cssText = `flex-shrink:0;width:${CARD_W}px;margin:0 ${GAP / 2}px;position:relative;`;
 
-        slot.innerHTML = `
-          <div style="width:${CARD_W}px;height:${CARD_H}px;border-radius:18px;position:relative;overflow:hidden;box-shadow:0 0 0 1px rgba(124,58,237,.2),0 24px 60px rgba(0,0,0,.65),0 0 80px rgba(100,50,220,.06)">
-            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 18% 28%,${d.color} 0%,transparent 65%),linear-gradient(135deg,#111232 0%,#090a1e 100%)"></div>
-            <div data-real style="position:absolute;inset:0;padding:20px 24px;display:flex;flex-direction:column;justify-content:space-between">
+        const det = d.detection;
+        const tagHtml = det
+          ? `<div data-tag style="position:absolute;top:10px;right:10px;z-index:5;display:none">
+              <div style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border:1px solid ${det.verdictColor}44">
+                <div style="width:8px;height:8px;border-radius:50%;background:${det.verdictColor};box-shadow:0 0 8px ${det.verdictColor}"></div>
+                <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:${det.verdictColor};letter-spacing:.5px">AI Detected</span>
+                <span style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.6)">${det.confidence}</span>
+              </div>
+            </div>`
+          : "";
+
+        const cardContent = d.image
+          ? `<div data-real style="position:absolute;inset:0;z-index:3">
+              <img src="${d.image}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:18px" />
+            </div>${tagHtml}`
+          : `<div data-real style="position:absolute;inset:0;padding:20px 24px;display:flex;flex-direction:column;justify-content:space-between">
               <div style="display:flex;align-items:center;justify-content:space-between">
                 <div style="width:38px;height:28px;border-radius:5px;background:linear-gradient(135deg,#d4a843,#f0c96b,#c89840,#e8be60);position:relative;overflow:hidden;box-shadow:inset 0 1px 2px rgba(255,210,80,.3),0 1px 4px rgba(0,0,0,.5)"></div>
                 <div style="display:flex;align-items:center;opacity:.42">
@@ -198,8 +225,13 @@ export default function HeroCardCarousel() {
                   <div style="width:26px;height:26px;border-radius:50%;background:rgba(255,163,0,.8);margin-left:-9px"></div>
                 </div>
               </div>
-            </div>
-            <canvas width="${CARD_W}" height="${CARD_H}" style="position:absolute;inset:0;pointer-events:none;border-radius:18px"></canvas>
+            </div>`;
+
+        slot.innerHTML = `
+          <div style="width:${CARD_W}px;height:${CARD_H}px;border-radius:18px;position:relative;overflow:hidden;box-shadow:0 0 0 1px rgba(124,58,237,.2),0 24px 60px rgba(0,0,0,.65),0 0 80px rgba(100,50,220,.06)">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 18% 28%,${d.color} 0%,transparent 65%),linear-gradient(135deg,#111232 0%,#090a1e 100%)"></div>
+            ${cardContent}
+            <canvas width="${CARD_W}" height="${CARD_H}" style="position:absolute;inset:0;pointer-events:none;border-radius:18px;z-index:1"></canvas>
           </div>`;
 
         track.appendChild(slot);
@@ -207,12 +239,13 @@ export default function HeroCardCarousel() {
         const cvs = slot.querySelector("canvas") as HTMLCanvasElement;
         const ctx = cvs.getContext("2d")!;
         const realEl = slot.querySelector("[data-real]") as HTMLDivElement;
+        const tagEl = slot.querySelector("[data-tag]") as HTMLDivElement | null;
         const GR = Math.ceil(CARD_H / 13.5) + 2;
         const GC = Math.ceil(CARD_W / 7.1) + 2;
         const grid: GridCell[][] = Array.from({ length: GR }, () =>
           Array.from({ length: GC }, () => ({ ch: pick(EV), hi: Math.random() < 0.07 }))
         );
-        cardElsRef.current.push({ slot, cvs, ctx, grid, realEl, GR, GC });
+        cardElsRef.current.push({ slot, cvs, ctx, grid, realEl, tagEl, detection: d.detection ?? null, GR, GC });
       }
     }
 
@@ -267,14 +300,22 @@ export default function HeroCardCarousel() {
         const bx = beamVX - cb.left;
         scramble(el.grid, el.GR, el.GC, bx >= 0 && bx <= CARD_W ? 0.045 : 0.01);
 
-        if (bx <= 0) {
+        if (el.detection) {
+          // Detection card: image always visible, tag appears when beam touches card
+          el.cvs.style.opacity = "0";
+          el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "none";
+          if (el.tagEl) el.tagEl.style.display = bx < CARD_W ? "block" : "none";
+        } else if (bx <= 0) {
+          // Normal card fully past beam — show cipher
           el.cvs.style.opacity = "1";
           drawCipher(el, 0);
           el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "linear-gradient(to right,transparent,transparent)";
         } else if (bx >= CARD_W) {
+          // Normal card entering — show original
           el.cvs.style.opacity = "0";
           el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "none";
         } else {
+          // Normal card beam crossing
           el.cvs.style.opacity = "1";
           drawCipher(el, bx);
           maskReal(el.realEl, bx);
