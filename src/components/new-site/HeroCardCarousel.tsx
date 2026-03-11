@@ -26,7 +26,7 @@ const CARDS: CardData[] = [
 
 const CARD_W = 380;
 const CARD_H = 240;
-const GAP = 56;
+const GAP = 120;
 const SLOT_W = CARD_W + GAP;
 const COPIES = 4;
 const ONE_SET = SLOT_W * CARDS.length;
@@ -205,19 +205,15 @@ export default function HeroCardCarousel() {
       <div className="pointer-events-none absolute top-0 bottom-0 left-0 w-[200px] z-[15]" style={{ background: "linear-gradient(to right, #000, transparent)" }} />
       <div className="pointer-events-none absolute top-0 bottom-0 right-0 w-[200px] z-[15]" style={{ background: "linear-gradient(to left, #000, transparent)" }} />
 
-      {/* Center beam */}
-      <div className="pointer-events-none absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[80px] z-20 flex items-stretch justify-center">
+      {/* Center beam — same height as cards */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] z-20 flex items-stretch justify-center" style={{ height: `${CARD_H}px` }}>
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 72px 100% at 50% 50%, rgba(120,65,245,.15) 0%, transparent 100%)", filter: "blur(3px)" }} />
         <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[32px]" style={{ background: "radial-gradient(ellipse 32px 100% at 50% 50%, rgba(155,100,255,.32) 0%, transparent 100%)", filter: "blur(2px)" }} />
         <div
           className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[2px] rounded-sm"
           style={{
-            background: "linear-gradient(to bottom, transparent 0%, rgba(180,150,255,.5) 6%, rgba(225,210,255,1) 25%, rgba(248,242,255,1) 50%, rgba(225,210,255,1) 75%, rgba(180,150,255,.5) 94%, transparent 100%)",
+            background: "linear-gradient(to bottom, rgba(180,150,255,.3) 0%, rgba(225,210,255,1) 15%, rgba(248,242,255,1) 50%, rgba(225,210,255,1) 85%, rgba(180,150,255,.3) 100%)",
           }}
-        />
-        <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[6px] h-[6px] rounded-full bg-white animate-[corePulse_1.8s_ease-in-out_infinite]"
-          style={{ boxShadow: "0 0 8px 3px rgba(210,190,255,.8), 0 0 22px 10px rgba(140,90,250,.35)" }}
         />
       </div>
 
