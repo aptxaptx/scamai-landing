@@ -4,12 +4,14 @@ import { useEffect, useRef, useCallback } from "react";
 
 const B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 const EV = B64 + ":$#!%&";
-const pick = (a: string) => a[Math.floor(Math.random() * a.length)];
-const rndI = (a: number, b: number) => Math.floor(Math.random() * (b - a) + a);
+const EV_LEN = EV.length;
+const pick = () => EV[(Math.random() * EV_LEN) | 0];
+const rndI = (a: number, b: number) => (Math.random() * (b - a) + a) | 0;
 
 interface Detection {
   verdictColor: string;
   confidence: string;
+  label: string;
 }
 
 interface CardData {
@@ -25,14 +27,38 @@ const CARDS: CardData[] = [
   {
     num: "", name: "", exp: "", color: "rgba(30,14,80,.55)",
     image: "/genai.png",
-    detection: { verdictColor: "#ef4444", confidence: "99.2%" },
+    detection: { verdictColor: "#ef4444", confidence: "99.2%", label: "AI Detected" },
   },
-  { num: "5319 7501 0000 0000", name: "Jeremy Wagemans", exp: "", color: "rgba(10,20,70,.55)" },
-  { num: "5577 0000 5577 0004", name: "Chris Smith", exp: "04 / 28", color: "rgba(20,10,70,.55)" },
-  { num: "4311 1111 1111 1111", name: "Frank Peters", exp: "12 / 29", color: "rgba(12,18,60,.55)" },
-  { num: "4111 1111 1111 1111", name: "Emma Johnson", exp: "08 / 27", color: "rgba(25,12,75,.55)" },
-  { num: "5319 7501 0000 0000", name: "Ben Miller", exp: "", color: "rgba(8,16,65,.55)" },
-  { num: "5577 0000 5577 0004", name: "Julie Martin", exp: "04 / 28", color: "rgba(18,10,68,.55)" },
+  {
+    num: "", name: "", exp: "", color: "rgba(10,20,70,.55)",
+    image: "/woman.png",
+    detection: { verdictColor: "#22c55e", confidence: "98.7%", label: "Likely Real" },
+  },
+  {
+    num: "", name: "", exp: "", color: "rgba(20,10,70,.55)",
+    image: "/man.png",
+    detection: { verdictColor: "#ef4444", confidence: "97.4%", label: "AI Detected" },
+  },
+  {
+    num: "", name: "", exp: "", color: "rgba(12,18,60,.55)",
+    image: "/woman.png",
+    detection: { verdictColor: "#22c55e", confidence: "96.1%", label: "Likely Real" },
+  },
+  {
+    num: "", name: "", exp: "", color: "rgba(25,12,75,.55)",
+    image: "/genai.png",
+    detection: { verdictColor: "#ef4444", confidence: "99.5%", label: "AI Detected" },
+  },
+  {
+    num: "", name: "", exp: "", color: "rgba(8,16,65,.55)",
+    image: "/man.png",
+    detection: { verdictColor: "#ef4444", confidence: "98.3%", label: "AI Detected" },
+  },
+  {
+    num: "", name: "", exp: "", color: "rgba(18,10,68,.55)",
+    image: "/woman.png",
+    detection: { verdictColor: "#22c55e", confidence: "95.8%", label: "Likely Real" },
+  },
 ];
 
 const CARD_W = 380;
@@ -42,17 +68,15 @@ const SLOT_W = CARD_W + GAP;
 const COPIES = 4;
 const ONE_SET = SLOT_W * CARDS.length;
 const SPEED = 0.08;
-
-interface GridCell {
-  ch: string;
-  hi: boolean;
-}
+const CELL_W = 7.1;
+const CELL_H = 13.5;
 
 interface CardEl {
   slot: HTMLDivElement;
   cvs: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-  grid: GridCell[][];
+  chars: string[];    // flat array [r * GC + c]
+  highlights: boolean[];
   realEl: HTMLDivElement;
   tagEl: HTMLDivElement | null;
   detection: Detection | null;
@@ -60,23 +84,39 @@ interface CardEl {
   GC: number;
 }
 
-function scramble(grid: GridCell[][], GR: number, GC: number, frac: number) {
-  const n = Math.floor(GR * GC * frac);
+function scramble(chars: string[], highlights: boolean[], total: number, frac: number) {
+  const n = (total * frac) | 0;
   for (let k = 0; k < n; k++) {
-    grid[rndI(0, GR)][rndI(0, GC)] = { ch: pick(EV), hi: Math.random() < 0.07 };
+    const idx = (Math.random() * total) | 0;
+    chars[idx] = pick();
+    highlights[idx] = Math.random() < 0.07;
   }
 }
 
+const COL_DIM = "rgba(130,82,240,.46)";
+const COL_HI = "rgba(220,200,255,.88)";
+
 function drawCipher(el: CardEl, beamX: number) {
-  const { ctx, grid, GR, GC } = el;
+  const { ctx, chars, highlights, GR, GC } = el;
   ctx.clearRect(0, 0, CARD_W, CARD_H);
   ctx.font = '9px "Space Mono", monospace';
   ctx.textBaseline = "top";
+
+  // Batch by color to reduce context switches
+  ctx.fillStyle = COL_DIM;
   for (let r = 0; r < GR; r++) {
+    const row = r * GC;
+    const y = r * CELL_H;
     for (let c = 0; c < GC; c++) {
-      const cell = grid[r][c];
-      ctx.fillStyle = cell.hi ? "rgba(220,200,255,.88)" : "rgba(130,82,240,.46)";
-      ctx.fillText(cell.ch, c * 7.1, r * 13.5);
+      if (!highlights[row + c]) ctx.fillText(chars[row + c], c * CELL_W, y);
+    }
+  }
+  ctx.fillStyle = COL_HI;
+  for (let r = 0; r < GR; r++) {
+    const row = r * GC;
+    const y = r * CELL_H;
+    for (let c = 0; c < GC; c++) {
+      if (highlights[row + c]) ctx.fillText(chars[row + c], c * CELL_W, y);
     }
   }
 
@@ -100,8 +140,7 @@ function maskReal(realEl: HTMLDivElement, beamX: number) {
   realEl.style.webkitMaskImage = m;
 }
 
-
-// Beam spark particles
+// Spark particle pool — fixed-size array, no splice/push
 interface Spark {
   x: number;
   y: number;
@@ -110,57 +149,56 @@ interface Spark {
   life: number;
   maxLife: number;
   size: number;
+  alive: boolean;
 }
 
-const MAX_SPARKS = 150;
+const MAX_SPARKS = 80;
 
-function spawnSparks(sparks: Spark[], h: number) {
-  // Spawn several new sparks per frame from the beam center
-  for (let i = 0; i < 4; i++) {
-    if (sparks.length >= MAX_SPARKS) {
-      // Recycle oldest
-      const oldest = sparks.reduce((a, b) => (a.life < b.life ? a : b));
-      oldest.x = 0;
-      oldest.y = Math.random() * h;
-      oldest.vx = Math.random() * 2.5 + 0.5;
-      oldest.vy = (Math.random() - 0.5) * 1.5;
-      oldest.life = oldest.maxLife = Math.random() * 40 + 20;
-      oldest.size = Math.random() * 3 + 1;
-    } else {
-      sparks.push({
-        x: 0,
-        y: Math.random() * h,
-        vx: Math.random() * 2.5 + 0.5,
-        vy: (Math.random() - 0.5) * 1.5,
-        life: Math.random() * 40 + 20,
-        maxLife: Math.random() * 40 + 20,
-        size: Math.random() * 3 + 1,
-      });
+function createSparkPool(): Spark[] {
+  const pool: Spark[] = [];
+  for (let i = 0; i < MAX_SPARKS; i++) {
+    pool.push({ x: 0, y: 0, vx: 0, vy: 0, life: 0, maxLife: 1, size: 1, alive: false });
+  }
+  return pool;
+}
+
+function spawnSparks(pool: Spark[], h: number) {
+  let spawned = 0;
+  for (let i = 0; i < MAX_SPARKS && spawned < 3; i++) {
+    if (!pool[i].alive) {
+      const s = pool[i];
+      s.x = (Math.random() - 0.5) * 6;
+      s.y = Math.random() * h;
+      s.vx = Math.random() * 1.2 + 0.3;
+      s.vy = (Math.random() - 0.5) * 0.4;
+      s.life = s.maxLife = (Math.random() * 25 + 10) | 0;
+      s.size = Math.random() * 2 + 0.5;
+      s.alive = true;
+      spawned++;
     }
   }
 }
 
-function drawSparks(ctx: CanvasRenderingContext2D, sparks: Spark[], w: number, h: number) {
+function drawSparks(ctx: CanvasRenderingContext2D, pool: Spark[], w: number, h: number) {
   ctx.clearRect(0, 0, w, h);
-  for (let i = sparks.length - 1; i >= 0; i--) {
-    const s = sparks[i];
+  for (let i = 0; i < MAX_SPARKS; i++) {
+    const s = pool[i];
+    if (!s.alive) continue;
     s.x += s.vx;
     s.y += s.vy;
     s.life--;
     if (s.life <= 0 || s.x > w) {
-      sparks.splice(i, 1);
+      s.alive = false;
       continue;
     }
-    const alpha = (s.life / s.maxLife);
-    // Bright purple-white core
+    const alpha = s.life / s.maxLife;
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(200, 170, 255, ${alpha * 0.9})`;
+    ctx.fillStyle = `rgba(255,255,255,${(alpha * 0.9).toFixed(2)})`;
     ctx.fill();
-    // Glow
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.size * 2.5, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(130, 80, 255, ${alpha * 0.3})`;
+    ctx.fillStyle = `rgba(255,255,255,${(alpha * 0.25).toFixed(2)})`;
     ctx.fill();
   }
 }
@@ -171,7 +209,7 @@ export default function HeroCardCarousel() {
   const beamRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const sparkCvsRef = useRef<HTMLCanvasElement>(null);
-  const sparksRef = useRef<Spark[]>([]);
+  const sparksRef = useRef<Spark[]>(createSparkPool());
   const cardElsRef = useRef<CardEl[]>([]);
   const trackXRef = useRef(-ONE_SET);
   const prevTRef = useRef<number | null>(null);
@@ -194,7 +232,7 @@ export default function HeroCardCarousel() {
           ? `<div data-tag style="position:absolute;top:10px;right:10px;z-index:5;display:none">
               <div style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border:1px solid ${det.verdictColor}44">
                 <div style="width:8px;height:8px;border-radius:50%;background:${det.verdictColor};box-shadow:0 0 8px ${det.verdictColor}"></div>
-                <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:${det.verdictColor};letter-spacing:.5px">AI Detected</span>
+                <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:${det.verdictColor};letter-spacing:.5px">${det.label}</span>
                 <span style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.6)">${det.confidence}</span>
               </div>
             </div>`
@@ -240,12 +278,16 @@ export default function HeroCardCarousel() {
         const ctx = cvs.getContext("2d")!;
         const realEl = slot.querySelector("[data-real]") as HTMLDivElement;
         const tagEl = slot.querySelector("[data-tag]") as HTMLDivElement | null;
-        const GR = Math.ceil(CARD_H / 13.5) + 2;
-        const GC = Math.ceil(CARD_W / 7.1) + 2;
-        const grid: GridCell[][] = Array.from({ length: GR }, () =>
-          Array.from({ length: GC }, () => ({ ch: pick(EV), hi: Math.random() < 0.07 }))
-        );
-        cardElsRef.current.push({ slot, cvs, ctx, grid, realEl, tagEl, detection: d.detection ?? null, GR, GC });
+        const GR = Math.ceil(CARD_H / CELL_H) + 2;
+        const GC = Math.ceil(CARD_W / CELL_W) + 2;
+        const total = GR * GC;
+        const chars: string[] = new Array(total);
+        const highlights: boolean[] = new Array(total);
+        for (let i = 0; i < total; i++) {
+          chars[i] = pick();
+          highlights[i] = Math.random() < 0.07;
+        }
+        cardElsRef.current.push({ slot, cvs, ctx, chars, highlights, realEl, tagEl, detection: d.detection ?? null, GR, GC });
       }
     }
 
@@ -270,7 +312,6 @@ export default function HeroCardCarousel() {
       const dt = ts - prevTRef.current;
       prevTRef.current = ts;
 
-      // Animate beam sparks
       spawnSparks(sparksRef.current, CARD_H);
       drawSparks(sparkCtx, sparksRef.current, SPARK_W, CARD_H);
 
@@ -280,47 +321,61 @@ export default function HeroCardCarousel() {
 
       const sb = scene.getBoundingClientRect();
       const beamVX = sb.left + sb.width / 2;
+      const sbLeft = sb.left - 10;
+      const sbRight = sb.right + 10;
 
-      // Show particle beam only when a card is passing through
+      // Single pass: update cards + detect beam hit
       let beamHitsCard = false;
-      for (const el of cardElsRef.current) {
+      const els = cardElsRef.current;
+      for (let i = 0, len = els.length; i < len; i++) {
+        const el = els[i];
         const cb = el.slot.getBoundingClientRect();
+
+        // Skip offscreen cards
+        if (cb.right < sbLeft || cb.left > sbRight) continue;
+
         const bx = beamVX - cb.left;
-        if (bx > 0 && bx < CARD_W) { beamHitsCard = true; break; }
+        const crossing = bx > 0 && bx < CARD_W;
+        if (crossing) beamHitsCard = true;
+
+        if (el.detection) {
+          // Detection card: image always visible, tag fades in after beam passes
+          el.cvs.style.opacity = "0";
+          el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "none";
+          if (el.tagEl) {
+            const revealStart = CARD_W * 0.6;
+            if (bx < revealStart) {
+              const progress = Math.min(1, (revealStart - bx) / (revealStart * 0.4));
+              el.tagEl.style.display = "block";
+              el.tagEl.style.opacity = String(progress);
+            } else {
+              el.tagEl.style.display = "none";
+              el.tagEl.style.opacity = "0";
+            }
+          }
+        } else {
+          // Normal card: cipher effect
+          const total = el.GR * el.GC;
+          scramble(el.chars, el.highlights, total, crossing ? 0.045 : 0.01);
+
+          if (bx <= 0) {
+            el.cvs.style.opacity = "1";
+            drawCipher(el, 0);
+            el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "linear-gradient(to right,transparent,transparent)";
+          } else if (bx >= CARD_W) {
+            el.cvs.style.opacity = "0";
+            el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "none";
+          } else {
+            el.cvs.style.opacity = "1";
+            drawCipher(el, bx);
+            maskReal(el.realEl, bx);
+          }
+        }
       }
+
       if (beamRef.current) beamRef.current.style.opacity = beamHitsCard ? "1" : "0";
       if (lineRef.current) lineRef.current.style.opacity = beamHitsCard ? "0" : "1";
 
-      for (const el of cardElsRef.current) {
-        const cb = el.slot.getBoundingClientRect();
-        if (cb.right < sb.left - 10 || cb.left > sb.right + 10) {
-          scramble(el.grid, el.GR, el.GC, 0.01);
-          continue;
-        }
-        const bx = beamVX - cb.left;
-        scramble(el.grid, el.GR, el.GC, bx >= 0 && bx <= CARD_W ? 0.045 : 0.01);
-
-        if (el.detection) {
-          // Detection card: image always visible, tag appears when beam touches card
-          el.cvs.style.opacity = "0";
-          el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "none";
-          if (el.tagEl) el.tagEl.style.display = bx < CARD_W ? "block" : "none";
-        } else if (bx <= 0) {
-          // Normal card fully past beam — show cipher
-          el.cvs.style.opacity = "1";
-          drawCipher(el, 0);
-          el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "linear-gradient(to right,transparent,transparent)";
-        } else if (bx >= CARD_W) {
-          // Normal card entering — show original
-          el.cvs.style.opacity = "0";
-          el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "none";
-        } else {
-          // Normal card beam crossing
-          el.cvs.style.opacity = "1";
-          drawCipher(el, bx);
-          maskReal(el.realEl, bx);
-        }
-      }
       rafRef.current = requestAnimationFrame(loop);
     };
 
@@ -334,27 +389,26 @@ export default function HeroCardCarousel() {
       <div className="pointer-events-none absolute top-0 bottom-0 left-0 w-[200px] z-[15]" style={{ background: "linear-gradient(to right, #000, transparent)" }} />
       <div className="pointer-events-none absolute top-0 bottom-0 right-0 w-[200px] z-[15]" style={{ background: "linear-gradient(to left, #000, transparent)" }} />
 
-      {/* Line 1: Clean line — visible when no card is passing */}
+      {/* Clean line — visible when no card is passing */}
       <div ref={lineRef} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 transition-opacity duration-200" style={{ height: `${CARD_H}px` }}>
         <div
           className="w-[2px] h-full rounded-sm"
           style={{
-            background: "linear-gradient(to bottom, rgba(180,150,255,.08) 0%, rgba(210,190,255,.25) 15%, rgba(230,215,255,.35) 50%, rgba(210,190,255,.25) 85%, rgba(180,150,255,.08) 100%)",
+            background: "linear-gradient(to bottom, rgba(36,95,255,.08) 0%, rgba(80,140,255,.25) 15%, rgba(130,175,255,.35) 50%, rgba(80,140,255,.25) 85%, rgba(36,95,255,.08) 100%)",
           }}
         />
       </div>
 
-      {/* Line 2: Particle beam — only visible when a card passes through */}
+      {/* Particle beam — only visible when a card passes through */}
       <div ref={beamRef} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] z-20 flex items-stretch justify-center transition-opacity duration-200" style={{ height: `${CARD_H}px`, opacity: 0 }}>
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 72px 100% at 50% 50%, rgba(120,65,245,.15) 0%, transparent 100%)", filter: "blur(3px)" }} />
-        <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[32px]" style={{ background: "radial-gradient(ellipse 32px 100% at 50% 50%, rgba(155,100,255,.32) 0%, transparent 100%)", filter: "blur(2px)" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 72px 100% at 50% 50%, rgba(36,95,255,.15) 0%, transparent 100%)", filter: "blur(3px)" }} />
+        <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[32px]" style={{ background: "radial-gradient(ellipse 32px 100% at 50% 50%, rgba(60,120,255,.32) 0%, transparent 100%)", filter: "blur(2px)" }} />
         <div
           className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[2px] rounded-sm"
           style={{
-            background: "linear-gradient(to bottom, rgba(180,150,255,.3) 0%, rgba(225,210,255,1) 15%, rgba(248,242,255,1) 50%, rgba(225,210,255,1) 85%, rgba(180,150,255,.3) 100%)",
+            background: "linear-gradient(to bottom, rgba(36,95,255,.3) 0%, rgba(100,160,255,1) 15%, rgba(180,210,255,1) 50%, rgba(100,160,255,1) 85%, rgba(36,95,255,.3) 100%)",
           }}
         />
-        {/* Animated spark particles — canvas */}
         <canvas
           ref={sparkCvsRef}
           className="absolute top-0"
