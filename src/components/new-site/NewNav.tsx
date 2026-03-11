@@ -425,6 +425,7 @@ export default function NewNav() {
                 </div>
               ))}
 
+
               {/* CTA inside pill — only visible when scrolled */}
               <Link
                 href="/demo"
