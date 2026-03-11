@@ -330,9 +330,9 @@ export default function NewLanding() {
 
                 <div className="pt-2 sm:pt-3 flex flex-row items-center gap-4">
                   <a
-                    href="/demo"
+                    href="/check"
                     className="rainbow-button inline-block"
-                    onClick={() => trackCTA("get_demo", "hero")}
+                    onClick={() => trackCTA("check_files", "hero")}
                   >
                     <span className="rainbow-button-inner">
                       Check files

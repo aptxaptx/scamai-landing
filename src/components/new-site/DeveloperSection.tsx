@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 
+type ApiEndpoint = 'image' | 'faceswap' | 'video';
+
 export default function DeveloperSection() {
   const [activeTab, setActiveTab] = useState<'api' | 'nocode'>('api');
+  const [activeEndpoint, setActiveEndpoint] = useState<ApiEndpoint>('image');
 
   return (
     <section className="landing-section relative overflow-hidden bg-black" aria-label="Developer Integration">
@@ -205,7 +208,7 @@ export default function DeveloperSection() {
             {/* Right Side - Code Example */}
             <div className="relative">
               <div className="bg-[#0a0a0a] rounded-xl border border-gray-800 overflow-hidden shadow-2xl">
-                {/* Terminal Header with Tabs */}
+                {/* Terminal Header */}
                 <div className="bg-[#1a1a1a] border-b border-gray-800">
                   <div className="flex items-center gap-2 px-4 py-2">
                     <div className="flex gap-1.5">
@@ -214,47 +217,54 @@ export default function DeveloperSection() {
                       <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
                     </div>
                   </div>
+                  {/* Endpoint Sub-tabs */}
                   <div className="flex px-2 -mb-px">
-                    <div className="px-4 py-2 text-xs font-medium text-white bg-[#0a0a0a] border-t-2 border-[#245FFF] rounded-t">
-                      API Request
-                    </div>
-                    <div className="ml-auto px-3 py-2">
-                      <button className="flex items-center gap-1 px-3 py-1 text-xs font-medium text-white bg-[#245FFF] rounded hover:bg-[#1d4acc] transition-colors">
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
-                        </svg>
-                        Try it
+                    {([
+                      { key: 'image' as ApiEndpoint, label: 'Image Detection' },
+                      { key: 'faceswap' as ApiEndpoint, label: 'Face Swap' },
+                      { key: 'video' as ApiEndpoint, label: 'Video' },
+                    ]).map((tab) => (
+                      <button
+                        key={tab.key}
+                        onClick={() => setActiveEndpoint(tab.key)}
+                        className={`px-4 py-2 text-xs font-medium rounded-t transition-colors ${
+                          activeEndpoint === tab.key
+                            ? 'text-white bg-[#0a0a0a] border-t-2 border-[#245FFF]'
+                            : 'text-gray-500 hover:text-gray-300'
+                        }`}
+                      >
+                        {tab.label}
                       </button>
-                    </div>
+                    ))}
                   </div>
                 </div>
-                
-                  {/* Code Content */}
+
+                {/* Code Content — Image Detection */}
+                {activeEndpoint === 'image' && (
                   <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
-                    <div className="text-gray-500 mb-3"># Detect deepfake in image</div>
+                    <div className="text-gray-500 mb-3"># Detect AI-generated image</div>
                     <div className="space-y-1">
                       <div>
                         <span className="text-[#ff6b6b]">curl</span>
-                        <span className="text-[#4ecdc4]"> --request</span>
-                        <span className="text-white"> POST \</span>
-                      </div>
-                      <div className="ml-4">
-                        <span className="text-[#4ecdc4]">--url</span>
-                        <span className="text-[#95e1d3]"> https://api.scam.ai/v1/detect</span>
+                        <span className="text-[#4ecdc4]"> -X POST</span>
                         <span className="text-white"> \</span>
                       </div>
                       <div className="ml-4">
-                        <span className="text-[#4ecdc4]">--header</span>
-                        <span className="text-[#95e1d3]"> &apos;Authorization: Bearer </span>
+                        <span className="text-[#95e1d3]">&quot;https://api.scam.ai/api/defence/ai-image-detection/detect-file&quot;</span>
+                        <span className="text-white"> \</span>
+                      </div>
+                      <div className="ml-4">
+                        <span className="text-[#4ecdc4]">-H</span>
+                        <span className="text-[#95e1d3]"> &quot;x-api-key: </span>
                         <span className="text-[#f9ca24]">YOUR_API_KEY</span>
-                        <span className="text-[#95e1d3]">&apos;</span>
+                        <span className="text-[#95e1d3]">&quot;</span>
                         <span className="text-white"> \</span>
                       </div>
                       <div className="ml-4">
                         <span className="text-[#4ecdc4]">-F</span>
-                        <span className="text-[#95e1d3]"> &apos;file=@</span>
-                        <span className="text-white">suspect_image.jpg</span>
-                        <span className="text-[#95e1d3]">&apos;</span>
+                        <span className="text-[#95e1d3]"> &quot;file=@/path/to/your/</span>
+                        <span className="text-white">image.png</span>
+                        <span className="text-[#95e1d3]">&quot;</span>
                       </div>
                     </div>
 
@@ -265,30 +275,143 @@ export default function DeveloperSection() {
                         <div className="ml-4">
                           <span className="text-[#95e1d3]">&quot;verdict&quot;</span>
                           <span className="text-white">: </span>
-                          <span className="text-[#ff6b6b]">&quot;synthetic&quot;</span>
+                          <span className="text-[#ff6b6b]">&quot;ai_generated&quot;</span>
                           <span className="text-white">,</span>
                         </div>
                         <div className="ml-4">
                           <span className="text-[#95e1d3]">&quot;confidence&quot;</span>
                           <span className="text-white">: </span>
-                          <span className="text-[#f9ca24]">0.94</span>
+                          <span className="text-[#f9ca24]">0.97</span>
                           <span className="text-white">,</span>
                         </div>
                         <div className="ml-4">
                           <span className="text-[#95e1d3]">&quot;model&quot;</span>
                           <span className="text-white">: </span>
-                          <span className="text-[#95e1d3]">&quot;Eva-v1&quot;</span>
-                          <span className="text-white">,</span>
-                        </div>
-                        <div className="ml-4">
-                          <span className="text-[#95e1d3]">&quot;processing_time&quot;</span>
-                          <span className="text-white">: </span>
-                          <span className="text-[#f9ca24]">1.2</span>
+                          <span className="text-[#95e1d3]">&quot;eva-v1.3&quot;</span>
                         </div>
                         <div className="text-white">{'}'}</div>
                       </div>
                     </div>
                   </div>
+                )}
+
+                {/* Code Content — Face Swap Detection */}
+                {activeEndpoint === 'faceswap' && (
+                  <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
+                    <div className="text-gray-500 mb-3"># Detect face swap / deepfake</div>
+                    <div className="space-y-1">
+                      <div>
+                        <span className="text-[#ff6b6b]">curl</span>
+                        <span className="text-[#4ecdc4]"> -X POST</span>
+                        <span className="text-white"> \</span>
+                      </div>
+                      <div className="ml-4">
+                        <span className="text-[#95e1d3]">&quot;https://api.scam.ai/api/defence/faceswap/predict&quot;</span>
+                        <span className="text-white"> \</span>
+                      </div>
+                      <div className="ml-4">
+                        <span className="text-[#4ecdc4]">-H</span>
+                        <span className="text-[#95e1d3]"> &quot;x-api-key: </span>
+                        <span className="text-[#f9ca24]">YOUR_API_KEY</span>
+                        <span className="text-[#95e1d3]">&quot;</span>
+                        <span className="text-white"> \</span>
+                      </div>
+                      <div className="ml-4">
+                        <span className="text-[#4ecdc4]">-F</span>
+                        <span className="text-[#95e1d3]"> &quot;files=@/path/to/your/</span>
+                        <span className="text-white">image.png</span>
+                        <span className="text-[#95e1d3]">&quot;</span>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 pt-6 border-t border-gray-700">
+                      <div className="text-gray-500 mb-3"># Response</div>
+                      <div className="space-y-1">
+                        <div className="text-white">{'{'}</div>
+                        <div className="ml-4">
+                          <span className="text-[#95e1d3]">&quot;verdict&quot;</span>
+                          <span className="text-white">: </span>
+                          <span className="text-[#ff6b6b]">&quot;face_swap_detected&quot;</span>
+                          <span className="text-white">,</span>
+                        </div>
+                        <div className="ml-4">
+                          <span className="text-[#95e1d3]">&quot;confidence&quot;</span>
+                          <span className="text-white">: </span>
+                          <span className="text-[#f9ca24]">0.92</span>
+                          <span className="text-white">,</span>
+                        </div>
+                        <div className="ml-4">
+                          <span className="text-[#95e1d3]">&quot;faces_analyzed&quot;</span>
+                          <span className="text-white">: </span>
+                          <span className="text-[#f9ca24]">2</span>
+                        </div>
+                        <div className="text-white">{'}'}</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Code Content — Video Detection */}
+                {activeEndpoint === 'video' && (
+                  <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
+                    <div className="text-gray-500 mb-3"># Detect deepfake video</div>
+                    <div className="space-y-1">
+                      <div>
+                        <span className="text-[#ff6b6b]">curl</span>
+                        <span className="text-[#4ecdc4]"> -X POST</span>
+                        <span className="text-white"> \</span>
+                      </div>
+                      <div className="ml-4">
+                        <span className="text-[#95e1d3]">&quot;https://api.scam.ai/api/defence/video/detection&quot;</span>
+                        <span className="text-white"> \</span>
+                      </div>
+                      <div className="ml-4">
+                        <span className="text-[#4ecdc4]">-H</span>
+                        <span className="text-[#95e1d3]"> &quot;x-api-key: </span>
+                        <span className="text-[#f9ca24]">YOUR_API_KEY</span>
+                        <span className="text-[#95e1d3]">&quot;</span>
+                        <span className="text-white"> \</span>
+                      </div>
+                      <div className="ml-4">
+                        <span className="text-[#4ecdc4]">-F</span>
+                        <span className="text-[#95e1d3]"> &quot;video=@/path/to/your/</span>
+                        <span className="text-white">video.mp4</span>
+                        <span className="text-[#95e1d3]">&quot;</span>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 pt-6 border-t border-gray-700">
+                      <div className="text-gray-500 mb-3"># Response</div>
+                      <div className="space-y-1">
+                        <div className="text-white">{'{'}</div>
+                        <div className="ml-4">
+                          <span className="text-[#95e1d3]">&quot;verdict&quot;</span>
+                          <span className="text-white">: </span>
+                          <span className="text-[#ff6b6b]">&quot;deepfake&quot;</span>
+                          <span className="text-white">,</span>
+                        </div>
+                        <div className="ml-4">
+                          <span className="text-[#95e1d3]">&quot;confidence&quot;</span>
+                          <span className="text-white">: </span>
+                          <span className="text-[#f9ca24]">0.89</span>
+                          <span className="text-white">,</span>
+                        </div>
+                        <div className="ml-4">
+                          <span className="text-[#95e1d3]">&quot;frames_analyzed&quot;</span>
+                          <span className="text-white">: </span>
+                          <span className="text-[#f9ca24]">240</span>
+                          <span className="text-white">,</span>
+                        </div>
+                        <div className="ml-4">
+                          <span className="text-[#95e1d3]">&quot;duration_seconds&quot;</span>
+                          <span className="text-white">: </span>
+                          <span className="text-[#f9ca24]">8.0</span>
+                        </div>
+                        <div className="text-white">{'}'}</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
