@@ -335,7 +335,7 @@ export default function NewLanding() {
                     onClick={() => trackCTA("get_demo", "hero")}
                   >
                     <span className="rainbow-button-inner">
-                      Get a Demo
+                      Check files
                     </span>
                   </a>
                   <a
