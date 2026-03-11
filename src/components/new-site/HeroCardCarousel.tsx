@@ -30,7 +30,7 @@ const GAP = 56;
 const SLOT_W = CARD_W + GAP;
 const COPIES = 4;
 const ONE_SET = SLOT_W * CARDS.length;
-const SPEED = 0.055;
+const SPEED = 0.08;
 
 interface GridCell {
   ch: string;
