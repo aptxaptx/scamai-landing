@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, DM_Serif_Display } from "next/font/google";
+import { Inter, DM_Serif_Display, Space_Mono } from "next/font/google";
 import "./globals.css";
 import StructuredData from "@/components/seo/StructuredData";
 import { Analytics } from "@vercel/analytics/next";
@@ -7,6 +7,13 @@ import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -119,7 +126,7 @@ export default function RootLayout({
         <StructuredData />
         <link rel="alternate" type="application/rss+xml" title="ScamAI News" href="/feed.xml" />
       </head>
-      <body className={`${inter.variable} ${dmSerif.variable} antialiased bg-[#0b0b0b]`}>
+      <body className={`${inter.variable} ${dmSerif.variable} ${spaceMono.variable} antialiased bg-[#0b0b0b]`}>
         {children}
         <Analytics />
         <CookieConsent />

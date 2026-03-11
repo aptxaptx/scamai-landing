@@ -8,6 +8,7 @@ import { BentoV1_3, BentoV1_5, BentoV1_26, BentoV1_28 } from "@/components/bento
 import { Suspense } from "react";
 import { trackCTA, trackOutbound } from "@/lib/analytics";
 import DeveloperSection from "./DeveloperSection";
+import HeroCardCarousel from "./HeroCardCarousel";
 
 // Skeleton loader for bento visual components
 function BentoSkeleton() {
@@ -293,8 +294,10 @@ export default function NewLanding() {
           {/* Text area — centered in ~70vh */}
           <div className="flex min-h-[70vh] flex-col items-center justify-center px-5 pt-[180px] text-center sm:px-10 lg:px-8">
             <div className="mx-auto flex max-w-4xl flex-col items-center space-y-5 sm:space-y-6">
-              {/* Animation slot */}
-              <div className="w-full h-[240px] sm:h-[340px]" />
+              {/* Card carousel animation */}
+              <div className="w-full h-[240px] sm:h-[300px]">
+                <HeroCardCarousel />
+              </div>
 
               <AnimatedSection delay={0.3}>
                 <h1
