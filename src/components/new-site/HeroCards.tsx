@@ -40,8 +40,8 @@ export default function HeroCards() {
 
         {/* Subtitle */}
         <p className="text-sm sm:text-base lg:text-lg text-gray-400 leading-relaxed max-w-xl mt-4 mb-10">
-          Industry-leading accuracy that fights fraud, detects synthetic media,
-          and unifies trust signals — all through a single API.
+          Powered by Eva v1.3 — the best-in-class detection model for
+          deepfakes, synthetic media, and AI fraud — all through a single API.
         </p>
 
         {/* CTAs */}

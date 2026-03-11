@@ -293,11 +293,11 @@ export default function NewLanding() {
         <div className="relative z-10 w-full">
           {/* Text area — centered in ~70vh */}
           {/* Card carousel — full viewport width */}
-          <div className="w-screen relative left-1/2 -translate-x-1/2 h-[240px] sm:h-[300px] mt-[180px]">
+          <div className="w-screen relative left-1/2 -translate-x-1/2 h-[180px] sm:h-[340px] mt-[100px] sm:mt-[180px]">
             <HeroCardCarousel />
           </div>
 
-          <div className="flex flex-col items-center justify-center px-5 pt-16 sm:pt-20 text-center sm:px-10 lg:px-8">
+          <div className="flex flex-col items-center justify-center px-5 pt-8 sm:pt-20 text-center sm:px-10 lg:px-8">
             <div className="mx-auto flex max-w-4xl flex-col items-center space-y-5 sm:space-y-6">
               <AnimatedSection delay={0.3}>
                 <h1
@@ -328,7 +328,6 @@ export default function NewLanding() {
                 </p>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.5}>
                 <div className="pt-2 sm:pt-3 flex flex-row items-center gap-4">
                   <a
                     href="/demo"
@@ -349,7 +348,6 @@ export default function NewLanding() {
                     Get Started
                   </a>
                 </div>
-              </AnimatedSection>
             </div>
           </div>
 

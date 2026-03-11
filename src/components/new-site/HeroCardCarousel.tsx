@@ -37,7 +37,7 @@ const CARDS: CardData[] = [
   {
     num: "", name: "", exp: "", color: "rgba(20,10,70,.55)",
     image: "/man.png",
-    detection: { verdictColor: "#ef4444", confidence: "97.4%", label: "AI Detected" },
+    detection: { verdictColor: "#ef4444", confidence: "97.4%", label: "Deepfake Detected" },
   },
   {
     num: "", name: "", exp: "", color: "rgba(12,18,60,.55)",
@@ -52,21 +52,40 @@ const CARDS: CardData[] = [
   {
     num: "", name: "", exp: "", color: "rgba(8,16,65,.55)",
     image: "/man.png",
-    detection: { verdictColor: "#ef4444", confidence: "98.3%", label: "AI Detected" },
+    detection: { verdictColor: "#ef4444", confidence: "98.3%", label: "Deepfake Detected" },
   },
   {
     num: "", name: "", exp: "", color: "rgba(18,10,68,.55)",
     image: "/woman.png",
     detection: { verdictColor: "#22c55e", confidence: "95.8%", label: "Likely Real" },
   },
+  {
+    num: "", name: "", exp: "", color: "rgba(15,12,65,.55)",
+    image: "/passport.jpg",
+    detection: { verdictColor: "#ef4444", confidence: "96.8%", label: "AI Detected" },
+  },
+  {
+    num: "", name: "", exp: "", color: "rgba(22,15,58,.55)",
+    image: "/receipt.png",
+    detection: { verdictColor: "#ef4444", confidence: "94.6%", label: "AI Detected" },
+  },
 ];
 
-const CARD_W = 380;
-const CARD_H = 240;
-const GAP = 120;
-const SLOT_W = CARD_W + GAP;
+// Desktop defaults — mobile scales by 0.6
+const D_CARD_W = 440;
+const D_CARD_H = 300;
+const D_GAP = 120;
+
+function getDims() {
+  const mobile = typeof window !== "undefined" && window.innerWidth < 640;
+  const s = mobile ? 0.6 : 1;
+  const cw = Math.round(D_CARD_W * s);
+  const ch = Math.round(D_CARD_H * s);
+  const gap = Math.round(D_GAP * s);
+  return { CARD_W: cw, CARD_H: ch, GAP: gap, SLOT_W: cw + gap, ONE_SET: (cw + gap) * CARDS.length };
+}
+
 const COPIES = 4;
-const ONE_SET = SLOT_W * CARDS.length;
 const SPEED = 0.08;
 const CELL_W = 7.1;
 const CELL_H = 13.5;
@@ -96,13 +115,12 @@ function scramble(chars: string[], highlights: boolean[], total: number, frac: n
 const COL_DIM = "rgba(130,82,240,.46)";
 const COL_HI = "rgba(220,200,255,.88)";
 
-function drawCipher(el: CardEl, beamX: number) {
+function drawCipher(el: CardEl, beamX: number, cw: number, ch: number) {
   const { ctx, chars, highlights, GR, GC } = el;
-  ctx.clearRect(0, 0, CARD_W, CARD_H);
+  ctx.clearRect(0, 0, cw, ch);
   ctx.font = '9px "Space Mono", monospace';
   ctx.textBaseline = "top";
 
-  // Batch by color to reduce context switches
   ctx.fillStyle = COL_DIM;
   for (let r = 0; r < GR; r++) {
     const row = r * GC;
@@ -127,12 +145,12 @@ function drawCipher(el: CardEl, beamX: number) {
   g.addColorStop(1, "rgba(0,0,0,1)");
   ctx.globalCompositeOperation = "destination-in";
   ctx.fillStyle = g;
-  ctx.fillRect(0, 0, CARD_W, CARD_H);
+  ctx.fillRect(0, 0, cw, ch);
   ctx.globalCompositeOperation = "source-over";
 }
 
-function maskReal(realEl: HTMLDivElement, beamX: number) {
-  const pct = (beamX / CARD_W) * 100;
+function maskReal(realEl: HTMLDivElement, beamX: number, cw: number) {
+  const pct = (beamX / cw) * 100;
   const lo = Math.max(0, pct - 1.8);
   const hi = Math.min(100, pct + 1.8);
   const m = `linear-gradient(to right,black 0%,black ${lo}%,transparent ${hi}%,transparent 100%)`;
@@ -211,7 +229,8 @@ export default function HeroCardCarousel() {
   const sparkCvsRef = useRef<HTMLCanvasElement>(null);
   const sparksRef = useRef<Spark[]>(createSparkPool());
   const cardElsRef = useRef<CardEl[]>([]);
-  const trackXRef = useRef(-ONE_SET);
+  const dimsRef = useRef(getDims());
+  const trackXRef = useRef(-dimsRef.current.ONE_SET);
   const prevTRef = useRef<number | null>(null);
   const rafRef = useRef<number>(0);
 
@@ -220,6 +239,11 @@ export default function HeroCardCarousel() {
     if (!track) return;
     track.innerHTML = "";
     cardElsRef.current = [];
+
+    const dims = getDims();
+    dimsRef.current = dims;
+    trackXRef.current = -dims.ONE_SET;
+    const { CARD_W, CARD_H, GAP } = dims;
 
     for (let copy = 0; copy < COPIES; copy++) {
       for (const d of CARDS) {
@@ -240,7 +264,7 @@ export default function HeroCardCarousel() {
 
         const cardContent = d.image
           ? `<div data-real style="position:absolute;inset:0;z-index:3">
-              <img src="${d.image}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:18px" />
+              <img src="${d.image}" alt="" style="width:100%;height:100%;object-fit:cover;${d.image === "/man.png" ? "object-position:center 30%;" : ""}border-radius:18px" />
             </div>${tagHtml}`
           : `<div data-real style="position:absolute;inset:0;padding:20px 24px;display:flex;flex-direction:column;justify-content:space-between">
               <div style="display:flex;align-items:center;justify-content:space-between">
@@ -291,7 +315,7 @@ export default function HeroCardCarousel() {
       }
     }
 
-    track.style.width = SLOT_W * CARDS.length * COPIES + "px";
+    track.style.width = dims.SLOT_W * CARDS.length * COPIES + "px";
   }, []);
 
   useEffect(() => {
@@ -305,12 +329,25 @@ export default function HeroCardCarousel() {
     const sparkCtx = sparkCvs.getContext("2d")!;
     const SPARK_W = 140;
     sparkCvs.width = SPARK_W;
-    sparkCvs.height = CARD_H;
+    sparkCvs.height = dimsRef.current.CARD_H;
+
+    // Rebuild on resize
+    const onResize = () => {
+      const prev = dimsRef.current;
+      const next = getDims();
+      if (prev.CARD_W !== next.CARD_W) {
+        buildCards();
+        sparkCvs.height = next.CARD_H;
+      }
+    };
+    window.addEventListener("resize", onResize);
 
     const loop = (ts: number) => {
       if (prevTRef.current === null) prevTRef.current = ts;
       const dt = ts - prevTRef.current;
       prevTRef.current = ts;
+
+      const { CARD_W, CARD_H, ONE_SET } = dimsRef.current;
 
       spawnSparks(sparksRef.current, CARD_H);
       drawSparks(sparkCtx, sparksRef.current, SPARK_W, CARD_H);
@@ -360,15 +397,15 @@ export default function HeroCardCarousel() {
 
           if (bx <= 0) {
             el.cvs.style.opacity = "1";
-            drawCipher(el, 0);
+            drawCipher(el, 0, CARD_W, CARD_H);
             el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "linear-gradient(to right,transparent,transparent)";
           } else if (bx >= CARD_W) {
             el.cvs.style.opacity = "0";
             el.realEl.style.maskImage = el.realEl.style.webkitMaskImage = "none";
           } else {
             el.cvs.style.opacity = "1";
-            drawCipher(el, bx);
-            maskReal(el.realEl, bx);
+            drawCipher(el, bx, CARD_W, CARD_H);
+            maskReal(el.realEl, bx, CARD_W);
           }
         }
       }
@@ -380,17 +417,18 @@ export default function HeroCardCarousel() {
     };
 
     rafRef.current = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(rafRef.current);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener("resize", onResize);
+    };
   }, [buildCards]);
 
   return (
     <div ref={sceneRef} className="relative w-full h-full overflow-hidden">
-      {/* Side fades */}
-      <div className="pointer-events-none absolute top-0 bottom-0 left-0 w-[200px] z-[15]" style={{ background: "linear-gradient(to right, #000, transparent)" }} />
-      <div className="pointer-events-none absolute top-0 bottom-0 right-0 w-[200px] z-[15]" style={{ background: "linear-gradient(to left, #000, transparent)" }} />
+{/* Side fades removed */}
 
       {/* Clean line — visible when no card is passing */}
-      <div ref={lineRef} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 transition-opacity duration-200" style={{ height: `${CARD_H}px` }}>
+      <div ref={lineRef} className="pointer-events-none absolute left-1/2 top-0 bottom-0 -translate-x-1/2 z-20 transition-opacity duration-200">
         <div
           className="w-[2px] h-full rounded-sm"
           style={{
@@ -400,7 +438,7 @@ export default function HeroCardCarousel() {
       </div>
 
       {/* Particle beam — only visible when a card passes through */}
-      <div ref={beamRef} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] z-20 flex items-stretch justify-center transition-opacity duration-200" style={{ height: `${CARD_H}px`, opacity: 0 }}>
+      <div ref={beamRef} className="pointer-events-none absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[80px] z-20 flex items-stretch justify-center transition-opacity duration-200" style={{ opacity: 0 }}>
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 72px 100% at 50% 50%, rgba(36,95,255,.15) 0%, transparent 100%)", filter: "blur(3px)" }} />
         <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[32px]" style={{ background: "radial-gradient(ellipse 32px 100% at 50% 50%, rgba(60,120,255,.32) 0%, transparent 100%)", filter: "blur(2px)" }} />
         <div
@@ -412,7 +450,7 @@ export default function HeroCardCarousel() {
         <canvas
           ref={sparkCvsRef}
           className="absolute top-0"
-          style={{ left: "50%", width: "140px", height: `${CARD_H}px` }}
+          style={{ left: "50%", width: "140px", height: "100%" }}
         />
       </div>
 
