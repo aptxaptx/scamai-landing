@@ -291,7 +291,7 @@ export default function NewLanding() {
         <HeroBackground className="" />
         <div className="relative z-10 w-full">
           {/* Text area — centered in ~70vh */}
-          <div className="flex min-h-[70vh] flex-col items-center justify-center px-5 pt-[120px] text-center sm:px-10 lg:px-8">
+          <div className="flex min-h-[70vh] flex-col items-center justify-center px-5 pt-[180px] text-center sm:px-10 lg:px-8">
             <div className="mx-auto flex max-w-4xl flex-col items-center space-y-5 sm:space-y-6">
               {/* Animation slot */}
               <div className="w-full h-[240px] sm:h-[340px]" />
@@ -307,7 +307,7 @@ export default function NewLanding() {
 
               <AnimatedSection delay={0.35}>
                 <p
-                  className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-[-0.01em] leading-[1.25]"
+                  className="text-lg sm:text-2xl lg:text-3xl font-medium tracking-[-0.01em] leading-[1.25]"
                   style={{
                     background: "radial-gradient(50% 150% at 50% 0%, #fff 60%, rgba(255,255,255,0.6) 100%)",
                     WebkitBackgroundClip: "text",
@@ -340,7 +340,7 @@ export default function NewLanding() {
                     href="https://app.scam.ai"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-white transition hover:text-white/80"
+                    className="text-[0.9375rem] sm:text-base font-medium text-white transition hover:text-white/80"
                     onClick={() => trackCTA("get_started", "hero")}
                   >
                     Get Started
