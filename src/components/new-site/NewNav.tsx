@@ -799,7 +799,7 @@ export default function NewNav() {
                             Introducing Eva-v1.3 Models
                           </h3>
                           <p className="text-[11px] text-gray-400 mt-1.5 leading-relaxed">
-                            Our most accurate detection model yet — 99.7% precision across all media types.
+                            99.7% precision across all media types.
                           </p>
                         </div>
                       </Link>

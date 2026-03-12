@@ -362,6 +362,22 @@ async function createWatermarked(
       ctx.fillStyle = "rgba(255,255,255,0.9)";
       ctx.fillText(brandName, brandTextX + checkedByW, brandY);
 
+      // ── Disclaimer (bottom-left) — Anthropic-style "AI can make mistakes" ──
+      const discFS = 22;
+      const discText = "AI detection may be inaccurate. Verify before acting.";
+      // Subtle bottom-left fade for readability
+      const discFadeW = 620;
+      const discFadeH = 60;
+      const discGrad = ctx.createLinearGradient(0, h - discFadeH, 0, h);
+      discGrad.addColorStop(0, "rgba(0,0,0,0)");
+      discGrad.addColorStop(1, "rgba(0,0,0,0.5)");
+      ctx.fillStyle = discGrad;
+      ctx.fillRect(0, h - discFadeH, discFadeW, discFadeH);
+      // Text
+      ctx.font = `400 ${discFS}px ${font}`;
+      ctx.fillStyle = "rgba(255,255,255,0.4)";
+      ctx.fillText(discText, margin, h - margin + 4);
+
       resolve(canvas.toDataURL("image/png"));
     };
     img.onerror = () => resolve(imgSrc);
@@ -417,6 +433,7 @@ export default function CheckSection() {
             f.file === entry.file ? { ...f, status: "document" as const } : f
           )
         );
+        scrollToResult(entry.file);
       } else {
         analyzeFile(entry);
       }
@@ -447,6 +464,7 @@ export default function CheckSection() {
             : f
         )
       );
+      scrollToResult(entry.file);
       return;
     }
 
@@ -489,6 +507,7 @@ export default function CheckSection() {
                 : f
             )
           );
+          scrollToResult(entry.file);
           return;
         }
         setFiles((prev) =>
@@ -513,6 +532,7 @@ export default function CheckSection() {
           f.file === entry.file ? { ...f, status: "done" as const, result, watermarked } : f
         )
       );
+      scrollToResult(entry.file);
     } catch {
       setFiles((prev) =>
         prev.map((f) =>
@@ -522,6 +542,15 @@ export default function CheckSection() {
         )
       );
     }
+  };
+
+  /** Scroll the result card into view after render */
+  const scrollToResult = (file: File) => {
+    requestAnimationFrame(() => {
+      const id = file.name + file.lastModified;
+      const el = document.querySelector(`[data-result-id="${CSS.escape(id)}"]`);
+      el?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
   };
 
   const removeFile = (file: File) => {
@@ -681,6 +710,7 @@ export default function CheckSection() {
             {files.map((f) => (
               <motion.div
                 key={f.preview || f.file.name + f.file.lastModified}
+                data-result-id={f.file.name + f.file.lastModified}
                 initial={{ opacity: 0, y: 20, scale: 0.97 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
@@ -980,6 +1010,10 @@ export default function CheckSection() {
                           )}
                         </div>
                       </div>
+                      {/* Disclaimer */}
+                      <p className="text-[9px] text-gray-600 leading-relaxed pt-0.5">
+                        Results are probabilistic estimates and may not be 100% accurate. For production use, access our full API at <a href="https://app.scam.ai" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors underline underline-offset-2">scam.ai</a>
+                      </p>
                     </div>
                   </>
                 )}
