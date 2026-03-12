@@ -596,8 +596,8 @@ export default function CheckSection() {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-[1.1] mb-3 tracking-[-0.02em]">
             Is it AI-generated?
           </h2>
-          <p className="text-sm sm:text-base text-gray-500 max-w-md mx-auto">
-            Drop an image to scan for synthetic content, deepfakes, and face swaps.
+          <p className="text-sm sm:text-base text-gray-400 max-w-md mx-auto">
+            Drop an image to scan for AI-generated content and deepfakes.
           </p>
         </div>
 
@@ -664,18 +664,15 @@ export default function CheckSection() {
             <p className="text-sm text-gray-300 font-medium">
               Drop images here or <span className="text-blue-400 group-hover:text-blue-300 transition-colors">browse</span>
             </p>
-            <p className="text-xs text-gray-600 mt-1">
+            <p className="text-xs text-gray-500 mt-1">
               JPEG, PNG, WebP — up to 10MB
             </p>
           </div>
         </div>
 
         {/* Disclaimer */}
-        <p className="text-[10px] text-gray-600 mt-2.5 px-1 leading-relaxed">
-          Results are probabilistic estimates and should not be treated as definitive. For higher accuracy with our latest models,{" "}
-          <a href="https://app.scam.ai" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white underline underline-offset-2 transition-colors">
-            create a free account
-          </a>.
+        <p className="text-[10px] text-gray-400 mt-2.5 px-1 leading-relaxed">
+          Results are estimates and may vary. For production accuracy, use our API.
         </p>
 
         {/* Results */}
@@ -690,7 +687,7 @@ export default function CheckSection() {
                 transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                 className={`rounded-2xl overflow-hidden border ${
                   f.status === "document"
-                    ? "border-amber-500/20 bg-amber-500/[0.03]"
+                    ? "border-white/[0.08] bg-white/[0.02]"
                     : (f.status === "done" || f.status === "locked") && f.result
                       ? f.status === "locked"
                         ? "border-white/[0.06] bg-white/[0.02]"
@@ -702,45 +699,70 @@ export default function CheckSection() {
               >
                 {/* ── Document detected — contact sales ── */}
                 {f.status === "document" && (
-                  <div className="p-4 sm:p-5">
-                    <div className="flex items-start gap-3.5">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
+                  <div className="relative">
+                    {/* Image preview (if available) with frosted overlay */}
+                    {f.preview && (
+                      <div className="relative h-32 overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={f.preview} alt="" className="w-full h-full object-cover" style={{ filter: "blur(6px) brightness(0.3)", transform: "scale(1.1)" }} />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-[#0a0a0a]" />
+                        {/* Close button */}
+                        <button
+                          onClick={(e) => { e.stopPropagation(); removeFile(f.file); }}
+                          className="absolute top-2.5 right-2.5 p-1 rounded-md bg-black/40 backdrop-blur-sm text-white/50 hover:text-white hover:bg-black/60 transition-colors"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                            <path d="M18 6L6 18M6 6l12 12" />
+                          </svg>
+                        </button>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-white mb-0.5">Document detected</p>
-                        <p className="text-xs text-gray-400 leading-relaxed mb-3">
-                          ID cards, passports, invoices, and other documents require our specialized Document Forgery Detection model with higher accuracy and compliance features.
-                        </p>
-                        <div className="flex items-center gap-2.5">
-                          <a
-                            href="https://scam.ai/products/document-forgery"
-                            className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/25 px-3.5 py-1.5 text-xs font-semibold text-amber-300 hover:bg-amber-500/25 transition-colors"
+                    )}
+
+                    <div className="px-4 pb-4 sm:px-5 sm:pb-5" style={{ marginTop: f.preview ? "-20px" : "0", position: "relative" }}>
+                      {!f.preview && (
+                        <div className="flex justify-end pt-3 pb-1">
+                          <button
+                            onClick={(e) => { e.stopPropagation(); removeFile(f.file); }}
+                            className="p-1 rounded-md hover:bg-white/[0.06] text-gray-600 hover:text-gray-300 transition-colors"
                           >
-                            Contact Sales
-                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                              <path d="M5 12h14M12 5l7 7-7 7" />
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                              <path d="M18 6L6 18M6 6l12 12" />
                             </svg>
-                          </a>
-                          <span className="text-[10px] text-gray-600">or</span>
-                          <a
-                            href="https://scam.ai/products/document-forgery"
-                            className="text-xs text-gray-500 hover:text-white transition-colors underline underline-offset-2"
-                          >
-                            Learn more
-                          </a>
+                          </button>
                         </div>
-                      </div>
-                      <button
-                        onClick={(e) => { e.stopPropagation(); removeFile(f.file); }}
-                        className="flex-shrink-0 p-1.5 rounded-lg hover:bg-white/[0.06] text-gray-500 hover:text-white transition-colors"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                          <path d="M18 6L6 18M6 6l12 12" />
+                      )}
+
+                      {/* Badge */}
+                      <div className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] px-2.5 py-1 mb-3">
+                        <svg className="w-3 h-3 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="3" y="4" width="18" height="16" rx="2" />
+                          <path d="M3 10h18" />
+                          <path d="M7 15h2" />
+                          <path d="M13 15h4" />
                         </svg>
-                      </button>
+                        <span className="text-[10px] font-medium text-gray-400 tracking-wide uppercase">Document detected</span>
+                      </div>
+
+                      {/* Copy + CTA row */}
+                      <div className="flex items-start sm:items-center justify-between gap-4 flex-col sm:flex-row">
+                        <div className="min-w-0">
+                          <p className="text-[13px] text-gray-300 leading-[1.5] mb-1">
+                            This requires <span className="text-white font-medium">Document Forgery Detection</span>
+                          </p>
+                          <p className="text-[11px] text-gray-400 leading-[1.5]">
+                            ID cards, passports, and documents use a specialized model with tamper detection and compliance features.
+                          </p>
+                        </div>
+                        <a
+                          href="https://scam.ai/products/document-forgery"
+                          className="group/btn flex-shrink-0 inline-flex items-center gap-2 rounded-full bg-white hover:bg-gray-100 px-4 py-2 transition-colors"
+                        >
+                          <span className="text-[12px] font-semibold text-black">Contact Sales</span>
+                          <svg className="w-3 h-3 text-gray-500 group-hover/btn:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -905,12 +927,12 @@ export default function CheckSection() {
                             {f.result.confidence}%
                           </span>
                         </div>
-                        <span className="text-[10px] text-gray-600 truncate hidden sm:inline">{f.file.name}</span>
+                        <span className="text-[10px] text-gray-500 truncate hidden sm:inline">{f.file.name}</span>
                       </div>
 
                       {/* Bottom row: share icons */}
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] text-gray-600 tracking-wide uppercase">Share result</span>
+                        <span className="text-[10px] text-gray-500 tracking-wide uppercase">Share result</span>
                         <div className="flex items-center gap-0.5">
                           {[
                             { key: "twitter", title: "X", icon: <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />, hoverClass: "hover:text-white" },
@@ -920,7 +942,7 @@ export default function CheckSection() {
                             <button
                               key={key}
                               onClick={(e) => { e.stopPropagation(); shareTo(key, f); }}
-                              className={`inline-flex items-center justify-center w-7 h-7 rounded-lg text-gray-600 ${hoverClass} transition-colors`}
+                              className={`inline-flex items-center justify-center w-7 h-7 rounded-lg text-gray-500 ${hoverClass} transition-colors`}
                               title={`Share on ${title}`}
                             >
                               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">{icon}</svg>
@@ -932,7 +954,7 @@ export default function CheckSection() {
                           {/* Download */}
                           <button
                             onClick={(e) => { e.stopPropagation(); downloadResult(f); }}
-                            className="inline-flex items-center justify-center w-7 h-7 rounded-lg text-gray-600 hover:text-white transition-colors"
+                            className="inline-flex items-center justify-center w-7 h-7 rounded-lg text-gray-500 hover:text-white transition-colors"
                             title="Download"
                           >
                             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -946,7 +968,7 @@ export default function CheckSection() {
                           {canNativeShare && (
                             <button
                               onClick={(e) => { e.stopPropagation(); shareNative(f); }}
-                              className="inline-flex items-center justify-center w-7 h-7 rounded-lg text-gray-600 hover:text-white transition-colors"
+                              className="inline-flex items-center justify-center w-7 h-7 rounded-lg text-gray-500 hover:text-white transition-colors"
                               title="More sharing options"
                             >
                               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -1024,8 +1046,8 @@ export default function CheckSection() {
           </div>
         )}
 
-        {/* ── Standard CTA ── */}
-        {!limitReached && files.length > 0 && (
+        {/* ── Standard CTA — only after 5 uploads ── */}
+        {!limitReached && files.length >= 5 && (
           <div className="mt-6 text-center">
             <p className="text-xs text-gray-500 mb-3">
               Need API access or higher volume?

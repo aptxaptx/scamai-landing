@@ -296,7 +296,7 @@ export default function HeroCardCarousel() {
             </div>`;
 
         slot.innerHTML = `
-          <div style="width:${CARD_W}px;height:${CARD_H}px;border-radius:18px;position:relative;overflow:hidden;box-shadow:0 0 0 1px rgba(124,58,237,.2),0 24px 60px rgba(0,0,0,.65),0 0 80px rgba(100,50,220,.06)">
+          <div style="width:${CARD_W}px;height:${CARD_H}px;border-radius:18px;position:relative;overflow:hidden;box-shadow:0 0 0 1px rgba(124,58,237,.15)">
             <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 18% 28%,${d.color} 0%,transparent 65%),linear-gradient(135deg,#111232 0%,#090a1e 100%)"></div>
             ${cardContent}
             <canvas width="${CARD_W}" height="${CARD_H}" style="position:absolute;inset:0;pointer-events:none;border-radius:18px;z-index:1"></canvas>
@@ -433,8 +433,8 @@ export default function HeroCardCarousel() {
     <div ref={sceneRef} className="relative w-full h-full overflow-hidden">
 {/* Side fades removed */}
 
-      {/* Clean line — visible when no card is passing */}
-      <div ref={lineRef} className="pointer-events-none absolute left-1/2 top-0 bottom-0 -translate-x-1/2 z-20 transition-opacity duration-200">
+      {/* Clean line — visible when no card is passing, matches card height */}
+      <div ref={lineRef} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 transition-opacity duration-200 h-[180px] sm:h-[300px]">
         <div
           className="w-[2px] h-full rounded-sm"
           style={{
@@ -443,8 +443,8 @@ export default function HeroCardCarousel() {
         />
       </div>
 
-      {/* Particle beam — only visible when a card passes through */}
-      <div ref={beamRef} className="pointer-events-none absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[80px] z-20 flex items-stretch justify-center transition-opacity duration-200" style={{ opacity: 0 }}>
+      {/* Particle beam — only visible when a card passes through, matches card height */}
+      <div ref={beamRef} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] z-20 flex items-stretch justify-center transition-opacity duration-200 h-[180px] sm:h-[300px]" style={{ opacity: 0 }}>
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 72px 100% at 50% 50%, rgba(36,95,255,.15) 0%, transparent 100%)", filter: "blur(3px)" }} />
         <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[32px]" style={{ background: "radial-gradient(ellipse 32px 100% at 50% 50%, rgba(60,120,255,.32) 0%, transparent 100%)", filter: "blur(2px)" }} />
         <div
